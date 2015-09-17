@@ -17,5 +17,6 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'pry'
   gem 'foreman', require: false
+  gem 'rspec-rails'
 end
 
