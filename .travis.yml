@@ -2,5 +2,11 @@ language: ruby
 rvm:
  - "2.2.3"
 
+addons:
+  postgresql: "9.4"
+
+before_script:
+  - rake db:init db:create db:migrate
 
 script: bin/rspec spec
+
