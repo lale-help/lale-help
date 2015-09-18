@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/RBSavvy/rbsavvy_commons.git
-  revision: 60aba827f7d48e3ef5539481f5daa65b32f4b4f2
+  revision: 7ff25dfe6686167d548766ca9a42e8cb01eddee3
   branch: master
   specs:
     rbsavvy_commons (0.0.1)
