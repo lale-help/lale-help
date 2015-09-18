@@ -17,3 +17,4 @@
 /tmp
 .bundle
 .postgres
+.env

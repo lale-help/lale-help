@@ -1,3 +1,18 @@
+GIT
+  remote: git://github.com/RBSavvy/rbsavvy_commons.git
+  revision: 60aba827f7d48e3ef5539481f5daa65b32f4b4f2
+  branch: master
+  specs:
+    rbsavvy_commons (0.0.1)
+      dotenv
+      lograge
+      newrelic_rpm
+      puma
+      rails (~> 4.2.0)
+      rails_12factor
+      rollbar
+      unicorn
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -47,6 +62,7 @@ GEM
       execjs
     coffee-script-source (1.9.1.1)
     diff-lcs (1.2.5)
+    dotenv (2.0.2)
     erubis (2.7.0)
     execjs (2.6.0)
     foreman (0.78.0)
@@ -62,6 +78,11 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kgio (2.10.0)
+    lograge (0.3.4)
+      actionpack (>= 3)
+      activesupport (>= 3)
+      railties (>= 3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -71,13 +92,16 @@ GEM
     mini_portile (0.6.2)
     minitest (5.8.0)
     multi_json (1.11.2)
+    newrelic_rpm (3.13.0.299)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    oj (2.12.14)
     pg (0.18.3)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.13.4)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -110,8 +134,11 @@ GEM
       activesupport (= 4.2.4)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
+    raindrops (0.15.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    rollbar (2.3.0)
+      oj (~> 2.12.14)
     rspec-core (3.3.2)
       rspec-support (~> 3.3.0)
     rspec-expectations (3.3.1)
@@ -156,6 +183,10 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicorn (4.9.0)
+      kgio (~> 2.6)
+      rack
+      raindrops (~> 0.7)
 
 PLATFORMS
   ruby
@@ -168,7 +199,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 4.2.4)
-  rails_12factor
+  rbsavvy_commons!
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
