@@ -9,5 +9,5 @@ addons:
 before_script:
   - rake db:init db:create db:migrate
 
-script: bin/rspec spec
+script: bin/rspec -f doc
 
