@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.integer  "volunteer_id",  limit: 8, null: false
   end
 
-  create_table "discussion_watchers", id: :bigserial, force: :cascade do |t|
+  create_table "discussion_volunteer_watchings", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "volunteer_id",  limit: 8, null: false
@@ -77,29 +77,29 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.integer  "for_id",       limit: 8, null: false
   end
 
-  create_table "task_locations", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.integer  "task_id",      limit: 8,                 null: false
-    t.integer  "volunteer_id", limit: 8,                 null: false
-    t.boolean  "primary",                default: false, null: false
-  end
-
-  create_table "task_taggings", id: :bigserial, force: :cascade do |t|
+  create_table "task_location_assignments", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "task_id",     limit: 8,                 null: false
-    t.integer  "task_tag_id", limit: 8,                 null: false
-    t.boolean  "required",              default: false, null: false
+    t.integer  "location_id", limit: 8,                 null: false
+    t.boolean  "primary",               default: false, null: false
   end
 
-  create_table "task_tags", id: :bigserial, force: :cascade do |t|
+  create_table "task_skill_assignments", id: :bigserial, force: :cascade do |t|
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "task_id",    limit: 8,                 null: false
+    t.integer  "skill_id",   limit: 8,                 null: false
+    t.boolean  "required",             default: false, null: false
+  end
+
+  create_table "task_skills", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
   end
 
-  create_table "task_volunteers", id: :bigserial, force: :cascade do |t|
+  create_table "task_volunteer_assignments", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.integer  "task_id",      limit: 8,                 null: false
@@ -113,7 +113,7 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.string   "name",                       null: false
     t.string   "description"
     t.integer  "working_group_id", limit: 8, null: false
-    t.integer  "discussion_id",    limit: 8, null: false
+    t.integer  "discussion_id",    limit: 8
   end
 
   create_table "volunteer_feedbacks", id: :bigserial, force: :cascade do |t|
@@ -132,7 +132,7 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.string   "email"
   end
 
-  create_table "working_group_volunteers", id: :bigserial, force: :cascade do |t|
+  create_table "working_group_volunteer_memberships", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
     t.integer  "volunteer_id",     limit: 8, null: false

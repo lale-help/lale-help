@@ -1,17 +1,17 @@
 class Task < ActiveRecord::Base
-  has_many :volunteer_memberships, -> { where(organizer: false) }, class_name: 'TaskVolunteer'
-  has_many :organizer_memberships, -> { where(organizer: true) }, class_name: 'TaskVolunteer'
+  has_many :volunteer_assignments, -> { where(organizer: false) }
+  has_many :organizer_assignments, -> { where(organizer: true) } , class_name: 'VolunteerAssignment'
 
-  has_many :volunteers, through: :volunteer_memberships, class_name: 'Volunteer'
-  has_many :organizers, through: :organizer_memberships, class_name: 'Volunteer'
+  has_many :volunteers, through: :volunteer_assignments
+  has_many :organizers, through: :organizer_assignments, source: :volunteer
 
   belongs_to :working_group
   belongs_to :discussion
 
-  has_many :task_taggings, class_name: '::TaskTagging'
-  has_many :task_tags, through: :task_taggings, class_name: '::TaskTag'
+  has_many :skill_assignments
+  has_many :skills, through: :skill_assignments
 
-  has_many :task_locations, class_name: '::TaskLocaton'
-  has_many :locations, through: :task_locations, class_name: '::Location'
+  has_many :location_assignments
+  has_many :locations, through: :location_assignments
 
 end

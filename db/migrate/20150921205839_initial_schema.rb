@@ -48,7 +48,7 @@ class InitialSchema < ActiveRecord::Migration
       t.boolean :is_admin_group, default: false, null: false
     end
 
-    create_model :working_group_volunteers do |t|
+    create_model :working_group_volunteer_memberships do |t|
       t.long_integer :volunteer_id
       t.long_integer :working_group_id
     end
@@ -60,29 +60,29 @@ class InitialSchema < ActiveRecord::Migration
       t.string :description
 
       t.long_integer :working_group_id
-      t.long_integer :discussion_id
+      t.long_integer :discussion_id, null: true
     end
 
-    create_model :task_tags do |t|
+    create_model :task_skills do |t|
       t.string :name
     end
 
-    create_model :task_taggings do |t|
+    create_model :task_skill_assignments do |t|
       t.long_integer :task_id
-      t.long_integer :task_tag_id
+      t.long_integer :skill_id
 
       t.boolean :required, default: false, null: false
     end
 
-    create_model :task_volunteers do |t|
+    create_model :task_volunteer_assignments do |t|
       t.long_integer :task_id
       t.long_integer :volunteer_id
       t.boolean :organizer, default: false, null: false
     end
 
-    create_model :task_locations do |t|
+    create_model :task_location_assignments do |t|
       t.long_integer :task_id
-      t.long_integer :volunteer_id
+      t.long_integer :location_id
       t.boolean :primary, default: false, null: false
     end
 
@@ -99,7 +99,7 @@ class InitialSchema < ActiveRecord::Migration
       t.long_integer :volunteer_id
     end
 
-    create_model :discussion_watchers do |t|
+    create_model :discussion_volunteer_watchings do |t|
       t.long_integer :volunteer_id
       t.long_integer :discussion_id
     end
