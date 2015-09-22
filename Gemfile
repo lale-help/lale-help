@@ -15,8 +15,11 @@ gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
 
 
 group :development, :test do
-  gem 'pry'
+  gem 'pry-rails'
   gem 'foreman', require: false
   gem 'rspec-rails'
 end
 
+group :test do
+  gem 'shoulda'
+end

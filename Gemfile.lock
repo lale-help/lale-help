@@ -101,6 +101,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     puma (2.13.4)
     rack (1.6.4)
     rack-test (0.6.3)
@@ -166,6 +168,12 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    shoulda (3.5.0)
+      shoulda-context (~> 1.0, >= 1.0.1)
+      shoulda-matchers (>= 1.4.1, < 3.0)
+    shoulda-context (1.2.1)
+    shoulda-matchers (2.8.0)
+      activesupport (>= 3.0.0)
     slop (3.6.0)
     sprockets (3.3.4)
       rack (~> 1.0)
@@ -197,12 +205,13 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   pg
-  pry
+  pry-rails
   rails (= 4.2.4)
   rbsavvy_commons!
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  shoulda
   turbolinks
   uglifier (>= 1.3.0)
 

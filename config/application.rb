@@ -22,5 +22,10 @@ module LaleHelp
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # load model subdirectories for base models
+    config.autoload_paths += Dir.glob(config.root + 'app/models/*.rb').map do |file|
+      File.dirname(file) + '/' + File.basename(file, '.rb')
+    end
   end
 end
