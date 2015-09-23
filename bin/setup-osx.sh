@@ -11,7 +11,9 @@ brew upgrade postgresql || true
 
 echo "== Installing ruby =="
 brew install rbenv
+brew upgrade rbenv || true
 brew install ruby-build
+brew upgrade ruby-build || true
 rbenv install -s 2.2.3
 
 if [ -z "$RBENV_SHELL" ]; then
