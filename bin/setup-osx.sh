@@ -7,6 +7,7 @@ brew update
 echo "== Installing PostgreSQL =="
 brew install postgresql
 brew upgrade postgresql || true
+brew link postgresql || true
 
 
 echo "== Installing ruby =="
