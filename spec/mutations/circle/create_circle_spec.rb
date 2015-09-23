@@ -8,5 +8,6 @@ describe Circle::CreateCircle do
     expect(outcome.result).to be_a(Circle)
     expect(outcome.result).to be_persisted
     expect(SystemEvent.find_by(volunteer: volunteer, for: outcome.result)).to be_present
+    expect(Location.find_by(name: location_name)).to be_present
   end
 end
