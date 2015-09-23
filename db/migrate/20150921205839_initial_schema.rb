@@ -16,36 +16,17 @@ class InitialSchema < ActiveRecord::Migration
     end
 
 
-    # System Events -----------------------------------------------------------
-    create_model :system_events do |t|
-      t.long_integer :volunteer_id
-
-      t.string       :for_type
-      t.long_integer :for_id
-    end
-
-    create_model :system_event_notifications do |t|
-      t.long_integer :volunteer_id
-      t.long_integer :system_event_id
-    end
-
-    create_model :system_event_notification_deliveries do |t|
-      t.long_integer :notification_id
-      t.string :method
-      t.string :content
-    end
-
-
     # Circles -----------------------------------------------------------------
     create_model :circles do |t|
       t.string :name, null: false
       t.long_integer :location_id
+      t.long_integer :admin_id
     end
 
     create_model :working_groups do |t|
       t.long_integer :circle_id
       t.string :name, null: false
-      t.boolean :is_admin_group, default: false, null: false
+      t.long_integer :admin_id
     end
 
     create_model :working_group_volunteer_memberships do |t|
@@ -111,6 +92,28 @@ class InitialSchema < ActiveRecord::Migration
       t.string :address
       t.float :latitude
       t.float :longitude
+    end
+
+
+    # System Events -----------------------------------------------------------
+    create_model :system_events do |t|
+      t.long_integer :volunteer_id
+
+      t.string       :for_type
+      t.long_integer :for_id
+
+      t.integer       :action, default: 0
+    end
+
+    create_model :system_event_notifications do |t|
+      t.long_integer :volunteer_id
+      t.long_integer :system_event_id
+    end
+
+    create_model :system_event_notification_deliveries do |t|
+      t.long_integer :notification_id
+      t.integer :method, default: 0, null: false
+      t.string :content
     end
   end
 

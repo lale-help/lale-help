@@ -14,8 +14,11 @@ describe 'Specs' do
     skills     = log 'skills', 3.times.map{ |i| Task::Skill.create!(name: "Skill #{i}")}
 
     # Volunteer creates a circle
-    circle     = log 'circle', Circle.create(name: 'munich rocks', location: locations[0])
-    group      = log 'group',  circle.working_groups.create!(name: 'owners', volunteers: [ volunteer1 ])
+    circle     = log 'circle', Circle.create(name: 'munich rocks', location: locations[0], admin: volunteer1)
+    group      = log 'group',  circle.working_groups.create!(name: 'owners', volunteers: [ volunteer1 ], admin: volunteer1)
+
+    expect(circle.admin).to eq(volunteer1)
+    expect(group.admin).to eq(volunteer1)
 
     # Volunteer creates a discussion
     discussion = log 'discussion', group.discussions.create!(name: 'should we foobar?', watchers: [ volunteer1 ])
@@ -44,6 +47,13 @@ describe 'Specs' do
     expect(task.locations).to eq(locations)
     log 'task locations', task.locations.map(&:name)
 
+    # System Events
+    sys_event     = log 'system event', SystemEvent.create!(volunteer: volunteer1, for: task, action: :removed)
+    notification  = log 'notification', sys_event.notifications.create!(volunteer: volunteer2)
+    delivery      = log 'email',        notification.deliveries.create!(content: "foobar!", method: :email)
+
+    expect(volunteer2.notifications).to eq([ notification ])
+    expect(volunteer2.notifications.first.system_event.volunteer).to eq(volunteer1)
   end
 
   FMT = "%20s: %s"

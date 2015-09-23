@@ -4,5 +4,7 @@ class WorkingGroup < ActiveRecord::Base
 
   has_many :tasks
   has_many :discussions
+
   belongs_to :circle
+  belongs_to :admin, class_name: 'Volunteer'
 end

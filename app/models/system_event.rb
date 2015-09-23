@@ -3,4 +3,6 @@ class SystemEvent < ActiveRecord::Base
   has_many :notifications
 
   belongs_to :for, polymorphic: true
+
+  enum action: { created: 0, updated: 1, removed: 2, completed: 3 }
 end

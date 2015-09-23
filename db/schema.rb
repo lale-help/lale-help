@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.datetime "updated_at",            null: false
     t.string   "name",                  null: false
     t.integer  "location_id", limit: 8, null: false
+    t.integer  "admin_id",    limit: 8, null: false
   end
 
   create_table "discussion_messages", id: :bigserial, force: :cascade do |t|
@@ -55,10 +56,10 @@ ActiveRecord::Schema.define(version: 20150921205839) do
   end
 
   create_table "system_event_notification_deliveries", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "notification_id", limit: 8, null: false
-    t.string   "method"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "notification_id", limit: 8,             null: false
+    t.integer  "method",                    default: 0, null: false
     t.string   "content"
   end
 
@@ -70,11 +71,12 @@ ActiveRecord::Schema.define(version: 20150921205839) do
   end
 
   create_table "system_events", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "volunteer_id", limit: 8, null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "volunteer_id", limit: 8,             null: false
     t.string   "for_type"
-    t.integer  "for_id",       limit: 8, null: false
+    t.integer  "for_id",       limit: 8,             null: false
+    t.integer  "action",                 default: 0
   end
 
   create_table "task_location_assignments", id: :bigserial, force: :cascade do |t|
@@ -140,11 +142,11 @@ ActiveRecord::Schema.define(version: 20150921205839) do
   end
 
   create_table "working_groups", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
-    t.integer  "circle_id",      limit: 8,                 null: false
-    t.string   "name",                                     null: false
-    t.boolean  "is_admin_group",           default: false, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "circle_id",  limit: 8, null: false
+    t.string   "name",                 null: false
+    t.integer  "admin_id",   limit: 8, null: false
   end
 
 end
