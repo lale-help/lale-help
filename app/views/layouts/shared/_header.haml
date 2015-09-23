@@ -1,0 +1,43 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{:href => "#"} Project name
+    #navbar.navbar-collapse.collapse
+      %ul.nav.navbar-nav
+        %li.active
+          %a{:href => "#"} Home
+        %li
+          %a{:href => "#about"} About
+        %li
+          %a{:href => "#contact"} Contact
+        %li.dropdown
+          %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+            Dropdown
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"} Action
+            %li
+              %a{:href => "#"} Another action
+            %li
+              %a{:href => "#"} Something else here
+            %li.divider{:role => "separator"}
+            %li.dropdown-header Nav header
+            %li
+              %a{:href => "#"} Separated link
+            %li
+              %a{:href => "#"} One more separated link
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          %a{:href => "../navbar/"} Default
+        %li
+          %a{:href => "../navbar-static-top/"} Static top
+        %li.active
+          %a{:href => "./"}
+            Fixed top
+            %span.sr-only (current)
