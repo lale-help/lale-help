@@ -10,3 +10,10 @@ To setup your system on OS X, just run:
 
     ./bin/setup-osx.sh
 
+## Starting Rails
+
+    bin/foreman start
+
+## Running Tests
+
+    bin/rspec
