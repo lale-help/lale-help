@@ -26,12 +26,6 @@ class InitialSchema < ActiveRecord::Migration
     create_model :working_groups do |t|
       t.long_integer :circle_id
       t.string :name, null: false
-      t.long_integer :admin_id
-    end
-
-    create_model :working_group_volunteer_memberships do |t|
-      t.long_integer :volunteer_id
-      t.long_integer :working_group_id
     end
 
 

@@ -134,19 +134,11 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.string   "email"
   end
 
-  create_table "working_group_volunteer_memberships", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "volunteer_id",     limit: 8, null: false
-    t.integer  "working_group_id", limit: 8, null: false
-  end
-
   create_table "working_groups", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "circle_id",  limit: 8, null: false
     t.string   "name",                 null: false
-    t.integer  "admin_id",   limit: 8, null: false
   end
 
 end

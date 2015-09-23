@@ -1,9 +1,6 @@
 class Volunteer < ActiveRecord::Base
   has_many :feedback
 
-  has_many :working_group_volunteer_memberships, class_name: '::WorkingGroup::VolunteerMembership'
-  has_many :working_groups, through: :working_group_volunteer_memberships
-
   has_many :task_volunteer_assignments, class_name: '::Task::VolunteerAssignment'
   has_many :tasks, through: :task_volunteer_assignments
 

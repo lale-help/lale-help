@@ -1,10 +1,6 @@
 class WorkingGroup < ActiveRecord::Base
-  has_many :volunteer_memberships
-  has_many :volunteers, through: :volunteer_memberships
-
-  has_many :tasks
   has_many :discussions
-
+  has_many :tasks
+  has_many :volunteers, through: :tasks
   belongs_to :circle
-  belongs_to :admin, class_name: 'Volunteer'
 end

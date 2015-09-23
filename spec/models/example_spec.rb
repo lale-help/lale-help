@@ -15,10 +15,7 @@ describe 'Specs' do
 
     # Volunteer creates a circle
     circle     = log 'circle', Circle.create(name: 'munich rocks', location: locations[0], admin: volunteer1)
-    group      = log 'group',  circle.working_groups.create!(name: 'owners', volunteers: [ volunteer1 ], admin: volunteer1)
-
-    expect(circle.admin).to eq(volunteer1)
-    expect(group.admin).to eq(volunteer1)
+    group      = log 'group',  circle.working_groups.create!(name: 'owners')
 
     # Volunteer creates a discussion
     discussion = log 'discussion', group.discussions.create!(name: 'should we foobar?', watchers: [ volunteer1 ])
