@@ -12,12 +12,15 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
+gem 'mutations'
 
 
 group :development, :test do
   gem 'pry-rails'
   gem 'foreman', require: false
   gem 'rspec-rails'
+  gem 'factory_girl'
+  gem 'faker'
 end
 
 group :test do
