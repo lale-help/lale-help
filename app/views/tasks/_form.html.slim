@@ -1,0 +1,22 @@
+= form_for [@circle, @task] do |f|
+  - if @task.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
+      ul
+        - @task.errors.full_messages.each do |message|
+          li = message
+
+  div.field
+    = f.label :name, "Name of the Task"
+    br
+    = f.text_field :name
+  div.field
+    = f.label :morking_group_id , "Working Group"
+    br
+    = f.select :working_group_id
+      = options_for_select(@working_group_names_and_ids)
+  div.field
+    = f.label :description, "Description of the Task"
+    br
+    = f.text_area :description
+  .actions = f.submit

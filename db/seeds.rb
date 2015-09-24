@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+  v = Volunteer.create(first_name: "Lale", last_name: "App")
+  l = Location.create(name: "Munich")
+  c = Circle.create(name: "Default", location: l, admin: v)
+  w = WorkingGroup.create(name: "Default WG", circle: c)
+
+  t = Task.create(name: "demo task", working_group: w, volunteers: [v])

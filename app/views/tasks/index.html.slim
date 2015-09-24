@@ -1,0 +1,20 @@
+h1 Listing tasks
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @tasks.each do |task|
+      tr
+        td = task.name
+        td = link_to 'Show', [@circle, task]
+        td = link_to 'Edit', edit_circle_task_path(@circle, task)
+        td = link_to 'Destroy', [@circle, task], data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Task', new_circle_task_path(@circle)

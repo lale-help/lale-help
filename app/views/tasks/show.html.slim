@@ -1,0 +1,12 @@
+p#notice = notice
+
+div
+  = @task.name
+div
+  = @task.working_group.name
+div
+  = @task.description
+
+= link_to 'Edit', edit_circle_task_path(@circle, @task)
+'|
+= link_to 'Back', circle_tasks_path(@circle)
