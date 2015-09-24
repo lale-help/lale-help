@@ -6,7 +6,7 @@ header
   .header-right-group
     - if current_user.present?
       .user Signed in as #{current_user.first_name}
-      a.action-logout href="#{logout_path}" Sign Out
+      a.action-link href="#{logout_path}" Sign Out
     - else
       p Don't have an account?
-      a.action-logout href="#{register_path}" Sign up
+      a.action-link href="#{register_path}" Sign up
