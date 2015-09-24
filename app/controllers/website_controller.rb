@@ -8,4 +8,8 @@ class WebsiteController < ApplicationController
   def ping
     render text: "PONG"
   end
+
+  def stylesheet
+
+  end
 end

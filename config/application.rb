@@ -8,6 +8,12 @@ Bundler.require(*Rails.groups)
 
 module LaleHelp
   class Application < Rails::Application
+
+    # Version of your assets, change this if you want to expire all your assets.
+    LaleHelp::Application.config.assets.version = '1.0'
+
+    config.assets.precompile += %w( .svg .eot .woff .woff2 .ttf )
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
