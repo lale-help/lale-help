@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get '/ping', to: 'website#ping'
   get '/stylesheet', to: 'website#stylesheet'
-
+  get '/styles/signup', to: 'website#signup'
 
   namespace :volunteer do
     resources :identities
