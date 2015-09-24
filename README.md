@@ -21,4 +21,5 @@ To setup your system on OS X, just run:
 ## URLs
 
 production: [lale.help](https://lale.help)
-staging: [lale.help](https://staging.lale.help)
+
+staging: [staging.lale.help](https://staging.lale.help)
