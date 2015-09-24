@@ -1,4 +1,6 @@
 class Volunteer::Identity < OmniAuth::Identity::Models::ActiveRecord
+  attr_accessor :first_name, :last_name, :location
+
   belongs_to :volunteer
 
   validates :email,
@@ -11,8 +13,4 @@ class Volunteer::Identity < OmniAuth::Identity::Models::ActiveRecord
   before_create do
     Authentication::VolunteerRegistration.run!(identity: self)
   end
-
-  attr_accessor :first_name, :last_name, :location
-
-
 end
