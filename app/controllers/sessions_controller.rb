@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   layout 'circle_page'
+
   def new
   end
 
