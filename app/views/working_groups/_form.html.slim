@@ -6,7 +6,8 @@
         - @working_group.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .actions = f.submit
+  .field-row
+    .field
+      = f.label :name
+      = f.text_field :name
+  .actions.submit-row = f.submit

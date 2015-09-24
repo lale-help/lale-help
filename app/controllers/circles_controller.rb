@@ -22,6 +22,7 @@ class CirclesController < ApplicationController
 
   # GET /circles/1/edit
   def edit
+    render layout: 'form_layout'
   end
 
   # POST /circles

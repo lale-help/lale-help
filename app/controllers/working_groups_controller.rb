@@ -1,4 +1,6 @@
 class WorkingGroupsController < ApplicationController
+  layout 'circle_page'
+
   before_action :set_circle
   before_action :set_working_group, only: [:show, :edit, :update, :destroy]
 
@@ -16,10 +18,12 @@ class WorkingGroupsController < ApplicationController
   # GET /working_groups/new
   def new
     @working_group = @circle.working_groups.build
+    render layout: 'form_layout'
   end
 
   # GET /working_groups/1/edit
   def edit
+    render layout: 'form_layout'
   end
 
   # POST /working_groups
