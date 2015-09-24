@@ -1,0 +1,129 @@
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-family: $fontstack-primary;
+
+
+}
+/* Removes awkward default styles on some inputs for iOS */
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid #33C3F0;
+  outline: 0; }
+label,
+legend {
+  margin-right: 1rem;
+  font-weight: 400; }
+fieldset {
+  border: 1px solid #C7C7C7;
+
+  }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+
+
+input {
+  font-size   : $default-font-size;
+    line-height: $default-line-height;
+    padding-left: .33rem;
+}
+
+//Dumb that you can't put these together, but you can't.
+//When a browser hits an invalid selector, it moves on.
+::-webkit-input-placeholder {color : $black; font-weight : 300;}
+:focus::-webkit-input-placeholder {color: transparent; font-weight : 400;}
+
+ /* Firefox 18- */
+:-moz-placeholder {color : $border-color; font-weight : 400;}
+:focus:-moz-placeholder {color: $border-color; font-weight : 400;}
+
+/* Firefox 19+ */
+::-moz-placeholder {color : $border-color; font-weight : 400;}
+:focus::-moz-placeholder {color: $border-color; font-weight : 400;}
+
+:-ms-input-placeholder {color : $border-color; font-weight : 400;}
+:focus:-ms-input-placeholder {color: $border-color; font-weight : 400;}
+.actions {
+  margin-top: 1rem;
+}
+
+
+.checkbox-slider {
+  display : flex;
+  align-items : center;
+
+  [type="checkbox"]:not(:checked),
+  [type="checkbox"]:checked {
+    position : absolute;
+    left     : -9999px;
+  }
+  [type="checkbox"]:not(:checked) + label,
+  [type="checkbox"]:checked + label {
+    position     : relative;
+    cursor       : pointer;
+  }
+  label {
+    width         : 4rem;
+    height        : 2rem;
+    background    : $offwhite;
+    border        : 2px solid #CCCCCC;
+    border-radius : 2rem;
+    &:after {
+      content       : '';
+      background    : $white;
+      border        : 2px solid $orange;
+      border-radius : 2rem;
+      width: 2rem;
+      height: 2rem;
+      position: absolute;
+      left: 0;
+      top: -2px;
+      transition: transform .3s ease;
+    }
+  }
+
+  [type="checkbox"]:not(:checked) + label:after {
+    transform : translateX(-1px);
+  }
+  [type="checkbox"]:checked + label:after {
+    transform : translateX(85%);
+  }
+}

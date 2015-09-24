@@ -1,0 +1,14 @@
+html {
+  background-color : $cream;
+}
+main {
+  @include outer-container;
+}
+
+aside {
+  @include span-columns(4);
+}
+
+section {
+  @include span-columns(8);
+}

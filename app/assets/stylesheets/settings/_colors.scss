@@ -1,0 +1,37 @@
+$black         : #2C4C5E;
+$blue          : #4A90E2;
+$cream         : #FFF9ED;
+$grey          : #9B9B9B;
+$green         : #90B665;
+$orange        : #FF8F5A;
+$orange-dark   : #C15B31;
+
+$white         : #FFFFFF;
+$offwhite      : #EEEEEE;
+
+$border-color  : $grey;
+
+// Color classes for styleguide
+
+$colors : ($black: black, $orange: orange, $cream: cream, $white: white);
+
+@each $var, $color in $colors {
+  .bg--#{$color} {
+    background-color: #{$var};
+  }
+}
+
+/*doc
+---
+title: Colors
+name: Colors
+category: Base
+---
+These are the colors for Lale
+
+```html_example
+<div class="colorchip bg--black"><span>$black</span></div>
+<div class="colorchip bg--orange"><span>$orange</span></div>
+
+```
+*/

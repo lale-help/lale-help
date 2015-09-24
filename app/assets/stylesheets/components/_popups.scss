@@ -1,0 +1,124 @@
+.popup-wrapper {
+  // Popup.coffee adds this wrapper
+  display  : inline-block;
+  position : relative;
+}
+  
+// modal-specific styling  
+.is-active.modal{
+  &:before {
+    background : rgba(0, 0, 0, 0.42);
+    content    : '';
+    height     : 100vh;
+    left       : 0; 
+    position   : fixed;
+    top        : 0;
+    width      : 100vw;
+    z-index    : 10;
+  }
+
+  ~.popup {
+    border    : none;
+    bottom    : 50% !important;
+    left      : auto !important;
+    position  : fixed;
+    right     : 50% !important;
+    top       : auto !important;
+    transform : translate(50%);
+
+    .popup-pointer { display: none;}
+  }
+} 
+
+.is-active +.popup {
+  // toggle.coffee toggles this
+  left    : 0;
+  opacity : 1;
+  top     : 100%;
+  z-index : 99;
+}
+
+.popup {
+  background    : $white;
+  border        : 1px rgba(226, 226, 225, 0.75) solid;
+  border-radius : 8px;
+  box-shadow    : 2px 2px 1px 1px rgba(0, 0, 0, 0.05);
+  left          : -10000px;
+  margin-top    : 1rem;
+  min-width     : 200px;
+  opacity       : 0;
+  padding       : 2rem;
+  position      : absolute;
+  top           : -10000px;
+  transition    : opacity .5s;
+  z-index       : 99;
+
+  &.off-right {
+    left  : auto;
+    right : 2rem;
+    
+  .popup-pointer{
+    left  : auto;
+    right : 4rem;
+    }
+  }
+}
+.popup-pointer {
+  // Popup.coffee adds the pointer divs
+  border : 1px rgba(226, 226, 225, 0.75) solid;
+}
+
+.popup-pointer, .popup .popup-pointer-inner {
+  position         : absolute;
+  width            : 0;
+  height           : 0;
+  border-top-width : 0;
+  background       : none;
+}
+
+.popup-pointer {
+  border-left         : 12px solid transparent;
+  border-right        : 12px solid transparent;
+  border-bottom-width : 12px;
+  top                 : -12px;
+  right               : auto;
+  left                : 4rem;
+  margin-right        : -12px;
+}
+
+.popup-pointer-inner {
+  border-left         : 10px solid transparent;
+  border-right        : 10px solid transparent;
+  border-bottom       : 10px solid transparent;
+  top                 : auto;
+  bottom              : -12px;
+  right               : -10px;
+  border-bottom-style : solid;
+  border-bottom-color : $white;
+}
+
+/*doc
+---
+title    : Popups and Modals
+name     : Popups and Modals
+category : Components
+---
+Place a .popup div after a js-toggle link. "popup.coffee" will wrap it and pointers. "js-toggle" will toggle.
+
+For a modal just add the class "modal" to the toggle link. 
+
+```html_example
+<a class="js-toggle modal" href="#">Open modal 1</a>
+<div class="popup">This is a modal</div>
+<a class="js-toggle" href="#">Open popup 2</a>
+<div class="popup">This is popup 2</div>
+<a class="js-toggle" href="#">Open popup 3</a>
+<div class="popup">This is popup 3</div>
+<a class="js-toggle" href="#">Open popup 4</a>
+<div class="popup">This is popup 4</div>
+<a class="js-toggle" href="#">Open popup 5</a>
+<div class="popup">This is popup 5</div>
+<a class="js-toggle modal" href="#">Open modal 6</a>
+<div class="popup">This is a modal</div>
+```
+*/

@@ -1,0 +1,33 @@
+%alert-base {
+  cursor     : pointer;
+  overflow-y : scroll;
+  padding    : 2rem;
+  position   : absolute;
+  top        : 0;
+  transition : top 1s;
+  width      : 100vw;
+  z-index    : 9;
+  top        : 0;
+  left       : 0;
+  &.was-toggled {
+    top      : -100%;
+    position : absolute;
+  }
+  &:after {
+    @include size(1rem);
+    background-position : center;
+    background-repeat   : no-repeat;
+    background-size     : 1rem;
+    content             : '';
+    opacity             : .65;
+    position            : absolute;
+    right               : 2rem;
+    top                 : 50%;
+    transform           : translateY(-50%);
+  }
+  &:hover {
+    &:after {
+      opacity : .9;
+    }
+  }
+}

@@ -1,0 +1,74 @@
+//-- Typefaces -----------------------------------------------------------------
+$fontstack-georgia       : Georgia, Cambria, "Times New Roman", Times, serif;
+$fontstack-helvetica     : "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+$fontstack-lucida-grande : "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+$fontstack-monospace     : "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+$fontstack-verdana       : Verdana, Geneva, sans-serif;
+$fontstack-primary       : 'WorkSans', "Courier", $fontstack-helvetica;
+$fontstack-sans          : $fontstack-primary;
+$fontstack-serif         : $fontstack-georgia;
+
+@font-face {
+  font-family: 'WorkSans';
+  src : font-url('WorkSans/WorkSans-Light.ttf');
+  src : font-url('WorkSans/WorkSans-Light.woff2') format('woff2'),
+  font-url('WorkSans/WorkSans-Light.woff') format('woff'),
+  font-url('WorkSans/WorkSans-Light.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: font-url('WorkSans/WorkSans-Regular.ttf');
+    src: font-url('WorkSans/WorkSans-Regular.woff2') format('woff2'),
+         font-url('WorkSans/WorkSans-Regular.woff') format('woff'),
+         font-url('WorkSans/WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+  font-family: 'WorkSans';
+  src: font-url('WorkSans/WorkSans-Medium.ttf');
+  src: font-url('WorkSans/WorkSans-Medium.woff2') format('woff2'),
+  font-url('WorkSans/WorkSans-Medium.woff') format('woff'),
+  font-url('WorkSans/WorkSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'WorkSans';
+  src: font-url('WorkSans/WorkSans-SemiBold.ttf');
+  src: font-url('WorkSans/WorkSans-SemiBold.woff2') format('woff2'),
+  font-url('WorkSans/WorkSans-SemiBold.woff') format('woff'),
+  font-url('WorkSans/WorkSans-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+
+}
+@font-face {
+    font-family: 'WorkSans';
+    src: font-url('WorkSans/WorkSans-Bold.ttf');
+    src: font-url('WorkSans/WorkSans-Bold.woff2') format('woff2'),
+         font-url('WorkSans/WorkSans-Bold.woff') format('woff'),
+         font-url('WorkSans/WorkSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'WorkSans';
+    src: font-url('WorkSans/WorkSans-ExtraBold.ttf');
+    src: font-url('WorkSans/WorkSans-ExtraBold.woff2') format('woff2'),
+         font-url('WorkSans/WorkSans-ExtraBold.woff') format('woff'),
+         font-url('WorkSans/WorkSans-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+
+}
+

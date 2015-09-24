@@ -1,0 +1,39 @@
+header {
+  @include outer-container;
+  margin : 4rem auto;
+
+  .header-left-group {
+    @include span-columns(4);
+    align-items     : center;
+    display         : flex;
+    height          : 3rem;
+    justify-content : flex-start;
+  }
+  .header-right-group {
+    @include shift(4);
+    @include span-columns(4);
+    align-items     : center;
+    display         : flex;
+    height          : 3rem;
+    justify-content : flex-end;
+  }
+  .logo {
+    font-size    : 2.4rem;
+    line-height  : 1.2;
+    font-weight  : 900;
+    margin-right : 4rem;
+  }
+  .circle-city {
+    font-size   : 2.4rem;
+    line-height : 1.2;
+
+  }
+  .action-logout {
+    color          : $orange;
+    font-size      : 1.3rem;
+    font-weight    : 600;
+    line-height    : 1.2;
+    text-transform : uppercase;
+    margin-left    : 2rem;
+  }
+}

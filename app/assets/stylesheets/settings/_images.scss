@@ -1,0 +1,53 @@
+@mixin icon-background($size: 2.5rem, $position: center center, $cursor: true) {
+  user-select         : none;
+  background-position : $position;
+  background-repeat   : no-repeat;
+  background-size     : $size;
+  text-indent         : -99999px;
+  @if $cursor {
+    cursor : pointer;
+  }
+}
+
+@mixin icon-unsorted-arrow($color: $black, $size: contain){
+  background-image: url('data:image/svg+xml;utf8,
+  <svg version="1.1"
+       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+       x="0px" y="0px" width="40px" height="46px" viewBox="0 0 40 46" enable-background="new 0 0 40 46" xml:space="preserve">
+  <defs>
+  </defs>
+  <polygon fill="#{$color}" points="40,20 0,20 20,0 "/>
+  <polygon fill="#{$color}" points="40,26 0,26 20,46"/>
+  </svg>
+  ');
+  @include icon-background($size);
+
+}
+
+
+@mixin icon-desc-arrow($color: $black, $size: contain){
+  background-image: url('data:image/svg+xml;utf8,
+    <svg version="1.1"
+         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+         x="0px" y="0px" width="40px" height="20px" viewBox="0 0 40 20" enable-background="new 0 0 40 20" xml:space="preserve">
+    <defs>
+    </defs>
+    <polygon fill="#{$color}" points="40,0 0,0 20,20 "/>
+    </svg>
+  ');
+  @include icon-background($size);
+}
+
+@mixin icon-asc-arrow($color: $black, $size: contain){
+  background-image: url('data:image/svg+xml;utf8,
+  <svg version="1.1"
+       xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+       x="0px" y="0px" width="40px" height="20px" viewBox="0 0 40 20" enable-background="new 0 0 40 20" xml:space="preserve">
+  <defs>
+  </defs>
+  <polygon fill="#{$color}" points="40,20 0,20 20,0 "/>
+  </svg>
+  ');
+  @include icon-background($size);
+}
+
