@@ -5,7 +5,7 @@ class WorkingGroupsController < ApplicationController
   # GET /working_groups
   # GET /working_groups.json
   def index
-    @working_groups = WorkingGroup.by_circle(params[:circle_id])
+    @working_groups = @circle.working_groups
   end
 
   # GET /working_groups/1
