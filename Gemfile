@@ -38,6 +38,10 @@ group :development, :test do
   gem 'hologram', github: 'trulia/hologram'
   gem 'guard-hologram', github: 'kmayer/guard-hologram', require: false
 
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'web-console', '~> 2.0'
+  gem 'better_errors'
 end
 
 group :test do
