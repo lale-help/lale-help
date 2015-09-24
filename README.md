@@ -17,3 +17,8 @@ To setup your system on OS X, just run:
 ## Running Tests
 
     bin/rspec
+
+## URLs
+
+production: [lale.help](https://lale.help)
+staging: [lale.help](https://staging.lale.help)
