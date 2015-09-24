@@ -9,7 +9,7 @@ main
     .filter-working-groups
       h4 Filter Working Groups
       ul.working-groups
-        li.education Education
+        li.unselected.education Education
         li.administrative Administrative Work
         li.find-jobs Find Jobs
         li.food-and-goods Food And Goods
@@ -23,17 +23,17 @@ main
         span.task-count 3 tasks
       ul.working-tasks
         li
-          .task-name Take Riad to school orientation
+          .task-name.my-task Take Riad to school orientation
           .task-time Tomorrow, 9h
-          .task-status need one helper
+          .task-status.warning Need one helper
         li
           .task-name Take Riad to school orientation
           .task-time Tomorrow, 9h
-          .task-status need one helper
+          .task-status.success Filled
         li.completed
           .task-name Take Riad to school orientation
           .task-time Tomorrow, 9h
-          .task-status need one helper
+          .task-status
         li.toggle-show-completed Show More Completed Tasks
 
     article.working-group.working-group-closed.find-jobs
