@@ -43,6 +43,7 @@
     }
   }
 }
+
 .working-title-container {
   color  : $white;
   margin : 1.5rem 0;
@@ -66,84 +67,91 @@
 
   .working-task {
     box-shadow      : inset 0px -1px 0px 0px rgba(0, 0, 0, 0.10);
-    display         : flex;
     padding-left    : 2rem;
-    justify-content : space-between;
-    min-height      : 6.6rem;
-    height          : 6.6rem;
-    & > div {
-      display     : flex;
-      align-items : center;
-      height      : 100%;
-    }
-
-    &.my-task {
-      .task-name {
-        &:after {
-          content        : 'My Task';
-          color          : $white;
-          background     : $orange;
-          border-radius  : 2.4rem;
-          font-size      : 1rem;
-          font-weight    : bold;
-          margin-left    : .5rem;
-          padding        : .5rem 1rem;
-          position       : relative;
-          top            : -2px;
-          text-transform : uppercase;
-        }
-      }
-    }
-
-    .task-name {
-      flex        : 2 1 35rem;
-      font-weight : 500;
-    }
-
-    .task-time,
-    .task-status {
-      flex : 1 1 17rem;
-    }
-
-    .task-status {
-      text-align : right;
-
-      &:before {
-        transform     : translateY(2px);
-        padding-right : .5rem;
-      }
-      &.warning {
-        @extend .fi-warning;
-        color : $red;
-      }
-      &.success {
-        @extend .fi-circle-check;
-        color : $green;
-      }
-    }
 
     &.completed {
       color : rgba($black, .5);
-      .task-name {
-        &:before {
-          content : '(Completed)';
-        }
-      }
     }
   }
-  .toggle-show-completed {
-    align-items    : center;
-    display        : flex;
-    cursor         : pointer;
-    font-size      : 1.3rem;
-    font-weight    : 600;
-    min-height     : 5rem;
-    padding-left   : 2rem;
-    text-transform : uppercase;
+}
+
+.toggle-show-completed {
+  align-items    : center;
+  display        : flex;
+  cursor         : pointer;
+  font-size      : 1.3rem;
+  font-weight    : 600;
+  min-height     : 5rem;
+  padding-left   : 2rem;
+  text-transform : uppercase;
+}
+
+.task-header-container {
+  display         : flex;
+  justify-content : space-between;
+  min-height      : 6.6rem;
+  height          : 6.6rem;
+  & > div {
+    display     : flex;
+    align-items : center;
+    height      : 100%;
+  }
+  .task-name {
+    flex        : 2 1 35rem;
+    font-weight : 500;
+
+    .my-task &:after{
+      content        : 'My Task';
+      color          : $white;
+      background     : $orange;
+      border-radius  : 2.4rem;
+      font-size      : 1rem;
+      font-weight    : bold;
+      margin-left    : .5rem;
+      padding        : .5rem 1rem;
+      position       : relative;
+      top            : -2px;
+      text-transform : uppercase;
+    }
+
+    .working-task.completed &:before{
+      content : '(Completed)';
+    }
+  }
+
+  .task-time,
+  .task-status {
+    flex : 1 1 17rem;
+  }
+
+  .task-status {
+    justify-content : flex-end;
+    padding-right   : 2rem;
+    white-space     : nowrap;
+
+    &:before {
+      transform     : translateY(2px);
+      padding-right : .5rem;
+    }
+    &.warning {
+      @extend .fi-warning;
+      color : $red;
+    }
+    &.success {
+      @extend .fi-circle-check;
+      color : $green;
+    }
+
+    .task-expanded & {
+      background-color : $offwhite;
+    }
   }
 
 }
 
+.task-details-container {
+
+}
 
 .working-group-arrow-base {
   position : relative;
