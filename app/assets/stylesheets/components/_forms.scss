@@ -185,7 +185,7 @@ main.form {
 
   .submit-row {
     overflow: hidden;
-    a.help-link {
+    a.link {
       /* Cancel: */
       font-size: 15px;
       color: rgba(43,76,94,0.40);
@@ -198,5 +198,13 @@ main.form {
       float: right;
       padding: 0 20px;
     }
+
+    button.button {
+      @extend .button--large;
+      float: right;
+      padding: 0 50px;
+      border: 0;
+    }
+
   }
 }

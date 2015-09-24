@@ -1,14 +1,17 @@
-section
-  = form_tag "/auth/identity/callback" do
-    .email
-      label Email address
-        span Required
-      input name="email" type="text" placeholder="Enter your email address"
-    .email
-      label Password
-        span Required
-      input name="password" type="password" placeholder="Enter your password"
-    .reset
-      a href="#" Reset my password
-    .actions
-      button type="submit" Sign in
+main.form
+  section
+    h2 Sign in to your circle
+
+    = form_tag "/auth/identity/callback" do
+      .field-row
+        .field
+          label Email address
+          input name="email" type="text" placeholder="Enter your email address"
+
+        .field
+          label Password
+          input name="password" type="password" placeholder="Enter your password"
+
+      .submit-row
+        a.link href='#'Reset my password
+        button.button.login type="submit" Sign in

@@ -1,32 +1,43 @@
-section
-  h2 Start helping now
-  = form_tag "/auth/identity/register" do
-  - if @identity && @identity.errors.any?
-    .error_messages
-      h2 #{pluralize(@identity.errors.count, "error")} prohibited this account from being saved:
-      ul
-        - @identity.errors.full_messages.each do |msg|
-          li= msg
+main.form
+  section
+    h2 Start helping now
+    / - if @identity && @identity.errors.any?
+    /   .error_messages
+    /     h2 #{pluralize(@identity.errors.count, "error")} prohibited this account from being saved:
+    /     ul
+    /       - @identity.errors.full_messages.each do |msg|
+    /         li= msg
 
-  .field
-    = label_tag :name
-    br
-    = text_field_tag :name, @identity.try(:name)
+    = form_tag "/auth/identity/register" do
+      .field-row
+        .field
+          label First Name
+          = text_field_tag :first_name, @identity.try(:name), placeholder: 'E.g. Johannes'
 
-  .field
-    = label_tag :email
-    br
-    = text_field_tag :email, @identity.try(:email)
+        .field
+          label Last Name
+          = text_field_tag :last_name, @identity.try(:name)
 
-  .field
-    = label_tag :password
-    br
-    = password_field_tag :password
+      .field-row
+        .field
+          label Email Address
+          = text_field_tag :email, @identity.try(:email), placeholder: 'E.g. johannes@example.com'
 
-  .field
-    = label_tag :password_confirmation
-    br
-    = password_field_tag :password_confirmation
+      .field-row
+        .field
+          label Password
+          = password_field_tag :password
 
-  .actions
-    = submit_tag "Register"
+        .field
+          label Password Confirmation
+          = password_field_tag :password_confirmation
+
+      .field-row
+        .field
+          label Location
+          = text_field_tag :location, @identity.try(:location), placeholder: 'Munich, Germany'
+
+      .submit-row
+        a.link href='#' Sub-link goes here
+        a.button.create-my-account Create My Account
+
