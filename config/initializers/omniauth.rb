@@ -9,3 +9,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     locate_conditions: lambda{|req| {model.auth_key => req['email']} }
 
 end
+
+OmniAuth.configure do |config|
+  config.failure_raise_out_environments = []
+end
