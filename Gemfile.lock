@@ -320,6 +320,7 @@ DEPENDENCIES
   factory_girl
   faker
   foreman
+  geocoder
   guard-hologram!
   haml-rails (~> 0.9)
   hologram!
