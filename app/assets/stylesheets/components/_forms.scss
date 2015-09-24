@@ -193,11 +193,11 @@ main.form {
       line-height: 54px;
       text-decoration: none;
     }
-    a.button {
-      @extend .button--large;
-      float: right;
-      padding: 0 20px;
-    }
+    // a.button {
+    //   @extend .button--large;
+    //   float: right;
+    //   padding: 0 20px;
+    // }
 
     button.button {
       @extend .button--large;
