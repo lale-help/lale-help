@@ -8,4 +8,15 @@ class Circle < ActiveRecord::Base
 
   belongs_to :location
   belongs_to :admin, class_name: 'Volunteer'
+
+  validates :name, presence: true
+  attr_accessor :location_text
+  validates :location_text, presence: true
+  
+  before_save :determine_location
+
+  private
+  def determine_location
+    self.location = Location.location_from location_text
+  end
 end
