@@ -12,4 +12,8 @@ class WebsiteController < ApplicationController
   def stylesheet
 
   end
+
+  def signup
+    
+  end
 end
