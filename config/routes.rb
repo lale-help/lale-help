@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   resources :circles do
-    resources :tasks
+    resources :tasks, only: [:index, :edit, :new, :destroy]
   end
   
   post "/auth/:provider/callback", to: "sessions#create"
