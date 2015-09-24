@@ -18,6 +18,8 @@ gem 'sass-rails', '>= 3.2'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
+# Data Viz
+gem 'd3_rails'
 
 # API
 gem 'jbuilder', '~> 2.0'

@@ -67,6 +67,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    d3_rails (3.5.6)
+      railties (>= 3.1.0)
     diff-lcs (1.2.5)
     dotenv (2.0.2)
     erubis (2.7.0)
@@ -226,6 +228,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.5)
   coffee-rails (~> 4.1.0)
+  d3_rails
   factory_girl
   faker
   foreman
