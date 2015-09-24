@@ -4,115 +4,27 @@
   margin-bottom : 3rem;
   padding       : 1rem;
 
-  .working-title-container {
-    color  : $white;
-    margin : 1.5rem 0;
-    .working-title {
-      font-weight    : bold;
-      margin-right   : 1.5rem;
-      text-transform : uppercase;
-    }
-    .task-count {
-      font-weight : 200;
-    }
-  }
-
-  ul.working-tasks {
-    background    : $white;
-    box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
-    border-radius : 2px;
-    margin-top    : 1rem;
-    height        : auto;
-    transition    : height .4s ease;
-
-    li {
-      box-shadow      : inset 0px -1px 0px 0px rgba(0, 0, 0, 0.10);
-      display         : flex;
-      padding         : 0 2rem;
-      align-items     : center;
-      justify-content : space-between;
-      min-height      : 6.6rem;
-
-      &.completed {
-        color : rgba($black, .5);
-        .task-name {
-          &:before {
-            content : '(Completed)';
-          }
-        }
-      }
-      &.toggle-show-completed {
-        cursor         : pointer;
-        font-size      : 1.3rem;
-        font-weight    : 600;
-        min-height     : 5rem;
-        text-transform : uppercase;
-      }
-
-      .task-name {
-        flex        : 2 1 35rem;
-        font-weight : 500;
-
-        &.my-task {
-          &:after {
-            content        : 'My Task';
-            color          : $white;
-            background     : $orange;
-            border-radius  : 2.4rem;
-            font-size      : 1rem;
-            font-weight    : bold;
-            padding        : .5rem 1rem;
-            position       : relative;
-            top            : -2px;
-            text-transform : uppercase;
-          }
-        }
-      }
-      .task-time,
-      .task-status {
-        flex : 1 1 17rem;
-      }
-
-      .task-status {
-        text-align : right;
-
-        &:before {
-          transform: translateY(2px);
-        }
-        &.warning {
-          @extend .fi-warning;
-          color : $red;
-        }
-        &.success {
-          @extend .fi-circle-check;
-          color : $green;
-        }
-      }
-    }
-
-  }
-
   &.education {
-    background-color : $working-group-green;
+    background-color : $green-500;
 
-    li.completed {
-      background-color : rgba($working-group-green, .1);
+    .working-task.completed {
+      background-color : $green-50;
     }
     .toggle-show-completed {
-      background-color : rgba($working-group-green, .1);
-      color            : $working-group-green;
+      background-color : $green-50;
+      color            : $green-500;
     }
   }
 
   &.find-jobs {
-    background-color : $working-group-blue;
+    background-color : $blue-500;
 
-    li.completed {
-      background-color : rgba($working-group-blue, .1);
+    .working-task.completed {
+      background-color : $blue-50;
     }
     .toggle-show-completed {
-      background-color : rgba($working-group-blue, .1);
-      color            : $working-group-blue;
+      background-color : $blue-50;
+      color            : $blue-500;
 
     }
   }
@@ -125,14 +37,114 @@
     @extend .working-group-arrow-base;
     @extend .fi-chevron-top;
 
-    & > ul {
-      height : 0;
+    & > .working-tasks {
+      height   : 0;
       overflow : hidden;
     }
   }
+}
+.working-title-container {
+  color  : $white;
+  margin : 1.5rem 0;
+  .working-title {
+    font-weight    : bold;
+    margin-right   : 1.5rem;
+    text-transform : uppercase;
+  }
+  .task-count {
+    font-weight : 200;
+  }
+}
 
+.working-tasks {
+  background    : $white;
+  box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+  border-radius : 2px;
+  margin-top    : 1rem;
+  height        : auto;
+  transition    : height .4s ease;
+
+  .working-task {
+    box-shadow      : inset 0px -1px 0px 0px rgba(0, 0, 0, 0.10);
+    display         : flex;
+    padding-left    : 2rem;
+    justify-content : space-between;
+    min-height      : 6.6rem;
+    height          : 6.6rem;
+    & > div {
+      display     : flex;
+      align-items : center;
+      height      : 100%;
+    }
+
+    &.my-task {
+      .task-name {
+        &:after {
+          content        : 'My Task';
+          color          : $white;
+          background     : $orange;
+          border-radius  : 2.4rem;
+          font-size      : 1rem;
+          font-weight    : bold;
+          margin-left    : .5rem;
+          padding        : .5rem 1rem;
+          position       : relative;
+          top            : -2px;
+          text-transform : uppercase;
+        }
+      }
+    }
+
+    .task-name {
+      flex        : 2 1 35rem;
+      font-weight : 500;
+    }
+
+    .task-time,
+    .task-status {
+      flex : 1 1 17rem;
+    }
+
+    .task-status {
+      text-align : right;
+
+      &:before {
+        transform     : translateY(2px);
+        padding-right : .5rem;
+      }
+      &.warning {
+        @extend .fi-warning;
+        color : $red;
+      }
+      &.success {
+        @extend .fi-circle-check;
+        color : $green;
+      }
+    }
+
+    &.completed {
+      color : rgba($black, .5);
+      .task-name {
+        &:before {
+          content : '(Completed)';
+        }
+      }
+    }
+  }
+  .toggle-show-completed {
+    align-items    : center;
+    display        : flex;
+    cursor         : pointer;
+    font-size      : 1.3rem;
+    font-weight    : 600;
+    min-height     : 5rem;
+    padding-left   : 2rem;
+    text-transform : uppercase;
+  }
 
 }
+
+
 .working-group-arrow-base {
   position : relative;
   &:before {
