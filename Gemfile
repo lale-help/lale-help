@@ -7,6 +7,8 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
 gem 'mutations'
+gem 'omniauth'
+gem 'omniauth-identity'
 
 
 # UI
