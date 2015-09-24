@@ -1,4 +1,6 @@
 class CirclesController < ApplicationController
+  layout 'circle_page'
+
   before_action :set_circle, only: [:show, :edit, :update, :destroy]
 
   # GET /circles
@@ -15,6 +17,7 @@ class CirclesController < ApplicationController
   # GET /circles/new
   def new
     @circle = Circle.new
+    render layout: 'form_layout'
   end
 
   # GET /circles/1/edit

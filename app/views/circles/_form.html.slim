@@ -5,11 +5,14 @@
       ul
         - @circle.errors.full_messages.each do |message|
           li = message
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :location
-    = f.text_field :location_text
+  .field-row
+    .field
+      = f.label :name
+      span.required Required
+      = f.text_field :name
+    .field
+      = f.label :location
+      span.required Required
+      = f.text_field :location_text
 
-  .actions = f.submit
+  .actions.submit-row = f.submit
