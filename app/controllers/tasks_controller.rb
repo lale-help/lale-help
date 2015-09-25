@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  layout "circle_page"
+  before_action :set_task, only: [:edit, :update, :destroy]
   before_action :set_circle
 
   # GET /tasks
@@ -12,11 +13,12 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
-     @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
+    @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
   end
 
   # GET /tasks/1/edit
   def edit
+    @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
   end
 
   # POST /tasks
