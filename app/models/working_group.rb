@@ -4,6 +4,7 @@ class WorkingGroup < ActiveRecord::Base
   belongs_to :circle
 
   validates :name, presence: true
+  validates :circle, presence: true
 
   def underscored_name
     name.downcase.underscore.gsub(' ', '_')

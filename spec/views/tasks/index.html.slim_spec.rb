@@ -2,13 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "tasks/index", type: :view do
   before(:each) do
-
-    @volunteer = Volunteer.create!()
-    @circle = Circle.create!(name: 'foo', location_text: "SF", admin: @volunteer)
-    @working_group = WorkingGroup.create(name: "test working group", circle: @circle)
+    working_group = FactoryGirl.create(:working_group)
+    @circle = working_group.circle
     assign(:tasks, [
-      Task.create!(name: "test task1", working_group: @working_group),
-      Task.create!(name: "test task2", working_group: @working_group)
+      FactoryGirl.create(:task, working_group: working_group),
+      FactoryGirl.create(:task, working_group: working_group)
     ])
   end
 
