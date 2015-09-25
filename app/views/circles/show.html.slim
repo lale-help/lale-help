@@ -35,7 +35,9 @@ main
                   = "&nbsp;( #{link_to 'edit', edit_circle_task_path(@circle, task), class: 'edit_link'} )".html_safe
 
                 .task-time= humanize_date task.due_date
-                - if task.volunteers.empty?
+                - if task.complete?
+                  .task-status
+                - elsif task.volunteers.empty?
                   .task-status.warning Need one helper
                 - else
                   .task-status.success Filled
