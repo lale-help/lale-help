@@ -132,11 +132,12 @@ main.form {
   background    : $white;
   box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
   border-radius : 3px;
-  padding       : 2.5rem 2rem;
+  margin-bottom: 60px;
+  padding       : 3.3rem 2rem 5rem 2rem;
 
   h2 {
     color: #FF8F5A;
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 200;
   }
 
@@ -148,61 +149,71 @@ main.form {
   .field-row {
     @include outer-container;
 
-    margin: 20px 0;
+    margin: 35px 0;
   }
 
   .field {
-    @include span-columns(5 of 10);
+    @include span-columns(2 of 4);
   }
 
-  // .field:nth-child(1) {
-  //   background-color: blue;
-  //   @include span-columns(4 of 10);
-  // }
-
-  // .field:nth-child(2) {
-  //   background-color: red;
-  //   @include shift(2);
-  //   @include span-columns(4 of 10);
-  // }
+  .field.required label:after {
+    color: #2C4C5E;
+    content: 'REQUIRED';
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 12px;
+    opacity: 0.4;
+    text-transform: uppercase;
+  }
 
   label {
     color: #2C4C5E;
     display: block;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: 500;
     line-height: 21px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
-  input[type='text'], input[type='password'] {
+  input[type='text'], input[type='password'], textarea {
+    @include placeholder {
+      color: #bfc9ce;
+      font-weight: 400;
+    }
     border: 1px solid #2C4C5E;
     border-radius: 3px;
-    font-size: 15px;
-    padding: 5px;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 7px 8px;
     width: 100%;
   }
 
+  textarea {
+    height: 10rem;
+    resize: none;
+  }
+
   .submit-row {
+    margin-top: 40px;
     overflow: hidden;
+
     a.link {
       /* Cancel: */
-      font-size: 15px;
+      font-size: 1.5rem;
       color: rgba(43,76,94,0.40);
       float: left;
       line-height: 54px;
       text-decoration: none;
     }
-    // a.button {
-    //   @extend .button--large;
-    //   float: right;
-    //   padding: 0 20px;
-    // }
 
-    button.button {
+    button.button, input[type='submit'] {
       @extend .button--large;
       float: right;
-      padding: 0 50px;
+      font-family: $fontstack-primary;
+      font-size: 1.5rem;
+      line-height: 3.5;
+      margin-right: 0;
+      padding: 0 70px;
       border: 0;
     }
 
