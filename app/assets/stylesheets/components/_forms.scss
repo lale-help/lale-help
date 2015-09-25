@@ -177,9 +177,9 @@ main.form {
   }
 
   .field.error label {
-    color: red;
+    color: #d0021b;
     &:after {
-      color: red;
+      color: #d0021b;
       opacity: 1;
     }
   }

@@ -3,40 +3,37 @@ main.form
     h2 Start helping now
     = form_tag "/auth/identity/register" do
       - if @identity && @identity.errors.any?
-        .error_messages
-          h2 #{pluralize(@identity.errors.count, "error")} prohibited this account from being saved:
-          ul
-            - @identity.errors.full_messages.each do |msg|
-              li= msg
+        .form-introduction
+          p Please correct the errors below.
 
       .field-row
-        .field
+        .field.required class=('error' if @identity.errors[:first_name].present?)
           label First Name
           input type='text' placeholder='E.g. Johannes' value='#{@identity.first_name}' name="first_name"
 
-        .field
+        .field.required class=('error' if @identity.errors[:last_name].present?)
           label Last Name
           input type='text' value='#{@identity.last_name}' name="last_name"
 
       .field-row
-        .field
+        .field.required class=('error' if @identity.errors[:email].present?)
           label Email Address
           = text_field_tag :email, @identity.try(:email), placeholder: 'E.g. johannes@example.com'
 
       .field-row
-        .field
+        .field.required class=('error' if @identity.errors[:password].present?)
           label Password
           = password_field_tag :password
 
-        .field
+        .field.required class=('error' if @identity.errors[:password_confirmation].present?)
           label Password Confirmation
           = password_field_tag :password_confirmation
 
       .field-row
-        .field
+        .field.required class=('error' if @identity.errors[:location].present?)
           label Location
           = text_field_tag :location, @identity.try(:location), placeholder: 'Munich, Germany'
 
       .submit-row
-        button.button.create-my-account Create My Account
+        button.button Create Account
 
