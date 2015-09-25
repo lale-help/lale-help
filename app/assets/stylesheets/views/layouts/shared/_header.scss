@@ -1,5 +1,5 @@
 header {
-  @include outer-container;
+  @include outer-container($local-max-width : 128rem);
   margin : 4rem auto;
 
   .header-left-group {

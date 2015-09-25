@@ -1,0 +1,27 @@
+main
+  aside
+    = link_to 'Add a New Task', new_circle_task_path(@circle), class: 'add-new-task'
+    .show-tasks
+      span Show my tasks only
+      .checkbox-slider
+        input#show-my-tasks type='checkbox'
+        label for='show-my-tasks' onclick="$('.task-name:not(.my-task)').parent().toggleClass('hidden');"
+    .filter-working-groups
+      h4 Filter Working Groups
+      ul.working-groups
+        - @circle.working_groups.each do |working_group|
+          li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')" = working_group.name
+
+
+  section
+    - @circle.working_groups.each do |working_group|
+      article.working-group.working-group-open.education id=working_group.underscored_name onclick="$('##{working_group.underscored_name}').toggleClass('working-group-open').toggleClass('working-group-closed');"
+        .working-title-container
+          span.working-title = working_group.name
+          span.task-count = "#{working_group.tasks.count} tasks"
+        ul.working-tasks
+          - working_group.tasks.each do |task|
+            li
+              .task-name class=( "my-task" if task.volunteers.include?(@current_user)) = task.name
+              .task-description = task.description
+              = link_to 'Edit', edit_circle_task_path(@circle, task)
