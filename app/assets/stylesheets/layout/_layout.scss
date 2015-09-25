@@ -2,7 +2,7 @@ html {
   background-color : $cream;
 }
 main {
-  @include outer-container;
+  @include outer-container($local-max-width : 128rem);
 }
 
 aside {
