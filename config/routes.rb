@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'burndown_chart', to: 'burndown_chart#index'
+  resources :volunteers do
+    get 'burndown_chart', to: 'burndown_chart#index'
+  end
 
   get '/ping', to: 'website#ping'
   root to: 'website#index'
