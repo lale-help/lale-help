@@ -5,7 +5,7 @@ main
       span Show my tasks only
       .checkbox-slider
         input#show-my-tasks type='checkbox'
-        label for='show-my-tasks' onclick="$('.task-name:not(.my-task)').parent().toggleClass('hidden');"
+        label for='show-my-tasks' onclick="$('.working-task:not(.my-task)').toggleClass('hidden');"
     .filter-working-groups
       h4 Filter Working Groups
       ul.working-groups
