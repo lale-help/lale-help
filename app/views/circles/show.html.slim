@@ -27,7 +27,7 @@ main
 
         .working-tasks
           - working_group.tasks.each do |task|
-            .working-task.task-expanded class=("my-task" if task.volunteers.include?(current_user))
+            .working-task class=("my-task" if task.volunteers.include?(current_user)) onclick="var event = arguments[0] || window.event; $(this).toggleClass('task-expanded'); event.stopPropagation();"
               .task-header-container
                 .task-name
                   = task.name
