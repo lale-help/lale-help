@@ -7,26 +7,28 @@
 @import "views/**/*";
 
 .circle-marker {
+  position : relative;
   &:before {
     display : block;
     content : '';
     width: 20px;
     height: 20px;
-    border: 1px solid $orange-500;
+    border: 1px solid $orange-50;
     border-radius: 10px;
-    background-color: $orange-50;
-    opacity: 0.5;
+    background-color: $orange-500;
   }
 
   .description {
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(105%)translateY(-40%);
+    padding: 1rem;
     display: none;
     text-align: center;
     opacity: 1;
     background: white;
     width: 15em;
-    height: 5em;
-    margin-left: 2em;
-    margin-top: -2em;
   }
 }
 .circle-marker.open {
