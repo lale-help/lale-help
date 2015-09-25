@@ -153,9 +153,15 @@
 }
 
 .task-details-container {
-  display        : flex;
+  display        : none;
   padding-bottom : 2rem;
+  height         : 0;
+  overflow       : hidden;
 
+  .task-expanded & {
+    display : flex;
+    height  : auto;
+  }
   & > div {
     flex : 1 1 50%;
     &:first-child {

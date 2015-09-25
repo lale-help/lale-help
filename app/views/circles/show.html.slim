@@ -20,18 +20,18 @@ main
 
   section
     - @circle.working_groups.each do |working_group|
-      article.working-group.working-group-open.education id=working_group.underscored_name onclick="$('##{working_group.underscored_name}').toggleClass('working-group-open').toggleClass('working-group-closed');"
+      article.working-group.working-group-open.education id=working_group.underscored_name
         .working-title-container
           span.working-title = working_group.name
           span.task-count = "#{working_group.tasks.count} tasks"
 
         .working-tasks
           - working_group.tasks.each do |task|
-            .working-task class=("my-task" if task.volunteers.include?(current_user)) onclick="var event = arguments[0] || window.event; $(this).toggleClass('task-expanded'); event.stopPropagation();"
+            .working-task class=("my-task" if task.volunteers.include?(current_user))
               .task-header-container
                 .task-name
                   = task.name
-                  = "( #{link_to 'edit', edit_circle_task_path(@circle, task)} )".html_safe
+                  = "&nbsp;( #{link_to 'edit', edit_circle_task_path(@circle, task), class: 'edit_link'} )".html_safe
 
                 .task-time= humanize_date task.due_date
                 - if task.volunteers.empty?
@@ -40,9 +40,9 @@ main
                   .task-status.success Filled
               .task-details-container
                 .task-discussion
-                  .task-comment-container
+                  .task-comment-container.task-description
+                    / TODO: setting first comment as description and no author. there should be an author
                     .task-comment = task.description
-                    .task-author
 
                   / TODO: add commenting
                   / .task-comment-container
