@@ -6,8 +6,20 @@ class SessionsController < ApplicationController
 
   def create
     outcome = Authentication::VolunteerFromOmniAuth.run(env["omniauth.auth"])
-    session[:user_id] = outcome.result.id
-    redirect_to root_url, notice: "Signed in!"
+    if outcome.success?
+      volunteer = outcome.result
+      session[:user_id] = volunteer.id
+      if volunteer.circle.present?
+        redirect_to circle_path(volunteer.circle)
+      else
+        redirect_to circles_path
+      end
+
+    else
+      session.clear
+      redirect_to root_url, warning: "Failed to sign in!"
+
+    end
   end
 
   def destroy
