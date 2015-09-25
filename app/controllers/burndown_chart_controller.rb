@@ -16,7 +16,7 @@ class BurndownChartController < ApplicationController
                  []
                else
                  startDate = completion_dates.min.to_date - 1
-                 endDate = completion_dates.max.to_date
+                 endDate = completion_dates.max.to_date + 1
                  (startDate .. endDate).to_a
                end
 
