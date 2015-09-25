@@ -37,6 +37,13 @@ main.form
           label Location
           = text_field_tag :location, @identity.try(:location), placeholder: 'Munich, Germany'
 
+      .field-row
+        = hidden_field_tag :circle_id, @identity.try(:circle_id)
+        #circle-map
+        javascript:
+          $(document).ready(new CirclesMap($("#location"), $("#circle-map")).render());
+
+
       .submit-row
         button.button.create-my-account Create My Account
 

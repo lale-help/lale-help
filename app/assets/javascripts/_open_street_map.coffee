@@ -1,82 +1,82 @@
-class CirclesMap
-  constructor: (@center, @circles) ->
-    console.log(this)
-
-  add_feature: (features, circle) ->
-    feature = new ol.Feature
-      geometry: new ol.geom.Point(@point(circle.location.longitude, circle.location.latitude))
-      circle: circle
-
-    features.push feature
-
-
-  render: (div) ->
-    features = []
-    for circle in @circles
-      @add_feature(features, circle)
-
-    vectorSource = new ol.source.Vector features: features
-    vectorLayer  = new ol.layer.Vector source: vectorSource
-    rasterLayer  = new ol.layer.Tile
-          source: new ol.source.OSM
-
-    map = new ol.Map
-      layers: [ rasterLayer, vectorLayer ]
-      target: div
-      view: new ol.View
-        center: @point(@center.longitude, @center.latitude)
-        zoom: 14
-
-    for circle in @circles
-      @add_marker(map, circle.location)
-
-    # element = document.getElementById('popup')
-    #
-    # popup = new ol.Overlay
-    #   element: element
-    #   positioning: 'bottom-center'
-    #   stopEvent: false
-    #
-    # map.addOverlay popup
-
-    map.on 'click', (evt) ->
-      feature = map.forEachFeatureAtPixel evt.pixel, (feature, layer) ->
-        feature
-
-      if feature
-        circle = feature.get('circle')
-        console.log circle
-        $("#circle_id").val(circle.id)
-
-
-    map.on 'pointermove', (e) ->
-      if e.dragging
-        return
-      pixel = map.getEventPixel(e.originalEvent)
-      hit = map.hasFeatureAtPixel(pixel)
-      document.getElementById(map.getTarget()).style.cursor = if hit then 'pointer' else ''
+window.CirclesMap = class CirclesMap
+  constructor: (@input, @target) ->
+    @input.on 'input', @render
 
 
 
+  render: () =>
+    if (@input.val() == "")
+      return
+    @target.addClass('map')
 
+    @fetch_data @input.val(), (data) =>
+      circles = data.circles
+      center = data.center
+      console.log(circles)
+      console.log center
 
+      map = @get_map()
+
+      # remove markers
+      if @overlays
+        for overlay in @overlays
+          map.removeOverlay(overlay)
+          @remove_marker(overlay)
+      @overlays = []
+
+      # add markers
+      for circle in circles
+        marker = @create_marker(circle)
+        @overlays.push marker
+        map.addOverlay(marker);
+
+      if circles.length > 0
+        @select_circle(data: circles[0])
+
+      # re-center
+      map.getView().setCenter(@point(center.longitude, center.latitude))
+      map.on 'click', (evt) ->
+        $(".circle-marker").removeClass('open')
+
+  get_map: =>
+    if(@map)
+      return @map
+    else
+      @map = new ol.Map
+        layers: [ new ol.layer.Tile(source: new ol.source.OSM) ]
+        target: @target[0]
+        view: new ol.View
+          zoom: 14
+
+  fetch_data: (query, handler) ->
+    $.ajax(
+      url: "/circles.json",
+      data: { location: query }
+    ).done(handler)
 
   point: (long, lat) ->
     ol.proj.transform([long, lat], "EPSG:4326", "EPSG:3857")
 
-  add_marker: (map, location) ->
-    element = document.createElement("div");
-    element.id = "marker-#{location.id}"
-    element.className = 'map-marker'
-    document.body.appendChild(element)
+  create_marker: (circle) =>
+    location = circle.location
+    template = HandlebarsTemplates['register/circle_marker'](circle)
+    element = $(template)
+    $(document.body).append(element)
+    $(element).on 'click', circle, @select_circle
 
-    marker = new ol.Overlay
+    new ol.Overlay
       position: @point(location.longitude, location.latitude),
       positioning: 'center-center',
       element: element,
       stopEvent: false
 
-    map.addOverlay(marker);
+  remove_marker: (overlay) ->
+    el = $(overlay.getElement())
+    el.off()
+    el.removeClass('open')
+
+  select_circle: (event) ->
+    $("input#circle_id").val(event.data.id)
+    $("#circle-marker-#{event.data.id}").addClass('open')
 
 
-window.CirclesMap = CirclesMap

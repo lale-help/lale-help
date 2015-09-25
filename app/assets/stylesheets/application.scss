@@ -6,16 +6,29 @@
 @import "layout/**/*";
 @import "views/**/*";
 
-.map-marker {
+.circle-marker {
   width: 20px;
   height: 20px;
   border: 1px solid #088;
   border-radius: 10px;
   background-color: #0FF;
   opacity: 0.5;
+
+  .description {
+    display: none;
+    text-align: center;
+    opacity: 1;
+    background: white;
+    width: 15em;
+    height: 5em;
+    margin-left: 2em;
+    margin-top: -2em;
+  }
+}
+.circle-marker.open {
+  .description { display: block; }
 }
 
-#map-container {
-  width: 500px;
-  height: 300px;
+.map {
+  height: 400px;
 }

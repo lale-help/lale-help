@@ -1,0 +1,4 @@
+div id="circle-marker-{{ id }}" class='circle-marker'
+  .description
+    h3= "{{ name }}"
+    = "{{volunteer_count}} volunteers x {{ open_task_count }} tasks open"
