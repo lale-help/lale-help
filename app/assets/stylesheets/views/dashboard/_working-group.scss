@@ -107,7 +107,7 @@
       padding-right : 2rem;
       @extend .badge;
       &:after {
-        content        : 'My Task';
+        content : 'My Task';
       }
     }
     .new-task & {
@@ -117,8 +117,11 @@
       }
     }
 
-    .working-task.completed &:before {
-      content : '(Completed)';
+    .working-task.completed & {
+      @extend .fi-circle-check;
+      &:before {
+        margin-right : 5px;
+      }
     }
   }
 
@@ -145,7 +148,7 @@
       color : $green;
     }
 
-    .task-expanded & {
+    .task-expanded:not(.completed) & {
       background-color : $offwhite;
     }
   }
