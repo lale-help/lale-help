@@ -21,35 +21,77 @@ main
       .working-title-container
         span.working-title Education
         span.task-count 3 tasks
-      ul.working-tasks
-        li
-          .task-name.my-task Take Riad to school orientation
-          .task-time Tomorrow, 9h
-          .task-status.warning Need one helper
-        li
-          .task-name Take Riad to school orientation
-          .task-time Tomorrow, 9h
-          .task-status.success Filled
-        li.completed
-          .task-name Take Riad to school orientation
-          .task-time Tomorrow, 9h
-          .task-status
-        li.toggle-show-completed Show More Completed Tasks
+      .working-tasks
+        .working-task.my-task.task-expanded
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status.warning Need one helper
+          .task-details-container
+            .task-discussion
+              .task-comment-container
+                .task-comment Riad is living in Refugee Camp A. We need two volunteers to take Riad to school orientation.
+                .task-author Moritz Stamm
+              .task-comment-container
+                .task-comment Riad is living in Refugee Camp A. We need two volunteers to take Riad to school orientation.
+                .task-author Moritz Stamm
+              .task-comment-reply Reply
+            .task-actions
+              .helpers-list
+                .helper Lenora Ree
+                .helper Lenora Ree
+              .complete-task Complete Task
+        .working-task
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status.success Filled
+        .working-task.completed
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status
+        .toggle-show-completed Show More Completed Tasks
+
+    article.working-group.working-group-open.find-jobs
+      .working-title-container
+        span.working-title Find Jobs
+        span.task-count 10 tasks
+      .working-tasks
+        .working-task.my-task
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status.warning Need one helper
+        .working-task
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status.success Filled
+        .working-task.completed
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status
+        .toggle-show-completed Show More Completed Tasks
 
     article.working-group.working-group-closed.find-jobs
       .working-title-container
         span.working-title Find Jobs
         span.task-count 10 tasks
-      ul.working-tasks
-        li
-          .task-name Take Riad to school orientation
-          .task-time Tomorrow, 9h
-          .task-status need one helper
-        li
-          .task-name Take Riad to school orientation
-          .task-time Tomorrow, 9h
-          .task-status need one helper
-        li
-          .task-name Take Riad to school orientation
-          .task-time Tomorrow, 9h
-          .task-status need one helper
+      .working-tasks
+        .working-task
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status need one helper
+        .working-task
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status need one helper
+        .working-task
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status need one helper
