@@ -31,7 +31,8 @@ RSpec.describe TasksController, type: :controller do
     {
       name: "Task b",
       description: "d1",
-      working_group_id: working_group.id
+      working_group_id: working_group.id,
+      due_date: 1.day.from_now.strftime("%d %B %Y")
     }
   }
 
