@@ -5,7 +5,7 @@ describe 'Specs' do
     expect(true).to eq(true)
   end
 
-  it 'can create associations for the initial schema' do
+  xit 'can create associations for the initial schema' do
     volunteer1 = log 'vol1', Volunteer.create!(first_name: 'volunteer1')
     volunteer2 = log 'vol2', Volunteer.create!(first_name: 'volunteer2')
 
