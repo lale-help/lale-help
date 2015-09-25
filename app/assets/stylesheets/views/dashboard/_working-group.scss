@@ -305,6 +305,11 @@
     }
   }
 }
+
+button.complete-task {
+  border: 0;
+  padding-bottom: .5rem;
+}
 .complete-task {
   &:not(.can-complete){
     @include button(medium, $light-grey, true);
