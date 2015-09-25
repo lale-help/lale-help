@@ -193,6 +193,14 @@ main.form {
     resize: none;
   }
 
+  select {
+    -webkit-appearance: menulist-button;
+    border: 1px solid #2C4C5E;
+    font-size: 1.4rem;
+    height: 37px;
+    width: 100%;
+  }
+
   .submit-row {
     margin-top: 40px;
     overflow: hidden;

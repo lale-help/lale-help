@@ -25,6 +25,8 @@ gem 'js-routes'
 gem 'neat'
 gem 'bourbon'
 
+# Data Viz
+gem 'd3_rails'
 
 # API
 gem 'jbuilder', '~> 2.0'

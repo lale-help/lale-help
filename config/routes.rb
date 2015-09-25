@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  resources :volunteers do
+    get 'burndown_chart', to: 'burndown_chart#index'
+  end
+
   resources :circles do
     resources :working_groups
   end
+
   get '/ping', to: 'website#ping'
   get '/stylesheet', to: 'website#stylesheet'
   get '/styles/signup', to: 'website#signup'
