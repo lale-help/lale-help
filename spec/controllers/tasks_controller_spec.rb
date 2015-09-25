@@ -86,7 +86,7 @@ RSpec.describe TasksController, type: :controller do
 
       it "redirects to the created task" do
         post :create, valid_url_args.merge({:task => valid_attributes}), valid_session
-        expect(response).to redirect_to([circle, Task])
+        expect(response).to redirect_to(circle)
       end
     end
 
@@ -122,7 +122,7 @@ RSpec.describe TasksController, type: :controller do
 
       it "redirects to the task" do
         put :update, valid_url_args.merge({:id => task.to_param, :task => valid_attributes}), valid_session
-        expect(response).to redirect_to([circle, Task])
+        expect(response).to redirect_to(circle)
       end
     end
 
@@ -148,7 +148,7 @@ RSpec.describe TasksController, type: :controller do
 
     it "redirects to the tasks list" do
       delete :destroy, valid_url_args.merge({:id => task.to_param}), valid_session
-      expect(response).to redirect_to([circle, Task])
+      expect(response).to redirect_to(circle)
     end
   end
 

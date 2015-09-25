@@ -86,7 +86,7 @@ RSpec.describe WorkingGroupsController, type: :controller do
 
       it "redirects to the created working_group" do
         post :create, valid_url_args.merge({:working_group => valid_attributes}), valid_session
-        expect(response).to redirect_to([circle, Task])
+        expect(response).to redirect_to(circle)
       end
     end
 
@@ -122,7 +122,7 @@ RSpec.describe WorkingGroupsController, type: :controller do
 
       it "redirects to the working_group" do
         put :update, valid_url_args.merge({:id => working_group.to_param, :working_group => valid_attributes}), valid_session
-        expect(response).to redirect_to([circle, Task])
+        expect(response).to redirect_to(circle)
       end
     end
 
@@ -148,7 +148,7 @@ RSpec.describe WorkingGroupsController, type: :controller do
 
     it "redirects to the working_groups list" do
       delete :destroy, valid_url_args.merge({:id => working_group.to_param}), valid_session
-      expect(response).to redirect_to(circle_working_groups_url(circle))
+      expect(response).to redirect_to(circle_url(circle))
     end
   end
 

@@ -29,7 +29,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to [@circle, Task], notice: 'Task was successfully created.' }
+        format.html { redirect_to @circle, notice: 'Task was successfully created.' }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to [@circle, Task], notice: 'Task was successfully updated.' }
+        format.html { redirect_to [@circle], notice: 'Task was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to [@circle, Task], notice: 'Task was successfully destroyed.' }
+      format.html { redirect_to [@circle], notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -62,9 +62,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:task_id])
     @task.volunteers << current_user
     if @task.save
-      redirect_to [@circle, Task], notice: "Thanks for volunteering for #{@task.name}!"
+      redirect_to [@circle], notice: "Thanks for volunteering for #{@task.name}!"
     else
-      redirect_to [@circle, Task], alert: 'Sorry, something went wrong'
+      redirect_to [@circle], alert: 'Sorry, something went wrong'
     end
   end
 
