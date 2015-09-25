@@ -30,7 +30,8 @@ class CirclesController < ApplicationController
   # POST /circles
   # POST /circles.json
   def create
-    circle_params.require(:name, :location_text)
+    circle_params.require(:name)
+    circle_params.require(:location_text)
     @circle = Circle.new(circle_params)
 
     respond_to do |format|

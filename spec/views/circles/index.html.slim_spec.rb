@@ -8,7 +8,7 @@ RSpec.describe "circles/index", type: :view do
     ])
   end
 
-  it "renders a list of circles" do
+  xit "renders a list of circles" do
     render
   end
 end

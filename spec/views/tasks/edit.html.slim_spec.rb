@@ -2,10 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "tasks/edit", type: :view do
   before(:each) do
-    @volunteer = Volunteer.create!()
-    @circle = Circle.create!(name: 'foo', location_text: "SF", admin: @volunteer)
-    @working_group = WorkingGroup.create(name: "test working group", circle: @circle)
-    @task = assign(:task, Task.create!(name: "test task", working_group: @working_group))
+    @task = FactoryGirl.create(:task)
+    @working_group = @task.working_group
+    @working_group_names_and_ids = [@working_group.name, @working_group.id]
+    @circle = @working_group.circle
   end
 
   it "renders the edit task form" do
