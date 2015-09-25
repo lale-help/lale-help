@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   layout "circle_page"
+  before_action :ensure_logged_in
   before_action :set_task, only: [:edit, :update, :destroy]
   before_action :set_circle
 
@@ -60,10 +61,14 @@ class TasksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_task
-      @task = Task.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def ensure_logged_in
+    @current_user = current_user || redirect_to(root_path)
+  end
+
+  def set_task
+    @task = Task.find(params[:id])
+  end
 
   def set_circle
     @circle = Circle.find(params[:circle_id])
