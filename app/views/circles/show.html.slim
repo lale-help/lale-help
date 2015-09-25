@@ -27,7 +27,7 @@ main
 
         .working-tasks
           - working_group.tasks.each do |task|
-            .working-task class=("my-task" if task.volunteers.include?(current_user)) onclick="var event = arguments[0] || window.event; $(this).toggleClass('task-expanded'); event.stopPropagation();"
+            .working-task class=(classes_for_task(task))
               .task-header-container
                 .task-name
                   = task.name
@@ -62,4 +62,12 @@ main
 
 
                     - unless task.volunteers.include?(current_user)
-                      = link_to "I can do this!", url_for([@circle, task, :volunteer]), method: "put", class: "helper can-help"
+                      = form_tag url_for([@circle, task, :volunteer]), method: 'put' do
+                        button.helper.can-help I can do this!
+
+
+                  - unless task.complete?
+                    = form_tag circle_task_url(@circle, task), method: 'put' do
+                      = hidden_field_tag "[task]complete", true
+                      button.complete-task.can-complete Complete Task
+
