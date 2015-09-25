@@ -1,25 +1,22 @@
 = form_for [@circle, @task] do |f|
-  - if @task.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@task.errors.count, "error")} prohibited this task from being saved:"
-      ul
-        - @task.errors.full_messages.each do |message|
-          li = message
+  - if @task && @task.errors.any?
+    .form-introduction.error
+      p Please correct the errors below.
 
   .field-row.single
-    .field.required
+    .field.required class=('error' if @task.errors[:nane].present?)
       = f.label :name, "Name of the Task"
       = f.text_field :name, placeholder: 'E.g. Take Riad to School Orientation'
   .field-row
-    .field.required
+    .field.required class=('error' if @task.errors[:working_group].present?)
       = f.label :working_group_id , "Working Group"
       = f.select :working_group_id
         = options_for_select(@working_group_names_and_ids)
-    .field
+    .field.required class=('error' if @task.errors[:due_date].present?)
       = f.label :due_date , "Select a Due Date"
-      = f.text_field :due_date, type: :date
+      = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
   .field-row
-    .field
+    .field.required class=('error' if @task.errors[:description].present?)
       = f.label :description, "Description of the Task"
       = f.text_area :description
   .submit-row
