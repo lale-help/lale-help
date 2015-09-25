@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   layout 'circle_page'
 
   def new
+    redirect_to current_user.circle if current_user.present?
   end
 
   def create

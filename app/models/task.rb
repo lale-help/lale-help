@@ -18,4 +18,11 @@ class Task < ActiveRecord::Base
   validates :description, presence: true
   validates :working_group, presence: true
 
+  def complete= val
+    self.completed_at = Time.now if val.to_s == "true"
+  end
+
+  def complete?
+    completed_at.present?
+  end
 end
