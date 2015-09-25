@@ -1,6 +1,7 @@
 %button-base {
   -webkit-font-smoothing : subpixel-antialiased;
   appearance             : none;
+  border-radius          : 3px;
   color                  : $white;
   cursor                 : pointer;
   display                : inline-block;
@@ -24,7 +25,6 @@
   @extend %button-base;
   background    : $orange;
   box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10), inset 0px -3px 0px 0px rgba(0, 0, 0, 0.10);
-  border-radius : 3px;
   font-weight   : 600;
   font-size     : 1.8rem;
   color         : $white;
@@ -33,6 +33,54 @@
   text-align    : center;
 }
 
+.button--medium {
+  @extend %button-base;
+  padding : 1.6rem 2.1rem;
+  background: #90B665;
+}
+
+@mixin button ($size : large, $color : $orange, $disabled : false) {
+  -webkit-font-smoothing : subpixel-antialiased;
+  appearance             : none;
+  background             : $color;
+  border-radius          : 3px;
+  color                  : $white;
+  cursor                 : pointer;
+  display                : inline-block;
+  flex-shrink            : 0;
+  font-size              : 1.6rem;
+  font-weight            : 400;
+  line-height            : 1;
+  margin                 : 0 1rem 0 0;
+  text-align             : center;
+  text-decoration        : none;
+  user-select            : none;
+  vertical-align         : middle;
+  white-space            : nowrap;
+  // transition             : opacity .5s;
+  &:focus {
+    outline : none;
+  }
+
+  @if $size == large {
+    box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10), inset 0px -3px 0px 0px rgba(0, 0, 0, 0.10);
+    font-weight   : 600;
+    font-size     : 1.8rem;
+    line-height   : 3;
+
+  } @else if $size == medium {
+    padding : 1rem 2rem;
+  }
+
+  @if $disabled {
+    background : none;
+    border     : 1px solid $color;
+    color      : $color;
+    cursor     : not-allowed;
+  }
+
+
+}
 %normal-hover {
   &:hover, &:active {
     color      : $white;  //Just in case it's a link
