@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150925021444) do
     t.string   "description"
     t.integer  "working_group_id", limit: 8, null: false
     t.datetime "completed_at"
+    t.date     "due_date"
   end
 
   create_table "volunteer_feedbacks", id: :bigserial, force: :cascade do |t|
