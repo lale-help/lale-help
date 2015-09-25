@@ -11,4 +11,8 @@ class Volunteer < ActiveRecord::Base
 
   belongs_to :location
   belongs_to :circle
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
