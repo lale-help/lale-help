@@ -1,6 +1,7 @@
 class CirclesController < ApplicationController
   layout 'circle_page'
 
+  before_action :ensure_logged_in
   before_action :set_circle, only: [:show, :edit, :update, :destroy]
 
   # GET /circles
@@ -76,6 +77,10 @@ class CirclesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_circle
       @circle = Circle.find(params[:id])
+    end
+
+    def ensure_logged_in
+      @current_user = current_user || redirect_to(root_path)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

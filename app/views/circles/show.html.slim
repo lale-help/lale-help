@@ -16,6 +16,7 @@ main
 
     - if current_user == @circle.admin
       = link_to 'Add a New Work Group', new_circle_working_group_path(@circle), class: 'add-new-task'
+    = link_to 'Task Burn Up Chart', volunteer_burndown_chart_path(@current_user)
 
 
   section
