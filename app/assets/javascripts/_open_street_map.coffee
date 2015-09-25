@@ -1,13 +1,15 @@
 window.CirclesMap = class CirclesMap
-  constructor: (@input, @target) ->
+  constructor: (@input, @target, @joinButton) ->
     @input.on 'input', @render
 
 
 
   render: () =>
     if (@input.val() == "")
+      @joinButton.addClass "hidden"
+      @target.addClass('hidden')
       return
-    @target.addClass('map')
+    @target.removeClass('hidden')
 
     @fetch_data @input.val(), (data) =>
       circles = data.circles
@@ -30,8 +32,12 @@ window.CirclesMap = class CirclesMap
         @overlays.push marker
         map.addOverlay(marker);
 
+      if circles.length == 0
+        $("input#circle_id").val("")
+        @joinButton.addClass "hidden"
+        @joinButton.val ""
       if circles.length > 0
-        @select_circle(data: circles[0])
+        @select_circle(circles[0])
 
       # re-center
       map.getView().setCenter(@point(center.longitude, center.latitude))
@@ -62,8 +68,9 @@ window.CirclesMap = class CirclesMap
     template = HandlebarsTemplates['register/circle_marker'](circle)
     element = $(template)
     $(document.body).append(element)
-    $(element).on 'click', circle, @select_circle
-
+    $(element).on('click', circle, (event) =>
+      @select_circle(event.data)
+    )
     new ol.Overlay
       position: @point(location.longitude, location.latitude),
       positioning: 'center-center',
@@ -75,8 +82,11 @@ window.CirclesMap = class CirclesMap
     el.off()
     el.removeClass('open')
 
-  select_circle: (event) ->
-    $("input#circle_id").val(event.data.id)
-    $("#circle-marker-#{event.data.id}").addClass('open')
+  select_circle: (circle) =>
+    $("input#circle_id").val(circle.id)
+    $("#circle-marker-#{circle.id}").addClass('open')
+    @joinButton.removeClass "hidden"
+    @joinButton.val "Start helping with #{circle.name}"
+
 
 

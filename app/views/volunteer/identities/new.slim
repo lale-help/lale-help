@@ -36,11 +36,13 @@ main.form
 
       .field-row
         = hidden_field_tag :circle_id, @identity.try(:circle_id)
-        #circle-map
+        #circle-map.map.hidden
         javascript:
-          $(document).ready(new CirclesMap($("#location"), $("#circle-map")).render());
+          $(document).ready(function(){
+            new CirclesMap($("#location"), $("#circle-map"), $("#join-circle")).render()
+          });
 
 
       .submit-row
-        button.button Create Account
-
+        = submit_tag 'Create A Circle', class: 'button.button.left',    id: 'create-circle'
+        = submit_tag '',                class: 'button.button.hidden',  id: 'join-circle'
