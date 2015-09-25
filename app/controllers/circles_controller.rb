@@ -6,7 +6,9 @@ class CirclesController < ApplicationController
   # GET /circles
   # GET /circles.json
   def index
-    @circles = Circle.all
+    @center = params[:location].present? ? Location.location_from(params[:location]) : current_user.location
+    locations = Location.near(@center).to_a
+    @circles = Circle.where(location: locations.uniq)
   end
 
   # GET /circles/1
@@ -75,10 +77,5 @@ class CirclesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def circle_params
       params[:circle].permit(:name, :location_text).merge(admin_id: current_user.id)
-    end
-
-    # FIXME: Plz kill after login works! Thnx!
-    def current_user
-      Volunteer.new(id: 1)
     end
 end

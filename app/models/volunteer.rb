@@ -8,4 +8,7 @@ class Volunteer < ActiveRecord::Base
   has_many :notifications, class_name: '::SystemEvent::Notification'
 
   has_many :identities
+
+  belongs_to :location
+  belongs_to :circle
 end

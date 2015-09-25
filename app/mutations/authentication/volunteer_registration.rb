@@ -4,7 +4,7 @@ class Authentication::VolunteerRegistration < Mutations::Command
   end
 
   def execute
-    location = Location.find_or_create_by!(name: identity.location)
-    identity.volunteer = Volunteer.create!(first_name: identity.first_name, last_name: identity.last_name)
+    location = Location.location_from(identity.location)
+    identity.volunteer = Volunteer.create!(first_name: identity.first_name, last_name: identity.last_name, location: location)
   end
 end
