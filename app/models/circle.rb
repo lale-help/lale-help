@@ -14,6 +14,6 @@ class Circle < ActiveRecord::Base
 
   private
   def determine_location
-    self.location = Location.location_from location_text
+    self.location = Location.location_from location_text if location_text.present?
   end
 end
