@@ -12,4 +12,4 @@ main
             li
               .task-name class=( "my-task" if task.volunteers.include?("TODO: CURRENT USER HERE")) = task.name
               .task-description = task.description
-              .button--large = link_to 'Edit', edit_circle_task_path(@circle, task)
+              = link_to 'Edit', edit_circle_task_path(@circle, task)
