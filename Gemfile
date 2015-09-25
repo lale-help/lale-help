@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.0'
 
 
 # Other
+gem 'geocoder'
 
 
 group :development, :test do

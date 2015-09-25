@@ -1,22 +1,22 @@
 main.form
   section
     h2 Start helping now
-    / - if @identity && @identity.errors.any?
-    /   .error_messages
-    /     h2 #{pluralize(@identity.errors.count, "error")} prohibited this account from being saved:
-    /     ul
-    /       - @identity.errors.full_messages.each do |msg|
-    /         li= msg
-
     = form_tag "/auth/identity/register" do
+      - if @identity && @identity.errors.any?
+        .error_messages
+          h2 #{pluralize(@identity.errors.count, "error")} prohibited this account from being saved:
+          ul
+            - @identity.errors.full_messages.each do |msg|
+              li= msg
+
       .field-row
         .field
           label First Name
-          = text_field_tag :first_name, @identity.try(:name), placeholder: 'E.g. Johannes'
+          input type='text' placeholder='E.g. Johannes' value='#{@identity.first_name}' name="first_name"
 
         .field
           label Last Name
-          = text_field_tag :last_name, @identity.try(:name)
+          input type='text' value='#{@identity.last_name}' name="last_name"
 
       .field-row
         .field
@@ -38,6 +38,5 @@ main.form
           = text_field_tag :location, @identity.try(:location), placeholder: 'Munich, Germany'
 
       .submit-row
-        a.link href='#' Sub-link goes here
-        a.button.create-my-account Create My Account
+        button.button.create-my-account Create My Account
 

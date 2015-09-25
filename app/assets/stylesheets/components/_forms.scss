@@ -206,7 +206,7 @@ main.form {
       text-decoration: none;
     }
 
-    button.button {
+    button.button, input[type='submit'] {
       @extend .button--large;
       float: right;
       font-family: $fontstack-primary;

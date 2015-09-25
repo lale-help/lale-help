@@ -1,0 +1,13 @@
+= form_for([@circle, @working_group]) do |f|
+  - if @working_group.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@working_group.errors.count, "error")} prohibited this working_group from being saved:"
+      ul
+        - @working_group.errors.full_messages.each do |message|
+          li = message
+
+  .field-row
+    .field
+      = f.label :name
+      = f.text_field :name
+  .actions.submit-row = f.submit

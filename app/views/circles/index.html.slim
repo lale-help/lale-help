@@ -1,0 +1,19 @@
+h1 Listing circles
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @circles.each do |circle|
+      tr
+        td = link_to 'Show', circle
+        td = link_to 'Edit', edit_circle_path(circle)
+        td = link_to 'Destroy', circle, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Circle', new_circle_path
