@@ -146,6 +146,12 @@ main.form {
     @include span-columns(10);
   }
 
+  .form-introduction {
+    margin: 35px 0 45px 0;
+
+    p { margin: 10px 0; }
+  }
+
   .field-row {
     @include outer-container;
 
@@ -168,6 +174,14 @@ main.form {
     margin-left: 12px;
     opacity: 0.4;
     text-transform: uppercase;
+  }
+
+  .field.error label {
+    color: red;
+    &:after {
+      color: red;
+      opacity: 1;
+    }
   }
 
   label {
