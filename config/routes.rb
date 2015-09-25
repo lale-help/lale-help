@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :circles do
     resources :working_groups
+    resources :tasks, only: [:index, :edit, :update, :new, :create, :destroy]
   end
 
   get '/ping', to: 'website#ping'
@@ -15,10 +16,6 @@ Rails.application.routes.draw do
     resources :identities
   end
 
-  resources :circles do
-    resources :tasks, only: [:index, :edit, :update, :new, :create, :destroy]
-  end
-  
   post "/auth/:provider/callback", to: "sessions#create"
   get "/auth/failure",            to: "sessions#failure"
   get "/logout",                  to: "sessions#destroy", :as => "logout"

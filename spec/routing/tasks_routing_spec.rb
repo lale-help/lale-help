@@ -4,35 +4,31 @@ RSpec.describe TasksController, type: :routing do
   describe "routing" do
 
     it "routes to #index" do
-      expect(:get => "/tasks").to route_to("tasks#index")
+      expect(:get => "/circles/1/tasks").to route_to("tasks#index", :circle_id => "1")
     end
 
     it "routes to #new" do
-      expect(:get => "/tasks/new").to route_to("tasks#new")
-    end
-
-    it "routes to #show" do
-      expect(:get => "/tasks/1").to route_to("tasks#show", :id => "1")
+      expect(:get => "/circles/1/tasks/new").to route_to("tasks#new", :circle_id => "1")
     end
 
     it "routes to #edit" do
-      expect(:get => "/tasks/1/edit").to route_to("tasks#edit", :id => "1")
+      expect(:get => "/circles/1/tasks/1/edit").to route_to("tasks#edit", :circle_id => "1", :id => "1")
     end
 
     it "routes to #create" do
-      expect(:post => "/tasks").to route_to("tasks#create")
+      expect(:post => "/circles/1/tasks").to route_to("tasks#create", :circle_id => "1")
     end
 
     it "routes to #update via PUT" do
-      expect(:put => "/tasks/1").to route_to("tasks#update", :id => "1")
+      expect(:put => "/circles/1/tasks/1").to route_to("tasks#update", :circle_id => "1", :id => "1")
     end
 
     it "routes to #update via PATCH" do
-      expect(:patch => "/tasks/1").to route_to("tasks#update", :id => "1")
+      expect(:patch => "/circles/1/tasks/1").to route_to("tasks#update", :circle_id => "1", :id => "1")
     end
 
     it "routes to #destroy" do
-      expect(:delete => "/tasks/1").to route_to("tasks#destroy", :id => "1")
+      expect(:delete => "/circles/1/tasks/1").to route_to("tasks#destroy", :circle_id => "1", :id => "1")
     end
 
   end
