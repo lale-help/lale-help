@@ -31,6 +31,7 @@ class TasksController < ApplicationController
       if @task.save
         format.html { redirect_to [@circle, Task], notice: 'Task was successfully created.' }
       else
+        @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
         format.html { render :new }
       end
     end
