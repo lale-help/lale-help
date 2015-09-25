@@ -1,16 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe "working_groups/edit", type: :view do
+  let(:circle){FactoryGirl.create(:circle)}
+  let(:working_group){FactoryGirl.create(:working_group, circle: circle)}
+
   before(:each) do
-    @volunteer = Volunteer.create!()
-    @circle = Circle.create!(name: 'foo', location_text: "SF", admin: @volunteer)
-    @working_group = assign(:working_group, WorkingGroup.create!(name: "test working group", circle: @circle))
+    assign(:circle, circle)
+    assign(:working_group, working_group)
   end
 
-  xit "renders the edit working_group form" do
+  it "renders the edit working_group form" do
     render
 
-    assert_select "form[action=?][method=?]", circle_working_group_path(@working_group), "post" do
+    assert_select "form[action=?][method=?]", circle_working_group_path(circle, working_group), "post" do
     end
   end
 end
