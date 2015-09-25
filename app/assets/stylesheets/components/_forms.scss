@@ -150,6 +150,10 @@ main.form {
     margin: 35px 0 45px 0;
 
     p { margin: 10px 0; }
+
+    &.error {
+      color: #d0021b;  
+    }
   }
 
   .field-row {

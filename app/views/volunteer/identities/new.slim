@@ -3,7 +3,7 @@ main.form
     h2 Start helping now
     = form_tag "/auth/identity/register" do
       - if @identity && @identity.errors.any?
-        .form-introduction
+        .form-introduction.error
           p Please correct the errors below.
 
       .field-row
