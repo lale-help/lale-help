@@ -13,4 +13,3 @@ main
               .task-name class=( "my-task" if task.volunteers.include?("TODO: CURRENT USER HERE")) = task.name
               .task-description = task.description
               .button--large = link_to 'Edit', edit_circle_task_path(@circle, task)
-              .button--large = link_to 'Destroy', [@circle, task], data: {:confirm => 'Are you sure?'}, :method => :delete

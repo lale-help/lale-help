@@ -6,17 +6,22 @@
         - @task.errors.full_messages.each do |message|
           li = message
 
-  div.field
-    = f.label :name, "Name of the Task"
-    br
-    = f.text_field :name
-  div.field
-    = f.label :morking_group_id , "Working Group"
-    br
-    = f.select :working_group_id
-      = options_for_select(@working_group_names_and_ids)
-  div.field
-    = f.label :description, "Description of the Task"
-    br
-    = f.text_area :description
-  .actions = f.submit
+  .field-row
+    .field.required
+      = f.label :name, "Name of the Task"
+      = f.text_field :name, placeholder: 'E.g. Take Riad to School Orientation'
+  .field-row
+    .field.required
+      = f.label :morking_group_id , "Working Group"
+      = f.select :working_group_id
+        = options_for_select(@working_group_names_and_ids)
+  .field-row
+    .field
+      = f.label :description, "Description of the Task"
+      = f.text_area :description
+  .submit-row
+    = link_to 'Cancel', circle_tasks_path(@circle)
+    button.button =f.submit
+  - if locals[:delete]
+    .delete
+      = link_to 'Delete', [@circle, @task], data: {:confirm => 'Are you sure you want to delete this task?'}, :method => :delete

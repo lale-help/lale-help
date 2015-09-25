@@ -1,7 +1,5 @@
-h1 Editing task
+main.form
+  section
+    h2 = "Editing #{@task.name}"
 
-== render 'form'
-
-= link_to 'Show', @task
-'|
-= link_to 'Back', circle_tasks_path(@circle)
+    == render 'form', locals: {delete: true}
