@@ -1,5 +1,5 @@
 .add-new-task {
-  @extend .button--large;
+  @include button(large, $orange);
   margin  : 0;
   display : block;
 }
