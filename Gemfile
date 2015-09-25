@@ -24,6 +24,7 @@ gem 'slim-rails'
 gem 'js-routes'
 gem 'neat'
 gem 'bourbon'
+gem 'handlebars_assets'
 
 
 # API
