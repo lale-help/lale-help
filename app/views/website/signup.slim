@@ -2,28 +2,46 @@ main.form
   section
     h2 Start helping now
     .field-row
-      .field
+      .field.required
         label First Name
         input type='text' placeholder='E.g. Johannes'
       .field
         label Last Name
-        input type='text'
-    .field-row
-      .field
+        input type='text' value='test' placeholder='E.g. Dippert'
+    .field-row.single
+      .field.required
         label Email Address
-        input type='text'
+        input type='text' placeholder='E.g. johannes@lale.help'
     .field-row
       .field
         label Password
-        input type='password'
+        input type='password' placeholder='Choose a password'
       .field
         label Password Confirmation
-        input type='password'
+        input type='password' placeholder='Enter your password again'
     .field-row
       .field
         label Location
-        input type='text'
+        input type='text' placeholder='E.g. 76131, Karlsruhe or Germany'
+    .field-row
+      .field
+        label Assign to a Working Group
+        select
+          option Administration
+          option Care
+          option Supplies
+    .field-row
+      .field
+        label Select a Start Date
+        input type='date'
+      .field
+        label Select a Due Date
+        input type='text' placeholder='Enter a due date' required='required'
+    .field-row
+      .field
+        label Description
+        textarea
     .submit-row
-      a.help-link href='#' Sub-link goes here
-      button.button.create-my-account Create My Account
+      a.link href='#' Cancel
+      button.button Create my account
 

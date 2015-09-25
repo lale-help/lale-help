@@ -2,8 +2,6 @@ class Circle < ActiveRecord::Base
   has_many :working_groups
   has_many :volunteers
 
-  has_many :discussions, through: :working_groups
-
   has_many :tasks, through: :working_groups
 
   belongs_to :location
@@ -11,8 +9,7 @@ class Circle < ActiveRecord::Base
 
   validates :name, presence: true
   attr_accessor :location_text
-  validates :location_text, presence: true
-  
+
   before_save :determine_location
 
   private
