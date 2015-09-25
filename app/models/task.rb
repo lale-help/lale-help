@@ -14,6 +14,7 @@ class Task < ActiveRecord::Base
   has_many :locations, through: :location_assignments
 
   validates :name, presence: true
+  validates :date, presence: true
   validates :description, presence: true
   validates :working_group, presence: true
 

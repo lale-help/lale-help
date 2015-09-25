@@ -8,5 +8,6 @@ describe Task do
   it { should belong_to(:working_group).class_name(WorkingGroup) }
   it { should validate_presence_of(:working_group) }
   it { should validate_presence_of(:name) }
+  it { should validate_presence_of(:date) }
   it { should validate_presence_of(:description) }
 end
