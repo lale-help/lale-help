@@ -38,6 +38,7 @@ class CirclesController < ApplicationController
 
     respond_to do |format|
       if @circle.save
+        current_user.update(circle: @circle)
         format.html { redirect_to @circle, notice: 'Circle was successfully created.' }
         format.json { render :show, status: :created, location: @circle }
       else

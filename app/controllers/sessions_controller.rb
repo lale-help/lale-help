@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
       volunteer = outcome.result
       session[:user_id] = volunteer.id
       if volunteer.circle.present?
-        redirect_to circle_path(volunteer.circle)
+        redirect_to [volunteer.circle, Task]
       else
-        redirect_to circles_path
+        redirect_to new_circle_path
       end
 
     else
