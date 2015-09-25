@@ -33,7 +33,7 @@ class WorkingGroupsController < ApplicationController
 
     respond_to do |format|
       if @working_group.save
-        format.html { redirect_to [@circle, @working_group], notice: 'Working group was successfully created.' }
+        format.html { redirect_to [@circle, Task], notice: 'Working group was successfully created.' }
         format.json { render :show, status: :created, location: @working_group }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class WorkingGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @working_group.update(working_group_params)
-        format.html { redirect_to [@circle, @working_group], notice: 'Working group was successfully updated.' }
+        format.html { redirect_to [@circle, Task], notice: 'Working group was successfully updated.' }
         format.json { render :show, status: :ok, location: @working_group }
       else
         format.html { render :edit }

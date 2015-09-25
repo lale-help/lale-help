@@ -89,7 +89,7 @@ RSpec.describe CirclesController, type: :controller do
 
       it "redirects to the created circle" do
         post :create, {:circle => valid_attributes}, valid_session
-        expect(response).to redirect_to(Circle.last)
+        expect(response).to redirect_to([Circle.last, Task])
       end
     end
 
@@ -125,7 +125,7 @@ RSpec.describe CirclesController, type: :controller do
 
       it "redirects to the circle" do
         put :update, {:id => circle.to_param, :circle => valid_attributes}, valid_session
-        expect(response).to redirect_to(circle)
+        expect(response).to redirect_to([circle, Task])
       end
     end
 

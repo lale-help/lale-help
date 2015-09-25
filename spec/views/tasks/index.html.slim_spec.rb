@@ -8,6 +8,7 @@ RSpec.describe "tasks/index", type: :view do
       FactoryGirl.create(:task, working_group: working_group),
       FactoryGirl.create(:task, working_group: working_group)
     ])
+    allow(view).to receive(:current_user).and_return(@circle.admin)
   end
 
   it "renders a list of tasks" do

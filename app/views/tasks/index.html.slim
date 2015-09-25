@@ -6,6 +6,8 @@ main
       .checkbox-slider
         input#show-my-tasks type='checkbox'
         label for='show-my-tasks' onclick="$('.task-name:not(.my-task)').parent().toggleClass('hidden');"
+    - if current_user == @circle.admin
+      = link_to 'Add a New Work Group', new_circle_working_group_path(@circle), class: 'add-new-task'
     .filter-working-groups
       h4 Filter Working Groups
       ul.working-groups
