@@ -9,9 +9,10 @@ class Circle < ActiveRecord::Base
   belongs_to :admin, class_name: 'Volunteer'
 
   validates :name, presence: true
-  validates :location_text, presence: true
+  validates :location, presence: true
 
   before_save :determine_location
+  after_initialize  :determine_location
 
   def volunteer_count
     volunteers.count
@@ -23,6 +24,8 @@ class Circle < ActiveRecord::Base
 
   private
   def determine_location
-    self.location = Location.location_from location_text if location_text.present?
+    if location_text.present?
+      self.location = Location.location_from location_text
+    end
   end
 end
