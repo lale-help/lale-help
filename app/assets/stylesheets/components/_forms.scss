@@ -150,6 +150,10 @@ main.form {
     @include outer-container;
 
     margin: 35px 0;
+
+    &.single .field {
+      @include span-columns(1 of 1);
+    }
   }
 
   .field {
