@@ -4,7 +4,7 @@
       p Please correct the errors below.
 
   .field-row.single
-    .field.required class=('error' if @task.errors[:nane].present?)
+    .field.required class=('error' if @task.errors[:name].present?)
       = f.label :name, "Name of the Task"
       = f.text_field :name, placeholder: 'E.g. Take Riad to School Orientation'
   .field-row

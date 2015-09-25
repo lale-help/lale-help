@@ -1,18 +1,18 @@
 = form_for @circle do |f|
   - if @circle.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@circle.errors.count, "error")} prohibited this circle from being saved:"
-      ul
-        - @circle.errors.full_messages.each do |message|
-          li = message
+    .form-introduction.error
+      p Please correct the errors below.
+    / #error_explanation
+    /   h2 = "#{pluralize(@circle.errors.count, "error")} prohibited this circle from being saved:"
+    /   ul
+    /     - @circle.errors.full_messages.each do |message|
+    /       li = message
   .field-row
-    .field
+    .field.required class=('error' if @circle.errors[:name].present?)
       = f.label :name
-      span.required Required
       = f.text_field :name
-    .field
+    .field.required class=('error' if @circle.errors[:location].present?)
       = f.label :location
-      span.required Required
       = f.text_field :location_text
 
   .actions.submit-row = f.submit

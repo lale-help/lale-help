@@ -23,12 +23,12 @@ class CirclesController < ApplicationController
   # GET /circles/new
   def new
     @circle = Circle.new
-    render layout: 'form_layout'
+    # render layout: 'form_layout'
   end
 
   # GET /circles/1/edit
   def edit
-    render layout: 'form_layout'
+    # render layout: 'form_layout'
   end
 
   # POST /circles
