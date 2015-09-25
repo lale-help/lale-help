@@ -1,19 +1,12 @@
-h1 Listing circles
+#map-container
+  #mapdiv
+  #popup
 
-table
-  thead
-    tr
-      th
-      th
-      th
+main.form
+  secion
+    input id='circle_id' name='circle_id' value='#{@circles.first.id}'
 
-  tbody
-    - @circles.each do |circle|
-      tr
-        td = link_to 'Show', circle
-        td = link_to 'Edit', edit_circle_path(circle)
-        td = link_to 'Destroy', circle, data: {:confirm => 'Are you sure?'}, :method => :delete
+- if @circles.present?
+  javascript:
+    (new CirclesMap(#{@center.to_json.html_safe}, #{@circles.to_json(include: :location).html_safe})).render("mapdiv")
 
-br
-
-= link_to 'New Circle', new_circle_path

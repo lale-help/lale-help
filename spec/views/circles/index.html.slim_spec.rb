@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "circles/index", type: :view do
   before(:each) do
     assign(:circles, [
-      Circle.create!(),
-      Circle.create!()
+      FactoryGirl.create(:circle),
+      FactoryGirl.create(:circle)
     ])
   end
 

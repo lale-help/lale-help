@@ -2,9 +2,10 @@ require 'rails_helper'
 
 RSpec.describe "working_groups/index", type: :view do
   before(:each) do
+    @circle = FactoryGirl.create(:circle)
     assign(:working_groups, [
-      WorkingGroup.create!(),
-      WorkingGroup.create!()
+      FactoryGirl.create(:working_group, circle: @circle),
+      FactoryGirl.create(:working_group, circle: @circle)
     ])
   end
 

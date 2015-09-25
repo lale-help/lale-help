@@ -6,7 +6,13 @@ class CirclesController < ApplicationController
   # GET /circles
   # GET /circles.json
   def index
-    @circles = Circle.all
+    @center = params[:location].present? ? Location.location_from(params[:location]) : current_user.location
+    locations = Location.near(@center).to_a
+    @circles = Circle.where(location: locations.uniq)
+    respond_to do |format|
+      format.html
+      format.json { render layout: false }
+    end
   end
 
   # GET /circles/1
@@ -32,7 +38,8 @@ class CirclesController < ApplicationController
 
     respond_to do |format|
       if @circle.save
-        format.html { redirect_to @circle, notice: 'Circle was successfully created.' }
+        current_user.update(circle: @circle)
+        format.html { redirect_to [@circle, Task], notice: 'Circle was successfully created.' }
         format.json { render :show, status: :created, location: @circle }
       else
         format.html { render :new }
@@ -46,7 +53,7 @@ class CirclesController < ApplicationController
   def update
     respond_to do |format|
       if @circle.update(circle_params)
-        format.html { redirect_to @circle, notice: 'Circle was successfully updated.' }
+        format.html { redirect_to [@circle, Task], notice: 'Circle was successfully updated.' }
         format.json { render :show, status: :ok, location: @circle }
       else
         format.html { render :edit }
@@ -74,10 +81,5 @@ class CirclesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def circle_params
       params[:circle].permit(:name, :location_text).merge(admin_id: current_user.id)
-    end
-
-    # FIXME: Plz kill after login works! Thnx!
-    def current_user
-      Volunteer.new(id: 1)
     end
 end

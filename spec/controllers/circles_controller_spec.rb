@@ -20,25 +20,33 @@ require 'rails_helper'
 
 RSpec.describe CirclesController, type: :controller do
 
+  let(:circle){Circle.create!(valid_attributes.merge(admin: admin)) }
+  let(:location){FactoryGirl.create(:location)}
+  let(:admin){FactoryGirl.create(:admin)}
+  before(:each){
+    allow(Location).to receive(:location_from).and_return(location)
+    allow(Location).to receive(:near).and_return([location])
+    circle
+  }
   # This should return the minimal set of attributes required to create a valid
   # Circle. As you add validations to Circle, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { name: "Circle", location_text: location.name }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { name: nil, location_text: location.name }
+
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # CirclesController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) {{ user_id: admin.id }}
 
   describe "GET #index" do
     it "assigns all circles as @circles" do
-      circle = Circle.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:circles)).to eq([circle])
     end
@@ -46,7 +54,6 @@ RSpec.describe CirclesController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested circle as @circle" do
-      circle = Circle.create! valid_attributes
       get :show, {:id => circle.to_param}, valid_session
       expect(assigns(:circle)).to eq(circle)
     end
@@ -61,7 +68,6 @@ RSpec.describe CirclesController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested circle as @circle" do
-      circle = Circle.create! valid_attributes
       get :edit, {:id => circle.to_param}, valid_session
       expect(assigns(:circle)).to eq(circle)
     end
@@ -83,7 +89,7 @@ RSpec.describe CirclesController, type: :controller do
 
       it "redirects to the created circle" do
         post :create, {:circle => valid_attributes}, valid_session
-        expect(response).to redirect_to(Circle.last)
+        expect(response).to redirect_to([Circle.last, Task])
       end
     end
 
@@ -103,38 +109,33 @@ RSpec.describe CirclesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {name: "Fooo"}
       }
 
       it "updates the requested circle" do
-        circle = Circle.create! valid_attributes
         put :update, {:id => circle.to_param, :circle => new_attributes}, valid_session
         circle.reload
-        skip("Add assertions for updated state")
+        expect(circle.name).to eq("Fooo")
       end
 
       it "assigns the requested circle as @circle" do
-        circle = Circle.create! valid_attributes
         put :update, {:id => circle.to_param, :circle => valid_attributes}, valid_session
         expect(assigns(:circle)).to eq(circle)
       end
 
       it "redirects to the circle" do
-        circle = Circle.create! valid_attributes
         put :update, {:id => circle.to_param, :circle => valid_attributes}, valid_session
-        expect(response).to redirect_to(circle)
+        expect(response).to redirect_to([circle, Task])
       end
     end
 
     context "with invalid params" do
       it "assigns the circle as @circle" do
-        circle = Circle.create! valid_attributes
         put :update, {:id => circle.to_param, :circle => invalid_attributes}, valid_session
         expect(assigns(:circle)).to eq(circle)
       end
 
       it "re-renders the 'edit' template" do
-        circle = Circle.create! valid_attributes
         put :update, {:id => circle.to_param, :circle => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
@@ -143,14 +144,12 @@ RSpec.describe CirclesController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested circle" do
-      circle = Circle.create! valid_attributes
       expect {
         delete :destroy, {:id => circle.to_param}, valid_session
       }.to change(Circle, :count).by(-1)
     end
 
     it "redirects to the circles list" do
-      circle = Circle.create! valid_attributes
       delete :destroy, {:id => circle.to_param}, valid_session
       expect(response).to redirect_to(circles_url)
     end

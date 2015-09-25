@@ -6,12 +6,16 @@ class Task < ActiveRecord::Base
   has_many :organizers, through: :organizer_assignments, source: :volunteer
 
   belongs_to :working_group
-  belongs_to :discussion
 
   has_many :skill_assignments
   has_many :skills, through: :skill_assignments
 
   has_many :location_assignments
   has_many :locations, through: :location_assignments
+
+  validates :name, presence: true
+  validates :date, presence: true
+  validates :description, presence: true
+  validates :working_group, presence: true
 
 end

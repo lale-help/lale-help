@@ -1,6 +1,8 @@
 main.form
   section
     h2 Start helping now
+    .form-introduction
+      p Introductory message goes here. For example: "Please correct the errors below."
     .field-row
       .field.required
         label First Name
@@ -20,7 +22,7 @@ main.form
         label Password Confirmation
         input type='password' placeholder='Enter your password again'
     .field-row
-      .field
+      .field.required.error
         label Location
         input type='text' placeholder='E.g. 76131, Karlsruhe or Germany'
     .field-row
