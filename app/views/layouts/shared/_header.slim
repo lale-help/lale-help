@@ -1,0 +1,12 @@
+header
+  .header-left-group
+    .logo Lale
+    - if current_circle.present?
+      .circle-city #{current_circle.name}
+  .header-right-group
+    - if current_user.present?
+      .user Signed in as #{current_user.first_name}
+      a.action-link href="#{logout_path}" Sign Out
+    - else
+      p Don't have an account?
+      a.action-link href="#{register_path}" Sign up

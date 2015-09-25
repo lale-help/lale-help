@@ -1,0 +1,79 @@
+$default-font-size   : 1.6rem;
+$default-line-height : 1.5;
+
+//-- Sizes ---------------------------------------------------------------------
+html {
+  -webkit-font-smoothing : antialiased;
+  font-size              : 62.5%;
+  font-weight            : normal;
+  font-family            : $fontstack-primary;
+  color                  : $black;
+}
+
+body {
+  font-size   : $default-font-size;
+  line-height : $default-line-height;
+}
+
+h4 {
+  font-size      : 1.3rem;
+  font-weight    : 600;
+  text-transform : uppercase;
+}
+.small {
+  color     : $grey;
+  font-size : $default-font-size * .8;
+}
+
+p, ul, ol, pre, table, blockquote {
+  margin-top: 1.6875rem;
+  margin-bottom: 1.6875rem;
+}
+
+hr {
+  border: 1px $border-color solid;
+  margin: -1px 0;
+}
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+b, strong, em, small, code {
+  line-height: 1;
+}
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+sub {
+  top: 0.4em;
+}
+
+
+/*doc
+---
+title: Headlines
+name: Headlines
+category: Typography
+---
+Let h1-6 define structure, not style, by adding modifiers.
+Use only these for the sake of consistency.
+
+```html_example
+<div class="headline--one">headline--one</div>
+<div class="headline--two">headline--two</div>
+<h1 class="headline">Headline</h1>
+<h3 class="header">Header</h3>
+<h4 class="subheader">Subheader</h4>
+
+<hr/>
+<div class="headline--one">Special titling</div>
+<div class="headline--two">Page title</div>
+<div class="headline">Section (titles)</div>
+<div class="header">Subsection</div>
+<div class="subheader">Sub subsection</div>
+<p class="font--normal">Bacon ipsum dolor amet capicola ham hock exercitation, consequat tail shank commodo elit mollit in cow non in. Leberkas in flank, dolore in dolor lorem jerky. Excepteur exercitation ex filet mignon fatback, irure pork loin jowl anim eiusmod biltong. Ad sint tongue, consectetur ipsum adipisicing enim est veniam landjaeger dolore bacon.</p>
+<div class="font--small">Don't forget to read the fine print! <span>Spans get italics.</span></div>
+```
+*/

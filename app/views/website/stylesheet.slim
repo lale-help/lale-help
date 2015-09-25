@@ -1,0 +1,55 @@
+main
+  aside
+    a.add-new-task Add a new Task
+    .show-tasks
+      span Show my tasks only
+      .checkbox-slider
+        input#show-my-tasks type='checkbox'
+        label for='show-my-tasks'
+    .filter-working-groups
+      h4 Filter Working Groups
+      ul.working-groups
+        li.unselected.education Education
+        li.administrative Administrative Work
+        li.find-jobs Find Jobs
+        li.food-and-goods Food And Goods
+        li.transportation Transportation
+        li.translators Translators
+
+  section
+    article.working-group.working-group-open.education
+      .working-title-container
+        span.working-title Education
+        span.task-count 3 tasks
+      ul.working-tasks
+        li
+          .task-name.my-task Take Riad to school orientation
+          .task-time Tomorrow, 9h
+          .task-status.warning Need one helper
+        li
+          .task-name Take Riad to school orientation
+          .task-time Tomorrow, 9h
+          .task-status.success Filled
+        li.completed
+          .task-name Take Riad to school orientation
+          .task-time Tomorrow, 9h
+          .task-status
+        li.toggle-show-completed Show More Completed Tasks
+
+    article.working-group.working-group-closed.find-jobs
+      .working-title-container
+        span.working-title Find Jobs
+        span.task-count 10 tasks
+      ul.working-tasks
+        li
+          .task-name Take Riad to school orientation
+          .task-time Tomorrow, 9h
+          .task-status need one helper
+        li
+          .task-name Take Riad to school orientation
+          .task-time Tomorrow, 9h
+          .task-status need one helper
+        li
+          .task-name Take Riad to school orientation
+          .task-time Tomorrow, 9h
+          .task-status need one helper

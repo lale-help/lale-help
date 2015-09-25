@@ -127,6 +127,14 @@ ActiveRecord::Schema.define(version: 20150924212029) do
     t.text     "comment"
   end
 
+  create_table "volunteer_identities", id: :bigserial, force: :cascade do |t|
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "volunteer_id",    limit: 8, null: false
+    t.string   "email"
+    t.string   "password_digest"
+  end
+
   create_table "volunteers", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

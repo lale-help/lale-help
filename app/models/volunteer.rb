@@ -11,4 +11,6 @@ class Volunteer < ActiveRecord::Base
 
   has_many :triggered_system_events, class_name: '::SystemEvent'
   has_many :notifications, class_name: '::SystemEvent::Notification'
+
+  has_many :identities
 end

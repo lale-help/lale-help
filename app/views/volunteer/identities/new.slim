@@ -1,0 +1,42 @@
+main.form
+  section
+    h2 Start helping now
+    = form_tag "/auth/identity/register" do
+      - if @identity && @identity.errors.any?
+        .error_messages
+          h2 #{pluralize(@identity.errors.count, "error")} prohibited this account from being saved:
+          ul
+            - @identity.errors.full_messages.each do |msg|
+              li= msg
+
+      .field-row
+        .field
+          label First Name
+          input type='text' placeholder='E.g. Johannes' value='#{@identity.first_name}' name="first_name"
+
+        .field
+          label Last Name
+          input type='text' value='#{@identity.last_name}' name="last_name"
+
+      .field-row
+        .field
+          label Email Address
+          = text_field_tag :email, @identity.try(:email), placeholder: 'E.g. johannes@example.com'
+
+      .field-row
+        .field
+          label Password
+          = password_field_tag :password
+
+        .field
+          label Password Confirmation
+          = password_field_tag :password_confirmation
+
+      .field-row
+        .field
+          label Location
+          = text_field_tag :location, @identity.try(:location), placeholder: 'Munich, Germany'
+
+      .submit-row
+        button.button.create-my-account Create My Account
+
