@@ -258,12 +258,14 @@
 
       }
     }
+
     &.can-help {
       @extend .fi-plus;
       background   : $blue-500;
       color        : $white;
       cursor       : pointer;
       padding-left : 4rem;
+      text-decoration: none;
       &:before {
         position : absolute;
         left     : .7rem;

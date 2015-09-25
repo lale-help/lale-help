@@ -6,13 +6,16 @@ main
       .checkbox-slider
         input#show-my-tasks type='checkbox'
         label for='show-my-tasks' onclick="$('.task-name:not(.my-task)').parent().toggleClass('hidden');"
-    - if current_user == @circle.admin
-      = link_to 'Add a New Work Group', new_circle_working_group_path(@circle), class: 'add-new-task'
     .filter-working-groups
       h4 Filter Working Groups
       ul.working-groups
         - @circle.working_groups.each do |working_group|
-          li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')" = working_group.name
+          // TODO: get working group icons going
+          li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')"
+            = working_group.name
+
+    - if current_user == @circle.admin
+      = link_to 'Add a New Work Group', new_circle_working_group_path(@circle), class: 'add-new-task'
 
 
   section
@@ -21,25 +24,42 @@ main
         .working-title-container
           span.working-title = working_group.name
           span.task-count = "#{working_group.tasks.count} tasks"
-        ul.working-tasks
+
+        .working-tasks
           - working_group.tasks.each do |task|
-            li.working-task.task-expanded
+            .working-task.task-expanded class=("my-task" if task.volunteers.include?(current_user))
               .task-header-container
-                .task-name class=( "my-task" if task.volunteers.include?(@current_user)) = task.name
+                .task-name
+                  = task.name
+                  = "( #{link_to 'edit', edit_circle_task_path(@circle, task)} )".html_safe
+
                 .task-time= humanize_date task.due_date
                 - if task.volunteers.empty?
                   .task-status.warning Need one helper
                 - else
                   .task-status.success Filled
-              .task-description = task.description
               .task-details-container
+                .task-discussion
+                  .task-comment-container
+                    .task-comment = task.description
+                    .task-author
+
+                  / TODO: add commenting
+                  / .task-comment-container
+                  /   .task-comment Riad is living in Refugee Camp A. We need two volunteers to take Riad to school orientation.
+                  /   .task-author Moritz Stamm
+                  /
+                  / .task-comment-container
+                  /   .task-comment-form
+                  /     input type='text' placeholder='Ask a question or comment on this task...'
+                  /     .task-comment-post Post
+
+
                 .task-actions
-                ul.helpers-list
-                  - task.volunteers.each do |volunteer|
-                    li= volunteer.name
-                  - if task.volunteers.include?(current_user)
-                    'You are on this task
-                  - else
-                    = form_for([@circle, task], url: url_for([@circle, task, :volunteer])) do |f|
-                      = f.submit 'I can do this!'
-              = link_to 'Edit', edit_circle_task_path(@circle, task)
+                  .helpers-list
+                    - task.volunteers.each do |volunteer|
+                      .helper= volunteer.name
+
+
+                    - unless task.volunteers.include?(current_user)
+                      = link_to "I can do this!", url_for([@circle, task, :volunteer]), method: "put", class: "helper can-help"
