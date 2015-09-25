@@ -1,7 +1,7 @@
 class CirclesController < ApplicationController
   layout 'circle_page'
 
-  before_action :ensure_logged_in
+  before_action :ensure_logged_in, except: :index
   before_action :set_circle, only: [:show, :edit, :update, :destroy]
 
   # GET /circles
