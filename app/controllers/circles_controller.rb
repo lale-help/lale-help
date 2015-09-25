@@ -68,7 +68,7 @@ class CirclesController < ApplicationController
   def destroy
     @circle.destroy
     respond_to do |format|
-      format.html { redirect_to circles_url, notice: 'Circle was successfully destroyed.' }
+      format.html { redirect_to Circle, notice: 'Circle was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

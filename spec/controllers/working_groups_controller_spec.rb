@@ -148,7 +148,7 @@ RSpec.describe WorkingGroupsController, type: :controller do
 
     it "redirects to the working_groups list" do
       delete :destroy, valid_url_args.merge({:id => working_group.to_param}), valid_session
-      expect(response).to redirect_to(circle_url(circle))
+      expect(response).to redirect_to(circle)
     end
   end
 

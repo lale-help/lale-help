@@ -67,7 +67,7 @@ main
 
 
                   - unless task.complete?
-                    = form_tag circle_task_url(@circle, task), method: 'put' do
+                    = form_tag [@circle, task], method: 'put' do
                       = hidden_field_tag "[task]complete", true
                       button.complete-task.can-complete Complete Task
 
