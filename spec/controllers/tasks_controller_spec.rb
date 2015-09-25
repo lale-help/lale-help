@@ -152,4 +152,12 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
+  describe "PUT #volunteer" do
+    it 'volunteers the current user for the task' do
+      put :volunteer, valid_url_args.merge({:task_id => task.to_param}), valid_session
+      task.reload
+      expect(task.volunteers).to include(volunteer)
+    end
+  end
+
 end

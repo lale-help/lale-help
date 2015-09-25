@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   resources :circles do
     resources :working_groups
-    resources :tasks, only: [:index, :edit, :update, :new, :create, :destroy]
+    resources :tasks, only: [:index, :edit, :update, :new, :create, :destroy] do
+      put :volunteer
+      patch :volunteer
+    end
   end
 
   get '/ping', to: 'website#ping'

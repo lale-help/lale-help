@@ -26,4 +26,11 @@ main
             li
               .task-name class=( "my-task" if task.volunteers.include?(@current_user)) = task.name
               .task-description = task.description
+              .task-due-date= humanize_date task.due_date
+              .volunteers
+                - if task.volunteers.include?(current_user)
+                  'You are on this task
+                - else
+                  = form_for([@circle, task], url: url_for([@circle, task, :volunteer])) do |f|
+                    = f.submit 'I can do this!'
               = link_to 'Edit', edit_circle_task_path(@circle, task)

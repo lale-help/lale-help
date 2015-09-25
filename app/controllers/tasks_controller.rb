@@ -58,6 +58,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def volunteer
+    @task = Task.find(params[:task_id])
+    @task.volunteers << current_user
+    if @task.save
+      redirect_to [@circle, Task], notice: "Thanks for volunteering for #{@task.name}!"
+    else
+      redirect_to [@circle, Task], alert: 'Sorry, something went wrong'
+    end
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def ensure_logged_in
