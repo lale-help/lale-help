@@ -150,9 +150,108 @@
 }
 
 .task-details-container {
+  display        : flex;
+  padding-bottom : 2rem;
 
+  & > div {
+    flex : 1 1 50%;
+    &:first-child {
+      margin-right : 3rem;
+    }
+  }
+}
+.task-comment-container {
+  @include clearfix;
+}
+.task-comment {
+  padding : 2rem;
+  background-color : $green-100;
+  border-radius: 1rem;
+  .is-author & {
+    background-color : $white;
+    border : 1px solid $green-100;
+  }
+}
+.task-author {
+  padding       : 1rem 1rem 1rem 2rem;
+  margin-bottom : 1rem;
+  &:after {
+    content : '';
+    @include triangle(1.2rem, $green-100, up-left);
+  }
+  .is-author & {
+    display    : inline-block;
+    float      : right;
+    padding    : 1rem 0;
+    position   : relative;
+    text-align : right;
+    &:before,
+    &:after {
+      content  : '';
+      position : absolute;
+      left     : 0;
+      top      : 0;
+    }
+    &:before {
+      transform : translateX(-2rem);
+      @include triangle(1.2rem, $green-100, up-right);
+    }
+    &:after {
+      @include triangle(1rem, $white, up-right);
+      border-right : none;
+      transform    : translateX(-1.95rem) translateY(-1px);
+    }
+  }
+}
+.task-comment-reply {
+  @include button(medium, $green-500);
 }
 
+.helpers-list {
+  display       : flex;
+  background    : $offwhite;
+  border-radius : 1rem 0 0 1rem;
+  padding       : 1rem;
+  margin-bottom : 2rem;
+  .helper {
+    background    : $white;
+    border-radius : 3px;
+    margin-right  : 1rem;
+    padding       : .3rem 1rem;
+
+    &.can-delete {
+      position      : relative;
+      padding-right : 4rem;
+      @extend .fi-plus;
+      &:before {
+        position  : absolute;
+        transform : rotateZ(45deg);
+        right     : .7rem;
+        top       : .7rem;
+      }
+      &:after {
+        border-left : 1px solid $offwhite;
+        cursor      : pointer;
+        content     : '';
+        height      : 3rem;
+        line-height : 3rem;
+        position    : absolute;
+        right       : 0;
+        text-align  : center;
+        top         : 0;
+        width       : 3rem;
+
+      }
+    }
+  }
+}
+.complete-task {
+  @include button(medium, $light-grey, true);
+
+  &.can-complete {
+    @include button(medium, $blue-500);
+  }
+}
 .working-group-arrow-base {
   position : relative;
   &:before {
