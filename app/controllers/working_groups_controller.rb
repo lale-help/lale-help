@@ -61,7 +61,7 @@ class WorkingGroupsController < ApplicationController
   def destroy
     @working_group.destroy
     respond_to do |format|
-      format.html { redirect_to working_groups_url, notice: 'Working group was successfully destroyed.' }
+      format.html { redirect_to circle_working_groups_url(@circle), notice: 'Working group was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
