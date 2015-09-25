@@ -72,6 +72,9 @@
     &.completed {
       color : rgba($black, .5);
     }
+    &.new-task {
+      background-color : $amber-100;
+    }
   }
 }
 
@@ -100,21 +103,21 @@
     flex        : 2 1 35rem;
     font-weight : 500;
 
-    .my-task &:after{
-      content        : 'My Task';
-      color          : $white;
-      background     : $orange;
-      border-radius  : 2.4rem;
-      font-size      : 1rem;
-      font-weight    : bold;
-      margin-left    : .5rem;
-      padding        : .5rem 1rem;
-      position       : relative;
-      top            : -2px;
-      text-transform : uppercase;
+    .my-task & {
+      padding-right : 2rem;
+      @extend .badge;
+      &:after {
+        content        : 'My Task';
+      }
+    }
+    .new-task & {
+      @extend .badge;
+      &:after {
+        content : 'New';
+      }
     }
 
-    .working-task.completed &:before{
+    .working-task.completed &:before {
       content : '(Completed)';
     }
   }
@@ -164,12 +167,12 @@
   @include clearfix;
 }
 .task-comment {
-  padding : 2rem;
+  padding          : 2rem;
   background-color : $green-100;
-  border-radius: 1rem;
+  border-radius    : 1rem;
   .is-author & {
     background-color : $white;
-    border : 1px solid $green-100;
+    border           : 1px solid $green-100;
   }
 }
 .task-author {
@@ -206,21 +209,33 @@
 .task-comment-reply {
   @include button(medium, $green-500);
 }
+.task-comment-form {
+  input {
+    width   : 100%;
+    padding : 2rem;
+  }
+}
+.task-comment-post {
+  @include button(medium, $green-500);
+  margin : 1rem 0 0 2rem;
+}
+
 
 .helpers-list {
   display       : flex;
   background    : $offwhite;
   border-radius : 1rem 0 0 1rem;
-  padding       : 1rem;
+  padding       : 1rem 1rem 0;
   margin-bottom : 2rem;
+  flex-wrap     : wrap;
   .helper {
     background    : $white;
     border-radius : 3px;
-    margin-right  : 1rem;
+    margin        : 0 1rem 1rem 0;
     padding       : .3rem 1rem;
+    position      : relative;
 
     &.can-delete {
-      position      : relative;
       padding-right : 4rem;
       @extend .fi-plus;
       &:before {
@@ -243,14 +258,52 @@
 
       }
     }
+    &.can-help {
+      @extend .fi-plus;
+      background   : $blue-500;
+      color        : $white;
+      cursor       : pointer;
+      padding-left : 4rem;
+      &:before {
+        position : absolute;
+        left     : .7rem;
+        top      : .7rem;
+      }
+      &:after {
+        border-left : 1px solid $white;
+        cursor      : pointer;
+        content     : '';
+        height      : 3rem;
+        line-height : 3rem;
+        position    : absolute;
+        left        : 3rem;
+        text-align  : center;
+        top         : 0;
+        width       : 3rem;
+      }
+    }
+  }
+
+  .completed & {
+    @include clearfix;
+    border-radius : 1rem;
+    background    : $green-100;
+    display       : inline-block;
+    .helper {
+      float : left;
+    }
   }
 }
 .complete-task {
-  @include button(medium, $light-grey, true);
-
+  &:not(.can-complete){
+    @include button(medium, $light-grey, true);
+  }
   &.can-complete {
     @include button(medium, $blue-500);
   }
+}
+.task-completed {
+  @include button(medium, $green-100);
 }
 .working-group-arrow-base {
   position : relative;

@@ -35,22 +35,40 @@ main
               .task-comment-container.is-author
                 .task-comment Riad is living in Refugee Camp A. We need two volunteers to take Riad to school orientation.
                 .task-author Moritz Stamm
+              .task-comment-container
+                .task-comment-form
+                  input type='text' placeholder='Ask a question or comment on this task...'
+                  .task-comment-post Post
+            .task-actions
+              .helpers-list
+                .helper Lenora Ree
+                .helper.can-delete Lenora Ree
+                .helper.can-help I can do this
+              .complete-task.can-complete Complete Task
+        .working-task.new-task
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status.success Filled
+        .working-task.my-task.completed
+          .task-header-container
+            .task-name Take Riad to school orientation
+            .task-time Tomorrow, 9h
+            .task-status
+          .task-details-container
+            .task-discussion
+              .task-comment-container
+                .task-comment Riad is living in Refugee Camp A. We need two volunteers to take Riad to school orientation.
+                .task-author Moritz Stamm
+              .task-comment-container.is-author
+                .task-comment Riad is living in Refugee Camp A. We need two volunteers to take Riad to school orientation.
+                .task-author Moritz Stamm
               .task-comment-reply Reply
             .task-actions
               .helpers-list
                 .helper Lenora Ree
                 .helper.can-delete Lenora Ree
-              .complete-task Complete Task
-        .working-task
-          .task-header-container
-            .task-name Take Riad to school orientation
-            .task-time Tomorrow, 9h
-            .task-status.success Filled
-        .working-task.completed
-          .task-header-container
-            .task-name Take Riad to school orientation
-            .task-time Tomorrow, 9h
-            .task-status
+              .task-completed Completed
         .toggle-show-completed Show More Completed Tasks
 
     article.working-group.working-group-open.find-jobs

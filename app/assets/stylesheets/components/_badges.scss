@@ -1,0 +1,15 @@
+.badge {
+  &:after {
+    color          : $white;
+    background     : $orange;
+    border-radius  : 2.4rem;
+    font-size      : 1rem;
+    font-weight    : bold;
+    margin-left    : .5rem;
+    padding        : .5rem 1rem;
+    position       : relative;
+    top            : -2px;
+    text-transform : uppercase;
+    white-space    : nowrap;
+  }
+}

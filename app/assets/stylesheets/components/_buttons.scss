@@ -73,7 +73,7 @@
   }
 
   @if $disabled {
-    background : none;
+    background : transparent;
     border     : 1px solid $color;
     color      : $color;
     cursor     : not-allowed;
