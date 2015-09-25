@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921205839) do
+ActiveRecord::Schema.define(version: 20150924212029) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.string   "description"
     t.integer  "working_group_id", limit: 8, null: false
     t.integer  "discussion_id",    limit: 8
+    t.datetime "completed_at"
   end
 
   create_table "volunteer_feedbacks", id: :bigserial, force: :cascade do |t|
@@ -124,6 +125,14 @@ ActiveRecord::Schema.define(version: 20150921205839) do
     t.integer  "volunteer_id", limit: 8, null: false
     t.integer  "rating"
     t.text     "comment"
+  end
+
+  create_table "volunteer_identities", id: :bigserial, force: :cascade do |t|
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.integer  "volunteer_id",    limit: 8, null: false
+    t.string   "email"
+    t.string   "password_digest"
   end
 
   create_table "volunteers", id: :bigserial, force: :cascade do |t|

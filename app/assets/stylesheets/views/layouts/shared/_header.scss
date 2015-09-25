@@ -28,12 +28,16 @@ header {
     line-height : 1.2;
 
   }
-  .action-logout {
+  .action-link {
     color          : $orange;
     font-size      : 1.3rem;
     font-weight    : 600;
     line-height    : 1.2;
     text-transform : uppercase;
     margin-left    : 2rem;
+  }
+
+  a {
+    text-decoration: none;
   }
 }

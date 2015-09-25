@@ -7,6 +7,8 @@ gem 'rails', '4.2.4'
 gem 'pg'
 gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
 gem 'mutations'
+gem 'omniauth'
+gem 'omniauth-identity'
 
 
 # UI
@@ -23,12 +25,15 @@ gem 'js-routes'
 gem 'neat'
 gem 'bourbon'
 
+# Data Viz
+gem 'd3_rails'
 
 # API
 gem 'jbuilder', '~> 2.0'
 
 
 # Other
+gem 'geocoder'
 
 
 group :development, :test do
@@ -38,6 +43,10 @@ group :development, :test do
   gem 'hologram', github: 'trulia/hologram'
   gem 'guard-hologram', github: 'kmayer/guard-hologram', require: false
 
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'web-console', '~> 2.0'
+  gem 'better_errors'
 end
 
 group :test do
