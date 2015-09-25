@@ -109,14 +109,14 @@ input {
     &:after {
       content       : '';
       background    : $white;
-      border        : 2px solid $orange;
       border-radius : 2rem;
+      border        : 2px solid $orange-500;
       width: 2rem;
       height: 2rem;
       position: absolute;
       left: 0;
       top: -2px;
-      transition: transform .3s ease;
+      transition: transform .3s ease, background .2s ease;
     }
   }
 
@@ -125,6 +125,7 @@ input {
   }
   [type="checkbox"]:checked + label:after {
     transform : translateX(85%);
+    background : $orange-500;
   }
 }
 
