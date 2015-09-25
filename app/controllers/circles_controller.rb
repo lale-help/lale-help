@@ -1,6 +1,7 @@
 class CirclesController < ApplicationController
   layout 'circle_page'
 
+  before_action :ensure_logged_in
   before_action :set_circle, only: [:show, :edit, :update, :destroy]
 
   # GET /circles
@@ -23,12 +24,12 @@ class CirclesController < ApplicationController
   # GET /circles/new
   def new
     @circle = Circle.new
-    render layout: 'form_layout'
+    # render layout: 'form_layout'
   end
 
   # GET /circles/1/edit
   def edit
-    render layout: 'form_layout'
+    # render layout: 'form_layout'
   end
 
   # POST /circles
@@ -67,7 +68,7 @@ class CirclesController < ApplicationController
   def destroy
     @circle.destroy
     respond_to do |format|
-      format.html { redirect_to circles_url, notice: 'Circle was successfully destroyed.' }
+      format.html { redirect_to Circle, notice: 'Circle was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -76,6 +77,10 @@ class CirclesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_circle
       @circle = Circle.find(params[:id])
+    end
+
+    def ensure_logged_in
+      @current_user = current_user || redirect_to(root_path)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

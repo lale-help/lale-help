@@ -234,6 +234,12 @@
   padding       : 1rem 1rem 0;
   margin-bottom : 2rem;
   flex-wrap     : wrap;
+
+  button.helper {
+    border: 0;
+    padding-bottom: .5rem;
+  }
+
   .helper {
     background    : $white;
     border-radius : 3px;
@@ -264,6 +270,9 @@
 
       }
     }
+
+
+
 
     &.can-help {
       @extend .fi-plus;
@@ -301,6 +310,11 @@
       float : left;
     }
   }
+}
+
+button.complete-task {
+  border: 0;
+  padding-bottom: .5rem;
 }
 .complete-task {
   &:not(.can-complete){

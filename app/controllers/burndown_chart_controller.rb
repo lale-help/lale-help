@@ -1,4 +1,5 @@
 class BurndownChartController < ApplicationController
+  layout "circle_page"
   before_action :preprocess
 
   def index

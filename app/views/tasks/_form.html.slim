@@ -4,7 +4,7 @@
       p Please correct the errors below.
 
   .field-row.single
-    .field.required class=('error' if @task.errors[:nane].present?)
+    .field.required class=('error' if @task.errors[:name].present?)
       = f.label :name, "Name of the Task"
       = f.text_field :name, placeholder: 'E.g. Take Riad to School Orientation'
   .field-row
@@ -20,7 +20,7 @@
       = f.label :description, "Description of the Task"
       = f.text_area :description
   .submit-row
-    = link_to 'Cancel', circle_tasks_path(@circle)
+    = link_to 'Cancel', @circle
     = f.submit
   - if locals[:delete]
     .delete

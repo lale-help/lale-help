@@ -151,7 +151,7 @@ RSpec.describe CirclesController, type: :controller do
 
     it "redirects to the circles list" do
       delete :destroy, {:id => circle.to_param}, valid_session
-      expect(response).to redirect_to(circles_url)
+      expect(response).to redirect_to(Circle)
     end
   end
 
