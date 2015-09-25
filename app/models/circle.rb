@@ -9,7 +9,9 @@ class Circle < ActiveRecord::Base
   belongs_to :admin, class_name: 'Volunteer'
 
   validates :name, presence: true
+  validates :admin, presence: true
   validates :location, presence: true
+  attr_accessor :location_text
 
   before_save :determine_location
   after_initialize  :determine_location
