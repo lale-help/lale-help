@@ -3,7 +3,8 @@ main
 
   section
     - @circle.working_groups.each do |working_group|
-      article.working-group.working-group-open.education
+      - wg_id = working_group.name.underscore.gsub(' ', '_')
+      article.working-group.working-group-open.education id=wg_id onclick="$(#{wg_id}).toggleClass('working-group-open').toggleClass('working-group-closed');"
         .working-title-container
           span.working-title = working_group.name
           span.task-count = "#{working_group.tasks.count} tasks"
