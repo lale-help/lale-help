@@ -6,7 +6,6 @@ class Task < ActiveRecord::Base
   has_many :organizers, through: :organizer_assignments, source: :volunteer
 
   belongs_to :working_group
-  belongs_to :discussion
 
   has_many :skill_assignments
   has_many :skills, through: :skill_assignments

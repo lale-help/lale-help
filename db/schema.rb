@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924212029) do
+ActiveRecord::Schema.define(version: 20150925021444) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,28 +22,6 @@ ActiveRecord::Schema.define(version: 20150924212029) do
     t.string   "name",                  null: false
     t.integer  "location_id", limit: 8, null: false
     t.integer  "admin_id",    limit: 8, null: false
-  end
-
-  create_table "discussion_messages", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.text     "content",                 null: false
-    t.integer  "discussion_id", limit: 8, null: false
-    t.integer  "volunteer_id",  limit: 8, null: false
-  end
-
-  create_table "discussion_volunteer_watchings", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "volunteer_id",  limit: 8, null: false
-    t.integer  "discussion_id", limit: 8, null: false
-  end
-
-  create_table "discussions", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "name",                       null: false
-    t.integer  "working_group_id", limit: 8, null: false
   end
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
@@ -115,7 +93,6 @@ ActiveRecord::Schema.define(version: 20150924212029) do
     t.string   "name",                       null: false
     t.string   "description"
     t.integer  "working_group_id", limit: 8, null: false
-    t.integer  "discussion_id",    limit: 8
     t.datetime "completed_at"
   end
 
