@@ -179,7 +179,7 @@ main.form {
     margin-bottom: 8px;
   }
 
-  input[type='text'], input[type='password'], textarea {
+  input[type='text'], input[type='password'], textarea, input[type='date'] {
     @include placeholder {
       color: #bfc9ce;
       font-weight: 400;
@@ -195,6 +195,11 @@ main.form {
   textarea {
     height: 10rem;
     resize: none;
+  }
+
+  input[type='date'] {
+    &::-webkit-inner-spin-button { display: none; }
+    &::-webkit-datetime-edit { font-family: $fontstack-primary; }
   }
 
   select {
