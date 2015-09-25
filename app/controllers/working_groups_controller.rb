@@ -34,10 +34,8 @@ class WorkingGroupsController < ApplicationController
     respond_to do |format|
       if @working_group.save
         format.html { redirect_to [@circle], notice: 'Working group was successfully created.' }
-        format.json { render :show, status: :created, location: @working_group }
       else
         format.html { render :new }
-        format.json { render json: @working_group.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -48,10 +46,8 @@ class WorkingGroupsController < ApplicationController
     respond_to do |format|
       if @working_group.update(working_group_params)
         format.html { redirect_to [@circle], notice: 'Working group was successfully updated.' }
-        format.json { render :show, status: :ok, location: @working_group }
       else
         format.html { render :edit }
-        format.json { render json: @working_group.errors, status: :unprocessable_entity }
       end
     end
   end
