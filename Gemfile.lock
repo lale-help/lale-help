@@ -130,6 +130,11 @@ GEM
       haml (>= 4.0.6, < 5.0)
       html2haml (>= 1.0.1)
       railties (>= 4.0.1)
+    handlebars_assets (0.19.1)
+      execjs (>= 1.2.9)
+      multi_json
+      sprockets (>= 2.0.3)
+      tilt
     hashie (3.4.2)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
@@ -326,6 +331,7 @@ DEPENDENCIES
   geocoder
   guard-hologram!
   haml-rails (~> 0.9)
+  handlebars_assets
   hologram!
   jbuilder (~> 2.0)
   jquery-rails

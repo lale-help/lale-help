@@ -4,7 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   # provider :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET']
   provider :identity,
     model: Volunteer::Identity,
-    fields: [:email, :first_name, :last_name, :location],
+    fields: [:email, :first_name, :last_name, :location, :circle_id],
     on_failed_registration: Volunteer::IdentitiesController.action(:new),
     locate_conditions: lambda{|req| {model.auth_key => req['email']} }
 

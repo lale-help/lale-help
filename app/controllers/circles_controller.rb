@@ -9,6 +9,10 @@ class CirclesController < ApplicationController
     @center = params[:location].present? ? Location.location_from(params[:location]) : current_user.location
     locations = Location.near(@center).to_a
     @circles = Circle.where(location: locations.uniq)
+    respond_to do |format|
+      format.html
+      format.json { render layout: false }
+    end
   end
 
   # GET /circles/1
