@@ -1,19 +1,18 @@
 class TasksController < ApplicationController
   layout "circle_page"
   before_action :ensure_logged_in
-  before_action :set_task, only: [:edit, :update, :destroy]
-  before_action :set_circle
+  load_and_authorize_resource :circle
+  load_and_authorize_resource through: :circle, except: [:volunteer, :new]
 
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
   end
 
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @task = @circle.working_groups.first.tasks.build
     @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
   end
 
@@ -25,8 +24,6 @@ class TasksController < ApplicationController
   # POST /tasks
   # POST /tasks.json
   def create
-    @task = Task.new(task_params)
-
     respond_to do |format|
       if @task.save
         format.html { redirect_to @circle, notice: 'Task was successfully created.' }
@@ -60,7 +57,7 @@ class TasksController < ApplicationController
   end
 
   def volunteer
-    @task = Task.find(params[:task_id])
+    @task = @circle.tasks.find(params[:task_id])
     @task.volunteers << current_user
     if @task.save
       redirect_to [@circle], notice: "Thanks for volunteering for #{@task.name}!"

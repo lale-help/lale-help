@@ -2,7 +2,7 @@ class CirclesController < ApplicationController
   layout 'circle_page'
 
   before_action :ensure_logged_in, except: :index
-  before_action :set_circle, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /circles
   # GET /circles.json
@@ -11,7 +11,7 @@ class CirclesController < ApplicationController
     locations = Location.near(@center).to_a
     @circles = Circle.where(location: locations.uniq)
     respond_to do |format|
-      format.html
+      format.html { redirect_to root_path }
       format.json { render layout: false }
     end
   end
@@ -74,15 +74,6 @@ class CirclesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_circle
-      @circle = Circle.find(params[:id])
-    end
-
-    def ensure_logged_in
-      @current_user = current_user || redirect_to(root_path)
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def circle_params
       params[:circle].permit(:name, :location_text).merge(admin_id: current_user.id)
