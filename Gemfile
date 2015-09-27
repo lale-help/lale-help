@@ -9,6 +9,7 @@ gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
 gem 'mutations'
 gem 'omniauth'
 gem 'omniauth-identity'
+gem 'cancancan'
 
 
 # UI
