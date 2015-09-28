@@ -13,6 +13,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = @circle.working_groups.first.tasks.build
+    authorize! :new, @task
     @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
   end
 
@@ -67,19 +68,6 @@ class TasksController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def ensure_logged_in
-    @current_user = current_user || redirect_to(root_path)
-  end
-
-  def set_task
-    @task = Task.find(params[:id])
-  end
-
-  def set_circle
-    @circle = Circle.find(params[:circle_id])
-  end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params[:task].permit(:name, :description, :working_group_id, :due_date, :complete)
