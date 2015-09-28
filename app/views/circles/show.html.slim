@@ -1,6 +1,7 @@
 main
   aside
-    = link_to 'Add a New Task', new_circle_task_path(@circle), class: 'add-new-task'
+    - if !@circle.working_groups.empty? && can?(:create, @circle.working_groups.first.tasks.build)
+      = link_to 'Add a New Task', [@circle, @circle.working_groups.first.tasks.build], class: 'add-new-task'
     .show-tasks
       span Show my tasks only
       .checkbox-slider
@@ -14,13 +15,13 @@ main
           li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')"
             = working_group.name
 
-    - if current_user == @circle.admin
-      = link_to 'Add a New Work Group', new_circle_working_group_path(@circle), class: 'add-new-work-group'
-    br
+    - if can? :create, @circle.working_groups.build
+      = link_to 'Add a New Work Group', [@circle, @circle.working_groups.build], class: 'add-new-work-group'
+      br
     = link_to 'Task Burn Up Chart', volunteer_burndown_chart_path(@current_user), class: 'add-new-work-group'
 
   section
-    - @circle.working_groups.each do |working_group|
+    - @circle.working_groups.select(&:persisted?).each do |working_group|
       article.working-group.working-group-open.education id=working_group.underscored_name
         .working-title-container
           span.working-title = working_group.name
@@ -64,13 +65,12 @@ main
                       .helper= volunteer.name
 
 
-                    - unless task.volunteers.include?(current_user)
+                    - if can? :volenteer, task
                       = form_tag url_for([@circle, task, :volunteer]), method: 'put' do
                         button.helper.can-help I can do this!
 
 
-                  - unless task.complete?
+                  - if can? :complete, task
                     = form_tag [@circle, task], method: 'put' do
                       = hidden_field_tag "[task]complete", true
                       button.complete-task.can-complete Complete Task
-
