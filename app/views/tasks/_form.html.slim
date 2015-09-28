@@ -11,7 +11,7 @@
     .field.required class=('error' if @task.errors[:working_group].present?)
       = f.label :working_group_id , "Working Group"
       = f.select :working_group_id
-        = options_for_select(@working_group_names_and_ids)
+        = options_for_select(working_group_options(@circle))
     .field.required class=('error' if @task.errors[:due_date].present?)
       = f.label :due_date , "Select a Due Date"
       = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")

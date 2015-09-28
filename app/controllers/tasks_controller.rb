@@ -14,12 +14,10 @@ class TasksController < ApplicationController
   def new
     @task = @circle.working_groups.first.tasks.build
     authorize! :new, @task
-    @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
   end
 
   # GET /tasks/1/edit
   def edit
-    @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
   end
 
   # POST /tasks
