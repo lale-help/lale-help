@@ -58,10 +58,15 @@ describe "Volunteer" do
       it{ should     be_able_to(:volunteer, task) }
       it{ should_not be_able_to(:complete, task) }
 
-      context "have volentieered for a task" do
+      context "have volenteered for a task" do
         before(:each) { task.volunteers << user; task.save }
         it{ should_not be_able_to(:volunteer, task) }
         it{ should     be_able_to(:complete, task) }
+        context "and has completed it" do
+          before(:each) { task.complete = true; task.save }
+          it{ should_not be_able_to(:volunteer, task) }
+          it{ should_not be_able_to(:complete, task) }
+        end
       end
     end
   end

@@ -19,7 +19,7 @@ class Ability
       can [:create, :update, :destroy], Task, working_group: { circle: { admin: user } }
       can :volunteer, Task, working_group: { circle: user.circle }
       cannot :volunteer, Task, volunteer_assignments: { volunteer: user }
-      can :complete, Task, volunteer_assignments: { volunteer: user }
+      can :complete, Task, volunteer_assignments: { volunteer: user }, completed_at: nil
     end
   end
 end
