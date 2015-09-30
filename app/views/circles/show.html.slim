@@ -1,6 +1,7 @@
 main
   aside
-    = link_to 'Add a New Task', new_circle_task_path(@circle), class: 'add-new-task'
+    - if !@circle.working_groups.empty? && can?(:create, @circle.working_groups.first.tasks.build)
+      = link_to 'Add a New Task', new_circle_task_path(@circle), class: 'add-new-task'
     .show-tasks
       span Show my tasks only
       .checkbox-slider
@@ -13,14 +14,17 @@ main
           // TODO: get working group icons going
           li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')"
             = working_group.name
+            - if can? :update, working_group
+              = "&nbsp;( #{link_to 'edit', edit_circle_working_group_path(@circle, working_group), class: 'edit_link'} )".html_safe
 
-    - if current_user == @circle.admin
+
+    - if can? :create, @circle.working_groups.build
       = link_to 'Add a New Work Group', new_circle_working_group_path(@circle), class: 'add-new-work-group'
-    br
+      br
     = link_to 'Task Burn Up Chart', volunteer_burndown_chart_path(@current_user), class: 'add-new-work-group'
 
   section
-    - @circle.working_groups.each do |working_group|
+    - @circle.working_groups.select(&:persisted?).each do |working_group|
       article.working-group.working-group-open.education id=working_group.underscored_name
         .working-title-container
           span.working-title = working_group.name
@@ -32,7 +36,8 @@ main
               .task-header-container
                 .task-name
                   = task.name
-                  = "&nbsp;( #{link_to 'edit', edit_circle_task_path(@circle, task), class: 'edit_link'} )".html_safe
+                  - if can? :update, task
+                    = "&nbsp;( #{link_to 'edit', edit_circle_task_path(@circle, task), class: 'edit_link'} )".html_safe
 
                 .task-time= humanize_date task.due_date
                 - if task.complete?
@@ -64,13 +69,12 @@ main
                       .helper= volunteer.name
 
 
-                    - unless task.volunteers.include?(current_user)
-                      = form_tag url_for([@circle, task, :volunteer]), method: 'put' do
+                    - if can? :volunteer, task
+                      = form_tag circle_task_volunteer_path(@circle, task), method: 'put' do
                         button.helper.can-help I can do this!
 
 
-                  - unless task.complete?
+                  - if can? :complete, task
                     = form_tag [@circle, task], method: 'put' do
                       = hidden_field_tag "[task]complete", true
                       button.complete-task.can-complete Complete Task
-

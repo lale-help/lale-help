@@ -21,8 +21,8 @@ require 'rails_helper'
 RSpec.describe WorkingGroupsController, type: :controller do
 
 
-  let(:volunteer){FactoryGirl.create(:volunteer)}
-  let(:circle){FactoryGirl.create(:circle)}
+  let(:volunteer) { circle.admin }
+  let(:circle)    { create(:circle) }
   # This should return the minimal set of attributes required to create a valid
   # WorkingGroup. As you add validations to WorkingGroup, be sure to
   # adjust the attributes here as well.

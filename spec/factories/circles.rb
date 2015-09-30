@@ -3,5 +3,9 @@ FactoryGirl.define do
     sequence(:name) {|n| "Circle #{n}" }
     location
     admin
+    after(:create) { |circle, evaluator|
+      circle.admin.circle = circle
+      circle.admin.save
+    }
   end
 end

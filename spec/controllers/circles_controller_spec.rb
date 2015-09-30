@@ -20,9 +20,9 @@ require 'rails_helper'
 
 RSpec.describe CirclesController, type: :controller do
 
-  let(:circle){Circle.create!(valid_attributes.merge(admin: admin)) }
-  let(:location){FactoryGirl.create(:location)}
-  let(:admin){FactoryGirl.create(:admin)}
+  let(:circle){create(:circle, valid_attributes) }
+  let(:location){create(:location)}
+  let(:admin){circle.admin}
   before(:each){
     allow(Location).to receive(:location_from).and_return(location)
     allow(Location).to receive(:near).and_return([location])
@@ -44,6 +44,7 @@ RSpec.describe CirclesController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # CirclesController. Be sure to keep this updated too.
   let(:valid_session) {{ user_id: admin.id }}
+  let(:unalligned_volunteer_session) {{ user_id: create(:volunteer).id }}
 
   describe "GET #index" do
     it "assigns all circles as @circles" do
@@ -61,7 +62,7 @@ RSpec.describe CirclesController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new circle as @circle" do
-      get :new, {}, valid_session
+      get :new, {}, unalligned_volunteer_session
       expect(assigns(:circle)).to be_a_new(Circle)
     end
   end
@@ -77,30 +78,30 @@ RSpec.describe CirclesController, type: :controller do
     context "with valid params" do
       it "creates a new Circle" do
         expect {
-          post :create, {:circle => valid_attributes}, valid_session
+          post :create, {:circle => valid_attributes}, unalligned_volunteer_session
         }.to change(Circle, :count).by(1)
       end
 
       it "assigns a newly created circle as @circle" do
-        post :create, {:circle => valid_attributes}, valid_session
+        post :create, {:circle => valid_attributes}, unalligned_volunteer_session
         expect(assigns(:circle)).to be_a(Circle)
         expect(assigns(:circle)).to be_persisted
       end
 
       it "redirects to the created circle" do
-        post :create, {:circle => valid_attributes}, valid_session
+        post :create, {:circle => valid_attributes}, unalligned_volunteer_session
         expect(response).to redirect_to(Circle.last)
       end
     end
 
     context "with invalid params" do
       it "assigns a newly created but unsaved circle as @circle" do
-        post :create, {:circle => invalid_attributes}, valid_session
+        post :create, {:circle => invalid_attributes}, unalligned_volunteer_session
         expect(assigns(:circle)).to be_a_new(Circle)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:circle => invalid_attributes}, valid_session
+        post :create, {:circle => invalid_attributes}, unalligned_volunteer_session
         expect(response).to render_template("new")
       end
     end

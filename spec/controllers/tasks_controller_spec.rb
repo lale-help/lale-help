@@ -19,7 +19,7 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe TasksController, type: :controller do
-  let(:volunteer){FactoryGirl.create(:volunteer)}
+  let(:volunteer){circle.admin}
   let!(:task){FactoryGirl.create(:task)}
   let(:working_group){task.working_group}
   let(:circle){working_group.circle}

@@ -11,4 +11,7 @@ class ApplicationController < ActionController::Base
     # @current_user ||= session[:user_id] && Volunteer.find(session[:user_id])
   end
 
+  helper_method def ensure_logged_in
+    current_user || redirect_to(root_path)
+  end
 end

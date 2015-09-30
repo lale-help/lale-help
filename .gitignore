@@ -19,3 +19,4 @@
 .postgres
 .env
 .idea
+.tags*
