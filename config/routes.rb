@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :edit, :update, :new, :create, :destroy] do
       put :volunteer
       patch :volunteer
+      put :complete
+      patch :complete
     end
   end
 

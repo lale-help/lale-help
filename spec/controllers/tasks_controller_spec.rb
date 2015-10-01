@@ -161,4 +161,13 @@ RSpec.describe TasksController, type: :controller do
     end
   end
 
+  describe "PUT #complete" do
+    it 'marks a task complete' do
+      task.volunteers << volunteer
+      task.save
+      put :complete, valid_url_args.merge({:task_id => task.to_param}), valid_session
+      task.reload
+      expect(task.complete?).to be true
+    end
+  end
 end
