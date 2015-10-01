@@ -3,6 +3,10 @@ header
     .logo Lale
     - if current_circle.present?
       .circle-city #{current_circle.name}
+    .notice
+      = flash[:notice]
+    .alert
+      = flash[:alert]
   .header-right-group
     - if current_user.present?
       .user Signed in as #{current_user.first_name}
