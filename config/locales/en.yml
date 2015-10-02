@@ -22,3 +22,10 @@
 en:
   hello: Hello world
   edit: EDIT
+
+  fields:
+    email: Email address
+    email-placeholder: Enter your email
+
+    password: Password
+    password-placeholder: Enter your password
