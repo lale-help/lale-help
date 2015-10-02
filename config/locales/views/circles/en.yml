@@ -1,0 +1,21 @@
+en:
+  circles:
+    show:
+      task:
+        new: Add a New Task
+        mine-only: Show my tasks only
+        count:
+          one: '1 task'
+          other: '%{count} tasks'
+        volunteer-needed:
+          one: Need one helper
+          other: 'Need %{count} helpers'
+        volunteer-filled: Filled
+        volunteer: I can do this!
+        complete: Complete Task
+
+      working-group:
+        new:    Add a New Work Group
+        filter: Filter Working Groups
+
+      view-burnup-chart:     View Burn Up Chart
