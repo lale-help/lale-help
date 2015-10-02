@@ -1,17 +1,24 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method def current_user
+  def current_user
     @current_user ||= session[:user_id] && Volunteer.find(session[:user_id])
   end
+  helper_method :current_user
 
-  helper_method def current_circle
+  def current_circle
     # @current_user ||= session[:user_id] && Volunteer.find(session[:user_id])
   end
+  helper_method :current_circle
 
-  helper_method def ensure_logged_in
+  def ensure_logged_in
     current_user || redirect_to(root_path)
   end
+  helper_method :ensure_logged_in
+
+  def set_locale
+    I18n.locale = params[:locale] || I18n.default_locale
+    puts I18n.locale
+  end
+  before_action :set_locale
 end
