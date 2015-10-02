@@ -12,8 +12,8 @@ Rails.application.routes.draw do
   end
 
   get '/ping', to: 'website#ping'
-  get '/stylesheet', to: 'website#stylesheet'
-  get '/styles/signup', to: 'website#signup'
+
+  get '/styles/:id', to: 'styleguides#show'
 
   namespace :volunteer do
     resources :identities
