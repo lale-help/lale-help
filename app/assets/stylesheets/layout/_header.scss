@@ -1,0 +1,71 @@
+$header-height : 2.4rem;
+header {
+  @include outer-container($local-max-width : $lale-container-width);
+  margin : 4rem auto;
+
+  a {
+    text-decoration: none;
+  }
+
+}
+
+.header-left-group {
+  @include span-columns(5);
+  align-items     : center;
+  display         : flex;
+  height          : $header-height;
+  justify-content : flex-start;
+}
+
+.header-right-group {
+  @include span-columns(7);
+  align-items     : center;
+  display         : flex;
+  height          : $header-height;
+  justify-content : flex-end;
+
+}
+.header-actions {
+  font-size : 1.1rem;
+
+  .action-link {
+    color          : $orange;
+    font-size      : 1.1rem;
+    font-weight    : 600;
+    line-height    : 1.2;
+    text-transform : uppercase;
+    margin-left    : 2rem;
+  }
+}
+
+.logo {
+  font-size    : 2.4rem;
+  line-height  : 1.2;
+  font-weight  : 900;
+  margin-right : 4rem;
+  &:before {
+    @include lale-logo;
+    content      : '';
+    width        : $header-height;
+    height       : $header-height;
+    display      : inline-block;
+    transform    : translateY(3px);
+    margin-right : 1rem;
+  }
+  &:after {
+    border-right : 1px solid $light-grey;
+    content      : '';
+    display      : inline-block;
+    height       : $header-height;
+    margin-left  : 2rem;
+    width        : 0;
+    transform    : translateY(3px);
+  }
+}
+
+.circle-city {
+  font-size   : 2.4rem;
+  line-height : 1.2;
+}
+
+
