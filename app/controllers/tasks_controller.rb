@@ -2,7 +2,8 @@ class TasksController < ApplicationController
   layout "circle_page"
   before_action :ensure_logged_in
   load_and_authorize_resource :circle
-  load_and_authorize_resource through: :circle, except: [:volunteer, :new]
+  load_and_authorize_resource through: :circle, except: [:volunteer, :new, :complete]
+  load_and_authorize_resource id_param: :task_id, only: [:complete, :volunteer]
 
   # GET /tasks
   # GET /tasks.json
@@ -56,7 +57,6 @@ class TasksController < ApplicationController
   end
 
   def volunteer
-    @task = @circle.tasks.find(params[:task_id])
     @task.volunteers << current_user
     if @task.save
       redirect_to [@circle], notice: "Thanks for volunteering for #{@task.name}!"
@@ -65,9 +65,18 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+    @task.complete = true
+    if @task.save
+      redirect_to [@circle], notice: "Thanks for completeing #{@task.name}!"
+    else
+      redirect_to [@circle], alert: 'Sorry, we could not mark the task as complete'
+    end
+  end
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params[:task].permit(:name, :description, :working_group_id, :due_date, :complete)
+      params[:task].permit(:name, :description, :working_group_id, :due_date)
     end
 end
