@@ -1,5 +1,8 @@
 en:
   circles:
+    new:
+      create: Create Circle
+
     show:
       task:
         new: Add a New Task
@@ -19,3 +22,8 @@ en:
         filter: Filter Working Groups
 
       view-burnup-chart:     View Burn Up Chart
+
+    edit:
+      header: Edit Circle
+      show: Show
+      back: Back
