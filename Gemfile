@@ -49,6 +49,7 @@ group :development, :test do
   gem 'pry-stack_explorer'
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
+  gem 'i18n_generators'
 end
 
 group :test do
