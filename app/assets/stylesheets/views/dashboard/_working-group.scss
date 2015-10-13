@@ -46,14 +46,14 @@
 
 .working-title-container {
   color  : $white;
-  margin : 1.5rem 0;
+  margin : 1rem 0 2rem;
   .working-title {
     font-weight    : bold;
     margin-right   : 1.5rem;
     text-transform : uppercase;
   }
   .task-count {
-    font-weight : 200;
+    opacity : .5;
   }
 }
 
@@ -338,6 +338,6 @@ button.complete-task {
     right     : 0;
     position  : absolute;
     top       : 0;
-    transform : translateX(-2rem) translateY(3rem);
+    transform : translateX(-2rem) translateY(2rem);
   }
 }
