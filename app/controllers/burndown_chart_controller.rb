@@ -1,4 +1,5 @@
 class BurndownChartController < ApplicationController
+  skip_authorization_check
   layout "circle_page"
   before_action :preprocess
 

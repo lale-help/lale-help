@@ -8,12 +8,14 @@ Rails.application.routes.draw do
     resources :tasks, only: [:index, :edit, :update, :new, :create, :destroy] do
       put :volunteer
       patch :volunteer
+      put :complete
+      patch :complete
     end
   end
 
   get '/ping', to: 'website#ping'
-  get '/stylesheet', to: 'website#stylesheet'
-  get '/styles/signup', to: 'website#signup'
+
+  get '/styles/:id', to: 'styleguides#show'
 
   namespace :volunteer do
     resources :identities

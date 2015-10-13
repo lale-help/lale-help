@@ -79,6 +79,5 @@ main
 
 
                   - if can? :complete, task
-                    = form_tag [@circle, task], method: 'put' do
-                      = hidden_field_tag "[task]complete", true
+                    = form_tag circle_task_complete_path(@circle, task), method: 'put' do
                       button.complete-task.can-complete= t('.task.complete')

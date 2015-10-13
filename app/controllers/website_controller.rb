@@ -1,4 +1,5 @@
 class WebsiteController < ApplicationController
+  skip_authorization_check
   layout 'circle_page'
 
   def index
@@ -14,6 +15,6 @@ class WebsiteController < ApplicationController
   end
 
   def signup
-    
+
   end
 end
