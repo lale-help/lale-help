@@ -40,7 +40,7 @@ class CirclesController < ApplicationController
     respond_to do |format|
       if @circle.save
         current_user.update(circle: @circle)
-        format.html { redirect_to @circle, notice: 'Circle was successfully created.' }
+        format.html { redirect_to @circle, notice: t('flash.created', name: 'Circle') }
         format.json { render :show, status: :created, location: @circle }
       else
         format.html { render :new }
@@ -54,7 +54,7 @@ class CirclesController < ApplicationController
   def update
     respond_to do |format|
       if @circle.update(circle_params)
-        format.html { redirect_to @circle, notice: 'Circle was successfully updated.' }
+        format.html { redirect_to @circle, notice: t('flash.updated', name: 'Circle') }
         format.json { render :show, status: :ok, location: @circle }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class CirclesController < ApplicationController
   def destroy
     @circle.destroy
     respond_to do |format|
-      format.html { redirect_to Circle, notice: 'Circle was successfully destroyed.' }
+      format.html { redirect_to Circle, notice: t('flash.destroyed', name: 'Circle') }
       format.json { head :no_content }
     end
   end
