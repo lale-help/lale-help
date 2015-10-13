@@ -22,3 +22,7 @@ en:
       create: "Create %{model}"
       submit: "Save %{model}"
       update: "Update %{model}"
+
+  unauthorized:
+    manage:
+      all: "Not authorized to %{action} %{subject}."
