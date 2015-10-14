@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   def create
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @circle, notice: t('flash.created', name: 'Task') }
+        format.html { redirect_to @circle, notice: t('flash.created', name: Task.model_name.human) }
       else
         @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
         format.html { render :new }
@@ -39,7 +39,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to [@circle], notice: t('flash.updated', name: 'Task') }
+        format.html { redirect_to [@circle], notice: t('flash.updated', name: Task.model_name.human) }
       else
         format.html { render :edit }
       end
@@ -51,7 +51,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
     respond_to do |format|
-      format.html { redirect_to [@circle], notice: t('flash.destroyed', name: 'Task') }
+      format.html { redirect_to [@circle], notice: t('flash.destroyed', name: Task.model_name.human) }
       format.json { head :no_content }
     end
   end
