@@ -1,0 +1,116 @@
+en:
+  activerecord:
+    models:
+      circle: Circle  #g
+      location: Location  #g
+      system_event: System event  #g
+      system_event/notification: System event/notification  #g
+      system_event/notification/delivery: System event/notification/delivery  #g
+      task: Task  #g
+      task/location_assignment: Task/location assignment  #g
+      task/skill: Task/skill  #g
+      task/skill_assignment: Task/skill assignment  #g
+      task/volunteer_assignment: Task/volunteer assignment  #g
+      volunteer: Volunteer  #g
+      volunteer/feedback: Volunteer/feedback  #g
+      volunteer/identity: Volunteer/identity  #g
+      working_group: Working group  #g
+
+    attributes:
+      circle:
+        admin: :activerecord.models.admin  #g
+        location: :activerecord.models.location  #g
+        name: Name  #g
+        tasks: Tasks  #g
+        volunteers: Volunteers  #g
+        working_groups: Working groups  #g
+
+      location:
+        address: Address  #g
+        circles: Circles  #g
+        latitude: Latitude  #g
+        longitude: Longitude  #g
+        name: Name  #g
+        users: Users  #g
+
+      system_event:
+        action: Action  #g
+        for: :activerecord.models.for  #g
+        for_type: For type  #g
+        notifications: Notifications  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      system_event/notification:
+        deliveries: Deliveries  #g
+        system_event: :activerecord.models.system_event  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      system_event/notification/delivery:
+        content: Content  #g
+        method: Method  #g
+        notification: :activerecord.models.notification  #g
+
+      task:
+        completed_at: Completed at  #g
+        description: Description  #g
+        due_date: Due date  #g
+        location_assignments: Location assignments  #g
+        locations: Locations  #g
+        name: Name  #g
+        organizer_assignments: Organizer assignments  #g
+        organizers: Organizers  #g
+        skill_assignments: Skill assignments  #g
+        skills: Skills  #g
+        volunteer_assignments: Volunteer assignments  #g
+        volunteers: Volunteers  #g
+        working_group: :activerecord.models.working_group  #g
+
+      task/location_assignment:
+        location: :activerecord.models.location  #g
+        primary: Primary  #g
+        task: :activerecord.models.task  #g
+
+      task/skill:
+        name: Name  #g
+        task_skill_assignments: Task skill assignments  #g
+        tasks: Tasks  #g
+
+      task/skill_assignment:
+        required: Required  #g
+        skill: :activerecord.models.skill  #g
+        task: :activerecord.models.task  #g
+
+      task/volunteer_assignment:
+        organizer: Organizer  #g
+        task: :activerecord.models.task  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      volunteer:
+        circle: :activerecord.models.circle  #g
+        email: Email  #g
+        feedback: Feedback  #g
+        first_name: First name  #g
+        identities: Identities  #g
+        last_name: Last name  #g
+        location: :activerecord.models.location  #g
+        notifications: Notifications  #g
+        task_volunteer_assignments: Task volunteer assignments  #g
+        tasks: Tasks  #g
+        triggered_system_events: Triggered system events  #g
+
+      volunteer/feedback:
+        comment: Comment  #g
+        rating: Rating  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      volunteer/identity:
+        circle: :activerecord.models.circle  #g
+        email: Email  #g
+        password_digest: Password digest  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      working_group:
+        circle: :activerecord.models.circle  #g
+        name: Name  #g
+        tasks: Tasks  #g
+        volunteers: Volunteers  #g

@@ -1,17 +1,17 @@
 main.form
   section
-    h2 Sign in to your circle
+    h2= t('.sign-in-phrase')
 
     = form_tag "/auth/identity/callback" do
       .field-row
         .field
-          label Email address
-          input name="email" type="text" placeholder="Enter your email address"
+          label= t('fields.email')
+          input name="email" type="text" placeholder=t('fields.email-placeholder')
 
         .field
-          label Password
-          input name="password" type="password" placeholder="Enter your password"
+          label= t('fields.password')
+          input name="password" type="password" placeholder=t('fields.password-placeholder')
 
       .submit-row
-        a.link href='#'Reset my password
-        button.button.login type="submit" Sign in
+        a.link href='#'= t('.reset-password')
+        button.button.login type="submit"= t('.sign-in')

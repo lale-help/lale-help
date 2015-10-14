@@ -29,7 +29,7 @@ class WorkingGroupsController < ApplicationController
   def create
     respond_to do |format|
       if @working_group.save
-        format.html { redirect_to [@circle], notice: 'Working group was successfully created.' }
+        format.html { redirect_to [@circle], notice: t('flash.created', name: WorkingGroup.model_name.human) }
       else
         format.html { render :new }
       end
@@ -41,7 +41,7 @@ class WorkingGroupsController < ApplicationController
   def update
     respond_to do |format|
       if @working_group.update(working_group_params)
-        format.html { redirect_to [@circle], notice: 'Working group was successfully updated.' }
+        format.html { redirect_to [@circle], notice: t('flash.updated', name: WorkingGroup.model_name.human) }
       else
         format.html { render :edit }
       end
@@ -53,7 +53,7 @@ class WorkingGroupsController < ApplicationController
   def destroy
     @working_group.destroy
     respond_to do |format|
-      format.html { redirect_to @circle, notice: 'Working group was successfully destroyed.' }
+      format.html { redirect_to @circle, notice: t('flash.destroyed', name: WorkingGroup.model_name.human) }
       format.json { head :no_content }
     end
   end

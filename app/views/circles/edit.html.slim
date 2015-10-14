@@ -1,10 +1,10 @@
 main.form
   section
-    h2 = "Edit Circle"
+    h2= t('.header')
 
     == render 'form'
 
-    = link_to 'Show', @circle
+    = link_to t('.show'), @circle
     '|
-    = link_to 'Back', circles_path
+    = link_to t('.back'), circles_path
 
