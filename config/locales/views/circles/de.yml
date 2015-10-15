@@ -1,4 +1,29 @@
 de:
   circles:
+    new:
+      create: Helferkreis anlegen
+
     show:
-      my-tasks-only: Nur meine Aufgaben anzeigen
+      task:
+        new: Neue Aufgabe erstellen
+        mine-only: Nur meine Aufgaben anzeigen
+        count:
+          one: '1 Aufgabe'
+          other: '%{count} Aufgaben'
+        volunteer-needed:
+          one: Benötigt einen Helfer
+          other: 'Benötigt %{count} Helfer'
+        volunteer-filled: Vergeben
+        volunteer: Ich übernehme das!
+        complete: Aufgabe erledigt
+
+      working-group:
+        new:    Neue Arbeitsgruppe anlegen
+        filter: Arbeitsgruppen filtern
+
+      view-burnup-chart:     Burn Up Chart anzeigen
+
+    edit:
+      header: Helferkreis bearbeiten
+      show: Anzeigen
+      back: Zurück
