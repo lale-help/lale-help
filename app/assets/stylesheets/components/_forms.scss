@@ -115,8 +115,8 @@ input {
       height: 2rem;
       position: absolute;
       left: 0;
-      top: -2px;
-      transition: transform .3s ease, background .2s ease;
+      top: -1.5px;
+      transition: transform .2s ease, background .3s ease;
     }
   }
 
@@ -124,7 +124,7 @@ input {
     transform : translateX(-1px);
   }
   [type="checkbox"]:checked + label:after {
-    transform : translateX(85%);
+    transform : translateX(100%);
     background : $deep-orange-500;
   }
 }
