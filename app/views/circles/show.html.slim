@@ -15,7 +15,7 @@ main
           li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')"
             = working_group.name
             - if can? :update, working_group
-              = "&nbsp;( #{link_to 'edit', edit_circle_working_group_path(@circle, working_group), class: 'edit_link'} )".html_safe
+              = "&nbsp;(#{link_to 'edit', edit_circle_working_group_path(@circle, working_group), class: 'edit_link'})".html_safe
 
 
     - if can? :create, @circle.working_groups.build
