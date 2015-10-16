@@ -44,7 +44,7 @@ $sidebar-margin-bottom : 2rem;
     li {
       @extend .fi-check;
       cursor         : pointer;
-      font-weight    : 500;
+      font-weight    : $weight-medium;
       margin         : 2rem 0;
       padding-right  : 2rem;
       position       : relative;

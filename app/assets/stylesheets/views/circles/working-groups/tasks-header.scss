@@ -11,7 +11,7 @@
 
 .task-name {
   flex        : 1 1 40rem;
-  font-weight : 500;
+  font-weight : $weight-medium;
 
   .my-task & {
     padding-right : 2rem;

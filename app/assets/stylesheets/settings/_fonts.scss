@@ -8,6 +8,13 @@ $fontstack-primary       : 'WorkSans', $fontstack-helvetica;
 $fontstack-sans          : $fontstack-primary;
 $fontstack-serif         : $fontstack-georgia;
 
+//-- Weights ----------------------------------
+$weight-light    : 200;
+$weight-normal   : normal;
+$weight-medium   : 500;
+$weight-semibold : 600;
+$weight-bold     : bold;
+
 @font-face {
   font-family: 'WorkSans';
   src : font-url('WorkSans/WorkSans-Light.ttf');

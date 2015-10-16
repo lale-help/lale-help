@@ -50,7 +50,7 @@
     @extend .fi-chevron-top;
   }
   .working-title {
-    font-weight    : bold;
+    font-weight    : $weight-bold;
     margin-right   : 1.5rem;
     text-transform : uppercase;
   }

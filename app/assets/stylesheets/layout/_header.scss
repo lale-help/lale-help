@@ -32,7 +32,7 @@ header {
   .action-link {
     color          : $orange;
     font-size      : 1.1rem;
-    font-weight    : 600;
+    font-weight    : $weight-semibold;
     line-height    : 1.2;
     text-transform : uppercase;
     margin-left    : 2rem;
