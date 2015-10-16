@@ -1,0 +1,69 @@
+.task-header-container {
+  display         : flex;
+  justify-content : space-between;
+
+  & > div {
+    display     : flex;
+    align-items : center;
+    line-height : 2rem;
+  }
+}
+
+.task-name {
+  flex        : 2 1 35rem;
+  font-weight : 500;
+
+  .my-task & {
+    padding-right : 2rem;
+    @extend .badge;
+    &:after {
+      content : 'My Task';
+    }
+  }
+  .new-task & {
+    @extend .badge;
+    &:after {
+      content : 'New';
+    }
+  }
+
+  .working-task.completed & {
+    @extend .fi-circle-check;
+    &:before {
+      margin-right : 5px;
+    }
+  }
+}
+
+.task-time,
+.task-status {
+  flex : 1 1 17rem;
+}
+
+.task-status {
+  justify-content : flex-end;
+  white-space     : nowrap;
+
+  &:before {
+    transform     : translateY(2px);
+    padding-right : .5rem;
+  }
+  &.warning {
+    @extend .fi-warning;
+    color : $red;
+  }
+  &.success {
+    @extend .fi-circle-check;
+    color : $green;
+  }
+
+  .task-expanded:not(.completed) & {
+    background-color : $offwhite;
+
+    &:after {
+      content: '';
+      background : $offwhite;
+    }
+
+  }
+}
