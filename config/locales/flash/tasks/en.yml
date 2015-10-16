@@ -1,0 +1,5 @@
+en:
+  tasks:
+    flash:
+      volunteered: 'Thanks for volunteering for %{name}!'
+      completed:   'Thanks for completeing %{name}!'

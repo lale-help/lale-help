@@ -35,5 +35,10 @@ RSpec.describe TasksController, type: :routing do
       expect(:put   => "/circles/1/tasks/1/volunteer").to route_to("tasks#volunteer", :circle_id => "1", :task_id => "1")
       expect(:patch => "/circles/1/tasks/1/volunteer").to route_to("tasks#volunteer", :circle_id => "1", :task_id => "1")
     end
+
+    it "routes to #complete" do
+      expect(:put   => "/circles/1/tasks/1/complete").to route_to("tasks#complete", :circle_id => "1", :task_id => "1")
+      expect(:patch => "/circles/1/tasks/1/complete").to route_to("tasks#complete", :circle_id => "1", :task_id => "1")
+    end
   end
 end

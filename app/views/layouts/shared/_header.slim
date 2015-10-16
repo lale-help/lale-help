@@ -1,16 +1,18 @@
 header
   .header-left-group
-    .logo Lale
+    .logo= t('lale')
     - if current_circle.present?
       .circle-city #{current_circle.name}
+    .notice
+      = flash[:notice]
+    .alert
+      = flash[:alert]
+
   .header-right-group
     - if current_user.present?
-      .user Signed in as #{current_user.first_name}
-      .header-actions
-        a.action-link href="" Edit Circle
-        a.action-link href="" Edit Profile
-        a.action-link href="#{logout_path}" Sign Out
+      .user= t('.signed-in-as', user: current_user.first_name)
+      a.action-link href="#{logout_path}"= t('.sign-out')
+
     - else
-      p Don't have an account?
-      .header-actions
-        a.action-link href="#{register_path}" Sign up
+      p= t('.dont-have-account')
+      a.action-link href="#{register_path}"= t('.sign-up')

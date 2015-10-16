@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   layout 'circle_page'
+  skip_authorization_check
 
   def new
     redirect_to(current_user.circle ? current_user.circle : new_circle_path) if current_user.present?

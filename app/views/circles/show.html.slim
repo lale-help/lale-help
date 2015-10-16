@@ -1,51 +1,54 @@
 main
   aside
     - if !@circle.working_groups.empty? && can?(:create, @circle.working_groups.first.tasks.build)
-      = link_to 'Add a New Task', new_circle_task_path(@circle), class: 'add-new-task'
+      = link_to t('.task.new'), new_circle_task_path(@circle), class: 'add-new-task'
+
     .show-tasks
-      span Show my tasks only
+      span= t('.task.mine-only')
       .checkbox-slider
         input#show-my-tasks type='checkbox'
         label for='show-my-tasks' onclick="$('.working-task:not(.my-task)').toggleClass('hidden');"
+
     .filter-working-groups
-      h4 Filter Working Groups
+      h4= t('.working-group.filter')
       ul.working-groups
         - @circle.working_groups.each do |working_group|
           // TODO: get working group icons going
           li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')"
             = working_group.name
             - if can? :update, working_group
-              = "&nbsp;(#{link_to 'edit', edit_circle_working_group_path(@circle, working_group), class: 'edit_link'})".html_safe
+              = "&nbsp;(#{link_to t('edit'), edit_circle_working_group_path(@circle, working_group), class: 'edit_link'})".html_safe
 
 
     - if can? :create, @circle.working_groups.build
-      = link_to 'Add a New Work Group', new_circle_working_group_path(@circle), class: 'add-new-work-group'
+      = link_to t('.working-group.new'), new_circle_working_group_path(@circle), class: 'add-new-work-group'
       br
+    = link_to t('.view-burnup-chart'), volunteer_burndown_chart_path(@current_user), class: 'add-new-work-group'
 
   section
     - @circle.working_groups.select(&:persisted?).each do |working_group|
       article.working-group.working-group-open.education id=working_group.underscored_name
         .working-title-container
           span.working-title = working_group.name
-          span.task-count = "#{working_group.tasks.count} tasks"
+          span.task-count = t('.task.count', count: working_group.tasks.count)
 
         .working-tasks
           - working_group.tasks.each do |task|
             .working-task class=(classes_for_task(task))
               .task-header-container
                 .task-name
-                  span
-                    = task.name
-                    - if can? :update, task
-                      = "&nbsp;(#{link_to 'edit', edit_circle_task_path(@circle, task), class: 'edit_link'})".html_safe
+                  = task.name
+                  - if can? :update, task
+                    = "&nbsp;(#{link_to t('edit'), edit_circle_task_path(@circle, task), class: 'edit_link'})".html_safe
 
                 .task-time= humanize_date task.due_date
                 - if task.complete?
                   .task-status
                 - elsif task.volunteers.empty?
-                  .task-status.warning Need one helper
+                  .task-status.warning= t('.task.volunteer-needed', count: 1)
                 - else
-                  .task-status.success Filled
+                  .task-status.success= t('.task.volunteer-filled')
+
               .task-details-container
                 .task-discussion
                   .task-comment-container.task-description
@@ -71,10 +74,9 @@ main
 
                     - if can? :volunteer, task
                       = form_tag circle_task_volunteer_path(@circle, task), method: 'put' do
-                        button.helper.can-help I can do this!
+                        button.helper.can-help= t('.task.volunteer')
 
 
                   - if can? :complete, task
-                    = form_tag [@circle, task], method: 'put' do
-                      = hidden_field_tag "[task]complete", true
-                      button.complete-task.can-complete Complete Task
+                    = form_tag circle_task_complete_path(@circle, task), method: 'put' do
+                      button.complete-task.can-complete= t('.task.complete')
