@@ -34,9 +34,10 @@ main
             .working-task class=(classes_for_task(task))
               .task-header-container
                 .task-name
-                  = task.name
-                  - if can? :update, task
-                    = "&nbsp;( #{link_to 'edit', edit_circle_task_path(@circle, task), class: 'edit_link'} )".html_safe
+                  span
+                    = task.name
+                    - if can? :update, task
+                      = "&nbsp;(#{link_to 'edit', edit_circle_task_path(@circle, task), class: 'edit_link'})".html_safe
 
                 .task-time= humanize_date task.due_date
                 - if task.complete?
