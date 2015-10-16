@@ -3,12 +3,13 @@ html {
 }
 main {
   @include outer-container($local-max-width : $lale-container-width);
+  padding : 0 2rem;
 }
 
 aside {
-  @include span-columns(4);
+  @include span-columns(3);
 }
 
 section {
-  @include span-columns(8);
+  @include span-columns(9);
 }

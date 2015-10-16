@@ -1,6 +1,7 @@
 $header-height : 2.4rem;
 header {
   @include outer-container($local-max-width : $lale-container-width);
+  padding : 0 2rem;
   margin : 4rem auto;
 
   a {
