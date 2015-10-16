@@ -32,7 +32,7 @@ main
           span.working-title = working_group.name
           span.task-count = t('.task.count', count: working_group.tasks.count)
 
-        .working-tasks
+        .working-tasks class="#{working_group.tasks.empty? ? 'no-tasks' : ''}"
           - working_group.tasks.each do |task|
             .working-task class=(classes_for_task(task))
               .task-header-container
