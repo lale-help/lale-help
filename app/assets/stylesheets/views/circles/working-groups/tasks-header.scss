@@ -10,7 +10,7 @@
 }
 
 .task-name {
-  flex        : 2 1 35rem;
+  flex        : 1 1 40rem;
   font-weight : 500;
 
   .my-task & {
@@ -37,7 +37,11 @@
 
 .task-time,
 .task-status {
-  flex : 1 1 17rem;
+  flex : 0 1 13rem;
+
+  .task-expanded & {
+    padding-right : 2rem;
+  }
 }
 
 .task-status {
@@ -57,13 +61,25 @@
     color : $green;
   }
 
-  .task-expanded:not(.completed) & {
-    background-color : $offwhite;
+}
 
-    &:after {
-      content: '';
-      background : $offwhite;
+.task-expanded {
+  &:not(.completed) {
+    & .task-status {
+      background-color : $offwhite;
+
+      &:after {
+        content    : '';
+        background : $offwhite;
+      }
     }
-
+  }
+  .task-name,
+  .task-time {
+    padding : 1.5rem 0;
+  }
+  .task-status {
+    padding    : 1.5rem 2rem 1.5rem 0;
+    box-sizing : content-box;
   }
 }

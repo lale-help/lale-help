@@ -6,7 +6,7 @@
   transition    : height .4s ease;
 
   .working-task {
-    box-shadow      : inset 0px -1px 0px 0px rgba(0, 0, 0, 0.10);
+    box-shadow : inset 0px -1px 0px 0px rgba(0, 0, 0, 0.10);
     padding    : 1.5rem 2rem;
 
     &.completed {
@@ -14,6 +14,9 @@
     }
     &.new-task {
       background-color : $amber-100;
+    }
+    &.task-expanded {
+      padding : 0 0 1.5rem 2rem;
     }
   }
 }
