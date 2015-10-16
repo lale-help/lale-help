@@ -27,12 +27,12 @@ main
 
   section
     - @circle.working_groups.select(&:persisted?).each do |working_group|
-      article.working-group.working-group-open.education id=working_group.underscored_name
+      article.working-group.working-group-open.education id=working_group.underscored_name class="#{working_group.tasks.empty? ? 'no-tasks' : ''}"
         .working-title-container
           span.working-title = working_group.name
           span.task-count = t('.task.count', count: working_group.tasks.count)
 
-        .working-tasks class="#{working_group.tasks.empty? ? 'no-tasks' : ''}"
+        .working-tasks
           - working_group.tasks.each do |task|
             .working-task class=(classes_for_task(task))
               .task-header-container

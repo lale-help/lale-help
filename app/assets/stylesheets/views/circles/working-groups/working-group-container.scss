@@ -40,11 +40,11 @@
   color      : $white;
   margin     : 1rem 0;
 
-  .working-group-open & {
+  .working-group-open:not(.no-tasks) & {
     @extend .working-group-arrow-base;
     @extend .fi-chevron-bottom;
   }
-  .working-group-closed & {
+  .working-group-closed:not(.no-tasks) & {
     margin : 1rem 0 0;
     @extend .working-group-arrow-base;
     @extend .fi-chevron-top;
