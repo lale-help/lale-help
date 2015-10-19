@@ -46,7 +46,7 @@ select:focus {
 label,
 legend {
   margin-right: 1rem;
-  font-weight: 400; }
+  font-weight: $weight-normal; }
 fieldset {
   border: 1px solid #C7C7C7;
 
@@ -69,18 +69,18 @@ input {
 //Dumb that you can't put these together, but you can't.
 //When a browser hits an invalid selector, it moves on.
 ::-webkit-input-placeholder {color : $black; font-weight : 300;}
-:focus::-webkit-input-placeholder {color: transparent; font-weight : 400;}
+:focus::-webkit-input-placeholder {color: transparent; font-weight : $weight-normal;}
 
  /* Firefox 18- */
-:-moz-placeholder {color : $border-color; font-weight : 400;}
-:focus:-moz-placeholder {color: $border-color; font-weight : 400;}
+:-moz-placeholder {color : $border-color; font-weight : $weight-normal;}
+:focus:-moz-placeholder {color: $border-color; font-weight : $weight-normal;}
 
 /* Firefox 19+ */
-::-moz-placeholder {color : $border-color; font-weight : 400;}
-:focus::-moz-placeholder {color: $border-color; font-weight : 400;}
+::-moz-placeholder {color : $border-color; font-weight : $weight-normal;}
+:focus::-moz-placeholder {color: $border-color; font-weight : $weight-normal;}
 
-:-ms-input-placeholder {color : $border-color; font-weight : 400;}
-:focus:-ms-input-placeholder {color: $border-color; font-weight : 400;}
+:-ms-input-placeholder {color : $border-color; font-weight : $weight-normal;}
+:focus:-ms-input-placeholder {color: $border-color; font-weight : $weight-normal;}
 .actions {
   margin-top: 1rem;
 }
@@ -110,13 +110,13 @@ input {
       content       : '';
       background    : $white;
       border-radius : 2rem;
-      border        : 2px solid $orange-500;
+      border        : 2px solid $deep-orange-500;
       width: 2rem;
       height: 2rem;
       position: absolute;
       left: 0;
-      top: -2px;
-      transition: transform .3s ease, background .2s ease;
+      top: -1.5px;
+      transition: transform .2s ease, background .3s ease;
     }
   }
 
@@ -124,8 +124,8 @@ input {
     transform : translateX(-1px);
   }
   [type="checkbox"]:checked + label:after {
-    transform : translateX(85%);
-    background : $orange-500;
+    transform : translateX(100%);
+    background : $deep-orange-500;
   }
 }
 
@@ -139,7 +139,7 @@ main.form {
   h2 {
     color: #FF8F5A;
     font-size: 4rem;
-    font-weight: 200;
+    font-weight: $weight-light;
   }
 
   section {
@@ -175,7 +175,7 @@ main.form {
     color: #2C4C5E;
     content: 'REQUIRED';
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: $weight-semibold;
     margin-left: 12px;
     opacity: 0.4;
     text-transform: uppercase;
@@ -193,7 +193,7 @@ main.form {
     color: #2C4C5E;
     display: block;
     font-size: 1.5rem;
-    font-weight: 500;
+    font-weight: $weight-medium;
     line-height: 21px;
     margin-bottom: 8px;
   }
@@ -201,12 +201,12 @@ main.form {
   input[type='text'], input[type='password'], textarea, input[type='date'] {
     @include placeholder {
       color: #bfc9ce;
-      font-weight: 400;
+      font-weight: $weight-normal;
     }
     border: 1px solid #2C4C5E;
     border-radius: 3px;
     font-size: 1.4rem;
-    font-weight: 400;
+    font-weight: $weight-normal;
     padding: 7px 8px;
     width: 100%;
   }

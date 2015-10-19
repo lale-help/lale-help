@@ -4,9 +4,16 @@ $fontstack-helvetica     : "Helvetica Neue", Helvetica, Roboto, Arial, sans-seri
 $fontstack-lucida-grande : "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
 $fontstack-monospace     : "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
 $fontstack-verdana       : Verdana, Geneva, sans-serif;
-$fontstack-primary       : 'WorkSans', "Courier", $fontstack-helvetica;
+$fontstack-primary       : 'WorkSans', $fontstack-helvetica;
 $fontstack-sans          : $fontstack-primary;
 $fontstack-serif         : $fontstack-georgia;
+
+//-- Weights ----------------------------------
+$weight-light    : 200;
+$weight-normal   : normal;
+$weight-medium   : 500;
+$weight-semibold : 600;
+$weight-bold     : bold;
 
 @font-face {
   font-family: 'WorkSans';

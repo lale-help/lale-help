@@ -17,7 +17,7 @@ main
           li id="#{working_group.underscored_name}_toggle" onclick="$('##{working_group.underscored_name}').toggleClass('hidden'); $('##{working_group.underscored_name}_toggle').toggleClass('unselected')"
             = working_group.name
             - if can? :update, working_group
-              = "&nbsp;( #{link_to t('edit'), edit_circle_working_group_path(@circle, working_group), class: 'edit_link'} )".html_safe
+              = "&nbsp;(#{link_to t('edit'), edit_circle_working_group_path(@circle, working_group), class: 'edit_link'})".html_safe
 
 
     - if can? :create, @circle.working_groups.build
@@ -27,11 +27,10 @@ main
 
   section
     - @circle.working_groups.select(&:persisted?).each do |working_group|
-      article.working-group.working-group-open.education id=working_group.underscored_name
+      article.working-group.working-group-open.education id=working_group.underscored_name class="#{working_group.tasks.empty? ? 'no-tasks' : ''}"
         .working-title-container
           span.working-title = working_group.name
           span.task-count = t('.task.count', count: working_group.tasks.count)
-
 
         .working-tasks
           - working_group.tasks.each do |task|
@@ -40,7 +39,7 @@ main
                 .task-name
                   = task.name
                   - if can? :update, task
-                    = "&nbsp;( #{link_to t('edit'), edit_circle_task_path(@circle, task), class: 'edit_link'} )".html_safe
+                    = "&nbsp;(#{link_to t('edit'), edit_circle_task_path(@circle, task), class: 'edit_link'})".html_safe
 
                 .task-time= humanize_date task.due_date
                 - if task.complete?

@@ -3,12 +3,12 @@
     color          : $white;
     background     : $orange;
     border-radius  : 2.4rem;
-    font-size      : 1rem;
-    font-weight    : bold;
+    font-size      : 1.1rem;
+    font-weight    : $weight-semibold;
+    line-height    : 1.3rem;
     margin-left    : .5rem;
-    padding        : .5rem 1rem;
+    padding        : .3rem .8rem;
     position       : relative;
-    top            : -2px;
     text-transform : uppercase;
     white-space    : nowrap;
   }

@@ -1,0 +1,85 @@
+.task-header-container {
+  display         : flex;
+  justify-content : space-between;
+
+  & > div {
+    display     : flex;
+    align-items : center;
+    line-height : 2rem;
+  }
+}
+
+.task-name {
+  flex        : 1 1 40rem;
+  font-weight : $weight-medium;
+
+  .my-task & {
+    padding-right : 2rem;
+    @extend .badge;
+    &:after {
+      content : 'My Task';
+    }
+  }
+  .new-task & {
+    @extend .badge;
+    &:after {
+      content : 'New';
+    }
+  }
+
+  .working-task.completed & {
+    @extend .fi-circle-check;
+    &:before {
+      margin-right : 5px;
+    }
+  }
+}
+
+.task-time,
+.task-status {
+  flex : 0 1 13rem;
+
+  .task-expanded & {
+    padding-right : 2rem;
+  }
+}
+
+.task-status {
+  justify-content : flex-end;
+  white-space     : nowrap;
+
+  &:before {
+    transform     : translateY(2px);
+    padding-right : .5rem;
+  }
+  &.warning {
+    @extend .fi-warning;
+    color : $red;
+  }
+  &.success {
+    @extend .fi-circle-check;
+    color : $green;
+  }
+
+}
+
+.task-expanded {
+  &:not(.completed) {
+    & .task-status {
+      background-color : $offwhite;
+
+      &:after {
+        content    : '';
+        background : $offwhite;
+      }
+    }
+  }
+  .task-name,
+  .task-time {
+    padding : 1.5rem 0;
+  }
+  .task-status {
+    padding    : 1.5rem 2rem 1.5rem 0;
+    box-sizing : content-box;
+  }
+}

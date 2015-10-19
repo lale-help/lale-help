@@ -1,5 +1,5 @@
-$default-font-size   : 1.6rem;
-$default-line-height : 1.5;
+$default-font-size   : 1.3rem;
+$default-line-height : 1.2;
 
 //-- Sizes ---------------------------------------------------------------------
 html {
@@ -16,8 +16,8 @@ body {
 }
 
 h4 {
-  font-size      : 1.3rem;
-  font-weight    : 600;
+  font-size      : 1.1rem;
+  font-weight    : $weight-semibold;
   text-transform : uppercase;
 }
 .small {
