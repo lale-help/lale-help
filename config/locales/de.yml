@@ -1,2 +1,28 @@
 de:
-  hello: "Hallo Welt"
+  lale: Lale
+  hello: Hallo Welt
+  edit: BEARBEITEN
+
+  forms:
+    correct-errors: Bitte ändern Sie die untenstehenden Fehler.
+
+  fields:
+    name: Name
+    location: Standort
+
+    email: E-Mail-Adresse
+    email-placeholder: Tragen Sie Ihre E-Mail-Adresse ein
+
+    password: Passwort
+    password-placeholder: Tragen Sie Ihr Passwort ein
+
+  # Use this for form helpers
+  helpers:
+    submit:
+      create: "%{model} erstellen"
+      submit: "%{model} speichern"
+      update: "%{model} aktualisieren"
+
+  unauthorized:
+    manage:
+      all: "Keine Berechtigung %{subject} zu %{action}."

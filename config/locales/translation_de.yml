@@ -1,0 +1,116 @@
+en:
+  activerecord:
+    models:
+      circle: Helferkreis  #g
+      location: Standort  #g
+      system_event: System-Event  #g
+      system_event/notification: System-Event/Benachrichtigung  #g
+      system_event/notification/delivery: System-Event/Benachrichtigung/Zustellung  #g
+      task: Aufgabe  #g
+      task/location_assignment: Aufgabe/Standortzuordnung  #g
+      task/skill: Aufgabe/Fähigkeit  #g
+      task/skill_assignment: Aufgabe/Fähigkeitszuordnung  #g
+      task/volunteer_assignment: Aufgabe/Helferzuordnung  #g
+      volunteer: Helfer  #g
+      volunteer/feedback: Helfer/Feedbackeedback  #g
+      volunteer/identity: Helfer/Identität  #g
+      working_group: Arbeitsgruppe  #g
+
+    attributes:
+      circle:
+        admin: :activerecord.models.admin  #g
+        location: :activerecord.models.location  #g
+        name: Name  #g
+        tasks: Aufgaben  #g
+        volunteers: Helfer  #g
+        working_groups: Arbeitsgruppen  #g
+
+      location:
+        address: Anschrift  #g
+        circles: Helferkreise  #g
+        latitude: Breitengrad  #g
+        longitude: Längengrad  #g
+        name: Name  #g
+        users: Benutzer  #g
+
+      system_event:
+        action: Aktion  #g
+        for: :activerecord.models.for  #g
+        for_type: Für Typ  #g
+        notifications: Benachrichtigungen  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      system_event/notification:
+        deliveries: Zustellungen  #g
+        system_event: :activerecord.models.system_event  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      system_event/notification/delivery:
+        content: Inhalt  #g
+        method: Methode  #g
+        notification: :activerecord.models.notification  #g
+
+      task:
+        completed_at: Erledigt um  #g
+        description: Beschreibung  #g
+        due_date: Fälligkeit  #g
+        location_assignments: Standortzuordnung  #g
+        locations: Standorte  #g
+        name: Name  #g
+        organizer_assignments: Organisatorzuordnung  #g
+        organizers: Organisatoren  #g
+        skill_assignments: Fähigkeitszuordnungen  #g
+        skills: Fähigkeiten  #g
+        volunteer_assignments: Helferzuordnungen  #g
+        volunteers: Helfer  #g
+        working_group: :activerecord.models.working_group  #g
+
+      task/location_assignment:
+        location: :activerecord.models.location  #g
+        primary: Primär  #g
+        task: :activerecord.models.task  #g
+
+      task/skill:
+        name: Name  #g
+        task_skill_assignments: Aufgabe Fähigkeitszuordnung  #g
+        tasks: Aufgaben  #g
+
+      task/skill_assignment:
+        required: Erforderlich  #g
+        skill: :activerecord.models.skill  #g
+        task: :activerecord.models.task  #g
+
+      task/volunteer_assignment:
+        organizer: Organisator  #g
+        task: :activerecord.models.task  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      volunteer:
+        circle: :activerecord.models.circle  #g
+        email: Email  #g
+        feedback: Feedback  #g
+        first_name: Vorname  #g
+        identities: Identitäten  #g
+        last_name: Nachname  #g
+        location: :activerecord.models.location  #g
+        notifications: Benachrichtigungen  #g
+        task_volunteer_assignments: Aufgabe Helferzuordnungen  #g
+        tasks: Aufgaben  #g
+        triggered_system_events: Ausgelöste System-Events  #g
+
+      volunteer/feedback:
+        comment: Kommentar  #g
+        rating: Bewertung  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      volunteer/identity:
+        circle: :activerecord.models.circle  #g
+        email: Email  #g
+        password_digest: Passwort Digest  #g
+        volunteer: :activerecord.models.volunteer  #g
+
+      working_group:
+        circle: :activerecord.models.circle  #g
+        name: Name  #g
+        tasks: Aufgaben  #g
+        volunteers: Helfer  #g
