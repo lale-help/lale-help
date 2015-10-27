@@ -1,0 +1,8 @@
+en:
+  volunteer:
+    account:
+      edit:
+        title:          Edit your account
+      reset_password:
+        reset_password: Reset your Password
+        update:         Update your Password

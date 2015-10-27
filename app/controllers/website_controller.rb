@@ -6,15 +6,6 @@ class WebsiteController < ApplicationController
 
   end
 
-  def ping
-    render text: "PONG"
-  end
-
-  def stylesheet
-
-  end
-
-  def signup
-
+  def reset_password
   end
 end
