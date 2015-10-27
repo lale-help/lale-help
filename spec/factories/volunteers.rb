@@ -8,7 +8,7 @@ FactoryGirl.define do
   end
 
   factory :volunteer_identity, class: Volunteer::Identity do
-    email Faker::Internet.email
+    email    { "#{volunteer.first_name}@example.com" }
     password { SecureRandom.hex(5) }
   end
 end
