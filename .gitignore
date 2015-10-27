@@ -20,3 +20,4 @@
 .env
 .idea
 .tags*
+.DS_Store
