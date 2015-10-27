@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     outcome = Authentication::VolunteerFromOmniAuth.run(env["omniauth.auth"])
     if outcome.success?
       volunteer = outcome.result
-      session[:user_id] = volunteer.id
+      login(volunteer)
 
       if volunteer.circle.present?
         redirect_to volunteer.circle
@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:user_id] = nil
+    logout
     redirect_to root_path, notice: "Signed out!"
   end
 

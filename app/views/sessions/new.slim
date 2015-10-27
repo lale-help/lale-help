@@ -13,5 +13,5 @@ main.form
           input name="password" type="password" placeholder=t('fields.password-placeholder')
 
       .submit-row
-        a.link href='#'= t('.reset-password')
+        a.link href=public_reset_password_path = t('.reset-password')
         button.button.login type="submit"= t('.sign-in')

@@ -10,7 +10,7 @@ gem 'mutations'
 gem 'omniauth'
 gem 'omniauth-identity'
 gem 'cancancan'
-
+gem 'mandrill-api'
 
 # UI
 gem 'coffee-rails', '~> 4.1.0'
@@ -34,9 +34,15 @@ gem 'd3_rails'
 gem 'jbuilder', '~> 2.0'
 
 
+
+
 # Other
 gem 'geocoder'
 
+
+group :development do
+  gem "letter_opener"
+end
 
 group :development, :test do
   gem 'pry-rails'
@@ -56,4 +62,6 @@ group :test do
   gem 'shoulda'
   gem 'factory_girl'
   gem 'faker'
+  gem 'vcr'
+  gem 'webmock'
 end

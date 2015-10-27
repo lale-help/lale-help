@@ -25,4 +25,12 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || I18n.default_locale
   end
   before_action :set_locale
+
+  def login user
+    session[:user_id] = user.id
+  end
+
+  def logout
+    session.clear
+  end
 end

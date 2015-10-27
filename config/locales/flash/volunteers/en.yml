@@ -1,0 +1,4 @@
+en:
+  volunteers:
+    flash:
+      password_reset_success: "Your password was successfully updated"
