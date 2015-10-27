@@ -56,4 +56,6 @@ group :test do
   gem 'shoulda'
   gem 'factory_girl'
   gem 'faker'
+  gem 'vcr'
+  gem 'webmock'
 end

@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :circle do
     sequence(:name) {|n| "Circle #{n}" }
+    location_text { "San Francisco, CA" }
     location
     admin
     after(:create) { |circle, evaluator|
