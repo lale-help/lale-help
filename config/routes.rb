@@ -26,5 +26,7 @@ Rails.application.routes.draw do
   get "/logout",                  to: "sessions#destroy", :as => "logout"
   get "/register",                to: "volunteer/identities#new", :as => "register"
 
+  get "/token/:token_code", to: "tokens#handle_token", as: "handle_token"
+
   root to: "sessions#new"
 end
