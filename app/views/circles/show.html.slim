@@ -22,8 +22,6 @@ main
 
     - if can? :create, @circle.working_groups.build
       = link_to t('.working-group.new'), new_circle_working_group_path(@circle), class: 'add-new-work-group'
-      br
-    = link_to t('.view-burnup-chart'), volunteer_burndown_chart_path(@current_user), class: 'add-new-work-group'
 
   section
     - @circle.working_groups.select(&:persisted?).each do |working_group|
