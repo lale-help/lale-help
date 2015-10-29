@@ -11,9 +11,9 @@ en:
       task/skill: Task/skill  #g
       task/skill_assignment: Task/skill assignment  #g
       task/volunteer_assignment: Task/volunteer assignment  #g
-      volunteer: Volunteer  #g
-      volunteer/feedback: Volunteer/feedback  #g
-      volunteer/identity: Volunteer/identity  #g
+      user: Volunteer  #g
+      user/feedback: Volunteer/feedback  #g
+      user/identity: Volunteer/identity  #g
       working_group: Working group  #g
 
     attributes:
@@ -85,7 +85,7 @@ en:
         task: :activerecord.models.task  #g
         volunteer: :activerecord.models.volunteer  #g
 
-      volunteer:
+      user:
         circle: :activerecord.models.circle  #g
         email: Email  #g
         feedback: Feedback  #g
@@ -98,12 +98,12 @@ en:
         tasks: Tasks  #g
         triggered_system_events: Triggered system events  #g
 
-      volunteer/feedback:
+      user/feedback:
         comment: Comment  #g
         rating: Rating  #g
         volunteer: :activerecord.models.volunteer  #g
 
-      volunteer/identity:
+      user/identity:
         circle: :activerecord.models.circle  #g
         email: Email  #g
         password_digest: Password digest  #g

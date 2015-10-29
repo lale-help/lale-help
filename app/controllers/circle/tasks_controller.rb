@@ -3,7 +3,7 @@ class Circle::TasksController < ApplicationController
   before_action :ensure_logged_in
   load_and_authorize_resource :circle
   load_and_authorize_resource through: :circle, except: [:volunteer, :new, :complete]
-  load_and_authorize_resource id_param: :task_id, only: [:complete, :volunteer]
+  load_and_authorize_resource id_param: :task_id, only: [:volunteer, :complete]
 
   include HasCircle
   include HasWorkingGroupFilters

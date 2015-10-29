@@ -1,6 +1,6 @@
-class Volunteer::UpdatePassword < Mutations::Command
+class User::UpdatePassword < Mutations::Command
   required do
-    model  :volunteer
+    model  :user
     string :password
     string :password_confirmation
   end
@@ -8,7 +8,7 @@ class Volunteer::UpdatePassword < Mutations::Command
   def execute
     return if password_invalid
 
-    identity = volunteer.identities.first
+    identity = user.identities.first
     identity.password = password
     identity.save!
   end

@@ -3,18 +3,16 @@ class ApplicationController < ActionController::Base
   # check_authorization
 
   rescue_from CanCan::AccessDenied do |exception|
+    puts current_user.inspect
+    puts "HERE!!!! #{exception.action} #{exception.subject}"
     redirect_to root_path, :alert => exception.message
   end
 
   def current_user
-    @current_user ||= session[:user_id] && Volunteer.find(session[:user_id])
+    @current_user ||= session[:user_id] && User.find(session[:user_id])
   end
   helper_method :current_user
 
-  def current_circle
-    # @current_user ||= session[:user_id] && Volunteer.find(session[:user_id])
-  end
-  helper_method :current_circle
 
   def ensure_logged_in
     current_user || redirect_to(root_path)
@@ -54,7 +52,6 @@ class ApplicationController < ActionController::Base
   def content_for?(name)
     @_content_for[name].present?
   end
-
 
 
   helper_method def filter_present?

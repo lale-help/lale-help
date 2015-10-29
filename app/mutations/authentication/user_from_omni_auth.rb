@@ -1,4 +1,4 @@
-class Authentication::VolunteerFromOmniAuth < Mutations::Command
+class Authentication::UserFromOmniAuth < Mutations::Command
   required do
     string :provider
     string :uid
@@ -7,7 +7,7 @@ class Authentication::VolunteerFromOmniAuth < Mutations::Command
   def execute
     case provider
     when 'identity'
-      Volunteer::Identity.find(uid).volunteer
+      User::Identity.find(uid).user
     else
       raise ActiveRecord::RecordNotFound
     end

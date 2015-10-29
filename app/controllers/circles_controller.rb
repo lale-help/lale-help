@@ -22,7 +22,7 @@ class CirclesController < ApplicationController
   # GET /circles/1
   # GET /circles/1.json
   def show
-    @my_tasks = current_circle.tasks.not_completed.joins(:volunteer_assignments).where(task_volunteer_assignments: { volunteer_id: current_user } )
+    @my_tasks = current_circle.tasks.not_completed.joins(:volunteer_assignments).where(task_volunteer_assignments: { user_id: current_user } )
   end
 
   # GET /circles/new

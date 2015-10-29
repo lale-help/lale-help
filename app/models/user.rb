@@ -1,8 +1,5 @@
-class Volunteer < ActiveRecord::Base
+class User < ActiveRecord::Base
   has_many :feedback
-
-  has_many :task_volunteer_assignments, class_name: '::Task::VolunteerAssignment'
-  has_many :tasks, through: :task_volunteer_assignments
 
   has_many :triggered_system_events, class_name: '::SystemEvent'
   has_many :notifications, class_name: '::SystemEvent::Notification'
