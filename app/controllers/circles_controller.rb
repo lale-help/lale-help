@@ -1,8 +1,11 @@
 class CirclesController < ApplicationController
-  layout 'circle_page'
+  layout 'internal'
 
   before_action :ensure_logged_in, except: :index
   load_and_authorize_resource
+
+  include HasCircle
+
 
   # GET /circles
   # GET /circles.json

@@ -18,6 +18,9 @@ class Task < ActiveRecord::Base
   validates :description, presence: true
   validates :working_group, presence: true
 
+  scope :completed,     -> { where("completed_at IS NOT NULL") }
+  scope :not_completed, -> { where("completed_at IS NULL") }
+
   def complete= val
     self.completed_at = Time.now if val.to_s == "true"
   end

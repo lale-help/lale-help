@@ -99,8 +99,6 @@ GEM
     columnize (0.9.0)
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
-    d3_rails (3.5.6)
-      railties (>= 3.1.0)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     domain_name (0.5.25)
@@ -114,6 +112,8 @@ GEM
     faker (1.5.0)
       i18n (~> 0.5)
     ffi (1.9.10)
+    font-awesome-sass (4.4.0)
+      sass (>= 3.2)
     foreman (0.78.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
@@ -367,9 +367,9 @@ DEPENDENCIES
   bourbon
   cancancan
   coffee-rails (~> 4.1.0)
-  d3_rails
   factory_girl
   faker
+  font-awesome-sass
   foreman
   geocoder
   guard-hologram!

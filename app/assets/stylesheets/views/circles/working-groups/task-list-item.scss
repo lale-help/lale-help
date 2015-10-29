@@ -1,0 +1,29 @@
+.task-list {
+  padding-bottom: 5rem;
+  .task {
+    margin: 0 5rem 0 2rem;
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+  }
+
+  .task-icon {
+    height: 30px;
+    @include flex(0 0 30px);
+    border: thin solid $light-grey;
+    border-radius: 50%;
+  }
+
+  .task-details {
+    @include flex(1);
+    margin-left: 2rem;
+    border-bottom: thin solid $light-grey;
+    padding: 1rem 0 1rem 0;
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(space-between);
+  }
+
+}

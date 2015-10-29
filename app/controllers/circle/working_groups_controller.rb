@@ -1,5 +1,5 @@
-class WorkingGroupsController < ApplicationController
-  layout 'circle_page'
+class Circle::WorkingGroupsController < ApplicationController
+  layout 'internal'
   before_action :ensure_logged_in
   load_and_authorize_resource :circle
   load_and_authorize_resource through: :circle

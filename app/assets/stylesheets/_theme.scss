@@ -1,0 +1,35 @@
+$page-bg:  $offwhite;
+$nav-bg:   $dark-blue;
+$nav-color: white;
+
+html {
+  background-color : $page-bg;
+
+  a {
+    color: black;
+    text-decoration: none;
+
+    &:visited {
+      color: black;
+    }
+  }
+}
+
+nav{
+  background:  $nav-bg;
+  color: $nav-color;
+
+  a, a:visited {
+    color: $nav-color;
+  }
+
+  a.selected, a:visited.selected, .selected {
+    background: $page-bg;
+    color: $nav-bg;
+  }
+}
+
+header{
+  background:  $nav-bg;
+  color: $nav-color;
+}

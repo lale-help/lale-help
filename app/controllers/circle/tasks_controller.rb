@@ -1,15 +1,24 @@
-class TasksController < ApplicationController
-  layout "circle_page"
+class Circle::TasksController < ApplicationController
+  layout "internal"
   before_action :ensure_logged_in
   load_and_authorize_resource :circle
   load_and_authorize_resource through: :circle, except: [:volunteer, :new, :complete]
   load_and_authorize_resource id_param: :task_id, only: [:complete, :volunteer]
 
+  include HasCircle
+  include HasWorkingGroupFilters
+
   # GET /tasks
   # GET /tasks.json
   def index
-  end
+    tasks = current_circle.tasks.order('due_date asc')
+    tasks = tasks.where(working_group: current_working_group) if current_working_group.present?
 
+    open_tasks   = tasks.not_completed
+    closed_tasks = tasks.completed
+
+    @tasks = OpenStruct.new(open: open_tasks.limit(10), closed: closed_tasks.limit(10))
+  end
 
   # GET /tasks/new
   def new
@@ -20,6 +29,7 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
   end
+
 
   # POST /tasks
   # POST /tasks.json

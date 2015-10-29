@@ -1,15 +1,85 @@
-html {
-  background-color : $cream;
-}
-main {
-  @include outer-container($local-max-width : $lale-container-width);
-  padding : 0 2rem;
+$header-height : 50px;
+header {
+  height: $header-height;
+  width: 100%;
+
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+
+  .header-left {
+    @include flex(0 0 25rem);
+    padding-left: 1.5rem;
+    font-size: 2rem;
+  }
+
+  .header-middle {
+    @include flex(1);
+  }
+
+  .header-right {
+    @include flex(1);
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(flex-end);
+    > * {
+      margin-right: 2rem;
+    }
+    padding-right: 1rem;
+  }
+
+  .back {
+    font-size: 2rem;
+  }
+
+  .user-inbox{
+    font-size: 2rem;
+    @include icon($icon-inbox);
+  }
+
+  .user-avatar{
+    img{
+      border-radius: 50%;
+      max-width: 30px;
+    }
+  }
+
 }
 
-aside {
-  @include span-columns(3);
+.content {
+  @include display(flex);
+  @include flex-direction(row);
+
+  nav {
+    height: 100%;
+    @include flex(0 0 25rem);
+
+    padding: 3rem 0 0 0 ;
+
+    .sidebar-section {
+      padding: 0 0 2rem 0;
+    }
+
+    h2, h3, h4{
+      padding: 1rem 0 0.5rem 1.5rem;
+      text-transform: uppercase;
+
+    }
+    .sidebar-item {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      text-decoration: none;
+      display: block;
+    }
+  }
+
+  section {
+    height: 100%;
+    @include flex(1);
+    margin: 2rem 1rem 1rem 1rem;
+  }
 }
 
-section {
-  @include span-columns(9);
-}
+
+
