@@ -14,7 +14,7 @@
         .title Volunteers
         - @task.volunteers.each do |v|
           .user-avatar
-            img src=image_path("avatar")
+            img src=image_path("avatar.jpg")
 
       .task-details-extra-section.task-actions
         - if can? :volunteer, @task
