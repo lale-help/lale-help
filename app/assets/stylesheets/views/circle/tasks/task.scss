@@ -1,0 +1,59 @@
+section > .task {
+
+  .task-header {
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .task-details {
+    height: 500px;
+
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(top);
+
+
+    .task-details-core{
+      @include flex(1);
+      margin-left: 3rem;
+
+      .task-name {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .task-details-extra {
+      @include flex(0 0 30rem);
+
+      .task-details-extra-section {
+        .title {
+          text-transform: uppercase;
+        }
+        min-height: 75px;
+
+        margin-top: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: thin solid black;
+      }
+
+      .button {
+        margin-bottom: 1rem;
+
+        color: $white;
+        background: $orange;
+
+        &.edit-task {
+          background: $white;
+          border: thin solid $orange;
+          color: $orange;
+        }
+
+      }
+
+
+    }
+  }
+
+}

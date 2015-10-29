@@ -38,6 +38,18 @@
   }
 }
 
+@mixin icon-after($icon) {
+  &:after{
+    font-family: 'FontAwesome';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    content: $icon;
+  }
+}
+
 
 $icon-glass: "\f000";
 $icon-music: "\f001";
@@ -105,7 +117,7 @@ $icon-adjust: "\f042";
 $icon-tint: "\f043";
 $icon-edit: "\f044";
 $icon-share: "\f045";
-$icon-check: "\f046";
+$icon-check: "\f00c";
 $icon-move: "\f047";
 $icon-step-backward: "\f048";
 $icon-fast-backward: "\f049";

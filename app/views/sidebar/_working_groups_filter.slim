@@ -1,4 +1,7 @@
 h4 Working Groups
 - circle.working_groups.each do |working_group|
-  a.sidebar-item href=url_for(working_group: working_group.id)
-    = working_group.name
+  .sidebar-item
+    a href=url_for(working_group: working_group.id)
+      = working_group.name
+    - if current_working_group == working_group
+      .filter-selected

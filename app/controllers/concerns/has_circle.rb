@@ -17,7 +17,7 @@ module HasCircle
 
   def setup_circle_sidebar
     content_for :header_left do
-      current_circle.name
+      render_to_string partial: 'sidebar/circle_title', locals: { circle: current_circle }
     end
 
     content_for :sidebar_links do

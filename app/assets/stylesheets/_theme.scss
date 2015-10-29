@@ -1,39 +1,41 @@
-$page-bg:  $offwhite;
-$nav-bg:   $dark-blue;
-$nav-color: white;
+@mixin text-color($color) {
+  color: $color;
 
-html {
-  background-color : $page-bg;
-
-  a {
-    color: black;
+  a, a:visited {
+    color: $color;
     text-decoration: none;
-
-    &:visited {
-      color: black;
-    }
   }
 }
 
+
+html {
+  background-color : $page-bg;
+  @include text-color($nav-text);
+}
+
 nav{
-  background:  $nav-bg;
-  color: $nav-color;
+  background: $nav-bg;
+  @include text-color($nav-text);
 
-  a, a:visited {
-    color: $nav-color;
-  }
-
-  a.selected, a:visited.selected, .selected {
+  .selected {
     background: $page-bg;
-    color: $nav-bg;
+    @include text-color($nav-text-active);
   }
 }
 
 header{
-  background:  $nav-bg;
-  color: $nav-color;
+  background:  $header-bg;
+  @include text-color($header-text);
 
-  a, a:visited {
-    color: $nav-color;
+  .open {
+    background: $page-bg;
+    @include text-color($header-bg);
+
+    .menu {
+      background: $page-bg;
+      @include text-color($header-bg);
+    }
   }
 }
+
+

@@ -1,62 +1,3 @@
-$header-height : 50px;
-header {
-  height: $header-height;
-  width: 100%;
-
-  @include display(flex);
-  @include flex-direction(row);
-  @include align-items(center);
-
-  .header-left {
-    @include flex(0 0 25rem);
-    padding-left: 1.5rem;
-    font-size: 2rem;
-  }
-
-  .header-middle {
-    @include flex(1);
-
-    a.back {
-      @include icon($icon-chevron-left);
-      &:before {
-        font-size:    0.75em;
-        margin-right: 0.25em;
-      }
-    }
-
-  }
-
-  .header-right {
-    @include flex(1);
-
-    @include display(flex);
-    @include flex-direction(row);
-    @include align-items(center);
-    @include justify-content(flex-end);
-    > * {
-      margin-right: 2rem;
-    }
-    padding-right: 1rem;
-  }
-
-  .back {
-    font-size: 2rem;
-  }
-
-  .user-inbox{
-    font-size: 2rem;
-    @include icon($icon-inbox);
-  }
-
-  .user-avatar{
-    img{
-      border-radius: 50%;
-      max-width: 30px;
-    }
-  }
-
-}
-
 .content {
   @include display(flex);
   @include flex-direction(row);
@@ -80,13 +21,32 @@ header {
       padding: 0.5rem 0 0.5rem 1.5rem;
       text-decoration: none;
       display: block;
+
+      .filter-selected {
+        float: right;
+        margin-right: 2rem;
+        @include icon($icon-check);
+      }
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      padding: 2rem;
+
+      .logo {
+        display: inline-block;
+        @include lale-logo();
+        width: 1rem;
+        height: 1rem;
+      }
     }
   }
 
   section {
     height: 100%;
     @include flex(1);
-    margin: 2rem 1rem 1rem 1rem;
+    margin: 2rem;
   }
 }
 

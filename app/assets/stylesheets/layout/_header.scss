@@ -1,0 +1,111 @@
+$header-height : 50px;
+
+header {
+  height: $header-height;
+  width: 100%;
+
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+
+  .header-left {
+    @include flex(0 0 25rem);
+    padding-left: 1.5rem;
+    font-size: 2rem;
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+
+    .circle-name {
+      @include flex(1);
+
+    }
+
+    .circle-add-menu {
+      @include flex(0 0 4rem);
+      height: 100%;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .icon {
+        @include icon($icon-plus);
+        margin: auto;
+        border-radius: 50%;
+        border: thin solid;
+        width: 2rem;
+        height: 2rem;
+        transform: translateY(1.5rem);
+
+        &:before {
+          font-size: 1.25rem;
+          transform: translate(.4rem, .3rem);
+        }
+      }
+
+      &.open {
+        .menu {
+          display: block;
+          border: thin solid $light-grey;
+          border-top: 0;
+        }
+      }
+
+
+      .menu{
+        font-size: 1.5rem;
+        display: none;
+        transform: translateY(2.1rem);
+        position: absolute;
+        min-width:  20rem;
+        padding: 1rem;
+
+        a {
+          display: block;
+          width: 100%;
+          padding: .5rem 1rem;
+        }
+      }
+    }
+
+  }
+
+  .header-middle {
+    @include flex(1);
+
+    a.back {
+      margin-left: 1rem;
+
+      @include icon($icon-chevron-left);
+      &:before {
+        font-size:    0.75em;
+        margin-right: 0.25em;
+      }
+    }
+
+  }
+
+  .header-right {
+    @include flex(1);
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(flex-end);
+    > * {
+      margin-right: 2rem;
+    }
+    padding-right: 1rem;
+  }
+
+  .back {
+    font-size: 2rem;
+  }
+
+  .user-inbox{
+    font-size: 2rem;
+    @include icon($icon-inbox);
+  }
+}
