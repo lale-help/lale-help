@@ -18,7 +18,7 @@ require 'rails_helper'
 # Message expectations are only used when there is no simpler way to specify
 # that an instance is receiving a specific message.
 
-RSpec.describe CirclesController, type: :controller do
+RSpec.describe CirclesController, type: :controller, skip: true do
 
   let(:circle){create(:circle, valid_attributes) }
   let(:location){create(:location)}
