@@ -1,0 +1,11 @@
+h2
+  = title
+  = " in #{working_group.name}" if working_group.present?
+
+.task-list
+  - if tasks.present?
+    - tasks.each do |task|
+      = render partial: 'task_list_item', locals: { circle: circle, task: task }
+
+  -else
+    | No tasks found

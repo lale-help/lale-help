@@ -1,17 +1,2 @@
-h2
-  | Open Tasks
-  = " in #{current_working_group.name}" if current_working_group.present?
-
-
-
-.task-list
-  - @tasks.open.each do |task|
-    = render partial: 'task_list_item', locals: { circle: current_circle, task: task }
-
-h2
-  | Completed Tasks
-  = " in #{current_working_group.name}" if current_working_group.present?
-
-.task-list
-  - @tasks.closed.each do |task|
-     = render partial: 'task_list_item', locals: { circle: current_circle, task: task }
+= render partial: 'task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @tasks.open,   title: "Open Tasks" }
+= render partial: 'task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @tasks.closed, title: "Completed Tasks" }
