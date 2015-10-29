@@ -49,7 +49,7 @@ class Circle::TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to [@circle], notice: t('flash.updated', name: Task.model_name.human) }
+        format.html { redirect_to circle_tasks_path(@circle), notice: t('flash.updated', name: Task.model_name.human) }
       else
         format.html { render :edit }
       end

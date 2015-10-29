@@ -15,6 +15,15 @@ header {
 
   .header-middle {
     @include flex(1);
+
+    a.back {
+      @include icon($icon-chevron-left);
+      &:before {
+        font-size:    0.75em;
+        margin-right: 0.25em;
+      }
+    }
+
   }
 
   .header-right {

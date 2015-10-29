@@ -20,8 +20,8 @@
       = f.label :description, "Description of the Task"
       = f.text_area :description
   .submit-row
-    = link_to 'Cancel', @circle
     = f.submit
+
   - if locals[:delete]
     .delete
       = link_to 'Delete', [@circle, @task], data: {:confirm => 'Are you sure you want to delete this task?'}, :method => :delete

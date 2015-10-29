@@ -32,4 +32,8 @@ nav{
 header{
   background:  $nav-bg;
   color: $nav-color;
+
+  a, a:visited {
+    color: $nav-color;
+  }
 }
