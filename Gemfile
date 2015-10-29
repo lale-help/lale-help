@@ -26,9 +26,7 @@ gem 'js-routes'
 gem 'neat'
 gem 'bourbon'
 gem 'handlebars_assets'
-
-# Data Viz
-gem 'd3_rails'
+gem 'font-awesome-sass'
 
 # API
 gem 'jbuilder', '~> 2.0'

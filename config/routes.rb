@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
   resources :circles do
-    resources :working_groups
-    resources :tasks, only: [:index, :edit, :update, :new, :create, :destroy] do
-      put :volunteer
-      patch :volunteer
-      put :complete
-      patch :complete
+    scope module: 'circle' do
+      resource  :calendar, :admin
+      resources :members
+      resources :working_groups
+      resources :tasks do
+        put :volunteer
+        patch :volunteer
+        put :complete
+        patch :complete
+      end
     end
   end
 
@@ -13,18 +17,22 @@ Rails.application.routes.draw do
 
   get '/styles/:id', to: 'styleguides#show'
 
-  namespace :volunteer do
+  namespace :user do
     resources :identities
+  end
+
+  namespace :api do
+    resources :circles, only: [:index]
   end
 
   post "/auth/:provider/callback", to: "sessions#create"
   get "/auth/failure",            to: "sessions#failure"
   get "/logout",                  to: "sessions#destroy", :as => "logout"
-  get "/register",                to: "volunteer/identities#new", :as => "register"
+  get "/register",                to: "user/identities#new", :as => "register"
 
   get "/token/:token_code", to: "tokens#handle_token", as: "handle_token"
 
-  scope module: "volunteer" do
+  scope module: "user" do
     get   '/account',                 to: 'account#edit',              as: 'account'
     get   '/account/reset_password',  to: 'account#reset_password',    as: 'account_reset_password'
     patch '/account/update_password', to: 'account#update_password',   as: 'account_update_password'

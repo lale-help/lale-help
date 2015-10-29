@@ -1,0 +1,41 @@
+@mixin text-color($color) {
+  color: $color;
+
+  a, a:visited {
+    color: $color;
+    text-decoration: none;
+  }
+}
+
+
+html {
+  background-color : $page-bg;
+  @include text-color($nav-text);
+}
+
+nav{
+  background: $nav-bg;
+  @include text-color($nav-text);
+
+  .selected {
+    background: $page-bg;
+    @include text-color($nav-text-active);
+  }
+}
+
+header{
+  background:  $header-bg;
+  @include text-color($header-text);
+
+  .open {
+    background: $page-bg;
+    @include text-color($header-bg);
+
+    .menu {
+      background: $page-bg;
+      @include text-color($header-bg);
+    }
+  }
+}
+
+

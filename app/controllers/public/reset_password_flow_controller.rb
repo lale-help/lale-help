@@ -6,7 +6,7 @@ class Public::ResetPasswordFlowController < ApplicationController
   end
 
   def submit
-    outcome = Volunteer::ResetPassword.run(params)
+    outcome = User::ResetPassword.run(params)
     redirect_to public_reset_password_confirmation_path
   end
 

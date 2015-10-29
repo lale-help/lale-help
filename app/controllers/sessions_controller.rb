@@ -7,13 +7,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    outcome = Authentication::VolunteerFromOmniAuth.run(env["omniauth.auth"])
+    outcome = Authentication::UserFromOmniAuth.run(env["omniauth.auth"])
     if outcome.success?
-      volunteer = outcome.result
-      login(volunteer)
+      user = outcome.result
+      login(user)
 
-      if volunteer.circle.present?
-        redirect_to volunteer.circle
+      if user.circle.present?
+        redirect_to user.circle
       else
         redirect_to new_circle_path
       end

@@ -1,0 +1,11 @@
+html
+  head
+    = render 'layouts/shared/head'
+
+  body.internal
+    = render 'layouts/internal/header'
+    .content
+      = render 'layouts/internal/sidebar'
+      section
+        = yield
+

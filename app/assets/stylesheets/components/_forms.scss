@@ -130,9 +130,6 @@ input {
 }
 
 main.form {
-  background    : $white;
-  box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
-  border-radius : 3px;
   margin-bottom: 60px;
   padding       : 3.3rem 2rem 5rem 2rem;
 
@@ -153,7 +150,7 @@ main.form {
     p { margin: 10px 0; }
 
     &.error {
-      color: #d0021b;  
+      color: #d0021b;
     }
   }
 
@@ -242,16 +239,29 @@ main.form {
       text-decoration: none;
     }
 
-    button.button, input[type='submit'] {
+  }
+}
+
+main.form, form {
+  .submit-row {
+    button.button, input[type='submit']{
       @extend .button--large;
       float: right;
-      font-family: $fontstack-primary;
-      font-size: 1.5rem;
       line-height: 3.5;
       margin-left: 15px;
       margin-right: 0;
-      padding: 0 70px;
-      border: 0;
+      width: auto;
     }
+  }
+
+
+  button.button, input[type='submit'] {
+    @extend .button--medium;
+    font-family: $fontstack-primary;
+    line-height: 1.75;
+    font-size: 1.25rem;
+    padding: 0 70px;
+    width: 100%;
+    border: 0;
   }
 }

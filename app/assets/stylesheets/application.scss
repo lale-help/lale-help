@@ -1,11 +1,15 @@
 @import "bourbon";
 @import "neat";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 @import "settings/**/*";
 @import "helpers/**/*";
 @import "components/**/*";
 @import "layout/**/*";
 @import "views/**/*";
-
+@import "_theme";
 
 // TODO: move to an appropraite location
 .circle-marker {

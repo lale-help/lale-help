@@ -1,0 +1,27 @@
+= form_for [@circle, @task] do |f|
+  - if @task && @task.errors.any?
+    .form-introduction.error
+      p Please correct the errors below.
+
+  .field-row.single
+    .field.required class=('error' if @task.errors[:name].present?)
+      = f.label :name, "Name of the Task"
+      = f.text_field :name, placeholder: 'E.g. Take Riad to School Orientation'
+  .field-row
+    .field.required class=('error' if @task.errors[:working_group].present?)
+      = f.label :working_group_id , "Working Group"
+      = f.select :working_group_id
+        = options_for_select(working_group_options(@circle), @task.working_group_id)
+    .field.required class=('error' if @task.errors[:due_date].present?)
+      = f.label :due_date , "Select a Due Date"
+      = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
+  .field-row
+    .field.required class=('error' if @task.errors[:description].present?)
+      = f.label :description, "Description of the Task"
+      = f.text_area :description
+  .submit-row
+    = f.submit
+
+  - if locals[:delete]
+    .delete
+      = link_to 'Delete', [@circle, @task], data: {:confirm => 'Are you sure you want to delete this task?'}, :method => :delete

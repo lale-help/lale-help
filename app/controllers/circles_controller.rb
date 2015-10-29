@@ -1,8 +1,11 @@
 class CirclesController < ApplicationController
-  layout 'circle_page'
+  layout 'internal'
 
   before_action :ensure_logged_in, except: :index
   load_and_authorize_resource
+
+  include HasCircle
+
 
   # GET /circles
   # GET /circles.json
@@ -19,6 +22,7 @@ class CirclesController < ApplicationController
   # GET /circles/1
   # GET /circles/1.json
   def show
+    @my_tasks = current_circle.tasks.not_completed.joins(:volunteer_assignments).where(task_volunteer_assignments: { user_id: current_user } )
   end
 
   # GET /circles/new

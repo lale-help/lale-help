@@ -1,72 +1,111 @@
-$header-height : 2.4rem;
+$header-height : 50px;
+
 header {
-  @include outer-container($local-max-width : $lale-container-width);
-  padding : 0 2rem;
-  margin : 4rem auto;
+  height: $header-height;
+  width: 100%;
 
-  a {
-    text-decoration: none;
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(center);
+
+  .header-left {
+    @include flex(0 0 25rem);
+    padding-left: 1.5rem;
+    font-size: 2rem;
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+
+    .circle-name {
+      @include flex(1);
+
+    }
+
+    .circle-add-menu {
+      @include flex(0 0 4rem);
+      height: 100%;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      .icon {
+        @include icon($icon-plus);
+        margin: auto;
+        border-radius: 50%;
+        border: thin solid;
+        width: 2rem;
+        height: 2rem;
+        transform: translateY(1.5rem);
+
+        &:before {
+          font-size: 1.25rem;
+          transform: translate(.4rem, .3rem);
+        }
+      }
+
+      &.open {
+        .menu {
+          display: block;
+          border: thin solid $light-grey;
+          border-top: 0;
+        }
+      }
+
+
+      .menu{
+        font-size: 1.5rem;
+        display: none;
+        transform: translateY(2.1rem);
+        position: absolute;
+        min-width:  20rem;
+        padding: 1rem;
+
+        a {
+          display: block;
+          width: 100%;
+          padding: .5rem 1rem;
+        }
+      }
+    }
+
   }
 
-}
+  .header-middle {
+    @include flex(1);
 
-.header-left-group {
-  @include span-columns(5);
-  align-items     : center;
-  display         : flex;
-  height          : $header-height;
-  justify-content : flex-start;
-}
+    a.back {
+      margin-left: 1rem;
 
-.header-right-group {
-  @include span-columns(7);
-  align-items     : center;
-  display         : flex;
-  height          : $header-height;
-  justify-content : flex-end;
+      @include icon($icon-chevron-left);
+      &:before {
+        font-size:    0.75em;
+        margin-right: 0.25em;
+      }
+    }
 
-}
-.header-actions {
-  font-size : 1.1rem;
+  }
 
-  .action-link {
-    color          : $orange;
-    font-size      : 1.1rem;
-    font-weight    : $weight-semibold;
-    line-height    : 1.2;
-    text-transform : uppercase;
-    margin-left    : 2rem;
+  .header-right {
+    @include flex(1);
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(flex-end);
+    > * {
+      margin-right: 2rem;
+    }
+    padding-right: 1rem;
+  }
+
+  .back {
+    font-size: 2rem;
+  }
+
+  .user-inbox{
+    font-size: 2rem;
+    @include icon($icon-inbox);
   }
 }
-
-.logo {
-  font-size    : 2.4rem;
-  line-height  : 1.2;
-  font-weight  : 900;
-  margin-right : 4rem;
-  &:before {
-    @include lale-logo;
-    content      : '';
-    width        : $header-height;
-    height       : $header-height;
-    display      : inline-block;
-    transform    : translateY(3px);
-    margin-right : 1rem;
-  }
-  &:after {
-    border-right : 1px solid $light-grey;
-    content      : '';
-    display      : inline-block;
-    height       : $header-height;
-    margin-left  : 2rem;
-    width        : 0;
-    transform    : translateY(3px);
-  }
-}
-
-.circle-city {
-  font-size   : 2.4rem;
-  line-height : 1.2;
-}
-
-

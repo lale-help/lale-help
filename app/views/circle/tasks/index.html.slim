@@ -1,0 +1,2 @@
+= render partial: 'task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @tasks.open,   title: "Open Tasks" }
+= render partial: 'task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @tasks.closed, title: "Completed Tasks" }

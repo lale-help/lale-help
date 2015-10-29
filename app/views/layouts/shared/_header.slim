@@ -1,12 +1,6 @@
 header
   .header-left-group
     .logo= t('lale')
-    - if current_circle.present?
-      .circle-city #{current_circle.name}
-    .notice
-      = flash[:notice]
-    .alert
-      = flash[:alert]
 
   .header-right-group
     - if current_user.present?

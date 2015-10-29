@@ -1,0 +1,15 @@
+header
+  .header-left
+    = content_for :header_left
+
+  .header-middle
+    = content_for :header_middle
+
+
+  .header-right
+    .user-inbox
+
+    .user-avatar
+      img src=image_path("avatar.jpg")
+
+    .user-name= current_user.name

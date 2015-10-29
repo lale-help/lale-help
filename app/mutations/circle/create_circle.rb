@@ -1,6 +1,6 @@
 class Circle::CreateCircle < Mutations::Command
    required do
-     model  :user, class: Volunteer
+     model  :user, class: User
      string :name
      string :location_name
    end
@@ -17,7 +17,7 @@ class Circle::CreateCircle < Mutations::Command
        circle   = Circle.create! name: name, location: location, admin: user
 
        # log a system event
-       SystemEvent.create! volunteer: user, for: circle, action: :created
+       SystemEvent.create! user: user, for: circle, action: :created
 
        circle
      end

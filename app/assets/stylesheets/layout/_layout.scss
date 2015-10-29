@@ -1,15 +1,55 @@
-html {
-  background-color : $cream;
-}
-main {
-  @include outer-container($local-max-width : $lale-container-width);
-  padding : 0 2rem;
+.content {
+  @include display(flex);
+  @include flex-direction(row);
+
+  nav {
+    height: 100%;
+    @include flex(0 0 25rem);
+
+    padding: 3rem 0 0 0 ;
+
+    .sidebar-section {
+      padding: 0 0 2rem 0;
+    }
+
+    h2, h3, h4{
+      padding: 1rem 0 0.5rem 1.5rem;
+      text-transform: uppercase;
+
+    }
+    .sidebar-item {
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      text-decoration: none;
+      display: block;
+
+      .filter-selected {
+        float: right;
+        margin-right: 2rem;
+        @include icon($icon-check);
+      }
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 0;
+      padding: 2rem;
+
+      .logo {
+        display: inline-block;
+        @include lale-logo();
+        width: 1rem;
+        height: 1rem;
+        margin: 0 0.5em;
+      }
+    }
+  }
+
+  section {
+    height: 100%;
+    @include flex(1);
+    margin: 2rem;
+  }
 }
 
-aside {
-  @include span-columns(3);
-}
 
-section {
-  @include span-columns(9);
-}
+
