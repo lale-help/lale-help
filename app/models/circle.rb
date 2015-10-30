@@ -1,19 +1,26 @@
 class Circle < ActiveRecord::Base
   attr_accessor :location_text
 
+  has_many :roles
+  has_many :users,      ->{ distinct }, through: :roles
+
+  has_many :admins,     ->{ Circle::Role.send('circle.admin')     }, through: :roles, source: :user
+  has_many :officials,  ->{ Circle::Role.send('circle.official')  }, through: :roles, source: :user
+  has_many :volunteers, ->{ Circle::Role.send('circle.volunteer') }, through: :roles, source: :user
+
   has_many :working_groups
-  has_many :members, class_name: 'User'
   has_many :tasks, through: :working_groups
 
   belongs_to :location
 
-  belongs_to :admin, class_name: 'User' #TODO: remove in favor of roles
 
+  # Validations
   validates :name, presence: true
   validates :admin, presence: true
   validates :location, presence: true
-  attr_accessor :location_text
 
+
+  # Hooks
   before_save :determine_location
   after_initialize  :determine_location
 
