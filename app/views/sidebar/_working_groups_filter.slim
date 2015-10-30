@@ -1,5 +1,5 @@
 h4 Working Groups
-- circle.working_groups.each do |working_group|
+- circle.working_groups.order("lower(name) ASC").each do |working_group|
   .sidebar-item
     a href=url_for(working_group: working_group.id)
       = working_group.name
