@@ -1,0 +1,11 @@
+en:
+  roles:
+    name:
+      circle:
+        admin:     Admin
+        volunteer: Volunteer
+        official:  Official
+        custom:    Custom
+
+      task:
+        assignee: Volunteer

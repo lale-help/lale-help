@@ -1,1 +1,35 @@
-h2 Circle Admin
+h1 Circle Admin
+
+h2 Roles
+table
+  tr
+    th Name
+    th User
+    th Actions
+
+  - current_circle.roles.leadership.each do |role|
+    tr
+      td= role.name
+      td= role.user.name
+      td
+
+
+h2 Working Groups
+table
+  tr
+    th Name
+    th Visibility
+    th Organizer
+    th Actions
+
+  - current_circle.working_groups.each do |group|
+    tr
+      td= group.name
+      td Public
+      td
+        - group.admins.each do |user|
+          li= user.name
+
+      td.actions
+        a.edit href=edit_circle_working_group_path(current_circle, group)
+        = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
