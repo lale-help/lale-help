@@ -1,31 +1,18 @@
 class Circle::WorkingGroupsController < ApplicationController
   layout 'internal'
+
+  include HasCircle
+
   before_action :ensure_logged_in
   load_and_authorize_resource :circle
   load_and_authorize_resource through: :circle
 
-  # GET /working_groups
-  # GET /working_groups.json
-  def index
-  end
-
-  # GET /working_groups/1
-  # GET /working_groups/1.json
-  def show
-  end
-
-  # GET /working_groups/new
   def new
-    render layout: 'form_layout'
   end
 
-  # GET /working_groups/1/edit
   def edit
-    render layout: 'form_layout'
   end
 
-  # POST /working_groups
-  # POST /working_groups.json
   def create
     respond_to do |format|
       if @working_group.save
@@ -36,8 +23,6 @@ class Circle::WorkingGroupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /working_groups/1
-  # PATCH/PUT /working_groups/1.json
   def update
     respond_to do |format|
       if @working_group.update(working_group_params)
@@ -48,8 +33,6 @@ class Circle::WorkingGroupsController < ApplicationController
     end
   end
 
-  # DELETE /working_groups/1
-  # DELETE /working_groups/1.json
   def destroy
     @working_group.destroy
     respond_to do |format|

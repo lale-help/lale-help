@@ -26,13 +26,20 @@ module HasCircle
   end
 
   def sidebar_links
-    [
+    links = [
       { name: 'Dashboard', url: circle_path(current_circle)          , class: css_class_for_link(CirclesController)},
       { name: 'Tasks',     url: circle_tasks_path(current_circle)    , class: css_class_for_link(Circle::TasksController)},
       { name: 'People',    url: circle_members_path(current_circle)  , class: css_class_for_link(Circle::MembersController)},
       { name: 'Calendar',  url: circle_calendar_path(current_circle) , class: css_class_for_link(Circle::CalendarsController)},
-      { name: 'Admin',     url: circle_admin_path(current_circle)    , class: css_class_for_link(Circle::AdminsController)},
     ]
+
+    if can?(:manage, current_circle)
+      links += [
+        { name: 'Admin',     url: circle_admin_path(current_circle)    , class: css_class_for_link(Circle::AdminsController)},
+      ]
+    end
+
+    links
   end
 
   def css_class_for_link controller_class

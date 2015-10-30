@@ -1,9 +1,10 @@
 .circle-name= circle.name
-.circle-add-menu
-  .icon
-  .menu
-    a href=new_circle_task_path(current_circle) Task
-    a href="#" Volunteer
-    a href="#" Event
-    hr
-    a href="#" Working Group
+- if can? :create_item, circle
+  .circle-add-menu
+    .icon
+    .menu
+      - if can? :create_task, circle
+        a href=new_circle_task_path(current_circle) Task
+
+      - if can? :create_group, circle
+        a href=new_circle_working_group_path(current_circle) Working Group
