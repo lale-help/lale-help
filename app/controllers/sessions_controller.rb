@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   skip_authorization_check
 
   def new
-    redirect_to(current_user.circles.present? ? current_user.circles.first : new_circle_path) if current_user.present?
+    redirect_to(current_user.circles.present? ? circles_path(current_user.circles.first) : new_circle_path) if current_user.present?
   end
 
   def create
@@ -12,8 +12,8 @@ class SessionsController < ApplicationController
       user = outcome.result
       login(user)
 
-      if user.circle.present?
-        redirect_to user.circle
+      if user.circles.present?
+        redirect_to user.circles.first
       else
         redirect_to new_circle_path
       end
