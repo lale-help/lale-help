@@ -1,14 +1,13 @@
 class Circle::TasksController < ApplicationController
   layout "internal"
   before_action :ensure_logged_in
-  load_and_authorize_resource :circle
-  load_and_authorize_resource through: :circle, except: [:volunteer, :new, :complete]
-  load_and_authorize_resource id_param: :task_id, only: [:volunteer, :complete]
 
   include HasCircle
   include HasWorkingGroupFilters
 
   def index
+    authorize! :read, current_circle
+
     tasks = current_circle.tasks.order('due_date asc')
     tasks = tasks.where(working_group: current_working_group) if current_working_group.present?
 
@@ -19,68 +18,104 @@ class Circle::TasksController < ApplicationController
   end
 
 
+  def show
+    authorize! :read, current_task
+  end
+
+
   def new
+    authorize! :create_task, current_circle
     @task = @circle.working_groups.first.tasks.build
-    authorize! :new, @task
   end
 
 
   def edit
+    authorize! :update, current_task
   end
 
-  def show
-
-  end
 
   def create
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to circle_task_path(@circle, @task), notice: t('flash.created', name: Task.model_name.human) }
-      else
-        @working_group_names_and_ids = @circle.working_groups.map{|wg| [wg.name, wg.id]}
-        format.html { render :new }
-      end
+    working_group = current_circle.working_groups.find(params[:task][:working_group_id])
+    authorize! :create_task, working_group
+
+    outcome = Task::Create.run({user: current_user, circle: current_circle, working_group: working_group}, task_params)
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.created', name: Task.model_name.human)
+
+    else
+      @task = Task.new(task_params)
+      errors.add outcome.errors
+
+      render :new
     end
   end
 
 
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to circle_task_path(@circle, @task), notice: t('flash.updated', name: Task.model_name.human) }
-      else
-        format.html { render :edit }
-      end
+    working_group = current_circle.working_groups.find(params[:task][:working_group_id])
+
+    authorize! :update, current_task
+    authorize! :create_task, working_group
+
+    outcome = Task::Update.run({
+      user:          current_user,
+      circle:        current_circle,
+      working_group: working_group,
+      task:          current_task
+    }, task_params)
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.updated', name: Task.model_name.human)
+
+    else
+      errors.add outcome.errors
+      render :edit
     end
   end
 
 
   def destroy
-    @task.destroy
-    respond_to do |format|
-      format.html { redirect_to circle_tasks_path(@circle), notice: t('flash.destroyed', name: Task.model_name.human) }
-      format.json { head :no_content }
-    end
+    authorize! :destroy, current_task
+
+    outcome = Task::Destroy.run(task: current_task, user: current_user)
+
+    redirect_to circle_tasks_path(@circle), notice: t('flash.destroyed', name: Task.model_name.human)
   end
 
 
   def volunteer
-    @task.volunteers << current_user
-    if @task.save
-      redirect_to circle_task_path(@circle, @task), notice: t('tasks.flash.volunteered', name: @task.name)
+    authorize! :volunteer, current_task
+
+    outcome = Task::Volunteer.run(user: current_user, task: current_task)
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.volunteered', name: current_task.name)
     else
-      redirect_to circle_task_path(@circle, @task), alert: t('tasks.flash.volunteer_failed', name: @task.name)
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.volunteer_failed', name: current_task.name)
     end
   end
 
 
   def complete
-    @task.complete = true
-    if @task.save
-      redirect_to circle_task_path(@circle, @task), notice: t('tasks.flash.completed', name: @task.name)
+    authorize! :complete, current_task
+
+    outcome = Task::Complete.run(user: current_user, task: current_task)
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.completed', name: current_task.name)
     else
-      redirect_to circle_task_path(@circle, @task), alert: t('tasks.flash.complete_failed', name: @task.name)
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.complete_failed', name: current_task.name)
     end
+  end
+
+
+  helper_method def errors
+    @errors ||= Errors.new
+  end
+
+  helper_method def current_task
+    @task ||= Task.find(params[:id] || params[:task_id])
   end
 
 

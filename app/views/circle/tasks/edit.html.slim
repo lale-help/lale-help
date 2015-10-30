@@ -1,8 +1,8 @@
 - content_for :header_middle do
-  a.back href=circle_task_path(current_circle, @task) Back to Task
+  a.back href=circle_task_path(current_circle, current_task) Back to Task
 
 main.form
   section
-    h2 = "Editing #{@task.name}"
+    h2 = "Editing #{current_task.name}"
 
     == render 'form', locals: {delete: true}
