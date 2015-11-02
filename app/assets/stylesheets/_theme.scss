@@ -10,14 +10,14 @@
 
 html {
   background-color : $page-bg;
-  @include text-color($nav-text);
+  @include text-color($body-text);
 }
 
 nav{
   background: $nav-bg;
   @include text-color($nav-text);
 
-  .selected {
+  a.selected {
     background: $page-bg;
     @include text-color($nav-text-active);
   }

@@ -1,11 +1,3 @@
-$page-bg: white;
-
-$header-bg:   #5C6BC0;
-$header-text: #FFFFFF;
-
-$nav-bg:          #E8EAF6;
-$nav-text:        #555555;
-$nav-text-active: #5C6BC0;
 
 
 $black         : #2C4C5E;
@@ -21,11 +13,32 @@ $orange-dark   : #C15B31;
 $white         : #FFFFFF;
 $offwhite      : #EEEEEE;
 
+
+$blue          : #607d8b;
+$blue-dark     : #153043;
+$blue-light    : #00B8D4;
+
+$orange        : #EF4E10;
+$orange-dark   : #C9440E;
+$orange-light  : #FE6426;
+
+$page-bg: $white;
+
+$header-bg:   #153043;
+$header-text: $white;
+
+$nav-bg:          #607d8b;
+$nav-text:        #FFFFFF;
+$nav-text-active: #5C6BC0;
+
+$body-text:       $header-bg;
+
+
+
 $border-color  : $light-grey;
 
 
-$dark-blue: #2E3C54;
-$medium-blue: rgb(162, 180, 188);;
+
 
 /*******************
 ********************
