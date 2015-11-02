@@ -8,7 +8,7 @@ class Circle < ActiveRecord::Base
   has_many :officials,  ->{ Circle::Role.send('circle.official')  }, through: :roles, source: :user
   has_many :volunteers, ->{ Circle::Role.send('circle.volunteer') }, through: :roles, source: :user
 
-  has_many :working_groups
+  has_many :working_groups, -> { order('lower(name) ASC') }
   has_many :tasks, through: :working_groups
 
   belongs_to :location
