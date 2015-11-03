@@ -20,10 +20,20 @@ nav{
     @include text-color($nav-text-active, $nav-text-active);
   }
 
+  .badge {
+    background: $nav-bg-active;
+    @include text-color($nav-text-active, $nav-text-active);
+  }
+
   .selected {
     background: $nav-bg-active;
     @include text-color($nav-text-active, $nav-text-active);
     font-weight: bold;
+
+    .badge {
+      background: $body-text;
+      @include text-color($nav-bg-active, $nav-bg-active);
+    }
   }
 }
 
