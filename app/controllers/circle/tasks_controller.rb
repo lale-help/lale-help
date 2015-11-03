@@ -3,19 +3,30 @@ class Circle::TasksController < ApplicationController
   before_action :ensure_logged_in
 
   include HasCircle
-  include HasWorkingGroupFilters
 
   def index
     authorize! :read, current_circle
 
     tasks = current_circle.tasks.order('due_date asc')
-    tasks = tasks.where(working_group: current_working_group) if current_working_group.present?
 
     open_tasks   = tasks.not_completed
     closed_tasks = tasks.completed
 
     @tasks = OpenStruct.new(open: open_tasks.limit(10), closed: closed_tasks.limit(10))
   end
+
+  def my
+    authorize! :read, current_circle
+
+    tasks = current_user.tasks.for_circle(current_circle).order('due_date asc')
+
+    open_tasks   = tasks.not_completed
+    closed_tasks = tasks.completed
+
+    @tasks = OpenStruct.new(open: open_tasks.limit(10), closed: closed_tasks.limit(10))
+    render :index
+  end
+
 
 
   def show

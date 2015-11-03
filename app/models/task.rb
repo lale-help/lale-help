@@ -16,6 +16,8 @@ class Task < ActiveRecord::Base
   scope :completed,     -> { where("completed_at IS NOT NULL") }
   scope :not_completed, -> { where("completed_at IS NULL") }
 
+  scope :for_circle, ->(circle) { where(working_group: circle.working_groups) }
+
 
   # Validations
   validates :name, presence: true

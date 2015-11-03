@@ -1,9 +1,9 @@
-class Circle::CalendarsController < ApplicationController
+class Circle::DiscussionsController < ApplicationController
 
   skip_authorization_check # TODO: REMOVE
 
   include HasCircle
 
-  def show
+  def index
   end
 end

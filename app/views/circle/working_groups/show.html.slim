@@ -1,6 +1,4 @@
-p#notice = notice
+h2= "#{current_working_group.name} Dashboard"
 
-
-= link_to 'Edit', edit_circle_working_group_path(@circle, @working_group)
-'|
-= link_to 'Back', circle_working_groups_path(@circle)
+h3 Tasks
+= render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: current_working_group.tasks.not_completed }

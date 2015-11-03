@@ -1,14 +1,31 @@
 nav
   .sidebar-section
-    = content_for :sidebar_links
+    = sidebar_link("My Tasks",    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.not_completed.count)
+    = sidebar_link("All Tasks",   circle_tasks_path(current_circle),   badge_text: current_circle.tasks.not_completed.count)
 
-  - if content_for? :sidebar_filters
-    .sidebar-section.filters
-      = content_for :sidebar_filters
+  .sidebar-section
+    = sidebar_link("Supplies",    circle_supplies_path(current_circle))
+
+  .sidebar-section
+    = sidebar_link("Directory",   circle_members_path(current_circle))
+    = sidebar_link("Discussions", circle_discussions_path(current_circle))
+    = sidebar_link("Calendar",    circle_calendar_path(current_circle))
+    - if can? :manage, current_circle
+      = sidebar_link("Admin",    circle_admin_path(current_circle))
+
+  .sidebar-section
+    h4 My Working Groups
+    - current_circle.working_groups.each do |wg|
+      - if can? :read, wg
+        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count)
+
+  .sidebar-section
+    = sidebar_link("All Working Groups", circle_working_groups_path(current_circle))
+
 
   .bottom
     = content_for :sidebar_bottom
     .powered-by
-      | Powered by
+      | Supported by
       .logo
       | Lale.help

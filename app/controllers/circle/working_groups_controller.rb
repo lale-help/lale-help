@@ -3,10 +3,19 @@ class Circle::WorkingGroupsController < ApplicationController
 
   include HasCircle
 
+  def index
+    authorize! :read, current_circle
+  end
+
   def new
     authorize! :create_working_group, current_circle
     @working_group = current_circle.working_groups.build
   end
+
+  def show
+    authorize! :read, current_working_group
+  end
+
 
   def edit
     authorize! :update, current_working_group

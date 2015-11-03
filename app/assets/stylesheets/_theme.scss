@@ -1,45 +1,43 @@
-@mixin text-color($color) {
-  color: $color;
+@mixin text-color($text, $link) {
+  color: $text;
 
   a, a:visited, &:visited {
-    color: $color;
+    color: $link;
     text-decoration: none;
   }
 }
 
 
 html {
-  background-color : $page-bg;
-  @include text-color($body-text);
+  background-color : $body-bg;
+  @include text-color($body-text, $body-link);
 }
 
 nav{
   background: $nav-bg;
-  @include text-color($nav-text);
+  @include text-color($nav-text, $nav-text);
   h2, h3, h4 {
-    @include text-color($nav-text-active);
+    @include text-color($nav-text-active, $nav-text-active);
   }
 
   .selected {
-    @include text-color($nav-text-active);
-
-    &:before{
-      background: $blue-light;
-    }
+    background: $nav-bg-active;
+    @include text-color($nav-text-active, $nav-text-active);
+    font-weight: bold;
   }
 }
 
 header{
   background:  $header-bg;
-  @include text-color($header-text);
+  @include text-color($header-text, $header-text);
 
   .open {
-    background: $page-bg;
-    @include text-color($header-bg);
+    background: $body-bg;
+    @include text-color($header-bg, $header-bg);
 
     .menu {
-      background: $page-bg;
-      @include text-color($header-bg);
+      background: $body-bg;
+      @include text-color($header-bg, $header-bg);
     }
   }
 }

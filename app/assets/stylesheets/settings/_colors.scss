@@ -14,27 +14,27 @@ $white         : #FFFFFF;
 $offwhite      : #EEEEEE;
 
 
-$blue          : #607d8b;
-$blue-dark     : #153043;
-$blue-light    : #00B8D4;
+$blue          : #00B8D4;
+$blue-dark-1   : #546E7A;
+$blue-dark-2   : #263238;
+$blue-light-1  : #CFD8DC;
+$blue-light-2  : #ECEFF1;
 
-$orange        : #EF4E10;
-$orange-dark   : #C9440E;
-$orange-light  : #FE6426;
-
-
+$orange        : #FF7043;
 
 
-$header-bg        : #153043;
-$header-text      : $white;
+$header-bg        : $blue-dark-2;
+$header-text      : $blue-light-1;
 
-$nav-bg           : $white;
-$nav-text         : #A2A2A2;
-$nav-text-active  : #202020;
+$nav-bg           : $blue-light-1;
+$nav-text         : $blue-dark-1;
 
-$body-text        : #202020;
-$page-bg          : #f2f2f2;
+$nav-bg-active    : $blue-light-2;
+$nav-text-active  : $blue-dark-2;
 
+$body-text        : $blue-dark-1;
+$body-link        : $blue;
+$body-bg          : $white;
 
 
 $border-color  : $light-grey;
