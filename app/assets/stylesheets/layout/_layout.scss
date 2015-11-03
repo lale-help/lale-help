@@ -15,17 +15,26 @@
     h2, h3, h4{
       padding: 1rem 0 0.5rem 1.5rem;
       text-transform: uppercase;
-
+      font-size: 12px;
+      a {
+        font-size: 9px;
+      }
     }
-    .sidebar-item {
-      padding: 0.5rem 0 0.5rem 1.5rem;
-      text-decoration: none;
-      display: block;
 
-      .filter-selected {
-        float: right;
-        margin-right: 2rem;
-        @include icon($icon-check);
+    .sidebar-item {
+      @include display(flex);
+      @include flex-direction(row);
+      @include align-items(center);
+
+      height: 35px;
+      font-size: 18px;
+
+      &:before{
+        display: inline-block;
+        height: 100%;
+        width: 5px;
+        content: " ";
+        margin: 0 1em 0 0;
       }
     }
 

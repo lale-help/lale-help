@@ -4,12 +4,6 @@ nav
 
   - if content_for? :sidebar_filters
     .sidebar-section.filters
-      h3
-        = "Filters"
-        - if filter_present?
-          a.clear-filters href=url_for()
-            | clear
-
       = content_for :sidebar_filters
 
   .bottom

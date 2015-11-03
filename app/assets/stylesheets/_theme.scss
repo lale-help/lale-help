@@ -1,7 +1,7 @@
 @mixin text-color($color) {
   color: $color;
 
-  a, a:visited {
+  a, a:visited, &:visited {
     color: $color;
     text-decoration: none;
   }
@@ -16,10 +16,16 @@ html {
 nav{
   background: $nav-bg;
   @include text-color($nav-text);
-
-  a.selected {
-    background: $page-bg;
+  h2, h3, h4 {
     @include text-color($nav-text-active);
+  }
+
+  .selected {
+    @include text-color($nav-text-active);
+
+    &:before{
+      background: $blue-light;
+    }
   }
 }
 

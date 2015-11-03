@@ -1,7 +1,12 @@
 h4 Working Groups
+
+- selected_class = current_working_group.blank? ?  "selected" : ""
+.sidebar-item class=selected_class
+  a href=url_for() All
+
+
 - circle.working_groups.order("lower(name) ASC").each do |working_group|
-  .sidebar-item
+  - selected_class = current_working_group == working_group ?  "selected" : ""
+  .sidebar-item class=selected_class
     a href=url_for(working_group: working_group.id)
       = working_group.name
-    - if current_working_group == working_group
-      .filter-selected
