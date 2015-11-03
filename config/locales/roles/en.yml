@@ -6,6 +6,7 @@ en:
         volunteer: Volunteer
         official:  Official
         custom:    Custom
+        helpee:    Helpee
 
       task:
         assignee: Volunteer

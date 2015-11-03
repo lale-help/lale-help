@@ -1,17 +1,32 @@
 h1 Circle Admin
 
 h2 Roles
-table
-  tr
-    th Name
-    th User
-    th Actions
-
-  - current_circle.roles.leadership.each do |role|
+= form_tag circle_roles_path(current_circle), method: 'POST' do
+  table
     tr
-      td= role.name
-      td= role.user.name
-      td
+      th Name
+      th User
+      th Actions
+
+    - current_circle.roles.leadership.each do |role|
+      tr
+        td= role.name
+        td= role.user.name
+        td.actions
+          - if can? :delete, role
+            = link_to '', circle_role_path(current_circle, role), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
+
+    - if can? :manage, current_circle
+      tr#add-role
+        td colspan="3"
+          a href="#" Promote user to role
+      tr#add-role-fields.hidden
+        td
+          = select_tag "circle_role[role_type]", options_for_select(Circle::Role.leadership_role_types_with_names)
+          = text_field_tag "circle_role[name]", nil, class: 'hidden'
+        td= select_tag "circle_role[user_id]", options_from_collection_for_select(current_circle.volunteers, :id, :name)
+        td= submit_tag "Save"
+
 
 
 h2 Working Groups

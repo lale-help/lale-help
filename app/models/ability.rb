@@ -28,6 +28,16 @@ class Ability
       can?(:create_group, circle)
     end
 
+    can :delete, Circle::Role do |role|
+      can?(:manage, role.circle)
+      if role.role_type == 'circle.admin'
+        can?(:manage, role.circle) &&
+        role.circle.admins.count > 1
+      else
+        can?(:manage, role.circle)
+      end
+    end
+
 
     # Work Groups
     can :read, WorkingGroup do |wg|

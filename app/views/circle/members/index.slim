@@ -12,7 +12,7 @@ table
   - @members.each do |user|
     tr
       td= user.name
-      td= user.circle_roles.for_circle(current_circle).map(&:name).join(", ")
+      td= user.circle_roles.for_circle(current_circle).map(&:name).sort.join(", ")
       td= user.identity.email
       td
         - user.working_groups.each do |wg|
