@@ -32,7 +32,7 @@
 
       .icon {
         @include flex(0 0 2rem);
-        @include icon($icon-bookmark);
+        @include icon($icon-missing);
       }
       .text {
         @include flex(1 0 0);
