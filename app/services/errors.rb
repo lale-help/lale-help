@@ -1,0 +1,37 @@
+class Errors
+  def initialize
+    @errors = Mutations::ErrorHash.new
+  end
+
+
+  def present?
+    @errors.present?
+  end
+
+  def to_s
+    inspect
+  end
+
+  def inspect
+    @errors.inspect
+  end
+
+  def add errors
+    @errors.merge!(errors)
+  end
+
+  def css(key)
+    "error" if error_for(key).present?
+  end
+
+
+  def error_for(key)
+    key = key.to_s
+    @errors[key] || @errors[key.to_sym]
+  end
+
+  def message_for key
+    error_for(key).message if error_for(key).present?
+  end
+
+end

@@ -1,9 +1,7 @@
 class Circle::AdminsController < ApplicationController
-
-  skip_authorization_check # TODO: REMOVE
-
   include HasCircle
 
   def show
+    authorize! :manage, current_circle
   end
 end

@@ -1,8 +1,13 @@
 class WorkingGroup < ActiveRecord::Base
-  has_many :tasks
-  has_many :users, through: :tasks
-
   belongs_to :circle
+
+  has_many :tasks
+
+  has_many :roles
+  has_many :users,      ->{ distinct }, through: :roles
+  has_many :admins,     ->{ Role.send('working_group.admin')     }, through: :roles, source: :user
+  has_many :volunteers, ->{ Role.send('working_group.volunteer') }, through: :roles, source: :user
+
 
   validates :name, presence: true
   validates :circle, presence: true

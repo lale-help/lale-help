@@ -5,21 +5,85 @@ class Ability
     user ||= User.new
 
     # Circles
-    can :read, Circle
-    can :create, Circle unless user.circle.present?
-    if user.circle
-      can [:update, :destroy], Circle, admin: user
-
-      # Work Groups
-      can :read, WorkingGroup, circle_id: user.circle_id
-      can [:create, :update, :destroy], WorkingGroup, circle: { admin: user }
-
-      # Tasks
-      can :read, Task, working_group: { circle_id: user.circle_id }
-      can [:create, :update, :destroy], Task, working_group: { circle: { admin: user } }
-      can :volunteer, Task, working_group: { circle: user.circle }
-      cannot :volunteer, Task, volunteer_assignments: { user: user }
-      can :complete, Task, volunteer_assignments: { user: user }, completed_at: nil
+    can :create, Circle
+    can :read,   Circle do |circle|
+      circle.users.include? user
     end
+
+    can :manage, Circle do |circle|
+      circle.admins.include? user
+    end
+
+    can :create_task, Circle do |circle|
+      can?(:manage, circle) or
+      user.working_group_roles.admin.for_circle(circle).exists?
+    end
+
+    can :create_group, Circle do |circle|
+      can?(:manage, circle)
+    end
+
+    can :create_item, Circle do |circle|
+      can?(:create_task, circle) or
+      can?(:create_group, circle)
+    end
+
+    can :delete, Circle::Role do |role|
+      can?(:manage, role.circle)
+      if role.role_type == 'circle.admin'
+        can?(:manage, role.circle) &&
+        role.circle.admins.count > 1
+      else
+        can?(:manage, role.circle)
+      end
+    end
+
+
+    # Work Groups
+    can :read, WorkingGroup do |wg|
+      can? :read, wg.circle
+    end
+
+    can :manage, WorkingGroup do |wg|
+      can?(:manage, wg.circle) ||
+      wg.admins.include?(user)
+    end
+
+    can :create_task, WorkingGroup do |wg|
+      can?(:manage, wg)
+    end
+
+
+    # Tasks
+    can :read, Task do |task|
+      can? :read, task.circle
+    end
+
+    can :manage, Task do |task|
+      task.organizers.include?(user) or
+      can?(:manage, task.working_group) or
+      can?(:manage, task.circle)
+    end
+
+    can :volunteer, Task do |task|
+      can?(:read, task)
+    end
+    cannot :volunteer, Task do |task|
+      task.complete? or task.volunteers.include?(user)
+    end
+
+
+    can :complete, Task do |task|
+      task.due_date < Time.now and (
+        task.volunteers.include?(user) or
+        task.organizers.include?(user)
+      ) or
+      can?(:manage, task.working_group) or
+      can?(:manage, task.circle)
+    end
+    cannot :complete, Task do |task|
+      task.complete?
+    end
+
   end
 end

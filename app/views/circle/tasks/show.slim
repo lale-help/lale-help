@@ -2,37 +2,63 @@
   a.back href=circle_tasks_path(current_circle) Back to All Tasks
 
 .task
-  .task-header
-    = "Filed in working group #{@task.working_group.name.titleize}"
-  .task-details
-    .task-details-core
-      .task-name= @task.name
-      .task-description= @task.description
+  main
+    .task-header
+      .date
+        .month= current_task.due_date.strftime("%^b")
+        .day= current_task.due_date.day
+      .title= current_task.name
+      .description= current_task.description
 
-    .task-details-extra
-      .task-details-extra-section.task-members
-        .title Volunteers
-        - @task.volunteers.each do |v|
-          .user-avatar
-            img src=image_path("avatar.jpg")
+    .task-details
+      .due-date
+        .title Due Date
+        .details= current_task.due_date.strftime("%A %-d %B %Y")
 
-      .task-details-extra-section.task-actions
-        - if can? :volunteer, @task
-          = form_tag circle_task_volunteer_path(current_circle, @task), method: 'put' do
-            button.button.volunteer-task= "Sign up for this task"
+      .duration
+        .title Duration
+        .details
 
-        - if can? :complete, @task
-          = form_tag circle_task_complete_path(current_circle, @task), method: 'put' do
-            button.button.complete-task= "This task is done"
+      .location
+        .title Location
+        .details
 
-        - if can? :edit, @task
-          = form_tag edit_circle_task_path(current_circle, @task), method: 'get' do
-            button.button.edit-task= "Edit this task"
+      .work-group
+        .title Work Group
+        .details= current_task.working_group.name
 
-      .task-details-extra-section.task-due-date
-        .title Due By
-        = @task.due_date
+      .skills
+        .title Skills
+        .details
 
-      .task-details-extra-section.task-creator
-        .title Organizers
-        = @task.organizers.map(&:name).join
+      .organizer
+        .details= "Created by #{current_task.organizers.first.try :name} for Helpee Name"
+
+
+  aside
+    .volunteers
+      .title Volunteers
+      - current_task.volunteers.each do |v|
+        .user-avatar
+          img src=image_path("avatar.jpg")
+
+
+    .suggested-members
+      .title Suggested Volunteers
+      - current_task.volunteers.each do |v|
+        .user-avatar
+          img src=image_path("avatar.jpg")
+
+
+    .actions
+      - if can? :volunteer, current_task
+        = form_tag circle_task_volunteer_path(current_circle, current_task), method: 'put' do
+          button.button.volunteer-task= "Sign up for this task"
+
+      - if can? :complete, current_task
+        = form_tag circle_task_complete_path(current_circle, current_task), method: 'put' do
+          button.button.complete-task= "Mark this task is done"
+
+      - if can? :edit, current_task
+        = form_tag edit_circle_task_path(current_circle, current_task), method: 'get' do
+          button.button.edit-task= "Edit this task"

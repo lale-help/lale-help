@@ -1,6 +1,6 @@
 header
   .header-left
-    = content_for :header_left
+    = render partial: 'sidebar/circle_title', locals: { circle: current_circle }
 
   .header-middle
     = content_for :header_middle

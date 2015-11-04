@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151029212628) do
+ActiveRecord::Schema.define(version: 20151030214905) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "circle_roles", id: :bigserial, force: :cascade do |t|
+    t.integer  "role_type",            null: false
+    t.integer  "user_id",    limit: 8, null: false
+    t.integer  "circle_id",  limit: 8, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "name"
+  end
 
   create_table "circles", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",            null: false
@@ -65,6 +74,14 @@ ActiveRecord::Schema.define(version: 20151029212628) do
     t.boolean  "primary",               default: false, null: false
   end
 
+  create_table "task_roles", id: :bigserial, force: :cascade do |t|
+    t.integer  "role_type",            null: false
+    t.integer  "user_id",    limit: 8, null: false
+    t.integer  "task_id",    limit: 8, null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
   create_table "task_skill_assignments", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                           null: false
     t.datetime "updated_at",                           null: false
@@ -77,14 +94,6 @@ ActiveRecord::Schema.define(version: 20151029212628) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
-  end
-
-  create_table "task_volunteer_assignments", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "task_id",    limit: 8,                 null: false
-    t.integer  "user_id",    limit: 8,                 null: false
-    t.boolean  "organizer",            default: false, null: false
   end
 
   create_table "tasks", id: :bigserial, force: :cascade do |t|
@@ -106,14 +115,6 @@ ActiveRecord::Schema.define(version: 20151029212628) do
     t.datetime "updated_at",                null: false
   end
 
-  create_table "user_feedbacks", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "user_id",    limit: 8, null: false
-    t.integer  "rating"
-    t.text     "comment"
-  end
-
   create_table "user_identities", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
@@ -127,9 +128,15 @@ ActiveRecord::Schema.define(version: 20151029212628) do
     t.datetime "updated_at",            null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email"
-    t.integer  "circle_id",   limit: 8
     t.integer  "location_id", limit: 8
+  end
+
+  create_table "working_group_roles", id: :bigserial, force: :cascade do |t|
+    t.integer  "role_type",                  null: false
+    t.integer  "user_id",          limit: 8, null: false
+    t.integer  "working_group_id", limit: 8, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "working_groups", id: :bigserial, force: :cascade do |t|

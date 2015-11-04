@@ -1,21 +1,43 @@
 table {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   margin-top: 1rem;
   border-collapse : collapse;
   border-spacing  : 0;
   table-layout    : fixed;
   width           : 100%;
-  }
-th {
-  border-bottom : 1px $border-color solid;
+}
 
-  }
+
+th, td {
+  border-bottom : 1px $border-color solid;
+  padding: 0.75rem 0 ;
+}
+
 td {
-  border-bottom : 1px $border-color solid;
+  padding: 1.5rem 0 ;
+}
 
-  }
-tr,
-td,
-th {
+tr, td, th {
   vertical-align: middle;
+  text-align: left;
+}
+
+
+table .actions {
+  * {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    margin: 0 0.5rem;
+  }
+
+  .edit {
+    @include icon($icon-pencil);
+  }
+
+  .delete {
+    @include icon($icon-trash);
+  }
+
+
 }

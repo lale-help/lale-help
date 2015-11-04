@@ -1,11 +1,3 @@
-$page-bg: white;
-
-$header-bg:   #5C6BC0;
-$header-text: #FFFFFF;
-
-$nav-bg:          #E8EAF6;
-$nav-text:        #555555;
-$nav-text-active: #5C6BC0;
 
 
 $black         : #2C4C5E;
@@ -21,11 +13,34 @@ $orange-dark   : #C15B31;
 $white         : #FFFFFF;
 $offwhite      : #EEEEEE;
 
-$border-color  : $grey;
+
+$blue          : #00B8D4;
+$blue-dark-1   : #546E7A;
+$blue-dark-2   : #263238;
+$blue-light-1  : #CFD8DC;
+$blue-light-2  : #ECEFF1;
+
+$orange        : #FF7043;
 
 
-$dark-blue: #2E3C54;
-$medium-blue: rgb(162, 180, 188);;
+$header-bg        : $blue-dark-2;
+$header-text      : $blue-light-1;
+
+$nav-bg           : $blue-light-1;
+$nav-text         : $blue-dark-1;
+
+$nav-bg-active    : $blue-light-2;
+$nav-text-active  : $blue-dark-2;
+
+$body-text        : $blue-dark-1;
+$body-link        : $blue;
+$body-bg          : $white;
+
+
+$border-color  : $blue-light-1;
+
+
+
 
 /*******************
 ********************

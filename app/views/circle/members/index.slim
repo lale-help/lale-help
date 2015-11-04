@@ -1,1 +1,22 @@
-h2 Circle Members
+h2 Directory
+
+table
+  tr
+    th Name
+    th Roles
+    th Email
+    th Working Groups
+    th Completed Tasks
+    th Pending Tasks
+
+  - @members.each do |user|
+    tr
+      td= user.name
+      td= user.circle_roles.for_circle(current_circle).map(&:name).sort.join(", ")
+      td= user.identity.email
+      td
+        - user.working_groups.each do |wg|
+          li= wg.name
+      td= user.tasks.completed.count
+      td= user.tasks.not_completed.count
+

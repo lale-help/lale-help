@@ -1,66 +1,64 @@
 class Circle::WorkingGroupsController < ApplicationController
   layout 'internal'
-  before_action :ensure_logged_in
-  load_and_authorize_resource :circle
-  load_and_authorize_resource through: :circle
 
-  # GET /working_groups
-  # GET /working_groups.json
+  include HasCircle
+
   def index
+    authorize! :read, current_circle
   end
 
-  # GET /working_groups/1
-  # GET /working_groups/1.json
-  def show
-  end
-
-  # GET /working_groups/new
   def new
-    render layout: 'form_layout'
+    authorize! :create_working_group, current_circle
+    @working_group = current_circle.working_groups.build
   end
 
-  # GET /working_groups/1/edit
+  def show
+    authorize! :read, current_working_group
+  end
+
+
   def edit
-    render layout: 'form_layout'
+    authorize! :update, current_working_group
   end
 
-  # POST /working_groups
-  # POST /working_groups.json
   def create
-    respond_to do |format|
-      if @working_group.save
-        format.html { redirect_to [@circle], notice: t('flash.created', name: WorkingGroup.model_name.human) }
-      else
-        format.html { render :new }
-      end
+    authorize! :create_working_group, current_circle
+    @working_group = current_circle.working_groups.build working_group_params
+
+    if current_working_group.save
+      redirect_to circle_admin_path(current_circle), notice: t('flash.created', name: WorkingGroup.model_name.human)
+    else
+      render :new
     end
+
   end
 
-  # PATCH/PUT /working_groups/1
-  # PATCH/PUT /working_groups/1.json
   def update
-    respond_to do |format|
-      if @working_group.update(working_group_params)
-        format.html { redirect_to [@circle], notice: t('flash.updated', name: WorkingGroup.model_name.human) }
-      else
-        format.html { render :edit }
-      end
+    authorize! :update, current_working_group
+
+    if current_working_group.update(working_group_params)
+      redirect_to circle_admin_path(current_circle), notice: t('flash.updated', name: WorkingGroup.model_name.human)
+    else
+      render :edit
     end
   end
 
-  # DELETE /working_groups/1
-  # DELETE /working_groups/1.json
   def destroy
-    @working_group.destroy
-    respond_to do |format|
-      format.html { redirect_to @circle, notice: t('flash.destroyed', name: WorkingGroup.model_name.human) }
-      format.json { head :no_content }
-    end
+    authorize! :destroy, current_working_group
+
+    current_working_group.destroy
+
+    redirect_to circle_admin_path(current_circle), notice: t('flash.destroyed', name: WorkingGroup.model_name.human)
+  end
+
+
+  helper_method def current_working_group
+    @working_group ||= WorkingGroup.find(params[:id])
   end
 
   private
-      # Never trust parameters from the scary internet, only allow the white list through.
-    def working_group_params
-      params[:working_group].permit(:name)
-    end
+
+  def working_group_params
+    params[:working_group].permit(:name)
+  end
 end
