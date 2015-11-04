@@ -24,7 +24,6 @@ class Circle::TasksController < ApplicationController
     closed_tasks = tasks.completed
 
     @tasks = OpenStruct.new(open: open_tasks.limit(10), closed: closed_tasks.limit(10))
-    render :index
   end
 
 
