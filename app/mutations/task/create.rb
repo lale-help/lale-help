@@ -15,6 +15,8 @@ class Task::Create < Mutations::Command
 
     outcome = Task::Update.run({task: task}, inputs)
 
+    Task::Role.send('task.organizer').create user: user, task: task
+
     merge_errors(outcome.errors) if outcome.errors.present?
 
     outcome.result
