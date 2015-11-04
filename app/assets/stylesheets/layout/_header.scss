@@ -50,6 +50,7 @@ header {
           display: block;
           border: thin solid $light-grey;
           border-top: 0;
+          z-index: 1000;
         }
       }
 
