@@ -6,7 +6,7 @@ h2 Roles
       th User
       th Actions
 
-    - current_circle.roles.leadership.each do |role|
+    - current_circle.roles.leadership.order('role_type ASC, name ASC').each do |role|
       tr
         td= role.name
         td= role.user.name

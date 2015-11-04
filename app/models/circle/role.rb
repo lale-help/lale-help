@@ -15,6 +15,8 @@ class Circle::Role < ActiveRecord::Base
   scope :leadership, ->{ where(role_type: LEADERSHIP_TYPES.map{|id| Circle::Role.role_types[id] }) }
   scope :for_circle, ->(circle) { where(circle: circle ) }
 
+  validates :user_id, uniqueness: { scope: [:role_type, :circle_id] }
+
   def self.role_types_with_names
     self.role_types.keys.map do |role_type|
       [I18n.t!("roles.name.#{role_type}"), role_type]
@@ -29,6 +31,7 @@ class Circle::Role < ActiveRecord::Base
 
 
   def name
-    self[:name] || I18n.t!("roles.name.#{self.role_type}")
+    return self[:name] if self[:name].present?
+    I18n.t!("roles.name.#{self.role_type}")
   end
 end
