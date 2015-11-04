@@ -30,28 +30,6 @@ class ApplicationController < ActionController::Base
     session.clear
   end
 
-  # # Helpers for allowing controllers to call #content_for
-  def view_context
-    super.tap do |view|
-      (@_content_for || {}).each do |name,content|
-        view.content_for name, content
-      end
-    end
-  end
-
-  def content_for(name, content=nil) # no blocks allowed yet
-    @_content_for ||= {}
-    if @_content_for[name].respond_to?(:<<)
-      @_content_for[name] << content || yield
-    else
-      @_content_for[name] = content || yield
-    end
-  end
-  def content_for?(name)
-    @_content_for[name].present?
-  end
-
-
   helper_method def filter_present?
     params.has_key? :working_group
   end
