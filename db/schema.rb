@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030214905) do
+ActiveRecord::Schema.define(version: 20151104182528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 20151030214905) do
   end
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-    t.string   "address"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "geocode_query"
     t.float    "latitude"
     t.float    "longitude"
+    t.json     "geocode_data"
   end
 
   create_table "system_event_notification_deliveries", id: :bigserial, force: :cascade do |t|

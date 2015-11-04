@@ -20,16 +20,22 @@
         .details
 
       .location
-        .title Location
-        .details
+        .title Primary Location
+        .details= current_task.primary_location.address
+
+      - current_task.extra_locations.each do |loc|
+        .location
+          .title Location
+          .details= loc.address
+
 
       .work-group
         .title Work Group
         .details= current_task.working_group.name
 
-      .skills
-        .title Skills
-        .details
+      / .skills
+      /   .title Skills
+      /   .details
 
       .organizer
         .details= "Created by #{current_task.organizers.first.try :name} for Helpee Name"

@@ -7,9 +7,10 @@ class Task < ActiveRecord::Base
 
   has_many :users,      ->{ distinct                    }, through: :roles
   has_many :volunteers, ->{ Role.send('task.volunteer') }, through: :roles, source: :user
-
-
   has_many :organizers,  ->{ Role.send('task.organizer') }, through: :roles, source: :user
+
+  has_many :location_assignments
+  has_many :locations, through: :location_assignments
 
 
   # Scopes
@@ -24,6 +25,15 @@ class Task < ActiveRecord::Base
   validates :due_date, presence: true
   validates :description, presence: true
   validates :working_group, presence: true
+
+
+  def primary_location
+    locations.where(task_location_assignments:{ primary: true}).first
+  end
+
+  def extra_locations
+    locations.where(task_location_assignments:{ primary: false})
+  end
 
 
   def complete= val
