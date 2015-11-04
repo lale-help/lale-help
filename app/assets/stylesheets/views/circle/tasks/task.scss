@@ -7,6 +7,7 @@ section > .task {
 
   main {
     $border-radius: 1.5rem;
+    max-width: 800px;
 
     @include flex(3 0 50rem);
     margin-right: 3rem;
