@@ -16,7 +16,10 @@ class AddAddressPartsToLocations < ActiveRecord::Migration
   end
 
   def update_data loc
-    loc.geocode_data = Geocoder.search(loc.geocode_query).first.data
-    loc.save
+    resp = Geocoder.search(loc.geocode_query).first
+    if resp
+      loc.geocode_data = resp.data
+      loc.save
+    end
   end
 end
