@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104192314) do
+ActiveRecord::Schema.define(version: 20151105212115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(version: 20151104192314) do
     t.datetime "completed_at"
     t.date     "due_date"
     t.integer  "volunteer_count_required"
-    t.json     "time_requirement"
     t.integer  "duration",                           default: 1
     t.string   "duration_unit",                      default: "hour"
     t.string   "scheduled_time_type"
