@@ -1,69 +1,54 @@
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
-textarea,
-select {
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], input[type="number"], textarea, select {
   background-color: #fff;
   border: 1px solid #D1D1D1;
   border-radius: 4px;
   box-shadow: none;
   box-sizing: border-box;
   font-family: $fontstack-primary;
-
-
 }
+
 /* Removes awkward default styles on some inputs for iOS */
-input[type="email"],
-input[type="number"],
-input[type="search"],
-input[type="text"],
-input[type="tel"],
-input[type="url"],
-input[type="password"],
-textarea {
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], input[type="number"], textarea {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none; }
+  -moz-appearance: none;
+  appearance: none;
+}
+
 textarea {
   min-height: 65px;
   padding-top: 6px;
-  padding-bottom: 6px; }
-input[type="email"]:focus,
-input[type="number"]:focus,
-input[type="search"]:focus,
-input[type="text"]:focus,
-input[type="tel"]:focus,
-input[type="url"]:focus,
-input[type="password"]:focus,
-textarea:focus,
-select:focus {
+  padding-bottom: 6px;
+}
+
+input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="number"]:focus, textarea:focus, select:focus {
   border: 1px solid #33C3F0;
-  outline: 0; }
-label,
-legend {
+  outline: 0;
+}
+
+label, legend {
   margin-right: 1rem;
-  font-weight: $weight-normal; }
+  font-weight: $weight-normal;
+}
+
 fieldset {
   border: 1px solid #C7C7C7;
+}
 
-  }
-input[type="checkbox"],
-input[type="radio"] {
-  display: inline; }
+input[type="checkbox"], input[type="radio"] {
+  display: inline;
+}
+
 label > .label-body {
   display: inline-block;
   margin-left: .5rem;
-  font-weight: normal; }
+  font-weight: normal;
+}
 
 
 input {
   font-size   : $default-font-size;
-    line-height: $default-line-height;
-    padding-left: .33rem;
+  line-height: $default-line-height;
+  padding-left: .33rem;
 }
 
 //Dumb that you can't put these together, but you can't.
@@ -71,7 +56,7 @@ input {
 ::-webkit-input-placeholder {color : $black; font-weight : 300;}
 :focus::-webkit-input-placeholder {color: transparent; font-weight : $weight-normal;}
 
- /* Firefox 18- */
+/* Firefox 18- */
 :-moz-placeholder {color : $border-color; font-weight : $weight-normal;}
 :focus:-moz-placeholder {color: $border-color; font-weight : $weight-normal;}
 
@@ -129,9 +114,10 @@ input {
   }
 }
 
-main.form, form {
+form {
   margin-bottom: 60px;
-  padding       : 3.3rem 2rem 5rem 2rem;
+  padding       : 0 2rem 5rem 2rem;
+  @include outer-container();
 
   h2 {
     color: #FF8F5A;
@@ -195,7 +181,7 @@ main.form, form {
     margin-bottom: 8px;
   }
 
-  input[type='text'], input[type='password'], textarea, input[type='date'] {
+  input[type='text'], input[type='password'], textarea, input[type='date'], input[type='number'] {
     @include placeholder {
       color: #bfc9ce;
       font-weight: $weight-normal;
@@ -213,7 +199,7 @@ main.form, form {
     resize: none;
   }
 
-  input[type='date'] {
+  input[type='date']  {
     &::-webkit-inner-spin-button { display: none; }
     &::-webkit-datetime-edit { font-family: $fontstack-primary; }
   }
@@ -244,11 +230,6 @@ main.form, form {
       text-decoration: none;
     }
 
-  }
-}
-
-main.form, form {
-  .submit-row {
     button.button, input[type='submit']{
       @extend .button--large;
       float: right;

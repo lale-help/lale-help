@@ -18,6 +18,8 @@ class Task::Form < ::Form
   attribute :scheduled_time_start, :string, required: false
   attribute :scheduled_time_end,   :string, required: false
 
+  attribute :volunteer_count_required, :integer
+
   def duration_unit_options
     [
       [ "Hours",   'hour' ],
@@ -49,12 +51,17 @@ class Task::Form < ::Form
     @organizer_id || task.organizer.try(:id)
   end
 
+  def volunteer_count_required
+    @volunteer_count_required ||= 1
+  end
+
   class Submit < ::Form::Submit
     def validate
-      add_error(:name, :too_short)         if name.length < 5
-      add_error(:description, :too_short)  if description.length < 5
-      add_error(:due_date, :empty)         if due_date.blank?
-      add_error(:primary_location, :empty) if primary_location.blank?
+      add_error(:name, :too_short)                   if name.length < 5
+      add_error(:description, :too_short)            if description.length < 5
+      add_error(:due_date, :empty)                   if due_date.blank?
+      add_error(:primary_location, :empty)           if primary_location.blank?
+      add_error(:volunteer_count_required, :too_low) if volunteer_count_required < 1
     end
 
     def execute
@@ -70,6 +77,8 @@ class Task::Form < ::Form
         t.scheduled_time_type   = scheduled_time_type
         t.scheduled_time_start  = scheduled_time_start
         t.scheduled_time_end    = scheduled_time_end
+
+        t.volunteer_count_required = volunteer_count_required
 
         t.roles.send('task.organizer').destroy_all
         t.roles.send('task.organizer').create user_id: organizer_id
