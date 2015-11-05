@@ -11,25 +11,29 @@
       .description= current_task.description
 
     .task-details
-      .due-date
+      .row.due-date
         .title Due Date
-        .details= current_task.due_date.strftime("%A %-d %B %Y")
+        .details
+          = current_task.due_date_and_time
+          =
 
-      .duration
+      .row.duration
         .title Duration
         .details
+          = pluralize(current_task.duration, current_task.duration_unit)
 
-      .location
-        .title Primary Location
-        .details= current_task.primary_location.address
+      -if current_task.primary_location.present?
+        .row.location
+          .title Location
+          .details= current_task.primary_location.address
 
       - current_task.extra_locations.each do |loc|
-        .location
+        v.location
           .title Location
           .details= loc.address
 
 
-      .work-group
+      .row.work-group
         .title Work Group
         .details= current_task.working_group.name
 
@@ -37,8 +41,9 @@
       /   .title Skills
       /   .details
 
-      .organizer
-        .details= "Created by #{current_task.organizers.first.try :name} for Helpee Name"
+      - if current_task.organizer.present?
+        .row.organizer
+          .details= "Organized by #{current_task.organizer.name}"
 
 
   aside

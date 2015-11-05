@@ -226,6 +226,11 @@ main.form, form {
     width: 100%;
   }
 
+  select.timeselect {
+    width: auto;
+    display: inline;
+  }
+
   .submit-row {
     margin-top: 40px;
     overflow: hidden;

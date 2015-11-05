@@ -47,4 +47,20 @@ class Task < ActiveRecord::Base
   def incomplete?
     !complete?
   end
+
+  def due_date_and_time
+    due_date.strftime("%A %-d %B %Y") + " " + scheduled_time_string
+  end
+
+  def scheduled_time_string
+    case scheduled_time_type
+    when 'at' then "at #{scheduled_time_start}"
+    when 'between' then "between #{scheduled_time_start} and #{scheduled_time_end}"
+    else ""
+    end
+  end
+
+  def organizer
+    @organizer ||= organizers.first
+  end
 end

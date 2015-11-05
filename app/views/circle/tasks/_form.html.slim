@@ -1,4 +1,4 @@
-= form_for [current_circle, current_task] do |f|
+= form_for [current_circle, @form] do |f|
   - if errors.present?
     .form-introduction.error
       p Please correct the errors below.
@@ -18,16 +18,69 @@
         = options_for_select(working_group_options(current_circle), current_task.working_group_id)
       = errors.message_for(:working_group)
 
+    .field.required class=errors.css(:organizer_id)
+      = f.label :organizer_id , "Organizer"
+      = f.collection_select :organizer_id, current_circle.volunteers, :id, :name
+      = errors.message_for(:organizer_id)
+
+
+  .field-row.single
+    .field.required class=errors.css(:description)
+      = f.label :description, "Description of the Task"
+      = f.text_area :description
+      = errors.message_for(:description)
+
+  .field-row
     .field.required class=errors.css(:due_date)
       = f.label :due_date , "Select a Due Date"
       = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
       = errors.message_for(:due_date)
 
+    .field.required class=errors.css(:primary_location)
+      = f.label :primary_location, "Location for the task"
+      = f.text_field :primary_location
+      = errors.message_for(:primary_location)
+
+
+  / .field-row
+  /   .field.required class=errors.css(:volunteer_count_required)
+  /     = f.label :volunteer_count_required, ""
+  /     = f.text_area :volunteer_count_required
+  /     = errors.message_for(:volunteer_count_required)
+
   .field-row
-    .field.required class=errors.css(:description)
-      = f.label :description, "Description of the Task"
-      = f.text_area :description
-      = errors.message_for(:description)
+    .field.required class=errors.css(:duration)
+      = f.label :duration, "Time commitment"
+      = f.text_field :duration
+      = errors.message_for(:duration)
+
+    .field.required class=errors.css(:duration_unit)
+      = f.label :duration_unit, "Hours or Minutes?"
+      = f.select :duration_unit do
+        = options_for_select(@form.duration_unit_options, @form.duration_unit)
+      = errors.message_for(:duration_unit)
+
+
+  .field-row
+    .field class=errors.css(:scheduled_time_type)
+      = f.label :scheduled_time_type, "When should the task occur?"
+      = f.select :scheduled_time_type do
+        = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
+      = errors.message_for(:scheduled_time_type)
+
+    .field.scheduled-time
+      = f.label :scheduled_time_start, "Time"
+      span.start
+        = f.select :scheduled_time_start, nil, {}, {class: 'timeselect'} do
+          = options_for_select(@form.scheduled_time_options, @form.scheduled_time_start)
+      span.end
+        | to
+        = f.select :scheduled_time_end, nil, {}, {class: 'timeselect'}
+          = options_for_select(@form.scheduled_time_options, @form.scheduled_time_end)
+
+      = errors.message_for(:scheduled_time_start)
+      = errors.message_for(:scheduled_time_end)
+
 
   .submit-row
     = f.submit

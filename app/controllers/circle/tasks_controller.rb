@@ -36,11 +36,13 @@ class Circle::TasksController < ApplicationController
   def new
     authorize! :create_task, current_circle
     @task = @circle.working_groups.first.tasks.build
+    @form = Task::Form.new(current_task, user: current_user, task: current_task)
   end
 
 
   def edit
     authorize! :update, current_task
+    @form = Task::Form.new(current_task, user: current_user, task: current_task)
   end
 
 
@@ -48,13 +50,15 @@ class Circle::TasksController < ApplicationController
     working_group = current_circle.working_groups.find(params[:task][:working_group_id])
     authorize! :create_task, working_group
 
-    outcome = Task::Create.run({user: current_user, circle: current_circle, working_group: working_group}, task_params)
+    @task = Task.new
+    @form = Task::Create.new(params[:task], user: current_user, task: Task.new, working_group: working_group)
+
+    outcome = @form.submit
 
     if outcome.success?
       redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.created', name: Task.model_name.human)
 
     else
-      @task = Task.new(task_params)
       errors.add outcome.errors
 
       render :new
@@ -68,12 +72,10 @@ class Circle::TasksController < ApplicationController
     authorize! :update, current_task
     authorize! :create_task, working_group
 
-    outcome = Task::Update.run({
-      user:          current_user,
-      circle:        current_circle,
-      working_group: working_group,
-      task:          current_task
-    }, task_params)
+    puts params[:task][:due_date].class
+    @form = Task::Form.new(params[:task], user: current_user, task: current_task, working_group: working_group)
+
+    outcome = @form.submit
 
     if outcome.success?
       redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.updated', name: Task.model_name.human)
@@ -90,7 +92,7 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Destroy.run(task: current_task, user: current_user)
 
-    redirect_to circle_tasks_path(@circle), notice: t('flash.destroyed', name: Task.model_name.human)
+    redirect_to circle_tasks_path(current_circle), notice: t('flash.destroyed', name: Task.model_name.human)
   end
 
 
