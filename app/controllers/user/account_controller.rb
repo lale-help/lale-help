@@ -12,7 +12,7 @@ class User::AccountController < ApplicationController
   def update_password
     outcome =  User::UpdatePassword.run({user: current_user}, params)
     if outcome.success?
-      redirect_to current_user.circle, notice: t("users.flash.password_reset_success")
+      redirect_to current_user.circles.first, notice: t("users.flash.password_reset_success")
     else
       @errors = outcome.errors
       render :reset_password

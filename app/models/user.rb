@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   end
 
   def email
-    identities.present? && identities.first.email
+    identity.present? && identity.email
   end
 
   def tasks_for_circle circle

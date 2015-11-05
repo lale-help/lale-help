@@ -8,7 +8,7 @@ class User::UpdatePassword < Mutations::Command
   def execute
     return if password_invalid
 
-    identity = user.identities.first
+    identity = user.identity
     identity.password = password
     identity.save!
   end
