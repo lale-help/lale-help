@@ -1,6 +1,6 @@
 nav
   .sidebar-section
-    = sidebar_link("My Tasks",    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.not_completed.count)
+    = sidebar_link("My Tasks",    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.volunteered.not_completed.count)
     = sidebar_link("All Tasks",   circle_tasks_path(current_circle),   badge_text: current_circle.tasks.not_completed.count)
 
   .sidebar-section

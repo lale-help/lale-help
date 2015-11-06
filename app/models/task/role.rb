@@ -8,6 +8,8 @@ class Task::Role < ActiveRecord::Base
     task.suggestee
   ]
 
+  scope :with_role, ->(role_name) { where(role_type: role_types[role_name]) }
+
 
   def name
     self[:name] || I18n.t!("roles.name.#{self.role_type}")

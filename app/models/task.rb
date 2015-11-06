@@ -19,6 +19,11 @@ class Task < ActiveRecord::Base
 
   scope :for_circle, ->(circle) { where(working_group: circle.working_groups) }
 
+  scope :with_role, ->(role) { joins(:roles).where(task_roles: {role_type: Task::Role.role_types[role]}) }
+
+  scope :volunteered, -> { with_role('task.volunteer') }
+  scope :organized, -> { with_role('task.organizer') }
+
 
   # Validations
   validates :name, presence: true

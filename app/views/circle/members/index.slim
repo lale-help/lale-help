@@ -17,6 +17,6 @@ table
       td
         - user.working_groups.each do |wg|
           li= wg.name
-      td= user.tasks.completed.count
-      td= user.tasks.not_completed.count
+      td= user.tasks.volunteered.completed.count
+      td= user.tasks.volunteered.not_completed.count
 
