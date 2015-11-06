@@ -108,6 +108,18 @@ class Circle::TasksController < ApplicationController
     end
   end
 
+  def decline
+    authorize! :decline, current_task
+
+    outcome = Task::Decline.run(user: current_user, task: current_task)
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.volunteered', name: current_task.name)
+    else
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.volunteer_failed', name: current_task.name)
+    end
+  end
+
 
   def complete
     authorize! :complete, current_task
