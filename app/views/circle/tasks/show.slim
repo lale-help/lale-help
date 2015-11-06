@@ -1,13 +1,16 @@
 - content_for :header_middle do
   a.back href=circle_tasks_path(current_circle) Back to All Tasks
 
-.task
+.task class=page.task_css
   main
     .task-header
       .date
         .month= current_task.due_date.strftime("%^b")
         .day= current_task.due_date.day
-      .title= current_task.name
+      .title
+        -if current_task.complete?
+          span.done= t('.task-complete')
+        = current_task.name
       .description= current_task.description
 
     .task-details
@@ -48,28 +51,41 @@
 
   aside
     .volunteers
-      .title Volunteers
-      - current_task.volunteers.each do |v|
-        .user-avatar
-          img src=image_path("avatar.jpg")
+      .title
+        = t(".volunteer-count", count: current_task.volunteers.size)
+
+      .icons
+        - current_task.volunteers.each do |v|
+          - if current_user == v
+            = button_to circle_task_decline_path(current_circle, current_task), method: :put, class: 'task-action-button' do
+              = render partial: 'user/user_icon', locals: { user: v }
+          - else
+            = render partial: 'user/user_icon', locals: { user: v }
+
+        - if page.is_missing_volunteers
+          - if can? :volunteer, current_task
+            = button_to circle_task_volunteer_path(current_circle, current_task), method: :put, class: 'task-action-button' do
+              .volunteer-icon
+
+          - page.adjusted_missing_volunteer_count.times do
+            .user-icon.user-needed
+
+      .missing
+        = t(".volunteer-count-required", count: current_task.volunteer_count_required)
+        - if page.is_missing_volunteers
+          = t(".volunteer-count-missing", count: page.missing_volunteer_count)
 
 
-    .suggested-members
-      .title Suggested Volunteers
-      - current_task.volunteers.each do |v|
-        .user-avatar
-          img src=image_path("avatar.jpg")
+
+    / .suggested-members
+    /   .title Suggested Volunteers
 
 
     .actions
-      - if can? :volunteer, current_task
-        = form_tag circle_task_volunteer_path(current_circle, current_task), method: 'put' do
-          button.button.volunteer-task= "Sign up for this task"
-
       - if can? :complete, current_task
         = form_tag circle_task_complete_path(current_circle, current_task), method: 'put' do
-          button.button.complete-task= "Mark this task is done"
+          button.button.complete-task= "Complete Task"
 
       - if can? :edit, current_task
         = form_tag edit_circle_task_path(current_circle, current_task), method: 'get' do
-          button.button.edit-task= "Edit this task"
+          button.button.edit-task= "Edit Task"

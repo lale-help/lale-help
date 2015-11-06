@@ -29,4 +29,8 @@ class User < ActiveRecord::Base
   def tasks_for_circle circle
     task_assignments.where(circle: circle).tasks
   end
+
+  def initials
+    (first_name.first + last_name.first).upcase
+  end
 end

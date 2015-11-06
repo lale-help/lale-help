@@ -18,7 +18,7 @@ class Circle::TasksController < ApplicationController
   def my
     authorize! :read, current_circle
 
-    tasks = current_user.tasks.for_circle(current_circle).order('due_date asc')
+    tasks = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').order('due_date asc')
 
     open_tasks   = tasks.not_completed
     closed_tasks = tasks.completed
@@ -140,6 +140,15 @@ class Circle::TasksController < ApplicationController
 
   helper_method def current_task
     @task ||= Task.find(params[:id] || params[:task_id])
+  end
+
+  helper_method def page
+    @page ||= OpenStruct.new.tap do |page|
+      page.is_missing_volunteers = current_task.volunteer_count_required > current_task.volunteers.size
+      page.missing_volunteer_count = current_task.volunteer_count_required - current_task.volunteers.size
+      page.adjusted_missing_volunteer_count = can?(:volunteer, current_task) ? page.missing_volunteer_count - 1 : page.missing_volunteer_count
+      page.task_css = "complete" if current_task.complete?
+    end
   end
 
 
