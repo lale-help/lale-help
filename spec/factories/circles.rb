@@ -3,10 +3,11 @@ FactoryGirl.define do
     sequence(:name) {|n| "Circle #{n}" }
     location_text { "San Francisco, CA" }
     location
-    admin
-    after(:create) { |circle, evaluator|
-      circle.admin.circle = circle
-      circle.admin.save
-    }
+  end
+
+  factory :circle_role, class: Circle::Role do
+    role_type { "circle.volunteer" }
+    user
+    circle
   end
 end

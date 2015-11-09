@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :location do
-    sequence(:name) {|n| "Location #{n}" }
+    sequence(:geocode_query) {|n| "San Francisco, CA"}
   end
 end

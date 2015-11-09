@@ -14,8 +14,7 @@
   .field-row
     .field.required class=errors.css(:working_group)
       = f.label :working_group_id , "Working Group"
-      = f.select :working_group_id
-        = options_for_select(working_group_options(current_circle), current_task.working_group_id)
+      = f.collection_select :working_group_id, current_circle.working_groups, :id, :name
       = errors.message_for(:working_group)
 
     .field.required class=errors.css(:organizer_id)

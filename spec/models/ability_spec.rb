@@ -2,7 +2,7 @@ require 'rails_helper'
 require "cancan/matchers"
 
 describe "Volunteer" do
-  describe "abilities" do
+  describe "abilities", :skip do
     subject(:ability)   { Ability.new(user) }
     let(:circle)        { create(:circle) }
     let(:working_group) { create(:working_group, circle: circle) }

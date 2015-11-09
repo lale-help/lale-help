@@ -17,7 +17,6 @@ class Circle < ActiveRecord::Base
 
   # Validations
   validates :name, presence: true
-  validates :admin, presence: true
   validates :location, presence: true
 
 
@@ -36,7 +35,7 @@ class Circle < ActiveRecord::Base
   private
   def determine_location
     if location_text.present?
-      self.location = Location.location_from location_text
+      self.location ||= Location.location_from(location_text)
     end
   end
 end

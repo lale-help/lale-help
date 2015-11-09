@@ -8,7 +8,7 @@ class Location < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
 
   def self.location_from(location_text)
-    previous_locaion = Location.find_by('lower(geocode_query) = ?', location_text.downcase)
+    previous_locaion = Location.find_by('lower(geocode_query) = ?', location_text)
     return previous_locaion if previous_locaion.present?
 
     response = Geocoder.search(location_text).first
