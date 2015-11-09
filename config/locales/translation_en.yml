@@ -64,6 +64,12 @@ en:
         volunteer_assignments: Volunteer assignments  #g
         volunteers: Volunteers  #g
         working_group: :activerecord.models.working_group  #g
+        duration:
+          hours_1: "1 Hour"
+          hours_2: "2 Hours"
+          hours_3: "3 Hours"
+          half_day: "Half a day"
+          all_day:  "All day"
 
       task/location_assignment:
         location: :activerecord.models.location  #g

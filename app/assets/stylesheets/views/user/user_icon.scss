@@ -1,4 +1,4 @@
-@mixin circle-icon($size:60px) {
+@mixin circle-icon($size:50px) {
   width: $size;
   height: $size;
   border: thin solid $border-color;

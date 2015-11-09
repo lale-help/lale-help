@@ -18,12 +18,11 @@
         .title Due Date
         .details
           = current_task.due_date_and_time
-          =
 
       .row.duration
         .title Duration
         .details
-          = pluralize(current_task.duration, current_task.duration_unit)
+          = current_task.duration_text
 
       -if current_task.primary_location.present?
         .row.location

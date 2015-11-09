@@ -32,18 +32,12 @@
 
 
   .field-row
-    .field.required class=errors.css(:due_date)
-      = f.label :due_date , "Select a Due Date"
-      = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
-      = errors.message_for(:due_date)
-
     .field.required class=errors.css(:volunteer_count_required)
       = f.label :volunteer_count_required, "Required number of volunteers"
-      = f.text_field :volunteer_count_required, type: :number
+      = f.select :volunteer_count_required do
+        = options_for_select(1..5, @form.volunteer_count_required)
       = errors.message_for(:volunteer_count_required)
 
-
-  .field-row.single
     .field.required class=errors.css(:primary_location)
       = f.label :primary_location, "Location for the task"
       = f.text_field :primary_location
@@ -51,27 +45,28 @@
 
 
   .field-row
-    .field.required class=errors.css(:duration)
-      = f.label :duration, "Time commitment"
-      = f.text_field :duration, type: :number
-      = errors.message_for(:duration)
+    .field.required class=errors.css(:due_date)
+      = f.label :due_date , "Due Date"
+      = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
+      = errors.message_for(:due_date)
 
-    .field.required class=errors.css(:duration_unit)
-      = f.label :duration_unit, "Hours or Minutes?"
-      = f.select :duration_unit do
-        = options_for_select(@form.duration_unit_options, @form.duration_unit)
-      = errors.message_for(:duration_unit)
+    .field.required class=errors.css(:duration)
+      = f.label :duration, "Time Commitment"
+      = f.select :duration do
+        = options_for_select(@form.duration_options, @form.duration)
+
+      = errors.message_for(:duration)
 
 
   .field-row
     .field class=errors.css(:scheduled_time_type)
-      = f.label :scheduled_time_type, "Task Occurs"
+      = f.label :scheduled_time_type, "Occurs"
       = f.select :scheduled_time_type do
         = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
       = errors.message_for(:scheduled_time_type)
 
     .field.scheduled-time
-      = f.label :scheduled_time_start, "Time"
+      = f.label :scheduled_time_start, "Start Time"
       span.start
         = f.select :scheduled_time_start, nil, {}, {class: 'timeselect'} do
           = options_for_select(@form.scheduled_time_options, @form.scheduled_time_start)

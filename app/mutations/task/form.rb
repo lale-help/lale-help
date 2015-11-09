@@ -12,7 +12,6 @@ class Task::Form < ::Form
   attribute :organizer_id,     :integer
 
   attribute :duration,      :integer
-  attribute :duration_unit, :string
 
   attribute :scheduled_time_type,  :string, required: false
   attribute :scheduled_time_start, :string, required: false
@@ -41,6 +40,12 @@ class Task::Form < ::Form
         "#{hour}:#{min}"
       end
     end.flatten
+  end
+
+  def duration_options
+    Task.durations.map do |key, val|
+      [I18n.t("activerecord.attributes.task.duration.#{key}"), val]
+    end
   end
 
   def primary_location
@@ -72,7 +77,6 @@ class Task::Form < ::Form
         t.working_group = working_group
 
         t.duration      = duration
-        t.duration_unit = duration_unit
 
         t.scheduled_time_type   = scheduled_time_type
         t.scheduled_time_start  = scheduled_time_start

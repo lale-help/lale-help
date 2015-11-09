@@ -12,6 +12,9 @@ class Task < ActiveRecord::Base
   has_many :location_assignments
   has_many :locations, through: :location_assignments
 
+  # Enums
+  enum duration: [:hours_1, :hours_2, :hours_3, :half_day, :all_day]
+
 
   # Scopes
   scope :completed,     -> { where("completed_at IS NOT NULL") }
@@ -67,5 +70,9 @@ class Task < ActiveRecord::Base
 
   def organizer
     @organizer ||= organizers.first
+  end
+
+  def duration_text
+    I18n.t("activerecord.attributes.task.duration.#{duration}")
   end
 end
