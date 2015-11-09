@@ -8,4 +8,4 @@ h2
       = render partial: 'circle/tasks/task_list_item', locals: { circle: circle, task: task }
 
   -else
-    | No tasks found
+    = t('.no-tasks')

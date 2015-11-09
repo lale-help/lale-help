@@ -45,7 +45,7 @@
 
       - if current_task.organizer.present?
         .row.organizer
-          .details= "Organized by #{current_task.organizer.name}"
+          .details= t(".organized-by", name: current_task.organizer.name)
 
 
   aside
@@ -83,8 +83,8 @@
     .actions
       - if can? :complete, current_task
         = form_tag circle_task_complete_path(current_circle, current_task), method: 'put' do
-          button.button.complete-task= "Complete Task"
+          button.button.complete-task= t('.complete-task-button')
 
       - if can? :edit, current_task
         = form_tag edit_circle_task_path(current_circle, current_task), method: 'get' do
-          button.button.edit-task= "Edit Task"
+          button.button.edit-task= t('.edit-task-button')

@@ -69,6 +69,6 @@ class Task < ActiveRecord::Base
   end
 
   def duration_text
-    I18n.t("activerecord.attributes.task.duration.#{duration}")
+    I18n.t("activerecord.attributes.task.duration-text.#{duration}")
   end
 end

@@ -44,7 +44,7 @@ class Task::Form < ::Form
 
   def duration_options
     Task.durations.map do |key, val|
-      [I18n.t("activerecord.attributes.task.duration.#{key}"), val]
+      [I18n.t("activerecord.attributes.task.duration-text.#{key}"), val]
     end
   end
 
