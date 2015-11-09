@@ -57,15 +57,11 @@ class Task < ActiveRecord::Base
   end
 
   def due_date_and_time
-    due_date.strftime("%A %-d %B %Y") + " " + scheduled_time_string
+    due_date.strftime("%A %-d %B %Y") + " " + scheduled_time
   end
 
-  def scheduled_time_string
-    case scheduled_time_type
-    when 'at' then "at #{scheduled_time_start}"
-    when 'between' then "between #{scheduled_time_start} and #{scheduled_time_end}"
-    else ""
-    end
+  def scheduled_time
+    I18n.t("activerecord.attributes.task.scheduled-time.#{scheduled_time_type}", start: scheduled_time_start, end: scheduled_time_end)
   end
 
   def organizer

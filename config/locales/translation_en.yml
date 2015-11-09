@@ -64,6 +64,10 @@ en:
         volunteer_assignments: Volunteer assignments  #g
         volunteers: Volunteers  #g
         working_group: :activerecord.models.working_group  #g
+        scheduled-time:
+          at:      "at %{start}"
+          on_date: ""
+          between: "between %{start} and %{end}"
         duration:
           hours_1: "1 Hour"
           hours_2: "2 Hours"
