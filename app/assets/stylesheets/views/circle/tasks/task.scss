@@ -8,11 +8,10 @@ section > .task {
   @include justify-content(center);
 
   main {
-
     max-width: 800px;
-
     @include flex(3 0 50rem);
     margin-right: 3rem;
+    margin-bottom: 3rem;
 
     .task-header {
       margin-bottom: 2rem;
