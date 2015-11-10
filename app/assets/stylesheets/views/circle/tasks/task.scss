@@ -1,3 +1,5 @@
+$border-radius: 1.5rem;
+
 section > .task {
   @include display(flex);
   @include flex-direction(row);
@@ -6,10 +8,10 @@ section > .task {
   @include justify-content(center);
 
   main {
-    $border-radius: 1.5rem;
-
+    max-width: 800px;
     @include flex(3 0 50rem);
     margin-right: 3rem;
+    margin-bottom: 3rem;
 
     .task-header {
       margin-bottom: 2rem;
@@ -59,11 +61,11 @@ section > .task {
     }
 
     .task-details {
-      .due-date {
+      > :first-child {
         @include border-top-radius($border-radius);
       }
 
-      .organizer {
+      > :last-child {
         @include border-bottom-radius($border-radius);
         border-bottom: thin solid $border-color;
       }
@@ -100,6 +102,47 @@ section > .task {
   aside {
     @include flex(0 0 30rem);
 
+    .volunteers{
+      @include border-top-radius($border-radius);
+      @include border-bottom-radius($border-radius);
+      border: thin solid $border-color;
+      margin-bottom: 3rem;
+
+      > * {
+        border-top: thin solid $border-color;
+        padding: 1.5rem 1rem;
+
+        &:first-child {
+          border: none;
+        }
+      }
+
+      .title {
+        @include icon($icon-user);
+        background: $blue-light-2;
+        @include border-top-radius($border-radius);
+      }
+
+      .icons {
+        @include display(flex);
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include align-items(center);
+        @include justify-content(flex-start);
+
+        > * {
+          margin: 0.25rem;
+        }
+
+        .task-action-button .user-icon:hover {
+          background: $red-100;
+          .text {
+            content: " ";
+          }
+        }
+      }
+    }
+
     .actions {
       form {
         margin: 0;
@@ -107,18 +150,44 @@ section > .task {
       }
 
       .button {
-        background: $orange;
-        border: none;
-      }
-      .edit-task {
-        background: $body-bg;
-        border: thin solid $orange;
-        color: $orange;
+        background: none;
+        border: thin solid $blue-dark-1;
+        color:   $blue-dark-1;
       }
 
-//      .button {
-//        margin: 0;
-//      }
+      .button.complete-task {
+        background: $orange;
+        border: thin solid $orange;
+        color:   $body-bg;
+      }
+    }
+  }
+}
+
+section > .task.complete {
+  .task-header {
+    .date {
+       .month {
+         background-color: $green;
+       }
+
+       .day {
+         border-color: $green-500;
+       }
+
+    }
+    .done {
+      color: $green;
+    }
+
+    .title {
+      background-color: $green-500;
+      color: $green-50;
+    }
+
+    .description {
+      background-color: $green-50;
+      color: $green-500;
     }
   }
 }

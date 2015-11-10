@@ -72,6 +72,10 @@ class Ability
       task.complete? or task.volunteers.include?(user)
     end
 
+    can :decline, Task do |task|
+      task.volunteers.include?(user)
+    end
+
 
     can :complete, Task do |task|
       task.due_date < Time.now and (

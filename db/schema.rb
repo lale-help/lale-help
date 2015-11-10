@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151030214905) do
+ActiveRecord::Schema.define(version: 20151109221322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,16 +30,15 @@ ActiveRecord::Schema.define(version: 20151030214905) do
     t.datetime "updated_at",            null: false
     t.string   "name",                  null: false
     t.integer  "location_id", limit: 8, null: false
-    t.integer  "admin_id",    limit: 8, null: false
   end
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-    t.string   "address"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "geocode_query"
     t.float    "latitude"
     t.float    "longitude"
+    t.json     "geocode_data"
   end
 
   create_table "system_event_notification_deliveries", id: :bigserial, force: :cascade do |t|
@@ -97,13 +96,18 @@ ActiveRecord::Schema.define(version: 20151030214905) do
   end
 
   create_table "tasks", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "name",                       null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "name",                                           null: false
     t.string   "description"
-    t.integer  "working_group_id", limit: 8, null: false
+    t.integer  "working_group_id",         limit: 8,             null: false
     t.datetime "completed_at"
     t.date     "due_date"
+    t.integer  "volunteer_count_required"
+    t.integer  "duration",                           default: 1
+    t.string   "scheduled_time_type"
+    t.string   "scheduled_time_start"
+    t.string   "scheduled_time_end"
   end
 
   create_table "tokens", force: :cascade do |t|

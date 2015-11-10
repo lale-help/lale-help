@@ -1,0 +1,13 @@
+en:
+  layouts:
+    internal:
+      sidebar:
+        my-tasks:           "My Tasks"
+        all-tasks:          "All Tasks"
+        supplies:           "Supplies"
+        directory:          "Directory"
+        discussions:        "Discussions"
+        calendar:           "Calendar"
+        admin:              "Admin"
+        my-working-groups:  "My Working Groups"
+        all-working-groups: "All Working Groups"

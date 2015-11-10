@@ -1,4 +1,9 @@
 en:
+  helpers:
+    placeholders:
+      circle:
+        task:
+          name:
   activerecord:
     models:
       circle: Circle  #g
@@ -14,7 +19,7 @@ en:
       user: Volunteer  #g
       user/feedback: Volunteer/feedback  #g
       user/identity: Volunteer/identity  #g
-      working_group: Working group  #g
+      working_group: Working Group  #g
 
     attributes:
       circle:
@@ -52,18 +57,33 @@ en:
 
       task:
         completed_at: Completed at  #g
-        description: Description  #g
-        due_date: Due date  #g
+        description: "Description of the Task"
+        due_date: Due Date  #g
         location_assignments: Location assignments  #g
         locations: Locations  #g
-        name: Name  #g
+        name: "Name of the Task"
         organizer_assignments: Organizer assignments  #g
-        organizers: Organizers  #g
+        organizer_id: Organizer
         skill_assignments: Skill assignments  #g
         skills: Skills  #g
         volunteer_assignments: Volunteer assignments  #g
         volunteers: Volunteers  #g
-        working_group: :activerecord.models.working_group  #g
+        working_group_id: :activerecord.models.working_group  #g
+        volunteer_count_required: "Required number of volunteers"
+        primary_location:  "Location"
+        duration: "Time Commitment"
+        scheduled_time_type: "Occurs"
+        scheduled_time_start: "Start Time"
+        scheduled-time:
+          at:      "at %{start}"
+          on_date: ""
+          between: "between %{start} and %{end}"
+        duration-text:
+          hours_1: "1 Hour"
+          hours_2: "2 Hours"
+          hours_3: "3 Hours"
+          half_day: "Half a day"
+          all_day:  "All day"
 
       task/location_assignment:
         location: :activerecord.models.location  #g

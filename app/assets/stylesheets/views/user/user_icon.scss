@@ -1,0 +1,37 @@
+@mixin circle-icon($size:50px) {
+  width: $size;
+  height: $size;
+  border: thin solid $border-color;
+  border-radius: 50%;
+
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
+  font-size: 2.5rem;
+
+}
+
+
+.user-icon {
+  @include circle-icon();
+  border-color: $blue-dark-1;
+  color: $blue-dark-2;
+
+  &.user-needed {
+    @include icon($icon-user);
+    border: none;
+    background-color: $light-grey;
+    color: $grey;
+  }
+}
+
+
+.volunteer-icon {
+  @include circle-icon();
+  @include icon($icon-plus);
+
+  color: $white;
+  background-color: $orange;
+  border: none;
+}

@@ -1,0 +1,30 @@
+en:
+  circle:
+    tasks:
+      index:
+        header: All Tasks
+
+      my:
+        header: My Tasks
+
+      task_list:
+        no-tasks: "No tasks found."
+
+      show:
+        task-complete: "Done: "
+        volunteer-count:
+          one: "%{count} volunteer is going"
+          other: "%{count} volunteers are going"
+        volunteer-count-required:
+          one:   "Requires %{count} volunteer"
+          other: "Requires %{count} volunteers"
+        volunteer-count-missing:
+          # Keeps the space and the parentheses
+          one:   " (%{count} missing)"
+          other: " (%{count} missing)"
+
+        organized-by: "Organized by %{name}"
+
+        complete-task-button: "Complete Task"
+        edit-task-button:     "Edit Task"
+

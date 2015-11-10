@@ -1,7 +1,9 @@
 en:
-  lale: Lale
+  lale: Lale.help
   hello: Hello world
   edit: EDIT
+  delete: Delete
+  supported-by: "Supported by"
 
   forms:
     correct-errors: Please correct the errors below.
@@ -18,6 +20,18 @@ en:
 
   # Use this for form helpers
   helpers:
+    header:
+      add:  "Create a new %{name}"
+      edit: "Editing %{name}"
+
+    confirm:
+      task:
+        delete: 'Are you sure you want to delete this task?'
+
+    placeholder:
+      task:
+        name: 'E.g. Take Riad to School Orientation'
+
     submit:
       create: "Create %{model}"
       submit: "Save %{model}"

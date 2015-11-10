@@ -18,7 +18,7 @@ class Circle::TasksController < ApplicationController
   def my
     authorize! :read, current_circle
 
-    tasks = current_user.tasks.for_circle(current_circle).order('due_date asc')
+    tasks = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').order('due_date asc')
 
     open_tasks   = tasks.not_completed
     closed_tasks = tasks.completed
@@ -36,11 +36,13 @@ class Circle::TasksController < ApplicationController
   def new
     authorize! :create_task, current_circle
     @task = @circle.working_groups.first.tasks.build
+    @form = Task::Form.new(current_task, user: current_user, task: current_task)
   end
 
 
   def edit
     authorize! :update, current_task
+    @form = Task::Form.new(current_task, user: current_user, task: current_task)
   end
 
 
@@ -48,13 +50,15 @@ class Circle::TasksController < ApplicationController
     working_group = current_circle.working_groups.find(params[:task][:working_group_id])
     authorize! :create_task, working_group
 
-    outcome = Task::Create.run({user: current_user, circle: current_circle, working_group: working_group}, task_params)
+    @task = Task.new
+    @form = Task::Create.new(params[:task], user: current_user, task: Task.new, working_group: working_group)
+
+    outcome = @form.submit
 
     if outcome.success?
       redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.created', name: Task.model_name.human)
 
     else
-      @task = Task.new(task_params)
       errors.add outcome.errors
 
       render :new
@@ -68,12 +72,10 @@ class Circle::TasksController < ApplicationController
     authorize! :update, current_task
     authorize! :create_task, working_group
 
-    outcome = Task::Update.run({
-      user:          current_user,
-      circle:        current_circle,
-      working_group: working_group,
-      task:          current_task
-    }, task_params)
+    puts params[:task][:due_date].class
+    @form = Task::Form.new(params[:task], user: current_user, task: current_task, working_group: working_group)
+
+    outcome = @form.submit
 
     if outcome.success?
       redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.updated', name: Task.model_name.human)
@@ -90,7 +92,7 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Destroy.run(task: current_task, user: current_user)
 
-    redirect_to circle_tasks_path(@circle), notice: t('flash.destroyed', name: Task.model_name.human)
+    redirect_to circle_tasks_path(current_circle), notice: t('flash.destroyed', name: Task.model_name.human)
   end
 
 
@@ -98,6 +100,18 @@ class Circle::TasksController < ApplicationController
     authorize! :volunteer, current_task
 
     outcome = Task::Volunteer.run(user: current_user, task: current_task)
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.volunteered', name: current_task.name)
+    else
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.volunteer_failed', name: current_task.name)
+    end
+  end
+
+  def decline
+    authorize! :decline, current_task
+
+    outcome = Task::Decline.run(user: current_user, task: current_task)
 
     if outcome.success?
       redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.volunteered', name: current_task.name)
@@ -126,6 +140,15 @@ class Circle::TasksController < ApplicationController
 
   helper_method def current_task
     @task ||= Task.find(params[:id] || params[:task_id])
+  end
+
+  helper_method def page
+    @page ||= OpenStruct.new.tap do |page|
+      page.is_missing_volunteers = current_task.volunteer_count_required > current_task.volunteers.size
+      page.missing_volunteer_count = current_task.volunteer_count_required - current_task.volunteers.size
+      page.adjusted_missing_volunteer_count = can?(:volunteer, current_task) ? page.missing_volunteer_count - 1 : page.missing_volunteer_count
+      page.task_css = "complete" if current_task.complete?
+    end
   end
 
 

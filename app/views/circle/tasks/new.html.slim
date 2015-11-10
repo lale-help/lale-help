@@ -3,6 +3,6 @@
 
 main.form
   section
-    h2 = "Add a new Task"
+    h2 = t('helpers.header.add', name: Task.model_name.human)
 
     == render 'form', locals: {delete: false}

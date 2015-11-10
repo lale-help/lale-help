@@ -11,10 +11,13 @@ class Circle::CreateCircle < Mutations::Command
    def execute
      Circle.transaction do
        # lookup location
-       location = Location.find_or_create_by! name: location_name
+       location = Location.location_from location_name
 
        # create circle
-       circle   = Circle.create! name: name, location: location, admin: user
+       circle   = Circle.create! name: name, location: location
+
+       # Add user as an admin
+       Circle::Role.send('circle.admin').create( circle: circle, user: user)
 
        # log a system event
        SystemEvent.create! user: user, for: circle, action: :created

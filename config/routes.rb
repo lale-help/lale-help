@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
         put :volunteer
         patch :volunteer
+        put :decline
+        patch :decline
         put :complete
         patch :complete
       end
