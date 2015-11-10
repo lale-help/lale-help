@@ -20,9 +20,9 @@ class Task < ActiveRecord::Base
   scope :completed,     -> { where("completed_at IS NOT NULL") }
   scope :not_completed, -> { where("completed_at IS NULL") }
 
-  scope :for_circle, ->(circle) { where(working_group: circle.working_groups) }
+  scope :for_circle, ->(circle) { joins(:working_group).where(working_groups: { circle_id: circle.id } ) }
 
-  scope :with_role, ->(role) { joins(:roles).where(task_roles: {role_type: Task::Role.role_types[role]}) }
+  scope :with_role, ->(role) { where(task_roles: {role_type: Task::Role.role_types[role]}) }
 
   scope :volunteered, -> { with_role('task.volunteer') }
   scope :organized, -> { with_role('task.organizer') }

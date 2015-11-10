@@ -84,6 +84,8 @@ class Task::Form < ::Form
 
         t.volunteer_count_required = volunteer_count_required
 
+        t.save
+
         t.roles.send('task.organizer').destroy_all
         t.roles.send('task.organizer').create user_id: organizer_id
 
