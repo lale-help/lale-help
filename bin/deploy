@@ -1,0 +1,39 @@
+#!/usr/bin/env ruby
+require 'thor'
+
+class CLI < Thor
+  include Thor::Actions
+  class_option :force, :type => :boolean, alias: "-f"
+
+  desc "staging", "deploys the current branch to staging"
+  def staging
+    deploy "stg"
+  end
+
+  desc "production", "deploys the current branch to production"
+  def production
+    deploy "prd"
+  end
+
+  private
+  def current_branch
+    @current_branch ||= `git rev-parse --abbrev-ref HEAD`.chomp
+  end
+
+  def deploy stage
+    push_opts = ""
+    push_opts += " -f" if options[:force]
+
+    log "Pushing #{current_branch} to Heroku"
+    run "git push#{push_opts} #{stage} #{current_branch}:master"
+
+    log "Migrating the database"
+    run "heroku run rake db:migrate -r #{stage}"
+  end
+
+  def log message
+    say "#{Time.now.to_s} | #{message}"
+  end
+end
+
+CLI.start(ARGV)

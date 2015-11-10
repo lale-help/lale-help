@@ -40,6 +40,7 @@ gem 'geocoder'
 
 group :development do
   gem "letter_opener"
+  gem 'thor', require: false
 end
 
 group :development, :test do
