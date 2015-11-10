@@ -1,31 +1,31 @@
 nav
   .sidebar-section
-    = sidebar_link("My Tasks",    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.volunteered.not_completed.count)
-    = sidebar_link("All Tasks",   circle_tasks_path(current_circle),   badge_text: current_circle.tasks.not_completed.count)
+    = sidebar_link(t('.my-tasks'),    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.volunteered.not_completed.count)
+    = sidebar_link(t('.all-tasks'),   circle_tasks_path(current_circle),   badge_text: current_circle.tasks.not_completed.count)
 
   .sidebar-section
-    = sidebar_link("Supplies",    circle_supplies_path(current_circle))
+    = sidebar_link(t('.supplies'),    circle_supplies_path(current_circle))
 
   .sidebar-section
-    = sidebar_link("Directory",   circle_members_path(current_circle))
-    = sidebar_link("Discussions", circle_discussions_path(current_circle))
-    = sidebar_link("Calendar",    circle_calendar_path(current_circle))
+    = sidebar_link(t('.directory'),   circle_members_path(current_circle))
+    = sidebar_link(t('.discussions'), circle_discussions_path(current_circle))
+    = sidebar_link(t('.calendar'),    circle_calendar_path(current_circle))
     - if can? :manage, current_circle
-      = sidebar_link("Admin",    circle_admin_path(current_circle))
+      = sidebar_link(t('.admin'),    circle_admin_path(current_circle))
 
   .sidebar-section
-    h4 My Working Groups
+    h4= t('.my-working-groups')
     - current_circle.working_groups.each do |wg|
       - if wg.persisted? && can?(:read, wg)
         = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count)
 
   .sidebar-section
-    = sidebar_link("All Working Groups", circle_working_groups_path(current_circle))
+    = sidebar_link(t('.all-working-groups'), circle_working_groups_path(current_circle))
 
 
   .bottom
     = content_for :sidebar_bottom
     .powered-by
-      | Supported by
+      = t('supported-by')
       .logo
-      | Lale.help
+      = t('lale')

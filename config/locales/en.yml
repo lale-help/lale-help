@@ -1,8 +1,9 @@
 en:
-  lale: Lale
+  lale: Lale.help
   hello: Hello world
   edit: EDIT
   delete: Delete
+  supported-by: "Supported by"
 
   forms:
     correct-errors: Please correct the errors below.
