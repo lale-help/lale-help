@@ -1,4 +1,4 @@
-module Task::Common
+module Taskable
   extend ActiveSupport::Concern
   included do
     klass = self

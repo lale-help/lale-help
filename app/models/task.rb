@@ -1,5 +1,5 @@
 class Task < ActiveRecord::Base
-  include Task::Common
+  include Taskable
   include Completable
 
   # Associations
