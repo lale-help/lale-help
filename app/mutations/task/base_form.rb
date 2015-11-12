@@ -1,4 +1,4 @@
-class Task::Form < ::Form
+class Task::BaseForm < ::Form
   attribute :task, :model, primary: true, new_records: true
   attribute :user, :model
   attribute :working_group, :model

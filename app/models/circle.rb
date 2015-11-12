@@ -11,6 +11,7 @@ class Circle < ActiveRecord::Base
 
   has_many :working_groups, -> { order('lower(working_groups.name) ASC') }
   has_many :tasks, through: :working_groups
+  has_many :supplies, through: :working_groups
 
   belongs_to :location
 

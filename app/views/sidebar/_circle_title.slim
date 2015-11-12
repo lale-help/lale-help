@@ -6,5 +6,5 @@ a.circle-name href=circle_path(current_circle) = circle.name
       - if can? :create_task, circle
         a href=new_circle_task_path(current_circle) Task
 
-      - if can? :create_group, circle
-        a href=new_circle_working_group_path(current_circle) Working Group
+      - if can? :create_supply, circle
+        a href=new_circle_supply_path(current_circle) Supply

@@ -1,0 +1,49 @@
+= form_for [current_circle, @form] do |f|
+  - if errors.present?
+    .form-introduction.error
+      p Please correct the errors below.
+
+
+  .field-row.single
+    .field.required class=errors.css(:name)
+      = f.label :name
+      = f.text_field :name, placeholder: true
+      = errors.message_for(:name)
+
+
+  .field-row
+    .field.required class=errors.css(:working_group)
+      = f.label :working_group_id
+      = f.collection_select :working_group_id, current_circle.working_groups, :id, :name
+      = errors.message_for(:working_group)
+
+    .field.required class=errors.css(:organizer_id)
+      = f.label :organizer_id
+      = f.collection_select :organizer_id, current_circle.volunteers, :id, :name
+      = errors.message_for(:organizer_id)
+
+
+  .field-row.single
+    .field.required class=errors.css(:description)
+      = f.label :description
+      = f.text_area :description
+      = errors.message_for(:description)
+
+  .field-row
+    .field.required class=errors.css(:due_date)
+      = f.label :due_date
+      = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
+      = errors.message_for(:due_date)
+
+    .field.required class=errors.css(:location)
+      = f.label :location
+      = f.text_field :location
+      = errors.message_for(:location)
+
+
+  .submit-row
+    - if locals[:delete]
+      = link_to t('delete'), circle_supply_path(current_circle, current_supply), data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete
+
+    = f.submit
+

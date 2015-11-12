@@ -1,0 +1,58 @@
+- content_for :header_middle do
+  a.back href=circle_supplies_path(current_circle) Back to All Supplies
+
+.task class=page.task_css
+  main
+    .task-header
+      .date
+        .month= current_supply.due_date.strftime("%^b")
+        .day= current_supply.due_date.day
+      .title
+        -if current_supply.complete?
+          span.done= t('.task-complete')
+        = current_supply.name
+      .description= current_supply.description
+
+    .task-details
+      .row.due-date
+        .icon
+        .title Due Date
+        .details
+          = current_supply.due_date_text
+
+      -if current_supply.location.present?
+        .row.location
+          .icon
+          .title Location
+          .details= current_supply.location.address
+
+
+      .row.contact
+        .icon
+        .title Contact
+        .details
+          a href="mailto:#{current_supply.organizer.email}"
+            = current_supply.organizer.email
+
+
+
+      .row.work-group
+        .icon
+        .title Work Group
+        .details= current_supply.working_group.name
+
+
+      - if current_supply.organizer.present?
+        .row.organizer
+          .details= t(".organized-by", name: current_supply.organizer.name)
+
+
+  aside
+    .actions
+      - if can? :complete, current_supply
+        = form_tag circle_supply_complete_path(current_circle, current_supply), method: 'put' do
+          button.button.complete-task= t('.complete-task-button')
+
+      - if can? :edit, current_supply
+        = form_tag edit_circle_supply_path(current_circle, current_supply), method: 'get' do
+          button.button.edit-task= t('.edit-task-button')

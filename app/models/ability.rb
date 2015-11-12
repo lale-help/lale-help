@@ -19,13 +19,18 @@ class Ability
       user.working_group_roles.admin.for_circle(circle).exists?
     end
 
+    can :create_supply, Circle do |circle|
+      can?(:manage, circle) or
+      user.working_group_roles.admin.for_circle(circle).exists?
+    end
+
     can :create_group, Circle do |circle|
       can?(:manage, circle)
     end
 
     can :create_item, Circle do |circle|
       can?(:create_task, circle) or
-      can?(:create_group, circle)
+      can?(:create_supply, circle)
     end
 
     can :delete, Circle::Role do |role|
@@ -89,6 +94,45 @@ class Ability
       can?(:manage, task.circle)
     end
     cannot :complete, Task do |task|
+      task.complete?
+    end
+
+
+    # Supply
+    can :read, Supply do |task|
+      can? :read, task.circle
+    end
+
+    can :manage, Supply do |task|
+      task.organizers.include?(user) or
+      can?(:manage, task.working_group) or
+      can?(:manage, task.circle)
+    end
+    cannot :delete, Supply do |task|
+      !task.persisted?
+    end
+
+    can :volunteer, Supply do |task|
+      can?(:read, task)
+    end
+    cannot :volunteer, Supply do |task|
+      task.complete? or task.volunteers.include?(user)
+    end
+
+    can :decline, Supply do |task|
+      task.volunteers.include?(user)
+    end
+
+
+    can :complete, Supply do |task|
+      task.due_date < Time.now and (
+        task.volunteers.include?(user) or
+        task.organizers.include?(user)
+      ) or
+      can?(:manage, task.working_group) or
+      can?(:manage, task.circle)
+    end
+    cannot :complete, Supply do |task|
       task.complete?
     end
 

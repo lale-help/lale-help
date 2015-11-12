@@ -1,0 +1,27 @@
+en:
+  circle:
+    supplies:
+      index:
+        header: Supplies
+
+      supply_list:
+        no-supplies: "No supplies are needed at this time."
+
+      show:
+        task-complete: "Done: "
+        volunteer-count:
+          one: "%{count} volunteer is going"
+          other: "%{count} volunteers are going"
+        volunteer-count-required:
+          one:   "Requires %{count} volunteer"
+          other: "Requires %{count} volunteers"
+        volunteer-count-missing:
+          # Keeps the space and the parentheses
+          one:   " (%{count} missing)"
+          other: " (%{count} missing)"
+
+        organized-by: "Organized by %{name}"
+
+        complete-task-button: "Supply has been found"
+        edit-task-button:     "Edit Supply"
+

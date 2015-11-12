@@ -83,6 +83,9 @@ section > .task {
       .work-group .icon {
         @include lale-icon($lale-icon-archive, 2em);
       }
+      .contact .icon {
+        @include lale-icon($lale-icon-envelope-open, 2em);
+      }
 
 
       > * {

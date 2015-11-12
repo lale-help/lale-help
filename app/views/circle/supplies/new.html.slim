@@ -1,0 +1,8 @@
+- content_for :header_middle do
+  a.back href=circle_supplies_path(current_circle) All Supplies
+
+main.form
+  section
+    h2 = t('helpers.header.add', name: Supply.model_name.human)
+
+    == render 'form', locals: {delete: false}
