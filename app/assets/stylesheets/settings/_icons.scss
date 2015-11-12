@@ -2,11 +2,12 @@
 // Icon Font: lale
 //
 
-@mixin lale-icon($icon) {
+@mixin lale-icon($icon, $size: 1em) {
   &:before{
     font-family: 'lale';
     font-weight: normal;
     font-style: normal;
+    font-size: $size;
     display: inline-block;
     text-decoration: inherit;
     line-height: 1;
@@ -21,14 +22,22 @@
 }
 
 
+.icon-archive:before { content: "\f10d"; }
 .icon-arrow-left:before { content: "\f108"; }
+.icon-calendar:before { content: "\f10b"; }
+.icon-clock:before { content: "\f109"; }
+.icon-compass:before { content: "\f10c"; }
 .icon-drawer:before { content: "\f101"; }
 .icon-inbox:before { content: "\f102"; }
 .icon-missing:before { content: "\f106"; }
 .icon-plus-skinny:before { content: "\f107"; }
 .icon-user:before { content: "\f105"; }
 
+$lale-icon-archive: "\f10d";
 $lale-icon-arrow-left: "\f108";
+$lale-icon-calendar: "\f10b";
+$lale-icon-clock: "\f109";
+$lale-icon-compass: "\f10c";
 $lale-icon-drawer: "\f101";
 $lale-icon-inbox: "\f102";
 $lale-icon-missing: "\f106";

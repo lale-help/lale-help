@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "b0fe7420fbaa6a85a1768b7a8c043e5e52348383a1ab23d7ed01bd62612a83e1",
-    "current": "b0fe7420fbaa6a85a1768b7a8c043e5e52348383a1ab23d7ed01bd62612a83e1"
+    "previous": "e565ab29d5644d97ef5d79d33f6f076e71a6981c401b874aec974cd34ad9c3b4",
+    "current": "e565ab29d5644d97ef5d79d33f6f076e71a6981c401b874aec974cd34ad9c3b4"
   },
   "fonts": [
     "app/assets/fonts/lale/lale.ttf",
@@ -10,9 +10,25 @@
     "app/assets/fonts/lale/lale.eot"
   ],
   "glyphs": {
+    "archive": {
+      "codepoint": 61709,
+      "source": "app/assets/icons/archive.svg"
+    },
     "arrow-left": {
       "codepoint": 61704,
       "source": "app/assets/icons/arrow-left.svg"
+    },
+    "calendar": {
+      "codepoint": 61707,
+      "source": "app/assets/icons/calendar.svg"
+    },
+    "clock": {
+      "codepoint": 61705,
+      "source": "app/assets/icons/clock.svg"
+    },
+    "compass": {
+      "codepoint": 61708,
+      "source": "app/assets/icons/compass.svg"
     },
     "drawer": {
       "codepoint": 61697,
