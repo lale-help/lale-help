@@ -50,6 +50,8 @@ class Form
       unless outcome.success?
         Rails.logger.error [
           "Failed to submit #{self.class}",
+          "Class Attrs: #{self.class.attributes}",
+          "Submit class: #{submit_class}",
           "attributes: #{attributes}",
           "errors: #{outcome.errors.symbolic}"
         ].join(?\n)
@@ -63,11 +65,11 @@ class Form
 
       form_class.attributes.each do |a|
         action = a[:required] ? :required : :optional
-        send(action) do
+        subclass.send(action) do
           send(a[:type], a[:name], a)
         end
-      end
 
+      end
     end
   end
 end
