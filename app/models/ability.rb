@@ -64,6 +64,9 @@ class Ability
       can?(:manage, task.working_group) or
       can?(:manage, task.circle)
     end
+    cannot :delete, Task do |task|
+      !task.persisted?
+    end
 
     can :volunteer, Task do |task|
       can?(:read, task)

@@ -4,6 +4,8 @@ header {
   height: $header-height;
   width: 100%;
 
+
+
   @include display(flex);
   @include flex-direction(row);
   @include align-items(center);
@@ -25,24 +27,25 @@ header {
     .circle-add-menu {
       @include flex(0 0 4rem);
       height: 100%;
+      font-size: 2rem;
 
       &:hover {
         cursor: pointer;
       }
 
-      .icon {
-        @include icon($icon-plus);
-        margin: auto;
-        border-radius: 50%;
-        border: thin solid;
-        width: 2rem;
-        height: 2rem;
-        transform: translateY(1.5rem);
+      @include display(flex);
+      @include align-items(center);
+      @include justify-content(center);
 
-        &:before {
-          font-size: 1.25rem;
-          transform: translate(.4rem, .3rem);
-        }
+      .icon {
+        @include lale-icon($lale-icon-plus-skinny);
+        border-radius: 50%;
+        background-color: $orange;
+        padding: 4px;
+
+        @include display(flex);
+        @include align-items(center);
+        @include justify-content(center);
       }
 
       &.open {
@@ -51,6 +54,9 @@ header {
           border: thin solid $light-grey;
           border-top: 0;
           z-index: 1000;
+          -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+          -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+          box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
         }
       }
 
@@ -58,7 +64,7 @@ header {
       .menu{
         font-size: 1.5rem;
         display: none;
-        transform: translateY(2.1rem);
+        transform: translate( -34px, $header-height);
         position: absolute;
         min-width:  20rem;
         padding: 1rem;
@@ -79,10 +85,14 @@ header {
     a.back {
       margin-left: 1rem;
 
-      @include icon($icon-chevron-left);
+      @include lale-icon($lale-icon-arrow-left);
+      @include display(flex);
+      @include flex-direction(row);
+      @include align-items(center);
+
       &:before {
-        font-size:    0.75em;
-        margin-right: 0.25em;
+        font-size:    2.25rem;
+        margin-right: 0.5em;
       }
     }
 
@@ -107,6 +117,6 @@ header {
 
   .user-inbox{
     font-size: 2rem;
-    @include icon($icon-inbox);
+    @include lale-icon($lale-icon-inbox);
   }
 }

@@ -1,6 +1,7 @@
 ready = ->
   $('body').on 'click', (e)->
-    if $(e.target).parents('.circle-add-menu').length > 0
+    console.log(e.target)
+    if $(e.target).parents('.circle-add-menu').length > 0 || $(e.target).hasClass('circle-add-menu')
       $('.circle-add-menu').toggleClass('open')
     else
       $('.circle-add-menu').removeClass('open')

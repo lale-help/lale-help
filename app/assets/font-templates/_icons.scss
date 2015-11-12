@@ -1,0 +1,26 @@
+//
+// Icon Font: <%= font_name %>
+//
+
+@mixin lale-icon($icon) {
+  &:before{
+    font-family: 'lale';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    content: $icon;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.icon {
+  @include lale-icon(' ');
+}
+
+
+<%= glyphs %>
+<% @glyphs.each do |name, value| %>
+$lale-icon-<%= name.to_s %>: "\<%= value[:codepoint].to_s(16) %>";<% end %>

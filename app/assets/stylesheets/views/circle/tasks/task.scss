@@ -79,7 +79,7 @@ section > .task {
         @include flex-direction(row);
         @include align-items(center);
 
-        @include icon($icon-missing);
+        @include lale-icon(" ");
         font-size: 1.5rem;
 
         .title {
@@ -118,7 +118,7 @@ section > .task {
       }
 
       .title {
-        @include icon($icon-user);
+        @include lale-icon(" ");
         background: $blue-light-2;
         @include border-top-radius($border-radius);
       }

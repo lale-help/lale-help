@@ -42,7 +42,7 @@ body {
 
       .icon {
         @include flex(0 0 2rem);
-        @include icon($icon-missing);
+        @include lale-icon(" ");
       }
       .text {
         @include flex(1 0 0);
