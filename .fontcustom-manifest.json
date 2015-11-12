@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "e565ab29d5644d97ef5d79d33f6f076e71a6981c401b874aec974cd34ad9c3b4",
-    "current": "e565ab29d5644d97ef5d79d33f6f076e71a6981c401b874aec974cd34ad9c3b4"
+    "previous": "5d8f771e79f534701dd1f6e010b18bde941dd73e6a94439f1a5121902e7f305d",
+    "current": "5d8f771e79f534701dd1f6e010b18bde941dd73e6a94439f1a5121902e7f305d"
   },
   "fonts": [
     "app/assets/fonts/lale/lale.ttf",
@@ -33,6 +33,10 @@
     "drawer": {
       "codepoint": 61697,
       "source": "app/assets/icons/drawer.svg"
+    },
+    "envelope-open": {
+      "codepoint": 61710,
+      "source": "app/assets/icons/envelope-open.svg"
     },
     "inbox": {
       "codepoint": 61698,
