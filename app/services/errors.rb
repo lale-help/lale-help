@@ -17,7 +17,7 @@ class Errors
   end
 
   def add errors
-    @errors.merge!(errors)
+    @errors.merge!(errors) if errors.present?
   end
 
   def css(key)

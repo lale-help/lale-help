@@ -18,6 +18,7 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Rails.application.routes.url_helpers
+  config.include AbstractController::Translation
 
   config.before :suite do
     FactoryGirl.find_definitions

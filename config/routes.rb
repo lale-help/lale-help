@@ -45,6 +45,7 @@ Rails.application.routes.draw do
 
   scope module: "user" do
     get   '/account',                 to: 'account#edit',              as: 'account'
+    patch '/account',                 to: 'account#update'
     get   '/account/reset_password',  to: 'account#reset_password',    as: 'account_reset_password'
     patch '/account/update_password', to: 'account#update_password',   as: 'account_update_password'
   end
