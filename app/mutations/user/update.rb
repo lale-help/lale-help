@@ -8,11 +8,11 @@ class User::Update < ::Form
   attribute :language,    :integer
 
   def location
-    @location ||= user.location.geocode_query
+    @location ||= user.location.geocode_query if user.location.present?
   end
 
   def email
-    @email ||= user.identity.email
+    @email ||= user.identity.email if user.identity.present?
   end
 
   def language_options
