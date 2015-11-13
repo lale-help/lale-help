@@ -4,16 +4,8 @@ class User::Update < ::Form
   attribute :first_name,  :string
   attribute :last_name,   :string
   attribute :email,       :string
-  attribute :location,    :string
+  attribute :location,    :string, default: proc { user.location.try(:address) }
   attribute :language,    :integer
-
-  def location
-    @location ||= user.location.geocode_query if user.location.present?
-  end
-
-  def email
-    @email ||= user.identity.email if user.identity.present?
-  end
 
   def language_options
     User.languages.map do |key, val|

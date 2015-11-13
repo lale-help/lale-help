@@ -9,7 +9,19 @@ class Form
     self.attributes ||= Array.new
     self.attributes << opts
 
-    attr_accessor name
+    attr_writer name
+    define_method name do
+      if defined?("@#{name}") && instance_variable_get("@#{name}").present?
+        instance_variable_get("@#{name}")
+
+      elsif opts[:default].is_a? Proc
+        p = opts[:default]
+        self.instance_eval(&p)
+
+      elsif primary_object.respond_to?(name)
+        primary_object.send(name)
+      end
+    end
   end
 
   delegate :model_name, :param_key, :to_key, :to_model, to: :primary_object

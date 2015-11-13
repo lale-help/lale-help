@@ -5,11 +5,11 @@ class Supply::BaseForm < ::Form
 
   attribute :name,             :string
   attribute :working_group_id, :string
-  attribute :due_date,         :date
+  attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :location, :string
-  attribute :organizer_id,     :integer
+  attribute :location, :string, default: proc{ (supply.location || supply.circle.location).try :address }
+  attribute :organizer_id,     :integer, default: proc { supply.organizer.try(:id) }
 
   # def possible_working_groups
   #   binding.pry
@@ -18,21 +18,6 @@ class Supply::BaseForm < ::Form
   #   end
   # end
 
-  def location
-    @location || supply.location.try(:geocode_query) || supply.circle.location.try(:geocode_query)
-  end
-
-  def organizer_id
-    @organizer_id || supply.organizer.try(:id)
-  end
-
-  def volunteer_count_required
-    @volunteer_count_required ||= 1
-  end
-
-  def due_date
-    @due_date ||= supply.due_date || Date.today
-  end
 
   class Submit < ::Form::Submit
     def validate

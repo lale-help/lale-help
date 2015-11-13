@@ -36,7 +36,7 @@ class Circle::TasksController < ApplicationController
   def new
     authorize! :create_task, current_circle
     @task = @circle.working_groups.first.tasks.build
-    @form = Task::Create.new(current_task, user: current_user, task: current_task)
+    @form = Task::Create.new(user: current_user, task: current_task)
   end
 
 

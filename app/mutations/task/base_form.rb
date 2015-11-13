@@ -5,11 +5,11 @@ class Task::BaseForm < ::Form
 
   attribute :name,             :string
   attribute :working_group_id, :string
-  attribute :due_date,         :date
+  attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :primary_location, :string
-  attribute :organizer_id,     :integer
+  attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.location).try :address }
+  attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) }
 
   attribute :duration,      :integer
 
@@ -17,7 +17,7 @@ class Task::BaseForm < ::Form
   attribute :scheduled_time_start, :string, required: false
   attribute :scheduled_time_end,   :string, required: false
 
-  attribute :volunteer_count_required, :integer
+  attribute :volunteer_count_required, :integer, default: proc { 1 }
 
   def duration_unit_options
     [
@@ -46,18 +46,6 @@ class Task::BaseForm < ::Form
     Task.durations.map do |key, val|
       [I18n.t("activerecord.attributes.task.duration-text.#{key}"), val]
     end
-  end
-
-  def primary_location
-    @primary_location || task.primary_location.try(:geocode_query)
-  end
-
-  def organizer_id
-    @organizer_id || task.organizer.try(:id)
-  end
-
-  def volunteer_count_required
-    @volunteer_count_required ||= 1
   end
 
   class Submit < ::Form::Submit

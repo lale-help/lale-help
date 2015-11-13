@@ -3,14 +3,18 @@ class User::AccountController < ApplicationController
   layout 'internal'
 
   def edit
-    @form = User::Update.new(current_user.attributes, user: current_user)
+    @form = User::Update.new(user: current_user)
   end
 
   def update
     @form = User::Update.new(params[:user], user: current_user)
     outcome = @form.submit
     errors.add outcome.errors
-    render :edit
+    if outcome.success?
+      redirect_to account_url
+    else
+      render :edit
+    end
   end
 
   def reset_password
