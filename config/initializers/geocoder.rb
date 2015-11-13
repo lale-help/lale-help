@@ -1,3 +1,4 @@
 Geocoder.configure ({
-  timeout: 30
+  timeout: 10,
+  logger: Rails.logger
 })
