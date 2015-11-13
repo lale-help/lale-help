@@ -5,6 +5,11 @@ en:
   delete: Delete
   supported-by: "Supported by"
 
+  language:
+    en: English
+    de: German
+    fr: French
+
   forms:
     correct-errors: Please correct the errors below.
 
