@@ -9,7 +9,14 @@ header
   .header-right
     .user-inbox
 
-    .user-avatar
-      img src=image_path("avatar.jpg")
+    .user-menu.dropdown
+      .user-name= current_user.name
+      .user-avatar
+        img src=image_path("avatar.jpg")
 
-    .user-name= current_user.name
+
+      .menu.user-dropdown
+        a href=account_path Settings
+        a href="#" Profile
+        hr
+        a href=logout_path Sign Out

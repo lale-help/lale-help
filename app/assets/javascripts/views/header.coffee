@@ -1,10 +1,14 @@
 ready = ->
   $('body').on 'click', (e)->
-    console.log(e.target)
-    if $(e.target).parents('.circle-add-menu').length > 0 || $(e.target).hasClass('circle-add-menu')
-      $('.circle-add-menu').toggleClass('open')
+    if $(e.target).parents('.dropdown').length > 0
+      $(e.target).parents('.dropdown').toggleClass('open')
+
+    else if $(e.target).hasClass('dropdown')
+      $(e.target).toggleClass('open')
+
     else
-      $('.circle-add-menu').removeClass('open')
+      $('.dropdown').removeClass('open')
+
 
 
 $(document).on 'ready', ready

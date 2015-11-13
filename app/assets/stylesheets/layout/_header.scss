@@ -4,8 +4,6 @@ header {
   height: $header-height;
   width: 100%;
 
-
-
   @include display(flex);
   @include flex-direction(row);
   @include align-items(center);
@@ -29,14 +27,6 @@ header {
       height: 100%;
       font-size: 2rem;
 
-      &:hover {
-        cursor: pointer;
-      }
-
-      @include display(flex);
-      @include align-items(center);
-      @include justify-content(center);
-
       .icon {
         @include lale-icon($lale-icon-plus-skinny);
         border-radius: 50%;
@@ -46,34 +36,6 @@ header {
         @include display(flex);
         @include align-items(center);
         @include justify-content(center);
-      }
-
-      &.open {
-        .menu {
-          display: block;
-          border: thin solid $light-grey;
-          border-top: 0;
-          z-index: 1000;
-          -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-          -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-          box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-        }
-      }
-
-
-      .menu{
-        font-size: 1.5rem;
-        display: none;
-        transform: translate( -40px, $header-height);
-        position: absolute;
-        min-width:  20rem;
-        padding: 1rem;
-
-        a {
-          display: block;
-          width: 100%;
-          padding: .5rem 1rem;
-        }
       }
     }
 
@@ -105,18 +67,84 @@ header {
     @include flex-direction(row);
     @include align-items(center);
     @include justify-content(flex-end);
-    > * {
-      margin-right: 2rem;
+
+    .user-menu {
+      .user-name{
+        margin-right: 2rem;
+      }
     }
-    padding-right: 1rem;
   }
 
   .back {
     font-size: 2rem;
   }
 
-  .user-inbox{
-    font-size: 2rem;
-    @include lale-icon($lale-icon-inbox);
+//  .user-inbox{
+//    font-size: 2rem;
+//    @include lale-icon($lale-icon-inbox);
+//    margin-right: 1rem;
+//  }
+
+  .dropdown {
+    height: 100%;
+
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+
+    padding: 0 2rem 0 2rem;
+
+    position: relative;
+
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.open {
+      .menu {
+        display: block;
+        border: thin solid $light-grey;
+        border-top: 0;
+        z-index: 1000;
+        -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+        -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+        box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+      }
+    }
+
+    .menu{
+      font-size: 1.5rem;
+      display: none;
+      position: absolute;
+      min-width:  100%;
+
+      top: $header-height;
+
+      a {
+        display: block;
+        width: 100%;
+        padding: 1.5rem 2rem;
+      }
+
+      a:hover{
+        background: rgba(0,0,0,0.05);
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background: rgba(0,0,0,0.1);
+
+      }
+    }
+
+    .menu.add-item-dropdown {
+      left: 0;
+    }
+
+    .menu.user-dropdown {
+      right: 0;
+    }
   }
 }

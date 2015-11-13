@@ -1,8 +1,8 @@
 a.circle-name href=circle_path(current_circle) = circle.name
 - if can? :create_item, circle
-  .circle-add-menu
+  .dropdown.circle-add-menu
     .icon
-    .menu
+    .menu.add-item-dropdown
       - if can? :create_task, circle
         a href=new_circle_task_path(current_circle) Task
 
