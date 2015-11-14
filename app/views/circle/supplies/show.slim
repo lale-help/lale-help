@@ -32,8 +32,15 @@
         .title Contact
         .details
           a href="mailto:#{current_supply.organizer.email}"
-            = current_supply.organizer.email
+            = current_supply.organizer.name
 
+      - if current_supply.volunteer.present?
+        .row.volunteer
+          .icon
+          .title Volunteer
+          .details
+            a href="mailto:#{current_supply.volunteer.email}"
+              = "#{current_supply.volunteer.name}"
 
 
       .row.work-group
@@ -49,10 +56,19 @@
 
   aside
     .actions
+      - if can? :volunteer, current_supply
+        = form_tag circle_supply_volunteer_path(current_circle, current_supply), method: 'put' do
+          button.button.primary= t('.volunteer-task-button')
+
       - if can? :complete, current_supply
         = form_tag circle_supply_complete_path(current_circle, current_supply), method: 'put' do
-          button.button.complete-task= t('.complete-task-button')
+          button.button.primary= t('.complete-task-button')
+
+      - if can? :decline, current_supply
+        = form_tag circle_supply_decline_path(current_circle, current_supply), method: 'put' do
+          button.button= t('.decline-task-button')
+
 
       - if can? :edit, current_supply
         = form_tag edit_circle_supply_path(current_circle, current_supply), method: 'get' do
-          button.button.edit-task= t('.edit-task-button')
+          button.button= t('.edit-task-button')

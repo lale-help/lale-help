@@ -5,8 +5,7 @@ Rails.application.routes.draw do
       resources :members, :roles, :working_groups, :discussions
 
       resources :supplies do
-        put :complete
-        patch :complete
+        put :complete, :volunteer, :decline
       end
 
       resources :tasks do

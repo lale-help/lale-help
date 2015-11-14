@@ -9,4 +9,8 @@ class Supply < ActiveRecord::Base
     due_date.strftime("%A %-d %B %Y")
   end
 
+  def volunteer
+    volunteers.first
+  end
+
 end

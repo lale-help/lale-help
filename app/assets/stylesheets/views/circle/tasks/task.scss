@@ -86,6 +86,9 @@ section > .task {
       .contact .icon {
         @include lale-icon($lale-icon-envelope-open, 2em);
       }
+      .volunteer .icon {
+        @include lale-icon($lale-icon-user, 2em);
+      }
 
 
       > * {
@@ -178,7 +181,7 @@ section > .task {
         color:   $blue-dark-1;
       }
 
-      .button.complete-task {
+      .button.primary {
         background: $orange;
         border: thin solid $orange;
         color:   $body-bg;

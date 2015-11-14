@@ -88,8 +88,8 @@
     .actions
       - if can? :complete, current_task
         = form_tag circle_task_complete_path(current_circle, current_task), method: 'put' do
-          button.button.complete-task= t('.complete-task-button')
+          button.button.primary= t('.complete-task-button')
 
       - if can? :edit, current_task
         = form_tag edit_circle_task_path(current_circle, current_task), method: 'get' do
-          button.button.edit-task= t('.edit-task-button')
+          button.button= t('.edit-task-button')

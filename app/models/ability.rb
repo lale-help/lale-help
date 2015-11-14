@@ -99,41 +99,54 @@ class Ability
 
 
     # Supply
-    can :read, Supply do |task|
-      can? :read, task.circle
+    can :read, Supply do |supply|
+      can? :read, supply.circle
     end
 
-    can :manage, Supply do |task|
-      task.organizers.include?(user) or
-      can?(:manage, task.working_group) or
-      can?(:manage, task.circle)
+    can :manage, Supply do |supply|
+      supply.organizers.include?(user) or
+      can?(:manage, supply.working_group) or
+      can?(:manage, supply.circle)
     end
-    cannot :delete, Supply do |task|
-      !task.persisted?
-    end
-
-    can :volunteer, Supply do |task|
-      can?(:read, task)
-    end
-    cannot :volunteer, Supply do |task|
-      task.complete? or task.volunteers.include?(user)
+    cannot :delete, Supply do |supply|
+      !supply.persisted?
     end
 
-    can :decline, Supply do |task|
-      task.volunteers.include?(user)
+    can :volunteer, Supply do |supply|
+      can?(:read, supply)
+    end
+    cannot :volunteer, Supply do |supply|
+      supply.complete? or supply.volunteers.include?(user)
     end
 
+    can :decline, Supply do |supply|
+      supply.volunteers.include?(user)
+    end
 
-    can :complete, Supply do |task|
-      task.due_date < Time.now and (
-        task.volunteers.include?(user) or
-        task.organizers.include?(user)
+    can :volunteer, Supply do |supply|
+      can?(:read, supply)
+    end
+    cannot :volunteer, Supply do |supply|
+      supply.complete? or supply.volunteers.present?
+    end
+
+    can :decline, Supply do |supply|
+      supply.volunteers.include?(user)
+    end
+    cannot :decline, Supply do |supply|
+      supply.complete? or supply.volunteers.empty?
+    end
+
+    can :complete, Supply do |supply|
+      supply.due_date < Time.now and (
+        supply.volunteers.include?(user) or
+        supply.organizers.include?(user)
       ) or
-      can?(:manage, task.working_group) or
-      can?(:manage, task.circle)
+      can?(:manage, supply.working_group) or
+      can?(:manage, supply.circle)
     end
-    cannot :complete, Supply do |task|
-      task.complete?
+    cannot :complete, Supply do |supply|
+      supply.complete?
     end
 
   end

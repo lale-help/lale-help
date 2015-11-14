@@ -84,9 +84,34 @@ class Circle::SuppliesController < ApplicationController
     outcome = Supply::Complete.run(user: current_user, supply: current_supply)
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, current_supply), notice: t('tasks.flash.completed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.completed', name: current_supply.name)
     else
-      redirect_to circle_supply_path(current_circle, current_supply), alert: t('tasks.flash.complete_failed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.complete_failed', name: current_supply.name)
+    end
+  end
+
+  def volunteer
+    authorize! :volunteer, current_supply
+
+    outcome = Supply::Volunteer.run(user: current_user, supply: current_supply)
+
+    if outcome.success?
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.volunteered', name: current_supply.name)
+    else
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.volunteer_failed', name: current_supply.name)
+    end
+  end
+
+  def decline
+    authorize! :decline, current_supply
+
+    outcome = Supply::Decline.run(user: current_user, supply: current_supply)
+
+    if outcome.success?
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.volunteered', name: current_supply.name)
+    else
+      puts outcome.errors
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.volunteer_failed', name: current_supply.name)
     end
   end
 
