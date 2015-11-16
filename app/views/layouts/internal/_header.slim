@@ -12,7 +12,7 @@ header
     .user-menu.dropdown
       .user-name= current_user.name
       .user-avatar
-        img src=image_path("avatar.jpg")
+        =render partial: 'user/user_icon', locals: { user: current_user }
 
 
       .menu.user-dropdown

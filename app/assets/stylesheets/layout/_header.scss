@@ -1,4 +1,4 @@
-$header-height : 50px;
+$header-height : 5rem;
 
 header {
   height: $header-height;
@@ -71,6 +71,15 @@ header {
     .user-menu {
       .user-name{
         margin-right: 2rem;
+      }
+
+      .user-avatar {
+        .user-icon {
+          background: $white;
+          font-size: 1rem;
+          height: 3rem;
+          width: 3rem;
+        }
       }
     }
   }
