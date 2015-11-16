@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113215733) do
+ActiveRecord::Schema.define(version: 20151116195843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,12 +147,13 @@ ActiveRecord::Schema.define(version: 20151113215733) do
   end
 
   create_table "users", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "location_id", limit: 8
-    t.integer  "language",              default: 0
+    t.integer  "location_id",       limit: 8
+    t.integer  "language",                    default: 0
+    t.integer  "primary_circle_id", limit: 8
   end
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_one :identity
 
   belongs_to :location
-  belongs_to :circle
+  belongs_to :primary_circle, class_name: 'Circle'
 
   has_many :task_roles, class_name: 'Task::Role'
   has_many :tasks, ->{ distinct }, through: :task_roles

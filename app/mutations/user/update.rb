@@ -1,16 +1,21 @@
 class User::Update < ::Form
   attribute :user, :model, primary: true
 
-  attribute :first_name,  :string
-  attribute :last_name,   :string
-  attribute :email,       :string
-  attribute :location,    :string, default: proc { user.location.try(:address) }
-  attribute :language,    :integer
+  attribute :first_name,        :string
+  attribute :last_name,         :string
+  attribute :email,             :string
+  attribute :location,          :string, default: proc { user.location.try(:address) }
+  attribute :language,          :integer
+  attribute :primary_circle_id, :integer
 
   def language_options
     User.languages.map do |key, val|
       [ I18n.t("language.#{key}"), val ]
     end
+  end
+
+  def primary_circle_options
+    user.circles.order('name ASC')
   end
 
   class Submit < ::Form::Submit
@@ -19,6 +24,7 @@ class User::Update < ::Form
       user.identity.assign_attributes(inputs.slice(:email))
 
       user.location = Location.location_from(location)
+      user.primary_circle = user.circles.find(primary_circle_id)
 
       user.save
       user.identity.save

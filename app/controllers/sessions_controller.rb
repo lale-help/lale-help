@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   skip_authorization_check
 
   def new
-    redirect_to(current_user.circles.present? ? circle_path(current_user.circles.first) : new_circle_path) if current_user.present?
+    redirect_to(current_user.primary_circle.present? ? circle_path(current_user.primary_circle) : new_circle_path) if current_user.present?
   end
 
   def create
