@@ -9,7 +9,7 @@ class Task::BaseForm < ::Form
   attribute :description,      :string
 
   attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.location).try :address }
-  attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) }
+  attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
 
