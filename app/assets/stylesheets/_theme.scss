@@ -41,9 +41,18 @@ header{
   background:  $header-bg;
   @include text-color($header-text, $header-text);
 
+  .circle-add-menu :before {
+    @include text-color($header-bg, $header-bg);
+  }
+
   .open {
     background: $body-bg;
     @include text-color($header-bg, $header-bg);
+
+    :before {
+      @include text-color($body-bg, $body-bg);
+    }
+
 
     .menu {
       background: $body-bg;

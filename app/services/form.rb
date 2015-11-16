@@ -9,7 +9,19 @@ class Form
     self.attributes ||= Array.new
     self.attributes << opts
 
-    attr_accessor name
+    attr_writer name
+    define_method name do
+      if defined?("@#{name}") && instance_variable_get("@#{name}").present?
+        instance_variable_get("@#{name}")
+
+      elsif opts[:default].is_a? Proc
+        p = opts[:default]
+        self.instance_eval(&p)
+
+      elsif primary_object.respond_to?(name)
+        primary_object.send(name)
+      end
+    end
   end
 
   delegate :model_name, :param_key, :to_key, :to_model, to: :primary_object
@@ -50,6 +62,8 @@ class Form
       unless outcome.success?
         Rails.logger.error [
           "Failed to submit #{self.class}",
+          "Class Attrs: #{self.class.attributes}",
+          "Submit class: #{submit_class}",
           "attributes: #{attributes}",
           "errors: #{outcome.errors.symbolic}"
         ].join(?\n)
@@ -63,11 +77,11 @@ class Form
 
       form_class.attributes.each do |a|
         action = a[:required] ? :required : :optional
-        send(action) do
+        subclass.send(action) do
           send(a[:type], a[:name], a)
         end
-      end
 
+      end
     end
   end
 end

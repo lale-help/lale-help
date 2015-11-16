@@ -1,10 +1,10 @@
 nav
   .sidebar-section
-    = sidebar_link(t('.my-tasks'),    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.volunteered.not_completed.count)
+    = sidebar_link(t('.my-tasks'),    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.for_circle(current_circle).volunteered.not_completed.count)
     = sidebar_link(t('.all-tasks'),   circle_tasks_path(current_circle),   badge_text: current_circle.tasks.not_completed.count)
 
   .sidebar-section
-    = sidebar_link(t('.supplies'),    circle_supplies_path(current_circle))
+    = sidebar_link(t('.supplies'),    circle_supplies_path(current_circle),   badge_text: current_circle.supplies.not_completed.count)
 
   .sidebar-section
     = sidebar_link(t('.directory'),   circle_members_path(current_circle))

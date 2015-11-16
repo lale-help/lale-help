@@ -19,6 +19,16 @@ $weight-medium   : 500;
 $weight-semibold : 600;
 $weight-bold     : bold;
 
+@font-face {
+  font-family: "lale";
+  src: font-url("lale/lale.eot");
+  src: font-url("lale/lale.eot?#iefix") format("embedded-opentype"),
+       font-url("lale/lale.woff") format("woff"),
+       font-url("lale/lale.ttf") format("truetype"),
+       font-url("lale/lale.svg#lale") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
 
 //@font-face {
 //  font-family: 'WorkSans';

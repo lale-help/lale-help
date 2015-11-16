@@ -2,5 +2,5 @@ a.sidebar-item href=path class=css_selector
   span.icon
   span.text
     = text
-  - if badge_text
+  - if badge_text and badge_text != 0
     span.badge= badge_text

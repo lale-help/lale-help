@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :working_group_roles, class_name: 'WorkingGroup::Role'
   has_many :working_groups, ->{ distinct }, through: :working_group_roles
 
+  enum language: [:en, :de, :fr]
+
   def name
     "#{first_name} #{last_name}"
   end

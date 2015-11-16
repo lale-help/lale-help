@@ -32,11 +32,11 @@ table .actions {
   }
 
   .edit {
-    @include icon($icon-pencil);
+    @include lale-icon(" ");
   }
 
   .delete {
-    @include icon($icon-trash);
+    @include lale-icon(" ");
   }
 
 

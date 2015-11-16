@@ -9,7 +9,6 @@
   @include justify-content(center);
 
   font-size: 2.5rem;
-
 }
 
 
@@ -19,7 +18,7 @@
   color: $blue-dark-2;
 
   &.user-needed {
-    @include icon($icon-user);
+    @include lale-icon($lale-icon-user);
     border: none;
     background-color: $light-grey;
     color: $grey;
@@ -29,7 +28,7 @@
 
 .volunteer-icon {
   @include circle-icon();
-  @include icon($icon-plus);
+  @include lale-icon($lale-icon-plus-skinny);
 
   color: $white;
   background-color: $orange;

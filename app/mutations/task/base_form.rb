@@ -1,15 +1,15 @@
-class Task::Form < ::Form
+class Task::BaseForm < ::Form
   attribute :task, :model, primary: true, new_records: true
   attribute :user, :model
   attribute :working_group, :model
 
   attribute :name,             :string
   attribute :working_group_id, :string
-  attribute :due_date,         :date
+  attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :primary_location, :string
-  attribute :organizer_id,     :integer
+  attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.location).try :address }
+  attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) }
 
   attribute :duration,      :integer
 
@@ -17,7 +17,7 @@ class Task::Form < ::Form
   attribute :scheduled_time_start, :string, required: false
   attribute :scheduled_time_end,   :string, required: false
 
-  attribute :volunteer_count_required, :integer
+  attribute :volunteer_count_required, :integer, default: proc { 1 }
 
   def duration_unit_options
     [
@@ -48,18 +48,6 @@ class Task::Form < ::Form
     end
   end
 
-  def primary_location
-    @primary_location || task.primary_location.try(:geocode_query)
-  end
-
-  def organizer_id
-    @organizer_id || task.organizer.try(:id)
-  end
-
-  def volunteer_count_required
-    @volunteer_count_required ||= 1
-  end
-
   class Submit < ::Form::Submit
     def validate
       add_error(:name, :too_short)                   if name.length < 5
@@ -83,6 +71,8 @@ class Task::Form < ::Form
         t.scheduled_time_end    = scheduled_time_end
 
         t.volunteer_count_required = volunteer_count_required
+
+        t.save
 
         t.roles.send('task.organizer').destroy_all
         t.roles.send('task.organizer').create user_id: organizer_id

@@ -2,6 +2,7 @@ class WorkingGroup < ActiveRecord::Base
   belongs_to :circle
 
   has_many :tasks
+  has_many :supplies
 
   has_many :roles
   has_many :users,      ->{ distinct }, through: :roles

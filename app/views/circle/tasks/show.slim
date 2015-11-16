@@ -15,27 +15,32 @@
 
     .task-details
       .row.due-date
+        .icon
         .title Due Date
         .details
           = current_task.due_date_and_time
 
       .row.duration
+        .icon
         .title Duration
         .details
           = current_task.duration_text
 
       -if current_task.primary_location.present?
         .row.location
+          .icon
           .title Location
           .details= current_task.primary_location.address
 
       - current_task.extra_locations.each do |loc|
         v.location
+          .icon
           .title Location
           .details= loc.address
 
 
       .row.work-group
+        .icon
         .title Work Group
         .details= current_task.working_group.name
 
@@ -83,8 +88,8 @@
     .actions
       - if can? :complete, current_task
         = form_tag circle_task_complete_path(current_circle, current_task), method: 'put' do
-          button.button.complete-task= t('.complete-task-button')
+          button.button.primary= t('.complete-task-button')
 
       - if can? :edit, current_task
         = form_tag edit_circle_task_path(current_circle, current_task), method: 'get' do
-          button.button.edit-task= t('.edit-task-button')
+          button.button= t('.edit-task-button')

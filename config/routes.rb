@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   resources :circles do
     scope module: 'circle' do
       resource  :calendar, :admin
-      resources :members, :roles, :working_groups, :discussions, :supplies
+      resources :members, :roles, :working_groups, :discussions
+
+      resources :supplies do
+        put :complete, :volunteer, :decline
+      end
+
       resources :tasks do
         collection do
           get :my
@@ -39,6 +44,7 @@ Rails.application.routes.draw do
 
   scope module: "user" do
     get   '/account',                 to: 'account#edit',              as: 'account'
+    patch '/account',                 to: 'account#update'
     get   '/account/reset_password',  to: 'account#reset_password',    as: 'account_reset_password'
     patch '/account/update_password', to: 'account#update_password',   as: 'account_update_password'
   end

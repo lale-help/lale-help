@@ -1,5 +1,5 @@
-class Task::Update < Task::Form
-  class Submit < Task::Form::Submit
+class Task::Update < Task::BaseForm
+  class Submit < Task::BaseForm::Submit
     def execute
       super.tap do |outcome|
         # TODO: Send task updated email

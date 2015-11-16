@@ -70,6 +70,27 @@ section > .task {
         border-bottom: thin solid $border-color;
       }
 
+      .due-date .icon{
+        @include lale-icon($lale-icon-calendar, 2em);
+      }
+
+      .duration .icon {
+        @include lale-icon($lale-icon-clock, 2em);
+      }
+      .location .icon {
+        @include lale-icon($lale-icon-compass, 2em);
+      }
+      .work-group .icon {
+        @include lale-icon($lale-icon-archive, 2em);
+      }
+      .contact .icon {
+        @include lale-icon($lale-icon-envelope-open, 2em);
+      }
+      .volunteer .icon {
+        @include lale-icon($lale-icon-user, 2em);
+      }
+
+
       > * {
         padding: 1.5rem;
         border: thin solid $border-color;
@@ -79,9 +100,14 @@ section > .task {
         @include flex-direction(row);
         @include align-items(center);
 
-        @include icon($icon-missing);
         font-size: 1.5rem;
+        .icon {
+          @include display(flex);
+          @include align-items(center);
+          @include justify-content(center);
 
+          min-width: 3rem;
+        }
         .title {
           @include flex(0 0 11rem);
 
@@ -118,7 +144,7 @@ section > .task {
       }
 
       .title {
-        @include icon($icon-user);
+        @include lale-icon(" ");
         background: $blue-light-2;
         @include border-top-radius($border-radius);
       }
@@ -155,7 +181,7 @@ section > .task {
         color:   $blue-dark-1;
       }
 
-      .button.complete-task {
+      .button.primary {
         background: $orange;
         border: thin solid $orange;
         color:   $body-bg;

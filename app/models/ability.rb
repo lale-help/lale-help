@@ -19,13 +19,18 @@ class Ability
       user.working_group_roles.admin.for_circle(circle).exists?
     end
 
+    can :create_supply, Circle do |circle|
+      can?(:manage, circle) or
+      user.working_group_roles.admin.for_circle(circle).exists?
+    end
+
     can :create_group, Circle do |circle|
       can?(:manage, circle)
     end
 
     can :create_item, Circle do |circle|
       can?(:create_task, circle) or
-      can?(:create_group, circle)
+      can?(:create_supply, circle)
     end
 
     can :delete, Circle::Role do |role|
@@ -64,6 +69,9 @@ class Ability
       can?(:manage, task.working_group) or
       can?(:manage, task.circle)
     end
+    cannot :delete, Task do |task|
+      !task.persisted?
+    end
 
     can :volunteer, Task do |task|
       can?(:read, task)
@@ -87,6 +95,58 @@ class Ability
     end
     cannot :complete, Task do |task|
       task.complete?
+    end
+
+
+    # Supply
+    can :read, Supply do |supply|
+      can? :read, supply.circle
+    end
+
+    can :manage, Supply do |supply|
+      supply.organizers.include?(user) or
+      can?(:manage, supply.working_group) or
+      can?(:manage, supply.circle)
+    end
+    cannot :delete, Supply do |supply|
+      !supply.persisted?
+    end
+
+    can :volunteer, Supply do |supply|
+      can?(:read, supply)
+    end
+    cannot :volunteer, Supply do |supply|
+      supply.complete? or supply.volunteers.include?(user)
+    end
+
+    can :decline, Supply do |supply|
+      supply.volunteers.include?(user)
+    end
+
+    can :volunteer, Supply do |supply|
+      can?(:read, supply)
+    end
+    cannot :volunteer, Supply do |supply|
+      supply.complete? or supply.volunteers.present?
+    end
+
+    can :decline, Supply do |supply|
+      supply.volunteers.include?(user)
+    end
+    cannot :decline, Supply do |supply|
+      supply.complete? or supply.volunteers.empty?
+    end
+
+    can :complete, Supply do |supply|
+      supply.due_date < Time.now and (
+        supply.volunteers.include?(user) or
+        supply.organizers.include?(user)
+      ) or
+      can?(:manage, supply.working_group) or
+      can?(:manage, supply.circle)
+    end
+    cannot :complete, Supply do |supply|
+      supply.complete?
     end
 
   end
