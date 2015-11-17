@@ -1,0 +1,14 @@
+section
+  = form_for @form, url: join_public_circles_path, method: :post, html: { id: 'join_circle'} do |f|
+    = f.hidden_field :circle_id
+    = f.text_field :location
+
+section.wide#map-container
+
+section
+  = t('.create-circle-phrase')
+  a.button.create-circle-button href=new_public_circle_path Create Circle
+
+javascript:
+  (new CirclesMap($("#join_circle"), $("#map-container"))).render()
+

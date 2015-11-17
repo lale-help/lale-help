@@ -1,17 +1,18 @@
-main.form
-  section
-    h2= t('.sign-in-phrase')
+section
+  h2= t('.sign-in-phrase')
 
-    = form_tag "/auth/identity/callback" do
-      .field-row
-        .field
-          label= t('fields.email')
-          input name="email" type="text" placeholder=t('fields.email-placeholder')
+  hr
 
-        .field
-          label= t('fields.password')
-          input name="password" type="password" placeholder=t('fields.password-placeholder')
+  = form_for @form, url: login_path, method: :post do
+    .field-row
+      .field
+        label= t('fields.email')
+        input name="email" type="text" placeholder=t('fields.email-placeholder')
 
-      .submit-row
-        a.link href=public_reset_password_path = t('.reset-password')
-        button.button.login type="submit"= t('.sign-in')
+      .field
+        label= t('fields.password')
+        input name="password" type="password" placeholder=t('fields.password-placeholder')
+
+    .submit-row
+      button.button.login type="submit"= t('.sign-in')
+      a.button href=public_reset_password_path = t('.reset-password')

@@ -5,6 +5,10 @@ en:
   delete: Delete
   supported-by: "Supported by"
 
+  workflow:
+    continue: Continue
+    cancel: Cancel
+
   language:
     en: English
     de: German

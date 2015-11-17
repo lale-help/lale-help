@@ -1,4 +1,10 @@
 div id="circle-marker-{{ id }}" class='circle-marker'
+
   .description
-    h3= "{{ name }}"
-    = "{{user_count}} volunteers x {{ open_task_count }} tasks open"
+    .title= "{{ name }}"
+    .details
+      .row.location
+      .row.working-groups
+      .row.users= "{{user_count}} Volunteers"
+      .row.tasks= "{{ open_task_count }} Open Tasks"
+    .button-primary.submit Join this Circle

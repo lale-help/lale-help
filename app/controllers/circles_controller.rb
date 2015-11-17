@@ -6,19 +6,6 @@ class CirclesController < ApplicationController
 
   include HasCircle
 
-
-  # GET /circles
-  # GET /circles.json
-  def index
-    @center = params[:location].present? ? Location.location_from(params[:location]) : current_user.location
-    locations = Location.near(@center).to_a
-    @circles = Circle.where(location: locations.uniq)
-    respond_to do |format|
-      format.html { redirect_to root_path }
-      format.json { render layout: false }
-    end
-  end
-
   # GET /circles/1
   # GET /circles/1.json
   def show

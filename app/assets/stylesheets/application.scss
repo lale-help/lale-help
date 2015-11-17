@@ -11,9 +11,15 @@
 @import "views/**/*";
 @import "_theme";
 
+
+
+
+
+
 // TODO: move to an appropraite location
 .circle-marker {
   position : relative;
+  cursor: pointer;
   &:before {
     display : block;
     content : '';
@@ -25,6 +31,7 @@
   }
 
   .description {
+    cursor: auto;
     position: absolute;
     right: 0;
     top: 0;
@@ -37,14 +44,21 @@
     width: 15em;
   }
 }
+
 .circle-marker.open {
   .description { display: block; }
 }
 
-.map {
-  height: 400px;
+#map-container {
+  margin: 3rem 0;
+  height: 500px;
+  width: 100vw;
 }
 
 span.translation_missing {
   color: red;
+}
+
+.create-circle-button {
+  margin-left: 1rem;
 }
