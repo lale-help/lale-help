@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
     else
      I18n.default_locale
    end
+   logger.info "Using locale #{I18n.locale}"
   end
   before_action :set_locale
 
