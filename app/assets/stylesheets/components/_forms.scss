@@ -66,9 +66,6 @@ input {
 
 :-ms-input-placeholder {color : $border-color; font-weight : $weight-normal;}
 :focus:-ms-input-placeholder {color: $border-color; font-weight : $weight-normal;}
-.actions {
-  margin-top: 1rem;
-}
 
 
 .checkbox-slider {
@@ -116,8 +113,9 @@ input {
 
 form {
   margin-bottom: 60px;
-  padding       : 0 2rem 5rem 2rem;
   @include outer-container();
+  margin: 0;
+    max-width: 100%;
 
   h2 {
     color: #FF8F5A;
@@ -142,6 +140,8 @@ form {
 
   .field-row {
     @include outer-container;
+    max-width: 100%;
+
 
     margin: 35px 0;
 
@@ -231,20 +231,15 @@ form {
     }
 
     button.button, input[type='submit']{
-      @extend .button--large;
-      float: right;
-      line-height: 3.5;
-      margin-left: 15px;
-      margin-right: 0;
+      @extend .button-primary;
       width: auto;
     }
   }
 
 
   button.button, input[type='submit'] {
-    @extend .button--medium;
+    @extend .button-primary;
     font-family: $fontstack-primary;
-    line-height: 1.75;
     font-size: 1.25rem;
     padding: 0 70px;
     width: 100%;

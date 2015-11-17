@@ -1,6 +1,6 @@
 class Public::ResetPasswordFlowController < ApplicationController
   skip_authorization_check
-  layout 'circle_page'
+  layout 'public'
 
   def reset_password
   end

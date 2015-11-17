@@ -1,0 +1,80 @@
+body.internal {
+  @include display(flex);
+  @include flex-direction(column);
+  @include align-items(stretch);
+
+  .content {
+    @include flex(1);
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(stretch);
+
+    nav {
+      @include flex(0 0 28rem);
+
+      @include display(flex);
+      @include flex-direction(column);
+
+      padding: 3rem 0 0 0 ;
+
+      .sidebar-section {
+        padding: 0 0 2rem 0;
+      }
+
+      h2, h3, h4{
+        padding: 1rem 0 0.5rem 1.5rem;
+        text-transform: uppercase;
+        font-size: 12px;
+        a {
+          font-size: 9px;
+        }
+      }
+
+      .sidebar-item {
+        @include display(flex);
+        @include flex-direction(row);
+        @include align-items(center);
+        @include justify-content(space-between);
+
+        font-size: 16px;
+        padding: 4px 15px;
+
+        .icon {
+          @include flex(0 0 2rem);
+          @include lale-icon(" ");
+        }
+        .text {
+          @include flex(1 0 0);
+        }
+
+        .badge {
+          @include flex(0 0 1);
+          font-size: 1rem;
+        }
+      }
+
+      .bottom {
+        @include flex(1);
+        padding: 3rem 2rem;
+
+        @include display(flex);
+        @include flex-direction(column);
+        @include align-items(stretch);
+        @include justify-content(flex-end);
+
+        .logo {
+          display: inline-block;
+          @include lale-logo();
+          width: 1rem;
+          height: 1rem;
+          margin: 0 0.5em;
+        }
+      }
+    }
+
+    section {
+      @include flex(1);
+      margin: 2rem;
+    }
+  }
+}

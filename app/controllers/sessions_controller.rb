@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  layout 'circle_page'
+  layout 'public'
   skip_authorization_check
 
   def new

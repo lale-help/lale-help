@@ -13,52 +13,55 @@ html {
   @include text-color($body-text, $body-link);
 }
 
-nav{
-  background: $nav-bg;
-  @include text-color($nav-text, $nav-text);
-  h2, h3, h4 {
-    @include text-color($nav-text-active, $nav-text-active);
-  }
-
-  .badge {
-    background: $nav-bg-active;
-    @include text-color($nav-text-active, $nav-text-active);
-  }
-
-  .selected {
-    background: $nav-bg-active;
-    @include text-color($nav-text-active, $nav-text-active);
-    font-weight: bold;
+body.internal {
+  nav{
+    background: $nav-bg;
+    @include text-color($nav-text, $nav-text);
+    h2, h3, h4 {
+      @include text-color($nav-text-active, $nav-text-active);
+    }
 
     .badge {
-      background: $body-text;
-      @include text-color($nav-bg-active, $nav-bg-active);
-    }
-  }
-}
-
-header{
-  background:  $header-bg;
-  @include text-color($header-text, $header-text);
-
-  .circle-add-menu :before {
-    @include text-color($header-bg, $header-bg);
-  }
-
-  .open {
-    background: $body-bg;
-    @include text-color($header-bg, $header-bg);
-
-    :before {
-      @include text-color($body-bg, $body-bg);
+      background: $nav-bg-active;
+      @include text-color($nav-text-active, $nav-text-active);
     }
 
+    .selected {
+      background: $nav-bg-active;
+      @include text-color($nav-text-active, $nav-text-active);
+      font-weight: bold;
 
-    .menu {
-      background: $body-bg;
+      .badge {
+        background: $body-text;
+        @include text-color($nav-bg-active, $nav-bg-active);
+      }
+    }
+  }
+
+  header{
+    background:  $header-bg;
+    @include text-color($header-text, $header-text);
+
+    .circle-add-menu :before {
       @include text-color($header-bg, $header-bg);
     }
+
+    .open {
+      background: $body-bg;
+      @include text-color($header-bg, $header-bg);
+
+      :before {
+        @include text-color($body-bg, $body-bg);
+      }
+
+
+      .menu {
+        background: $body-bg;
+        @include text-color($header-bg, $header-bg);
+      }
+    }
   }
 }
+
 
 
