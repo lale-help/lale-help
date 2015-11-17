@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
 
   def email
-    identity.present? && identity.email
+    identity.try :email
   end
 
   def tasks_for_circle circle
