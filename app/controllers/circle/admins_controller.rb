@@ -3,5 +3,7 @@ class Circle::AdminsController < ApplicationController
 
   def show
     authorize! :manage, current_circle
+
+    @circle_form = Circle::Update.new(user: current_user, circle: current_circle)
   end
 end

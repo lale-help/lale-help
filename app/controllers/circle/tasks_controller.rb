@@ -72,7 +72,6 @@ class Circle::TasksController < ApplicationController
     authorize! :update, current_task
     authorize! :create_task, working_group
 
-    puts params[:task][:due_date].class
     @form = Task::Update.new(params[:task], user: current_user, task: current_task, working_group: working_group)
 
     outcome = @form.submit
