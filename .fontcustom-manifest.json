@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "a57cb1015c868402846b4d5c50f8f84742b40ddec472594059387c0892eb91bc",
-    "current": "a57cb1015c868402846b4d5c50f8f84742b40ddec472594059387c0892eb91bc"
+    "previous": "507c8db3512cc5c2dcd885d099dfd3f9095a98f70bbb75d88530bed5fe503e79",
+    "current": "507c8db3512cc5c2dcd885d099dfd3f9095a98f70bbb75d88530bed5fe503e79"
   },
   "fonts": [
     "app/assets/fonts/lale/lale.ttf",
@@ -30,6 +30,10 @@
       "codepoint": 61708,
       "source": "app/assets/icons/compass.svg"
     },
+    "delete": {
+      "codepoint": 61713,
+      "source": "app/assets/icons/delete.svg"
+    },
     "drawer": {
       "codepoint": 61697,
       "source": "app/assets/icons/drawer.svg"
@@ -49,6 +53,10 @@
     "papers": {
       "codepoint": 61711,
       "source": "app/assets/icons/papers.svg"
+    },
+    "pencil": {
+      "codepoint": 61712,
+      "source": "app/assets/icons/pencil.svg"
     },
     "plus-skinny": {
       "codepoint": 61703,
