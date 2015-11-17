@@ -13,7 +13,6 @@
   margin                 : 0 1rem 0 0;
   text-align             : center;
   text-decoration        : none;
-  text-shadow   : 0px 1px 0px $orange-dark;
   user-select            : none;
   vertical-align         : middle;
   white-space            : nowrap;
@@ -31,6 +30,11 @@
 
 .button-primary {
   @extend %button-base;
+  background:  $orange;
+  color: $white;
+  border: thin solid $orange;
+  text-shadow   : none;
+
 }
 
 .button {

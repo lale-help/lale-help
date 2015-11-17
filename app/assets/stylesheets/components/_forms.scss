@@ -238,11 +238,6 @@ form {
 
 
   button.button, input[type='submit'] {
-    @extend .button-primary;
-    font-family: $fontstack-primary;
-    font-size: 1.25rem;
-    padding: 0 70px;
-    width: 100%;
-    border: 0;
+    @extend .button;
   }
 }
