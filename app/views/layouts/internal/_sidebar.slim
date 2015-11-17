@@ -8,8 +8,8 @@ nav
 
   .sidebar-section
     = sidebar_link(t('.directory'),   circle_members_path(current_circle))
-    = sidebar_link(t('.discussions'), circle_discussions_path(current_circle))
-    = sidebar_link(t('.calendar'),    circle_calendar_path(current_circle))
+    / = sidebar_link(t('.discussions'), circle_discussions_path(current_circle))
+    / = sidebar_link(t('.calendar'),    circle_calendar_path(current_circle))
     - if can? :manage, current_circle
       = sidebar_link(t('.admin'),    circle_admin_path(current_circle))
 
