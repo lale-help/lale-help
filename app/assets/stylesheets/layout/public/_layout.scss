@@ -1,15 +1,18 @@
 body.public {
+
   @include display(flex);
   @include flex-direction(column);
   @include align-items(stretch);
 
   header {
-    width: 1000px;
+    $header-height: 8rem;
+
+    width: 100%;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 
-    $header-height: 8rem;
-    padding: 2rem 0 0 0;
+    padding: 2rem 2rem 0 2rem;
     @include display(flex);
     @include flex-direction(row);
     @include align-items(stretch);
@@ -20,19 +23,23 @@ body.public {
     .actions {
       *{
         display: inline-block;
+        margin-left: 1rem;
       }
     }
   }
 
   section {
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
+    padding: 0 2rem;
   }
 
   section.wide {
     width: auto;
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
   }
 }

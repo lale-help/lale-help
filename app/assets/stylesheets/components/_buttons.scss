@@ -28,7 +28,7 @@
   }
 }
 
-.button-primary {
+.button.button-primary, .button-primary {
   @extend %button-base;
   background:  $orange;
   color: $white;

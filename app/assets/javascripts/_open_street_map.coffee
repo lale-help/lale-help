@@ -2,7 +2,7 @@ window.CirclesMap = class CirclesMap
   constructor: (@form, @target) ->
     @input = @form.find('#user_location')
     @circleField = @form.find('#user_circle_id')
-    @joinButton = @form.find('sumbit')
+    @joinButton  = @form.find('.sumbit')
 
     @target.addClass('hidden')
     @input.on 'input', @render
@@ -119,17 +119,11 @@ window.CirclesMap = class CirclesMap
     console.log "clearing"
     @circleField.val ""
 
-    @joinButton.addClass "hidden"
-    @joinButton.val ""
-
     $(".circle-marker").removeClass('open')
 
 
   select_circle: (circle) =>
     console.log "selected ", circle
-    @joinButton.removeClass "hidden"
-    @joinButton.val "Start helping with #{circle.name}"
-
     @circleField.val circle.id
 
     $("#circle-marker-#{circle.id}").addClass('open')

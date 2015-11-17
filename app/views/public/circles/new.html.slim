@@ -2,6 +2,7 @@ section
   h2 = t('.title')
 
   hr
+  = t('.details')
 
   = form_for @form, url: public_circles_path, method: :post do |f|
     .field-row
@@ -18,5 +19,5 @@ section
 
     .submit-row
       = f.submit
-
+      a.button href=public_circles_path = t('workflow.cancel')
 

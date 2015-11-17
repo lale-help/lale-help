@@ -1,0 +1,11 @@
+en:
+  public:
+    circles:
+      index:
+        title: Circles in your area
+        create-circle-phrase: "If you dont want to join this circle, you can"
+        create-circle-button: "Create a new Circle"
+
+      new:
+        title: Start your circle of volunteers
+        details: "It's a tremendous opportunity to help your community help each other and make the world a better place"

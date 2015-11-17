@@ -3,8 +3,9 @@ div id="circle-marker-{{ id }}" class='circle-marker'
   .description
     .title= "{{ name }}"
     .details
-      .row.location
-      .row.working-groups
+      .row.location Location
+      .row.working-groups # Working Groups
       .row.users= "{{user_count}} Volunteers"
       .row.tasks= "{{ open_task_count }} Open Tasks"
-    .button-primary.submit Join this Circle
+      .row
+        .button.button-primary.submit Join this Circle
