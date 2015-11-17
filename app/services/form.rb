@@ -16,7 +16,9 @@ class Form
 
       elsif opts[:default].is_a? Proc
         p = opts[:default]
-        self.instance_eval(&p)
+        val = self.instance_eval(&p)
+        instance_variable_set("@#{name}", val)
+        val
 
       elsif primary_object.respond_to?(name)
         primary_object.send(name)
@@ -24,7 +26,41 @@ class Form
     end
   end
 
-  delegate :model_name, :param_key, :to_key, :to_model, to: :primary_object
+  def model_name
+    if primary_object.present?
+      primary_object.model_name
+    else
+      @model_name ||= ActiveModel::Name.new(::Form)
+    end
+  end
+
+  def param_key
+    if primary_object.present?
+      primary_object.param_key
+    else
+      model_name.param_key
+    end
+  end
+
+  def to_key
+    if primary_object.present?
+      primary_object.to_key
+    else
+      []
+    end
+  end
+
+  def to_model
+    self
+  end
+
+  def persisted?
+    if primary_object.present?
+      primary_object.persisted?
+    else
+      false
+    end
+  end
 
   def initialize *args
     args.each do |arg|
@@ -83,6 +119,21 @@ class Form
 
       end
     end
+
+    # Instance methods
+    def initialize(*args)
+      @raw_inputs = args.inject({}.with_indifferent_access) do |h, arg|
+        raise ArgumentError.new("All arguments must be hashes") unless arg.is_a?(Hash)
+        h.merge!(arg)
+      end
+
+      # Do field-level validation / filtering:
+      @inputs, @errors = self.input_filters.filter(@raw_inputs)
+
+      # Run a custom validation method if supplied:
+      validate
+    end
+
   end
 end
 
