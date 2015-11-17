@@ -36,6 +36,8 @@ en:
     confirm:
       task:
         delete: 'Are you sure you want to delete this task?'
+      supply:
+        delete: 'Are you sure you want to delete this supply?'
 
     placeholder:
       task:

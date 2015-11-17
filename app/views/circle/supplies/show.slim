@@ -58,11 +58,11 @@
     .actions
       - if can? :volunteer, current_supply
         = form_tag circle_supply_volunteer_path(current_circle, current_supply), method: 'put' do
-          button.button.primary= t('.volunteer-task-button')
+          button.button-primary= t('.volunteer-task-button')
 
       - if can? :complete, current_supply
         = form_tag circle_supply_complete_path(current_circle, current_supply), method: 'put' do
-          button.button.primary= t('.complete-task-button')
+          button.button-primary= t('.complete-task-button')
 
       - if can? :decline, current_supply
         = form_tag circle_supply_decline_path(current_circle, current_supply), method: 'put' do

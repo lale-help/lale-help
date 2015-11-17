@@ -42,8 +42,7 @@
 
 
   .submit-row
-    - if locals[:delete]
-      = link_to t('delete'), circle_supply_path(current_circle, current_supply), data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete
-
     = f.submit
+    - if locals[:delete]
+      = link_to t('delete'), circle_supply_path(current_circle, current_supply), class: 'button', data: {:confirm => t('helpers.confirm.supply.delete')}, :method => :delete
 
