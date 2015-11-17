@@ -123,6 +123,7 @@ window.CirclesMap = class CirclesMap
 
 
   select_circle: (circle) =>
+    @clear_circle()
     console.log "selected ", circle
     @circleField.val circle.id
 
