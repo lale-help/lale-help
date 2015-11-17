@@ -51,7 +51,11 @@ class Form
   end
 
   def to_model
-    self
+    if primary_object.present?
+      primary_object.to_model
+    else
+      self
+    end
   end
 
   def persisted?
