@@ -10,3 +10,8 @@
 @import "layout/**/*";
 @import "views/**/*";
 @import "_theme";
+
+span.translation_missing {
+  color: red;
+}
+
