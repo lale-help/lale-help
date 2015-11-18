@@ -11,6 +11,8 @@ class WorkingGroup < ActiveRecord::Base
   has_many :members, ->{ Role.member }, through: :roles, source: :user
 
 
+  scope :for_circle, ->(circle) { where(circle: circle ) }
+
   validates :name, presence: true
   validates :circle, presence: true
 
