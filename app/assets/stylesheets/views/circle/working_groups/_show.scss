@@ -28,6 +28,7 @@ body.internal .working-group{
   .members {
     $radius: 10px;
     border: thin solid $border-color;
+    margin-bottom: 2rem;
 
     @include border-bottom-radius($radius);
     @include border-top-radius($radius);

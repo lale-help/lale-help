@@ -4,6 +4,11 @@ en:
       show:
         settings: Settings
         join:     Join
+        leave:    Leave
+        admin-title:
+          one: "%{count} organizer"
+          other: "%{count} organizers"
+
         member-title:
           one: "%{count} volunteer"
           other: "%{count} volunteers"
