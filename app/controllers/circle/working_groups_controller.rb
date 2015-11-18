@@ -37,7 +37,7 @@ class Circle::WorkingGroupsController < ApplicationController
     authorize! :update, current_working_group
 
     if current_working_group.update(working_group_params)
-      redirect_to circle_admin_path(current_circle), notice: t('flash.updated', name: WorkingGroup.model_name.human)
+      redirect_to circle_working_group_path(current_circle, current_working_group), notice: t('flash.updated', name: WorkingGroup.model_name.human)
     else
       render :edit
     end
@@ -51,9 +51,26 @@ class Circle::WorkingGroupsController < ApplicationController
     redirect_to circle_admin_path(current_circle), notice: t('flash.destroyed', name: WorkingGroup.model_name.human)
   end
 
+  def join
+    authorize! :join, current_working_group
+
+    WorkingGroup::Role.send('working_group.member').create working_group: current_working_group, user: current_user
+
+    redirect_to circle_working_group_path(current_circle, current_working_group)
+  end
+
+  def leave
+    authorize! :leave, current_working_group
+
+    WorkingGroup::Role.send('working_group.member').where(working_group: current_working_group, user: current_user).delete_all
+
+    redirect_to circle_working_group_path(current_circle, current_working_group)
+  end
+
+
 
   helper_method def current_working_group
-    @working_group ||= WorkingGroup.find(params[:id])
+    @working_group ||= WorkingGroup.find(params[:id] || params[:working_group_id])
   end
 
   private

@@ -1,4 +1,35 @@
-h2= "#{current_working_group.name} Dashboard"
+.working-group
+  .header
+    .title
+      = current_working_group.name
+    .actions
+      - if can? :join, current_working_group
+        = button_to circle_working_group_join_path(current_circle, current_working_group), method: :patch do
+          = t('.join')
 
-h3 Tasks
-= render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: current_working_group.tasks.not_completed }
+      - if can? :leave, current_working_group
+        = button_to circle_working_group_leave_path(current_circle, current_working_group), method: :patch do
+          = t('.leave')
+
+      - if can? :manage, current_working_group
+        a.button href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
+
+  hr
+
+  .details
+    main
+      .tasks
+        h3 Tasks
+        = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: current_working_group.tasks.not_completed }
+
+    aside
+      .members
+        .title= t('.member-title', count: current_working_group.users.count )
+        .icons
+          - current_working_group.users.each do |user|
+            .blah
+              = render partial: 'user/user_icon', locals: {user: user}
+
+
+
+

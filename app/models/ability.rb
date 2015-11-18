@@ -58,6 +58,20 @@ class Ability
       can?(:manage, wg)
     end
 
+    can :join, WorkingGroup do |wg|
+      can?(:read, wg)
+    end
+    cannot :join, WorkingGroup do |wg|
+      wg.users.include?(user)
+    end
+
+    can :leave, WorkingGroup do |wg|
+      cannot?(:join, wg)
+    end
+    cannot :leave, WorkingGroup do |wg|
+      can?(:join, wg)
+    end
+
 
     # Tasks
     can :read, Task do |task|

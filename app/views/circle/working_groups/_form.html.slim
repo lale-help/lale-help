@@ -1,4 +1,4 @@
-= form_for([current_circle, @working_group]) do |f|
+= form_for([current_circle, current_working_group]) do |f|
   .field-row
     .field
       = f.label :name
@@ -6,5 +6,5 @@
 
   .actions.submit-row
     = f.submit
-    a.button href=circle_admin_path(current_circle)
+    a.button href=circle_working_group_path(current_circle, current_working_group)
       =t('workflow.cancel')

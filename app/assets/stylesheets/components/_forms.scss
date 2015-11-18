@@ -237,7 +237,12 @@ form {
   }
 
 
-  button.button, input[type='submit'] {
+  button.button, input[type='submit']{
     @extend .button;
   }
+
+  button[type='submit'] {
+    @extend .button-primary;
+  }
+
 }

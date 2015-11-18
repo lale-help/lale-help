@@ -1,0 +1,9 @@
+en:
+  circle:
+    working_groups:
+      show:
+        settings: Settings
+        join:     Join
+        member-title:
+          one: "%{count} volunteer"
+          other: "%{count} volunteers"

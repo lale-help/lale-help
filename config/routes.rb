@@ -2,10 +2,15 @@ Rails.application.routes.draw do
   resources :circles do
     scope module: 'circle' do
       resource  :calendar, :admin
-      resources :members, :roles, :working_groups, :discussions
+      resources :members, :roles, :discussions
 
       resources :supplies do
         put :complete, :volunteer, :decline
+      end
+
+      resources :working_groups do
+        patch :join
+        patch :leave
       end
 
       resources :tasks do
