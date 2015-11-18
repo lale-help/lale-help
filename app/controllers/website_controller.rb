@@ -1,9 +1,8 @@
 class WebsiteController < ApplicationController
   skip_authorization_check
-  layout 'circle_page'
+  layout 'public'
 
   def index
-
   end
 
   def reset_password

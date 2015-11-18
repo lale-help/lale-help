@@ -1,0 +1,117 @@
+body.public {
+  form#join_circle {
+    margin: 2em 0 ;
+  }
+
+  .circle-marker {
+    position : relative;
+    cursor: pointer;
+    &:before {
+      display : block;
+      content : '';
+      width: 20px;
+      height: 20px;
+      border: 1px solid $orange-50;
+      border-radius: 10px;
+      background-color: $orange-500;
+    }
+
+    .description {
+      $radius: 5px;
+
+      cursor: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translate(105%, -40%);
+      display: none;
+      opacity: 1;
+      min-width: 20em;
+
+      background: $white;
+      color: $blue-dark-1;
+
+      @include border-top-radius($radius);
+      @include border-bottom-radius($radius);
+
+      @include flex-direction(column);
+      @include align-items(stretch);
+
+      .title {
+        @include border-top-radius($radius);
+
+        width: 100%;
+        background: $blue-dark-1;
+        color: $white;
+        padding: .75rem;
+        padding-left: 2rem;
+        font-size: 1.75rem;
+      }
+
+      .row {
+        border-left: 2px solid $blue-dark-1;
+        border-right: 2px solid $blue-dark-1;
+        padding: .75rem 2rem;
+        font-size: 1.5rem;
+
+        @include display(flex);
+        @include flex-direction(row);
+        @include align-items(center);
+        @include justify-content(flex-start);
+
+
+        &:before {
+          min-width: 3.5rem;
+        }
+
+        $icon-size: 1.5em;
+
+        &.users {
+          @include lale-icon($lale-icon-user, $icon-size);
+        }
+        &.tasks {
+          @include lale-icon($lale-icon-papers, $icon-size);
+        }
+        &.location {
+          @include lale-icon($lale-icon-compass, $icon-size);
+        }
+        &.working-groups {
+          @include lale-icon($lale-icon-archive, $icon-size);
+        }
+
+      }
+      .row:first-child {
+        padding-top: 1.5rem;
+      }
+
+      .row:last-child {
+        text-align: center;
+        border: 2px solid $blue-dark-1;
+        border-top: none;
+        @include border-bottom-radius($radius);
+        padding: 1.5rem 2rem;
+        .button {
+          margin: 0;
+          width: 100%;
+        }
+      }
+
+    }
+  }
+
+  .circle-marker.open {
+    .description {
+      @include display(flex);
+    }
+  }
+
+  #map-container {
+    margin: 3rem 0;
+    height: 500px;
+    width: 100vw;
+  }
+
+  .create-circle-button {
+    margin-left: 1rem;
+  }
+}

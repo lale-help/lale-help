@@ -1,6 +1,6 @@
 en:
   layouts:
-    shared:
+    public:
       header:
         signed-in-as: Signed in as %{user}
         sign-out: Sign out

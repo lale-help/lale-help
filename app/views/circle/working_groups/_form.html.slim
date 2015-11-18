@@ -1,13 +1,10 @@
-= form_for([@circle, @working_group]) do |f|
-  - if @working_group.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@working_group.errors.count, "error")} prohibited this working group from being saved:"
-      ul
-        - @working_group.errors.full_messages.each do |message|
-          li = message
-
+= form_for([current_circle, @working_group]) do |f|
   .field-row
     .field
       = f.label :name
       = f.text_field :name
-  .actions.submit-row = f.submit
+
+  .actions.submit-row
+    = f.submit
+    a.button href=circle_admin_path(current_circle)
+      =t('workflow.cancel')

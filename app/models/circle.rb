@@ -26,7 +26,7 @@ class Circle < ActiveRecord::Base
   after_initialize  :determine_location
 
   def user_count
-    members.count
+    users.count
   end
 
   def open_task_count

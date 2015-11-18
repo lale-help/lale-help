@@ -1,48 +1,69 @@
 main.form
   section
     h2 Start helping now
-    = form_tag "/auth/identity/register" do
-      - if @identity && @identity.errors.any?
+    = form_for @form, url: register_path do |f|
+      - if errors.present?
         .form-introduction.error
           p Please correct the errors below.
 
       .field-row
-        .field.required class=('error' if @identity.errors[:first_name].present?)
-          label First Name
-          input type='text' placeholder='E.g. Johannes' value='#{@identity.first_name}' name="first_name"
+        .field.required class=errors.css(:first_name)
+          = f.label :first_name
+          = f.text_field :first_name
+          = errors.message_for(:first_name)
 
-        .field.required class=('error' if @identity.errors[:last_name].present?)
-          label Last Name
-          input type='text' value='#{@identity.last_name}' name="last_name"
-
-      .field-row
-        .field.required class=('error' if @identity.errors[:email].present?)
-          label Email Address
-          = text_field_tag :email, @identity.try(:email), placeholder: 'E.g. johannes@example.com'
+        .field.required class=errors.css(:last_name)
+          = f.label :last_name
+          = f.text_field :last_name
+          = errors.message_for(:last_name)
 
       .field-row
-        .field.required class=('error' if @identity.errors[:password].present?)
-          label Password
-          = password_field_tag :password
+        .field.required class=errors.css(:email)
+          = f.label :email
+          = f.text_field :email
+          = errors.message_for(:email)
 
-        .field.required class=('error' if @identity.errors[:password_confirmation].present?)
-          label Password Confirmation
-          = password_field_tag :password_confirmation
+        .field.required class=errors.css(:language)
+          = f.label :language
+          = f.select :language do
+            = options_for_select(@form.language_options, @form.language)
+
+          = errors.message_for(:language)
+
 
       .field-row
-        .field.required class=('error' if @identity.errors[:location].present?)
-          label Location
-          = text_field_tag :location, @identity.try(:location), placeholder: 'Munich, Germany'
+        .field.required class=errors.css(:password)
+          = f.label :password
+          = f.password_field :password
+          = errors.message_for(:password)
+
+        .field.required class=errors.css(:password_confirmation)
+          = f.label :password_confirmation
+          = f.password_field :password_confirmation
+          = errors.message_for(:password_confirmation)
+
+      hr
 
       .field-row
-        = hidden_field_tag :circle_id, @identity.try(:circle_id)
-        #circle-map.map.hidden
-        javascript:
-          $(document).ready(function(){
-            new CirclesMap($("#location"), $("#circle-map"), $("#join-circle")).render()
-          });
+        .field class=errors.css(:mobile_phone)
+          = f.label :mobile_phone
+          = f.text_field :mobile_phone
+          = errors.message_for(:mobile_phone)
+
+        .field class=errors.css(:home_phone)
+          = f.label :home_phone
+          = f.text_field :home_phone
+          = errors.message_for(:home_phone)
+
+      .field-row.single
+        .field.required class=errors.css(:location)
+          = f.label :location
+          = f.text_field :location, placeholder: true
+          = errors.message_for(:location)
+
 
 
       .submit-row
-        = submit_tag '',                class: 'button.button.hidden',  id: 'join-circle'
-        = submit_tag 'Create A Circle', class: 'button.button.left',    id: 'create-circle'
+        = f.submit t('workflow.continue')
+        a.button href=root_path
+          = t('workflow.cancel')

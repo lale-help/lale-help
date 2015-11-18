@@ -1,48 +1,45 @@
 window.CirclesMap = class CirclesMap
-  constructor: (@input, @target, @joinButton) ->
+  constructor: (@form, @target) ->
+    @input = @form.find('#user_location')
+    @circleField = @form.find('#user_circle_id')
+    @joinButton  = @form.find('.sumbit')
+
+    @target.addClass('hidden')
     @input.on 'input', @render
 
+    $(window).keydown (event)->
+      if(event.keyCode == 13)
+        event.preventDefault()
+        return false
 
 
   render: () =>
+    console.log("render")
+
     if (@input.val() == "")
       @joinButton.addClass "hidden"
       @target.addClass('hidden')
       return
+
     @target.removeClass('hidden')
 
-    @fetch_data @input.val(), (data) =>
-      circles = data.circles
-      center = data.center
-      console.log(circles)
-      console.log center
+    @fetch_data @input.val(), @_render_circles
 
-      map = @get_map()
 
-      # remove markers
-      if @overlays
-        for overlay in @overlays
-          map.removeOverlay(overlay)
-          @remove_marker(overlay)
-      @overlays = []
+  _render_circles: (data)=>
+    circles = data.circles
+    center = data.center
 
-      # add markers
-      for circle in circles
-        marker = @create_marker(circle)
-        @overlays.push marker
-        map.addOverlay(marker);
+    @_clear_markers()
+    @_recenter(data.center)
 
-      if circles.length == 0
-        $("input#circle_id").val("")
-        @joinButton.addClass "hidden"
-        @joinButton.val ""
-      if circles.length > 0
-        @select_circle(circles[0])
+    if circles.length == 0
+      @clear_circle()
 
-      # re-center
-      map.getView().setCenter(@point(center.longitude, center.latitude))
-      map.on 'click', (evt) ->
-        $(".circle-marker").removeClass('open')
+    else
+      @_add_markers(data.circles)
+      @select_circle(circles[0])
+
 
   get_map: =>
     if(@map)
@@ -53,6 +50,20 @@ window.CirclesMap = class CirclesMap
         target: @target[0]
         view: new ol.View
           zoom: 14
+
+  _recenter: (center)=>
+    console.log("recenter")
+    return unless center
+
+    @get_map().getView().setCenter(@point(center.longitude, center.latitude))
+    @get_map().on 'click', (evt) =>
+      target = $(evt.originalEvent.target)
+      unless target.hasClass('circle-marker') || target.parents('.circle-marker').length > 0
+        @clear_circle()
+
+    @get_map().on "moveend", (evt)->
+      console.log("map moved", evt)
+
 
   fetch_data: (query, handler) ->
     $.ajax(
@@ -69,24 +80,54 @@ window.CirclesMap = class CirclesMap
     element = $(template)
     $(document.body).append(element)
     $(element).on('click', circle, (event) =>
-      @select_circle(event.data)
+      if $(event.target).hasClass('circle-marker')
+        @select_circle(event.data)
     )
+    $(element).on('click', '.submit', (event) =>
+        @form.submit()
+    )
+
+
     new ol.Overlay
       position: @point(location.longitude, location.latitude),
       positioning: 'center-center',
       element: element,
       stopEvent: false
 
+
+  _add_markers: (circles) =>
+    for circle in circles
+      marker = @create_marker(circle)
+      @overlays.push marker
+      @get_map().addOverlay(marker);
+
+
+  _clear_markers: =>
+    @overlays ||= []
+    for overlay in @overlays
+      @get_map().removeOverlay(overlay)
+      @remove_marker(overlay)
+    @overlays = []
+
   remove_marker: (overlay) ->
     el = $(overlay.getElement())
     el.off()
     el.removeClass('open')
 
+
+  clear_circle: =>
+    console.log "clearing"
+    @circleField.val ""
+
+    $(".circle-marker").removeClass('open')
+
+
   select_circle: (circle) =>
-    $("input#circle_id").val(circle.id)
+    @clear_circle()
+    console.log "selected ", circle
+    @circleField.val circle.id
+
     $("#circle-marker-#{circle.id}").addClass('open')
-    @joinButton.removeClass "hidden"
-    @joinButton.val "Start helping with #{circle.name}"
 
 
 

@@ -175,16 +175,8 @@ section > .task {
         padding: 0.5rem;
       }
 
-      .button {
-        background: none;
-        border: thin solid $blue-dark-1;
-        color:   $blue-dark-1;
-      }
-
-      .button.primary {
-        background: $orange;
-        border: thin solid $orange;
-        color:   $body-bg;
+      .button, .button-primary {
+        width: 100%;
       }
     }
   }

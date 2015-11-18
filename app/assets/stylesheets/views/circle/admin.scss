@@ -1,9 +1,26 @@
 table {
-  tr#add-role {
+  tr.action-row {
     td {
       text-align: center;
       opacity: 0.5;
       border-bottom: none;
     }
   }
+}
+
+.actions {
+  a {
+    color: $blue-dark-1;
+    &:visited {
+      color: $blue-dark-1;
+    }
+  }
+  a.edit {
+    @include lale-icon($lale-icon-pencil);
+  }
+
+  a.delete {
+    @include lale-icon($lale-icon-delete);
+  }
+
 }

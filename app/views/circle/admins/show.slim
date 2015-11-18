@@ -1,48 +1,56 @@
-h2 Roles
-= form_tag circle_roles_path(current_circle), method: 'POST' do
+section
+  h2 Settings
+  = render partial: 'circles/form', locals: { form: @circle_form }
+
+section
+  h2 Roles
+  = form_tag circle_roles_path(current_circle), method: 'POST' do
+    table
+      tr
+        th Name
+        th User
+        th Actions
+
+      - current_circle.roles.leadership.order('role_type ASC, name ASC').each do |role|
+        tr
+          td= role.name
+          td= role.user.name
+          td.actions
+            - if can? :delete, role
+              = link_to '', circle_role_path(current_circle, role), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
+
+      - if can? :manage, current_circle
+        tr#add-role.action-row
+          td colspan="3"
+            a href="#" Promote user to role
+        tr#add-role-fields.hidden
+          td
+            = select_tag "circle_role[role_type]", options_for_select(Circle::Role.leadership_role_types_with_names)
+            = text_field_tag "circle_role[name]", nil, class: 'hidden'
+          td= select_tag "circle_role[user_id]", options_from_collection_for_select(current_circle.volunteers, :id, :name)
+          td= submit_tag "Save"
+
+
+section
+  h2 Working Groups
   table
     tr
       th Name
-      th User
+      th Organizer
       th Actions
 
-    - current_circle.roles.leadership.order('role_type ASC, name ASC').each do |role|
+    - current_circle.working_groups.each do |group|
       tr
-        td= role.name
-        td= role.user.name
+        td= group.name
+        td
+          - group.admins.each do |user|
+            li= user.name
+
         td.actions
-          - if can? :delete, role
-            = link_to '', circle_role_path(current_circle, role), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
+          a.edit href=edit_circle_working_group_path(current_circle, group)
+          = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
 
     - if can? :manage, current_circle
-      tr#add-role
+      tr#add-working-group.action-row
         td colspan="3"
-          a href="#" Promote user to role
-      tr#add-role-fields.hidden
-        td
-          = select_tag "circle_role[role_type]", options_for_select(Circle::Role.leadership_role_types_with_names)
-          = text_field_tag "circle_role[name]", nil, class: 'hidden'
-        td= select_tag "circle_role[user_id]", options_from_collection_for_select(current_circle.volunteers, :id, :name)
-        td= submit_tag "Save"
-
-
-
-h2 Working Groups
-table
-  tr
-    th Name
-    th Visibility
-    th Organizer
-    th Actions
-
-  - current_circle.working_groups.each do |group|
-    tr
-      td= group.name
-      td Public
-      td
-        - group.admins.each do |user|
-          li= user.name
-
-      td.actions
-        a.edit href=edit_circle_working_group_path(current_circle, group)
-        = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
+          a href=new_circle_working_group_path(current_circle) Create a working group

@@ -33,7 +33,7 @@ main
       .field.required class=errors.css(:language)
         = f.label :language
         = f.select :language do
-          = options_for_select(@form.language_options, @form.language)
+          = options_for_select(@form.language_options, @form.user[:language])
 
         = errors.message_for(:language)
 
@@ -45,10 +45,9 @@ main
 
     .submit-row
       = f.submit
+      a.button href=account_reset_password_path Reset your Password
 
 
 
 
 
-
-  a href=account_reset_password_path Reset your Password

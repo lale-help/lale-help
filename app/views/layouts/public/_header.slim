@@ -1,0 +1,13 @@
+header
+  .logo
+    = t('lale')
+  .actions
+    - if current_user.present?
+      .user= t('.signed-in-as', user: current_user.first_name )
+      - if current_user.primary_circle.present?
+        a.action-link href="#{circle_path(current_user.primary_circle)}"= current_user.primary_circle.name
+      a.action-link href="#{logout_path}"= t('.sign-out')
+
+    - else
+      p= t('.dont-have-account')
+      a.action-link href="#{register_path}"= t('.sign-up')

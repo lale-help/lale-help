@@ -1,8 +1,24 @@
 class User::IdentitiesController < ApplicationController
   skip_authorization_check
-  layout 'circle_page'
+  layout 'public'
 
   def new
-    @identity = env['omniauth.identity'] || User::Identity.new
+    @form = User::Create.new
+  end
+
+  def create
+    @form = User::Create.new params[:user]
+    outcome = @form.submit
+
+    if outcome.success?
+      login(outcome.result)
+      redirect_to public_circles_path
+
+    else
+      errors.add outcome.errors
+      render :new
+    end
   end
 end
+
+

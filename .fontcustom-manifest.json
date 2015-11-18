@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "5d8f771e79f534701dd1f6e010b18bde941dd73e6a94439f1a5121902e7f305d",
-    "current": "5d8f771e79f534701dd1f6e010b18bde941dd73e6a94439f1a5121902e7f305d"
+    "previous": "507c8db3512cc5c2dcd885d099dfd3f9095a98f70bbb75d88530bed5fe503e79",
+    "current": "507c8db3512cc5c2dcd885d099dfd3f9095a98f70bbb75d88530bed5fe503e79"
   },
   "fonts": [
     "app/assets/fonts/lale/lale.ttf",
@@ -30,6 +30,10 @@
       "codepoint": 61708,
       "source": "app/assets/icons/compass.svg"
     },
+    "delete": {
+      "codepoint": 61713,
+      "source": "app/assets/icons/delete.svg"
+    },
     "drawer": {
       "codepoint": 61697,
       "source": "app/assets/icons/drawer.svg"
@@ -45,6 +49,14 @@
     "missing": {
       "codepoint": 61702,
       "source": "app/assets/icons/missing.svg"
+    },
+    "papers": {
+      "codepoint": 61711,
+      "source": "app/assets/icons/papers.svg"
+    },
+    "pencil": {
+      "codepoint": 61712,
+      "source": "app/assets/icons/pencil.svg"
     },
     "plus-skinny": {
       "codepoint": 61703,

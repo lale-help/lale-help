@@ -35,7 +35,7 @@ class Circle::TasksController < ApplicationController
 
   def new
     authorize! :create_task, current_circle
-    @task = @circle.working_groups.first.tasks.build
+    @task = current_circle.working_groups.first.tasks.build
     @form = Task::Create.new(user: current_user, task: current_task)
   end
 
@@ -72,7 +72,6 @@ class Circle::TasksController < ApplicationController
     authorize! :update, current_task
     authorize! :create_task, working_group
 
-    puts params[:task][:due_date].class
     @form = Task::Update.new(params[:task], user: current_user, task: current_task, working_group: working_group)
 
     outcome = @form.submit
@@ -133,10 +132,6 @@ class Circle::TasksController < ApplicationController
     end
   end
 
-
-  helper_method def errors
-    @errors ||= Errors.new
-  end
 
   helper_method def current_task
     @task ||= Task.find(params[:id] || params[:task_id])

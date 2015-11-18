@@ -1,21 +1,21 @@
-= form_for @circle do |f|
-  - if @circle.errors.any?
+= form_for form, url: circle_path(current_circle), method: :patch do |f|
+  - if errors.present?
     .form-introduction.error
-      p= t('forms.correct-errors')
-    / #error_explanation
-    /   h2 = "#{pluralize(@circle.errors.count, "error")} prohibited this circle from being saved:"
-    /   ul
-    /     - @circle.errors.full_messages.each do |message|
-    /       li = message
+      p Please correct the errors below.
+
 
   .field-row
-    .field.required class=('error' if @circle.errors[:name].present?)
-      = f.label :name, t('fields.name')
-      = f.text_field :name
+    .field.required class=errors.css(:name)
+      = f.label :name
+      = f.text_field :name, placeholder: true
+      = errors.message_for(:name)
 
-    .field.required class=('error' if @circle.errors[:location].present?)
-      = f.label :location, t('fields.location')
-      = f.text_field :location_text
+
+  .field-row
+    .field.required class=errors.css(:location)
+      = f.label :location
+      = f.text_field :location
+      = errors.message_for(:location)
 
   .actions.submit-row
     = f.submit

@@ -35,10 +35,8 @@ Rails.application.routes.draw do
     resources :circles, only: [:index]
   end
 
-  post "/auth/:provider/callback", to: "sessions#create"
-  get "/auth/failure",            to: "sessions#failure"
-  get "/logout",                  to: "sessions#destroy", :as => "logout"
-  get "/register",                to: "user/identities#new", :as => "register"
+  get "/register",  to: "user/identities#new", :as => "register"
+  post "/register", to: "user/identities#create"
 
   get "/token/:token_code", to: "tokens#handle_token", as: "handle_token"
 
@@ -55,6 +53,17 @@ Rails.application.routes.draw do
     post "/reset_password", to: 'reset_password_flow#submit'
     get "/reset_password/confirmation", to: 'reset_password_flow#confirmation', as: 'public_reset_password_confirmation'
   end
+
+  namespace :public do
+    resources :circles, only: [:index, :new, :create] do
+      post :join, on: :collection
+    end
+  end
+
+
+  get  "/login",  to: "sessions#new",     as: "login"
+  post "/login",  to: "sessions#create"
+  get  "/logout", to: "sessions#destroy", as: "logout"
 
   root to: "sessions#new"
 end

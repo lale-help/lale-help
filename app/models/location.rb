@@ -42,7 +42,11 @@ class Location < ActiveRecord::Base
 
 
   def formatted_address
-    geocode_data["formatted_address"]
+    if geocode_data.present?
+      geocode_data["formatted_address"]
+    else
+      geocode_query
+    end
   end
   alias_method :address, :formatted_address
 end

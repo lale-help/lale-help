@@ -5,6 +5,10 @@ en:
   delete: Delete
   supported-by: "Supported by"
 
+  workflow:
+    continue: Continue
+    cancel: Cancel
+
   language:
     en: English
     de: German
@@ -32,6 +36,8 @@ en:
     confirm:
       task:
         delete: 'Are you sure you want to delete this task?'
+      supply:
+        delete: 'Are you sure you want to delete this supply?'
 
     placeholder:
       task:

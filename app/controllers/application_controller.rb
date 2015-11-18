@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
     else
      I18n.default_locale
    end
+   logger.info "Using locale #{I18n.locale}"
   end
   before_action :set_locale
 
@@ -39,5 +40,9 @@ class ApplicationController < ActionController::Base
 
   helper_method def filter_present?
     params.has_key? :working_group
+  end
+
+  helper_method def errors
+    @errors ||= Errors.new
   end
 end
