@@ -1,0 +1,10 @@
+de:
+  public:
+    reset_password_flow:
+      reset_password:
+        reset-password-phrase: Passwort erneuern
+        reset-password: Jetzt erneuern
+        sign-in: Einloggen
+      confirmation:
+        title: Bitte überprüfen Sie Ihre Email!
+        details: Sie werden gleich eine Email erhalten, um Ihr Passwort zu erneuern.

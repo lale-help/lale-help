@@ -1,0 +1,4 @@
+de:
+  users:
+    flash:
+      password_reset_success: "Das Passwort wurde erfolgreich geändert."
