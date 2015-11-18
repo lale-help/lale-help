@@ -1,0 +1,30 @@
+de:
+  circle:
+    tasks:
+      index:
+        header: Alle Aufgaben
+
+      my:
+        header: Meine Aufgaben
+
+      task_list:
+        no-tasks: "Keine Aufgaben gefunden."
+
+      show:
+        task-complete: "Erledigt: "
+        volunteer-count:
+          one: "%{count} Helfer ist eingetragen"
+          other: "%{count} Helfer sind eingetragen"
+        volunteer-count-required:
+          one:   "Benötigt %{count} Helfer"
+          other: "Benötigt %{count} Helfer"
+        volunteer-count-missing:
+          # Keeps the space and the parentheses
+          one:   " (%{count} fehlt)"
+          other: " (%{count} fehlt)"
+
+        organized-by: "Organisiert von %{name}"
+
+        complete-task-button: "Aufgabe abschliessen"
+        edit-task-button:     "Aufgabe bearbeiten"
+

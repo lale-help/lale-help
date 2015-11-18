@@ -1,0 +1,8 @@
+de:
+  user:
+    account:
+      edit:
+        title:          Einstellungen
+      reset_password:
+        reset_password: Passwort zurücksetzen
+        update:         Passwort ändern

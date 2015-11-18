@@ -1,0 +1,12 @@
+de:
+  roles:
+    name:
+      circle:
+        admin:     Verwalter
+        volunteer: Helfer
+        official:  Amtsperson
+        custom:    Benutzerdefiniert
+        helpee:    Hilfsempfänger
+
+      task:
+        assignee: Helfer
