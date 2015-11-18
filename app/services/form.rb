@@ -66,6 +66,24 @@ class Form
     end
   end
 
+  include Rails.application.routes.url_helpers
+  def url
+    if primary_object && primary_object.persisted?
+      update_url
+    else
+      new_url
+    end
+  end
+
+  def method
+    if primary_object && primary_object.persisted?
+      :patch
+    else
+      :post
+    end
+  end
+
+
   def initialize *args
     args.each do |arg|
       arg = arg.attributes if arg.respond_to?(:attributes)

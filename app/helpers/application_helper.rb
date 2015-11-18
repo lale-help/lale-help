@@ -13,4 +13,10 @@ module ApplicationHelper
     opts[:badge_text]   ||= nil
     render partial: 'layouts/internal/sidebar_item', locals: opts
   end
+
+  def lale_form form, opts={}, &block
+    opts[:url]    ||= form.url
+    opts[:method] ||= form.method
+    form_for(form, opts, &block)
+  end
 end
