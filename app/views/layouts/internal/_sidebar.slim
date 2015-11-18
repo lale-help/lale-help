@@ -17,7 +17,7 @@ nav
     h4= t('.my-working-groups')
     - current_circle.working_groups.each do |wg|
       - if wg.persisted? && can?(:read, wg)
-        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count)
+        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count)
 
   .sidebar-section
     = sidebar_link(t('.all-working-groups'), circle_working_groups_path(current_circle))
