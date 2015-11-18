@@ -10,6 +10,7 @@ class Circle::WorkingGroupsController < ApplicationController
   def new
     authorize! :create_working_group, current_circle
     @working_group = current_circle.working_groups.build
+    @form = WorkingGroup::BaseForm.new working_group: current_working_group
   end
 
   def show
@@ -19,13 +20,16 @@ class Circle::WorkingGroupsController < ApplicationController
 
   def edit
     authorize! :update, current_working_group
+    @form = WorkingGroup::BaseForm.new working_group: current_working_group
   end
 
   def create
     authorize! :create_working_group, current_circle
-    @working_group = current_circle.working_groups.build working_group_params
+    @working_group = current_circle.working_groups.build
+    @form = WorkingGroup::BaseForm.new params[:working_group], working_group: current_working_group
+    outcome = @form.submit
 
-    if current_working_group.save
+    if outcome.success?
       redirect_to circle_admin_path(current_circle), notice: t('flash.created', name: WorkingGroup.model_name.human)
     else
       render :new
@@ -36,7 +40,10 @@ class Circle::WorkingGroupsController < ApplicationController
   def update
     authorize! :update, current_working_group
 
-    if current_working_group.update(working_group_params)
+    @form = WorkingGroup::BaseForm.new params[:working_group], working_group: current_working_group
+    outcome = @form.submit
+
+    if outcome.success?
       redirect_to circle_working_group_path(current_circle, current_working_group), notice: t('flash.updated', name: WorkingGroup.model_name.human)
     else
       render :edit
@@ -54,7 +61,7 @@ class Circle::WorkingGroupsController < ApplicationController
   def join
     authorize! :join, current_working_group
 
-    WorkingGroup::Role.send('working_group.member').create working_group: current_working_group, user: current_user
+    WorkingGroup::Role.member.create working_group: current_working_group, user: current_user
 
     redirect_to circle_working_group_path(current_circle, current_working_group)
   end
@@ -62,7 +69,7 @@ class Circle::WorkingGroupsController < ApplicationController
   def leave
     authorize! :leave, current_working_group
 
-    WorkingGroup::Role.send('working_group.member').where(working_group: current_working_group, user: current_user).delete_all
+    WorkingGroup::Role.where(working_group: current_working_group, user: current_user).delete_all
 
     redirect_to circle_working_group_path(current_circle, current_working_group)
   end
@@ -71,11 +78,5 @@ class Circle::WorkingGroupsController < ApplicationController
 
   helper_method def current_working_group
     @working_group ||= WorkingGroup.find(params[:id] || params[:working_group_id])
-  end
-
-  private
-
-  def working_group_params
-    params[:working_group].permit(:name)
   end
 end

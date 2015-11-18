@@ -1,11 +1,17 @@
-= form_for([current_circle, current_working_group]) do |f|
+= lale_form @form do |f|
   .field-row
     .field
       = f.label :name
       = f.text_field :name
 
+  .field-row
+    .field
+      = f.label :admin_ids
+      = f.select :admin_ids, options_for_select(@form.admin_options, @form.admin_ids), {}, {multiple: true}
+
   .actions.submit-row
     = f.submit
+
     - cancel_path = current_working_group.persisted? ? circle_working_group_path(current_circle, current_working_group) : circle_admin_path(current_circle)
     a.button href=cancel_path
       =t('workflow.cancel')
