@@ -1,7 +1,7 @@
 de:
   activerecord:
     models:
-      circle: Helferkreis  #g
+       circle: Helferkreis  #g
       location: Standort  #g
       system_event: System-Event  #g
       system_event/notification: System-Event/Benachrichtigung  #g
@@ -56,14 +56,29 @@ de:
         due_date: Fälligkeit  #g
         location_assignments: Standortzuordnung  #g
         locations: Standorte  #g
-        name: Name  #g
+        name: "Name der Aufgabe"  #g
         organizer_assignments: Organisatorzuordnung  #g
-        organizers: Organisatoren  #g
+        organizer_id: Organisator Id
         skill_assignments: Fähigkeitszuordnungen  #g
         skills: Fähigkeiten  #g
         volunteer_assignments: Helferzuordnungen  #g
         volunteers: Helfer  #g
         working_group: :activerecord.models.working_group  #g
+        volunteer_count_required: "Anzahl der benötigten Helfer"
+        primary_location:  "Standort"
+        duration: "Zeitaufwand"
+        scheduled_time_type: "Findet statt"
+        scheduled_time_start: "Beginn"
+        scheduled-time:
+          at:      "um %{start}"
+          on_date: "am"
+          between: "zwischen %{start} und %{end}"
+        duration-text:
+          hours_1: "1 Stunde"
+          hours_2: "2 Stunden"
+          hours_3: "3 Stunden"
+          half_day: "halber Tag"
+          all_day:  "ganzer Tag"
 
       task/location_assignment:
         location: :activerecord.models.location  #g

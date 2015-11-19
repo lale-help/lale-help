@@ -1,8 +1,19 @@
 de:
   lale: Lale
   hello: Hallo Welt
-  edit: BEARBEITEN
+  edit: Bearbeiten
+  delete: Löschen
+  supported-by: "Unterstützt durch"
 
+  workflow:
+    continue: Weiter
+    cancel: Abbrechen
+
+  language:
+    en: Englisch
+    de: Deutsch
+    fr: Französich
+	
   forms:
     correct-errors: Bitte ändern Sie die untenstehenden Fehler.
 
@@ -18,6 +29,20 @@ de:
 
   # Use this for form helpers
   helpers:
+    header:
+      add:  "%{name} erstellen"
+      edit: "%{name} bearbeiten"
+
+    confirm:
+      task:
+        delete: 'Bist Du sicher, dass diese Aufgabe gelöscht werden soll?'
+      supply:
+        delete: 'Bist Du sicher, dass diese Sachspende gelöscht werden soll?'
+
+    placeholder:
+      task:
+        name: 'z.B. Begleitung für Riad zur Schuleinschreibung'
+  
     submit:
       create: "%{model} erstellen"
       submit: "%{model} speichern"
