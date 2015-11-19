@@ -7,7 +7,14 @@ en:
       supply_list:
         no-supplies: "No supplies are needed at this time."
 
+      new:
+        back: Back to All Supplies
+
+      edit:
+        back: Back to Supply
+
       show:
+        back: Back to All Supplies
         task-complete: "Done: "
         volunteer-count:
           one: "%{count} volunteer is going"

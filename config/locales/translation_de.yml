@@ -1,11 +1,9 @@
 de:
   activerecord:
     models:
-       circle: Helferkreis  #g
+      circle: Helferkreis  #g
       location: Standort  #g
       system_event: System-Event  #g
-      system_event/notification: System-Event/Benachrichtigung  #g
-      system_event/notification/delivery: System-Event/Benachrichtigung/Zustellung  #g
       task: Aufgabe  #g
       task/location_assignment: Aufgabe/Standortzuordnung  #g
       task/skill: Aufgabe/Fähigkeit  #g
@@ -15,6 +13,7 @@ de:
       user/feedback: Helfer/Feedbackeedback  #g
       user/identity: Helfer/Identität  #g
       working_group: Arbeitsgruppe  #g
+      supply: Sachspende
 
     attributes:
       circle:
@@ -58,7 +57,7 @@ de:
         locations: Standorte  #g
         name: "Name der Aufgabe"  #g
         organizer_assignments: Organisatorzuordnung  #g
-        organizer_id: Organisator Id
+        organizer_id: Organisator
         skill_assignments: Fähigkeitszuordnungen  #g
         skills: Fähigkeiten  #g
         volunteer_assignments: Helferzuordnungen  #g

@@ -1,5 +1,5 @@
 - content_for :header_middle do
-  a.back href=circle_task_path(current_circle, current_task) Back to Task
+  a.back href=circle_task_path(current_circle, current_task) = t('.back')
 
 h2 = t('helpers.header.edit', name: current_task.name)
 = render 'form', locals: {delete: true}
