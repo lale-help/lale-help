@@ -16,7 +16,7 @@ class WorkingGroup::BaseForm < ::Form
 
 
   def admin_options
-    working_group.users.map { |u|
+    working_group.circle.users.map { |u|
       [u.name, u.id]
     }
   end
