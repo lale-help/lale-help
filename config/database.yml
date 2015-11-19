@@ -6,7 +6,11 @@ default: &default
 development:
   <<: *default
   database: lale_development
+  username: postgres
+  host: db
 
 test:
   <<: *default
   database: lale_test
+  username: postgres
+  host: db

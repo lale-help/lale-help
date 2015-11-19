@@ -1,0 +1,24 @@
+maildev:
+   image: 'djfarrelly/maildev'
+   entrypoint: '/app/bin/maildev --web 3001 --smtp 587 --incoming-user $SMTP_USERNAME --incoming-pass $SMTP_PASSWORD'
+   ports:
+     - "3001:3001"
+     - "587"
+   env_file:
+     - .env.example
+db:
+  image: postgres
+  ports:
+    - "5432"
+web:
+  build: .
+  volumes:
+    - .:/myapp
+  ports:
+    - "3000:3000"
+  env_file:
+    - .env.example
+  links:
+    - db
+    - maildev
+  command: bash /myapp/docker_scripts/quick_start.sh
