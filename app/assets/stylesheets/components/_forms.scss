@@ -156,12 +156,13 @@ form {
 
   .field.required label:after {
     color: #2C4C5E;
-    content: 'REQUIRED';
-    font-size: 1.1rem;
+    content: '*';
+    font-size: 2rem;
     font-weight: $weight-semibold;
-    margin-left: 12px;
     opacity: 0.4;
     text-transform: uppercase;
+    margin-left: 3px;
+    vertical-align: sub;
   }
 
   .field.error label {
