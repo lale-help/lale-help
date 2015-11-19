@@ -5,7 +5,7 @@
   main
     .task-header
       .date
-        .month= current_supply.due_date.strftime("%^b")
+        .month= l(current_supply.due_date, format: "%b").upcase
         .day= current_supply.due_date.day
       .title
         -if current_supply.complete?
@@ -16,20 +16,20 @@
     .task-details
       .row.due-date
         .icon
-        .title Due Date
+        .title= Supply.human_attribute_name(:due_date)
         .details
-          = current_supply.due_date_text
+          = l(current_supply.due_date, format: "%A %-d %B %Y")
 
       -if current_supply.location.present?
         .row.location
           .icon
-          .title Location
+          .title= Location.model_name.human
           .details= current_supply.location.address
 
 
       .row.contact
         .icon
-        .title Contact
+        .title= Supply.human_attribute_name(:organizer)
         .details
           a href="mailto:#{current_supply.organizer.email}"
             = current_supply.organizer.name
@@ -37,7 +37,7 @@
       - if current_supply.volunteer.present?
         .row.volunteer
           .icon
-          .title Volunteer
+          .title= Supply.human_attribute_name(:volunteer)
           .details
             a href="mailto:#{current_supply.volunteer.email}"
               = "#{current_supply.volunteer.name}"
@@ -45,7 +45,7 @@
 
       .row.work-group
         .icon
-        .title Work Group
+        .title= WorkingGroup.model_name.human
         .details= current_supply.working_group.name
 
 

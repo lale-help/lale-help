@@ -79,6 +79,35 @@ de:
           half_day: "halber Tag"
           all_day:  "ganzer Tag"
 
+      supply:
+        completed_at: Erledigt um  #g
+        description: Beschreibung  #g
+        due_date: Fälligkeit  #g
+        location_assignments: Standortzuordnung  #g
+        locations: Standorte  #g
+        name: "Name der Aufgabe"  #g
+        organizer_assignments: Organisatorzuordnung  #g
+        organizer: Organisator
+        skill_assignments: Fähigkeitszuordnungen  #g
+        skills: Fähigkeiten  #g
+        volunteer: Helfer  #g
+        working_group: :activerecord.models.working_group  #g
+        volunteer_count_required: "Anzahl der benötigten Helfer"
+        primary_location:  "Standort"
+        duration: "Zeitaufwand"
+        scheduled_time_type: "Findet statt"
+        scheduled_time_start: "Beginn"
+        scheduled-time:
+          at:      "um %{start}"
+          on_date: "am"
+          between: "zwischen %{start} und %{end}"
+        duration-text:
+          hours_1: "1 Stunde"
+          hours_2: "2 Stunden"
+          hours_3: "3 Stunden"
+          half_day: "halber Tag"
+          all_day:  "ganzer Tag"
+
       task/location_assignment:
         location: :activerecord.models.location  #g
         primary: Primär  #g
