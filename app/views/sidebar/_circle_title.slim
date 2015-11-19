@@ -4,7 +4,7 @@ a.circle-name href=circle_path(current_circle) = circle.name
     .icon
     .menu.add-item-dropdown
       - if can? :create_task, circle
-        a href=new_circle_task_path(current_circle) Task
+        a href=new_circle_task_path(current_circle) = Task.model_name.human
 
       - if can? :create_supply, circle
-        a href=new_circle_supply_path(current_circle) Supply
+        a href=new_circle_supply_path(current_circle) = Supply.model_name.human
