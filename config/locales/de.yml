@@ -13,7 +13,7 @@ de:
     en: Englisch
     de: Deutsch
     fr: Französich
-	
+
   forms:
     correct-errors: Bitte ändern Sie die untenstehenden Fehler.
 
@@ -42,7 +42,7 @@ de:
     placeholder:
       task:
         name: 'z.B. Begleitung für Riad zur Schuleinschreibung'
-  
+
     submit:
       create: "%{model} erstellen"
       submit: "%{model} speichern"
@@ -51,3 +51,57 @@ de:
   unauthorized:
     manage:
       all: "Keine Berechtigung %{subject} zu %{action}."
+
+  date:
+    abbr_day_names:
+    - So
+    - Mo
+    - Di
+    - Mi
+    - Do
+    - Fr
+    - Sa
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mär
+    - Apr
+    - Mai
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Okt
+    - Nov
+    - Dez
+    day_names:
+    - Sonntag
+    - Montag
+    - Dienstag
+    - Mittwoch
+    - Donnerstag
+    - Freitag
+    - Samstag
+    formats:
+      default: "%d.%m.%Y"
+      long: "%e. %B %Y"
+      short: "%e. %b"
+    month_names:
+    -
+    - Januar
+    - Februar
+    - März
+    - April
+    - Mai
+    - Juni
+    - Juli
+    - August
+    - September
+    - Oktober
+    - November
+    - Dezember
+    order:
+    - :day
+    - :month
+    - :year
