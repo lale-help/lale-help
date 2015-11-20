@@ -5,24 +5,25 @@
 This is the rails application used for lale.help.
 
 ## System Setup
+Install [Dcoker](http://www.docker.com/) for your OS.
 
-To setup your system on OS X, just run:
+## Development
+  * open a docker terminal
+  * take a note of the IP at the top right (Lets call it DockerIP)
+  * go to lale-help
 
-    ./bin/setup-osx.sh
+### Starting Rails
+  * run `docker-compose up`
+  * go to http://\<DockerIP\>:5000
 
-## Starting Rails
-
-    bin/foreman start
-
-## Running Tests
-
-    bin/rspec
+### Running Tests
+  * run `docker-compose run bin/rspec`
 
 ## URLs
+  
+  production: [lale.help](https://lale.help)
 
-production: [lale.help](https://lale.help)
-
-staging: [staging.lale.help](https://staging.lale.help)
+  staging: [staging.lale.help](https://staging.lale.help)
 
 ## Conventions
 
@@ -39,6 +40,3 @@ when working on Lale.
 
 All strings and translastions used in the application should be stored in locale files stored in `config/locales` and should
 try to use I18n's lazy loading for translation keys in templates/partials.
-
-
-
