@@ -19,7 +19,7 @@ class Task < ActiveRecord::Base
   end
 
   def due_date_and_time
-    due_date.strftime("%A %-d %B %Y") + " " + scheduled_time
+    I18n.l(due_date, format: "%A %-d %B %Y") + " " + scheduled_time
   end
 
   def scheduled_time

@@ -10,7 +10,14 @@ en:
       task_list:
         no-tasks: "No tasks found."
 
+      new:
+        back: Back to All Tasks
+
+      edit:
+        back: Back to Task
+
       show:
+        back: Back to All Tasks
         task-complete: "Done: "
         volunteer-count:
           one: "%{count} volunteer is going"

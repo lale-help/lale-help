@@ -1,11 +1,11 @@
 - content_for :header_middle do
-  a.back href=circle_tasks_path(current_circle) Back to All Tasks
+  a.back href=circle_tasks_path(current_circle) = t('.back')
 
 .task class=page.task_css
   main
     .task-header
       .date
-        .month= current_task.due_date.strftime("%^b")
+        .month= l(current_task.due_date, format: "%b").upcase
         .day= current_task.due_date.day
       .title
         -if current_task.complete?
@@ -16,32 +16,32 @@
     .task-details
       .row.due-date
         .icon
-        .title Due Date
+        .title= Task.human_attribute_name(:due_date)
         .details
           = current_task.due_date_and_time
 
       .row.duration
         .icon
-        .title Duration
+        .title= Task.human_attribute_name(:duration)
         .details
           = current_task.duration_text
 
       -if current_task.primary_location.present?
         .row.location
           .icon
-          .title Location
+          .title= Location.model_name.human
           .details= current_task.primary_location.address
 
       - current_task.extra_locations.each do |loc|
         v.location
           .icon
-          .title Location
+          .title= Location.model_name.human
           .details= loc.address
 
 
       .row.work-group
         .icon
-        .title Work Group
+        .title = WorkingGroup.model_name.human
         .details= current_task.working_group.name
 
       / .skills
