@@ -5,4 +5,4 @@ rake db:migrate
 
 # since unicorn leaves behind pid files sometimes
 rm -r tmp
-rails s -p 3000 -b '0.0.0.0'
+rails s -p 5000 -b '0.0.0.0'
