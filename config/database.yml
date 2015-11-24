@@ -6,11 +6,15 @@ default: &default
 development:
   <<: *default
   database: lale_development
+  <% if ENV["IsDockerContainer"] %>
   username: postgres
   host: db
+  <% end %>
 
 test:
   <<: *default
   database: lale_test
+  <% if ENV["IsDockerContainer"] %>
   username: postgres
   host: db
+  <% end %>

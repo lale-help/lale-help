@@ -7,6 +7,8 @@ web:
     - .:/myapp
   ports:
     - "5000:5000"
+  environment:
+    IsDockerContainer: 'true'
   env_file:
     - .env.example
   links:
