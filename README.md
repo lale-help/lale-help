@@ -17,10 +17,20 @@ Install [Dcoker](http://www.docker.com/) for your OS.
   * go to http://\<DockerIP\>:5000
 
 ### Running Tests
-  * run `docker-compose run bin/rspec`
+  * run `docker-compose run web bin/rspec`
+
+### Known issues
+  * If you are using Windows the Run tests command above does not work.
+
+### FAQs
+  * how do I run an some rake/rails command?
+    * run `docker-compose run web \< command \>`
+  * Things were working yesterday but all of a sudden everything is broken. What do I do?
+    * First try run `docker-compose build` and then `docker-compose up` 
+    * if that fails file a github issue
 
 ## URLs
-  
+
   production: [lale.help](https://lale.help)
 
   staging: [staging.lale.help](https://staging.lale.help)
