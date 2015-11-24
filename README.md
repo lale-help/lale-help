@@ -5,24 +5,37 @@
 This is the rails application used for lale.help.
 
 ## System Setup
+Install [Dcoker](http://www.docker.com/) for your OS.
 
-To setup your system on OS X, just run:
+## Development
+  * open a docker terminal
+  * take a note of the IP at the top right (Lets call it DockerIP)
+  * go to lale-help
 
-    ./bin/setup-osx.sh
+### Starting Rails
+  * run `docker-compose up`
+  * go to http://\<DockerIP\>:5000
 
-## Starting Rails
+### Running Tests
+  * run `docker-compose run web bin/rspec`
 
-    bin/foreman start
+### Known issues
+  * If you are using Windows the Run tests command above does not work.
 
-## Running Tests
-
-    bin/rspec
+### FAQs
+  * How do I run an some rake/rails command?
+    * run `docker-compose run web \< command \>`
+  * Things were working yesterday but all of a sudden everything is broken. What do I do?
+    * First try run `docker-compose build` and then `docker-compose up`
+    * if that fails file a github issue
+  * How do I look at email sent by the app?
+    * go to http://\<DockerIP\>:5000/letter_opener
 
 ## URLs
 
-production: [lale.help](https://lale.help)
+  production: [lale.help](https://lale.help)
 
-staging: [staging.lale.help](https://staging.lale.help)
+  staging: [staging.lale.help](https://staging.lale.help)
 
 ## Conventions
 
@@ -39,6 +52,3 @@ when working on Lale.
 
 All strings and translastions used in the application should be stored in locale files stored in `config/locales` and should
 try to use I18n's lazy loading for translation keys in templates/partials.
-
-
-
