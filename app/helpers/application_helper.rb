@@ -19,4 +19,13 @@ module ApplicationHelper
     opts[:method] ||= form.method
     form_for(form, opts, &block)
   end
+
+  # TODO: Move this to ability somehow.
+  def managed_working_groups circle
+    if can?(:manage, circle)
+      circle.working_groups
+    else
+      circle.working_groups.select{|wg| can?(:manage, wg)}
+    end
+  end
 end

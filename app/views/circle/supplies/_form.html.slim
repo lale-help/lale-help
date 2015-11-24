@@ -14,7 +14,7 @@
   .field-row
     .field.required class=errors.css(:working_group)
       = f.label :working_group_id
-      = f.collection_select :working_group_id, current_circle.working_groups, :id, :name
+      = f.collection_select :working_group_id, managed_working_groups(current_circle), :id, :name
       = errors.message_for(:working_group)
 
     .field.required class=errors.css(:organizer_id)
@@ -45,4 +45,3 @@
     = f.submit
     - if locals[:delete]
       = link_to t('delete'), circle_supply_path(current_circle, current_supply), class: 'button', data: {:confirm => t('helpers.confirm.supply.delete')}, :method => :delete
-
