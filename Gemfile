@@ -39,7 +39,7 @@ gem 'geocoder'
 
 
 group :development do
-  gem "letter_opener"
+  gem "letter_opener_web"
   gem 'thor', require: false
 end
 

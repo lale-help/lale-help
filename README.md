@@ -23,11 +23,13 @@ Install [Dcoker](http://www.docker.com/) for your OS.
   * If you are using Windows the Run tests command above does not work.
 
 ### FAQs
-  * how do I run an some rake/rails command?
+  * How do I run an some rake/rails command?
     * run `docker-compose run web \< command \>`
   * Things were working yesterday but all of a sudden everything is broken. What do I do?
-    * First try run `docker-compose build` and then `docker-compose up` 
+    * First try run `docker-compose build` and then `docker-compose up`
     * if that fails file a github issue
+  * How do I look at email sent by the app?
+    * go to http://\<DockerIP\>:5000/letter_opener
 
 ## URLs
 
