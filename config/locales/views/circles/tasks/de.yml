@@ -9,9 +9,16 @@ de:
 
       task_list:
         no-tasks: "Keine Aufgaben gefunden."
+		
+ 	  new:
+        back: Zurück zu allen Aufgaben
 
+      edit:
+        back: Zurück zur Aufgabe
+		
       show:
-        task-complete: "Erledigt: "
+        back: Zurück zu allen Aufgaben
+		task-complete: "Erledigt: "
         volunteer-count:
           one: "%{count} Helfer ist eingetragen"
           other: "%{count} Helfer sind eingetragen"

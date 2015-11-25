@@ -7,7 +7,14 @@ de:
       supply_list:
         no-supplies: "Derzeit keine Sachspenden benötigt."
 
+      new:
+        back: Zurück zu allen Sachspenden
+
+      edit:
+        back: Zurück zur Sachspende
+
       show:
+        back: Zurück zu allen Sachspenden
         task-complete: "Erledigt: "
         volunteer-count:
           one: "%{count} Helfer ist eingetragen"
