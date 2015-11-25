@@ -5,7 +5,7 @@
 This is the rails application used for lale.help.
 
 ## System Setup
-Install [Dcoker](http://www.docker.com/) for your OS.
+Install [Docker](http://www.docker.com/) for your OS.
 
 ## Development
   * open a docker terminal
@@ -23,7 +23,7 @@ Install [Dcoker](http://www.docker.com/) for your OS.
   * If you are using Windows the Run tests command above does not work.
 
 ### FAQs
-  * How do I run an some rake/rails command?
+  * How do I run an rake/rails command?
     * run `docker-compose run web \< command \>`
   * Things were working yesterday but all of a sudden everything is broken. What do I do?
     * First try run `docker-compose build` and then `docker-compose up`
