@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116195843) do
+ActiveRecord::Schema.define(version: 20151125023925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 20151116195843) do
     t.string   "name",                  null: false
     t.integer  "location_id", limit: 8, null: false
   end
+
+  create_table "comments", id: :bigserial, force: :cascade do |t|
+    t.integer  "commenter_id", limit: 8, null: false
+    t.integer  "task_id",      limit: 8, null: false
+    t.string   "task_type",              null: false
+    t.text     "body"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
+  add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",    null: false
@@ -115,15 +127,17 @@ ActiveRecord::Schema.define(version: 20151116195843) do
   end
 
   create_table "tasks", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "name",                                           null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
+    t.string   "name",                                                   null: false
     t.string   "description"
-    t.integer  "working_group_id",         limit: 8,             null: false
+    t.integer  "working_group_id",             limit: 8,                 null: false
     t.datetime "completed_at"
     t.date     "due_date"
+    t.time     "due_time"
+    t.boolean  "to_be_done_at_specified_time",           default: false, null: false
     t.integer  "volunteer_count_required"
-    t.integer  "duration",                           default: 1
+    t.integer  "duration",                               default: 1
     t.string   "scheduled_time_type"
     t.string   "scheduled_time_start"
     t.string   "scheduled_time_end"
