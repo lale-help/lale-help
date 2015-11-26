@@ -1,0 +1,12 @@
+en:
+  roles:
+    name:
+      circle:
+        admin:     Administrateur
+        volunteer: Volontaire
+        official:  Officiel
+        custom:    Sur mesure
+        helpee:    Aide
+
+      task:
+        assignee: Volontaire
