@@ -1,0 +1,14 @@
+de:
+  circle:
+    working_groups:
+      show:
+        settings: Einstellungen
+        join:     Beitreten
+        leave:    Verlassen
+        admin-title:
+          one: "%{count} Organisator"
+          other: "%{count} Organisatoren"
+
+        member-title:
+          one: "%{count} Helfer"
+          other: "%{count} Helfer"
