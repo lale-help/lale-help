@@ -1,0 +1,7 @@
+en:
+  errors:
+    password:
+      too_short: "Merci de choisir un mot de passe de plus de 8 caractères."
+
+    password_confirmation:
+      did_not_match: "Votre mot de passe et confirmation de mot de passe ne correspondent pas."
