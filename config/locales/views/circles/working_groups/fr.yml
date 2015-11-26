@@ -1,0 +1,14 @@
+fr:
+  circle:
+    working_groups:
+      show:
+        settings: Paramètres
+        join:     Rejoindre
+        leave:    Quitter
+        admin-title:
+          one: "%{count} organisateur"
+          other: "%{count} organisateurs"
+
+        member-title:
+          one: "%{count} volontaire"
+          other: "%{count} volontaires"
