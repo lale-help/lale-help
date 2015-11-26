@@ -10,8 +10,8 @@ fr:
     cancel: Annuler
 
   language:
-    en: English
-    de: German
+    en: Anglais
+    de: Allemand
     fr: 'Français'
 
   forms:
@@ -19,7 +19,7 @@ fr:
 
   fields:
     name: Nom
-    location: Adresse
+    location: Localisation
 
     email: Adresse email
     email-placeholder: Entrez votre email
@@ -35,9 +35,9 @@ fr:
 
     confirm:
       task:
-        delete: 'Etes-vous sûr de vouloir effacer cette tache ?'
+        delete: 'Etes-vous sûr de vouloir effacer cette tâche ?'
       supply:
-        delete: 'Etes-vous sûr de vouloir effacer cette objet ?'
+        delete: 'Etes-vous sûr de vouloir effacer cet objet ?'
 
     placeholder:
       task:
