@@ -1,4 +1,4 @@
-en:
+fr:
   errors:
     password:
       too_short: "Merci de choisir un mot de passe de plus de 8 caractères."
