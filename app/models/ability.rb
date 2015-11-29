@@ -4,6 +4,9 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+    # Admin
+    can :read, ActiveAdmin::Page, :name => "Dashboard"
+    
     # Circles
     can :create, Circle
     can :read,   Circle do |circle|

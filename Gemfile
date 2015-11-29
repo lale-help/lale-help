@@ -11,6 +11,7 @@ gem 'omniauth'
 gem 'omniauth-identity'
 gem 'cancancan'
 gem 'mandrill-api'
+gem 'activeadmin', github: 'activeadmin'
 
 # UI
 gem 'coffee-rails', '~> 4.1.0'

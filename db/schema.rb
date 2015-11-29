@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151116195843) do
+ActiveRecord::Schema.define(version: 20151129180431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "circle_roles", id: :bigserial, force: :cascade do |t|
     t.integer  "role_type",            null: false
@@ -154,6 +169,7 @@ ActiveRecord::Schema.define(version: 20151116195843) do
     t.integer  "location_id",       limit: 8
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
+    t.boolean  "is_admin"
   end
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|

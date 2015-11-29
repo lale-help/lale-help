@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  check_authorization
+  check_authorization :unless => :active_admin_controller?
 
   rescue_from CanCan::AccessDenied do |exception|
     puts "access denied due to #{exception.inspect}"
@@ -38,6 +38,10 @@ class ApplicationController < ActionController::Base
     session.clear
   end
 
+  def authenticate_admin_user!
+    redirect_to root_path unless (current_user and current_user.is_admin?)
+  end
+
   helper_method def filter_present?
     params.has_key? :working_group
   end
@@ -45,4 +49,10 @@ class ApplicationController < ActionController::Base
   helper_method def errors
     @errors ||= Errors.new
   end
+
+  private
+  def active_admin_controller?
+    controller_path.starts_with? "admin/"
+  end
+
 end

@@ -13,7 +13,7 @@ class User::Identity < OmniAuth::Identity::Models::ActiveRecord
     self.user ||= User.new
   end
 
-  delegate :first_name, :last_name, :location, :primary_circle_id, to: :user
+  delegate :first_name, :last_name, :location, :primary_circle_id, :admin?, to: :user
 
   def creating_new_circle?
     commit && commit.downcase == "create a circle"

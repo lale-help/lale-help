@@ -35,4 +35,8 @@ class User < ActiveRecord::Base
   def initials
     (first_name.first + last_name.first).upcase
   end
+
+  def admin?
+    self.is_admin
+  end
 end

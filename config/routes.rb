@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -74,4 +75,5 @@ Rails.application.routes.draw do
   get  "/logout", to: "sessions#destroy", as: "logout"
 
   root to: "sessions#new"
+  ActiveAdmin.routes(self)
 end
