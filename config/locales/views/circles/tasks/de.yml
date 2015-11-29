@@ -10,7 +10,14 @@ de:
       task_list:
         no-tasks: "Keine Aufgaben gefunden."
 
+      new:
+        back: Zurück zu allen Aufgaben
+
+      edit:
+        back: Zurück zur Aufgabe
+
       show:
+        back: Zurück zu allen Aufgaben
         task-complete: "Erledigt: "
         volunteer-count:
           one: "%{count} Helfer ist eingetragen"
@@ -27,4 +34,3 @@ de:
 
         complete-task-button: "Aufgabe abschliessen"
         edit-task-button:     "Aufgabe bearbeiten"
-
