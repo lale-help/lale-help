@@ -1,0 +1,4 @@
+fr:
+  users:
+    flash:
+      password_reset_success: "Votre mot de passe a été mis à jour avec succès."

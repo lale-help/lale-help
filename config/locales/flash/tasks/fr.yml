@@ -1,0 +1,5 @@
+fr:
+  tasks:
+    flash:
+      volunteered: 'Merci de vous être porté volontaire pour %{name} !'
+      completed:   "Merci d'avoir complété %{name} !"

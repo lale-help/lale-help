@@ -1,0 +1,36 @@
+fr:
+  circle:
+    supplies:
+      index:
+        header: Besoins Matériels
+
+      supply_list:
+        no-supplies: "Aucun besoin particulier en ce moment."
+
+      new:
+        back: Retour à Tous les Besoins
+
+      edit:
+        back: Retour aux Besoins
+
+      show:
+        back: Retour à Tous les Besoins
+        task-complete: "Fait : "
+        volunteer-count:
+          one: "%{count} volontaire y participe"
+          other: "%{count} volontaires y participent"
+        volunteer-count-required:
+          one:   "%{count} volontaire est nécessaire"
+          other: "%{count} volontaires sont nécessaires"
+        volunteer-count-missing:
+          # Keeps the space and the parentheses
+          one:   " (%{count} manquant)"
+          other: " (%{count} manquants)"
+
+        organized-by: "Organisé par %{name}"
+
+        volunteer-task-button: "J'ai cet objet"
+        decline-task-button: "Je n'ai pas cet objet"
+        complete-task-button: "Cet objet a été donné"
+        edit-task-button:     "Editer ce Besoin"
+
