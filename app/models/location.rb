@@ -49,4 +49,8 @@ class Location < ActiveRecord::Base
     end
   end
   alias_method :address, :formatted_address
+
+  def display_name
+    self.address
+  end
 end
