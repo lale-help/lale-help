@@ -52,6 +52,7 @@
         .row.organizer
           .details= t(".organized-by", name: current_task.organizer.name)
 
+    = render partial: 'circle/comments/comments', locals: { task: current_task, circle: current_circle }
 
   aside
     .volunteers
