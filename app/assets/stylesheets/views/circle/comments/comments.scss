@@ -1,0 +1,14 @@
+.task-comments {
+  .field-row {
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    border-color: $light-grey
+  }
+
+  .submit-row {
+    margin-top: 0px;
+    overflow: hidden;
+  }
+}

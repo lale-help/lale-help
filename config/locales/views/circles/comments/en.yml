@@ -1,0 +1,6 @@
+en:
+  circle:
+    comments:
+      placeholder:  "What do you want to say?"
+      post:         "Post"
+      reply:        "Reply"
