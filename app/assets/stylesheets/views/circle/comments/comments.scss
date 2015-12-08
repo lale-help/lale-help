@@ -11,4 +11,35 @@
     margin-top: 0px;
     overflow: hidden;
   }
+  .comment {
+    margin: 10px;
+    &.left {
+    }
+    &.right {
+    }
+
+    .user-avatar {
+      vertical-align:top;
+      display: inline-block;
+    }
+    .comment-main {
+      display: inline-block;
+      margin-left: 10px;
+      width: 60%;
+      .body {
+        border-radius: 8px;
+        padding: 10px;
+        background: $light-grey;
+        width: 100%;
+      }
+      .commenter {
+        .name, .time {
+          display: inline-block;
+        }
+        .time {
+          float: right;
+        }
+      }
+    }
+  }
 }

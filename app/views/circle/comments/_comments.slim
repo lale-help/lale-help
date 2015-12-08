@@ -9,8 +9,11 @@
           = f.submit t("circle.comments.#{task.comments.empty? ? 'post' : 'reply'}")
 
   - task.comments.each do |comment|
-    .comment
-      .body=comment.body
-      .commenter
-        .name=comment.commenter.name
-        .times=comment.comment_date_time
+    .comment class="#{comment.commenter == current_user ? 'right' : 'left' }"
+      .user-avatar
+        = render partial: 'user/user_icon', locals: { user: comment.commenter }
+      .comment-main
+        .body=comment.body
+        .commenter
+          .name=comment.commenter.name
+          .time=comment.comment_date_time
