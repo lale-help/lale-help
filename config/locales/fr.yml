@@ -1,5 +1,107 @@
 fr:
+  lale: Lale
+  hello: 'Salut !'
+  edit: Editer
+  delete: Supprimer
+  supported-by: "Developé par"
+
+  workflow:
+    continue: Continuer
+    cancel: Annuler
+
   language:
-    en: English
-    de: German
-    fr: French
+    en: Anglais
+    de: Allemand
+    fr: 'Français'
+
+  forms:
+    correct-errors: 'Merci de corriger les erreurs ci-dessous.'
+
+  fields:
+    name: Nom
+    location: Localisation
+
+    email: Adresse email
+    email-placeholder: Entrez votre email
+
+    password: Mot de passe
+    password-placeholder: Entrez votre mot de passe
+
+  # Use this for form helpers
+  helpers:
+    header:
+      add:  "Créer un nouveau %{name}"
+      edit: "Editer %{name}"
+
+    confirm:
+      task:
+        delete: 'Etes-vous sûr de vouloir effacer cette tâche ?'
+      supply:
+        delete: 'Etes-vous sûr de vouloir effacer cet objet ?'
+
+    placeholder:
+      task:
+        name: "Ex. Amener Riad à l'école"
+
+    submit:
+      create: "Créer %{model}"
+      submit: "Enregistrer %{model}"
+      update: "Mettre à jour %{model}"
+
+  unauthorized:
+    manage:
+      all: "Vous n'êtes pas autorisé à %{action} %{subject}."
+
+  date:
+    abbr_day_names:
+    - Dim
+    - Lun
+    - Mar
+    - Mer
+    - Jeu
+    - Ven
+    - Sam
+    abbr_month_names:
+    -
+    - Jan
+    - Fev
+    - Mar
+    - Avr
+    - Mai
+    - Jun
+    - Jul
+    - Aou
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Dimanche
+    - Lundi
+    - Mardi
+    - Mercredi
+    - Jeudi
+    - Vendredi
+    - Samedi
+    formats:
+      default: "%d.%m.%Y"
+      long: "%e. %B %Y"
+      short: "%e. %b"
+    month_names:
+    -
+    - Janvier
+    - Février
+    - Mars
+    - Avril
+    - Mai
+    - Juin
+    - Juillet
+    - Août
+    - Septembre
+    - Octobre
+    - Novembre
+    - Decembre
+    order:
+    - :jour
+    - :mois
+    - :année

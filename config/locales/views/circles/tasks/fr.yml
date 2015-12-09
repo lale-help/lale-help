@@ -1,0 +1,37 @@
+fr:
+  circle:
+    tasks:
+      index:
+        header: Toutes les Tâches
+
+      my:
+        header: Mes Tâches
+
+      task_list:
+        no-tasks: "Aucune tâche trouvée."
+
+      new:
+        back: Retour à Toutes les Tâches
+
+      edit:
+        back: Retour à la tâche
+
+      show:
+        back: Retour à Toutes les Tâches
+        task-complete: "Fait : "
+        volunteer-count:
+          one: "%{count} volontaire y participe"
+          other: "%{count} volontaires y participent"
+        volunteer-count-required:
+          one:   "%{count} volontaire est nécessaire"
+          other: "%{count} volontaires sont nécessaires"
+        volunteer-count-missing:
+          # Keeps the space and the parentheses
+          one:   " (%{count} manquant)"
+          other: " (%{count} manquants)"
+
+        organized-by: "Organisé par %{name}"
+
+        complete-task-button: "Tâche Terminée"
+        edit-task-button:     "Editer la Tâche"
+

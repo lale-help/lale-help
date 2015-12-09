@@ -1,0 +1,5 @@
+fr:
+  flash:
+    created:   '%{name} a été créé avec succès.'
+    updated:   '%{name} a été mis à jour avec succès.'
+    destroyed: '%{name} a été supprimé avec succès.'

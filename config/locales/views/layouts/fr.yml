@@ -1,0 +1,9 @@
+fr:
+  layouts:
+    public:
+      header:
+        signed-in-as: Connecté en tant que %{user}
+        sign-out: Se Deconnecter
+        account: Compte
+        sign-up: Se Connecter
+        dont-have-account: "Vous n'avez pas de compte utilisateur ?"
