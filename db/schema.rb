@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125023925) do
+ActiveRecord::Schema.define(version: 20151129180431) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "circle_roles", id: :bigserial, force: :cascade do |t|
     t.integer  "role_type",            null: false
@@ -127,17 +142,15 @@ ActiveRecord::Schema.define(version: 20151125023925) do
   end
 
   create_table "tasks", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                                             null: false
-    t.datetime "updated_at",                                             null: false
-    t.string   "name",                                                   null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "name",                                           null: false
     t.string   "description"
-    t.integer  "working_group_id",             limit: 8,                 null: false
+    t.integer  "working_group_id",         limit: 8,             null: false
     t.datetime "completed_at"
     t.date     "due_date"
-    t.time     "due_time"
-    t.boolean  "to_be_done_at_specified_time",           default: false, null: false
     t.integer  "volunteer_count_required"
-    t.integer  "duration",                               default: 1
+    t.integer  "duration",                           default: 1
     t.string   "scheduled_time_type"
     t.string   "scheduled_time_start"
     t.string   "scheduled_time_end"
@@ -168,6 +181,7 @@ ActiveRecord::Schema.define(version: 20151125023925) do
     t.integer  "location_id",       limit: 8
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
+    t.boolean  "is_admin"
   end
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|
