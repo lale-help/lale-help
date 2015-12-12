@@ -1,13 +1,15 @@
 .task-comments
-  - task.comments.reverse.each do |comment|
-    .comment class="#{comment.commenter == current_user ? 'right' : 'left' }"
-      .user-avatar
-        = render partial: 'user/user_icon', locals: { user: comment.commenter }
-      .comment-main
-        .body=comment.body
-        .commenter
-          .name=comment.commenter.name
-          .time=comment.comment_date_time
+  .comment-container
+    - task.comments.reverse.each do |comment|
+      .comment class="#{comment.commenter == current_user ? 'right' : 'left' }"
+        .user-avatar
+          = render partial: 'user/user_icon', locals: { user: comment.commenter }
+        .comment-main
+          .body=comment.body
+          .commenter
+            .name=comment.commenter.name
+            .time=comment.comment_date_time
+
   - if can? :create, Comment, task
     .new-comment
       = form_for [circle, task, @form] do |f|

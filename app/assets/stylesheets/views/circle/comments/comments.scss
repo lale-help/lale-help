@@ -1,4 +1,13 @@
 .task-comments {
+  .comment-container {
+    max-height: 350px;
+    overflow: auto;
+  }
+  
+  &:before {
+
+  }
+
   margin-top: 20px;
   .field-row {
     margin-bottom: 10px;
