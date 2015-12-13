@@ -42,8 +42,15 @@ body.internal {
     background:  $header-bg;
     @include text-color($header-text, $header-text);
 
-    .circle-add-menu :before {
-      @include text-color($header-bg, $header-bg);
+    .circle-add-menu {
+      .icon {
+        width: 28px;
+        height: 28px;
+      }
+
+      :before {
+        @include text-color($header-bg, $header-bg);
+      }
     }
 
     .open {

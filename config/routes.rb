@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
       resources :supplies do
         put :complete, :volunteer, :decline
+        resources :comments, only: :create
       end
 
       resources :working_groups do
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
         collection do
           get :my
         end
+        resources :comments, only: :create
 
         put :volunteer
         patch :volunteer

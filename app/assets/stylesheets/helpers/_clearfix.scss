@@ -1,0 +1,12 @@
+// taken from bootstrap clearfix implementation
+// osurce: https://github.com/twbs/bootstrap/blob/master/less/mixins/clearfix.less
+.clearfix {
+  &:before,
+  &:after {
+    content: " "; 
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}

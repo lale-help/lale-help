@@ -30,6 +30,10 @@ class Circle::TasksController < ApplicationController
 
   def show
     authorize! :read, current_task
+
+    if can? :create, Comment, current_task
+      @form = Comment::Create.new(commenter: current_user, task: current_task, comment: Comment.new)
+    end
   end
 
 

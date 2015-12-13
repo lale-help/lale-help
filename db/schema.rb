@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 20151129180431) do
     t.integer  "location_id", limit: 8, null: false
   end
 
+  create_table "comments", id: :bigserial, force: :cascade do |t|
+    t.integer  "commenter_id", limit: 8, null: false
+    t.integer  "task_id",      limit: 8, null: false
+    t.string   "task_type",              null: false
+    t.text     "body"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
+  add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
+
   create_table "locations", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false

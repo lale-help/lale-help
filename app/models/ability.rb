@@ -177,5 +177,9 @@ class Ability
       supply.complete?
     end
 
+    # Comments
+    can :create, Comment do |comment|
+      user.circles.include?(comment.task.circle)
+    end
   end
 end
