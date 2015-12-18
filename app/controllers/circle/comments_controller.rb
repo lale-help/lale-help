@@ -1,6 +1,7 @@
 class Circle::CommentsController < ApplicationController
   layout "internal"
   before_action :ensure_logged_in
+  before_action :set_comment, :only => [:destroy, :update]
 
   include HasCircle
 
@@ -21,6 +22,11 @@ class Circle::CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    # TODO: Implement comment destroy method
+
+  end
+
   helper_method def current_task
     @task ||= params[:supply_id] ? Supply.find(params[:supply_id]) : Task.find(params[:task_id])
   end
@@ -34,6 +40,10 @@ class Circle::CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
       params[:comment].permit(:body)
+    end
+
+    def set_comment
+      @comment = current_task.comments.find(params[:id])
     end
 
     def circle_task_or_supply_path(circle, task_supply)

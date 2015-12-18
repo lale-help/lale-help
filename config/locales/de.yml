@@ -618,6 +618,10 @@
       :placeholder: Was möchtest du sagen?
       :post: Kommentieren
       :reply: Antworten
+      :actions:
+        :delete: Löschen
+        :delete_confirm: Diesen Kommentar wirklich löschen?
+        :edit: Bearbeiten
     :members:
       :index:
         :directory: Helferliste

@@ -24,6 +24,7 @@ class Circle < ActiveRecord::Base
   # Hooks
   before_save :determine_location
   after_initialize  :determine_location
+  before_create :create_unique_identifier
 
   enum language: [:en, :de, :fr]
 
@@ -45,6 +46,12 @@ class Circle < ActiveRecord::Base
 
 
   private
+  def create_unique_identifier
+    begin
+      self.unique_identifier = [SecureRandom.uuid, SecureRandom.hex].join
+    end while self.class.exists?(unique_identifier: self.unique_identifier)
+  end
+
   def determine_location
     if location_text.present?
       self.location ||= Location.location_from(location_text)
