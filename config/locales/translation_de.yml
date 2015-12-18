@@ -137,7 +137,7 @@ de:
         identities: Identitäten  #g
         last_name: Nachname  #g
         language: Sprache #g
-        primary_circle_id:
+        primary_circle_id: Haupthelferkreis  #g
         location: :activerecord.models.location  #g
         notifications: Benachrichtigungen  #g
         task_volunteer_assignments: Aufgabe Helferzuordnungen  #g
