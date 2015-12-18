@@ -56,6 +56,7 @@ fr:
         location_assignments: Allocation d'emplacements  #g
         locations: Emplacements  #g
         name: "Mon de la tâche"  #g
+        working_group_id:
         organizer_assignments: Allocation d'organisateurs  #g
         organizer_id: Oganisateur
         skill_assignments: Allocation de compétences  #g

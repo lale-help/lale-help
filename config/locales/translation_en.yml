@@ -62,6 +62,7 @@ en:
         location_assignments: Location assignments  #g
         locations: Locations  #g
         name: "Name of the Task"
+        working_group_id:
         organizer_assignments: Organizer assignments  #g
         organizer_id: Organizer
         skill_assignments: Skill assignments  #g
