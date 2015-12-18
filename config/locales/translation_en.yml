@@ -113,6 +113,8 @@ en:
         identities: Identities  #g
         last_name: Last name  #g
         location: :activerecord.models.location  #g
+        language: Language #g
+        primary_circle_id: Primary Circle #g
         notifications: Notifications  #g
         task_volunteer_assignments: Task volunteer assignments  #g
         tasks: Tasks  #g

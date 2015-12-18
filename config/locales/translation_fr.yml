@@ -136,6 +136,8 @@ fr:
         identities: Identitées  #g
         last_name: Nom de famille  #g
         location: :activerecord.models.location  #g
+        language: Langue #g
+        primary_circle_id: 
         notifications: Notifications  #g
         task_volunteer_assignments: Allocation de volontaire(s)  #g
         tasks: Tâches  #g
