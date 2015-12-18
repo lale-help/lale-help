@@ -11,3 +11,7 @@ de:
         admin:              "Verwaltung"
         my-working-groups:  "Meine Arbeitsgruppen"
         all-working-groups: "Alle Arbeitsgruppen"
+      header:
+        settings: "Einstellungen"
+        find-circles: 
+        sign-out: 

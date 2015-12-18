@@ -11,3 +11,7 @@ fr:
         admin:              "Administration"
         my-working-groups:  "Mes Groupes de Travail"
         all-working-groups: "Tous les Groupes de Travail"
+      header:
+        settings: 
+        find-circles:
+        sign-out:
