@@ -1,1 +1,5 @@
 en:
+  circle:
+    admins:
+      show:
+        settings: Settings

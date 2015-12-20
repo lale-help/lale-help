@@ -1,1 +1,5 @@
 fr:
+  circle:
+    admins:
+      show:
+        settings: Paramètres

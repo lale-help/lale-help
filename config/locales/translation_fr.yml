@@ -4,7 +4,9 @@ fr:
       circle: Cercle  #g
       location: Adresse  #g
       system_event: Evénement Système  #g
-      task: Tâche  #g
+      task:
+        one: Tâche  #g
+        other: Tâches #g
       task/location_assignment: Tâche/Positionnement  #g
       task/skill: Tâche/Compétence  #g
       task/skill_assignment: Tâche/Allocation de Compétence  #g
@@ -13,7 +15,10 @@ fr:
       user/feedback: Volontaire/Feedback  #g
       user/identity: Volontaire/Identité  #g
       working_group: Groupe de Travail  #g
-      supply: Objet
+      supply: 
+        one: Besoin #g
+        other: Besoins #g
+      
 
     attributes:
       circle:
@@ -23,6 +28,7 @@ fr:
         tasks: Tâche  #g
         volunteers: Volontaire  #g
         working_groups: Groupe de Travail  #g
+        roles:
 
       location:
         address: Adresse  #g
@@ -51,6 +57,8 @@ fr:
 
       task:
         completed_at: Finie le #g
+        completed_tasks: 
+        pending_tasks:
         description: Description de la tâche #g
         due_date: Date d'échéance #g
         location_assignments: Allocation d'emplacements  #g
@@ -128,11 +136,16 @@ fr:
         organizer: Organisateur  #g
         task: :activerecord.models.task  #g
         volunteer: :activerecord.models.volunteer  #g
+      
+      role:
+        actions:
 
       user:
         circle: :activerecord.models.circle  #g
+        working_groups: :activerecord.models.working_group #g
         email: Email  #g
         feedback: Feedback  #g
+        name: Nom #g
         first_name: Prénom  #g
         identities: Identitées  #g
         last_name: Nom de famille  #g
@@ -143,6 +156,7 @@ fr:
         task_volunteer_assignments: Allocation de volontaire(s)  #g
         tasks: Tâches  #g
         triggered_system_events: Alerte Système  #g
+        role: 
 
       user/feedback:
         comment: Commentaire  #g

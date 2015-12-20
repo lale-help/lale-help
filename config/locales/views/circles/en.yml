@@ -16,6 +16,7 @@ en:
         volunteer-filled: Filled
         volunteer: I can do this!
         complete: Complete Task
+      circle-dashboard: Circle Dashboard
 
       working-group:
         new:    Add a New Work Group
@@ -27,3 +28,8 @@ en:
       header: Edit Circle
       show: Show
       back: Back
+      
+  circle:
+    members: 
+      index:
+        directory: Directory
