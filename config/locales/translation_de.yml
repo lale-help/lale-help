@@ -63,7 +63,7 @@ de:
         location_assignments: Standortzuordnung  #g
         locations: Standorte  #g
         name: "Name der Aufgabe"  #g
-        working_group_id: 
+        working_group_id: Arbeitsgruppen-Id  #g
         organizer_assignments: Organisatorzuordnung  #g
         organizer_id: Organisator
         skill_assignments: Fähigkeitszuordnungen  #g

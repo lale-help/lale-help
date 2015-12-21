@@ -12,6 +12,6 @@ fr:
         my-working-groups:  "Mes Groupes de Travail"
         all-working-groups: "Tous les Groupes de Travail"
       header:
-        settings: 
-        find-circles:
-        sign-out:
+        settings: "Paramètres"
+        find-circles: "Trouver des Cercles"
+        sign-out: "Se Déconnecter"
