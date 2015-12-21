@@ -3,3 +3,7 @@ fr:
     admins:
       show:
         settings: Paramètres
+        confirm_delete_circle: Are you sure? #had to put some translation otherwise it's buggy
+        confirm_delete_working_group: Are you sure? #had to put some translation otherwise it's buggy
+        promote_user: 
+        create_working_group: 

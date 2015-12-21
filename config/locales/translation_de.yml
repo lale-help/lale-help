@@ -177,3 +177,5 @@ de:
         name: Name  #g
         tasks: Aufgaben  #g
         volunteers: Helfer  #g
+        admin: 
+        actions: 
