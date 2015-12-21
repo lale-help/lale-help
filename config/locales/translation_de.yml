@@ -27,7 +27,7 @@ de:
         tasks: Aufgaben  #g
         volunteers: Helfer  #g
         working_groups: Arbeitsgruppen  #g
-        roles:
+        roles: Rollen #g
           
       location:
         address: Anschrift  #g
@@ -57,13 +57,13 @@ de:
       task:
         completed_at: Erledigt um  #g
         completed_tasks: Erledigten Aufgaben #g
-        pending_tasks: 
+        pending_tasks: Offene Aufgaben   #g
         description: Beschreibung  #g
         due_date: Fälligkeit  #g
         location_assignments: Standortzuordnung  #g
         locations: Standorte  #g
         name: "Name der Aufgabe"  #g
-        working_group_id: 
+        working_group_id: Arbeitsgruppen-Id  #g
         organizer_assignments: Organisatorzuordnung  #g
         organizer_id: Organisator
         skill_assignments: Fähigkeitszuordnungen  #g
@@ -137,7 +137,7 @@ de:
         volunteer: :activerecord.models.volunteer  #g
 
       role:
-        actions: 
+        actions: Aktionen 
       
       user:
         circle: :activerecord.models.circle  #g
@@ -155,7 +155,7 @@ de:
         task_volunteer_assignments: Aufgabe Helferzuordnungen  #g
         tasks: Aufgaben  #g
         triggered_system_events: Ausgelöste System-Events  #g
-        role: 
+        role: Rolle #g
 
       user/feedback:
         comment: Kommentar  #g

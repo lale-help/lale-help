@@ -7,5 +7,5 @@ de:
       reset_password:
         reset_password: Passwort zurücksetzen
         update:         Passwort ändern
-        password: Passwort
+        password:       Passwort
         password_confirmation: Password Bestätigung
