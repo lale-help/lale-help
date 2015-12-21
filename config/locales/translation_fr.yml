@@ -57,8 +57,8 @@ fr:
 
       task:
         completed_at: Finie le #g
-        completed_tasks: 
-        pending_tasks:
+        completed_tasks: Tâches Complétées  #g
+        pending_tasks: Tâches en Attentes   #g
         description: Description de la tâche #g
         due_date: Date d'échéance #g
         location_assignments: Allocation d'emplacements  #g
@@ -66,7 +66,7 @@ fr:
         name: "Mon de la tâche"  #g
         working_group_id:
         organizer_assignments: Allocation d'organisateurs  #g
-        organizer_id: Oganisateur
+        organizer_id: Organisateur  #g
         skill_assignments: Allocation de compétences  #g
         skills: Compétences  #g
         volunteer_assignments: Allocation de volontaires  #g
@@ -137,8 +137,8 @@ fr:
         task: :activerecord.models.task  #g
         volunteer: :activerecord.models.volunteer  #g
       
-      role:
-        actions:
+      role: Roles  #g
+        actions: Actions  #g
 
       user:
         circle: :activerecord.models.circle  #g
@@ -151,12 +151,12 @@ fr:
         last_name: Nom de famille  #g
         location: :activerecord.models.location  #g
         language: Langue #g
-        primary_circle_id: 
+        primary_circle_id: Cercle Principal #g
         notifications: Notifications  #g
         task_volunteer_assignments: Allocation de volontaire(s)  #g
         tasks: Tâches  #g
         triggered_system_events: Alerte Système  #g
-        role: 
+        role: Role   #g
 
       user/feedback:
         comment: Commentaire  #g
