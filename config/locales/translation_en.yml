@@ -151,5 +151,5 @@ en:
         name: Name  #g
         tasks: Tasks  #g
         volunteers: Volunteers  #g
-        admin: 
-        actions: 
+        admin: Admin #g
+        actions: Actions #g

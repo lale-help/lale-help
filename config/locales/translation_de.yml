@@ -166,11 +166,7 @@ de:
         circle: :activerecord.models.circle  #g
         email: Email  #g
         password_digest: Passwort Digest  #g
-        volunteer: :activerecord.models.volunteer  #g
-      
-      user/role:
-        name: Name for role #g
-        
+        volunteer: :activerecord.models.volunteer  #g      
 
       working_group:
         circle: :activerecord.models.circle  #g
