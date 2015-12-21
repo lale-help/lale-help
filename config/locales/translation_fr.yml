@@ -58,7 +58,7 @@ fr:
       task:
         completed_at: Finie le #g
         completed_tasks: Tâches Complétées  #g
-        pending_tasks: Tâches en Attentes   #g
+        pending_tasks: Tâches en Attente   #g
         description: Description de la tâche #g
         due_date: Date d'échéance #g
         location_assignments: Allocation d'emplacements  #g
