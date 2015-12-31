@@ -37,7 +37,7 @@ gem 'jbuilder', '~> 2.0'
 
 # Other
 gem 'geocoder'
-
+gem 'timezone'
 
 group :development do
   gem "letter_opener_web"
