@@ -34,7 +34,14 @@
   color: $white;
   border: thin solid $orange;
   text-shadow   : none;
+}
 
+.button.button-secondary, .button-secondary {
+  @extend %button-base;
+  background-color: $white;
+  color: $blue;
+  border: thin solid $blue;
+  text-shadow   : none;
 }
 
 .button {
