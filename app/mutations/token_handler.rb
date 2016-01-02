@@ -10,8 +10,12 @@ class TokenHandler < Mutations::Command
     ActiveRecord::Base.transaction do
       handle_token(token)
 
-      token.update_attribute :active, false
+      token.update_attribute(:active, false) unless reusable?
     end
+  end
+
+  def reusable?
+    false
   end
 
   def self.handle(token_code, controller)
