@@ -8,6 +8,20 @@ class TaskMailer < BaseMandrillMailer
     end
   end
 
+
+
+  def task_invitation(task, user, token)
+    build_message(user.language, user.email) do
+      merge_vars(user, task).merge({
+        "WORKGROUP"        => task.working_group.name,
+        "TASK_URL"         => handle_token_url(token.code),
+        "TASK_ACCEPT_URL"  => handle_token_url(token.code, status: :accept),
+        "TASK_DECLINE_URL" => handle_token_url(token.code, status: :decline)
+      })
+    end
+  end
+
+
   private
 
   def merge_vars user, task

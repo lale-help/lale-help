@@ -137,6 +137,18 @@ class Circle::TasksController < ApplicationController
   end
 
 
+  def invite
+    authorize! :manage, current_task
+
+    outcome = Task::Notifications::InvitationEmail.run(current_user: current_user, task: current_task, type: params[:type])
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.completed', name: current_task.name)
+    else
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.complete_failed', name: current_task.name)
+    end
+  end
+
   helper_method def current_task
     @task ||= Task.find(params[:id] || params[:task_id])
   end

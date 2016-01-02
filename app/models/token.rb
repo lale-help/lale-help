@@ -3,6 +3,7 @@ class Token < ActiveRecord::Base
     reset_password
     simple
     task_confirmation
+    task_invitation
   )
 
   scope :for_user_id, ->(user_id) { where("context ->> 'user_id' = ?", user_id.to_s)}
