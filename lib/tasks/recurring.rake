@@ -1,7 +1,10 @@
 namespace :recurring do
   task :hourly => :environment do
+    Rails.logger.info "Running Hourly Tasks"
     zones = ENV["TIMEZONES"].split(",") if ENV["TIMEZONES"].present?
 
     Task::Notifications::DailyReminders.run! zones: zones
+
+    Rails.logger.info "Finished Hourly Tasks"
   end
 end
