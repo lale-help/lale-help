@@ -31,7 +31,7 @@ class TaskMailer < BaseMandrillMailer
       "TASK_DESCRIPTION"      => task.description,
       "TASK_DUE_DATE"         => task.due_date_and_time,
       "TASK_TIME_REQUIRED"    => task.duration_text,
-      "TASK_HELPERS_REQUIRED" => task.volunteers.map(&:name).join(", ")
+      "TASK_HELPERS_REQUIRED" => task.volunteer_count_required
     }
   end
 end
