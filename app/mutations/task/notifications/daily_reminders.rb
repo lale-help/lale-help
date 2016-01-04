@@ -9,8 +9,7 @@ class Task::Notifications::DailyReminders < Mutations::Command
 
 
   def execute
-    Rails.logger.info "--- Sending daily task reminders for tasks in timezones: #{zone_names}"
-
+    Rails.logger.info "--- Sending daily task reminders for tasks in timezones: #{zone_names}, tasks: #{tasks.map(&:id)}"
     tasks.each do |task|
       Task::Notifications::ReminderEmail.run task: task
     end
@@ -31,6 +30,7 @@ class Task::Notifications::DailyReminders < Mutations::Command
     end
   end
 
+
   def timezones
     @timezones ||= if zones.present?
       zones.map{ |tz| ActiveSupport::TimeZone[tz] }
@@ -39,14 +39,13 @@ class Task::Notifications::DailyReminders < Mutations::Command
     end
   end
 
+
   def zone_due_dates
     timezones.map{|tz| tz.today + DAYS_UNTIL_TASK }.uniq
   end
 
+
   def zone_names
-    timezones.map{|tz| tz.tzinfo.identifier }
+    timezones.map{|tz| tz.tzinfo.identifier }.uniq
   end
-
-
-
 end
