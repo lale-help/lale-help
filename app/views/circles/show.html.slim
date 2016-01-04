@@ -1,1 +1,29 @@
-h2 =t('.circle-dashboard')
+/ TODO: Remove working-group here, I use this class because it offers
+/ a big headline with optional CTA on the right. Maybe we can make a general .header class.
+.working-group.circle-dashboard
+  .header
+    .title Circle Dashboard
+    .actions
+      span.hint =t('circle.dashboard.need_help')
+      a.button href="todo" = t('circle.dashboard.contact_circle_admin')
+
+  hr
+
+  .details
+    main
+      .tasks
+        h3= t("circle.dashboard.open_tasks")
+
+        .task-list
+
+          - current_circle.tasks.limit(5).each do |task|
+              = render partial: 'circles/dashboard/task_list_item', locals: {circle: current_circle, task: task}
+
+    aside
+      .members.circle-leaders
+        .title= "Circle Leaders"
+        .icons
+          - current_circle.admins.each do |user|
+            .blah
+              = render partial: 'user/user_icon', locals: {user: user}
+

@@ -1,0 +1,62 @@
+.task-badge {
+  background-color: #fff;
+  color: $medium-gray;
+  border: 1px solid $medium-gray;
+  padding: 5px;
+
+  padding-left: 30px;
+  border-radius: 3px;
+  position: relative;
+  font-size: 1.2em;
+  text-align: center;
+  padding-right: 10px;
+  font-family: $fontstack-monospace;
+  letter-spacing: -4px;
+  margin-right: 15px;
+  position: relative;
+
+
+  &--users {
+
+    @include lale-icon($lale-icon-user, 1.0em);
+    &:before {
+      position: absolute;
+      left: 10px;
+    }
+  }
+
+  &--comments {
+    @include lale-icon($lale-icon-compass, 1.0em);
+    &:before {
+      position: absolute;
+      left: 10px;
+    }
+  }
+}
+
+.urgency {
+  &--hot, &--urgent {
+    color: $orange;
+    border-color: $orange;
+  }
+  &--no-volunteers {
+    color: $red;
+    border-color: $red;
+  }
+}
+
+.circle-dashboard {
+  .subtitle {
+    .bullet {
+      padding-left: 5px;
+      padding-right: 5px;
+      color: $medium-gray;
+      display:inline-block;
+    }
+  }
+  .hint {
+    padding-right: 15px;
+    font-style: italic;
+    color: $medium-gray;
+  }
+}
