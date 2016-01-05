@@ -9,6 +9,9 @@ en:
 
       task_list:
         no-tasks: "No tasks found."
+        
+      task_list_item:
+        stats-here: "Stats Go Here"
 
       new:
         back: Back to All Tasks

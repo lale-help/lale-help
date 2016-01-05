@@ -8,7 +8,11 @@ de:
         admin-title:
           one: "%{count} Organisator"
           other: "%{count} Organisatoren"
-
         member-title:
           one: "%{count} Helfer"
           other: "%{count} Helfer"
+            
+      index:
+        all-working-groups-dashboard: Übersicht aller Arbeitsgruppen
+          
+   

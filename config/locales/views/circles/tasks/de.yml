@@ -9,6 +9,9 @@ de:
 
       task_list:
         no-tasks: "Keine Aufgaben gefunden."
+        
+      task_list_item:
+        stats-here: "Statistik"
 
       new:
         back: Zurück zu allen Aufgaben

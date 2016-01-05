@@ -6,6 +6,9 @@ de:
 
       supply_list:
         no-supplies: "Derzeit keine Sachspenden benötigt."
+        
+      supply_list_item:
+        stats-here: "Statistik"
 
       new:
         back: Zurück zu allen Sachspenden

@@ -11,7 +11,9 @@ en:
       system_event: System event  #g
       system_event/notification: System event/notification  #g
       system_event/notification/delivery: System event/notification/delivery  #g
-      task: Task  #g
+      task:
+        one: Task  #g
+        other: Tasks #g
       task/location_assignment: Task/location assignment  #g
       task/skill: Task/skill  #g
       task/skill_assignment: Task/skill assignment  #g
@@ -20,6 +22,9 @@ en:
       user/feedback: Volunteer/feedback  #g
       user/identity: Volunteer/identity  #g
       working_group: Working Group  #g
+      supply:
+        one: Supply #g
+        other: Supplies #g
 
     attributes:
       circle:
@@ -29,6 +34,7 @@ en:
         tasks: Tasks  #g
         volunteers: Volunteers  #g
         working_groups: Working groups  #g
+        roles: Roles #g
 
       location:
         address: Address  #g
@@ -57,11 +63,14 @@ en:
 
       task:
         completed_at: Completed at  #g
+        completed_tasks: Completed Tasks #g
+        pending_tasks: Pending Tasks #g
         description: "Description of the Task"
         due_date: Due Date  #g
         location_assignments: Location assignments  #g
         locations: Locations  #g
         name: "Name of the Task"
+        working_group_id:
         organizer_assignments: Organizer assignments  #g
         organizer_id: Organizer
         skill_assignments: Skill assignments  #g
@@ -105,18 +114,26 @@ en:
         task: :activerecord.models.task  #g
         volunteer: :activerecord.models.volunteer  #g
 
+      role:
+        actions: Actions
+      
       user:
         circle: :activerecord.models.circle  #g
+        working_groups: :activerecord.models.working_group #g
         email: Email  #g
         feedback: Feedback  #g
+        name: Name #g
         first_name: First name  #g
         identities: Identities  #g
         last_name: Last name  #g
         location: :activerecord.models.location  #g
+        language: Language #g
+        primary_circle_id: Primary Circle #g
         notifications: Notifications  #g
         task_volunteer_assignments: Task volunteer assignments  #g
         tasks: Tasks  #g
         triggered_system_events: Triggered system events  #g
+        role: Role #g
 
       user/feedback:
         comment: Comment  #g
@@ -134,3 +151,5 @@ en:
         name: Name  #g
         tasks: Tasks  #g
         volunteers: Volunteers  #g
+        admin: Admin #g
+        actions: Actions #g

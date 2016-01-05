@@ -9,6 +9,9 @@ fr:
 
       task_list:
         no-tasks: "Aucune tâche trouvée."
+        
+      task_list_item:
+        stats-here: Les Statistiques vont ici
 
       new:
         back: Retour à Toutes les Tâches

@@ -11,3 +11,7 @@ en:
         admin:              "Admin"
         my-working-groups:  "My Working Groups"
         all-working-groups: "All Working Groups"
+      header:
+        settings: "Settings"
+        find-circles: "Find Circles"
+        sign-out: "Sign Out"

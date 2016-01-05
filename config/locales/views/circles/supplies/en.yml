@@ -6,6 +6,9 @@ en:
 
       supply_list:
         no-supplies: "No supplies are needed at this time."
+        
+      supply_list_item:
+        stats-here: "Stats Here"
 
       new:
         back: Back to All Supplies

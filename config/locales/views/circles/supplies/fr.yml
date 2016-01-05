@@ -6,6 +6,9 @@ fr:
 
       supply_list:
         no-supplies: "Aucun besoin particulier en ce moment."
+        
+      supply_list_item:
+        stats-here: 
 
       new:
         back: Retour à Tous les Besoins
