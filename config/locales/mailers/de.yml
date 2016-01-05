@@ -2,8 +2,10 @@
 de:
   mailers:
     subject:
+      user_mailer:
+        forgot_password:  "Passwort vergessen?"
       task_mailer:
-        task_reminder:   "DE _ All clear for your upcoming task?"
-        task_suggestion: "DE _ We would like to suggest a task for you."
-        task_invitation: "DE _ Lale needs your help with a new task."
-        task_complete:   "DE _ Thanks for helping!"
+        task_reminder:   "Passt noch alles?"
+        task_suggestion: "Lale möchte Dir eine Aufgabe vorschlagen"
+        task_invitation: "Lale braucht Hilfe für eine neue Aufgabe"
+        task_complete:   "Vielen Dank für Dein Hilfe!"
