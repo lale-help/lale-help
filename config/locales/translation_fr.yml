@@ -15,10 +15,10 @@ fr:
       user/feedback: Volontaire/Feedback  #g
       user/identity: Volontaire/Identité  #g
       working_group: Groupe de Travail  #g
-      supply: 
+      supply:
         one: Besoin #g
         other: Besoins #g
-      
+
 
     attributes:
       circle:
@@ -136,8 +136,8 @@ fr:
         organizer: Organisateur  #g
         task: :activerecord.models.task  #g
         volunteer: :activerecord.models.volunteer  #g
-      
-      role: Roles  #g
+
+      role:  #g
         actions: Actions  #g
 
       user:
@@ -174,5 +174,5 @@ fr:
         name: Nom  #g
         tasks: Tâches  #g
         volunteers: Volontaires  #g
-        admin: 
-        actions: 
+        admin:
+        actions:
