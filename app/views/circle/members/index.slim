@@ -1,13 +1,13 @@
-h2 Directory
+h2 = t('.directory')
 
 table
   tr
-    th Name
-    th Roles
-    th Email
-    th Working Groups
-    th Completed Tasks
-    th Pending Tasks
+    th = @members.human_attribute_name("name")
+    th = @members.human_attribute_name("circle.roles")
+    th = @members.human_attribute_name("email")
+    th = @members.human_attribute_name("working_groups")
+    th = @members.human_attribute_name("task.completed_tasks")
+    th = @members.human_attribute_name("task.pending_tasks")
 
   - @members.each do |user|
     tr

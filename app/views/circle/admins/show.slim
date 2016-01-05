@@ -1,28 +1,28 @@
 section
-  h2 Settings
+  h2 = t('.settings')
   = render partial: 'circles/form', locals: { form: @circle_form }
 
 section
-  h2 Roles
+  h2= Circle.human_attribute_name("roles")
   = form_tag circle_roles_path(current_circle), method: 'POST' do
     table
       tr
-        th Name
-        th User
-        th Actions
+        th= User.human_attribute_name("role")
+        th= User.model_name.human
+        th= User.human_attribute_name("role.actions")
 
       - current_circle.roles.leadership.order('role_type ASC, name ASC').each do |role|
         tr
           td= role.name
           td= role.user.name
           td.actions
-            - if can? :delete, role
-              = link_to '', circle_role_path(current_circle, role), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
+            - if can? :delete, role	
+              = link_to '', circle_role_path(current_circle, role), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_circle') }
 
       - if can? :manage, current_circle
         tr#add-role.action-row
           td colspan="3"
-            a href="#" Promote user to role
+            a href="#" =t('.promote_user')
         tr#add-role-fields.hidden
           td
             = select_tag "circle_role[role_type]", options_for_select(Circle::Role.leadership_role_types_with_names)
@@ -32,12 +32,12 @@ section
 
 
 section
-  h2 Working Groups
+  h2= Circle.human_attribute_name("working_groups")
   table
     tr
-      th Name
-      th Organizer
-      th Actions
+      th= current_circle.working_groups.human_attribute_name("name")
+      th= current_circle.working_groups.human_attribute_name("admin")
+      th= current_circle.working_groups.human_attribute_name("actions")
 
     - current_circle.working_groups.each do |group|
       tr
@@ -48,9 +48,9 @@ section
 
         td.actions
           a.edit href=edit_circle_working_group_path(current_circle, group)
-          = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: "Are you sure?" }
+          = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_working_group') }
 
     - if can? :manage, current_circle
       tr#add-working-group.action-row
         td colspan="3"
-          a href=new_circle_working_group_path(current_circle) Create a working group
+          a href=new_circle_working_group_path(current_circle) = t('.create_working_group')

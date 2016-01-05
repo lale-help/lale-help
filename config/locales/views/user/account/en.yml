@@ -3,6 +3,9 @@ en:
     account:
       edit:
         title:          Personal Settings
-      reset_password:
         reset_password: Reset your Password
-        update:         Update your Password
+      reset_password:
+        reset_password:        Reset your Password
+        update:                Update your Password
+        password:              Password
+        password_confirmation: Password Confirmation

@@ -8,7 +8,11 @@ fr:
         admin-title:
           one: "%{count} organisateur"
           other: "%{count} organisateurs"
-
         member-title:
           one: "%{count} volontaire"
           other: "%{count} volontaires"
+            
+      index:
+        all-working-groups-dashboard:      	
+        
+       

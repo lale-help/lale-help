@@ -16,6 +16,7 @@ fr:
         volunteer-filled: Remplie
         volunteer: Je peux le faire !
         complete: Compléter la tâche
+      circle-dashboard: 
 
       working-group:
         new:    Ajouter un Nouveau Groupe de Travail
@@ -27,3 +28,8 @@ fr:
       header: Editer le Cercle
       show: Voir
       back: Retour
+      
+  circle:
+    members: 
+      index:
+        directory: Répertoire

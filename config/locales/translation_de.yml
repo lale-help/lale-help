@@ -4,7 +4,9 @@ de:
       circle: Helferkreis  #g
       location: Standort  #g
       system_event: System-Event  #g
-      task: Aufgabe  #g
+      task:
+        one: Aufgabe #g
+        other: Aufgaben #g
       task/location_assignment: Aufgabe/Standortzuordnung  #g
       task/skill: Aufgabe/Fähigkeit  #g
       task/skill_assignment: Aufgabe/Fähigkeitszuordnung  #g
@@ -13,7 +15,9 @@ de:
       user/feedback: Helfer/Feedbackeedback  #g
       user/identity: Helfer/Identität  #g
       working_group: Arbeitsgruppe  #g
-      supply: Sachspende
+      supply: 
+        one: Sachspende #g
+        other: Sachspenden #g
 
     attributes:
       circle:
@@ -23,7 +27,8 @@ de:
         tasks: Aufgaben  #g
         volunteers: Helfer  #g
         working_groups: Arbeitsgruppen  #g
-
+        roles: Rollen #g
+          
       location:
         address: Anschrift  #g
         circles: Helferkreise  #g
@@ -51,11 +56,14 @@ de:
 
       task:
         completed_at: Erledigt um  #g
+        completed_tasks: Erledigten Aufgaben #g
+        pending_tasks: Offene Aufgaben   #g
         description: Beschreibung  #g
         due_date: Fälligkeit  #g
         location_assignments: Standortzuordnung  #g
         locations: Standorte  #g
         name: "Name der Aufgabe"  #g
+        working_group_id: Arbeitsgruppen-Id  #g
         organizer_assignments: Organisatorzuordnung  #g
         organizer_id: Organisator
         skill_assignments: Fähigkeitszuordnungen  #g
@@ -128,18 +136,26 @@ de:
         task: :activerecord.models.task  #g
         volunteer: :activerecord.models.volunteer  #g
 
+      role:
+        actions: Aktionen 
+      
       user:
         circle: :activerecord.models.circle  #g
+        working_groups: :activerecord.models.working_group #g
         email: Email  #g
         feedback: Feedback  #g
+        name: Name #g
         first_name: Vorname  #g
         identities: Identitäten  #g
         last_name: Nachname  #g
+        language: Sprache #g
+        primary_circle_id: Haupthelferkreis  #g
         location: :activerecord.models.location  #g
         notifications: Benachrichtigungen  #g
         task_volunteer_assignments: Aufgabe Helferzuordnungen  #g
         tasks: Aufgaben  #g
         triggered_system_events: Ausgelöste System-Events  #g
+        role: Rolle #g
 
       user/feedback:
         comment: Kommentar  #g
@@ -150,10 +166,12 @@ de:
         circle: :activerecord.models.circle  #g
         email: Email  #g
         password_digest: Passwort Digest  #g
-        volunteer: :activerecord.models.volunteer  #g
+        volunteer: :activerecord.models.volunteer  #g      
 
       working_group:
         circle: :activerecord.models.circle  #g
         name: Name  #g
         tasks: Aufgaben  #g
         volunteers: Helfer  #g
+        admin: 
+        actions: 
