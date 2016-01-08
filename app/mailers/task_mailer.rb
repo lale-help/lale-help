@@ -9,6 +9,15 @@ class TaskMailer < BaseMandrillMailer
   end
 
 
+  def task_completion_reminder(task, user, token)
+    build_message(user.language, user.email) do
+      merge_vars(user, task).merge({
+        "TASK_MARK_COMPLETE_URL" => handle_token_url(token.code, status: :completed),
+        "TASK_ADD_COMMENT_URL"   => handle_token_url(token.code)
+      })
+    end
+  end
+
 
   def task_invitation(task, user, token)
     build_message(user.language, user.email) do
