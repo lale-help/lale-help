@@ -1,4 +1,4 @@
-class Task::Notifications::DailyReminders < Mutations::Command
+class Task::Notifications::DailyUpcomingReminders < Mutations::Command
 
   DAYS_UNTIL_TASK = 1
   HOUR_OF_DAY     = 8
