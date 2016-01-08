@@ -91,7 +91,7 @@
         = form_tag circle_task_complete_path(current_circle, current_task), method: 'put' do
           button.button-primary= t('.complete-task-button')
 
-      - if can? :manage, current_task
+      - if can? :invite_to, current_task
         = form_tag circle_task_invite_path(current_circle, current_task, type: 'working_group'), method: 'post' do
           button.button.button-secondary= t('.invite-button', group: current_task.working_group.name)
 

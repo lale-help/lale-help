@@ -112,6 +112,13 @@ class Ability
       task.volunteers.include?(user)
     end
 
+    can :invite_to, Task do |task|
+      can?(:manage, task)
+    end
+    cannot :invite_to, Task do |task|
+      task.complete?
+    end
+
 
     can :complete, Task do |task|
       task.due_date < Time.now and (
