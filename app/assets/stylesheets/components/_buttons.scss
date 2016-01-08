@@ -38,8 +38,8 @@
 
 .button.button-secondary, .button-secondary {
   @extend %button-base;
-  background-color: $white;
-  color: $blue;
+  background-color: $blue;
+  color: $white;
   border: thin solid $blue;
   text-shadow   : none;
 }
