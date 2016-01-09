@@ -4,8 +4,9 @@ namespace :recurring do
     zones = ENV["TIMEZONES"].split(",") if ENV["TIMEZONES"].present?
 
     Task::Notifications::DailyUpcomingReminders.run! zones: zones
-
     Task::Notifications::DailyCompletionReminders.run! zones: zones
+
+    Supply::Notifications::DailyCompletionReminders.run! zones: zones
 
     Rails.logger.info "Finished Hourly Tasks"
   end

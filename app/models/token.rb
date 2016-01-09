@@ -7,6 +7,7 @@ class Token < ActiveRecord::Base
     login
     task_completion
     supply_invitation
+    supply_completion
   )
 
   scope :for_user_id, ->(user_id) { where("context ->> 'user_id' = ?", user_id.to_s)}
