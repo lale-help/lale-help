@@ -30,6 +30,17 @@ main
         = errors.message_for(:location)
 
     .field-row
+      .field class=errors.css(:mobile_phone)
+        = f.label :mobile_phone
+        = f.text_field :mobile_phone
+        = errors.message_for(:mobile_phone)
+
+      .field class=errors.css(:home_phone)
+        = f.label :home_phone
+        = f.text_field :home_phone
+        = errors.message_for(:home_phone)
+
+    .field-row
       .field.required class=errors.css(:language)
         = f.label :language
         = f.select :language do

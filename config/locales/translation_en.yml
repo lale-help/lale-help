@@ -119,21 +119,24 @@ en:
       
       user:
         circle: :activerecord.models.circle  #g
-        working_groups: :activerecord.models.working_group #g
         email: Email  #g
         feedback: Feedback  #g
-        name: Name #g
         first_name: First name  #g
         identities: Identities  #g
         last_name: Last name  #g
         location: :activerecord.models.location  #g
         language: Language #g
-        primary_circle_id: Primary Circle #g
+        name: Name #g
         notifications: Notifications  #g
+        phone: Phone #g
+        mobile_phone: Mobile Phone #g
+        home_phone: Home Phone #g
+        primary_circle_id: Primary Circle #g
+        role: Role #g
         task_volunteer_assignments: Task volunteer assignments  #g
         tasks: Tasks  #g
         triggered_system_events: Triggered system events  #g
-        role: Role #g
+        working_groups: :activerecord.models.working_group #g
 
       user/feedback:
         comment: Comment  #g

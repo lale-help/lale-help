@@ -141,6 +141,7 @@ fr:
         actions: Actions  #g
 
       user:
+        active_since: 
         circle: :activerecord.models.circle  #g
         working_groups: :activerecord.models.working_group #g
         email: Email  #g
@@ -149,8 +150,12 @@ fr:
         first_name: Prénom  #g
         identities: Identitées  #g
         last_name: Nom de famille  #g
+        last_login: 
         location: :activerecord.models.location  #g
         language: Langue #g
+        phone: 
+        mobile_phone: 
+        home_phone: 
         primary_circle_id: Cercle Principal #g
         notifications: Notifications  #g
         task_volunteer_assignments: Allocation de volontaire(s)  #g

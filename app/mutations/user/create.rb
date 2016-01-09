@@ -30,7 +30,7 @@ class User::Create < ::Form
     end
 
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :language))
+      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language))
       user.identity.assign_attributes(inputs.slice(:email, :password))
 
       user.location = Location.location_from(location)

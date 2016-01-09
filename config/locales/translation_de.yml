@@ -140,17 +140,22 @@ de:
         actions: Aktionen 
       
       user:
+        active_since: Aktiv Seit #g
         circle: :activerecord.models.circle  #g
         working_groups: :activerecord.models.working_group #g
-        email: Email  #g
+        email: E-Mail-Adresse  #g
         feedback: Feedback  #g
         name: Name #g
         first_name: Vorname  #g
         identities: Identitäten  #g
         last_name: Nachname  #g
+        last_login: Letzte Anmeldung #g
         language: Sprache #g
+        phone: Telefon #g
         primary_circle_id: Haupthelferkreis  #g
         location: :activerecord.models.location  #g
+        mobile_phone:  
+        home_phone:  
         notifications: Benachrichtigungen  #g
         task_volunteer_assignments: Aufgabe Helferzuordnungen  #g
         tasks: Aufgaben  #g

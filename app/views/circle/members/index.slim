@@ -3,20 +3,30 @@ h2 = t('.directory')
 table
   tr
     th = @members.human_attribute_name("name")
-    th = @members.human_attribute_name("circle.roles")
-    th = @members.human_attribute_name("email")
     th = @members.human_attribute_name("working_groups")
+    th = @members.human_attribute_name("location.address")
+    th = @members.human_attribute_name("phone")
+    /!th = @members.human_attribute_name("circle.roles")
+    th = @members.human_attribute_name("email")
+    th = @members.human_attribute_name("active_since")
+    th = @members.human_attribute_name("last_login")
     th = @members.human_attribute_name("task.completed_tasks")
     th = @members.human_attribute_name("task.pending_tasks")
 
   - @members.each do |user|
     tr
       td= user.name
-      td= user.circle_roles.for_circle(current_circle).map(&:name).sort.join(", ")
-      td= user.identity.email
       td
         - user.working_groups.for_circle(current_circle).each do |wg|
           li= wg.name
+      /!td= user.circle_roles.for_circle(current_circle).map(&:name).sort.join(", ")
+      td= user.location.address
+      td
+      	div= "M: #{user.mobile_phone}"
+      	div= "H: #{user.home_phone}"
+      td= user.identity.email
+      td= user.last_login
+      td= user.active_since
       td= user.tasks.for_circle(current_circle).volunteered.completed.count
       td= user.tasks.for_circle(current_circle).volunteered.not_completed.count
 

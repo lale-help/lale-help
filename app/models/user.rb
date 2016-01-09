@@ -23,11 +23,19 @@ class User < ActiveRecord::Base
   def name
     "#{first_name} #{last_name}"
   end
-
+  
   def email
     identity.try :email
   end
-
+  
+  def active_since
+    "123"
+  end
+  
+  def last_login
+    "999"
+  end
+  
   def tasks_for_circle circle
     task_assignments.where(circle: circle).tasks
   end
