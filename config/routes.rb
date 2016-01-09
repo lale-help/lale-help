@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       resources :supplies do
         put :complete, :volunteer, :decline
         resources :comments, only: :create
+
+        post :invite
       end
 
       resources :working_groups do
