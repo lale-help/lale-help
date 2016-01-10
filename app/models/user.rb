@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   end
   
   def active_since
-    "123"
+    user.created_at
   end
   
   def last_login
