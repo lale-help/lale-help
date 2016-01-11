@@ -6,7 +6,7 @@ class Ability
 
     # Admin
     can :read, ActiveAdmin::Page, :name => "Dashboard"
-    
+
     # Circles
     can :create, Circle
     can :read,   Circle do |circle|
@@ -112,6 +112,13 @@ class Ability
       task.volunteers.include?(user)
     end
 
+    can :invite_to, Task do |task|
+      can?(:manage, task)
+    end
+    cannot :invite_to, Task do |task|
+      task.complete?
+    end
+
 
     can :complete, Task do |task|
       task.due_date < Time.now and (
@@ -176,6 +183,17 @@ class Ability
     cannot :complete, Supply do |supply|
       supply.complete?
     end
+
+    can :invite_to, Supply do |supply|
+      can?(:manage, supply)
+    end
+    cannot :invite_to, Supply do |supply|
+      supply.complete? || supply.volunteer.present?
+    end
+
+
+
+
 
     # Comments
     can :create, Comment do |comment|

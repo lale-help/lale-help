@@ -2,6 +2,8 @@ class User::AccountController < ApplicationController
   skip_authorization_check
   layout 'internal'
 
+  before_action :ensure_logged_in
+
   def edit
     @form = User::Update.new(user: current_user)
   end

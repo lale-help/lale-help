@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       resources :supplies do
         put :complete, :volunteer, :decline
         resources :comments, only: :create
+
+        post :invite
       end
 
       resources :working_groups do
@@ -30,6 +32,8 @@ Rails.application.routes.draw do
         patch :decline
         put :complete
         patch :complete
+
+        post :invite
       end
     end
   end

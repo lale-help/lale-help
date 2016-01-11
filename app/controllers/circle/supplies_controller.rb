@@ -120,6 +120,20 @@ class Circle::SuppliesController < ApplicationController
   end
 
 
+  def invite
+    authorize! :invite_to, current_supply
+
+    outcome = Supply::Notifications::InvitationEmail.run(current_user: current_user, supply: current_supply, type: params[:type])
+
+    if outcome.success?
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.invited', name: current_supply.name)
+    else
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.invite_failed', name: current_supply.name)
+    end
+  end
+
+
+
   helper_method def errors
     @errors ||= Errors.new
   end
