@@ -1,46 +1,48 @@
 h2 = t('.directory')
 
-table
-  tr
-    th = @members.human_attribute_name("name")
-    th = @members.human_attribute_name("working_groups")
-    th = @members.human_attribute_name("location.address")
-    th = @members.human_attribute_name("phone")
-    /!th = @members.human_attribute_name("circle.roles")
-    th = @members.human_attribute_name("email")
-    th = @members.human_attribute_name("active_since")
-    th = @members.human_attribute_name("last_login")
-    th = @members.human_attribute_name("task.completed_tasks")
-    /!th = @members.human_attribute_name("task.pending_tasks")
-
-  - @members.each do |user|
-    tr
-      td
-      	=render partial: 'user/user_icon', locals: {user: user}
-      	=user.name      
-      td
-        - user.working_groups.for_circle(current_circle).each do |wg|
-          a href= circle_working_group_path(current_circle,wg) 
-            =wg.name
-      /!td= user.circle_roles.for_circle(current_circle).map(&:name).sort.join(", ")
-      td= user.location.address
-      td
-      	div= "M: #{user.mobile_phone}"
-      	div= "H: #{user.home_phone}"
-      td
-        a href="mailto:#{user.identity.email}"
-          =user.identity.email
-      td= I18n.l(user.created_at.to_date, format: :default)
-      td= user.last_login
-      td
-        - unless user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at} == nil
-          -  @task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}
-          div
-            a href=circle_task_path(current_circle, @task)
-              =@task.name
-          div=I18n.l(@task.completed_at.to_date, format: :default)
-        
-          
+div.table-scrollable
+	table
+	  tr
+	    th = @members.human_attribute_name("name")
+	    th = @members.human_attribute_name("working_groups")
+	    th = @members.human_attribute_name("location.address")
+	    th = @members.human_attribute_name("phone")
+	    th = @members.human_attribute_name("email")
+	    th = @members.human_attribute_name("active_since")
+	    th = @members.human_attribute_name("last_login")
+	    th = @members.human_attribute_name("task.completed_tasks")
+	
+	  - @members.each do |user|
+	    tr
+	      td
+	      	=render partial: 'user/user_icon', locals: {user: user}
+	      	=user.name      
+	      td
+	        - user.working_groups.for_circle(current_circle).each do |wg|
+	          a href= circle_working_group_path(current_circle,wg) 
+	            =wg.name
+	      td= user.location.address
+	      td
+	        - if user.mobile_phone != nil
+	          div= "M: #{user.mobile_phone}"
+	      	- if user.home_phone != nil
+	       	  div= "H: #{user.home_phone}"
+	      td 
+	        a href="mailto:#{user.identity.email}"
+	          =user.identity.email
+	      td= I18n.l(user.created_at.to_date, format: :default)
+	      td
+	        - if user.last_login != nil
+	          div=I18n.l(user.last_login.to_date, format: :default)
+	      td
+	        - unless user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at} == nil
+	          -  @task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}
+	          div
+	            a href=circle_task_path(current_circle, @task)
+	              =@task.name
+	          div=I18n.l(@task.completed_at.to_date, format: :default)
+	        
+	          
         
       
 

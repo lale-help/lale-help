@@ -63,7 +63,7 @@ en:
 
       task:
         completed_at: Completed at  #g
-        completed_tasks: Completed Tasks #g
+        completed_tasks: Last Completed Task #g
         pending_tasks: Pending Tasks #g
         description: "Description of the Task"
         due_date: Due Date  #g

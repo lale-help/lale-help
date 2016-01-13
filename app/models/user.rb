@@ -32,10 +32,6 @@ class User < ActiveRecord::Base
     user.created_at
   end
   
-  def last_login
-    "999"
-  end
-  
   def tasks_for_circle circle
     task_assignments.where(circle: circle).tasks
   end

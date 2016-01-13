@@ -5,8 +5,12 @@ table {
   border-spacing  : 0;
   table-layout    : fixed;
   width           : 100%;
+  min-width       : 1000px;
 }
 
+.table-scrollable {
+  overflow-x      : scroll;
+}
 
 th, td {
   border-bottom : 1px $border-color solid;
@@ -15,6 +19,7 @@ th, td {
 
 td {
   padding: 1.5rem 0 ;
+  word-wrap:break-word;
 }
 
 tr, td, th {

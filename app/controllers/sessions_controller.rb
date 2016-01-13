@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     if current_user.present?
+      current_user.update_attribute(:last_login, Time.now)
       redirect_to user_redirect_path
     else
       @form = User::Login.new
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
     outcome = @form.submit
     if outcome.success?
       user = outcome.result
+      user.update_attribute(:last_login, Time.now)
       login(user)
       redirect_to user_redirect_path
 
