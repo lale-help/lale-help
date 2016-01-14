@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   end
   resources :circles do
     scope module: 'circle' do
-      resource  :calendar, :admin
+      resource :admin do
+        get :roles
+        get :working_groups
+        get :invite
+      end
+
+      resource  :calendar
       resources :members, :roles, :discussions
 
       resources :supplies do

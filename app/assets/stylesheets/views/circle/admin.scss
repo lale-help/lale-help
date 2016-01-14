@@ -24,3 +24,28 @@ table {
   }
 
 }
+
+.admin_nav {
+  a {
+    padding: 1rem;
+  }
+
+  a:first-child{
+    padding-left: 0;
+  }
+
+  a.selected {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}
+
+.invite-link {
+  background: $blue-light-1;
+  border:     thin solid $blue-dark-1;
+  padding: 1rem;
+  margin-top: 2rem;
+  display: inline-block;
+  @include border-top-radius(10px);
+  @include border-bottom-radius(10px);
+}
