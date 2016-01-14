@@ -14,6 +14,8 @@ class Token < ActiveRecord::Base
   scope :active, -> { where(active: true) }
 
   after_initialize do
-    self.code ||= SecureRandom.hex(64)
+    begin
+      self.code ||= SecureRandom.hex(64)
+    end while Token.active.where(code: self.code).exists?
   end
 end
