@@ -8,14 +8,18 @@ class Token < ActiveRecord::Base
     task_completion
     supply_invitation
     supply_completion
+    circle_invite
   )
 
-  scope :for_user_id, ->(user_id) { where("context ->> 'user_id' = ?", user_id.to_s)}
+  scope :for_user_id,   ->(id) { where("context ->> 'user_id' = ?", id.to_s)}
+  scope :for_circle_id, ->(id) { where("context ->> 'circle_id' = ?", id.to_s)}
   scope :active, -> { where(active: true) }
 
   after_initialize do
-    begin
-      self.code ||= SecureRandom.hex(64)
-    end while Token.active.where(code: self.code).exists?
+    if self.code.blank?
+      begin
+        self.code ||= SecureRandom.hex(64)
+      end while Token.active.where(code: self.code).exists?
+    end
   end
 end
