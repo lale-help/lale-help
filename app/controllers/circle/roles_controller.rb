@@ -6,7 +6,7 @@ class Circle::RolesController < ApplicationController
 
     current_circle.roles.create role_params
 
-    redirect_to circle_admin_path(current_circle)
+    redirect_to roles_circle_admin_path(current_circle)
   end
 
   def destroy
@@ -15,7 +15,7 @@ class Circle::RolesController < ApplicationController
     role = current_circle.roles.find(params[:id])
     role.destroy
 
-    redirect_to circle_admin_path(current_circle)
+    redirect_to roles_circle_admin_path(current_circle)
   end
 
   private
