@@ -12,3 +12,7 @@ en:
 
       working_groups:
         confirm_delete_working_group: Are you sure?
+
+      invite:
+        invite_members: "Invite members to %{circle}"
+        invite_members_explaination: "To invite new members to this circle, just share the following link with people that are interested."
