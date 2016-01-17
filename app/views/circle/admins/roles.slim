@@ -1,7 +1,6 @@
 = render partial: 'nav'
 
 section
-  h2= Circle.human_attribute_name("roles")
   = form_tag circle_roles_path(current_circle), method: 'POST' do
     table
       tr

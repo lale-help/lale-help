@@ -1,8 +1,7 @@
 = render partial: 'nav'
 
-section
-  h2 = t('.invite_members')
-  p
-    | Token link
+section.admin-invite
+  p  = t('.invite_members_explaination')
 
-  a.invite-link href=handle_token_url(current_circle.invite_token.code) = handle_token_url(current_circle.invite_token.code)
+  .invite-link
+    a href=join_circle_url(current_circle) = join_circle_url(current_circle)
