@@ -33,6 +33,14 @@ class Circle < ActiveRecord::Base
     tasks.count
   end
 
+  def slug
+    name.strip.downcase.underscore.gsub(/\s+/, ?-)
+  end
+
+  def to_param
+    [id, slug].join(?-)
+  end
+
 
   private
   def determine_location

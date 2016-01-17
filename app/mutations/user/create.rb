@@ -15,6 +15,8 @@ class User::Create < ::Form
   attribute :location, :string
   attribute :language, :integer
 
+  attribute :circle, :model, required: false
+
   def language_options
     User.languages.map do |key, val|
       [ I18n.t("language.#{key}"), val ]
@@ -37,6 +39,8 @@ class User::Create < ::Form
 
       user.save
       user.identity.save
+
+      Circle::Join.run(user: user, circle_id: circle.id) if circle.present?
 
       user
     end

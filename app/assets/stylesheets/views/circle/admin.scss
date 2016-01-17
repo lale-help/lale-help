@@ -43,12 +43,23 @@ table {
   }
 }
 
-.invite-link {
-  background: $blue-light-1;
-  border:     thin solid $blue-dark-1;
-  padding: 1rem;
-  margin-top: 2rem;
-  display: inline-block;
-  @include border-top-radius(10px);
-  @include border-bottom-radius(10px);
+section.admin-invite{
+  text-align: center;
+  p {
+    margin: 4rem;
+  }
+
+  .invite-link {
+    text-align: center;
+    a {
+      @include border-top-radius(10px);
+      @include border-bottom-radius(10px);
+      @include text-color($body-text, $body-text);
+
+      background: $blue-light-2;
+      border:     thin solid $blue-dark-1;
+      display: inline-block;
+      padding:    1rem;
+    }
+  }
 }
