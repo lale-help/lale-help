@@ -33,17 +33,6 @@ class Circle < ActiveRecord::Base
     tasks.count
   end
 
-  def invite_token
-    @invite_token ||= begin
-      previous = Token.circle_invite.active.for_circle_id(self.id).first
-      if previous.present?
-        previous
-      else
-        Token.circle_invite.active.create context: { circle_id: self.id }
-      end
-    end
-  end
-
 
   private
   def determine_location
