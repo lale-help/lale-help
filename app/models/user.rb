@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   has_many :triggered_system_events, class_name: '::SystemEvent'
   has_many :notifications, class_name: '::SystemEvent::Notification'
 
-  has_one :identity
+  has_one :identity, dependent: :destroy
 
   belongs_to :location
   belongs_to :primary_circle, class_name: 'Circle'
