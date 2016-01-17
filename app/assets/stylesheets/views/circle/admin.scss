@@ -25,18 +25,21 @@ table {
 
 }
 
-.admin_nav {
+.admin-nav {
+  border-top: thin solid $blue-dark-1;
+  border-bottom: thin solid $blue-dark-1;
+  text-align: center;
+
   a {
-    padding: 1rem;
+    display: inline-block;
+    padding: 1rem 2rem;
   }
 
-  a:first-child{
-    padding-left: 0;
-  }
 
   a.selected {
     font-weight: bold;
-    text-decoration: underline;
+    background: $blue-light-2;
+    border-bottom: thick solid $orange;
   }
 }
 
