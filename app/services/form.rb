@@ -115,6 +115,10 @@ class Form
     self.class::Submit
   end
 
+  def self.run *args
+    self.new(*args).submit
+  end
+
   def submit
     submit_class.run(attributes).tap do |outcome|
       unless outcome.success?
