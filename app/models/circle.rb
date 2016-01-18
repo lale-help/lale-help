@@ -25,6 +25,8 @@ class Circle < ActiveRecord::Base
   before_save :determine_location
   after_initialize  :determine_location
 
+  enum language: [:en, :de, :fr]
+
   def user_count
     users.count
   end
