@@ -8,7 +8,7 @@ en:
         directory:          "Directory"
         discussions:        "Discussions"
         calendar:           "Calendar"
-        admin:              "Admin"
+        admin:              "Administration"
         my-working-groups:  "My Working Groups"
         all-working-groups: "All Working Groups"
       header:

@@ -3,8 +3,17 @@ de:
     admins:
       show:
         settings: Einstellungen
-        confirm_delete_circle: Bist Du sicher?
-        confirm_delete_working_group: Bist Du sicher?
+
         promote_user: Rolle vergeben
         create_working_group: Neue Arbeitsgruppe anlegen
+
+      roles:
+        confirm_delete_circle: Bist Du sicher?
+
+      working_groups:
+        confirm_delete_working_group: Bist Du sicher?
+
+      invite:
+        invite_members: "Neue Mitglieder zu %{circle} einladen"
+        invite_members_explaination: "Um neue Mitglieder in diesen Helferkreis einzuladen, schicke einfach diesen Link an alle Interessierten."
         

@@ -1,9 +1,16 @@
 de:
+  helpers:
+    placeholders:
+      circle:
+        task:
+          name:
   activerecord:
     models:
       circle: Helferkreis  #g
       location: Standort  #g
       system_event: System-Event  #g
+      system_event/notification: System event/notification  #g
+      system_event/notification/delivery: System event/notification/delivery  #g
       task:
         one: Aufgabe #g
         other: Aufgaben #g

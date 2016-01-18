@@ -6,10 +6,10 @@ de:
         forgot_password:  "Passwort vergessen?"
       task_mailer:
         task_change:              "Es gibt etwas Neues bei Deiner Aufgabe."
-        task_completion_reminder: "Vielen Dank für Dein Hilfe!"
+        task_completion_reminder: "Vielen Dank für Deine Hilfe!"
         task_invitation:          "Lale braucht Hilfe für eine neue Aufgabe"
         task_reminder:            "Passt noch alles?"
         task_suggestion:          "Lale möchte Dir eine Aufgabe vorschlagen"
       supply_mailer:
-        supply_completion_reminder: "Vielen Dank für Dein Hilfe!"
+        supply_completion_reminder: "Vielen Dank für Deine Hilfe!"
         supply_invitation:          "Lale braucht Hilfe für eine neue Sachspende"

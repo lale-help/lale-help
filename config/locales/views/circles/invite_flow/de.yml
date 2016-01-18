@@ -1,0 +1,5 @@
+de:
+  circle:
+    invite_flow:
+      join:
+        start_helping: Mach heute gleich mit bei %{circle}!

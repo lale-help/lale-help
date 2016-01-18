@@ -7,7 +7,8 @@ de:
 
   workflow:
     continue: Weiter
-    cancel: Abbrechen
+    cancel:   Abbrechen
+    join:     Beitreten
 
   language:
     en: Englisch
@@ -15,7 +16,7 @@ de:
     fr: Französich
 
   forms:
-    correct-errors: Bitte ändern Sie die untenstehenden Fehler.
+    correct-errors: Bitte ändere die untenstehenden Fehler.
 
   fields:
     name: Name
