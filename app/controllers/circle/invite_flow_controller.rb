@@ -30,6 +30,7 @@ class Circle::InviteFlowController < ApplicationController
   helper_method def circle
     @circle ||= Circle.find_by(id: params[:circle_id])
   end
+  alias_method :current_circle, :circle
 
   before_action do
     redirect_to root_url unless circle.present?

@@ -19,10 +19,12 @@ class ApplicationController < ActionController::Base
   helper_method :ensure_logged_in
 
   def set_locale
-    I18n.locale = if params[:locale].present?
-      params[:locale]
+    I18n.locale = if params[:lang].present?
+      params[:lang]
     elsif current_user.present?
       current_user.language
+    elsif respond_to?(:current_circle) && current_circle.present?
+      current_circle.language
     else
      I18n.default_locale
    end
