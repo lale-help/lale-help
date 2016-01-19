@@ -472,6 +472,7 @@
         :volunteer: ''
         :organizer: ''
       :admin: ''
+      :member: ''
   :circle:
     :admins:
       :show:

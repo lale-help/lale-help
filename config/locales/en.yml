@@ -660,6 +660,7 @@
         :volunteer: Volunteer
         :organizer: Organizer
       :admin: Admin
+      :member: Member
   :circle:
     :admins:
       :show:
