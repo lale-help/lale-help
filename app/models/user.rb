@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :feedback
+  # has_many :feedback
 
   has_many :triggered_system_events, class_name: '::SystemEvent'
   has_many :notifications, class_name: '::SystemEvent::Notification'
