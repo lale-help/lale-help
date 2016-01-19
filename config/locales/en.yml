@@ -657,6 +657,9 @@
         :helpee: Helpee
       :task:
         :assignee: Volunteer
+        :volunteer: Volunteer
+        :organizer: Organizer
+      :admin: Admin
   :circle:
     :admins:
       :show:
@@ -833,3 +836,8 @@
         :update: Update your Password
         :password: Password
         :password_confirmation: Password Confirmation
+  :en:
+    :roles:
+      :name:
+        :task:
+          :volunteer: Volunteer

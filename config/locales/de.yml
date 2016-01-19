@@ -516,6 +516,9 @@
         :helpee: Hilfsempfänger
       :task:
         :assignee: Helfer
+        :volunteer: ''
+        :organizer: ''
+      :admin: ''
   :circle:
     :admins:
       :show:
@@ -694,3 +697,8 @@
         :update: Passwort ändern
         :password: Passwort
         :password_confirmation: Password Bestätigung
+  :en:
+    :roles:
+      :name:
+        :task:
+          :volunteer: ''
