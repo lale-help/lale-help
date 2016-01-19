@@ -287,6 +287,17 @@
         :volunteers: Volunteers
         :admin: Admin
         :actions: Actions
+      :supply:
+        :duration-text:
+          :hours_3: 3 Hours
+          :all_day: All day
+          :half_day: Half day
+          :hours_1: 1 Hour
+          :hours_2: 2 Hours
+        :completed_at: Completed at
+        :description: Description
+        :due_date: Due Date
+        :duration: Duration
   :datetime:
     :distance_in_words:
       :half_a_minute: half a minute
