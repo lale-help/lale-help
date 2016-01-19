@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   check_authorization :unless => :active_admin_controller?
+  before_action :permit_all_params, if: :active_admin_controller?
 
   rescue_from ::CanCan::AccessDenied do |exception|
     puts "access denied due to #{exception.inspect}"
@@ -57,4 +58,7 @@ class ApplicationController < ActionController::Base
     controller_path.starts_with? "admin/"
   end
 
+  def permit_all_params
+    params.permit! # allow all parameters
+  end
 end
