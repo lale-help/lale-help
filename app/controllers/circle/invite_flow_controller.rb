@@ -33,6 +33,7 @@ class Circle::InviteFlowController < ApplicationController
   alias_method :current_circle, :circle
 
   before_action do
+    @skip_registration_links = true
     redirect_to root_url unless circle.present?
   end
 end
