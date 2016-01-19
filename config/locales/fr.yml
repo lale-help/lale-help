@@ -1,59 +1,236 @@
-fr:
-  lale: Lale
-  hello: 'Salut !'
-  edit: Editer
-  delete: Supprimer
-  supported-by: "Developé par"
-
-  workflow:
-    continue: Continuer
-    cancel: Annuler
-
-  language:
-    en: Anglais
-    de: Allemand
-    fr: 'Français'
-
-  forms:
-    correct-errors: 'Merci de corriger les erreurs ci-dessous.'
-
-  fields:
-    name: Nom
-    location: Localisation
-
-    email: Adresse email
-    email-placeholder: Entrez votre email
-
-    password: Mot de passe
-    password-placeholder: Entrez votre mot de passe
-
-  # Use this for form helpers
-  helpers:
-    header:
-      add:  "Créer un nouveau %{name}"
-      edit: "Editer %{name}"
-
-    confirm:
-      task:
-        delete: 'Etes-vous sûr de vouloir effacer cette tâche ?'
-      supply:
-        delete: 'Etes-vous sûr de vouloir effacer cet objet ?'
-
-    placeholder:
-      task:
-        name: "Ex. Amener Riad à l'école"
-
-    submit:
-      create: "Créer %{model}"
-      submit: "Enregistrer %{model}"
-      update: "Mettre à jour %{model}"
-
-  unauthorized:
-    manage:
-      all: "Vous n'êtes pas autorisé à %{action} %{subject}."
-
-  date:
-    abbr_day_names:
+---
+:fr:
+  :ransack:
+    :search: recherche
+    :predicate: prédicat
+    :and: et
+    :or: ou
+    :any: au moins un
+    :all: tous
+    :combinator: combinateur
+    :attribute: attribut
+    :value: valeur
+    :condition: condition
+    :sort: tri
+    :asc: ascendant
+    :desc: descendant
+    :predicates:
+      :eq: "égal à"
+      :eq_any: "égal à au moins un"
+      :eq_all: "égal à tous"
+      :not_eq: différent de
+      :not_eq_any: différent d'au moins un
+      :not_eq_all: différent de tous
+      :matches: correspond à
+      :matches_any: correspond à au moins un
+      :matches_all: correspond à tous
+      :does_not_match: ne correspond pas à
+      :does_not_match_any: ne correspond pas à au moins un
+      :does_not_match_all: ne correspond à aucun
+      :lt: inférieur à
+      :lt_any: inférieur à au moins un
+      :lt_all: inférieur à tous
+      :lteq: inférieur ou égal à
+      :lteq_any: inférieur ou égal à au moins un
+      :lteq_all: inférieur ou égal à tous
+      :gt: supérieur à
+      :gt_any: supérieur à au moins un
+      :gt_all: supérieur à tous
+      :gteq: supérieur ou égal à
+      :gteq_any: supérieur ou égal à au moins un
+      :gteq_all: supérieur ou égal à tous
+      :in: inclus dans
+      :in_any: inclus dans au moins un
+      :in_all: inclus dans tous
+      :not_in: non inclus dans
+      :not_in_any: non inclus dans au moins un
+      :not_in_all: non inclus dans tous
+      :cont: contient
+      :cont_any: contient au moins un
+      :cont_all: contient tous
+      :not_cont: ne contient pas
+      :not_cont_any: ne contient pas au moins un
+      :not_cont_all: ne contient pas tous
+      :start: commence par
+      :start_any: commence par au moins un
+      :start_all: commence par tous
+      :not_start: ne commence pas par
+      :not_start_any: ne commence pas par au moins un
+      :not_start_all: ne commence pas par tous
+      :end: finit par
+      :end_any: finit par au moins un
+      :end_all: finit par tous
+      :not_end: ne finit pas par
+      :not_end_any: ne finit pas par au moins un
+      :not_end_all: ne finit pas par tous
+      :true: est vrai
+      :false: est faux
+      :present: est présent
+      :blank: est blanc
+      :null: est null
+      :not_null: n'est pas null
+  :active_admin:
+    :dashboard: Tableau de bord
+    :dashboard_welcome:
+      :welcome: Bienvenue dans Active Admin. Ceci est la page par défaut.
+      :call_to_action: Pour ajouter des sections au tableau de bord, consultez 'app/admin/dashboard.rb'
+    :view: Voir
+    :edit: Modifier
+    :delete: Supprimer
+    :delete_confirmation: "Êtes-vous certain de vouloir supprimer ceci ?"
+    :new_model: Créer %{model}
+    :edit_model: Modifier %{model}
+    :delete_model: Supprimer %{model}
+    :details: Détails de %{model}
+    :cancel: Annuler
+    :empty: Vide
+    :previous: Précédent
+    :next: Suivant
+    :download: 'Télécharger :'
+    :has_many_new: Ajouter un nouveau %{model}
+    :has_many_delete: Supprimer
+    :has_many_remove: Enlever
+    :filters:
+      :buttons:
+        :filter: Filtrer
+        :clear: Supprimer les filtres
+      :predicates:
+        :contains: Contient
+        :equals: "Égal à"
+        :starts_with: Commence par
+        :ends_with: Se termine par
+        :greater_than: Plus grand que
+        :less_than: Plus petit que
+    :search_status:
+      :headline: 'Etendu du filtre :'
+      :current_filters: 'Filtres actuels :'
+      :no_current_filters: Aucun filtres
+    :status_tag:
+      :yes: Oui
+      :no: Non
+    :main_content: Veuillez implémenter %{model}#main_content pour afficher le contenu.
+    :logout: Déconnexion
+    :powered_by: Propulsé par %{active_admin} %{version}
+    :sidebars:
+      :filters: Filtres
+      :search_status: Statut de la recherche
+    :pagination:
+      :empty: Aucun %{model} trouvé
+      :one: Affichage de <b>1</b> %{model}
+      :one_page: Affichage des <b>%{n}</b> %{model}
+      :multiple: Affichage de %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> sur un total
+        de <b>%{total}</b>
+      :multiple_without_total: Affichage de %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>
+      :entry:
+        :one: entrée
+        :other: entrées
+    :any: N'importe lequel
+    :blank_slate:
+      :content: Il n'y a pas encore de %{resource_name}.
+      :link: Créez en un
+    :dropdown_actions:
+      :button_label: Actions
+    :batch_actions:
+      :button_label: Actions groupées
+      :default_confirmation: "Êtes-vous sûr de vouloir faire cela ?"
+      :delete_confirmation: "Êtes-vous sûr de vouloir supprimer ces %{plural_model}
+        ?"
+      :succesfully_destroyed:
+        :one: 1 %{model} supprimé
+        :other: "%{count} %{plural_model} supprimés"
+      :selection_toggle_explanation: "(Inverser la sélection)"
+      :link: Créer un
+      :action_label: "%{title} les éléments sélectionnés"
+      :labels:
+        :destroy: Supprimer
+    :comments:
+      :body: Corps
+      :author: Auteur
+      :title: Commentaire
+      :add: Ajouter un commentaire
+      :resource: Ressource
+      :resource_type: Type de ressource
+      :author_type: Profil de l'auteur
+      :no_comments_yet: Aucun commentaire actuellement
+      :title_content: Commentaires (%{count})
+      :errors:
+        :empty_text: Le commentaire n'a pas été enregistré puisque le texte était
+          vide.
+    :devise:
+      :username:
+        :title: Nom d'utilisateur
+      :email:
+        :title: Email
+      :subdomain:
+        :title: Sous-domaine
+      :password:
+        :title: Mot de passe
+      :login:
+        :title: Connexion
+        :remember_me: Garder ma session ouverte
+        :submit: Se connecter
+      :reset_password:
+        :title: Vous avez oublié votre mot de passe ?
+        :submit: Réinitialiser mon mot de passe
+      :change_password:
+        :title: Changez votre mot de passe
+        :submit: Changer mon mot de passe
+      :resend_confirmation_instructions:
+        :title: Renvoyer les instructions de confirmation
+        :submit: Renvoyer les instructions de confirmation
+      :links:
+        :sign_in: Connectez-vous
+        :forgot_your_password: Vous avez oublié votre mot de passe ?
+        :sign_in_with_omniauth_provider: Connectez-vous avec %{provider}
+    :access_denied:
+      :message: Vous n'êtes pas autorisé à exécuter cette action
+    :index_list:
+      :table: Tableau
+      :block: Liste
+      :grid: Grille
+      :blog: Blog
+  :lale: Lale
+  :hello: Salut !
+  :edit: Editer
+  :delete: Supprimer
+  :supported-by: Developé par
+  :workflow:
+    :continue: Continuer
+    :cancel: Annuler
+  :language:
+    :en: Anglais
+    :de: Allemand
+    :fr: Français
+  :forms:
+    :correct-errors: Merci de corriger les erreurs ci-dessous.
+  :fields:
+    :name: Nom
+    :location: Localisation
+    :email: Adresse email
+    :email-placeholder: Entrez votre email
+    :password: Mot de passe
+    :password-placeholder: Entrez votre mot de passe
+  :helpers:
+    :header:
+      :add: Créer un nouveau %{name}
+      :edit: Editer %{name}
+    :confirm:
+      :task:
+        :delete: Etes-vous sûr de vouloir effacer cette tâche ?
+      :supply:
+        :delete: Etes-vous sûr de vouloir effacer cet objet ?
+    :placeholder:
+      :task:
+        :name: Ex. Amener Riad à l'école
+    :submit:
+      :create: Créer %{model}
+      :submit: Enregistrer %{model}
+      :update: Mettre à jour %{model}
+  :unauthorized:
+    :manage:
+      :all: Vous n'êtes pas autorisé à %{action} %{subject}.
+  :date:
+    :abbr_day_names:
     - Dim
     - Lun
     - Mar
@@ -61,8 +238,8 @@ fr:
     - Jeu
     - Ven
     - Sam
-    abbr_month_names:
-    -
+    :abbr_month_names:
+    - 
     - Jan
     - Fev
     - Mar
@@ -75,7 +252,7 @@ fr:
     - Oct
     - Nov
     - Dec
-    day_names:
+    :day_names:
     - Dimanche
     - Lundi
     - Mardi
@@ -83,12 +260,12 @@ fr:
     - Jeudi
     - Vendredi
     - Samedi
-    formats:
-      default: "%d.%m.%Y"
-      long: "%e. %B %Y"
-      short: "%e. %b"
-    month_names:
-    -
+    :formats:
+      :default: "%d.%m.%Y"
+      :long: "%e. %B %Y"
+      :short: "%e. %b"
+    :month_names:
+    - 
     - Janvier
     - Février
     - Mars
@@ -101,7 +278,361 @@ fr:
     - Octobre
     - Novembre
     - Decembre
-    order:
+    :order:
     - :jour
     - :mois
     - :année
+  :activerecord:
+    :models:
+      :circle: Cercle
+      :location: Adresse
+      :system_event: Evénement Système
+      :task:
+        :one: Tâche
+        :other: Tâches
+      :task/location_assignment: Tâche/Positionnement
+      :task/skill: Tâche/Compétence
+      :task/skill_assignment: Tâche/Allocation de Compétence
+      :task/volunteer_assignment: Tâche/Allocation de volontaire(s)
+      :user: Volontaire
+      :user/feedback: Volontaire/Feedback
+      :user/identity: Volontaire/Identité
+      :working_group: Groupe de Travail
+      :supply:
+        :one: Besoin
+        :other: Besoins
+    :attributes:
+      :circle:
+        :admin: :activerecord.models.admin
+        :location: :activerecord.models.location
+        :name: Nom
+        :tasks: Tâche
+        :volunteers: Volontaire
+        :working_groups: Groupe de Travail
+        :roles: 
+      :location:
+        :address: Adresse
+        :circles: Cercle
+        :latitude: latitude
+        :longitude: Longitude
+        :name: Nom
+        :users: Utilisateur
+      :system_event:
+        :action: Action
+        :for: :activerecord.models.for
+        :for_type: Pour Type
+        :notifications: Notifications
+        :volunteer: :activerecord.models.volunteer
+      :system_event/notification:
+        :deliveries: Livraisons
+        :system_event: :activerecord.models.system_event
+        :volunteer: :activerecord.models.volunteer
+      :system_event/notification/delivery:
+        :content: Contenu
+        :method: Méthode
+        :notification: :activerecord.models.notification
+      :task:
+        :completed_at: Finie le
+        :completed_tasks: Tâches Complétées
+        :pending_tasks: Tâches en Attente
+        :description: Description de la tâche
+        :due_date: Date d'échéance
+        :location_assignments: Allocation d'emplacements
+        :locations: Emplacements
+        :name: Mon de la tâche
+        :working_group_id: 
+        :organizer_assignments: Allocation d'organisateurs
+        :organizer_id: Organisateur
+        :skill_assignments: Allocation de compétences
+        :skills: Compétences
+        :volunteer_assignments: Allocation de volontaires
+        :volunteers: Volontaires
+        :working_group: :activerecord.models.working_group
+        :volunteer_count_required: Un certain nombre de volontaires est requis
+        :primary_location: Emplacement
+        :duration: Durée
+        :scheduled_time_type: Se produit
+        :scheduled_time_start: Commence
+        :scheduled-time:
+          :at: "à %{start}"
+          :on_date: le
+          :between: entre %{start} et %{end}
+        :duration-text:
+          :hours_1: 1 Heure
+          :hours_2: 2 Heures
+          :hours_3: 3 Heures
+          :half_day: Une demie journée
+          :all_day: Un jour entier
+      :supply:
+        :completed_at: Terminé le
+        :description: Description
+        :due_date: Date d'échéance
+        :location_assignments: Allocation d'emplacements
+        :locations: Emplacements
+        :name: Nom de l'objet
+        :organizer_assignments: Allocation d'organisateurs
+        :organizer: Organisateur
+        :skill_assignments: Allocation de compétences
+        :skills: Compétences
+        :volunteer: Volontaire
+        :working_group: :activerecord.models.working_group
+        :volunteer_count_required: Un certain nombre de volontaires est requis
+        :primary_location: Emplacement
+        :duration: Durée
+        :scheduled_time_type: Se produit
+        :scheduled_time_start: Commence
+        :scheduled-time:
+          :at: "à %{start}"
+          :on_date: le
+          :between: entre %{start} et %{end}
+        :duration-text:
+          :hours_1: 1 Heure
+          :hours_2: 2 Heures
+          :hours_3: 3 Heures
+          :half_day: Une demie journée
+          :all_day: Un jour entier
+      :task/location_assignment:
+        :location: :activerecord.models.location
+        :primary: Primaire
+        :task: :activerecord.models.task
+      :task/skill:
+        :name: Nom
+        :task_skill_assignments: Allocation de compétences
+        :tasks: Tâches
+      :task/skill_assignment:
+        :required: Requis
+        :skill: :activerecord.models.skill
+        :task: :activerecord.models.task
+      :task/volunteer_assignment:
+        :organizer: Organisateur
+        :task: :activerecord.models.task
+        :volunteer: :activerecord.models.volunteer
+      :role:
+        :actions: Actions
+      :user:
+        :circle: :activerecord.models.circle
+        :working_groups: :activerecord.models.working_group
+        :email: Email
+        :feedback: Feedback
+        :name: Nom
+        :first_name: Prénom
+        :identities: Identitées
+        :last_name: Nom de famille
+        :location: :activerecord.models.location
+        :language: Langue
+        :primary_circle_id: Cercle Principal
+        :notifications: Notifications
+        :task_volunteer_assignments: Allocation de volontaire(s)
+        :tasks: Tâches
+        :triggered_system_events: Alerte Système
+        :role: Role
+      :user/feedback:
+        :comment: Commentaire
+        :rating: Evaluation
+        :volunteer: :activerecord.models.volunteer
+      :user/identity:
+        :circle: :activerecord.models.circle
+        :email: Email
+        :password_digest: Mot de passe
+        :volunteer: :activerecord.models.volunteer
+      :working_group:
+        :circle: :activerecord.models.circle
+        :name: Nom
+        :tasks: Tâches
+        :volunteers: Volontaires
+        :admin: 
+        :actions: 
+  :errors:
+    :password:
+      :too_short: Merci de choisir un mot de passe de plus de 8 caractères.
+    :password_confirmation:
+      :did_not_match: Votre mot de passe et confirmation de mot de passe ne correspondent
+        pas.
+  :flash:
+    :created: "%{name} a été créé avec succès."
+    :updated: "%{name} a été mis à jour avec succès."
+    :destroyed: "%{name} a été supprimé avec succès."
+  :tasks:
+    :flash:
+      :volunteered: Merci de vous être porté volontaire pour %{name} !
+      :completed: Merci d'avoir complété %{name} !
+  :users:
+    :flash:
+      :password_reset_success: Votre mot de passe a été mis à jour avec succès.
+  :roles:
+    :name:
+      :circle:
+        :admin: Administrateur
+        :volunteer: Volontaire
+        :official: Officiel
+        :custom: Sur mesure
+        :helpee: Aide
+      :task:
+        :assignee: Volontaire
+  :circle:
+    :admins:
+      :show:
+        :settings: Paramètres
+        :confirm_delete_circle: Are you sure?
+        :confirm_delete_working_group: Are you sure?
+        :promote_user: 
+        :create_working_group: 
+    :comments:
+      :placeholder: Que voulez-vous dire?
+      :post: Poster
+      :reply: Répondre
+    :members:
+      :index:
+        :directory: Répertoire
+    :supplies:
+      :index:
+        :header: Besoins Matériels
+      :supply_list:
+        :no-supplies: Aucun besoin particulier en ce moment.
+      :supply_list_item:
+        :stats-here: 
+      :new:
+        :back: Retour à Tous les Besoins
+      :edit:
+        :back: Retour aux Besoins
+      :show:
+        :back: Retour à Tous les Besoins
+        :task-complete: 'Fait : '
+        :volunteer-count:
+          :one: "%{count} volontaire y participe"
+          :other: "%{count} volontaires y participent"
+        :volunteer-count-required:
+          :one: "%{count} volontaire est nécessaire"
+          :other: "%{count} volontaires sont nécessaires"
+        :volunteer-count-missing:
+          :one: " (%{count} manquant)"
+          :other: " (%{count} manquants)"
+        :organized-by: Organisé par %{name}
+        :volunteer-task-button: J'ai cet objet
+        :decline-task-button: Je n'ai pas cet objet
+        :complete-task-button: Cet objet a été donné
+        :edit-task-button: Editer ce Besoin
+    :tasks:
+      :index:
+        :header: Toutes les Tâches
+      :my:
+        :header: Mes Tâches
+      :task_list:
+        :no-tasks: Aucune tâche trouvée.
+      :task_list_item:
+        :stats-here: Les Statistiques vont ici
+      :new:
+        :back: Retour à Toutes les Tâches
+      :edit:
+        :back: Retour à la tâche
+      :show:
+        :back: Retour à Toutes les Tâches
+        :task-complete: 'Fait : '
+        :volunteer-count:
+          :one: "%{count} volontaire y participe"
+          :other: "%{count} volontaires y participent"
+        :volunteer-count-required:
+          :one: "%{count} volontaire est nécessaire"
+          :other: "%{count} volontaires sont nécessaires"
+        :volunteer-count-missing:
+          :one: " (%{count} manquant)"
+          :other: " (%{count} manquants)"
+        :organized-by: Organisé par %{name}
+        :complete-task-button: Tâche Terminée
+        :edit-task-button: Editer la Tâche
+    :working_groups:
+      :show:
+        :settings: Paramètres
+        :join: Rejoindre
+        :leave: Quitter
+        :admin-title:
+          :one: "%{count} organisateur"
+          :other: "%{count} organisateurs"
+        :member-title:
+          :one: "%{count} volontaire"
+          :other: "%{count} volontaires"
+      :index:
+        :all-working-groups-dashboard: 
+  :circles:
+    :new:
+      :create: Créer un Cercle
+    :show:
+      :task:
+        :new: Ajouter une Tâche
+        :mine-only: Montrer seulement mes tâches
+        :count:
+          :one: 1 tâche
+          :other: "%{count} tâches"
+        :volunteer-needed:
+          :one: A besoin d'un volontaire
+          :other: A besoin de %{count} volontaires
+        :volunteer-filled: Remplie
+        :volunteer: Je peux le faire !
+        :complete: Compléter la tâche
+      :circle-dashboard: 
+      :working-group:
+        :new: Ajouter un Nouveau Groupe de Travail
+        :filter: Filtrer les Groupes de Travail
+      :view-burnup-chart: Voir le Graphique d'Utilisation
+    :edit:
+      :header: Editer le Cercle
+      :show: Voir
+      :back: Retour
+  :layouts:
+    :public:
+      :header:
+        :signed-in-as: Connecté en tant que %{user}
+        :sign-out: Se Deconnecter
+        :account: Compte
+        :sign-up: Se Connecter
+        :dont-have-account: Vous n'avez pas de compte utilisateur ?
+    :internal:
+      :sidebar:
+        :my-tasks: Mes Tâches
+        :all-tasks: Toutes les Tâches
+        :supplies: Besoins Matériels
+        :directory: Répertoire
+        :discussions: Discussions
+        :calendar: Calendrier
+        :admin: Administration
+        :my-working-groups: Mes Groupes de Travail
+        :all-working-groups: Tous les Groupes de Travail
+      :header:
+        :settings: Paramètres
+        :find-circles: Trouver des Cercles
+        :sign-out: Se Déconnecter
+  :public:
+    :circles:
+      :index:
+        :title: Cercles dans votre région
+        :create-circle-phrase: Si vous ne souhaitez pas rejoindre ce cercle, vous
+          pouvez
+        :create-circle-button: Créer un Nouveau Cercle
+      :new:
+        :title: Démarrer votre cercle de volontaires
+        :details: C'est une belle opportunité pour aider votre communauté à améliorer
+          les conditions de vie de tous et toutes
+    :reset_password_flow:
+      :reset_password:
+        :reset-password-phrase: Réinitialiser votre mot de passe
+        :reset-password: Réinitialiser le mot de passe
+        :sign-in: Connexion
+      :confirmation:
+        :title: Relevez votre boite mail !
+        :details: Vous allez bientôt recevoir un email avec un lien pour réinitialiser
+          votre mot de passe.
+  :sessions:
+    :new:
+      :sign-in-phrase: Se connecter à votre cercle
+      :reset-password: Réinitialiser mon mot de passe
+      :sign-in: Connexion
+  :user:
+    :account:
+      :edit:
+        :title: Paramètres Personnels
+        :reset_password: Réinitialiser votre mot de passe
+      :reset_password:
+        :reset_password: Réinitialiser votre mot de passe
+        :update: Mettre à jour votre mot de passe
+        :password: Mot de passe
+        :password_confirmation: Confirmez Votre Mot de Passe
