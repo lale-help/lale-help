@@ -2,13 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   check_authorization :unless => :active_admin_controller?
 
-  rescue_from CanCan::AccessDenied do |exception|
+  rescue_from ::CanCan::AccessDenied do |exception|
     puts "access denied due to #{exception.inspect}"
     redirect_to root_path, :alert => exception.message
   end
 
   def current_user
-    @current_user ||= session[:user_id] && User.find(session[:user_id])
+    @current_user ||= session[:user_id] && ::User.find(session[:user_id])
   end
   helper_method :current_user
 
@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
     else
      I18n.default_locale
    end
-   logger.info "Using locale #{I18n.locale}"
+   logger.info "Using locale #{::I18n.locale}"
   end
   before_action :set_locale
 
@@ -49,7 +49,7 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method def errors
-    @errors ||= Errors.new
+    @errors ||= ::Errors.new
   end
 
   private
