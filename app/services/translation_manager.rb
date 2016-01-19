@@ -27,13 +27,22 @@ class TranslationManager
 
   def add key, new_translations
     new_translations.each do |lang, val|
-      puts({ key.strip => val }.inspect)
       I18n.backend.store_translations(lang.to_sym, deep_hash(key.strip, val), :escape => false)
       puts I18n.t(key, locale: lang.to_sym)
     end
 
     save
   end
+
+  def remove key
+    SUPPORTED_LANGS.each do |lang|
+      I18n.backend.store_translations(lang.to_sym, deep_hash(key.strip, nil), :escape => false)
+      puts I18n.t(key, locale: lang.to_sym)
+    end
+
+    save
+  end
+
 
   def save
     yamls = Hash.new
@@ -88,7 +97,6 @@ class TranslationManager
   def translations_for lang
     I18n.backend.send(:translations)[lang]
   end
-
 
   private
   def log str
