@@ -5,7 +5,7 @@ ActiveAdmin.register_page "Translations" do
 
     helper_method def query
       return @query if @query.present?
-      if params[:q].present?
+      if params.has_key?(:q)
         @query = cookies[:query] = params[:q]
       else
         @query = cookies[:query]
