@@ -225,12 +225,13 @@
   :workflow:
     :continue: Weiter
     :cancel: Abbrechen
+    :join: Beitreten
   :language:
     :en: Englisch
     :de: Deutsch
     :fr: Französich
   :forms:
-    :correct-errors: Bitte ändern Sie die untenstehenden Fehler.
+    :correct-errors: Bitte ändere die untenstehenden Fehler.
   :fields:
     :name: Name
     :location: Standort
@@ -254,6 +255,10 @@
       :create: "%{model} erstellen"
       :submit: "%{model} speichern"
       :update: "%{model} aktualisieren"
+    :placeholders:
+      :circle:
+        :task:
+          :name: 
   :unauthorized:
     :manage:
       :all: Keine Berechtigung %{subject} zu %{action}.
@@ -329,6 +334,8 @@
       :supply:
         :one: Sachspende
         :other: Sachspenden
+      :system_event/notification: System event/notification
+      :system_event/notification/delivery: System event/notification/delivery
     :attributes:
       :circle:
         :admin: :activerecord.models.admin
@@ -492,12 +499,12 @@
         :forgot_password: Passwort vergessen?
       :task_mailer:
         :task_change: Es gibt etwas Neues bei Deiner Aufgabe.
-        :task_completion_reminder: Vielen Dank für Dein Hilfe!
+        :task_completion_reminder: Vielen Dank für Deine Hilfe!
         :task_invitation: Lale braucht Hilfe für eine neue Aufgabe
         :task_reminder: Passt noch alles?
         :task_suggestion: Lale möchte Dir eine Aufgabe vorschlagen
       :supply_mailer:
-        :supply_completion_reminder: Vielen Dank für Dein Hilfe!
+        :supply_completion_reminder: Vielen Dank für Deine Hilfe!
         :supply_invitation: Lale braucht Hilfe für eine neue Sachspende
   :roles:
     :name:
@@ -517,6 +524,14 @@
         :confirm_delete_working_group: Bist Du sicher?
         :promote_user: Rolle vergeben
         :create_working_group: Neue Arbeitsgruppe anlegen
+      :roles:
+        :confirm_delete_circle: Bist Du sicher?
+      :working_groups:
+        :confirm_delete_working_group: Bist Du sicher?
+      :invite:
+        :invite_members: Neue Mitglieder zu %{circle} einladen
+        :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
+          schicke einfach diesen Link an alle Interessierten.
     :comments:
       :placeholder: Was möchtest du sagen?
       :post: Kommentieren
@@ -581,7 +596,7 @@
         :organized-by: Organisiert von %{name}
         :complete-task-button: Aufgabe abschliessen
         :edit-task-button: Aufgabe bearbeiten
-        :invite-button: Mitglieder von %{group} einladen
+        :invite-button: Arbeitsgruppe einladen
     :working_groups:
       :show:
         :settings: Einstellungen
@@ -595,6 +610,9 @@
           :other: "%{count} Helfer"
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
+    :invite_flow:
+      :join:
+        :start_helping: Mach heute gleich mit bei %{circle}!
   :circles:
     :new:
       :create: Helferkreis anlegen
