@@ -487,6 +487,10 @@
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
     :destroyed: "%{name} wurde erfolgreich gelöscht."
+    :actions:
+      :destroy:
+        :alert: ''
+        :notice: ''
   :tasks:
     :flash:
       :volunteered: Danke für die Hilfe bei %{name}!
