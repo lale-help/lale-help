@@ -5,6 +5,10 @@
 //= require handlebars.runtime
 //= require ol
 //= require clipboard
+//= require i18n
+//= require i18n/translations
+
+//= require '_lale'
 
 //= require_tree ./templates
 //= require_tree ./views

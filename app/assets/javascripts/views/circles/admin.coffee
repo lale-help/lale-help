@@ -14,6 +14,11 @@ ready = ->
     $('#add-role').addClass('hidden')
     $('#add-role-fields').removeClass('hidden')
 
-  new Clipboard('button[type="copy"]');
+  clipboard = new Clipboard('button[type="copy"]');
+  clipboard.on 'success', (e)->
+      e.clearSelection()
+
+      Lale.Flash.info I18n.t('workflow.copied')
+
 
 $(document).on 'page:load ready', ready

@@ -226,6 +226,7 @@
     :continue: Weiter
     :cancel: Abbrechen
     :join: Beitreten
+    :copied: ''
   :language:
     :en: Englisch
     :de: Deutsch

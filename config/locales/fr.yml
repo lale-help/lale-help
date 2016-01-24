@@ -197,6 +197,7 @@
   :workflow:
     :continue: Continuer
     :cancel: Annuler
+    :copied: ''
   :language:
     :en: Anglais
     :de: Allemand
