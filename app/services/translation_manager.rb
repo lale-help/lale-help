@@ -63,8 +63,10 @@ class TranslationManager
     SUPPORTED_LANGS.each do |lang|
       paths = deep_keys(translations_for(lang)).map{|p| p.join('.') }
       paths.each do |path|
-        all_keys[path] ||= []
-        all_keys[path] << lang
+        if I18n.t(path, locale: lang, default: nil).present?
+          all_keys[path] ||= []
+          all_keys[path] << lang
+        end
       end
     end
 
