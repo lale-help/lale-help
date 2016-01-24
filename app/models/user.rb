@@ -43,4 +43,12 @@ class User < ActiveRecord::Base
   def admin?
     self.is_admin
   end
+
+  def organizer?
+    self.circle_roles.count > 1 || self.working_group_roles.count > 0
+  end
+  
+  def public_profile?
+    self.public_profile
+  end
 end

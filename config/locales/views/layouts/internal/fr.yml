@@ -6,6 +6,7 @@ fr:
         all-tasks:          "Toutes les Tâches"
         supplies:           "Besoins Matériels"
         directory:          "Répertoire"
+        organizers:         
         discussions:        "Discussions"
         calendar:           "Calendrier"
         admin:              "Administration"

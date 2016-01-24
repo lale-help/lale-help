@@ -33,3 +33,6 @@ fr:
     members: 
       index:
         directory: Répertoire
+    organizers:
+      index:
+        organizers: 

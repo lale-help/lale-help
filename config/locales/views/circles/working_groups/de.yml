@@ -1,6 +1,9 @@
 de:
   circle:
     working_groups:
+      new:
+        new-working-group: Neue Arbeitsgruppe
+        
       show:
         settings: Einstellungen
         join:     Beitreten

@@ -9,7 +9,7 @@ class User::Update < ::Form
   attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
   attribute :primary_circle_id, :integer
-
+  
   def language_options
     User.languages.map do |key, val|
       [ I18n.t("language.#{key}"), val ]

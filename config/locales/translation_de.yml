@@ -138,7 +138,7 @@ de:
 
       role:
         actions: Aktionen 
-      
+
       user:
         active_since: Aktiv Seit #g
         circle: :activerecord.models.circle  #g
@@ -156,6 +156,7 @@ de:
         location: :activerecord.models.location  #g
         mobile_phone:  
         home_phone:  
+        public_profile: 
         notifications: Benachrichtigungen  #g
         task_volunteer_assignments: Aufgabe Helferzuordnungen  #g
         tasks: Aufgaben  #g
@@ -178,5 +179,6 @@ de:
         name: Name  #g
         tasks: Aufgaben  #g
         volunteers: Helfer  #g
-        admin: 
-        actions: 
+        admin: Verwalter #g
+        actions: Aktionen #g
+        admin_ids: Verwalter Ids #g

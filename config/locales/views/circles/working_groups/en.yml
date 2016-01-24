@@ -1,6 +1,8 @@
 en:
   circle:
     working_groups:
+      new:
+        new-working-group: New Working Group
       show:
         settings: Settings
         join:     Join

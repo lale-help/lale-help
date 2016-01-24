@@ -52,7 +52,7 @@ main
         = f.label :primary_circle_id
         = f.collection_select :primary_circle_id, @form.primary_circle_options, :id, :name
         = errors.message_for(:primary_circle_id)
-
+    
 
     .submit-row
       = f.submit

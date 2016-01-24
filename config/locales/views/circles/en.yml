@@ -33,3 +33,6 @@ en:
     members: 
       index:
         directory: Directory
+    organizers:
+      index:
+        organizers: Organizers

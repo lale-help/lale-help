@@ -1,6 +1,8 @@
 fr:
   circle:
     working_groups:
+      new: 
+        new-working-group:
       show:
         settings: Paramètres
         join:     Rejoindre

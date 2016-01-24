@@ -131,6 +131,7 @@ en:
         phone: Phone #g
         mobile_phone: Mobile Phone #g
         home_phone: Home Phone #g
+        public_profile: Show my profile to all circle members #g
         primary_circle_id: Primary Circle #g
         role: Role #g
         task_volunteer_assignments: Task volunteer assignments  #g
@@ -156,3 +157,4 @@ en:
         volunteers: Volunteers  #g
         admin: Admin #g
         actions: Actions #g
+        admin_ids: Admin Ids

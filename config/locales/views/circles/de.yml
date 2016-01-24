@@ -33,3 +33,7 @@ de:
     members: 
       index:
         directory: Verzeichnis
+    organizers:
+      index:
+        organizers: Veranstalter
+        

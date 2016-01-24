@@ -156,6 +156,7 @@ fr:
         phone: 
         mobile_phone: 
         home_phone: 
+        public_profile: 
         primary_circle_id: Cercle Principal #g
         notifications: Notifications  #g
         task_volunteer_assignments: Allocation de volontaire(s)  #g
@@ -181,3 +182,4 @@ fr:
         volunteers: Volontaires  #g
         admin:
         actions:
+        admin_ids:
