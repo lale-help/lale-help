@@ -1,7 +1,8 @@
 class Lale.Flash
-  @fadeOut: ->
-    $('.flash-message').each (idx)->
-      $(this).delay(500*idx).fadeOut(500)
+  @fadeOut: (waitTime=2000)->
+    if $('.flash-message').length > 0
+      $('.flash-message').each (idx)->
+        $(this).delay(waitTime + 500*idx).fadeOut 500, ->
 
   @add: (level, message)=>
     $('.flash').append(HandlebarsTemplates['flash'](level: level, message: message))
@@ -23,4 +24,4 @@ class Lale.Flash
     @add('', msg)
 
 $(document).on 'ready page:load', ->
-  setTimeout(Lale.Flash.fadeOut, 3000)
+  Lale.Flash.fadeOut()
