@@ -3,5 +3,6 @@
 section.admin-invite
   p  = t('.invite_members_explaination')
 
-  .invite-link
-    a href=join_circle_url(current_circle) = join_circle_url(current_circle)
+  .invite-link.copy-box
+    input id="invite-url" type="copy" disabled="disabled" value=join_circle_url(current_circle)
+    button type="copy" data-clipboard-target="input#invite-url"

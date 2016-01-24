@@ -28,6 +28,9 @@ gem 'neat'
 gem 'bourbon'
 gem 'handlebars_assets'
 gem 'font-awesome-sass'
+gem 'octicons-rails'
+gem 'clipboard-rails'
+
 
 # API
 gem 'jbuilder', '~> 2.0'

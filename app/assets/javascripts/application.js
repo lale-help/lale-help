@@ -4,6 +4,7 @@
 //= require js-routes
 //= require handlebars.runtime
 //= require ol
+//= require clipboard
 
 //= require_tree ./templates
 //= require_tree ./views

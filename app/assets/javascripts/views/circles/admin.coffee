@@ -14,5 +14,6 @@ ready = ->
     $('#add-role').addClass('hidden')
     $('#add-role-fields').removeClass('hidden')
 
-$(document).on 'ready', ready
-$(document).on 'page:load', ready
+  new Clipboard('button[type="copy"]');
+
+$(document).on 'page:load ready', ready
