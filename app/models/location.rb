@@ -8,6 +8,7 @@ class Location < ActiveRecord::Base
   reverse_geocoded_by :latitude, :longitude
 
   def self.location_from(location_text)
+    return unless location_text.present?
     previous_locaion = Location.find_by('lower(geocode_query) = ?', location_text.downcase)
     if previous_locaion.present?
       Rails.logger.debug "[Location] cache hit"
