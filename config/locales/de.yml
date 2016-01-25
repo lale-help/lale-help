@@ -491,6 +491,10 @@
       :destroy:
         :alert: ''
         :notice: ''
+      :invited:
+        :one: ''
+        :other: ''
+        :zero: ''
   :tasks:
     :flash:
       :volunteered: Danke für die Hilfe bei %{name}!

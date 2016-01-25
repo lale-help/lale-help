@@ -450,6 +450,10 @@
       :destroy:
         :notice: "%{resource_name} was successfully removed."
         :alert: "%{resource_name} could not be removed."
+      :invited:
+        :one: Invited %{count} volunteer to this %{model}.
+        :other: Invited %{count} volunteers to this %{model}.
+        :zero: There aren't any members to invite to this %{model}.
     :created: "%{name} was successfully created."
     :updated: "%{name} was successfully updated."
     :destroyed: "%{name} was successfully destroyed."

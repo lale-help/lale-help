@@ -457,6 +457,10 @@
       :destroy:
         :alert: ''
         :notice: ''
+      :invited:
+        :one: ''
+        :other: ''
+        :zero: ''
   :tasks:
     :flash:
       :volunteered: Merci de vous être porté volontaire pour %{name} !
