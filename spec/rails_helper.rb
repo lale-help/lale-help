@@ -29,4 +29,16 @@ RSpec.configure do |config|
       example.run
     end
   end
+
+  config.around(:each) do |example|
+    skip "ignored on CI" if example.metadata[:ci_ignore] && ENV['CI'] == 'true'
+
+    Rails.logger.info "-"*80
+    Rails.logger.info "Starting #{example.full_description}"
+    Rails.logger.tagged example.full_description do
+      example.run
+    end
+    Rails.logger.info "Finished #{example.full_description}"
+    Rails.logger.info "-"*80
+  end
 end

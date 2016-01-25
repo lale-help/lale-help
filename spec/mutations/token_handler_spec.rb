@@ -8,6 +8,7 @@ describe TokenHandler do
     double(:controller).tap do |c|
       allow(c).to receive(:redirect_to)
       allow(c).to receive(:login)
+      allow(c).to receive(:current_user)
     end
   end
 
