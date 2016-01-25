@@ -553,6 +553,7 @@
         :organized-by: Organisé par %{name}
         :complete-task-button: Tâche Terminée
         :edit-task-button: Editer la Tâche
+        :invite-button: ''
     :working_groups:
       :show:
         :settings: Paramètres

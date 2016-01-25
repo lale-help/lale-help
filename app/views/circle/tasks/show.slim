@@ -44,10 +44,6 @@
         .title = WorkingGroup.model_name.human
         .details= current_task.working_group.name
 
-      / .skills
-      /   .title Skills
-      /   .details
-
       - if current_task.organizer.present?
         .row.organizer
           .details= t(".organized-by", name: current_task.organizer.name)
@@ -57,7 +53,10 @@
   aside
     .volunteers
       .title
-        = t(".volunteer-count", count: current_task.volunteers.size)
+        p
+          = t(".volunteer-count-required", count: current_task.volunteer_count_required)
+          - if page.is_missing_volunteers
+            = t(".volunteer-count-missing", count: page.missing_volunteer_count)
 
       .icons
         - current_task.volunteers.each do |v|
@@ -75,15 +74,14 @@
           - page.adjusted_missing_volunteer_count.times do
             .user-icon.user-needed
 
-      .missing
-        = t(".volunteer-count-required", count: current_task.volunteer_count_required)
-        - if page.is_missing_volunteers
-          = t(".volunteer-count-missing", count: page.missing_volunteer_count)
 
+      .actions
+        - if can? :invite_to, current_task
+          = form_tag circle_task_invite_path(current_circle, current_task, type: 'working_group'), method: 'post' do
+            button.button.button-secondary= t('.invite-button', class: WorkingGroup.model_name.human)
 
-
-    / .suggested-members
-    /   .title Suggested Volunteers
+          = form_tag circle_task_invite_path(current_circle, current_task, type: 'circle'), method: 'post' do
+            button.button.button-secondary= t('.invite-button', class: Circle.model_name.human)
 
 
     .actions
@@ -94,12 +92,3 @@
       - if can? :edit, current_task
         = form_tag edit_circle_task_path(current_circle, current_task), method: 'get' do
           button.button= t('.edit-task-button')
-
-
-    .actions
-      - if can? :invite_to, current_task
-        = form_tag circle_task_invite_path(current_circle, current_task, type: 'working_group'), method: 'post' do
-          button.button.button-secondary= t('.invite-button', group: current_task.working_group.name)
-
-        = form_tag circle_task_invite_path(current_circle, current_task, type: 'circle'), method: 'post' do
-          button.button.button-secondary= t('.invite-button', group: current_task.circle.name)

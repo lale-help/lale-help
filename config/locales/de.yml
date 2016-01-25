@@ -609,7 +609,7 @@
         :organized-by: Organisiert von %{name}
         :complete-task-button: Aufgabe abschliessen
         :edit-task-button: Aufgabe bearbeiten
-        :invite-button: Arbeitsgruppe einladen
+        :invite-button: "%{class} einladen"
     :working_groups:
       :show:
         :settings: Einstellungen
