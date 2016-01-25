@@ -55,7 +55,7 @@ ActiveAdmin.register_page "translate_key" do
   page_action 'submit', method: 'post' do
     if Rails.env.development?
       TranslationManager.new.add(params[:key], params[:translation])
-      flash[:notice] = "Updated translation for: <a href='#{admin_translate_key_path(key: params[:key])}'>#{params[:key]}</b>".html_safe
+      flash[:notice] = "Updated translation for: <a href='#{admin_translate_key_path(key: params[:key])}'>#{params[:key]}</a>".html_safe
       redirect_to admin_translations_path
     else
       flash[:error] = "Translations can only be defined in development."
