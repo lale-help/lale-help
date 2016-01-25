@@ -563,6 +563,11 @@
         :invite_members: Neue Mitglieder zu %{circle} einladen
         :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
           schicke einfach diesen Link an alle Interessierten.
+      :nav:
+        :basic-settings: ''
+        :roles: ''
+        :working-groups: ''
+        :invite-volunteers: ''
     :comments:
       :placeholder: Was möchtest du sagen?
       :post: Kommentieren

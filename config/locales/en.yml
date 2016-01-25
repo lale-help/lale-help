@@ -699,6 +699,11 @@
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
           the following link with people that are interested.
+      :nav:
+        :basic-settings: Basic Settings
+        :roles: Roles
+        :working-groups: Working Groups
+        :invite-volunteers: Invite Volunteers
     :comments:
       :placeholder: What do you want to say?
       :post: Post

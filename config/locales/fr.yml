@@ -508,6 +508,11 @@
         :confirm_delete_working_group: Are you sure?
         :promote_user: 
         :create_working_group: 
+      :nav:
+        :basic-settings: ''
+        :roles: ''
+        :working-groups: ''
+        :invite-volunteers: ''
     :comments:
       :placeholder: Que voulez-vous dire?
       :post: Poster
