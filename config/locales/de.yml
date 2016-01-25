@@ -227,6 +227,7 @@
     :cancel: Abbrechen
     :join: Beitreten
     :copied: ''
+    :read_terms: ''
   :language:
     :en: Englisch
     :de: Deutsch
@@ -462,6 +463,7 @@
         :tasks: Aufgaben
         :triggered_system_events: Ausgelöste System-Events
         :role: Rolle
+        :accept_terms: ''
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung
@@ -481,8 +483,20 @@
   :errors:
     :password:
       :too_short: Passwort muss mindestens 8 Zeichen lang sein.
+      :nils: ''
+      :does_not_match: ''
     :password_confirmation:
       :did_not_match: Passwort und Passwortwiederholung waren nicht gleich.
+      :nils: ''
+    :accept_terms:
+      :false: ''
+    :email:
+      :nils: ''
+      :taken: ''
+    :first_name:
+      :nils: ''
+    :last_name:
+      :nils: ''
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -495,6 +509,10 @@
         :one: ''
         :other: ''
         :zero: ''
+    :user:
+      :account:
+        :saved: ''
+        :save-failed: ''
   :tasks:
     :flash:
       :volunteered: Danke für die Hilfe bei %{name}!

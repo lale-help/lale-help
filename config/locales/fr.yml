@@ -198,6 +198,7 @@
     :continue: Continuer
     :cancel: Annuler
     :copied: ''
+    :read_terms: ''
   :language:
     :en: Anglais
     :de: Allemand
@@ -427,6 +428,7 @@
         :tasks: Tâches
         :triggered_system_events: Alerte Système
         :role: Role
+        :accept_terms: ''
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
@@ -446,9 +448,21 @@
   :errors:
     :password:
       :too_short: Merci de choisir un mot de passe de plus de 8 caractères.
+      :nils: ''
+      :does_not_match: ''
     :password_confirmation:
       :did_not_match: Votre mot de passe et confirmation de mot de passe ne correspondent
         pas.
+      :nils: ''
+    :accept_terms:
+      :false: ''
+    :email:
+      :nils: ''
+      :taken: ''
+    :first_name:
+      :nils: ''
+    :last_name:
+      :nils: ''
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -461,6 +475,10 @@
         :one: ''
         :other: ''
         :zero: ''
+    :user:
+      :account:
+        :saved: ''
+        :save-failed: ''
   :tasks:
     :flash:
       :volunteered: Merci de vous être porté volontaire pour %{name} !

@@ -146,8 +146,20 @@
       :taken: has already been taken
     :password:
       :too_short: Please pick a password that is longer than 8 characters.
+      :nils: Please provide a password.
+      :does_not_match: Your password did not match the password confirmation.
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
+      :nils: Please confirm your pasword.
+    :accept_terms:
+      :false: You must accept the Terms and Conditions to sign up for Lale.
+    :email:
+      :nils: Please provide an email.
+      :taken: This email has already been taken. Do you already have an account?
+    :first_name:
+      :nils: Please provide your first name.
+    :last_name:
+      :nils: Please provide your last name.
   :activerecord:
     :errors:
       :messages:
@@ -271,6 +283,7 @@
         :tasks: Tasks
         :triggered_system_events: Triggered system events
         :role: Role
+        :accept_terms: Accept Terms and Conditions
       :user/feedback:
         :comment: Comment
         :rating: Rating
@@ -459,6 +472,11 @@
     :destroyed: "%{name} was successfully destroyed."
     :failed:
       :create: An error occored while creating the %{name}.
+    :user:
+      :account:
+        :saved: You settings have been saved.
+        :save-failed: We could not save your settings. Please fix any errors and try
+          again.
   :views:
     :pagination:
       :first: "&laquo; First"
@@ -616,6 +634,7 @@
     :cancel: Cancel
     :join: Join
     :copied: Copied!
+    :read_terms: View Terms and Conditions.
   :language:
     :en: English
     :de: German
