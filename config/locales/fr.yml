@@ -480,6 +480,20 @@
     :last_name:
       :nils: ''
     :format: "%{attribute} %{message}"
+    :messages:
+      :accepted: ''
+      :blank: ''
+      :confirmation: ''
+      :empty: ''
+      :equal_to: ''
+      :even: ''
+      :exclusion: ''
+      :taken: ''
+      :greater_than: ''
+      :greater_than_or_equal_to: ''
+      :less_than_or_equal_to: ''
+      :less_than: ''
+      :invalid: ''
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."

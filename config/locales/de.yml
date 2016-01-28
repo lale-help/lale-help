@@ -516,6 +516,20 @@
     :last_name:
       :nils: Bitte gib deinen Nachnamen an.
     :format: "%{attribute} %{message}"
+    :messages:
+      :accepted: muss akzeptiert werden
+      :blank: kann nicht leer sein
+      :confirmation: stimmt nicht mit %{attribute} überein
+      :empty: kann nicht leer sein
+      :equal_to: muss gleich %{count} sein
+      :even: muss gerade sein
+      :exclusion: ist reserviert
+      :taken: ist bereits vergeben
+      :greater_than: muss grösser als %{count} sein
+      :greater_than_or_equal_to: muss gleich oder grösser als %{count} sein
+      :less_than_or_equal_to: muss kleiner oder gleich %{count} sein
+      :less_than: muss kleiner als %{count} sein
+      :invalid: ist ungültig
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
