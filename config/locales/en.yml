@@ -78,7 +78,7 @@
         :unit: "$"
         :separator: "."
         :delimiter: ","
-        :precision: 2
+        :precision: '2'
         :significant: false
         :strip_insignificant_zeros: false
     :percentage:
@@ -150,12 +150,12 @@
       :does_not_match: Your password did not match the password confirmation.
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
-      :nils: Please confirm your pasword.
+      :nils: Please confirm your password.
     :accept_terms:
       :false: You must accept the Terms and Conditions to sign up for Lale.
     :email:
       :nils: Please provide an email.
-      :taken: This email has already been taken. Do you already have an account?
+      :taken: This email has already been taken. Did you already sign up for Lale?
     :first_name:
       :nils: Please provide your first name.
     :last_name:
@@ -471,7 +471,7 @@
     :updated: "%{name} was successfully updated."
     :destroyed: "%{name} was successfully destroyed."
     :failed:
-      :create: An error occored while creating the %{name}.
+      :create: An error occured while creating the %{name}.
     :user:
       :account:
         :saved: You settings have been saved.
@@ -691,6 +691,8 @@
         :settings: Settings
         :promote_user: Promote user to role
         :create_working_group: Create a Working Group
+        :confirm_delete_circle: Are you sure?
+        :confirm_delete_working_group: Are you sure?
       :roles:
         :confirm_delete_circle: Are you sure?
       :working_groups:

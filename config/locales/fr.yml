@@ -228,6 +228,16 @@
       :create: Créer %{model}
       :submit: Enregistrer %{model}
       :update: Mettre à jour %{model}
+    :page_entries_info:
+      :more_pages:
+        :display_entries: ''
+      :one_page:
+        :display_entries:
+          :one: ''
+          :other: ''
+          :zero: ''
+    :select:
+      :prompt: ''
   :unauthorized:
     :manage:
       :all: Vous n'êtes pas autorisé à %{action} %{subject}.
@@ -445,6 +455,12 @@
         :volunteers: Volontaires
         :admin: 
         :actions: 
+    :errors:
+      :messages:
+        :record_invalid: ''
+        :restrict_dependent_destroy:
+          :many: ''
+          :one: ''
   :errors:
     :password:
       :too_short: Merci de choisir un mot de passe de plus de 8 caractères.
@@ -463,6 +479,7 @@
       :nils: ''
     :last_name:
       :nils: ''
+    :format: "%{attribute} %{message}"
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -475,10 +492,16 @@
         :one: ''
         :other: ''
         :zero: ''
+      :create:
+        :notice: ''
+      :update:
+        :notice: ''
     :user:
       :account:
         :saved: ''
         :save-failed: ''
+    :failed:
+      :create: ''
   :tasks:
     :flash:
       :volunteered: Merci de vous être porté volontaire pour %{name} !
@@ -496,16 +519,16 @@
         :helpee: Aide
       :task:
         :assignee: Volontaire
-        :volunteer: ''
-        :organizer: ''
-      :admin: ''
+        :volunteer: Volontaire
+        :organizer: Organisateur
+      :admin: Administrateur
       :member: ''
   :circle:
     :admins:
       :show:
         :settings: Paramètres
-        :confirm_delete_circle: Are you sure?
-        :confirm_delete_working_group: Are you sure?
+        :confirm_delete_circle: ''
+        :confirm_delete_working_group: ''
         :promote_user: 
         :create_working_group: 
       :nav:
@@ -677,4 +700,11 @@
     :roles:
       :name:
         :task:
-          :volunteer: ''
+          :volunteer: Volontaire
+  :number:
+    :currency:
+      :format:
+        :delimiter: "."
+        :precision: '2'
+        :separator: ","
+        :unit: "€"
