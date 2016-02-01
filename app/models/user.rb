@@ -49,6 +49,6 @@ class User < ActiveRecord::Base
   end
   
   def public_profile?
-    self.public_profile
+    identity.try :public_profile
   end
 end

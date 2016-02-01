@@ -42,8 +42,6 @@ main.form
           = f.password_field :password_confirmation
           = errors.message_for(:password_confirmation)
 
-      hr
-
       .field-row
         .field class=errors.css(:mobile_phone)
           = f.label :mobile_phone
@@ -54,6 +52,12 @@ main.form
           = f.label :home_phone
           = f.text_field :home_phone
           = errors.message_for(:home_phone)
+          
+      .field-row
+        = f.check_box :public_profile
+        = " "+User.human_attribute_name("public_profile")
+      
+	  hr 
 
       .field-row.single
         .field.required class=errors.css(:location)

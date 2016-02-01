@@ -14,6 +14,8 @@ class User::Create < ::Form
 
   attribute :location, :string
   attribute :language, :integer
+  
+  attribute :public_profile, :boolean
 
   def language_options
     User.languages.map do |key, val|
@@ -30,7 +32,7 @@ class User::Create < ::Form
     end
 
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language))
+      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile))
       user.identity.assign_attributes(inputs.slice(:email, :password))
 
       user.location = Location.location_from(location)

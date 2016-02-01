@@ -9,6 +9,7 @@ class User::Update < ::Form
   attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
   attribute :primary_circle_id, :integer
+  attribute :public_profile,    :boolean
   
   def language_options
     User.languages.map do |key, val|
@@ -22,7 +23,7 @@ class User::Update < ::Form
 
   class Submit < ::Form::Submit
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language))
+      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile))
       user.identity.assign_attributes(inputs.slice(:email))
 
       user.location = Location.location_from(location)

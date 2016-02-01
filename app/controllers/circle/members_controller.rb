@@ -5,8 +5,11 @@ class Circle::MembersController < ApplicationController
   include HasCircle
 
   def index
-    members = current_circle.users.select('users.*, count(distinct circle_roles.*) as circle_role_count').group('users.id').order('circle_role_count DESC')
-
+    if current_user.admin?
+      members = current_circle.users.select('users.*, count(distinct circle_roles.*) as circle_role_count').group('users.id').order('circle_role_count DESC')
+    else
+      members = current_circle.users.select('users.*, count(distinct circle_roles.*) as circle_role_count').where("public_profile = 'true'").group('users.id').order('circle_role_count DESC')
+    end
     @members = members.distinct.includes(:identity, :working_groups, :circle_roles)
   end
 end
