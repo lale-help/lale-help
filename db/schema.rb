@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160124200210) do
     t.float    "latitude"
     t.float    "longitude"
     t.json     "geocode_data"
+    t.string   "timezone"
   end
 
   create_table "supplies", force: :cascade do |t|

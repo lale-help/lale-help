@@ -20,6 +20,18 @@ class User < ActiveRecord::Base
 
   enum language: [:en, :de, :fr]
 
+
+  def login_token
+    @login_token ||= begin
+      previous = Token.login.active.for_user_id(self.id).first
+      if previous.present?
+        previous
+      else
+        Token.login.active.create context: { user_id: self.id }
+      end
+    end
+  end
+
   def name
     "#{first_name} #{last_name}"
   end

@@ -6,7 +6,7 @@ de:
 
       supply_list:
         no-supplies: "Derzeit keine Sachspenden benötigt."
-        
+
       supply_list_item:
         stats-here: "Statistik"
 
@@ -36,4 +36,4 @@ de:
         decline-task-button: "Ich habe das doch nicht."
         complete-task-button: "Sachspende wurde abgegeben"
         edit-task-button:     "Sachspende bearbeiten"
-
+        invite-button: "Mitglieder von %{group} einladen"

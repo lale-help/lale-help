@@ -1,7 +1,10 @@
 a.circle-name href=circle_path(current_circle) = circle.name
 - if can? :create_item, circle
+
   .dropdown.circle-add-menu
-    .icon
+    label.icon for='add-item-selector'
+    input id='add-item-selector' type='checkbox' class='menu-selector'
+
     .menu.add-item-dropdown
       - if can? :create_task, circle
         a href=new_circle_task_path(current_circle) = Task.model_name.human

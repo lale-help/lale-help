@@ -18,8 +18,15 @@ class Location < ActiveRecord::Base
     response = Geocoder.search(location_text).first
 
     if response.present?
-      Location.create geocode_query: location_text, geocode_data: response.data, latitude: response.latitude, longitude: response.longitude
+      location = Location.create geocode_query: location_text, geocode_data: response.data, latitude: response.latitude, longitude: response.longitude
+      location.update_timezone
+      location
     end
+  end
+
+  def update_timezone
+    self.timezone = Timezone::Zone.new(:latlon => [self.latitude, self.longitude]).zone
+    save
   end
 
   def address_components query

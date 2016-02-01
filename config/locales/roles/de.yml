@@ -2,7 +2,7 @@ de:
   roles:
     name:
       circle:
-        admin:     Verwalter
+        admin:     Administrator
         volunteer: Helfer
         official:  Amtsperson
         custom:    Benutzerdefiniert

@@ -63,7 +63,7 @@ de:
         location_assignments: Standortzuordnung  #g
         locations: Standorte  #g
         name: "Name der Aufgabe"  #g
-        working_group_id: Arbeitsgruppen-Id  #g
+        working_group_id: Arbeitsgruppe  #g
         organizer_assignments: Organisatorzuordnung  #g
         organizer_id: Organisator
         skill_assignments: Fähigkeitszuordnungen  #g
@@ -74,7 +74,7 @@ de:
         volunteer_count_required: "Anzahl der benötigten Helfer"
         primary_location:  "Standort"
         duration: "Zeitaufwand"
-        scheduled_time_type: "Findet statt"
+        scheduled_time_type: "Zeitpunkt"
         scheduled_time_start: "Beginn"
         scheduled-time:
           at:      "um %{start}"
@@ -103,7 +103,7 @@ de:
         volunteer_count_required: "Anzahl der benötigten Helfer"
         primary_location:  "Standort"
         duration: "Zeitaufwand"
-        scheduled_time_type: "Findet statt"
+        scheduled_time_type: "Zeitpunkt"
         scheduled_time_start: "Beginn"
         scheduled-time:
           at:      "um %{start}"
@@ -182,3 +182,4 @@ de:
         admin: Verwalter #g
         actions: Aktionen #g
         admin_ids: Verwalter Ids #g
+

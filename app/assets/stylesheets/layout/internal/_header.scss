@@ -70,6 +70,11 @@ body.internal {
       @include justify-content(flex-end);
 
       .user-menu {
+        label {
+          @include display(flex);
+          @include flex-direction(row);
+          @include align-items(center);
+        }
         .user-name{
           margin-right: 2rem;
         }
@@ -89,11 +94,23 @@ body.internal {
       font-size: 2rem;
     }
 
-  //  .user-inbox{
-  //    font-size: 2rem;
-  //    @include lale-icon($lale-icon-inbox);
-  //    margin-right: 1rem;
-  //  }
+    [type="checkbox"]:checked {
+      & ~ .menu {
+        display : block;
+      }
+    }
+
+    [type="checkbox"]:not(:checked),
+      [type="checkbox"]:checked {
+        position : absolute;
+        left     : -9999px;
+    }
+
+    [type="checkbox"]:not(:checked) + label,
+      [type="checkbox"]:checked + label {
+        position     : relative;
+        cursor       : pointer;
+    }
 
     .dropdown {
       height: 100%;
@@ -102,34 +119,36 @@ body.internal {
       @include align-items(center);
       @include justify-content(center);
 
-      padding: 0 2rem 0 2rem;
 
       position: relative;
 
+      label {
+        padding: 0 2rem;
+        margin: 0;
+        height: 100%;
+        width:  100%;
+      }
 
-      &:hover {
+      &:hover, label:hover {
         cursor: pointer;
       }
 
-      &.open {
-        .menu {
-          display: block;
-          border: thin solid $light-grey;
-          border-top: 0;
-          z-index: 1000;
-          -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-          -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-          box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-        }
-      }
+      .menu {
+        display: block;
+        border: thin solid $light-grey;
+        border-top: 0;
+        z-index: 1000;
+        -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+        -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+        box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
 
-      .menu{
         font-size: 1.5rem;
         display: none;
         position: absolute;
         min-width:  100%;
 
         top: $header-height;
+        background: $white;
 
         a {
           display: block;

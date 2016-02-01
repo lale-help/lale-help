@@ -53,19 +53,20 @@ body.internal {
       }
     }
 
-    .open {
-      background: $body-bg;
-      @include text-color($header-bg, $header-bg);
-
-      :before {
-        @include text-color($body-bg, $body-bg);
-      }
-
-
-      .menu {
+    [type="checkbox"]:checked {
+      & ~ label {
         background: $body-bg;
         @include text-color($header-bg, $header-bg);
+
+        :before {
+          @include text-color($body-bg, $body-bg);
+        }
       }
+    }
+
+    .dropdown .menu {
+      background: $body-bg;
+      @include text-color($header-bg, $header-bg);
     }
   }
 }

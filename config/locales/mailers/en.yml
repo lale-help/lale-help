@@ -1,0 +1,15 @@
+---
+en:
+  mailers:
+    subject:
+      user_mailer:
+        forgot_password:  "Did you forget something?"
+      task_mailer:
+        task_change:              "Something has changed about your task."
+        task_completion_reminder: "Thanks for helping!"
+        task_invitation:          "Lale needs your help with a new task."
+        task_reminder:            "All clear for your upcoming task?"
+        task_suggestion:          "We would like to suggest a task for you."
+      supply_mailer:
+        supply_completion_reminder: "Thanks for helping!"
+        supply_invitation:          "Lale needs your help with a new supply."
