@@ -18,12 +18,13 @@ class Circle::TasksController < ApplicationController
   def my
     authorize! :read, current_circle
 
-    tasks = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').order('due_date asc')
-
-    open_tasks   = tasks.not_completed
-    closed_tasks = tasks.completed
-
-    @tasks = OpenStruct.new(open: open_tasks.limit(10), closed: closed_tasks.limit(10))
+    tasks_vol = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').order('due_date asc')
+    tasks_org = current_user.tasks.for_circle(current_circle).with_role('task.organizer').order('due_date asc')
+    @tasks = OpenStruct.new(
+        open: tasks_vol.not_completed.limit(10),
+        closed: tasks_vol.completed.limit(10),
+        open_org: tasks_org.not_completed.limit(10)
+    )
   end
 
 
