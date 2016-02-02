@@ -1,0 +1,4 @@
+.flash
+  - flash.each do |key, messages|
+    - Array(messages).each do |message|
+      .flash-message class=key = message

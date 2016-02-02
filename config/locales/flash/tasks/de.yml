@@ -1,5 +1,0 @@
-de:
-  tasks:
-    flash:
-      volunteered: 'Danke für die Hilfe bei %{name}!'
-      completed:   'Danke für die Erledigung bei %{name}!'

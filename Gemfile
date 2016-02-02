@@ -28,6 +28,9 @@ gem 'neat'
 gem 'bourbon'
 gem 'handlebars_assets'
 gem 'font-awesome-sass'
+gem 'octicons-rails'
+gem 'clipboard-rails'
+gem "i18n-js", ">= 3.0.0.rc11"
 
 # API
 gem 'jbuilder', '~> 2.0'
@@ -38,6 +41,7 @@ gem 'jbuilder', '~> 2.0'
 # Other
 gem 'geocoder'
 gem 'timezone'
+gem 'terminal-table'
 
 group :development do
   gem "letter_opener_web"

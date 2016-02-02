@@ -1,8 +1,0 @@
-de:
-  layouts:
-    public:
-      header:
-        signed-in-as: Angemeldet als %{user}
-        sign-out: Abmelden
-        sign-up: Registrieren
-        dont-have-account: Bereits registriert?

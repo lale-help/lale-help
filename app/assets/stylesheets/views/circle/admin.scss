@@ -24,3 +24,33 @@ table {
   }
 
 }
+
+.admin-nav {
+  border-top: thin solid $blue-dark-1;
+  border-bottom: thin solid $blue-dark-1;
+  text-align: center;
+
+  a {
+    display: inline-block;
+    padding: 1rem 2rem;
+  }
+
+
+  a.selected {
+    font-weight: bold;
+    background: $blue-light-2;
+    border-bottom: thick solid $orange;
+  }
+}
+
+section.admin-invite{
+  text-align: center;
+  p {
+    margin: 4rem;
+  }
+
+  .invite-link {
+    margin: auto;
+    max-width: 50rem;
+  }
+}

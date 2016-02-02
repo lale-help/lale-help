@@ -14,5 +14,7 @@ class Task::Notifications::InvitationEmail < Mutations::Command
       token    = Token.task_invitation.create! context: { user_id: user.id, task_id: task.id }
       TaskMailer.task_invitation(task, user, token).deliver_now
     end
+
+    OpenStruct.new(volunteers: volunteers)
   end
 end

@@ -25,6 +25,8 @@ class Circle < ActiveRecord::Base
   before_save :determine_location
   after_initialize  :determine_location
 
+  enum language: [:en, :de, :fr]
+
   def user_count
     users.count
   end
@@ -32,6 +34,15 @@ class Circle < ActiveRecord::Base
   def open_task_count
     tasks.count
   end
+
+  def slug
+    name.strip.downcase.underscore.gsub(/\s+/, ?-)
+  end
+
+  def to_param
+    [id, slug].join(?-)
+  end
+
 
   private
   def determine_location
