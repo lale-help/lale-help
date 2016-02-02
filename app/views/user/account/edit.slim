@@ -52,13 +52,14 @@ main
         = f.label :primary_circle_id
         = f.collection_select :primary_circle_id, @form.primary_circle_options, :id, :name
         = errors.message_for(:primary_circle_id)
-        
+
     .field-row
-      = f.check_box :public_profile
-      = " "+User.human_attribute_name("public_profile")
-      
-      	
-	    
+      .field
+        = f.check_box :public_profile
+        = f.label :public_profile
+
+
+
 
     .submit-row
       = f.submit
