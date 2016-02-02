@@ -5,7 +5,13 @@ Rails.application.routes.draw do
   end
   resources :circles do
     scope module: 'circle' do
-      resource  :calendar, :admin
+      resource :admin do
+        get :roles
+        get :working_groups
+        get :invite
+      end
+
+      resource  :calendar
       resources :members, :roles, :discussions
 
       resources :supplies do
@@ -52,6 +58,9 @@ Rails.application.routes.draw do
 
   get "/register",  to: "user/identities#new", :as => "register"
   post "/register", to: "user/identities#create"
+
+  get  "/join/:circle_id", to: 'circle/invite_flow#join',  as: 'join_circle'
+  post "/join/:circle_id", to: 'circle/invite_flow#submit'
 
   get "/token/:token_code", to: "tokens#handle_token", as: "handle_token"
 

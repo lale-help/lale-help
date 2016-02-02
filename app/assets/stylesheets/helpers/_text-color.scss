@@ -1,0 +1,8 @@
+@mixin text-color($text, $link) {
+  color: $text;
+
+  a, a:visited, &:visited {
+    color: $link;
+    text-decoration: none;
+  }
+}

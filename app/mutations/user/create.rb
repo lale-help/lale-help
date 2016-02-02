@@ -12,8 +12,12 @@ class User::Create < ::Form
   attribute :mobile_phone, :string, required: false
   attribute :home_phone, :string, required: false
 
-  attribute :location, :string
+  attribute :location, :string, required: false
   attribute :language, :integer
+
+  attribute :accept_terms, :boolean
+
+  attribute :circle, :model, required: false
 
   def language_options
     User.languages.map do |key, val|
@@ -27,6 +31,7 @@ class User::Create < ::Form
       add_error(:password, :too_short)      if password && password.length < 8
 
       add_error(:email, :taken) if User::Identity.where(email: email).exists?
+      add_error(:accept_terms, :false) unless accept_terms == true
     end
 
     def execute
@@ -37,6 +42,8 @@ class User::Create < ::Form
 
       user.save
       user.identity.save
+
+      Circle::Join.run(user: user, circle_id: circle.id) if circle.present?
 
       user
     end

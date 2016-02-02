@@ -56,11 +56,20 @@ main.form
           = errors.message_for(:home_phone)
 
       .field-row.single
-        .field.required class=errors.css(:location)
+        .field class=errors.css(:location)
           = f.label :location
           = f.text_field :location, placeholder: true
           = errors.message_for(:location)
 
+      .field-row.single
+        .field.required class=errors.css(:accept_terms)
+          = f.label :accept_terms
+          p
+            a href="http://lale.help/terms-and-conditions" target="_blank"= t('workflow.read_terms')
+          = f.check_box :accept_terms, placeholder: true
+          p
+
+          p= errors.message_for(:accept_terms)
 
 
       .submit-row

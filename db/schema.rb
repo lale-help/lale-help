@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231015622) do
+ActiveRecord::Schema.define(version: 20160125002152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +41,11 @@ ActiveRecord::Schema.define(version: 20151231015622) do
   end
 
   create_table "circles", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "name",                  null: false
-    t.integer  "location_id", limit: 8, null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.string   "name",                              null: false
+    t.integer  "location_id", limit: 8,             null: false
+    t.integer  "language",              default: 0, null: false
   end
 
   create_table "comments", id: :bigserial, force: :cascade do |t|
@@ -183,6 +184,7 @@ ActiveRecord::Schema.define(version: 20151231015622) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
+    t.boolean  "accept_terms"
   end
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|

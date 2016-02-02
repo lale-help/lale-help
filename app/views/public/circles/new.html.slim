@@ -12,6 +12,15 @@ section
         = errors.message_for(:name)
 
     .field-row
+      .field.required class=errors.css(:language)
+        = f.label :language
+        = f.select :language do
+          = options_for_select(@form.language_options, @form.language)
+
+        = errors.message_for(:language)
+
+
+    .field-row
       .field.required class=errors.css(:location)
         = f.label :location
         = f.text_field :location, placeholder: true

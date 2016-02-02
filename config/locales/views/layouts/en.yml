@@ -1,9 +1,0 @@
-en:
-  layouts:
-    public:
-      header:
-        signed-in-as: Signed in as %{user}
-        sign-out: Sign out
-        account: Account
-        sign-up: Sign up
-        dont-have-account: Don't have an account?
