@@ -52,12 +52,13 @@ main.form
           = f.label :home_phone
           = f.text_field :home_phone
           = errors.message_for(:home_phone)
-          
+
       .field-row
-        = f.check_box :public_profile
-        = " "+User.human_attribute_name("public_profile")
-      
-	  hr 
+        .field
+          = f.check_box :public_profile
+          = f.label :public_profile
+
+	  hr
 
       .field-row.single
         .field class=errors.css(:location)
@@ -69,9 +70,8 @@ main.form
         .field.required class=errors.css(:accept_terms)
           = f.label :accept_terms
           p
+            = f.check_box :accept_terms, placeholder: true
             a href="http://lale.help/terms-and-conditions" target="_blank"= t('workflow.read_terms')
-          = f.check_box :accept_terms, placeholder: true
-          p
 
           p= errors.message_for(:accept_terms)
 
