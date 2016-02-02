@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
 
   def new
     if current_user.present?
+      current_user.touch :last_login
       redirect_to user_redirect_path
     else
       @form = User::Login.new
@@ -15,6 +16,7 @@ class SessionsController < ApplicationController
     outcome = @form.submit
     if outcome.success?
       user = outcome.result
+      user.touch :last_login
       login(user)
       redirect_to user_redirect_path
 

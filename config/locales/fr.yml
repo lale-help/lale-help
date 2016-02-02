@@ -550,6 +550,10 @@
         :roles: ''
         :working-groups: ''
         :invite-volunteers: ''
+      :working_groups:
+        :create_working_group: ''
+      :roles:
+        :promote_user: ''
     :comments:
       :placeholder: Que voulez-vous dire?
       :post: Poster
@@ -627,6 +631,11 @@
           :other: "%{count} volontaires"
       :index:
         :all-working-groups-dashboard: 
+      :new:
+        :new-working-group: ''
+    :organizers:
+      :index:
+        :organizers: ''
   :circles:
     :new:
       :create: Créer un Cercle
@@ -671,6 +680,7 @@
         :admin: Administration
         :my-working-groups: Mes Groupes de Travail
         :all-working-groups: Tous les Groupes de Travail
+        :organizers: ''
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles
@@ -722,3 +732,18 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
+  :active_record:
+    :attributes:
+      :user:
+        :last_login: ''
+        :phone: ''
+        :mobile_phone: ''
+        :home_phone: ''
+        :public_profile: ''
+        :primary_circle_id: ''
+        :role: ''
+        :working_groups: ''
+      :working_group:
+        :admin: ''
+        :actions: ''
+        :admin_ids: ''

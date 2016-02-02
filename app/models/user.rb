@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 
   enum language: [:en, :de, :fr]
 
+  alias_attribute :active_since, :created_at
 
   def login_token
     @login_token ||= begin
@@ -40,6 +41,8 @@ class User < ActiveRecord::Base
     identity.try :email
   end
 
+
+
   def tasks_for_circle circle
     task_assignments.where(circle: circle).tasks
   end
@@ -50,5 +53,13 @@ class User < ActiveRecord::Base
 
   def admin?
     self.is_admin
+  end
+
+  def organizer?
+    self.circle_roles.count > 1 || self.working_group_roles.count > 0
+  end
+
+  def public_profile?
+    identity.try :public_profile
   end
 end

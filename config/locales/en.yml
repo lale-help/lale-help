@@ -219,7 +219,7 @@
         :notification: :activerecord.models.notification
       :task:
         :completed_at: Completed at
-        :completed_tasks: Completed Tasks
+        :completed_tasks: Last Completed Task
         :pending_tasks: Pending Tasks
         :description: Description of the Task
         :due_date: Due Date
@@ -695,8 +695,10 @@
         :confirm_delete_working_group: Are you sure?
       :roles:
         :confirm_delete_circle: Are you sure?
+        :promote_user: Promote User
       :working_groups:
         :confirm_delete_working_group: Are you sure?
+        :create_working_group: New Working Group
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
@@ -787,6 +789,11 @@
           :other: "%{count} volunteers"
       :index:
         :all-working-groups-dashboard: All Working Groups Dashboard
+      :new:
+        :new-working-group: New Working Group
+    :organizers:
+      :index:
+        :organizers: Organizers
   :circles:
     :new:
       :create: Create Circle
@@ -831,6 +838,7 @@
         :admin: Administration
         :my-working-groups: My Working Groups
         :all-working-groups: All Working Groups
+        :organizers: Organizers
       :header:
         :settings: Settings
         :find-circles: Find Circles
@@ -873,3 +881,18 @@
       :name:
         :task:
           :volunteer: Volunteer
+  :active_record:
+    :attributes:
+      :user:
+        :last_login: Last Login
+        :phone: Phone Number
+        :mobile_phone: Mobile Phone
+        :home_phone: Home Phone
+        :public_profile: Show my profile to all circle members
+        :primary_circle_id: Primary Circle
+        :role: Role
+        :working_groups: ":activerecord.models.working_group"
+      :working_group:
+        :admin: Admin
+        :actions: Actions
+        :admin_ids: Admin IDs

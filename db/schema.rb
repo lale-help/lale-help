@@ -185,6 +185,10 @@ ActiveRecord::Schema.define(version: 20160125002152) do
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
     t.boolean  "accept_terms"
+    t.string   "mobile_phone"
+    t.string   "home_phone"
+    t.datetime "last_login"
+    t.boolean  "public_profile"
   end
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|

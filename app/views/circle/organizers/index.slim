@@ -1,4 +1,4 @@
-h2 = t('.directory')
+h2 = t('.organizers')
 
 div.table-scrollable
 	table
@@ -12,7 +12,7 @@ div.table-scrollable
 	    th = @members.human_attribute_name("last_login")
 	    th = @members.human_attribute_name("task.completed_tasks")
 
-	  - @members.each do |user|
+	  - @members.select{|user| user.organizer?}.each do |user|
 	    tr
 	      td
 	      	= render partial: 'user/user_icon', locals: {user: user}
@@ -23,16 +23,16 @@ div.table-scrollable
 	            = wg.name
 	      td= user.location.address
 	      td
-	        - if user.mobile_phone.present?
+	        - if user.mobile_phone != nil
 	          div= "M: #{user.mobile_phone}"
-	      	- if user.home_phone.present?
+	      	- if user.home_phone != nil
 	       	  div= "H: #{user.home_phone}"
 	      td
 	        a href="mailto:#{user.identity.email}"
 	          = user.identity.email
 	      td= l(user.created_at.to_date, format: :default)
 	      td
-	        - if user.last_login.present?
+	        - if user.last_login != nil
 	          div= l(user.last_login.to_date, format: :default)
 	      td
 	        - if (task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?

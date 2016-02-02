@@ -460,7 +460,7 @@
       :user:
         :circle: :activerecord.models.circle
         :working_groups: :activerecord.models.working_group
-        :email: Email
+        :email: E-Mail-Adresse
         :feedback: Feedback
         :name: Name
         :first_name: Vorname
@@ -597,8 +597,10 @@
         :create_working_group: Neue Arbeitsgruppe anlegen
       :roles:
         :confirm_delete_circle: Bist Du sicher?
+        :promote_user: ''
       :working_groups:
         :confirm_delete_working_group: Bist Du sicher?
+        :create_working_group: Neue Arbeitsgruppe
       :invite:
         :invite_members: Neue Mitglieder zu %{circle} einladen
         :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
@@ -686,9 +688,14 @@
           :other: "%{count} Helfer"
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
+      :new:
+        :new-working-group: Neue Arbeitsgruppe
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
+    :organizers:
+      :index:
+        :organizers: Veranstalter
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -733,6 +740,7 @@
         :admin: Verwaltung
         :my-working-groups: Meine Arbeitsgruppen
         :all-working-groups: Alle Arbeitsgruppen
+        :organizers: Veranstalter
       :header:
         :settings: Einstellungen
         :find-circles: Helferkreise finden
@@ -783,3 +791,18 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
+  :active_record:
+    :attributes:
+      :user:
+        :last_login: Letzte Anmeldung
+        :phone: Telefon
+        :mobile_phone: ''
+        :home_phone: ''
+        :public_profile: ''
+        :primary_circle_id: ''
+        :role: ''
+        :working_groups: ''
+      :working_group:
+        :admin: Verwalter
+        :actions: Aktionen
+        :admin_ids: Verwalter Ids
