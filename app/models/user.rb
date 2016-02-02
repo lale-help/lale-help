@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   enum language: [:en, :de, :fr]
 
-  alias_method :active_since, :created_at
+  alias_attribute :active_since, :created_at
 
   def login_token
     @login_token ||= begin
