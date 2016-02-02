@@ -315,12 +315,12 @@
         :other: Besoins
     :attributes:
       :circle:
-        :admin: :activerecord.models.admin
+        :admin: ''
         :location: :activerecord.models.location
         :name: Nom
         :tasks: Tâche
         :volunteers: Volontaire
-        :working_groups: Groupe de Travail
+        :working_groups: Groupes de Travail
         :roles: 
       :location:
         :address: Adresse
@@ -359,7 +359,7 @@
         :skills: Compétences
         :volunteer_assignments: Allocation de volontaires
         :volunteers: Volontaires
-        :working_group: :activerecord.models.working_group
+        :working_group: Groupe de Travail
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
@@ -413,7 +413,7 @@
         :tasks: Tâches
       :task/skill_assignment:
         :required: Requis
-        :skill: :activerecord.models.skill
+        :skill: Compétence
         :task: :activerecord.models.task
       :task/volunteer_assignment:
         :organizer: Organisateur
@@ -741,9 +741,16 @@
         :home_phone: ''
         :public_profile: ''
         :primary_circle_id: ''
-        :role: ''
+        :role: Role
         :working_groups: ''
       :working_group:
-        :admin: ''
+        :admin: Organisateur
         :actions: ''
-        :admin_ids: ''
+        :admin_ids: Organisateurs
+  :datetime:
+    :prompts:
+      :day: Jour
+    :distance_in_words:
+      :x_days:
+        :one: 1 jour
+        :other: "%{count} jours"
