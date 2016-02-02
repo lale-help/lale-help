@@ -3,14 +3,14 @@ h2 = t('.organizers')
 div.table-scrollable
 	table
 	  tr
-	    th = @members.human_attribute_name("name")
-	    th = @members.human_attribute_name("working_groups")
-	    th = @members.human_attribute_name("location.address")
-	    th = @members.human_attribute_name("phone")
-	    th = @members.human_attribute_name("email")
-	    th = @members.human_attribute_name("active_since")
-	    th = @members.human_attribute_name("last_login")
-	    th = @members.human_attribute_name("task.completed_tasks")
+	    th = User.human_attribute_name("name")
+	    th = User.human_attribute_name("working_groups")
+	    th = User.human_attribute_name("location.address")
+	    th = User.human_attribute_name("phone")
+	    th = User.human_attribute_name("email")
+	    th = User.human_attribute_name("active_since")
+	    th = User.human_attribute_name("last_login")
+	    th = User.human_attribute_name("task.completed_tasks")
 
 	  - @members.select{|user| user.organizer?}.each do |user|
 	    tr
