@@ -21,9 +21,9 @@ class Circle::TasksController < ApplicationController
     tasks_vol = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').order('due_date asc')
     tasks_org = current_user.tasks.for_circle(current_circle).with_role('task.organizer').order('due_date asc')
     @tasks = OpenStruct.new(
-        open: tasks_vol.not_completed.limit(10),
-        closed: tasks_vol.completed.limit(10),
-        open_org: tasks_org.not_completed.limit(10)
+        open: tasks_vol.not_completed,
+        closed: tasks_vol.completed,
+        open_org: tasks_org.not_completed
     )
   end
 
