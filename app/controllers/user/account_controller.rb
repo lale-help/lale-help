@@ -13,8 +13,10 @@ class User::AccountController < ApplicationController
     outcome = @form.submit
     errors.add outcome.errors
     if outcome.success?
+      flash[:notice] = t("flash.user.account.saved")
       redirect_to account_url
     else
+      flash[:error] = t("flash.user.account.save-failed")
       render :edit
     end
   end

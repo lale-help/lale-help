@@ -1,0 +1,51 @@
+.flash {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+
+  $medium-gray: #999 !default;
+  $alert-color: #fff6bf !default;
+  $error-color: #fbe3e4 !default;
+  $notice-color: #e5edf8 !default;
+  $success-color: #e6efc2 !default;
+
+
+
+  @mixin flash-color($color) {
+    background-color: $color;
+     color: darken($color, 60%);
+     padding: 0.4em 1.2em;
+  }
+
+
+  .flash-message {
+    padding: .5rem;
+    border: thin solid;
+    font-size: 1.75rem;
+    margin-bottom: .5rem;
+    border-radius: 5px;
+
+    min-width: 50rem;
+    text-align: center;
+
+
+    @include flash-color($medium-gray);
+  }
+
+
+  .info, .notice {
+    @include flash-color($notice-color);
+  }
+  .success {
+    @include flash-color($success-color);
+  }
+  .warning {
+    @include flash-color($alert-color);
+  }
+  .error {
+    @include flash-color($error-color);
+  }
+
+
+}

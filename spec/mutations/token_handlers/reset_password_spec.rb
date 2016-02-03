@@ -9,6 +9,7 @@ describe TokenHandlers::ResetPassword do
     double(:controller).tap do |c|
       allow(c).to receive(:redirect_to)
       allow(c).to receive(:login).with(volunteer)
+      allow(c).to receive(:current_user)
     end
   end
 

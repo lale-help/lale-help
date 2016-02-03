@@ -3,11 +3,14 @@ class User::Update < ::Form
 
   attribute :first_name,        :string
   attribute :last_name,         :string
+  attribute :mobile_phone,      :string, required: false
+  attribute :home_phone,        :string, required: false
   attribute :email,             :string
   attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
   attribute :primary_circle_id, :integer
-
+  attribute :public_profile,    :boolean
+  
   def language_options
     User.languages.map do |key, val|
       [ I18n.t("language.#{key}"), val ]
@@ -20,7 +23,7 @@ class User::Update < ::Form
 
   class Submit < ::Form::Submit
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :language))
+      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile))
       user.identity.assign_attributes(inputs.slice(:email))
 
       user.location = Location.location_from(location)
