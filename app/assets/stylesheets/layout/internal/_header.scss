@@ -76,11 +76,12 @@ body.internal {
           @include align-items(center);
         }
         .user-name{
-          margin-right: 2rem;
+            margin-right: 1rem;
         }
 
         .user-avatar {
           .user-icon {
+            margin-right: 2rem;  
             background: $white;
             font-size: 1rem;
             height: 3rem;
