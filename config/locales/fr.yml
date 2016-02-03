@@ -423,7 +423,7 @@
         :actions: Actions
       :user:
         :circle: :activerecord.models.circle
-        :working_groups: :activerecord.models.working_group
+        :working_groups: ''
         :email: Email
         :feedback: Feedback
         :name: Nom
@@ -444,7 +444,7 @@
         :mobile_phone: ''
         :home_phone: ''
         :public_profile: ''
-        :working_groups: ''
+        :active_since: ''
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation

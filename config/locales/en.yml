@@ -290,6 +290,7 @@
         :mobile_phone: Mobile Phone
         :home_phone: Home Phone
         :public_profile: Show my profile to all circle members
+        :active_since: Active since
       :user/feedback:
         :comment: Comment
         :rating: Rating
