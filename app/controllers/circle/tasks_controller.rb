@@ -6,13 +6,13 @@ class Circle::TasksController < ApplicationController
 
   def index
     authorize! :read, current_circle
+    @tasks = current_circle.tasks.order('due_date asc').not_completed
+  end
 
-    tasks = current_circle.tasks.order('due_date asc')
 
-    open_tasks   = tasks.not_completed
-    closed_tasks = tasks.completed
-
-    @tasks = OpenStruct.new(open: open_tasks.limit(10), closed: closed_tasks.limit(10))
+  def completed
+    authorize! :read, current_circle
+    @tasks = current_circle.tasks.order('due_date asc').completed
   end
 
   def my
