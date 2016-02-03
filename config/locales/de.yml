@@ -475,6 +475,12 @@
         :triggered_system_events: Ausgelöste System-Events
         :role: Rolle
         :accept_terms: Nutzungsbedingungen akzeptieren
+        :last_login: Letzte Anmeldung
+        :phone: Telefon
+        :mobile_phone: Mobiltelefon
+        :home_phone: Festnetz
+        :public_profile: Alle können mein Profil ansehen
+        :working_groups: Arbeitsgruppen
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung
@@ -489,8 +495,9 @@
         :name: Name
         :tasks: Aufgaben
         :volunteers: Helfer
-        :admin: Admin
         :actions: Aktionen
+        :admin: Organisator
+        :admin_ids: Organisatoren
     :errors:
       :messages:
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
@@ -791,21 +798,6 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
-  :active_record:
-    :attributes:
-      :user:
-        :last_login: Letzte Anmeldung
-        :phone: Telefon
-        :mobile_phone: Mobiltelefon
-        :home_phone: Festnetz
-        :public_profile: Alle können mein Profil ansehen
-        :primary_circle_id: ''
-        :role: Rolle
-        :working_groups: ''
-      :working_group:
-        :admin: Organisator
-        :actions: Aktionen
-        :admin_ids: Organisatoren
   :datetime:
     :prompts:
       :day: Tag

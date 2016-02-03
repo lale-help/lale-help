@@ -285,6 +285,11 @@
         :triggered_system_events: Triggered system events
         :role: Role
         :accept_terms: Accept Terms and Conditions
+        :last_login: Last Login
+        :phone: Phone Number
+        :mobile_phone: Mobile Phone
+        :home_phone: Home Phone
+        :public_profile: Show my profile to all circle members
       :user/feedback:
         :comment: Comment
         :rating: Rating
@@ -299,8 +304,9 @@
         :name: Name
         :tasks: Tasks
         :volunteers: Volunteers
-        :admin: Admin
         :actions: Actions
+        :admin: Organiser
+        :admin_ids: Organizers
       :supply:
         :duration-text:
           :hours_3: 3 Hours
@@ -882,18 +888,3 @@
       :name:
         :task:
           :volunteer: Volunteer
-  :active_record:
-    :attributes:
-      :user:
-        :last_login: Last Login
-        :phone: Phone Number
-        :mobile_phone: Mobile Phone
-        :home_phone: Home Phone
-        :public_profile: Show my profile to all circle members
-        :primary_circle_id: Primary Circle
-        :role: Role
-        :working_groups: ":activerecord.models.working_group"
-      :working_group:
-        :admin: Organiser
-        :actions: Actions
-        :admin_ids: Organizers

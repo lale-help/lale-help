@@ -439,6 +439,12 @@
         :triggered_system_events: Alerte Système
         :role: Role
         :accept_terms: ''
+        :last_login: ''
+        :phone: ''
+        :mobile_phone: ''
+        :home_phone: ''
+        :public_profile: ''
+        :working_groups: ''
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
@@ -453,8 +459,9 @@
         :name: Nom
         :tasks: Tâches
         :volunteers: Volontaires
-        :admin: 
-        :actions: 
+        :admin: Organisateur
+        :actions: ''
+        :admin_ids: Organisateurs
     :errors:
       :messages:
         :record_invalid: ''
@@ -732,21 +739,6 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
-  :active_record:
-    :attributes:
-      :user:
-        :last_login: ''
-        :phone: ''
-        :mobile_phone: ''
-        :home_phone: ''
-        :public_profile: ''
-        :primary_circle_id: ''
-        :role: Role
-        :working_groups: ''
-      :working_group:
-        :admin: Organisateur
-        :actions: ''
-        :admin_ids: Organisateurs
   :datetime:
     :prompts:
       :day: Jour
