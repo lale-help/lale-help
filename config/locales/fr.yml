@@ -321,7 +321,8 @@
         :tasks: Tâche
         :volunteers: Volontaire
         :working_groups: Groupes de Travail
-        :roles: 
+        :roles: Roles
+        :language: Langue 
       :location:
         :address: Adresse
         :circles: Cercle
