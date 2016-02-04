@@ -189,13 +189,14 @@
         :other: Supplies
     :attributes:
       :circle:
-        :admin: :activerecord.models.admin
+        :admin: Admin
         :location: :activerecord.models.location
         :name: Name
         :tasks: Tasks
         :volunteers: Volunteers
         :working_groups: Working groups
         :roles: Roles
+        :language: Language
       :location:
         :address: Address
         :circles: Circles
@@ -240,7 +241,7 @@
         :scheduled_time_start: Start Time
         :scheduled-time:
           :at: at %{start}
-          :on_date: ''
+          :on_date: 'on'
           :between: between %{start} and %{end}
         :duration-text:
           :hours_1: 1 Hour
@@ -248,6 +249,7 @@
           :hours_3: 3 Hours
           :half_day: Half a day
           :all_day: All day
+        :working_group: Working group
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
@@ -258,7 +260,7 @@
         :tasks: Tasks
       :task/skill_assignment:
         :required: Required
-        :skill: :activerecord.models.skill
+        :skill: Skill
         :task: :activerecord.models.task
       :task/volunteer_assignment:
         :organizer: Organizer
@@ -284,6 +286,12 @@
         :triggered_system_events: Triggered system events
         :role: Role
         :accept_terms: Accept Terms and Conditions
+        :last_login: Last Login
+        :phone: Phone Number
+        :mobile_phone: Mobile Phone
+        :home_phone: Home Phone
+        :public_profile: Show my profile to all circle members
+        :active_since: Active since
       :user/feedback:
         :comment: Comment
         :rating: Rating
@@ -298,8 +306,9 @@
         :name: Name
         :tasks: Tasks
         :volunteers: Volunteers
-        :admin: Admin
         :actions: Actions
+        :admin: Organiser
+        :admin_ids: Organizers
       :supply:
         :duration-text:
           :hours_3: 3 Hours
@@ -714,7 +723,7 @@
       :reply: Reply
     :members:
       :index:
-        :directory: Directory
+        :directory: Helper list
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -776,6 +785,8 @@
         :complete-task-button: Complete Task
         :edit-task-button: Edit Task
         :invite-button: Invite %{class}
+      :completed:
+        :header: All Completed Tasks
     :working_groups:
       :show:
         :settings: Settings
@@ -832,15 +843,16 @@
         :my-tasks: My Tasks
         :all-tasks: All Tasks
         :supplies: Supplies
-        :directory: Directory
+        :directory: Helper list
         :discussions: Discussions
         :calendar: Calendar
         :admin: Administration
         :my-working-groups: My Working Groups
         :all-working-groups: All Working Groups
         :organizers: Organizers
+        :completed-tasks: Completed Tasks
       :header:
-        :settings: Settings
+        :settings: Your profile
         :find-circles: Find Circles
         :sign-out: Sign Out
   :public:
@@ -881,18 +893,3 @@
       :name:
         :task:
           :volunteer: Volunteer
-  :active_record:
-    :attributes:
-      :user:
-        :last_login: Last Login
-        :phone: Phone Number
-        :mobile_phone: Mobile Phone
-        :home_phone: Home Phone
-        :public_profile: Show my profile to all circle members
-        :primary_circle_id: Primary Circle
-        :role: Role
-        :working_groups: ":activerecord.models.working_group"
-      :working_group:
-        :admin: Admin
-        :actions: Actions
-        :admin_ids: Admin IDs
