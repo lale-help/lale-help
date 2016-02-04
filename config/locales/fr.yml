@@ -197,8 +197,6 @@
   :workflow:
     :continue: Continuer
     :cancel: Annuler
-    :copied: ''
-    :read_terms: ''
   :language:
     :en: Anglais
     :de: Allemand
@@ -228,16 +226,6 @@
       :create: Créer %{model}
       :submit: Enregistrer %{model}
       :update: Mettre à jour %{model}
-    :page_entries_info:
-      :more_pages:
-        :display_entries: ''
-      :one_page:
-        :display_entries:
-          :one: ''
-          :other: ''
-          :zero: ''
-    :select:
-      :prompt: ''
   :unauthorized:
     :manage:
       :all: Vous n'êtes pas autorisé à %{action} %{subject}.
@@ -315,7 +303,6 @@
         :other: Besoins
     :attributes:
       :circle:
-        :admin: ''
         :location: :activerecord.models.location
         :name: Nom
         :tasks: Tâche
@@ -353,7 +340,6 @@
         :location_assignments: Allocation d'emplacements
         :locations: Emplacements
         :name: Mon de la tâche
-        :working_group_id: 
         :organizer_assignments: Allocation d'organisateurs
         :organizer_id: Organisateur
         :skill_assignments: Allocation de compétences
@@ -424,7 +410,6 @@
         :actions: Actions
       :user:
         :circle: :activerecord.models.circle
-        :working_groups: ''
         :email: Email
         :feedback: Feedback
         :name: Nom
@@ -439,13 +424,6 @@
         :tasks: Tâches
         :triggered_system_events: Alerte Système
         :role: Role
-        :accept_terms: ''
-        :last_login: ''
-        :phone: ''
-        :mobile_phone: ''
-        :home_phone: ''
-        :public_profile: ''
-        :active_since: ''
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
@@ -461,69 +439,18 @@
         :tasks: Tâches
         :volunteers: Volontaires
         :admin: Organisateur
-        :actions: ''
         :admin_ids: Organisateurs
-    :errors:
-      :messages:
-        :record_invalid: ''
-        :restrict_dependent_destroy:
-          :many: ''
-          :one: ''
   :errors:
     :password:
       :too_short: Merci de choisir un mot de passe de plus de 8 caractères.
-      :nils: ''
-      :does_not_match: ''
     :password_confirmation:
       :did_not_match: Votre mot de passe et confirmation de mot de passe ne correspondent
         pas.
-      :nils: ''
-    :accept_terms:
-      :false: ''
-    :email:
-      :nils: ''
-      :taken: ''
-    :first_name:
-      :nils: ''
-    :last_name:
-      :nils: ''
     :format: "%{attribute} %{message}"
-    :messages:
-      :accepted: ''
-      :blank: ''
-      :confirmation: ''
-      :empty: ''
-      :equal_to: ''
-      :even: ''
-      :exclusion: ''
-      :taken: ''
-      :greater_than: ''
-      :greater_than_or_equal_to: ''
-      :less_than_or_equal_to: ''
-      :less_than: ''
-      :invalid: ''
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
     :destroyed: "%{name} a été supprimé avec succès."
-    :actions:
-      :destroy:
-        :alert: ''
-        :notice: ''
-      :invited:
-        :one: ''
-        :other: ''
-        :zero: ''
-      :create:
-        :notice: ''
-      :update:
-        :notice: ''
-    :user:
-      :account:
-        :saved: ''
-        :save-failed: ''
-    :failed:
-      :create: ''
   :tasks:
     :flash:
       :volunteered: Merci de vous être porté volontaire pour %{name} !
@@ -544,24 +471,10 @@
         :volunteer: Volontaire
         :organizer: Organisateur
       :admin: Administrateur
-      :member: ''
   :circle:
     :admins:
       :show:
         :settings: Paramètres
-        :confirm_delete_circle: ''
-        :confirm_delete_working_group: ''
-        :promote_user: 
-        :create_working_group: 
-      :nav:
-        :basic-settings: ''
-        :roles: ''
-        :working-groups: ''
-        :invite-volunteers: ''
-      :working_groups:
-        :create_working_group: ''
-      :roles:
-        :promote_user: ''
     :comments:
       :placeholder: Que voulez-vous dire?
       :post: Poster
@@ -574,8 +487,6 @@
         :header: Besoins Matériels
       :supply_list:
         :no-supplies: Aucun besoin particulier en ce moment.
-      :supply_list_item:
-        :stats-here: 
       :new:
         :back: Retour à Tous les Besoins
       :edit:
@@ -602,8 +513,6 @@
         :header: Toutes les Tâches
       :my:
         :header: Mes Tâches
-        :volunteer-header: ''
-        :organizer-header: ''
       :task_list:
         :no-tasks: Aucune tâche trouvée.
       :task_list_item:
@@ -627,9 +536,6 @@
         :organized-by: Organisé par %{name}
         :complete-task-button: Tâche Terminée
         :edit-task-button: Editer la Tâche
-        :invite-button: ''
-      :completed:
-        :header: ''
     :working_groups:
       :show:
         :settings: Paramètres
@@ -641,13 +547,6 @@
         :member-title:
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
-      :index:
-        :all-working-groups-dashboard: 
-      :new:
-        :new-working-group: ''
-    :organizers:
-      :index:
-        :organizers: ''
   :circles:
     :new:
       :create: Créer un Cercle
@@ -664,7 +563,6 @@
         :volunteer-filled: Remplie
         :volunteer: Je peux le faire !
         :complete: Compléter la tâche
-      :circle-dashboard: 
       :working-group:
         :new: Ajouter un Nouveau Groupe de Travail
         :filter: Filtrer les Groupes de Travail
@@ -692,8 +590,6 @@
         :admin: Administration
         :my-working-groups: Mes Groupes de Travail
         :all-working-groups: Tous les Groupes de Travail
-        :organizers: ''
-        :completed-tasks: ''
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles

@@ -47,7 +47,7 @@ class TranslationManager
   def save
     yamls = Hash.new
     SUPPORTED_LANGS.each do |lang|
-      yamls[lang] = { lang => translations_for(lang) }.to_yaml
+      yamls[lang] = { lang => deep_compact(translations_for(lang)) }.to_yaml
     end
 
     yamls.each do |lang, yaml|
@@ -127,6 +127,14 @@ class TranslationManager
       end
     else
       [ path ]
+    end
+  end
+
+  def deep_compact(hash)
+    hash.inject({}) do |new_hash, (k,v)|
+      new_val = v.class == Hash ? deep_compact(v) : v
+      new_hash[k] = new_val if new_val.class == FalseClass || new_val.present?
+      new_hash
     end
   end
 end

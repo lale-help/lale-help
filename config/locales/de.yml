@@ -257,10 +257,6 @@
       :create: "%{model} erstellen"
       :submit: "%{model} speichern"
       :update: "%{model} aktualisieren"
-    :placeholders:
-      :circle:
-        :task:
-          :name: 
     :page_entries_info:
       :more_pages:
         :display_entries: Anzeige von %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
@@ -659,8 +655,6 @@
         :header: Alle Aufgaben
       :my:
         :header: Meine Aufgaben
-        :volunteer-header: ''
-        :organizer-header: ''
       :task_list:
         :no-tasks: Keine Aufgaben gefunden.
       :task_list_item:
@@ -685,8 +679,6 @@
         :complete-task-button: Aufgabe abschliessen
         :edit-task-button: Aufgabe bearbeiten
         :invite-button: "%{class} einladen"
-      :completed:
-        :header: ''
     :working_groups:
       :show:
         :settings: Einstellungen
@@ -753,7 +745,6 @@
         :my-working-groups: Meine Arbeitsgruppen
         :all-working-groups: Alle Arbeitsgruppen
         :organizers: Organisatoren
-        :completed-tasks: ''
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden

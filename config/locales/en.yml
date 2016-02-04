@@ -83,14 +83,9 @@
         :strip_insignificant_zeros: false
     :percentage:
       :format:
-        :delimiter: ''
         :format: "%n%"
-    :precision:
-      :format:
-        :delimiter: ''
     :human:
       :format:
-        :delimiter: ''
         :precision: 3
         :significant: true
         :strip_insignificant_zeros: true
@@ -107,7 +102,6 @@
       :decimal_units:
         :format: "%n %u"
         :units:
-          :unit: ''
           :thousand: Thousand
           :million: Million
           :billion: Billion
@@ -390,10 +384,6 @@
     :placeholder:
       :task:
         :name: E.g. Take Riad to School Orientation
-    :placeholders:
-      :circle:
-        :task:
-          :name: 
   :ransack:
     :search: search
     :predicate: predicate
