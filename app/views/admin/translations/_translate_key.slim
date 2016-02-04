@@ -1,0 +1,15 @@
+= form_tag admin_translate_key_submit_path do
+  = hidden_field_tag :key, params[:key]
+  fieldset.inputs
+    ol
+      - [:en, :de, :fr].each do |lang|
+        li.input
+          = label_tag "translation[#{lang}]", I18n.t("language.#{lang}")
+          = text_field_tag "translation[#{lang}]", t(params[:key], locale: lang, default: '')
+
+  fieldset.actions
+    ol
+      li.action
+        = submit_tag
+      li.cancel
+        a href=admin_translations_path Back

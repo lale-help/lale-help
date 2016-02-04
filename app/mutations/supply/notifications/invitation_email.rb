@@ -14,5 +14,7 @@ class Supply::Notifications::InvitationEmail < Mutations::Command
       token = Token.supply_invitation.create! context: { user_id: user.id, supply_id: supply.id }
       SupplyMailer.supply_invitation(supply, user, token).deliver_now
     end
+
+    OpenStruct.new(volunteers: volunteers)
   end
 end

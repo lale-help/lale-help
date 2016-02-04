@@ -1,13 +1,3 @@
-@mixin text-color($text, $link) {
-  color: $text;
-
-  a, a:visited, &:visited {
-    color: $link;
-    text-decoration: none;
-  }
-}
-
-
 html {
   background-color : $body-bg;
   @include text-color($body-text, $body-link);
@@ -36,6 +26,10 @@ body.internal {
         @include text-color($nav-bg-active, $nav-bg-active);
       }
     }
+  }
+
+  .admin-nav {
+    @include text-color($body-text, $body-text);
   }
 
   header{

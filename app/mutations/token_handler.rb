@@ -1,9 +1,11 @@
 class TokenHandler < Mutations::Command
   include Rails.application.routes.url_helpers
 
+  delegate :current_user, :redirect_to, :login, to: :controller
+
   required do
     model :token
-    duck   :controller, methods: [:redirect_to, :login]
+    duck   :controller, methods: [:current_user, :redirect_to, :login]
   end
 
   def execute

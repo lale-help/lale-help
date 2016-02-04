@@ -143,9 +143,11 @@ class Circle::TasksController < ApplicationController
     outcome = Task::Notifications::InvitationEmail.run(current_user: current_user, task: current_task, type: params[:type])
 
     if outcome.success?
-      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.completed', name: current_task.name)
+      flash[:notice] = t('flash.actions.invited', name: current_task.name, count: outcome.result.volunteers.size, model: Task.model_name.human.downcase )
+      redirect_to circle_task_path(current_circle, current_task)
     else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.complete_failed', name: current_task.name)
+      flash[:error] = t('tasks.flash.invite_failed', name: current_task.name)
+      redirect_to circle_task_path(current_circle, current_task)
     end
   end
 

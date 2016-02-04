@@ -7,6 +7,9 @@ class WorkingGroup::Role < ActiveRecord::Base
     member
   ]
 
+  ORGANIZER_TYPES  = %w(admin member)
+  ORGANIZER_TYPE_IDS  = ORGANIZER_TYPES.map {|id| WorkingGroup::Role.role_types[id] }
+
   scope :for_circle, ->(circle){ for_group(circle.working_groups) }
   scope :for_group, ->(group){ where(working_group: group ) }
 

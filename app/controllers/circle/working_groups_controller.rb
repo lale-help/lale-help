@@ -30,7 +30,7 @@ class Circle::WorkingGroupsController < ApplicationController
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to circle_admin_path(current_circle), notice: t('flash.created', name: WorkingGroup.model_name.human)
+      redirect_to working_groups_circle_admin_path(current_circle), notice: t('flash.created', name: WorkingGroup.model_name.human)
     else
       render :new
     end
@@ -55,7 +55,7 @@ class Circle::WorkingGroupsController < ApplicationController
 
     current_working_group.destroy
 
-    redirect_to circle_admin_path(current_circle), notice: t('flash.destroyed', name: WorkingGroup.model_name.human)
+    redirect_to working_groups_circle_admin_path(current_circle), notice: t('flash.destroyed', name: WorkingGroup.model_name.human)
   end
 
   def join
