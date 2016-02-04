@@ -351,13 +351,14 @@
       :system_event/notification/delivery: System event/notification/delivery
     :attributes:
       :circle:
-        :admin: :activerecord.models.admin
+        :admin: Administrator
         :location: :activerecord.models.location
         :name: Name
         :tasks: Aufgaben
         :volunteers: Helfer
         :working_groups: Arbeitsgruppen
         :roles: Rollen
+        :language: Sprache
       :location:
         :address: Anschrift
         :circles: Helferkreise
@@ -381,7 +382,7 @@
         :notification: :activerecord.models.notification
       :task:
         :completed_at: Erledigt um
-        :completed_tasks: Erledigten Aufgaben
+        :completed_tasks: Erledigte Aufgaben
         :pending_tasks: Offene Aufgaben
         :description: Beschreibung
         :due_date: Fälligkeit
@@ -395,7 +396,7 @@
         :skills: Fähigkeiten
         :volunteer_assignments: Helferzuordnungen
         :volunteers: Helfer
-        :working_group: :activerecord.models.working_group
+        :working_group: Arbeitsgruppe
         :volunteer_count_required: Anzahl der benötigten Helfer
         :primary_location: Standort
         :duration: Zeitaufwand
@@ -449,7 +450,7 @@
         :tasks: Aufgaben
       :task/skill_assignment:
         :required: Erforderlich
-        :skill: :activerecord.models.skill
+        :skill: Fähigkeit
         :task: :activerecord.models.task
       :task/volunteer_assignment:
         :organizer: Organisator
@@ -459,7 +460,7 @@
         :actions: Aktionen
       :user:
         :circle: :activerecord.models.circle
-        :working_groups: :activerecord.models.working_group
+        :working_groups: Arbeitsgruppen
         :email: E-Mail-Adresse
         :feedback: Feedback
         :name: Name
@@ -475,6 +476,12 @@
         :triggered_system_events: Ausgelöste System-Events
         :role: Rolle
         :accept_terms: Nutzungsbedingungen akzeptieren
+        :last_login: Letzte Anmeldung
+        :phone: Telefon
+        :mobile_phone: Mobiltelefon
+        :home_phone: Festnetz
+        :public_profile: Alle können mein Profil ansehen
+        :active_since: Aktiv seit
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung
@@ -489,8 +496,9 @@
         :name: Name
         :tasks: Aufgaben
         :volunteers: Helfer
-        :admin: Admin
         :actions: Aktionen
+        :admin: Organisator
+        :admin_ids: Organisatoren
     :errors:
       :messages:
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
@@ -597,7 +605,7 @@
         :create_working_group: Neue Arbeitsgruppe anlegen
       :roles:
         :confirm_delete_circle: Bist Du sicher?
-        :promote_user: ''
+        :promote_user: Rolle vergeben
       :working_groups:
         :confirm_delete_working_group: Bist Du sicher?
         :create_working_group: Neue Arbeitsgruppe
@@ -607,7 +615,7 @@
           schicke einfach diesen Link an alle Interessierten.
       :nav:
         :basic-settings: Grundeinstellungen
-        :roles: Funktionen
+        :roles: Rollen
         :working-groups: Arbeitsgruppen
         :invite-volunteers: Helfer einladen
     :comments:
@@ -616,7 +624,7 @@
       :reply: Antworten
     :members:
       :index:
-        :directory: Verzeichnis
+        :directory: Helferliste
     :supplies:
       :index:
         :header: Sachspenden
@@ -695,7 +703,7 @@
         :start_helping: Mach heute gleich mit bei %{circle}!
     :organizers:
       :index:
-        :organizers: Veranstalter
+        :organizers: Organisatoren
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -734,15 +742,15 @@
         :my-tasks: Meine Aufgaben
         :all-tasks: Alle Aufgaben
         :supplies: Sachspenden
-        :directory: Verzeichnis
+        :directory: Helferliste
         :discussions: Diskussionen
         :calendar: Kalendaralendar
         :admin: Verwaltung
         :my-working-groups: Meine Arbeitsgruppen
         :all-working-groups: Alle Arbeitsgruppen
-        :organizers: Veranstalter
+        :organizers: Organisatoren
       :header:
-        :settings: Einstellungen
+        :settings: Dein Profil
         :find-circles: Helferkreise finden
         :sign-out: Ausloggen
   :public:
@@ -791,18 +799,10 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
-  :active_record:
-    :attributes:
-      :user:
-        :last_login: Letzte Anmeldung
-        :phone: Telefon
-        :mobile_phone: ''
-        :home_phone: ''
-        :public_profile: ''
-        :primary_circle_id: ''
-        :role: ''
-        :working_groups: ''
-      :working_group:
-        :admin: Verwalter
-        :actions: Aktionen
-        :admin_ids: Verwalter Ids
+  :datetime:
+    :prompts:
+      :day: Tag
+    :distance_in_words:
+      :x_days:
+        :one: 1 Tag
+        :other: "%{count} Tage"
