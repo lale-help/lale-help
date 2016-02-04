@@ -5,7 +5,7 @@
     .title Circle Dashboard
     .actions
       span.hint =t('circle.dashboard.need_help')
-      a.button href="todo" = t('circle.dashboard.contact_circle_admin')
+      a.button href="mailto:#{current_circle.admins.first.email}" = t('circle.dashboard.contact_circle_admin')
 
   hr
 
