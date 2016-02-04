@@ -322,7 +322,7 @@
         :volunteers: Volontaire
         :working_groups: Groupes de Travail
         :roles: Roles
-        :language: Langue 
+        :language: Langue
       :location:
         :address: Adresse
         :circles: Cercle
@@ -626,6 +626,8 @@
         :complete-task-button: Tâche Terminée
         :edit-task-button: Editer la Tâche
         :invite-button: ''
+      :completed:
+        :header: ''
     :working_groups:
       :show:
         :settings: Paramètres
@@ -689,6 +691,7 @@
         :my-working-groups: Mes Groupes de Travail
         :all-working-groups: Tous les Groupes de Travail
         :organizers: ''
+        :completed-tasks: ''
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles

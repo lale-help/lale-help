@@ -785,6 +785,8 @@
         :complete-task-button: Complete Task
         :edit-task-button: Edit Task
         :invite-button: Invite %{class}
+      :completed:
+        :header: All Completed Tasks
     :working_groups:
       :show:
         :settings: Settings
@@ -848,6 +850,7 @@
         :my-working-groups: My Working Groups
         :all-working-groups: All Working Groups
         :organizers: Organizers
+        :completed-tasks: Completed Tasks
       :header:
         :settings: Your profile
         :find-circles: Find Circles
