@@ -815,6 +815,14 @@
     :organizers:
       :index:
         :organizers: Organizers
+    :dashboard:
+      :need_help: Need help?
+      :contact_circle_admin: Contact Circle Admin
+      :open_tasks: Open Tasks
+      :task_list:
+        :comment_activity: A lot of recent commenting
+        :no_volunteers: Has no volunteers
+        :more_volunteers_needed: More volunteers needed
   :circles:
     :new:
       :create: Create Circle
