@@ -602,6 +602,8 @@
         :header: Toutes les Tâches
       :my:
         :header: Mes Tâches
+        :volunteer-header: ''
+        :organizer-header: ''
       :task_list:
         :no-tasks: Aucune tâche trouvée.
       :task_list_item:
