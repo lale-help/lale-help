@@ -315,13 +315,14 @@
         :other: Besoins
     :attributes:
       :circle:
-        :admin: :activerecord.models.admin
+        :admin: ''
         :location: :activerecord.models.location
         :name: Nom
         :tasks: Tâche
         :volunteers: Volontaire
-        :working_groups: Groupe de Travail
-        :roles: 
+        :working_groups: Groupes de Travail
+        :roles: Roles
+        :language: Langue 
       :location:
         :address: Adresse
         :circles: Cercle
@@ -359,7 +360,7 @@
         :skills: Compétences
         :volunteer_assignments: Allocation de volontaires
         :volunteers: Volontaires
-        :working_group: :activerecord.models.working_group
+        :working_group: Groupe de Travail
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
@@ -413,7 +414,7 @@
         :tasks: Tâches
       :task/skill_assignment:
         :required: Requis
-        :skill: :activerecord.models.skill
+        :skill: Compétence
         :task: :activerecord.models.task
       :task/volunteer_assignment:
         :organizer: Organisateur
@@ -423,7 +424,7 @@
         :actions: Actions
       :user:
         :circle: :activerecord.models.circle
-        :working_groups: :activerecord.models.working_group
+        :working_groups: ''
         :email: Email
         :feedback: Feedback
         :name: Nom
@@ -439,6 +440,12 @@
         :triggered_system_events: Alerte Système
         :role: Role
         :accept_terms: ''
+        :last_login: ''
+        :phone: ''
+        :mobile_phone: ''
+        :home_phone: ''
+        :public_profile: ''
+        :active_since: ''
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
@@ -453,8 +460,9 @@
         :name: Nom
         :tasks: Tâches
         :volunteers: Volontaires
-        :admin: 
-        :actions: 
+        :admin: Organisateur
+        :actions: ''
+        :admin_ids: Organisateurs
     :errors:
       :messages:
         :record_invalid: ''
@@ -735,18 +743,10 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
-  :active_record:
-    :attributes:
-      :user:
-        :last_login: ''
-        :phone: ''
-        :mobile_phone: ''
-        :home_phone: ''
-        :public_profile: ''
-        :primary_circle_id: ''
-        :role: ''
-        :working_groups: ''
-      :working_group:
-        :admin: ''
-        :actions: ''
-        :admin_ids: ''
+  :datetime:
+    :prompts:
+      :day: Jour
+    :distance_in_words:
+      :x_days:
+        :one: 1 jour
+        :other: "%{count} jours"

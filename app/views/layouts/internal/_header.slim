@@ -12,9 +12,11 @@ header
     .user-menu.dropdown
       input id='user-menu-selector' type='checkbox' class='menu-selector'
       label for='user-menu-selector'
-        .user-name= current_user.name
         .user-avatar
           =render partial: 'user/user_icon', locals: { user: current_user }
+        .user-name= current_user.name
+        .fi-chevron-bottom:before
+        
 
 
       .menu.user-dropdown
