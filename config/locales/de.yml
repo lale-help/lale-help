@@ -675,6 +675,8 @@
         :complete-task-button: Aufgabe abschliessen
         :edit-task-button: Aufgabe bearbeiten
         :invite-button: "%{class} einladen"
+      :completed:
+        :header: ''
     :working_groups:
       :show:
         :settings: Einstellungen
@@ -741,6 +743,7 @@
         :my-working-groups: Meine Arbeitsgruppen
         :all-working-groups: Alle Arbeitsgruppen
         :organizers: Veranstalter
+        :completed-tasks: ''
       :header:
         :settings: Einstellungen
         :find-circles: Helferkreise finden
