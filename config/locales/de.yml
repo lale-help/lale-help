@@ -659,6 +659,8 @@
         :header: Alle Aufgaben
       :my:
         :header: Meine Aufgaben
+        :volunteer-header: ''
+        :organizer-header: ''
       :task_list:
         :no-tasks: Keine Aufgaben gefunden.
       :task_list_item:

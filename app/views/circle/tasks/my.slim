@@ -1,3 +1,5 @@
 h2= t('.header')
 
-= render partial: 'task_list', locals: { circle: current_circle, working_group: nil, tasks: @tasks.open}
+= render partial: 'task_list', locals: { circle: current_circle, working_group: nil, tasks: @tasks.open, title: t('.volunteer-header')}
+
+= render partial: 'task_list', locals: { circle: current_circle, working_group: nil, tasks: @tasks.open_org, title: t('.organizer-header')}
