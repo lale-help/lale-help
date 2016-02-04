@@ -14,8 +14,8 @@ class User::Create < ::Form
 
   attribute :location, :string, required: false
   attribute :language, :integer
-  
-  attribute :public_profile, :boolean
+
+  attribute :public_profile, :boolean, default: proc{ false }
 
   attribute :accept_terms, :boolean
 
