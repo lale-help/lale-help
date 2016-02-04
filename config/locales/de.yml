@@ -260,7 +260,7 @@
     :placeholders:
       :circle:
         :task:
-          :name:
+          :name: 
     :page_entries_info:
       :more_pages:
         :display_entries: Anzeige von %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
@@ -285,7 +285,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mär
@@ -311,7 +311,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Januar
     - Februar
     - März
