@@ -138,6 +138,18 @@ class Circle::TasksController < ApplicationController
   end
 
 
+  def reopen
+    authorize! :reopen, current_task
+
+    outcome = Task::Reopen.run(user: current_user, task: current_task)
+
+    if outcome.success?
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.reopened', name: current_task.name)
+    else
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.reopening_failed', name: current_task.name)
+    end
+  end
+
   def invite
     authorize! :manage, current_task
 

@@ -133,6 +133,19 @@ class Ability
     end
 
 
+    can :reopen, Task do |task|
+      task.complete? and ((
+      task.volunteers.include?(user) or
+          task.organizers.include?(user)
+      ) or
+          can?(:manage, task.working_group) or
+          can?(:manage, task.circle))
+    end
+    cannot :reopen, Task do |task|
+      task.incomplete?
+    end
+
+
     # Supply
     can :read, Supply do |supply|
       can? :read, supply.circle

@@ -654,6 +654,8 @@
     :flash:
       :volunteered: Thanks for volunteering for %{name}!
       :completed: Thanks for completing %{name}!
+      :reopening_failed: There was a problem re-opening this task
+      :reopened: Task has been re-opened
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated
@@ -777,6 +779,7 @@
         :complete-task-button: Complete Task
         :edit-task-button: Edit Task
         :invite-button: Invite %{class}
+        :reopen-task-button: Re-open Task
       :completed:
         :header: All Completed Tasks
     :working_groups:
