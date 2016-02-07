@@ -184,11 +184,11 @@ ActiveRecord::Schema.define(version: 20160208194956) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
+    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
-    t.boolean  "accept_terms"
     t.string   "about_me"
   end
 
@@ -201,10 +201,11 @@ ActiveRecord::Schema.define(version: 20160208194956) do
   end
 
   create_table "working_groups", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "circle_id",  limit: 8, null: false
-    t.string   "name",                 null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "circle_id",   limit: 8, null: false
+    t.string   "name",                  null: false
+    t.string   "description"
   end
 
 end

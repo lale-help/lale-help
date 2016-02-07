@@ -2,6 +2,7 @@ class WorkingGroup::BaseForm < ::Form
   attribute :working_group, :model, primary: true, new_records: true
 
   attribute :name, :string
+  attribute :description, :string
   attribute :admin_ids, :array, class: String, default: proc{ working_group.admins.map(&:id) }
 
 
@@ -24,6 +25,7 @@ class WorkingGroup::BaseForm < ::Form
   class Submit < ::Form::Submit
     def execute
       working_group.update_attributes inputs.slice(:name)
+      working_group.update_attributes inputs.slice(:description)
       working_group.roles.admin.delete_all
       clean_admin_ids.each do |id|
         working_group.roles.admin.create user_id: id
