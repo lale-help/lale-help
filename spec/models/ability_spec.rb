@@ -10,18 +10,19 @@ describe "Volunteer" do
 
     context "as a guest" do
       let(:user){ nil }
-      xit{ should     be_able_to(:read, circle) }
+      it{ should_not be_able_to(:read, circle) }
       it{ should     be_able_to(:create, Circle.new) }
       it{ should_not be_able_to(:update, circle) }
       it{ should_not be_able_to(:destroy, circle) }
       it{ should_not be_able_to(:complete, task) }
     end
 
-    context "when is a circle admin", :skip do
-      let(:user){ FactoryGirl.create(:admin) }
+    context "when is a circle admin" do
+      let(:circle_role){ FactoryGirl.create(:circle_role_admin, circle: circle) }
+      let(:user){ circle_role.user }
 
       it{ should     be_able_to(:read, circle) }
-      it{ should_not be_able_to(:create, Circle.new) }
+      it{ should     be_able_to(:create, Circle.new) }
       it{ should     be_able_to(:update, circle) }
       it{ should     be_able_to(:destroy, circle) }
 
@@ -35,28 +36,28 @@ describe "Volunteer" do
       it{ should     be_able_to(:update, task) }
       it{ should     be_able_to(:destroy, task) }
       it{ should     be_able_to(:volunteer, task) }
-      it{ should_not be_able_to(:complete, task) }
+      it{ should     be_able_to(:complete, task) }
     end
 
     context "when is a member of a circle" do
-      let(:user){ FactoryGirl.create(:volunteer) }
-      let(:circle_role){ FactoryGirl.create(:circle_role) }
+      let(:circle_role){ FactoryGirl.create(:circle_role_volunteer, circle: circle) }
+      let(:user){ circle_role.user }
 
-      xit{ should     be_able_to(:read, circle) }
-      xit{ should_not be_able_to(:create, Circle.new) }
+      it{ should     be_able_to(:read, circle) }
+      it{ should     be_able_to(:create, Circle.new) }
       it{ should_not be_able_to(:update, circle) }
       it{ should_not be_able_to(:destroy, circle) }
 
-      xit{ should     be_able_to(:read, working_group) }
+      it{ should     be_able_to(:read, working_group) }
       it{ should_not be_able_to(:create, WorkingGroup.new(circle: circle)) }
       it{ should_not be_able_to(:update, working_group) }
       it{ should_not be_able_to(:destroy, working_group) }
 
-      xit{ should     be_able_to(:read, task) }
+      it{ should     be_able_to(:read, task) }
       it{ should_not be_able_to(:create, Task.new(working_group: working_group)) }
       it{ should_not be_able_to(:update, task) }
       it{ should_not be_able_to(:destroy, task) }
-      xit{ should     be_able_to(:volunteer, task) }
+      it{ should     be_able_to(:volunteer, task) }
       it{ should_not be_able_to(:complete, task) }
 
       context "have volenteered for a task", :skip do
