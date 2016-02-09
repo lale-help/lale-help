@@ -44,11 +44,18 @@ class Circle < ActiveRecord::Base
   end
 
   def comment_average
-    tasks_average = []
-    tasks.each do |task|
-      tasks_average << task.comments.count
+    @comment_average  ||= begin
+      recent_tasks = tasks.where("tasks.updated_at > ?", 1.month.ago)
+
+      recent_task_count    = recent_tasks.count
+      recent_comment_count = recent_tasks.joins(:comments).count
+
+      if recent_task_count > 0
+        recent_comment_count / recent_task_count
+      else
+        0
+      end
     end
-    tasks_average.inject{ |sum, el| sum + el }.to_f / tasks_average.size
   end
 
 
