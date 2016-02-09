@@ -27,6 +27,10 @@ class User::Create < ::Form
     end
   end
 
+  def email
+    (@email || user.email || '').downcase
+  end
+
   class Submit < ::Form::Submit
     def validate
       add_error(:password, :does_not_match) if password != password_confirmation
