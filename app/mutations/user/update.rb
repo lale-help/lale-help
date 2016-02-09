@@ -9,6 +9,7 @@ class User::Update < ::Form
   attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
   attribute :primary_circle_id, :integer
+  attribute :about_me,          :string
   attribute :public_profile,    :boolean
   
   def language_options
@@ -22,8 +23,12 @@ class User::Update < ::Form
   end
 
   class Submit < ::Form::Submit
+    def validate
+      add_error(:about_me, :too_long) if about_me.length > 300
+    end
+
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile))
+      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :about_me, :public_profile))
       user.identity.assign_attributes(inputs.slice(:email))
 
       user.location = Location.location_from(location)

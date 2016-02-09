@@ -154,6 +154,8 @@
       :nils: Please provide your first name.
     :last_name:
       :nils: Please provide your last name.
+    :about_me:
+      :too_long: maximum 300 characters
   :activerecord:
     :errors:
       :messages:

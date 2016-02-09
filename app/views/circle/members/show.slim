@@ -8,7 +8,7 @@
         = render partial: 'user/user_icon', locals: {user: current_member}
       .title
         = current_member.name
-      .description=
+      .description= current_user.about_me
 
     .task-details
       .row
