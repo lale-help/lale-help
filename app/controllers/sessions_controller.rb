@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   layout 'public'
   skip_authorization_check
+  skip_before_action :possibly_expire_session
 
   def new
     if current_user.present?
