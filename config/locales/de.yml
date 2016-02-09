@@ -655,6 +655,8 @@
         :header: Alle Aufgaben
       :my:
         :header: Meine Aufgaben
+        :volunteer-header: Was ich erledige
+        :organizer-header: Was ich organisiere
       :task_list:
         :no-tasks: Keine Aufgaben gefunden.
       :task_list_item:
@@ -679,6 +681,8 @@
         :complete-task-button: Aufgabe abschliessen
         :edit-task-button: Aufgabe bearbeiten
         :invite-button: "%{class} einladen"
+      :completed:
+        :header: Alle erledigten Aufgaben
     :working_groups:
       :show:
         :settings: Einstellungen
@@ -745,6 +749,7 @@
         :my-working-groups: Meine Arbeitsgruppen
         :all-working-groups: Alle Arbeitsgruppen
         :organizers: Organisatoren
+        :completed-tasks: Erledigte Aufgaben
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden
