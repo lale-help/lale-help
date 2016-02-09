@@ -1,0 +1,48 @@
+- content_for :header_middle do
+  a.back href=circle_members_path(current_circle) = t('.back')
+
+.member
+  main
+    .member-header
+      .icon
+        = render partial: 'user/user_icon', locals: {user: current_member}
+      .title
+        = current_member.name
+      .description=
+
+    .task-details
+      .row
+        .label email / mobile phone / home phone
+        .info
+          a href="mailto:#{current_member.identity.email}"
+          = current_member.identity.email
+          - if current_member.mobile_phone.present?
+            div= "M: #{current_member.mobile_phone}"
+          - if current_member.home_phone.present?
+            div= "H: #{current_member.home_phone}"
+      .row
+        .label address
+        .info= current_member.location.address
+      .row
+        .label circles
+        .info
+          - current_member.circles.each do |circle|
+            = link_to(circle_path(circle))
+              = circle.name
+      .row
+        .label roles
+        .info
+          - current_member.working_groups.for_circle(current_circle).each do |wg|
+            a href= circle_working_group_path(current_circle,wg)
+              = wg.name
+      .row
+        .label number of tasks / supplies completed
+        .info
+          - if (task = current_member.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
+            div
+              a href=circle_task_path(current_circle, task)
+                = task.name
+            div= l(task.completed_at.to_date, format: :default)
+      .row
+        .label member since
+        .info= l(current_member.created_at.to_date, format: :default)
