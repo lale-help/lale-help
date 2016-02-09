@@ -7,11 +7,11 @@
         .comment-main
           .body=comment.body
           .commenter
-            .actions
-                = link_to t('circle.comments.actions.delete'),
-                    circle_task_comment_path(circle.id, task.id, comment.id), remote: true,  method: :delete
-
-                = link_to t('circle.comments.actions.edit'), '#', {data: {"edit-comment" => comment.id}}
+            / .actions
+            /     = link_to t('circle.comments.actions.delete'),
+            /         circle_task_comment_path(circle.id, task.id, comment.id), remote: true,  method: :delete
+            /
+            /     = link_to t('circle.comments.actions.edit'), '#', {data: {"edit-comment" => comment.id}}
 
             .name=comment.commenter.name
             .time=comment.comment_date_time
