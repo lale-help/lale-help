@@ -708,6 +708,10 @@
     :organizers:
       :index:
         :organizers: Organisatoren
+    :dashboard:
+      :need_help: Brauchst Du Hilfe?
+      :contact_circle_admin: Email an den Administrator
+      :open_tasks: Offene Aufgaben
   :circles:
     :new:
       :create: Helferkreis anlegen
