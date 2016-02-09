@@ -15,9 +15,8 @@ class User::Create < ::Form
   attribute :location, :string, required: false
   attribute :language, :integer
 
-  attribute :public_profile, :boolean, default: proc{ false }
-
-  attribute :accept_terms, :boolean
+  attribute :public_profile, :boolean, default: proc { true }
+  attribute :accept_terms, :boolean, default: proc { false }
 
   attribute :circle, :model, required: false
 
@@ -41,7 +40,7 @@ class User::Create < ::Form
     end
 
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile))
+      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile, :accept_terms))
       user.identity.assign_attributes(inputs.slice(:email, :password))
 
       user.location = Location.location_from(location)
