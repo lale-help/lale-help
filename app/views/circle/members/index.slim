@@ -23,7 +23,7 @@ div.table-scrollable
 	        - user.working_groups.for_circle(current_circle).each do |wg|
 	          a href= circle_working_group_path(current_circle,wg)
 	            = wg.name
-	      td= user.location.address
+	      td= user.location.try :address
 	      td
 	        - if user.mobile_phone.present?
 	          div= "M: #{user.mobile_phone}"
