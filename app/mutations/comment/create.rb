@@ -1,7 +1,7 @@
 class Comment::Create < Comment::BaseForm
   class Submit < Comment::BaseForm::Submit
     def mailer_class
-      task.is_a? Task ? TaskMailer : SupplyMailer
+      task.is_a?(Task) ? TaskMailer : SupplyMailer
     end
 
     def execute
