@@ -29,9 +29,4 @@ class Task < ActiveRecord::Base
   def duration_text
     I18n.t("activerecord.attributes.task.duration-text.#{duration}")
   end
-
-  def urgent?
-    self.volunteers.size < self.volunteer_count_required and self.due_date < Time.now + 3.days
-
-  end
 end

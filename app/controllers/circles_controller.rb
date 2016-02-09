@@ -6,6 +6,10 @@ class CirclesController < ApplicationController
 
   include HasCircle
 
+  def show
+    @open_tasks = current_circle.tasks.not_completed.order(due_date: :asc)
+  end
+
   def update
     authorize! :manage, current_circle
 

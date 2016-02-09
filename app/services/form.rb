@@ -146,19 +146,19 @@ class Form
       end
     end
 
-    # Instance methods
-    def initialize(*args)
-      @raw_inputs = args.inject({}.with_indifferent_access) do |h, arg|
-        raise ArgumentError.new("All arguments must be hashes") unless arg.is_a?(Hash)
-        h.merge!(arg)
-      end
-
-      # Do field-level validation / filtering:
-      @inputs, @errors = self.input_filters.filter(@raw_inputs)
-
-      # Run a custom validation method if supplied:
-      validate
-    end
+    # # Instance methods
+    # def initialize(*args)
+    #   @raw_inputs = args.inject({}.with_indifferent_access) do |h, arg|
+    #     raise ArgumentError.new("All arguments must be hashes") unless arg.is_a?(Hash)
+    #     h.merge!(arg)
+    #   end
+    #
+    #   # Do field-level validation / filtering:
+    #   @inputs, @errors = self.input_filters.filter(@raw_inputs)
+    #
+    #   # Run a custom validation method if supplied:
+    #   validate
+    # end
 
   end
 end

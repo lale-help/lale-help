@@ -15,9 +15,8 @@
         h3= t("circle.dashboard.open_tasks")
 
         .task-list
-
-          - current_circle.tasks.limit(5).each do |task|
-              = render partial: 'circles/dashboard/task_list_item', locals: {circle: current_circle, task: task}
+          - @open_tasks.each do |task|
+              = render partial: 'circle/tasks/task_list_item', locals: {circle: current_circle, task: task}
 
     aside
       .members.circle-leaders
