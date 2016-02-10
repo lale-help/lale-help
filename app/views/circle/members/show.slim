@@ -46,9 +46,4 @@
       .row.completed
         .icon
         .title= t('.tasks_supplies_completed')
-        .details
-          - if (task = current_member.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
-            div
-              a href=circle_task_path(current_circle, task)
-                = task.name
-            div= l(task.completed_at.to_date, format: :default)
+        .details= current_member.tasks.for_circle(current_circle).completed.count
