@@ -58,11 +58,10 @@ class Ability
     end
 
     # Users
-    can :read, User do |user, circle|
-      can?(:read, circle)
-      unless user.working_group_roles.admin.for_circle(circle).exists?
-        user.public_profile?
-      end
+    can :read, User do |member, circle|
+      can?(:read, circle) &&
+        (user.working_group_roles.admin.for_circle(circle).exists? ||
+          member.public_profile?)
     end
 
 
