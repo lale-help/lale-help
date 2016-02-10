@@ -13,7 +13,7 @@
     .member-details
       .row.contact
         .icon
-        .title Contact
+        .title= t('.contact')
         .details
           a href="mailto:#{current_member.identity.email}"
           = current_member.identity.email
@@ -23,29 +23,29 @@
             div= "H: #{current_member.home_phone}"
       .row.location
         .icon
-        .title Address
+        .title= t('.address')
         .details= current_member.location.address
       .row.volunteer
         .icon
-        .title Circles
+        .title= t('.circles')
         .details
           - current_member.circles.each do |circle|
             = link_to(circle_path(circle))
               = circle.name
       .row.work-group
         .icon
-        .title Roles
+        .title= t('.roles')
         .details
           - current_member.working_groups.for_circle(current_circle).each do |wg|
             a href= circle_working_group_path(current_circle,wg)
               = wg.name
       .row.member-since
         .icon
-        .title Member Since
+        .title= t('.member_since')
         .details= l(current_member.created_at.to_date, format: :default)
       .row.completed
         .icon
-        .title Tasks / Supplies Completed
+        .title= t('.tasks_supplies_completed')
         .details
           - if (task = current_member.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
             div

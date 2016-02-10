@@ -716,6 +716,14 @@
     :members:
       :index:
         :directory: Helper list
+      :show:
+        :back: Back to Helper List
+        :contact: Contact
+        :address: Address
+        :circles: Circles
+        :roles: Roles
+        :member_since: Member Since
+        :tasks_supplies_completed: Tasks/Supplies Completed
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
