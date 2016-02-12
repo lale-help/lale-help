@@ -27,20 +27,21 @@ body.internal .working-group{
     @include flex-direction(row);
     @include align-items(top);
     @include justify-content(space-between);
+    @include flex-wrap(wrap);
 
     main{
-      @include flex(1);
+      @include flex(11 0 auto);
     }
 
     aside {
-      @include flex(0 0 30rem);
+      @include flex(1 0 20rem);
     }
   }
 
   .members {
     $radius: 10px;
     border: thin solid $border-color;
-    margin-bottom: 2rem;
+    margin: 2rem;
 
     @include border-bottom-radius($radius);
     @include border-top-radius($radius);
