@@ -118,6 +118,9 @@ class Ability
     can :decline, Task do |task|
       task.volunteers.include?(user)
     end
+    cannot :decline, Task do |task|
+      task.complete?
+    end
 
     can :invite_to, Task do |task|
       can?(:manage, task)

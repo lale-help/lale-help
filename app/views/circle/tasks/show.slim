@@ -60,7 +60,7 @@
 
       .icons
         - current_task.volunteers.each do |v|
-          - if current_user == v
+          - if current_user == v && can?(:decline, current_task)
             = button_to circle_task_decline_path(current_circle, current_task), method: :put, class: 'task-action-button' do
               = render partial: 'user/user_icon', locals: { user: v }
           - else
