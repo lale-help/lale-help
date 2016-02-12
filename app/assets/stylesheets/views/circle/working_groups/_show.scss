@@ -1,20 +1,24 @@
 body.internal .working-group{
   .header {
     @include display(flex);
-    @include flex-direction(row);
-    @include flex-wrap(wrap);
-    @include align-items(center);
     @include justify-content(space-between);
+    @include align-items(top);
 
-    .title {
-      @include span-columns(9);
-      font-size: 3em;
+    .left {
+      @include flex(1 1);
+      padding-right: 3rem;
+      .title {
+        font-size: 3em;
+      }
+
+      .description {
+        color: darken($blue-light-1, 20%);
+        font-size: 1.6rem;
+      }
     }
 
-    .description { 
-      @include span-columns(9);    
-      color: darken($blue-light-1, 20%);      
-      font-size: 1.6rem;      
+    .actions {
+      padding: 1rem 0;
     }
   }
 

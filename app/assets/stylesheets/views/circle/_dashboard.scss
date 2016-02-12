@@ -1,0 +1,64 @@
+body.internal .circle-dashboard{
+  .header {
+    @include display(flex);
+    @include justify-content(space-between);
+    @include align-items(center);
+
+    .left {
+      @include flex(1 1);
+      .title {
+        font-size: 3em;
+      }
+    }
+
+    .right {
+      .hint{
+        padding-right: 1rem;
+      }
+    }
+  }
+
+  .details {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(top);
+    @include justify-content(space-between);
+
+    main{
+      @include flex(1);
+    }
+
+    aside {
+      @include flex(0 0 30rem);
+    }
+  }
+
+  .members {
+    $radius: 10px;
+    border: thin solid $border-color;
+    margin-bottom: 2rem;
+
+    @include border-bottom-radius($radius);
+    @include border-top-radius($radius);
+
+    > * {
+      padding: 1rem;
+    }
+
+    > *:not(:first-child) {
+      border-top: thin solid $border-color;
+    }
+
+    .icons {
+      @include display(flex);
+      @include flex-direction(row);
+      @include align-items(top);
+      @include flex-wrap(wrap);
+
+      > * {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}

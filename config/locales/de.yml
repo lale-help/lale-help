@@ -281,7 +281,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -307,7 +307,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Januar
     - Februar
     - März
@@ -708,10 +708,6 @@
     :organizers:
       :index:
         :organizers: Organisatoren
-    :dashboard:
-      :need_help: Brauchst Du Hilfe?
-      :contact_circle_admin: Email an den Administrator
-      :open_tasks: Offene Aufgaben
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -733,6 +729,10 @@
         :new: Neue Arbeitsgruppe anlegen
         :filter: Arbeitsgruppen filtern
       :view-burnup-chart: Burn Up Chart anzeigen
+      :need_help: Brauchst Du Hilfe?
+      :contact_circle_admin: Email an den Administrator
+      :open_tasks: Offene Aufgaben
+
     :edit:
       :header: Helferkreis bearbeiten
       :show: Anzeigen

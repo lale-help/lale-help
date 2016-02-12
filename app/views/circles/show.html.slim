@@ -1,11 +1,10 @@
-/ TODO: Remove working-group here, I use this class because it offers
-/ a big headline with optional CTA on the right. Maybe we can make a general .header class.
-.working-group.circle-dashboard
+.circle-dashboard
   .header
-    .title =t('.dashboard-title', name: current_circle.name)
-    .actions
-      span.hint =t('circle.dashboard.need_help')
-      a.button href="mailto:#{current_circle.admins.first.email}" = t('circle.dashboard.contact_circle_admin')
+    .left
+      .title =t('.dashboard_title', name: current_circle.name)
+    .right
+      span.hint =t('.need_help')
+      a.button href="mailto:#{current_circle.admins.first.email}" = t('.contact_circle_admin')
 
   hr
 
@@ -23,9 +22,17 @@
 
     aside
       .members.circle-leaders
-        .title= "Circle Leaders"
+        .title= t('.circle_leaders')
         .icons
           - current_circle.admins.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
+
+      .members.working-group-organizers
+        .title= t('.working_group_organizers')
+        .icons
+          - current_circle.working_groups.each do |wg|
+            - wg.admins.each do |user|
+              .blah
+                = render partial: 'user/user_icon', locals: {user: user, link: true}
 

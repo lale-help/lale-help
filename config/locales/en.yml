@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -819,10 +819,6 @@
     :organizers:
       :index:
         :organizers: Organizers
-    :dashboard:
-      :need_help: Need help?
-      :contact_circle_admin: Contact Circle Admin
-      :open_tasks: Open Tasks
   :circles:
     :new:
       :create: Create Circle
@@ -844,7 +840,12 @@
         :new: Add a New Work Group
         :filter: Filter Working Groups
       :view-burnup-chart: View Burn Up Chart
-      :dashboard-title: 'Dashboard for: %{name}'
+      :dashboard_title: 'Dashboard for: %{name}'
+      :working_group_organizers: Working Group Organizers
+      :circle_leaders: Circle Leaders
+      :need_help: Need help?
+      :contact_circle_admin: Contact Circle Admin
+      :open_tasks: Open Tasks
     :edit:
       :header: Edit Circle
       :show: Show
