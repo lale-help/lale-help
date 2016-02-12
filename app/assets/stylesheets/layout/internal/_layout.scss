@@ -43,11 +43,8 @@ body.internal {
         font-size: 16px;
         padding: 4px 15px;
 
-        .icon {
-          @include flex(0 0 2rem);
-          @include lale-icon(" ");
-        }
         .text {
+          padding-left: 1.5rem;
           @include flex(1 0 0);
         }
 
