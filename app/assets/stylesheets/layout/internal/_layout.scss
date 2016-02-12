@@ -9,6 +9,10 @@ body.internal {
     @include flex-direction(row);
     @include align-items(stretch);
 
+    > section {
+      overflow-y: auto;
+    }
+
     nav {
       @include flex(0 0 28rem);
 
@@ -74,7 +78,7 @@ body.internal {
 
     section {
       @include flex(1);
-      margin: 2rem;
+      padding: 2rem;
     }
   }
 }

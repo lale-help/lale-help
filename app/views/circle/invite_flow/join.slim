@@ -70,7 +70,7 @@ main.form
           .field.required class=errors.css(:accept_terms)
             = f.label :accept_terms
             p
-              a href="http://lale.help/terms-and-conditions" target="_blank"= t('workflow.read_terms')
+              a href=t('url.terms_of_service') target="_blank"= t('workflow.read_terms')
             = f.check_box :accept_terms, placeholder: true
             p
 

@@ -31,7 +31,7 @@ Rails.application.routes.draw do
           get :my
           get :completed
         end
-        resources :comments, only: :create
+        resources :comments, only: [:create, :destroy, :update]
 
         put :volunteer
         patch :volunteer

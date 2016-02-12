@@ -20,6 +20,17 @@ class SupplyMailer < BaseMandrillMailer
   end
 
 
+  def supply_comment(task, comment, user)
+    # TODO: actually send message
+    # build_message(user.language, user.email) do
+    #   merge_vars(user, task).merge({
+    #     "TASK_COMMENT"    => comment.body,
+    #     "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_path(task.circle, task)),
+    #   })
+    # end
+  end
+
+
   private
 
   def merge_vars user, supply

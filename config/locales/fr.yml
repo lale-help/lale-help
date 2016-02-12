@@ -648,3 +648,5 @@
       :x_days:
         :one: 1 jour
         :other: "%{count} jours"
+  :url:
+    :terms_of_service: http://lale.help/terms#terms

@@ -3,7 +3,7 @@ class Circle::Create < ::Form
   attribute :user,   :model
 
   attribute :name,      :string
-  attribute :location,  :string,  default: proc{ user.location.address }
+  attribute :location,  :string,  default: proc{ user.location.address if user.location.present? && user.location.address.present?  }
   attribute :language,  :string, in: Circle.languages.keys
 
   def language_options
