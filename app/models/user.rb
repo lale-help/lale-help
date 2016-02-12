@@ -55,10 +55,6 @@ class User < ActiveRecord::Base
     self.is_admin
   end
 
-  def organizer?
-    self.circle_roles.count > 1 || self.working_group_roles.count > 0
-  end
-
   def public_profile?
     identity.try :public_profile
   end
