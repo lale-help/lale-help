@@ -14,6 +14,9 @@
       - if can? :manage, current_working_group
         a.button href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
 
+    .description
+      = current_working_group.description   
+
   hr
 
   .details

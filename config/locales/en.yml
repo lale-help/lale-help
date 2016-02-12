@@ -303,6 +303,7 @@
         :tasks: Tasks
         :volunteers: Volunteers
         :actions: Actions
+        :description: Description
         :admin: Organiser
         :admin_ids: Organizers
       :supply:
