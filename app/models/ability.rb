@@ -57,6 +57,13 @@ class Ability
       end
     end
 
+    # Users
+    can :read, User do |member, circle|
+      can?(:read, circle) &&
+        (user.working_group_roles.admin.for_circle(circle).exists? ||
+          member.public_profile?)
+    end
+
 
     # Work Groups
     can :read, WorkingGroup do |wg|

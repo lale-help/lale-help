@@ -6,6 +6,11 @@
 
   .field-row
     .field
+      = f.label :description
+      = f.text_area :description, {maxlength: 200}
+
+  .field-row
+    .field
       = f.label :admin_ids
       = f.select :admin_ids, options_for_select(@form.admin_options, @form.admin_ids), {}, {multiple: true}
 

@@ -5,8 +5,14 @@ FactoryGirl.define do
     location
   end
 
-  factory :circle_role, class: Circle::Role do
+  factory :circle_role_volunteer, class: Circle::Role do
     role_type { "circle.volunteer" }
+    user
+    circle
+  end
+  
+  factory :circle_role_admin, class: Circle::Role do
+    role_type { "circle.admin" }
     user
     circle
   end

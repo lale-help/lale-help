@@ -15,13 +15,15 @@ div.table-scrollable
 	  - @members.each do |user|
 	    tr
 	      td
-	      	= render partial: 'user/user_icon', locals: {user: user}
-	      	= user.name
+            = link_to(circle_member_path(current_circle, user))
+	      	  = render partial: 'user/user_icon', locals: {user: user}
+            = link_to(circle_member_path(current_circle, user))
+	      	  = user.name
 	      td
 	        - user.working_groups.for_circle(current_circle).each do |wg|
 	          a href= circle_working_group_path(current_circle,wg)
 	            = wg.name
-	      td= user.location.address
+	      td= user.location.try :address
 	      td
 	        - if user.mobile_phone.present?
 	          div= "M: #{user.mobile_phone}"

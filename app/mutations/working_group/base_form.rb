@@ -2,6 +2,7 @@ class WorkingGroup::BaseForm < ::Form
   attribute :working_group, :model, primary: true, new_records: true
 
   attribute :name, :string
+  attribute :description, :string, required: false
   attribute :admin_ids, :array, class: String, default: proc{ working_group.admins.map(&:id) }
 
 
@@ -13,8 +14,6 @@ class WorkingGroup::BaseForm < ::Form
     circle_working_group_path(working_group.circle, working_group)
   end
 
-
-
   def admin_options
     working_group.circle.users.map { |u|
       [u.name, u.id]
@@ -23,7 +22,7 @@ class WorkingGroup::BaseForm < ::Form
 
   class Submit < ::Form::Submit
     def execute
-      working_group.update_attributes inputs.slice(:name)
+      working_group.update_attributes inputs.slice(:name, :description)
       working_group.roles.admin.delete_all
       clean_admin_ids.each do |id|
         working_group.roles.admin.create user_id: id

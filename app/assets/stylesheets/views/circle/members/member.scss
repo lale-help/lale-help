@@ -1,0 +1,106 @@
+$border-radius: 1.5rem;
+
+section > .member {
+  @include display(flex);
+  @include flex-direction(row);
+  @include align-items(top);
+  @include flex-wrap(wrap);
+  @include justify-content(center);
+
+  main {
+    max-width: 800px;
+    @include flex(3 0 50rem);
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+
+    .member-header {
+      margin-bottom: 2rem;
+
+      .icon {
+        $radius: 0.75rem;
+        position: relative;
+        float: left;
+        text-align: center;
+        font-size: 1.75rem;
+        @include transform(translate(1.5rem, 1.5rem));
+        margin-top: -1rem;
+      }
+
+      .title {
+        background: $blue-light-1;
+        color: $blue-dark-2;
+        font-size: 2.5em;
+        @include border-top-radius($border-radius);
+        padding: 1rem 2rem 1rem 9rem;
+      }
+      .description {
+        background: $blue-light-2;
+        @include border-bottom-radius($border-radius);
+        min-height: 8rem;
+        font-size: 1.5em;
+        padding: 2rem 2rem 2rem 9rem;
+      }
+    }
+    .member-details {
+      > :first-child {
+        @include border-top-radius($border-radius);
+      }
+
+      > :last-child {
+        @include border-bottom-radius($border-radius);
+        border-bottom: thin solid $border-color;
+      }
+
+      .member-since .icon {
+        @include lale-icon($lale-icon-calendar, 2em);
+      }
+
+      .completed .icon {
+        @include lale-icon($lale-icon-plus-skinny, 2em);
+      }
+      .location .icon {
+        @include lale-icon($lale-icon-compass, 2em);
+      }
+      .work-group .icon {
+        @include lale-icon($lale-icon-archive, 2em);
+      }
+      .contact .icon {
+        @include lale-icon($lale-icon-envelope-open, 2em);
+      }
+      .volunteer .icon {
+        @include lale-icon($lale-icon-user, 2em);
+      }
+
+      > * {
+        padding: 1.5rem;
+        border: thin solid $border-color;
+        border-bottom: none;
+
+        @include display(flex);
+        @include flex-direction(row);
+        @include align-items(center);
+
+        font-size: 1.5rem;
+        .icon {
+          @include display(flex);
+          @include align-items(center);
+          @include justify-content(center);
+
+          min-width: 3rem;
+        }
+        .title {
+          @include flex(0 0 11rem);
+
+          margin-left: 1rem;
+        }
+
+        .details {
+          @include flex(1);
+          font-size: 1.25rem;
+          margin-left: 1rem;
+        }
+
+      }
+    }
+  }
+}

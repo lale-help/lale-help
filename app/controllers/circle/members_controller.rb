@@ -12,4 +12,13 @@ class Circle::MembersController < ApplicationController
     end
     @members = members.distinct.includes(:identity, :working_groups, :circle_roles)
   end
+
+  def show
+    authorize! :read, current_member, current_circle
+  end
+
+  helper_method def current_member
+    @current_member ||= current_circle.users.find(params[:id])
+  end
+
 end
