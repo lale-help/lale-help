@@ -31,7 +31,7 @@
         .icon
         .title= Supply.human_attribute_name(:organizer)
         .details
-          a href="mailto:#{current_supply.organizer.email}"
+          a href=circle_member_path(current_circle, current_supply.organizer)
             = current_supply.organizer.name
 
       - if current_supply.volunteer.present?
@@ -39,7 +39,7 @@
           .icon
           .title= Supply.human_attribute_name(:volunteer)
           .details
-            a href="mailto:#{current_supply.volunteer.email}"
+            a href=circle_member_path(current_circle, current_supply.volunteer)
               = "#{current_supply.volunteer.name}"
 
 
@@ -47,11 +47,6 @@
         .icon
         .title= WorkingGroup.model_name.human
         .details= current_supply.working_group.name
-
-
-      - if current_supply.organizer.present?
-        .row.organizer
-          .details= t(".organized-by", name: current_supply.organizer.name)
 
     = render partial: 'circle/comments/comments', locals: { task: current_supply, circle: current_circle }
 

@@ -16,9 +16,11 @@
         .title= t('.contact')
         .details
           a href="mailto:#{current_member.identity.email}"
-          = current_member.identity.email
+            = current_member.identity.email
+
           - if current_member.mobile_phone.present?
             div= "M: #{current_member.mobile_phone}"
+
           - if current_member.home_phone.present?
             div= "H: #{current_member.home_phone}"
 
