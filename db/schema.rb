@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125002152) do
+ActiveRecord::Schema.define(version: 20160208194956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -184,11 +184,12 @@ ActiveRecord::Schema.define(version: 20160125002152) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
-    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
+    t.boolean  "accept_terms"
+    t.string   "about_me"
   end
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|

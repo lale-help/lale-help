@@ -54,6 +54,11 @@ main
         = errors.message_for(:primary_circle_id)
 
     .field-row
+      = f.label :about_me
+      = f.text_area :about_me
+      = errors.message_for(:about_me)
+
+    .field-row
       .field
         = f.check_box :public_profile
         = f.label :public_profile
