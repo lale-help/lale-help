@@ -14,8 +14,8 @@ a.task href=circle_task_path(current_circle, task) class=task.css
            = task.message
 
     .task-stats
-      span.task-badge.task-badge--users
+      .task-badge.task-badge--users
         = "#{task.volunteers.count} / #{task.volunteer_count_required}"
 
-      span.task-badge.task-badge--comments
+      .task-badge.task-badge--comments
         = task.comments.count

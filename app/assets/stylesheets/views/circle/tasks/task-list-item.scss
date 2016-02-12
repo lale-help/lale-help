@@ -66,38 +66,29 @@
 
 
     .task-badge {
-      background-color: #fff;
       color: $medium-gray;
       border: 1px solid $medium-gray;
-      padding: 5px;
+      padding: 5px 10px;
 
-      padding-left: 30px;
       border-radius: 3px;
-      position: relative;
       font-size: 1.2em;
       text-align: center;
-      padding-right: 10px;
       font-family: $fontstack-monospace;
       letter-spacing: -4px;
-      margin-right: 15px;
-      position: relative;
+      margin-right: 10px;
+      display: inline-block;
+
+      &:before{
+        padding-right: .75rem;
+      }
 
 
       &--users {
-
         @include lale-icon($lale-icon-user, 1.0em);
-        &:before {
-          position: absolute;
-          left: 10px;
-        }
       }
 
       &--comments {
         @include lale-icon($lale-icon-compass, 1.0em);
-        &:before {
-          position: absolute;
-          left: 10px;
-        }
       }
     }
 
