@@ -2,3 +2,30 @@
 .user-icon href=href
   .text
     = user.initials
+  .preview
+  	.user-details
+		span class="user-name" href=href
+		 = user.first_name + " " + user.last_name
+		.email
+		 = user.email
+		.mobile_phone
+		 = user.mobile_phone
+		.home_phone
+		 = user.home_phone
+	.user-icon
+		.text
+	 	= user.initials
+
+javascript:
+	$('.user-icon').hover(function(event) {
+	    $(this).find('.preview').position({
+		    my: "left",
+		    at: "center",
+		    of: event,
+		    collision: "flipfit"
+		  });
+	    $(this).find('.preview').show();
+	}, function() {
+	    $(this).find('.preview').hide();
+	    $(this).find('.preview').removeAttr("style");
+	});

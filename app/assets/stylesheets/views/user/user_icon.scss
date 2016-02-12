@@ -23,8 +23,57 @@
     background-color: $light-grey;
     color: $grey;
   }
+
+  .preview {
+    display: none;
+    position: absolute;
+    background: $white;
+    border: 1px solid $blue-light-1;
+    padding: 10px;
+    min-width: 300px;
+
+    .user-icon {
+      float: right;
+      @include circle-icon(80px);
+      border-color: $blue-dark-1;
+      margin: 10px auto;
+    }
+
+    .user-details {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .user-name {
+      font-size: 2rem;
+      color: $blue;
+    }
+
+    .user-name:hover {
+      border-bottom: 1px solid $blue;
+      cursor: pointer;
+    }
+
+    .email {
+      font-size: 1.8rem;
+      color: $blue-dark-1;
+    }
+
+    .mobile_phone, .home_phone {
+      color: $blue-dark-2;
+      font-size: 1.5rem;
+      margin-top: 15px;
+    }
+
+    .home_phone {
+      margin-top: 5px;
+    }
+  }
 }
 
+.user-avatar {
+  pointer-events: none;
+}
 
 .volunteer-icon {
   @include circle-icon();
