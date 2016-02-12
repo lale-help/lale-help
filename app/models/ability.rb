@@ -118,6 +118,9 @@ class Ability
     can :decline, Task do |task|
       task.volunteers.include?(user)
     end
+    cannot :decline, Task do |task|
+      task.complete?
+    end
 
     can :invite_to, Task do |task|
       can?(:manage, task)
@@ -137,6 +140,19 @@ class Ability
     end
     cannot :complete, Task do |task|
       task.complete?
+    end
+
+
+    can :reopen, Task do |task|
+      task.complete? and ((
+      task.volunteers.include?(user) or
+          task.organizers.include?(user)
+      ) or
+          can?(:manage, task.working_group) or
+          can?(:manage, task.circle))
+    end
+    cannot :reopen, Task do |task|
+      task.incomplete?
     end
 
 
