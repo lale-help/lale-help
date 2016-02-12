@@ -28,6 +28,11 @@ class Circle::TasksController < ApplicationController
   end
 
 
+  def open
+    authorize! :read, current_circle
+    @tasks = current_circle.tasks.order('due_date asc').unassigned.not_completed
+  end
+
 
   def show
     authorize! :read, current_task
