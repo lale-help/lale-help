@@ -64,7 +64,7 @@
             = button_to circle_task_decline_path(current_circle, current_task), method: :put, class: 'task-action-button' do
               = render partial: 'user/user_icon', locals: { user: v }
           - else
-            = render partial: 'user/user_icon', locals: { user: v }
+            = render partial: 'user/user_icon', locals: { user: v, link: true }
 
         - if page.is_missing_volunteers
           - if can? :volunteer, current_task

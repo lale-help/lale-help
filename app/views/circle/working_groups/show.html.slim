@@ -15,7 +15,7 @@
         a.button href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
 
     .description
-      = current_working_group.description   
+      = current_working_group.description
 
   hr
 
@@ -36,7 +36,7 @@
         .icons
           - current_working_group.admins.each do |user|
             .blah
-              = render partial: 'user/user_icon', locals: {user: user}
+              = render partial: 'user/user_icon', locals: {user: user, link: true}
 
 
       .members
@@ -44,7 +44,7 @@
         .icons
           - current_working_group.users.each do |user|
             .blah
-              = render partial: 'user/user_icon', locals: {user: user}
+              = render partial: 'user/user_icon', locals: {user: user, link: true}
 
 
 

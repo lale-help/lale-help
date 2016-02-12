@@ -16,7 +16,7 @@ div.table-scrollable
 	    tr
 	      td
             = link_to(circle_member_path(current_circle, user))
-	      	  = render partial: 'user/user_icon', locals: {user: user}
+	      	  = render partial: 'user/user_icon', locals: {user: user, link: true}
             = link_to(circle_member_path(current_circle, user))
 	      	  = user.name
 	      td

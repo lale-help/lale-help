@@ -15,7 +15,7 @@ div.table-scrollable
 	  - @members.select{|user| user.organizer?}.each do |user|
 	    tr
 	      td
-	      	= render partial: 'user/user_icon', locals: {user: user}
+	      	= render partial: 'user/user_icon', locals: {user: user, link: true}
 	      	= user.name
 	      td
 	        - user.working_groups.for_circle(current_circle).each do |wg|
