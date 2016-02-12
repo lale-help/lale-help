@@ -45,7 +45,7 @@
       .row.member-since
         .icon
         .title= t('.member_since')
-        .details= l(current_member.created_at.to_date, format: :default)
+        .details= l(current_member.created_at.to_date, format: :long)
       .row.completed
         .icon
         .title= t('.tasks_supplies_completed')
