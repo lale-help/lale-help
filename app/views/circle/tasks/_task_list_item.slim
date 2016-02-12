@@ -8,10 +8,10 @@ a.task href=circle_task_path(current_circle, task) class=task.css
       .task-title= task.name
       .subtitle
         span= task.due_date
-        - if task.status_message.present?
+        - if task.message.present?
           span.bullet &bullet;
           span.status-message
-           = task.status_message
+           = task.message
 
     .task-stats
       span.task-badge.task-badge--users

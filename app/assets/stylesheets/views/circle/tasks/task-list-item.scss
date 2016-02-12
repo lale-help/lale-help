@@ -1,19 +1,14 @@
-@mixin task-urgency($color) {
+@mixin task-urgency($icon-color, $status-color:$medium-gray) {
   .task-icon {
-    background: $color;
-    border-color: shade($color, 50%);
+    background: $icon-color;
   }
 
-  .task-badge--users, .status-message {
-    color: $color;
-    border-color: $color;
+  .task-badge--users {
+    color: $icon-color;
+    border-color: $icon-color;
   }
-}
-
-@mixin task-comment-urgency($color) {
-  .task-badge--comments {
-    color: $color;
-    border-color: $color;
+  .status-message {
+    color: $status-color;
   }
 }
 
@@ -28,8 +23,8 @@
   }
 
   .task-icon {
-    height: 30px;
-    @include flex(0 0 30px);
+    height: 10px;
+    @include flex(0 0 10px);
     border: thin solid $light-grey;
     border-radius: 50%;
   }
@@ -48,47 +43,25 @@
 
   .task {
     &.urgency {
-      &--high {
-        @include task-urgency($red);
-      }
-
-      &--medium {
-        @include task-urgency($orange);
-      }
-
-      &--low {
-        @include task-urgency($yellow);
+      &--new {
+        @include task-urgency($body-link);
       }
 
       &--on_track {
-        @include task-urgency($blue);
+        @include task-urgency($blue-dark-2);
       }
 
-      &--done {
-        @include task-urgency($green);
+      &--urgent {
+        @include task-urgency($red, $red);
+      }
+
+      &--complete {
+        @include task-urgency($green-500);
       }
     }
 
-    &.comment-urgency {
-      &--high {
-        @include task-comment-urgency($red);
-      }
-
-      &--medium {
-        @include task-comment-urgency($orange);
-      }
-
-      &--low {
-        @include task-comment-urgency($yellow);
-      }
-
-      &--on_track {
-        @include task-comment-urgency($blue);
-      }
-
-      &--done {
-        @include task-comment-urgency($green);
-      }
+    .status-message {
+      color: $medium-gray;
     }
 
 

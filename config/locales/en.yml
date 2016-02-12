@@ -656,9 +656,8 @@
   :task:
     :presenter:
       :messages:
-        :comment_activity: A lot of recent commenting
-        :no_volunteers: Has no volunteers
         :more_volunteers_needed: More volunteers needed
+        :recent_activity: Recent activity
   :tasks:
     :flash:
       :volunteered: Thanks for volunteering for %{name}!
@@ -845,6 +844,7 @@
         :new: Add a New Work Group
         :filter: Filter Working Groups
       :view-burnup-chart: View Burn Up Chart
+      :dashboard-title: 'Dashboard for: %{name}'
     :edit:
       :header: Edit Circle
       :show: Show
@@ -914,3 +914,7 @@
           :volunteer: Volunteer
   :url:
     :terms_of_service: http://lale.help/terms#terms
+  :supply:
+    :presenter:
+      :messages:
+        :volunteer_needed: Volunteer needed
