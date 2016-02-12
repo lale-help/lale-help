@@ -21,10 +21,13 @@
             div= "M: #{current_member.mobile_phone}"
           - if current_member.home_phone.present?
             div= "H: #{current_member.home_phone}"
-      .row.location
-        .icon
-        .title= t('.address')
-        .details= current_member.location.address
+
+      - if current_member.location.present?
+        .row.location
+          .icon
+          .title= t('.address')
+          .details= current_member.location.address
+
       .row.volunteer
         .icon
         .title= t('.circles')
