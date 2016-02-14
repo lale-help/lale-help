@@ -36,4 +36,9 @@ module ApplicationHelper
       circle_task_comments_path(current_circle, current_task, Comment.new)
     end
   end
+
+  def working_groups_per_user(working_groups, user, check_method)
+    working_groups.select{ |wg| user.working_groups.map(&:id).send(check_method, wg.id) }
+  end
+
 end
