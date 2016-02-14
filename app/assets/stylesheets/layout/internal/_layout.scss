@@ -46,6 +46,9 @@ body.internal {
         .text {
           padding-left: 1.5rem;
           @include flex(1 0 0);
+          &:hover {
+           text-decoration: underline;
+          }
         }
 
         .badge {
