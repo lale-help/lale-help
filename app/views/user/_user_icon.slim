@@ -15,17 +15,3 @@
 	.user-icon
 		.text
 	 	= user.initials
-
-javascript:
-	$('.user-icon').hover(function(event) {
-	    $(this).find('.preview').position({
-		    my: "left",
-		    at: "center",
-		    of: event,
-		    collision: "flipfit"
-		  });
-	    $(this).find('.preview').show();
-	}, function() {
-	    $(this).find('.preview').hide();
-	    $(this).find('.preview').removeAttr("style");
-	});

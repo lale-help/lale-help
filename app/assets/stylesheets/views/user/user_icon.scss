@@ -31,6 +31,7 @@
     border: 1px solid $blue-light-1;
     padding: 10px;
     min-width: 300px;
+    z-index: 1000;
 
     .user-icon {
       float: right;
@@ -47,6 +48,8 @@
     .user-name {
       font-size: 2rem;
       color: $blue;
+      float: left;
+      clear: both;
     }
 
     .user-name:hover {
@@ -57,16 +60,19 @@
     .email {
       font-size: 1.8rem;
       color: $blue-dark-1;
+      float: left;
+      clear: both;
     }
 
     .mobile_phone, .home_phone {
       color: $blue-dark-2;
       font-size: 1.5rem;
-      margin-top: 15px;
+      float: left;
+      clear: both;
     }
 
-    .home_phone {
-      margin-top: 5px;
+    .mobile_phone {
+      margin-top: 15px;
     }
   }
 }
