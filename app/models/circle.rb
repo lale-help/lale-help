@@ -43,8 +43,25 @@ class Circle < ActiveRecord::Base
     [id, slug].join(?-)
   end
 
+  def comment_average
+    @comment_average  ||= begin
+      recent_tasks = tasks.where("tasks.updated_at > ?", 1.month.ago)
+
+      recent_task_count    = recent_tasks.count
+      recent_comment_count = recent_tasks.joins(:comments).count
+
+      if recent_task_count > 0
+        recent_comment_count / recent_task_count
+      else
+        0
+      end
+    end
+  end
+
 
   private
+
+
   def determine_location
     if location_text.present?
       self.location ||= Location.location_from(location_text)

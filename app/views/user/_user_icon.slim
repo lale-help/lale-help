@@ -1,3 +1,4 @@
-.user-icon
+- href = circle_member_path(current_circle, user) if local_assigns[:link].present?
+.user-icon href=href
   .text
     = user.initials

@@ -32,7 +32,7 @@ Rails.application.routes.draw do
           get :open
           get :completed
         end
-        resources :comments, only: :create
+        resources :comments, only: [:create, :destroy, :update]
 
         put :volunteer
         patch :volunteer
@@ -40,6 +40,8 @@ Rails.application.routes.draw do
         patch :decline
         put :complete
         patch :complete
+        put :reopen
+        patch :reopen
 
         post :invite
       end

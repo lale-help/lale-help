@@ -9,6 +9,10 @@ body.internal {
     @include flex-direction(row);
     @include align-items(stretch);
 
+    > section {
+      overflow-y: auto;
+    }
+
     nav {
       @include flex(0 0 28rem);
 
@@ -39,11 +43,8 @@ body.internal {
         font-size: 16px;
         padding: 4px 15px;
 
-        .icon {
-          @include flex(0 0 2rem);
-          @include lale-icon(" ");
-        }
         .text {
+          padding-left: 1.5rem;
           @include flex(1 0 0);
         }
 
@@ -74,7 +75,7 @@ body.internal {
 
     section {
       @include flex(1);
-      margin: 2rem;
+      padding: 2rem;
     }
   }
 }

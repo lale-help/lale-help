@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
+  include SessionProtection
+
   protect_from_forgery with: :exception
   check_authorization :unless => :active_admin_controller?
   before_action :permit_all_params, if: :active_admin_controller?
+  before_action :possibly_expire_session, if: :current_user
 
   rescue_from ::CanCan::AccessDenied do |exception|
     puts "access denied due to #{exception.inspect}"
@@ -35,6 +38,7 @@ class ApplicationController < ActionController::Base
 
   def login user
     session[:user_id] = user.id
+    update_session_expiration
   end
 
   def logout

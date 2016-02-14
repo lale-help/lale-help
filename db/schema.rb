@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125002152) do
+ActiveRecord::Schema.define(version: 20160208194956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20160125002152) do
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
+    t.string   "about_me"
   end
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|
@@ -200,10 +201,11 @@ ActiveRecord::Schema.define(version: 20160125002152) do
   end
 
   create_table "working_groups", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "circle_id",  limit: 8, null: false
-    t.string   "name",                 null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "circle_id",   limit: 8, null: false
+    t.string   "name",                  null: false
+    t.string   "description"
   end
 
 end

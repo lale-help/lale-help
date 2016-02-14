@@ -9,8 +9,9 @@ class User::Update < ::Form
   attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
   attribute :primary_circle_id, :integer
+  attribute :about_me,          :string
   attribute :public_profile,    :boolean
-  
+
   def language_options
     User.languages.map do |key, val|
       [ I18n.t("language.#{key}"), val ]
@@ -21,9 +22,18 @@ class User::Update < ::Form
     user.circles.order('name ASC')
   end
 
+  def email
+    (@email || user.email).downcase
+  end
+
   class Submit < ::Form::Submit
+    def validate
+      add_error(:about_me, :too_long) if about_me.length > 300
+      add_error(:email, :taken) if User::Identity.where(email: email).where.not(id: user.identity.id).exists?
+    end
+
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile))
+      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :about_me, :public_profile))
       user.identity.assign_attributes(inputs.slice(:email))
 
       user.location = Location.location_from(location)

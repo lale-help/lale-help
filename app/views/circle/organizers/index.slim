@@ -1,46 +1,7 @@
 h2 = t('.organizers')
 
-div.table-scrollable
-	table
-	  tr
-	    th = User.human_attribute_name("name")
-	    th = User.human_attribute_name("working_groups")
-	    th = User.human_attribute_name("location.address")
-	    th = User.human_attribute_name("phone")
-	    th = User.human_attribute_name("email")
-	    th = User.human_attribute_name("active_since")
-	    th = User.human_attribute_name("last_login")
-	    th = User.human_attribute_name("task.completed_tasks")
 
-	  - @members.select{|user| user.organizer?}.each do |user|
-	    tr
-	      td
-	      	= render partial: 'user/user_icon', locals: {user: user}
-	      	= user.name
-	      td
-	        - user.working_groups.for_circle(current_circle).each do |wg|
-	          a href= circle_working_group_path(current_circle,wg)
-	            = wg.name
-	      td= user.location.address
-	      td
-	        - if user.mobile_phone != nil
-	          div= "M: #{user.mobile_phone}"
-	      	- if user.home_phone != nil
-	       	  div= "H: #{user.home_phone}"
-	      td
-	        a href="mailto:#{user.identity.email}"
-	          = user.identity.email
-	      td= l(user.created_at.to_date, format: :default)
-	      td
-	        - if user.last_login != nil
-	          div= l(user.last_login.to_date, format: :default)
-	      td
-	        - if (task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
-	          div
-	            a href=circle_task_path(current_circle, task)
-	              = task.name
-	          div= l(task.completed_at.to_date, format: :default)
-
+= render partial: 'circle/members/list', locals: { members: @members }
 
 
 

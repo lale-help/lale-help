@@ -1,10 +1,21 @@
-a.task href=circle_task_path(current_circle, task)
-  .task-icon
+/ TODO: this is bad... but better than before
+- task = ::TaskPresenter.new(task)
 
+a.task href=circle_task_path(current_circle, task) class=task.css
+  .task-icon
   .task-details
     .task-content
       .task-title= task.name
-      .task-due-date= task.due_date
+      .subtitle
+        span= task.due_date
+        - if task.message.present?
+          span.bullet &bullet;
+          span.status-message
+           = task.message
 
-    .task-stats=t('.stats-here')
+    .task-stats
+      .task-badge.task-badge--users
+        = "#{task.volunteers.count} / #{task.volunteer_count_required}"
 
+      .task-badge.task-badge--comments
+        = task.comments.count

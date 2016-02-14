@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -154,6 +154,8 @@
       :nils: Please provide your first name.
     :last_name:
       :nils: Please provide your last name.
+    :about_me:
+      :too_long: maximum 300 characters
   :activerecord:
     :errors:
       :messages:
@@ -301,6 +303,7 @@
         :tasks: Tasks
         :volunteers: Volunteers
         :actions: Actions
+        :description: Description
         :admin: Organiser
         :admin_ids: Organizers
       :supply:
@@ -650,10 +653,17 @@
   :unauthorized:
     :manage:
       :all: Not authorized to %{action} %{subject}.
+  :task:
+    :presenter:
+      :messages:
+        :more_volunteers_needed: More volunteers needed
+        :recent_activity: Recent activity
   :tasks:
     :flash:
       :volunteered: Thanks for volunteering for %{name}!
       :completed: Thanks for completing %{name}!
+      :reopening_failed: There was a problem re-opening this task
+      :reopened: Task has been re-opened
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated
@@ -667,6 +677,7 @@
         :task_invitation: Lale needs your help with a new task.
         :task_reminder: All clear for your upcoming task?
         :task_suggestion: We would like to suggest a task for you.
+        :task_comment: A comment was made on your task.
       :supply_mailer:
         :supply_completion_reminder: Thanks for helping!
         :supply_invitation: Lale needs your help with a new supply.
@@ -711,9 +722,21 @@
       :placeholder: What do you want to say?
       :post: Post
       :reply: Reply
+      :actions:
+        :delete: Delete
+        :delete_confirm: Are you sure you want to delete this comment?
+        :edit: Edit
     :members:
       :index:
         :directory: Helper list
+      :show:
+        :back: Back to Helper List
+        :contact: Contact
+        :address: Address
+        :circles: Circles
+        :roles: Roles
+        :member_since: Member Since
+        :tasks_supplies_completed: Tasks/Supplies Completed
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -755,8 +778,6 @@
         :organizer-header: Organizing
       :task_list:
         :no-tasks: No tasks found.
-      :task_list_item:
-        :stats-here: Stats Go Here
       :new:
         :back: Back to All Tasks
       :edit:
@@ -777,6 +798,7 @@
         :complete-task-button: Complete Task
         :edit-task-button: Edit Task
         :invite-button: Invite %{class}
+        :reopen-task-button: Re-open Task
       :completed:
         :header: All Completed Tasks
       :open:
@@ -820,6 +842,12 @@
         :new: Add a New Work Group
         :filter: Filter Working Groups
       :view-burnup-chart: View Burn Up Chart
+      :dashboard_title: 'Dashboard for: %{name}'
+      :working_group_organizers: Working Group Organizers
+      :circle_leaders: Circle Leaders
+      :need_help: Need help?
+      :contact_circle_admin: Contact Circle Admin
+      :open_tasks: Open Tasks
     :edit:
       :header: Edit Circle
       :show: Show
@@ -888,3 +916,9 @@
       :name:
         :task:
           :volunteer: Volunteer
+  :url:
+    :terms_of_service: http://lale.help/terms#terms
+  :supply:
+    :presenter:
+      :messages:
+        :volunteer_needed: Volunteer needed

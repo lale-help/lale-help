@@ -1,15 +1,30 @@
+@mixin task-urgency($icon-color, $status-color:$medium-gray) {
+  .task-icon {
+    background: $icon-color;
+  }
+
+  .task-badge--users {
+    color: $icon-color;
+    border-color: $icon-color;
+  }
+  .status-message {
+    color: $status-color;
+  }
+}
+
 .task-list {
   padding-bottom: 5rem;
+
   .task {
-    margin: 0 5rem 0 2rem;
+    margin: 0 2rem;
     @include display(flex);
     @include flex-direction(row);
     @include align-items(center);
   }
 
   .task-icon {
-    height: 30px;
-    @include flex(0 0 30px);
+    height: 10px;
+    @include flex(0 0 10px);
     border: thin solid $light-grey;
     border-radius: 50%;
   }
@@ -25,5 +40,72 @@
     @include align-items(center);
     @include justify-content(space-between);
   }
+
+  .task {
+    &.urgency {
+      &--new {
+        @include task-urgency($body-link);
+      }
+
+      &--on_track {
+        @include task-urgency($blue-dark-2);
+      }
+
+      &--urgent {
+        @include task-urgency($red, $red);
+      }
+
+      &--complete {
+        @include task-urgency($green-500);
+      }
+    }
+
+    .status-message {
+      color: $medium-gray;
+    }
+
+
+    .task-badge {
+      color: $medium-gray;
+      border: 1px solid $medium-gray;
+      padding: 5px 10px;
+
+      border-radius: 3px;
+      font-size: 1.2em;
+      text-align: center;
+      font-family: $fontstack-monospace;
+      letter-spacing: -4px;
+      margin-right: 10px;
+      display: inline-block;
+
+      &:before{
+        padding-right: .75rem;
+      }
+
+
+      &--users {
+        @include lale-icon($lale-icon-user, 1.0em);
+      }
+
+      &--comments {
+        @include lale-icon($lale-icon-compass, 1.0em);
+      }
+    }
+
+    .subtitle {
+      .bullet {
+        padding-left: 5px;
+        padding-right: 5px;
+        color: $medium-gray;
+        display:inline-block;
+      }
+    }
+    .hint {
+      padding-right: 15px;
+      font-style: italic;
+      color: $medium-gray;
+    }
+  }
+
 
 }

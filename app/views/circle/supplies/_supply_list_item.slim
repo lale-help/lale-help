@@ -1,9 +1,22 @@
-a.task href=circle_supply_path(current_circle, supply)
+- supply = ::SupplyPresenter.new(supply)
+
+a.task href=circle_supply_path(current_circle, supply) class=supply.css
   .task-icon
 
   .task-details
     .task-content
       .task-title= supply.name
-      .task-due-date= supply.due_date
+      .task-due-date=
+      .subtitle
+        span= supply.due_date
+        - if supply.message.present?
+          span.bullet &bullet;
+          span.status-message
+           = supply.message
 
-    .task-stats=t('.stats-here')
+    .task-stats
+      .task-badge.task-badge--users
+        = "#{supply.volunteers.count} / 1"
+
+      .task-badge.task-badge--comments
+        = supply.comments.count

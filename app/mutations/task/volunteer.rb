@@ -13,6 +13,10 @@ class Task::Volunteer < Mutations::Command
 
     add_error :assignment, :failed unless assignment.persisted?
 
+    (task.users.uniq - [ user ]).each do |outboud_user|
+      TaskMailer.task_change(task, outboud_user).deliver_now
+    end
+
     assignment
   end
 end

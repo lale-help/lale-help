@@ -281,7 +281,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -307,7 +307,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Januar
     - Februar
     - März
@@ -618,6 +618,10 @@
       :placeholder: Was möchtest du sagen?
       :post: Kommentieren
       :reply: Antworten
+      :actions:
+        :delete: Löschen
+        :delete_confirm: Diesen Kommentar wirklich löschen?
+        :edit: Bearbeiten
     :members:
       :index:
         :directory: Helferliste
@@ -725,6 +729,10 @@
         :new: Neue Arbeitsgruppe anlegen
         :filter: Arbeitsgruppen filtern
       :view-burnup-chart: Burn Up Chart anzeigen
+      :need_help: Brauchst Du Hilfe?
+      :contact_circle_admin: Email an den Administrator
+      :open_tasks: Offene Aufgaben
+
     :edit:
       :header: Helferkreis bearbeiten
       :show: Anzeigen
@@ -807,3 +815,5 @@
       :x_days:
         :one: 1 Tag
         :other: "%{count} Tage"
+  :url:
+    :terms_of_service: http://lale.help/de/agb#terms
