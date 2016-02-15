@@ -7,6 +7,8 @@ class Task::Decline < Mutations::Command
   def execute
     assignment = Task::Role.send('task.volunteer').find_by(task: task, user: user)
 
+    return unless assignment.present?
+
     assignment.destroy
 
     (task.users.uniq - [ user ]).each do |outboud_user|
