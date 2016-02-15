@@ -1,6 +1,6 @@
 class Circle::RolesController < ApplicationController
   include HasCircle
-
+  before_action :ensure_logged_in
   def create
     authorize! :manage, current_circle
 

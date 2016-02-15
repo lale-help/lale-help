@@ -4,6 +4,8 @@ class Circle::OrganizersController < ApplicationController
 
   include HasCircle
 
+  before_action :ensure_logged_in
+
   def index
     circle_organizers = User.
       select('users.id, count(*) as role_count').

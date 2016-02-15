@@ -1,5 +1,6 @@
 class Circle::AdminsController < ApplicationController
   include HasCircle
+  before_action :ensure_logged_in
 
   before_action do
     authorize! :manage, current_circle

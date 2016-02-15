@@ -1,7 +1,7 @@
 class Circle::MembersController < ApplicationController
 
   skip_authorization_check # TODO: REMOVE
-
+  before_action :ensure_logged_in
   include HasCircle
 
   def index
