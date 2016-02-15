@@ -1,8 +1,9 @@
 class User::AccountController < ApplicationController
+  before_action :ensure_logged_in
+
   skip_authorization_check
   layout 'internal'
 
-  before_action :ensure_logged_in
 
   def edit
     @form = User::Update.new(user: current_user)
@@ -35,7 +36,7 @@ class User::AccountController < ApplicationController
   end
 
   helper_method def current_circle
-    current_user.primary_circle
+    current_user.primary_circle if current_user.present?
   end
 
   helper_method def errors
