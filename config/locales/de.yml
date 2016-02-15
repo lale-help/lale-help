@@ -765,7 +765,7 @@
     :internal:
       :sidebar:
         :my-tasks: Meine Aufgaben
-        :all-tasks: Alle Aufgaben
+        :all-tasks: Offene Aufgaben
         :supplies: Sachspenden
         :directory: Helferliste
         :discussions: Diskussionen
@@ -842,8 +842,9 @@
     :presenter:
       :messages:
         :volunteer_needed: Helfer gesucht
+        :recent_activity: Kürzlich bearbeitet
   :task:
     :presenter:
       :messages:
         :more_volunteers_needed: Noch Helfer gesucht
-        :recent_activity: Zuletzt aktiv
+        :recent_activity: Kürzlich bearbeitet

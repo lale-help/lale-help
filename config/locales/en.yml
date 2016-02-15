@@ -866,7 +866,7 @@
     :internal:
       :sidebar:
         :my-tasks: My Tasks
-        :all-tasks: All Tasks
+        :all-tasks: Open Tasks
         :supplies: Supplies
         :directory: Helper list
         :discussions: Discussions
@@ -927,3 +927,4 @@
     :presenter:
       :messages:
         :volunteer_needed: Volunteer needed
+        :recent_activity: Recent activity
