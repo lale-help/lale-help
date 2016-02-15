@@ -22,6 +22,8 @@ class Location < ActiveRecord::Base
       location = Location.create geocode_query: location_text, geocode_data: response.data, latitude: response.latitude, longitude: response.longitude
       location.update_timezone
       location
+    else
+      Location.create geocode_query: location_text
     end
   end
 
@@ -35,13 +37,17 @@ class Location < ActiveRecord::Base
     @component_cache[query] ||= geocode_data["address_components"].select{|c| c['types'].include? query}
   end
 
+  def geocode_data?
+    geocode_data.present?
+  end
+
   def address_component query
     address_components(query).first || {}
   end
 
   %w(country administrative_area_level_1 locality).each do |key|
     define_method key do
-      address_component(key)["long_name"]
+      address_component(key)["long_name"] if geocode_data?
     end
   end
 
@@ -50,7 +56,7 @@ class Location < ActiveRecord::Base
 
 
   def formatted_address
-    if geocode_data.present?
+    if geocode_data?
       geocode_data["formatted_address"]
     else
       geocode_query
