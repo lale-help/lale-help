@@ -12,6 +12,7 @@ class Task::Decline < Mutations::Command
     assignment.destroy
 
     (task.users.uniq - [ user ]).each do |outboud_user|
+      next unless outboud_user.email.present?
       TaskMailer.task_change(task, outboud_user).deliver_now
     end
 

@@ -11,6 +11,7 @@ class Task::Notifications::InvitationEmail < Mutations::Command
     volunteers.reject! { |u| u == current_user || task.volunteers.include?(u) }
 
     volunteers.each do |user|
+      next unless user.email.present?
       token    = Token.task_invitation.create! context: { user_id: user.id, task_id: task.id }
       TaskMailer.task_invitation(task, user, token).deliver_now
     end
