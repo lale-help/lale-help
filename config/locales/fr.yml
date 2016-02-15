@@ -374,7 +374,7 @@
         :skill_assignments: Allocation de compétences
         :skills: Compétences
         :volunteer: Volontaire
-        :working_group: :activerecord.models.working_group
+        :working_group: Groupe de Travail
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
@@ -482,6 +482,8 @@
     :members:
       :index:
         :directory: Répertoire
+      :show:
+        :roles: Roles
     :supplies:
       :index:
         :header: Besoins Matériels

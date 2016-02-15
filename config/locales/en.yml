@@ -266,7 +266,7 @@
         :actions: Actions
       :user:
         :circle: :activerecord.models.circle
-        :working_groups: :activerecord.models.working_group
+        :working_groups: Working Groups
         :email: Email
         :feedback: Feedback
         :name: Name
@@ -317,6 +317,7 @@
         :description: Description
         :due_date: Due Date
         :duration: Duration
+        :working_group: Working Group
   :datetime:
     :distance_in_words:
       :half_a_minute: half a minute
@@ -736,7 +737,7 @@
         :circles: Circles
         :roles: Roles
         :member_since: Member Since
-        :tasks_supplies_completed: Tasks/Supplies Completed
+        :tasks_supplies_completed: Help provided
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -801,6 +802,8 @@
         :reopen-task-button: Re-open Task
       :completed:
         :header: All Completed Tasks
+      :task_list_item:
+        :stats-here: Stats
     :working_groups:
       :show:
         :settings: Settings
@@ -840,7 +843,7 @@
         :new: Add a New Work Group
         :filter: Filter Working Groups
       :view-burnup-chart: View Burn Up Chart
-      :dashboard_title: 'Dashboard for: %{name}'
+      :dashboard_title: Dashboard for %{name}
       :working_group_organizers: Working Group Organizers
       :circle_leaders: Circle Leaders
       :need_help: Need help?

@@ -420,7 +420,7 @@
         :skill_assignments: Fähigkeitszuordnungen
         :skills: Fähigkeiten
         :volunteer: Helfer
-        :working_group: :activerecord.models.working_group
+        :working_group: Arbeitsgruppe
         :volunteer_count_required: Anzahl der benötigten Helfer
         :primary_location: Standort
         :duration: Zeitaufwand
@@ -495,6 +495,7 @@
         :actions: Aktionen
         :admin: Organisator
         :admin_ids: Organisatoren
+        :description: Beschreibung
     :errors:
       :messages:
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
@@ -534,6 +535,8 @@
       :less_than_or_equal_to: muss kleiner oder gleich %{count} sein
       :less_than: muss kleiner als %{count} sein
       :invalid: ist ungültig
+    :about_me:
+      :too_long: Maximal 300 Zeichen
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -561,6 +564,8 @@
     :flash:
       :volunteered: Danke für die Hilfe bei %{name}!
       :completed: Danke für die Erledigung bei %{name}!
+      :reopened: Aufgabe wurde wieder geöffnet
+      :reopening_failed: Beim Öffnen der Aufgabe trat ein Problem auf
   :users:
     :flash:
       :password_reset_success: Das Passwort wurde erfolgreich geändert.
@@ -574,6 +579,7 @@
         :task_invitation: Lale braucht Hilfe für eine neue Aufgabe
         :task_reminder: Passt noch alles?
         :task_suggestion: Lale möchte Dir eine Aufgabe vorschlagen
+        :task_comment: Deine Aufgabe hat einen neuen Kommentar.
       :supply_mailer:
         :supply_completion_reminder: Vielen Dank für Deine Hilfe!
         :supply_invitation: Lale braucht Hilfe für eine neue Sachspende
@@ -625,6 +631,14 @@
     :members:
       :index:
         :directory: Helferliste
+      :show:
+        :address: Anschrift
+        :back: Zurück zur Helferliste
+        :circles: Helferkreise
+        :contact: Kontakt
+        :member_since: Mitglied seit
+        :roles: Rollen
+        :tasks_supplies_completed: Geleistete Hilfe
     :supplies:
       :index:
         :header: Sachspenden
@@ -685,6 +699,7 @@
         :complete-task-button: Aufgabe abschliessen
         :edit-task-button: Aufgabe bearbeiten
         :invite-button: "%{class} einladen"
+        :reopen-task-button: Aufgabe wieder öffnen
       :completed:
         :header: Alle erledigten Aufgaben
     :working_groups:
@@ -732,6 +747,9 @@
       :need_help: Brauchst Du Hilfe?
       :contact_circle_admin: Email an den Administrator
       :open_tasks: Offene Aufgaben
+      :dashboard_title: "Übersicht für %{name}"
+      :circle_leaders: Leitung
+      :working_group_organizers: Organisatoren
     :edit:
       :header: Helferkreis bearbeiten
       :show: Anzeigen
@@ -819,3 +837,12 @@
   :time:
     :formats:
       :long: '"%A, %d. %B %Y, %H:%M Uhr"'
+  :supply:
+    :presenter:
+      :messages:
+        :volunteer_needed: Helfer gesucht
+  :task:
+    :presenter:
+      :messages:
+        :more_volunteers_needed: Noch Helfer gesucht
+        :recent_activity: Zuletzt aktiv
