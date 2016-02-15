@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+cmd="pg_restore --verbose --clean --no-acl --no-owner -U postgres -d lale_development /myapp/$1"
+
+docker exec -it lalehelp_db_1 $cmd
