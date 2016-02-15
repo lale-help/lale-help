@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    -
+    - 
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mar

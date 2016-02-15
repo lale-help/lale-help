@@ -281,7 +281,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mär
@@ -307,7 +307,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Januar
     - Februar
     - März
@@ -732,7 +732,6 @@
       :need_help: Brauchst Du Hilfe?
       :contact_circle_admin: Email an den Administrator
       :open_tasks: Offene Aufgaben
-
     :edit:
       :header: Helferkreis bearbeiten
       :show: Anzeigen
@@ -817,3 +816,6 @@
         :other: "%{count} Tage"
   :url:
     :terms_of_service: http://lale.help/de/agb#terms
+  :time:
+    :formats:
+      :long: '"%A, %d. %B %Y, %H:%M Uhr"'
