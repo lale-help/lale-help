@@ -5,6 +5,7 @@ class Supply::Decline < Mutations::Command
   end
 
   def execute
-    Supply::Role.send('supply.volunteer').find_by(supply: supply, user: user).destroy
+    assignment = Supply::Role.send('supply.volunteer').find_by(supply: supply, user: user)
+    assignment.destroy if assignment.present?
   end
 end

@@ -112,10 +112,10 @@ class Circle::SuppliesController < ApplicationController
     outcome = Supply::Decline.run(user: current_user, supply: current_supply)
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.volunteered', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.declined', name: current_supply.name)
     else
       puts outcome.errors
-      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.volunteer_failed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.decline_failed', name: current_supply.name)
     end
   end
 

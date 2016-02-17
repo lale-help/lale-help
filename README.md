@@ -52,3 +52,14 @@ when working on Lale.
 
 All strings and translastions used in the application should be stored in locale files stored in `config/locales` and should
 try to use I18n's lazy loading for translation keys in templates/partials.
+
+## Restoring Database from Snapshot
+
+``` sh
+# in one terminal tab
+docker-compose up
+
+# in another terminal tab
+cp /path/to/database/snapshot/SNAPSHOT_NAME .
+./docker/restore-db-from SNAPSHOT_NAME
+```

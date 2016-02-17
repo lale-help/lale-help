@@ -1,5 +1,6 @@
 class Circle::WorkingGroupsController < ApplicationController
   layout 'internal'
+  before_action :ensure_logged_in
 
   include HasCircle
 

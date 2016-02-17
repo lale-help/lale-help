@@ -18,9 +18,8 @@ class ApplicationController < ActionController::Base
 
 
   def ensure_logged_in
-    current_user || redirect_to(root_path)
+    redirect_to(root_path) unless current_user.present?
   end
-  helper_method :ensure_logged_in
 
   def set_locale
     I18n.locale = if params[:lang].present?

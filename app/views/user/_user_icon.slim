@@ -1,4 +1,23 @@
-- href = circle_member_path(current_circle, user) if local_assigns[:link].present?
-.user-icon href=href
-  .text
-    = user.initials
+- href = circle_member_path(current_circle, user) if local_assigns[:link].present? && can?(:read, user, current_circle)
+.user-icon-container
+  .user-icon href=href
+    .text
+      = user.initials
+
+  - if href.present?
+    .user-preview
+      .user-details
+        a.user-name href=href
+          = user.first_name + " " + user.last_name
+        .email
+          = user.email
+
+        - if user.mobile_phone.present?
+          .mobile_phone M: #{user.mobile_phone}
+    
+        - if user.home_phone.present?
+          .home_phone H: #{user.home_phone}
+      
+      .user-icon
+        .text
+          = user.initials

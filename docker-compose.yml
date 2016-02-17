@@ -1,5 +1,8 @@
 db:
   image: postgres
+  volumes:
+    - .:/myapp
+
 web:
   build: .
   command: bash docker/start_web.sh

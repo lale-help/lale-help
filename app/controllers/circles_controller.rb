@@ -1,7 +1,7 @@
 class CirclesController < ApplicationController
   layout 'internal'
 
-  before_action :ensure_logged_in, except: :index
+  before_action :ensure_logged_in
   load_and_authorize_resource
 
   include HasCircle
