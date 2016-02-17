@@ -877,6 +877,7 @@
         :organizers: Organizers
         :completed-tasks: Completed Tasks
         :all-open-tasks: All Open Tasks
+        :working_groups: Working Groups
       :header:
         :settings: Your profile
         :find-circles: Find Circles
