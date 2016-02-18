@@ -35,3 +35,6 @@ module LaleHelp
     config.session_expiration = 15.minutes
   end
 end
+
+
+require 'formtastic/inputs/json_input'

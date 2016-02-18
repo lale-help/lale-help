@@ -882,6 +882,7 @@
         :settings: Your profile
         :find-circles: Find Circles
         :sign-out: Sign Out
+        :admin: Lale Admin
   :public:
     :circles:
       :index:

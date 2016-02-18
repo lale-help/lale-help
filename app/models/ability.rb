@@ -6,6 +6,9 @@ class Ability
 
     # Admin
     can :read, ActiveAdmin::Page, :name => "Dashboard"
+    can :manage_site do
+      user.is_admin
+    end
 
     # Circles
     can :create, Circle
