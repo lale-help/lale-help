@@ -4,6 +4,9 @@
 .member
   main
     .member-header
+      - if current_member.id == current_user.id
+        a.button.edit-profile-button href=account_path
+          = t('.edit_profile')
       .icon
         = render partial: 'user/user_icon', locals: {user: current_member}
       .title
