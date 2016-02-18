@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :tasks do
         collection do
           get :my
+          get :open
           get :completed
         end
         resources :comments, only: [:create, :destroy, :update]

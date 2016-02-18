@@ -802,6 +802,8 @@
         :reopen-task-button: Re-open Task
       :completed:
         :header: All Completed Tasks
+      :open:
+        :header: All Open Tasks
       :task_list_item:
         :stats-here: Stats
     :working_groups:
@@ -874,6 +876,8 @@
         :all-working-groups: All Working Groups
         :organizers: Organizers
         :completed-tasks: Completed Tasks
+        :all-open-tasks: All Open Tasks
+        :working_groups: Working Groups
       :header:
         :settings: Your profile
         :find-circles: Find Circles

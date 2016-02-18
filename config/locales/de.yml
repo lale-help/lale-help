@@ -775,6 +775,7 @@
         :all-working-groups: Alle Arbeitsgruppen
         :organizers: Organisatoren
         :completed-tasks: Erledigte Aufgaben
+        :working_groups: Arbeitsgruppen
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden

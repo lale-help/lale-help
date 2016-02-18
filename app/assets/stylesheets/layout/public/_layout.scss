@@ -20,6 +20,14 @@ body.public {
 
     @include flex(0 0 $header-height);
 
+    .logo {
+      display: inline-block;
+      @include lale-logo-text(contain, #FFFFFF);
+      width: 180px;
+      height: 80px;
+      margin: -2rem 0 0 -2rem;
+    }
+
     .actions {
       *{
         display: inline-block;

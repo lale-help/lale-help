@@ -23,6 +23,9 @@ body.internal {
 
       .sidebar-section {
         padding: 0 0 2rem 0;
+        hr {
+          margin: 1rem 1.5rem 1rem 3rem;
+        }
       }
 
       h2, h3, h4{
@@ -46,6 +49,9 @@ body.internal {
         .text {
           padding-left: 1.5rem;
           @include flex(1 0 0);
+          &:hover {
+           text-decoration: underline;
+          }
         }
 
         .badge {
@@ -65,10 +71,10 @@ body.internal {
 
         .logo {
           display: inline-block;
-          @include lale-logo();
-          width: 1rem;
-          height: 1rem;
-          margin: 0 0.5em;
+          @include lale-logo(contain, $nav-bg);
+          width: 2rem;
+          height: 2rem;
+          margin: -0.5rem 0.5em;
         }
       }
     }
