@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path) unless current_user.present?
   end
 
+  def ensure_circle
+    redirect_to(root_path) unless current_circle.present?
+  end
+
   def set_locale
     I18n.locale = if params[:lang].present?
       params[:lang]
