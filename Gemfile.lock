@@ -178,6 +178,7 @@ GEM
       ruby_parser (~> 3.5)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    http_accept_language (2.0.5)
     i18n (0.7.0)
     i18n-js (3.0.0.rc12)
       i18n (~> 0.6, >= 0.6.6)
@@ -435,6 +436,7 @@ DEPENDENCIES
   haml-rails (~> 0.9)
   handlebars_assets
   hologram!
+  http_accept_language
   i18n-js (>= 3.0.0.rc11)
   i18n_generators
   jbuilder (~> 2.0)
@@ -468,4 +470,4 @@ DEPENDENCIES
   webmock
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

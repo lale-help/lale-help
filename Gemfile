@@ -31,6 +31,7 @@ gem 'font-awesome-sass'
 gem 'octicons-rails'
 gem 'clipboard-rails'
 gem "i18n-js", ">= 3.0.0.rc11"
+gem 'http_accept_language'
 
 # API
 gem 'jbuilder', '~> 2.0'

@@ -26,12 +26,16 @@ class ApplicationController < ActionController::Base
   end
 
   def set_locale
+    accept_header_lang = http_accept_language.compatible_language_from(I18n.available_locales)
+
     I18n.locale = if params[:lang].present?
       params[:lang]
     elsif current_user.present?
       current_user.language
     elsif respond_to?(:current_circle) && current_circle.present?
       current_circle.language
+    elsif accept_header_lang.present?
+      accept_header_lang
     else
      I18n.default_locale
    end
