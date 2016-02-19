@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208194956) do
+ActiveRecord::Schema.define(version: 20160217104311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,13 +61,18 @@ ActiveRecord::Schema.define(version: 20160208194956) do
   add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.string   "geocode_query"
     t.float    "latitude"
     t.float    "longitude"
     t.json     "geocode_data"
     t.string   "timezone"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "country_code"
   end
 
   create_table "supplies", force: :cascade do |t|
@@ -184,11 +189,12 @@ ActiveRecord::Schema.define(version: 20160208194956) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
-    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
+    t.boolean  "accept_terms"
+    t.string   "bio"
     t.string   "about_me"
   end
 

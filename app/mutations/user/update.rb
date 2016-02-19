@@ -3,14 +3,19 @@ class User::Update < ::Form
 
   attribute :first_name,        :string
   attribute :last_name,         :string
-  attribute :mobile_phone,      :string, required: false
-  attribute :home_phone,        :string, required: false
+  attribute :mobile_phone,      :string, required: false, nils: true, empty: true
+  attribute :home_phone,        :string, required: false, nils: true, empty: true
   attribute :email,             :string
-  attribute :location,          :string, default: proc { user.location.try(:address) }
+  # attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
-  attribute :primary_circle_id, :integer
-  attribute :about_me,          :string, required: false
+  # attribute :primary_circle_id, :integer
+  attribute :about_me,          :string, required: false, nils: true, empty: true
   attribute :public_profile,    :boolean
+  attribute :street_address,    :string, default: proc { user.location.try(:street_address) }, required: false
+  attribute :city,              :string, default: proc { user.location.try(:city) }, required: false
+  attribute :state,             :string, default: proc { user.location.try(:state) }, required: false
+  attribute :postal_code,       :string, default: proc { user.location.try(:postal_code) }, required: false
+  attribute :country_code,      :string, default: proc { user.location.try(:country_code) }, required: false
 
   def language_options
     User.languages.map do |key, val|
@@ -36,10 +41,12 @@ class User::Update < ::Form
       user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :about_me, :public_profile))
       user.identity.assign_attributes(inputs.slice(:email))
 
-      user.location = Location.location_from(location)
-      user.primary_circle = user.circles.find(primary_circle_id)
+      user.location.assign_attributes(inputs.slice(:street_address, :city, :state, :postal_code, :country_code))
+      # user.location = Location.location_from(user.location.address_from_components)
+      # user.primary_circle = user.circles.find(primary_circle_id)
 
       user.save
+      user.location.save
       user.identity.save
     end
   end
