@@ -281,7 +281,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -307,7 +307,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Januar
     - Februar
     - März
@@ -717,6 +717,8 @@
         :reopen-task-button: Aufgabe wieder öffnen
       :completed:
         :header: Alle erledigten Aufgaben
+      :open:
+        :header: Offene Aufgaben
     :working_groups:
       :show:
         :settings: Einstellungen
@@ -791,10 +793,12 @@
         :organizers: Organisatoren
         :completed-tasks: Erledigte Aufgaben
         :working_groups: Arbeitsgruppen
+        :all-open-tasks: Offene Aufgaben
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden
         :sign-out: Ausloggen
+        :admin: Lale Admin
   :public:
     :circles:
       :index:

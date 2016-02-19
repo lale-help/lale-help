@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -822,6 +822,8 @@
         :header: All Open Tasks
       :task_list_item:
         :stats-here: Stats
+      :open:
+        :header: Open Tasks
     :working_groups:
       :show:
         :settings: Settings
