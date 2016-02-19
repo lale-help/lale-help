@@ -223,7 +223,7 @@
         :location_assignments: Location assignments
         :locations: Locations
         :name: Name of the Task
-        :working_group_id: :activerecord.models.working_group
+        :working_group_id: Working Group
         :organizer_assignments: Organizer assignments
         :organizer_id: Organizer
         :skill_assignments: Skill assignments
@@ -318,6 +318,22 @@
         :due_date: Due Date
         :duration: Duration
         :working_group: Working Group
+        :location_assignments: Location assignments
+        :locations: Locations
+        :name: Name of supply
+        :organizer: Organizer
+        :organizer_assignments: Organizer assignments
+        :primary_location: Location
+        :scheduled-time:
+          :at: at %{start}
+          :between: between %{start} and %{end}
+          :on_date: 'on'
+        :scheduled_time_start: Start
+        :scheduled_time_type: Scheduled time
+        :skill_assignments: Skill assignments
+        :skills: Skills
+        :volunteer: Helper
+        :volunteer_count_required: Number of helpers required
   :datetime:
     :distance_in_words:
       :half_a_minute: half a minute

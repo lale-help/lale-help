@@ -414,7 +414,7 @@
         :due_date: Fälligkeit
         :location_assignments: Standortzuordnung
         :locations: Standorte
-        :name: Name der Aufgabe
+        :name: Name der Sachspende
         :organizer_assignments: Organisatorzuordnung
         :organizer: Organisator
         :skill_assignments: Fähigkeitszuordnungen
@@ -535,6 +535,21 @@
       :less_than_or_equal_to: muss kleiner oder gleich %{count} sein
       :less_than: muss kleiner als %{count} sein
       :invalid: ist ungültig
+      :inclusion: ist nicht Teil der Liste
+      :not_a_number: ist keine Zahl
+      :not_an_integer: muss eine ganze Zahl sein
+      :odd: muss ungerade sein
+      :other_than: muss anders als %{count} sein
+      :present: muss leer sein
+      :too_long:
+        :one: ist zu lang (maximal 1 Zeichen)
+        :other: ist zu lang (maxmial %{count} Zeichen)
+      :too_short:
+        :one: ist zu kurz (maximal 1 Zeichen)
+        :other: ist zu kurz (maximal %{count} Zeichen)
+      :wrong_length:
+        :one: ungültige Länge (maximal 1 Zeichen)
+        :other: ungültige Länge (maximal %{count} Zeichen)
     :about_me:
       :too_long: Maximal 300 Zeichen
   :flash:
