@@ -9,7 +9,7 @@ class User::Update < ::Form
   attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
   attribute :primary_circle_id, :integer
-  attribute :about_me,          :string
+  attribute :about_me,          :string, required: false
   attribute :public_profile,    :boolean
 
   def language_options
@@ -28,8 +28,8 @@ class User::Update < ::Form
 
   class Submit < ::Form::Submit
     def validate
-      add_error(:about_me, :too_long) if about_me.length > 300
-      add_error(:email, :taken) if User::Identity.where(email: email).where.not(id: user.identity.id).exists?
+      add_error(:about_me, :too_long) if about_me.present? && about_me.length > 300
+      add_error(:email, :taken)       if User::Identity.where(email: email).where.not(id: user.identity.id).exists?
     end
 
     def execute

@@ -11,7 +11,7 @@ class Form
 
     attr_writer name
     define_method name do
-      if defined?("@#{name}") && instance_variable_get("@#{name}").present?
+      if defined?("@#{name}") && instance_variable_defined?("@#{name}")
         instance_variable_get("@#{name}")
 
       elsif opts[:default].is_a? Proc
@@ -139,6 +139,11 @@ class Form
 
       form_class.attributes.each do |a|
         action = a[:required] ? :required : :optional
+        if action == :optional
+          a[:empty] = true unless a.has_key?(:empty)
+          a[:nils]  = true unless a.has_key?(:nils)
+          puts  a.inspect
+        end
         subclass.send(action) do
           send(a[:type], a[:name], a)
         end
