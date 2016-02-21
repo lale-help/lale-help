@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   has_one :identity, dependent: :destroy
 
-  belongs_to :location
+  belongs_to :location #DEPRECATED
+  belongs_to :address
   belongs_to :primary_circle, class_name: 'Circle'
 
   has_many :task_roles, class_name: 'Task::Role'

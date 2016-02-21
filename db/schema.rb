@@ -31,6 +31,20 @@ ActiveRecord::Schema.define(version: 20160217104311) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address_1"
+    t.string   "street_address_2"
+    t.string   "city"
+    t.string   "state_province"
+    t.string   "postal_code"
+    t.string   "country"
+    t.integer  "location_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "addresses", ["location_id"], name: "index_addresses_on_location_id", using: :btree
+
   create_table "circle_roles", id: :bigserial, force: :cascade do |t|
     t.integer  "role_type",            null: false
     t.integer  "user_id",    limit: 8, null: false
@@ -61,18 +75,13 @@ ActiveRecord::Schema.define(version: 20160217104311) do
   add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "geocode_query"
     t.float    "latitude"
     t.float    "longitude"
     t.json     "geocode_data"
     t.string   "timezone"
-    t.string   "street_address"
-    t.string   "city"
-    t.string   "state"
-    t.string   "postal_code"
-    t.string   "country_code"
   end
 
   create_table "supplies", force: :cascade do |t|
@@ -196,7 +205,10 @@ ActiveRecord::Schema.define(version: 20160217104311) do
     t.boolean  "accept_terms"
     t.string   "bio"
     t.string   "about_me"
+    t.integer  "address_id"
   end
+
+  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|
     t.integer  "role_type",                  null: false

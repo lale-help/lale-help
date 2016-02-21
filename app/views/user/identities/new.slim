@@ -60,13 +60,35 @@ main.form
 
 	  hr
 
-      .field-row.single
-        .field class=errors.css(:location)
-          = f.label :location
-          = f.text_field :location, placeholder: true
-          = errors.message_for(:location)
 
-      .field-row.single
+        .field-row
+          .field class=errors.css(:street_address_1)
+            = f.label :street_address, 'Street Address'
+            = f.text_field :street_address_1
+            = errors.message_for(:street_address_1)
+        .field-row
+          .field class=errors.css(:city)
+            = f.label :city
+            = f.text_field :city
+            = errors.message_for(:city)
+          .field class=errors.css(:state_province)
+            = f.label :state_province, 'State/Province'
+            = f.text_field :state_province
+            = errors.message_for(:state_province)
+        .field-row
+          .field class=errors.css(:postal_code)
+            = f.label :postal_code
+            = f.text_field :postal_code
+            = errors.message_for(:postal_code)
+          .field class=errors.css(:country)
+            = f.label :country
+            = country_select(:user, :country,
+              locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
+              include_blank: 'Select a Country', selected: @form.country)
+            = errors.message_for(:country)
+
+
+        .field-row.single
         .field.required class=errors.css(:accept_terms)
           = f.label :accept_terms
           p
