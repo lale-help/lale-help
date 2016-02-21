@@ -18,7 +18,7 @@ class CreateAddresses < ActiveRecord::Migration
       change.up do
         User.all.each do |user|
           if user.address.nil?
-            user.create_address(city: user.location.geocode_query, location_id: user.location_id)
+            user.create_address(city: user.location.try(:geocode_query), location_id: user.location_id)
             user.save
           end
         end
