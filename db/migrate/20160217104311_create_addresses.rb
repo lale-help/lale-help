@@ -13,11 +13,16 @@ class CreateAddresses < ActiveRecord::Migration
     add_column :users, :address_id, :integer
     add_index :users, :address_id
     add_index :addresses, :location_id
+
+    reversible do |change|
+      change.up do
+        User.all.each do |user|
+          if user.address.nil?
+            user.create_address(city: user.location.geocode_query, location_id: user.location_id)
+            user.save
+          end
+        end
+      end
+    end
   end
-
-  #TODO Write user migration
-  def up
-
-  end
-
 end
