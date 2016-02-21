@@ -142,18 +142,23 @@
       :too_short: Please pick a password that is longer than 8 characters.
       :nils: Please provide a password.
       :does_not_match: Your password did not match the password confirmation.
+      :empty: Password is required.
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
       :nils: Please confirm your password.
+      :empty: Password confirmation is required.
     :accept_terms:
       :false: You must accept the Terms and Conditions to sign up for Lale.
     :email:
       :nils: Please provide an email.
       :taken: This email has already been taken. Did you already sign up for Lale?
+      :empty: Email is required
     :first_name:
       :nils: Please provide your first name.
+      :empty: First name is required
     :last_name:
       :nils: Please provide your last name.
+      :empty: Last name is required
     :about_me:
       :too_long: maximum 300 characters
   :activerecord:
@@ -930,11 +935,45 @@
       :edit:
         :title: Personal Settings
         :reset_password: Reset your Password
+        :error_correction: Please correct the errors below.
+        :first_name: First Name
+        :last_name: Last Name
+        :email: Email
+        :language: Language
+        :mobile_phone: Mobile Phone
+        :home_phone: Home Phone
+        :street_address: Street Address
+        :city: City
+        :state_province: State / Province
+        :postal_code: Postal Code
+        :country: Country
+        :about_me: About Me
+        :public_profile: Public Profile
+        :update_settings: Update Settings
       :reset_password:
         :reset_password: Reset your Password
         :update: Update your Password
         :password: Password
         :password_confirmation: Password Confirmation
+    :identities:
+      :new:
+        :header: Start helping now
+        :first_name: First Name
+        :last_name: Last Name
+        :email: Email
+        :mobile_phone: Mobile Phone
+        :home_phone: Home Phone
+        :street_address: Street Address
+        :city: City
+        :state_province: State / Province
+        :postal_code: Postal Code
+        :country: Country
+        :country_select: Select Country
+        :language: Language
+        :password: Password
+        :password_confirmation: Password Confirmation
+        :public_profile: Public Profile
+        :accept_terms: Accept Terms
   :en:
     :roles:
       :name:
@@ -947,3 +986,4 @@
       :messages:
         :volunteer_needed: Volunteer needed
         :recent_activity: Recent activity
+  :error_correction: Please correct the errors below.

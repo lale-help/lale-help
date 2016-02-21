@@ -198,12 +198,11 @@ ActiveRecord::Schema.define(version: 20160217104311) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
+    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
-    t.boolean  "accept_terms"
-    t.string   "bio"
     t.string   "about_me"
     t.integer  "address_id"
   end
