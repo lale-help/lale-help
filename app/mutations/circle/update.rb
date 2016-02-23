@@ -3,7 +3,7 @@ class Circle::Update < ::Form
   attribute :user,   :model
 
   attribute :name,      :string
-  attribute :location,  :string,  default: proc{ circle.location.address }
+  attribute :location,  :string,  default: proc{ circle.location.try :address }
 
   attribute :language,  :string, in: Circle.languages.keys
 
