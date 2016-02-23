@@ -281,7 +281,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -307,7 +307,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Januar
     - Februar
     - März
@@ -414,7 +414,7 @@
         :due_date: Fälligkeit
         :location_assignments: Standortzuordnung
         :locations: Standorte
-        :name: Name der Aufgabe
+        :name: Name der Sachspende
         :organizer_assignments: Organisatorzuordnung
         :organizer: Organisator
         :skill_assignments: Fähigkeitszuordnungen
@@ -535,6 +535,21 @@
       :less_than_or_equal_to: muss kleiner oder gleich %{count} sein
       :less_than: muss kleiner als %{count} sein
       :invalid: ist ungültig
+      :inclusion: ist nicht Teil der Liste
+      :not_a_number: ist keine Zahl
+      :not_an_integer: muss eine ganze Zahl sein
+      :odd: muss ungerade sein
+      :other_than: muss anders als %{count} sein
+      :present: muss leer sein
+      :too_long:
+        :one: ist zu lang (maximal 1 Zeichen)
+        :other: ist zu lang (maxmial %{count} Zeichen)
+      :too_short:
+        :one: ist zu kurz (maximal 1 Zeichen)
+        :other: ist zu kurz (maximal %{count} Zeichen)
+      :wrong_length:
+        :one: ungültige Länge (maximal 1 Zeichen)
+        :other: ungültige Länge (maximal %{count} Zeichen)
     :about_me:
       :too_long: Maximal 300 Zeichen
   :flash:
@@ -702,6 +717,8 @@
         :reopen-task-button: Aufgabe wieder öffnen
       :completed:
         :header: Alle erledigten Aufgaben
+      :open:
+        :header: Offene Aufgaben
     :working_groups:
       :show:
         :settings: Einstellungen
@@ -765,7 +782,7 @@
     :internal:
       :sidebar:
         :my-tasks: Meine Aufgaben
-        :all-tasks: Alle Aufgaben
+        :all-tasks: Offene Aufgaben
         :supplies: Sachspenden
         :directory: Helferliste
         :discussions: Diskussionen
@@ -776,10 +793,12 @@
         :organizers: Organisatoren
         :completed-tasks: Erledigte Aufgaben
         :working_groups: Arbeitsgruppen
+        :all-open-tasks: Offene Aufgaben
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden
         :sign-out: Ausloggen
+        :admin: Lale Admin
   :public:
     :circles:
       :index:
@@ -842,8 +861,9 @@
     :presenter:
       :messages:
         :volunteer_needed: Helfer gesucht
+        :recent_activity: Kürzlich bearbeitet
   :task:
     :presenter:
       :messages:
         :more_volunteers_needed: Noch Helfer gesucht
-        :recent_activity: Zuletzt aktiv
+        :recent_activity: Kürzlich bearbeitet
