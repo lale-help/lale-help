@@ -178,7 +178,7 @@ class Circle::TasksController < ApplicationController
       page.is_missing_volunteers = current_task.volunteer_count_required > current_task.volunteers.size
       page.missing_volunteer_count = current_task.volunteer_count_required - current_task.volunteers.size
       page.adjusted_missing_volunteer_count = can?(:volunteer, current_task) ? page.missing_volunteer_count - 1 : page.missing_volunteer_count
-      page.task_css = "complete" if current_task.complete?
+      page.task_css = ('complete' if current_task.complete?) || ('full' if !page.is_missing_volunteers) || ''
     end
   end
 

@@ -209,3 +209,28 @@ section > .task.complete {
     }
   }
 }
+
+section > .task.full {
+  .task-header {
+    .date {
+      .month {
+        background-color: $blue-darkish;
+        color: $white;
+      }
+
+      .day {
+        border-color: $blue-500;
+      }
+
+    }
+    .title {
+      background-color: $blue-500;
+      color: $blue-50;
+    }
+
+    .description {
+      background-color: $blue-50;
+      color: $blue-500;
+    }
+  }
+}
