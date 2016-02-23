@@ -19,7 +19,7 @@ main
         label
           = t('.language')
         span
-          = current_user.language
+          = I18n.t("language.#{current_user.language}")
 
     .field-row
       .field
@@ -53,7 +53,7 @@ main
         = t('.public_profile')
       - if current_user.public_profile
         .field
-          = link_to(t('.public_profile'), circle_member_path(current_circle, current_user))
+          = link_to(t('.view_public_profile'), circle_member_path(current_circle, current_user))
 
     .submit-row
       a.button.edit-profile-button href=account_edit_path
