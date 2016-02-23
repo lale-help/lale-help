@@ -20,7 +20,7 @@ header
 
 
       .menu.user-dropdown
-        = link_to(t('.settings'), circle_member_path(current_circle, current_user))
+        = link_to(t('.settings'), account_path)
         a href=public_circles_path =t('.find-circles')
         hr
         - if can?(:manage_site, nil)
