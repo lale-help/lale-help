@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   has_many :working_group_roles, class_name: 'WorkingGroup::Role', dependent: :destroy
   has_many :working_groups, ->{ distinct }, through: :working_group_roles
 
+  has_many :comments, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
+
   enum language: [:en, :de, :fr]
 
   alias_attribute :active_since, :created_at
