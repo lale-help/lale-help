@@ -965,7 +965,7 @@
         :address: Address
         :about_me: About Me
         :public_profile: Show My Profile To Other Circle Members
-        :view_public_profile: View Public Profile
+        :view_public_profile: View your public profile
         :edit_profile: Edit Profile
         :reset_password: Reset Password
     :identities:
