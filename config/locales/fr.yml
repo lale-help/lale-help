@@ -800,6 +800,7 @@
         :last_name: Nom de famille
         :public_profile: Montrer mon profil à tous les membres du cercle
         :language: Langue
+        :home_phone: Tel. Domicile
       :reset_password:
         :reset_password: Réinitialiser votre mot de passe
         :update: Mettre à jour votre mot de passe
@@ -812,6 +813,11 @@
         :first_name: Prénom
         :password: Mot de passe
         :language: Langue
+        :home_phone: Tel. Domicile
+        :last_name: Nom de famille
+        :public_profile: Montrer mon profil à tous les membres du cercle
+        :accept_terms: Accepter les Termes et Conditions
+        :password_confirmation: Confirmez Votre Mot de Passe
   :en:
     :roles:
       :name:

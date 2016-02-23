@@ -166,6 +166,7 @@
       :title_content: Kommentare (%{count})
       :errors:
         :empty_text: Der Kommentar wurde nicht gespeichert, da der Text fehlt.
+      :created_at: Erstellt
     :devise:
       :username:
         :title: Benutzername
@@ -847,11 +848,13 @@
         :street_address: Strasse
         :language: Sprache
         :country: Land
+        :home_phone: Festnetz
+        :error_correction: Bitte die untenstehenden Fehler berichtigen.
       :reset_password:
         :reset_password: Passwort zurücksetzen
         :update: Passwort ändern
         :password: Passwort
-        :password_confirmation: Password Bestätigung
+        :password_confirmation: Passwort Bestätigung
     :identities:
       :new:
         :mobile_phone: Mobiltelefon
@@ -862,6 +865,15 @@
         :password: Passwort
         :street_address: Strasse
         :language: Sprache
+        :home_phone: Festnetz
+        :city: Ort
+        :postal_code: Postleitzahl
+        :last_name: Nachname
+        :public_profile: Andere Helfer können mein Profil sehen
+        :state_province: Bundesland
+        :country_select: Bitte Land auswählen
+        :accept_terms: Nutzungsbedingungen akzeptieren
+        :password_confirmation: Passwort Bestätigung
   :en:
     :roles:
       :name:
