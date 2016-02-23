@@ -6,11 +6,15 @@ class User::Update < ::Form
   attribute :mobile_phone,      :string, required: false
   attribute :home_phone,        :string, required: false
   attribute :email,             :string
-  attribute :location,          :string, default: proc { user.location.try(:address) }
   attribute :language,          :integer
-  attribute :primary_circle_id, :integer
+  # attribute :primary_circle_id, :integer
   attribute :about_me,          :string, required: false
   attribute :public_profile,    :boolean
+  attribute :street_address_1,  :string, default: proc { user.address.try(:street_address_1) }, required: false
+  attribute :city,              :string, default: proc { user.address.try(:city) },             required: false
+  attribute :state_province,    :string, default: proc { user.address.try(:state_province) },   required: false
+  attribute :postal_code,       :string, default: proc { user.address.try(:postal_code) },      required: false
+  attribute :country,           :string, default: proc { user.address.try(:country) },          required: false
 
   def language_options
     User.languages.map do |key, val|
@@ -35,11 +39,10 @@ class User::Update < ::Form
     def execute
       user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :about_me, :public_profile))
       user.identity.assign_attributes(inputs.slice(:email))
-
-      user.location = Location.location_from(location)
-      user.primary_circle = user.circles.find(primary_circle_id)
+      user.address.assign_attributes(inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country))
 
       user.save
+      user.address.save
       user.identity.save
     end
   end

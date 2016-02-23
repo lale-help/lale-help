@@ -16,6 +16,11 @@ section > .member {
     .member-header {
       margin-bottom: 2rem;
 
+      .edit-profile-button {
+        margin-top: 1.5rem;
+        float: right;
+      }
+
       .icon {
         $radius: 0.75rem;
         position: relative;

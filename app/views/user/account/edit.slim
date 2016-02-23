@@ -4,73 +4,79 @@ main
   = form_for @form, url: account_path do |f|
     - if errors.present?
       .form-introduction.error
-        p Please correct the errors below.
+        p= t('.error_correction')
 
 
     .field-row
       .field.required class=errors.css(:first_name)
-        = f.label :first_name
+        = f.label :first_name, t('.first_name')
         = f.text_field :first_name
         = errors.message_for(:first_name)
 
       .field.required class=errors.css(:last_name)
-        = f.label :last_name
+        = f.label :last_name, t('.last_name')
         = f.text_field :last_name
         = errors.message_for(:last_name)
 
     .field-row
       .field.required class=errors.css(:email)
-        = f.label :email
+        = f.label :email, t('.email')
         = f.text_field :email
         = errors.message_for(:email)
+      .field.required class=errors.css(:language)
+        = f.label :language, t('.language')
+        = f.select :language do
+          = options_for_select(@form.language_options, @form.user[:language])
+        = errors.message_for(:language)
 
-      .field.required class=errors.css(:location)
-        = f.label :location
-        = f.text_field :location, placeholder: true
-        = errors.message_for(:location)
 
     .field-row
       .field class=errors.css(:mobile_phone)
-        = f.label :mobile_phone
+        = f.label :mobile_phone, t('.mobile_phone')
         = f.text_field :mobile_phone
         = errors.message_for(:mobile_phone)
 
       .field class=errors.css(:home_phone)
-        = f.label :home_phone
+        = f.label :home_phone, t('.home_phone')
         = f.text_field :home_phone
         = errors.message_for(:home_phone)
 
     .field-row
-      .field.required class=errors.css(:language)
-        = f.label :language
-        = f.select :language do
-          = options_for_select(@form.language_options, @form.user[:language])
-
-        = errors.message_for(:language)
-
-      .field.required class=errors.css(:primary_circle_id)
-        = f.label :primary_circle_id
-        = f.collection_select :primary_circle_id, @form.primary_circle_options, :id, :name
-        = errors.message_for(:primary_circle_id)
+      .field class=errors.css(:street_address_1)
+        = f.label :street_address, t('.street_address')
+        = f.text_field :street_address_1
+        = errors.message_for(:street_address_1)
+    .field-row
+      .field class=errors.css(:city)
+        = f.label :city, t('.city')
+        = f.text_field :city
+        = errors.message_for(:city)
+      .field class=errors.css(:state_province)
+        = f.label :state_province, t('.state_province')
+        = f.text_field :state_province
+        = errors.message_for(:state_province)
+    .field-row
+      .field class=errors.css(:postal_code)
+        = f.label :postal_code, t('.postal_code')
+        = f.text_field :postal_code
+        = errors.message_for(:postal_code)
+      .field class=errors.css(:country)
+        = f.label :country, t('.country')
+        = country_select(:user, :country,
+            locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
+            include_blank: t('.country_select'), selected: @form.country)
+        = errors.message_for(:country)
 
     .field-row
-      = f.label :about_me
+      = f.label :about_me, t('.about_me')
       = f.text_area :about_me
       = errors.message_for(:about_me)
 
     .field-row
       .field
         = f.check_box :public_profile
-        = f.label :public_profile
-
-
-
+        = f.label :public_profile, t('.public_profile')
 
     .submit-row
-      = f.submit
+      = f.submit(t('.update_settings'))
       a.button href=account_reset_password_path =t('.reset_password')
-
-
-
-
-

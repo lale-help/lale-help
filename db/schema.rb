@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160208194956) do
+ActiveRecord::Schema.define(version: 20160217104311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,20 @@ ActiveRecord::Schema.define(version: 20160208194956) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+
+  create_table "addresses", force: :cascade do |t|
+    t.string   "street_address_1"
+    t.string   "street_address_2"
+    t.string   "city"
+    t.string   "state_province"
+    t.string   "postal_code"
+    t.string   "country"
+    t.integer  "location_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "addresses", ["location_id"], name: "index_addresses_on_location_id", using: :btree
 
   create_table "circle_roles", id: :bigserial, force: :cascade do |t|
     t.integer  "role_type",            null: false
@@ -190,7 +204,10 @@ ActiveRecord::Schema.define(version: 20160208194956) do
     t.datetime "last_login"
     t.boolean  "public_profile"
     t.string   "about_me"
+    t.integer  "address_id"
   end
+
+  add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
 
   create_table "working_group_roles", id: :bigserial, force: :cascade do |t|
     t.integer  "role_type",                  null: false

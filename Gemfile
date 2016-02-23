@@ -43,6 +43,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'geocoder'
 gem 'timezone'
 gem 'terminal-table'
+gem 'country_select'
 
 group :development do
   gem "letter_opener_web"
