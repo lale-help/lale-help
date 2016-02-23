@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    -
+    - 
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mar
@@ -825,11 +825,9 @@
       :completed:
         :header: All Completed Tasks
       :open:
-        :header: All Open Tasks
+        :header: Open Tasks
       :task_list_item:
         :stats-here: Stats
-      :open:
-        :header: Open Tasks
     :working_groups:
       :show:
         :settings: Settings
@@ -948,7 +946,7 @@
         :postal_code: Postal Code
         :country: Country
         :about_me: About Me
-        :public_profile: Public Profile
+        :public_profile: Show my profile to other circle members
         :update_settings: Update Settings
       :reset_password:
         :reset_password: Reset your Password
@@ -972,8 +970,8 @@
         :language: Language
         :password: Password
         :password_confirmation: Password Confirmation
-        :public_profile: Public Profile
-        :accept_terms: Accept Terms
+        :public_profile: Show my profile to all circle members
+        :accept_terms: Accept Terms and Conditions
   :en:
     :roles:
       :name:
@@ -987,3 +985,5 @@
         :volunteer_needed: Volunteer needed
         :recent_activity: Recent activity
   :error_correction: Please correct the errors below.
+  :formtastic:
+    :required: Required field

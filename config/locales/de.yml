@@ -166,6 +166,7 @@
       :title_content: Kommentare (%{count})
       :errors:
         :empty_text: Der Kommentar wurde nicht gespeichert, da der Text fehlt.
+      :created_at: Erstellt
     :devise:
       :username:
         :title: Benutzername
@@ -281,7 +282,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mär
@@ -307,7 +308,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Januar
     - Februar
     - März
@@ -476,7 +477,7 @@
         :phone: Telefon
         :mobile_phone: Mobiltelefon
         :home_phone: Festnetz
-        :public_profile: Alle können mein Profil ansehen
+        :public_profile: Andere Helfer können mein Profil sehen
         :active_since: Aktiv seit
       :user/feedback:
         :comment: Kommentar
@@ -484,7 +485,7 @@
         :volunteer: :activerecord.models.volunteer
       :user/identity:
         :circle: :activerecord.models.circle
-        :email: Email
+        :email: E-Mail-Adresse
         :password_digest: Passwort Digest
         :volunteer: :activerecord.models.volunteer
       :working_group:
@@ -508,18 +509,23 @@
       :too_short: Passwort muss mindestens 8 Zeichen lang sein.
       :nils: Bitte ein Passwort festlegen.
       :does_not_match: Das Passwort stimmt nicht mit der Bestätigung überein.
+      :empty: Passwort ist erforderlich.
     :password_confirmation:
       :did_not_match: Passwort und Passwortwiederholung waren nicht gleich.
       :nils: Bitte das Passwort bestätigen.
+      :empty: Bestätigung des Passworts ist erforderlich.
     :accept_terms:
       :false: Um Lale zu nutzen, musst Du die Nutzungsbedingungen zuerst akzeptieren.
     :email:
       :nils: Bitte gib Deine Email an.
       :taken: Diese Email wurde bereits verwendet. Bist du bereits bei Lale registriert?
+      :empty: E-Mail-Adresse ist erforderlich.
     :first_name:
       :nils: Bitte gib deinen Vornamen an.
+      :empty: Vorname ist erforderlich.
     :last_name:
       :nils: Bitte gib deinen Nachnamen an.
+      :empty: Nachname ist erforderlich.
     :format: "%{attribute} %{message}"
     :messages:
       :accepted: muss akzeptiert werden
@@ -654,6 +660,7 @@
         :member_since: Mitglied seit
         :roles: Rollen
         :tasks_supplies_completed: Geleistete Hilfe
+        :edit_profile: Dein Profil ändern
     :supplies:
       :index:
         :header: Sachspenden
@@ -828,11 +835,45 @@
       :edit:
         :title: Einstellungen
         :reset_password: Passwort zurücksetzen
+        :about_me: "Über mich"
+        :mobile_phone: Mobiltelefon
+        :email: Email
+        :city: Ort
+        :first_name: Vorname
+        :last_name: Nachname
+        :postal_code: Postleitzahl
+        :state_province: Bundesland
+        :public_profile: Andere Helfer können mein Profil sehen
+        :update_settings: "Änderungen speichern"
+        :street_address: Strasse
+        :language: Sprache
+        :country: Land
+        :home_phone: Festnetz
+        :error_correction: Bitte die untenstehenden Fehler berichtigen.
       :reset_password:
         :reset_password: Passwort zurücksetzen
         :update: Passwort ändern
         :password: Passwort
-        :password_confirmation: Password Bestätigung
+        :password_confirmation: Passwort Bestätigung
+    :identities:
+      :new:
+        :mobile_phone: Mobiltelefon
+        :email: Email
+        :header: Gleich mithelfen
+        :country: Land
+        :first_name: Vorname
+        :password: Passwort
+        :street_address: Strasse
+        :language: Sprache
+        :home_phone: Festnetz
+        :city: Ort
+        :postal_code: Postleitzahl
+        :last_name: Nachname
+        :public_profile: Andere Helfer können mein Profil sehen
+        :state_province: Bundesland
+        :country_select: Bitte Land auswählen
+        :accept_terms: Nutzungsbedingungen akzeptieren
+        :password_confirmation: Passwort Bestätigung
   :en:
     :roles:
       :name:
@@ -867,3 +908,4 @@
       :messages:
         :more_volunteers_needed: Noch Helfer gesucht
         :recent_activity: Kürzlich bearbeitet
+  :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
