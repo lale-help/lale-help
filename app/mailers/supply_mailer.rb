@@ -2,8 +2,8 @@ class SupplyMailer < BaseMandrillMailer
   def supply_completion_reminder(task, user, token)
     build_message(user.language, user.email) do
       merge_vars(user, task).merge({
-        "TASK_MARK_COMPLETE_URL" => handle_token_url(token.code, status: :completed),
-        "TASK_ADD_COMMENT_URL"   => handle_token_url(token.code)
+        "SUPPLY_MARK_COMPLETE_URL" => handle_token_url(token.code, status: :completed),
+        "SUPPLY_ADD_COMMENT_URL"   => handle_token_url(token.code)
       })
     end
   end
