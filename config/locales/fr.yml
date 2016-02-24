@@ -830,13 +830,46 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
+        :format: "%u%n"
+    :format:
+      :delimiter: "."
+      :separator: ","
+      :precision: '3'
+    :human:
+      :storage_units:
+        :units:
+          :gb: GB
+          :kb: KB
+          :mb: MB
+          :tb: TB
+          :byte:
+            :one: Byte
+            :other: Bytes
+        :format: "%n %u"
+      :format:
+        :precision: '3'
+        :significant: 'true'
+        :strip_insignificant_zeros: 'true'
+      :decimal_units:
+        :format: "%n %u"
+    :percentage:
+      :format:
+        :format: "%n%"
   :datetime:
     :prompts:
       :day: Jour
+      :hour: Heure
+      :minute: Minute
+      :month: Mois
+      :second: Secondes
+      :year: An
     :distance_in_words:
       :x_days:
         :one: 1 jour
         :other: "%{count} jours"
+      :x_seconds:
+        :other: "%{count} secondes"
+        :one: 1 seconde
   :url:
     :terms_of_service: http://lale.help/terms#terms
   :mailers:
@@ -863,3 +896,18 @@
       :messages:
         :more_volunteers_needed: Plus de volontaires requis
         :recent_activity: Activité récente
+  :time:
+    :pm: pm
+    :am: am
+    :formats:
+      :default: "%a, %d %b %Y %H:%M:%S %z"
+      :long: '"%A, %d. %B %Y, %H:%M"'
+      :short: "%d %b %H:%M"
+  :views:
+    :pagination:
+      :truncate: "&hellip;"
+  :support:
+    :array:
+      :words_connector: ", "
+      :two_words_connector: " et "
+      :last_word_connector: ", et "
