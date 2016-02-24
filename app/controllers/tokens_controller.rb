@@ -1,5 +1,6 @@
 class TokensController < ApplicationController
   skip_authorization_check
+  skip_before_action :possibly_expire_session
 
   def handle_token
     outcome = TokenHandler.handle(params[:token_code], self)
