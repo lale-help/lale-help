@@ -156,6 +156,8 @@
       :errors:
         :empty_text: Le commentaire n'a pas été enregistré puisque le texte était
           vide.
+      :delete: Supprimer
+      :created_at: Crée
     :devise:
       :username:
         :title: Nom d'utilisateur
@@ -182,6 +184,10 @@
         :sign_in: Connectez-vous
         :forgot_your_password: Vous avez oublié votre mot de passe ?
         :sign_in_with_omniauth_provider: Connectez-vous avec %{provider}
+        :sign_up: S’inscrire
+      :sign_up:
+        :title: S’inscrire
+        :submit: S’inscrire
     :access_denied:
       :message: Vous n'êtes pas autorisé à exécuter cette action
     :index_list:
@@ -336,18 +342,18 @@
         :users: Utilisateur
       :system_event:
         :action: Action
-        :for: :activerecord.models.for
+        :for: pour
         :for_type: Pour Type
         :notifications: Notifications
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :system_event/notification:
         :deliveries: Livraisons
         :system_event: :activerecord.models.system_event
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :system_event/notification/delivery:
         :content: Contenu
         :method: Méthode
-        :notification: :activerecord.models.notification
+        :notification: Notification
       :task:
         :completed_at: Finie le
         :completed_tasks: Tâches Complétées
@@ -423,7 +429,7 @@
       :task/volunteer_assignment:
         :organizer: Organisateur
         :task: :activerecord.models.task
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :role:
         :actions: Actions
       :user:
@@ -453,12 +459,12 @@
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :user/identity:
         :circle: :activerecord.models.circle
         :email: Email
         :password_digest: Mot de passe
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :working_group:
         :circle: :activerecord.models.circle
         :name: Nom
@@ -619,6 +625,7 @@
         :contact: Contacter
         :member_since: Membre Depuis
         :tasks_supplies_completed: Aide fournie
+        :edit_profile: Editer mon Profil
     :supplies:
       :index:
         :header: Besoins Matériels
@@ -742,7 +749,7 @@
         :signed-in-as: Connecté en tant que %{user}
         :sign-out: Se Deconnecter
         :account: Compte
-        :sign-up: Se Connecter
+        :sign-up: S’inscrire
         :dont-have-account: Vous n'avez pas de compte utilisateur ?
     :internal:
       :sidebar:
@@ -801,6 +808,14 @@
         :public_profile: Montrer mon profil à tous les membres du cercle
         :language: Langue
         :home_phone: Tel. Domicile
+        :about_me: A propose de moi
+        :city: Ville
+        :country: Pays
+        :error_correction: Merci de corriger les erreurs ci-dessous.
+        :postal_code: Code Postal
+        :state_province: Etat / Région
+        :street_address: Rue
+        :update_settings: Mettre à jour les paramètres
       :reset_password:
         :reset_password: Réinitialiser votre mot de passe
         :update: Mettre à jour votre mot de passe
@@ -818,6 +833,13 @@
         :public_profile: Montrer mon profil à tous les membres du cercle
         :accept_terms: Accepter les Termes et Conditions
         :password_confirmation: Confirmez Votre Mot de Passe
+        :city: Ville
+        :country: Pays
+        :country_select: Selectionner un pays
+        :header: Passez à l'action
+        :postal_code: Code Postal
+        :state_province: Etat / Région
+        :street_address: Rue
   :en:
     :roles:
       :name:
@@ -852,6 +874,12 @@
         :strip_insignificant_zeros: 'true'
       :decimal_units:
         :format: "%n %u"
+        :units:
+          :billion: Milliard
+          :million: Million
+          :quadrillion: Billiard
+          :thousand: Mille
+          :trillion: Mille milliards
     :percentage:
       :format:
         :format: "%n%"
@@ -870,6 +898,34 @@
       :x_seconds:
         :other: "%{count} secondes"
         :one: 1 seconde
+      :about_x_hours:
+        :one: environ une heure
+        :other: environ %{count} heures
+      :about_x_months:
+        :one: environ un mois
+        :other: environ %{count} mois
+      :about_x_years:
+        :one: environ un an
+        :other: environ %{count} ans
+      :almost_x_years:
+        :one: presque 1 an
+        :other: presque %{count} ans
+      :half_a_minute: une demi-minute
+      :less_than_x_minutes:
+        :one: moins d'une minute
+        :other: moins de %{count} minutes
+      :less_than_x_seconds:
+        :one: moins d'une seconde
+        :other: moins de %{count} secondes
+      :over_x_years:
+        :one: plus d'un an
+        :other: plus de %{count} ans
+      :x_minutes:
+        :one: 1 minute
+        :other: "%{count} minutes"
+      :x_months:
+        :one: 1 mois
+        :other: "%{count} mois"
   :url:
     :terms_of_service: http://lale.help/terms#terms
   :mailers:
@@ -906,8 +962,13 @@
   :views:
     :pagination:
       :truncate: "&hellip;"
+      :first: "&laquo; Premier"
+      :last: Dernier &raquo;
+      :next: Suivant &rsaquo;
+      :previous: "&lsaquo; Précédent"
   :support:
     :array:
       :words_connector: ", "
       :two_words_connector: " et "
       :last_word_connector: ", et "
+  :error_correction: Merci de corriger les erreurs ci-dessous.

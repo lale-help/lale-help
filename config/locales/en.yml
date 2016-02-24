@@ -207,18 +207,18 @@
         :users: Users
       :system_event:
         :action: Action
-        :for: :activerecord.models.for
+        :for: for
         :for_type: For type
         :notifications: Notifications
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :system_event/notification:
         :deliveries: Deliveries
         :system_event: :activerecord.models.system_event
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :system_event/notification/delivery:
         :content: Content
         :method: Method
-        :notification: :activerecord.models.notification
+        :notification: Notification
       :task:
         :completed_at: Completed at
         :completed_tasks: Last Completed Task
@@ -266,7 +266,7 @@
       :task/volunteer_assignment:
         :organizer: Organizer
         :task: :activerecord.models.task
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :role:
         :actions: Actions
       :user:
@@ -296,12 +296,12 @@
       :user/feedback:
         :comment: Comment
         :rating: Rating
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :user/identity:
         :circle: :activerecord.models.circle
         :email: Email
         :password_digest: Password digest
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :working_group:
         :circle: :activerecord.models.circle
         :name: Name

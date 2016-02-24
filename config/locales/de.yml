@@ -365,18 +365,18 @@
         :users: Benutzer
       :system_event:
         :action: Aktion
-        :for: :activerecord.models.for
+        :for: für
         :for_type: Für Typ
         :notifications: Benachrichtigungen
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helfer
       :system_event/notification:
         :deliveries: Zustellungen
         :system_event: :activerecord.models.system_event
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helfer
       :system_event/notification/delivery:
         :content: Inhalt
         :method: Methode
-        :notification: :activerecord.models.notification
+        :notification: Benachrichtigung
       :task:
         :completed_at: Erledigt um
         :completed_tasks: Erledigte Aufgaben
@@ -452,7 +452,7 @@
       :task/volunteer_assignment:
         :organizer: Organisator
         :task: :activerecord.models.task
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helfer
       :role:
         :actions: Aktionen
       :user:
@@ -482,12 +482,12 @@
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helfer
       :user/identity:
         :circle: :activerecord.models.circle
         :email: E-Mail-Adresse
         :password_digest: Passwort Digest
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helfer
       :working_group:
         :circle: :activerecord.models.circle
         :name: Name
