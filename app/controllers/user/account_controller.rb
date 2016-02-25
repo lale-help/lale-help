@@ -5,6 +5,8 @@ class User::AccountController < ApplicationController
   skip_authorization_check
   layout 'internal'
 
+  def show
+  end
 
   def edit
     @form = User::Update.new(user: current_user)
