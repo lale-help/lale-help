@@ -251,6 +251,10 @@
           :half_day: Half a day
           :all_day: All day
         :working_group: Working group
+        :scheduled-time-select:
+          :on_date: On Day
+          :at: At
+          :between: In Between
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
