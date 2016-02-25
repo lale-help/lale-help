@@ -1,7 +1,7 @@
 = form_for form, url: circle_path(current_circle), method: :patch do |f|
   - if errors.present?
     .form-introduction.error
-      p Please correct the errors below.
+      p= t('error_correction')
 
 
   .field-row
