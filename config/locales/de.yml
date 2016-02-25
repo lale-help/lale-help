@@ -350,7 +350,7 @@
       :circle:
         :admin: Administrator
         :location: :activerecord.models.location
-        :name: Name
+        :name: Name des Helferkreises
         :tasks: Aufgaben
         :volunteers: Helfer
         :working_groups: Arbeitsgruppen
@@ -395,7 +395,7 @@
         :volunteers: Helfer
         :working_group: Arbeitsgruppe
         :volunteer_count_required: Anzahl der benötigten Helfer
-        :primary_location: Standort
+        :primary_location: Ort der Aufgabe
         :duration: Zeitaufwand
         :scheduled_time_type: Zeitpunkt
         :scheduled_time_start: Beginn
@@ -409,6 +409,10 @@
           :hours_3: 3 Stunden
           :half_day: halber Tag
           :all_day: ganzer Tag
+        :scheduled-time-select:
+          :on_date: Am
+          :between: Zwischen
+          :at: Um
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
@@ -423,7 +427,7 @@
         :volunteer: Helfer
         :working_group: Arbeitsgruppe
         :volunteer_count_required: Anzahl der benötigten Helfer
-        :primary_location: Standort
+        :primary_location: Abgabeort der Sachspende
         :duration: Zeitaufwand
         :scheduled_time_type: Zeitpunkt
         :scheduled_time_start: Beginn
@@ -748,6 +752,8 @@
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
       :new:
         :new-working-group: Neue Arbeitsgruppe
+      :edit:
+        :header: Arbeitsgruppe
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
@@ -791,7 +797,7 @@
         :signed-in-as: Angemeldet als %{user}
         :sign-out: Abmelden
         :sign-up: Registrieren
-        :dont-have-account: Bereits registriert?
+        :dont-have-account: Noch kein Konto?
         :account: Konto
     :internal:
       :sidebar:
@@ -850,6 +856,11 @@
         :update: Passwort ändern
         :password: Passwort
         :password_confirmation: Passwort Bestätigung
+      :show:
+        :edit_profile: Dein Profil ändern
+        :view_public_profile: "Öffentliches Profil ansehen"
+        :reset_password: Passwort zurücksetzen
+        :title: Dein Profil
     :identities:
       :new:
         :mobile_phone: Mobiltelefon
@@ -987,3 +998,19 @@
       :words_connector: ", "
       :two_words_connector: " und "
       :last_word_connector: ", und "
+  :supplies:
+    :flash:
+      :volunteer_failed: Problem bei der Übernahme dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :already_taken: Die Sachspende wird bereits von jemand übernommen.
+      :invite_failed: Problem bei der Einladung zu dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :declined: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
+        Helfer suchen...
+      :completed: Danke für die Sachspende!
+      :complete_failed: Problem bei der Fertigstellung dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :decline_failed: Problem bei der Ablehnung dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
+      :volunteered: Vielen Dank für Deine Hilfe!

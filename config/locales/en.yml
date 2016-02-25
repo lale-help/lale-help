@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    -
+    - 
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mar
@@ -192,7 +192,7 @@
       :circle:
         :admin: Admin
         :location: :activerecord.models.location
-        :name: Name
+        :name: Circle name
         :tasks: Tasks
         :volunteers: Volunteers
         :working_groups: Working groups
@@ -236,7 +236,7 @@
         :volunteer_assignments: Volunteer assignments
         :volunteers: Volunteers
         :volunteer_count_required: Required number of volunteers
-        :primary_location: Location
+        :primary_location: Place of task
         :duration: Time Commitment
         :scheduled_time_type: Occurs
         :scheduled_time_start: Start Time
@@ -339,7 +339,7 @@
         :name: Name of supply
         :organizer: Organizer
         :organizer_assignments: Organizer assignments
-        :primary_location: Location
+        :primary_location: Location for supply
         :scheduled-time:
           :at: at %{start}
           :between: between %{start} and %{end}
@@ -955,7 +955,7 @@
         :password: Password
         :password_confirmation: Password Confirmation
       :show:
-        :title: Personal Settings
+        :title: Your Profile
         :view_public_profile: View your public profile
         :edit_profile: Edit Profile
         :reset_password: Reset Password
@@ -996,7 +996,7 @@
   :supplies:
     :flash:
       :completed: Thanks for the supply!
-      :complete_failed: Unable to mark supply as donated... Please try again.
+      :complete_failed: Unable to mark supply as donated. Please try again.
       :volunteered: Thanks for signing up!
       :volunteer_failed: Unable to sign up for this supply. Please try again later.
       :already_taken: This supply has already been claimed by someone else

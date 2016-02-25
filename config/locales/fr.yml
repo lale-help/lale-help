@@ -259,7 +259,7 @@
     - Ven
     - Sam
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Fev
     - Mar
@@ -285,7 +285,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Janvier
     - Février
     - Mars
@@ -326,7 +326,7 @@
     :attributes:
       :circle:
         :location: :activerecord.models.location
-        :name: Nom
+        :name: Nom de cercle
         :tasks: Tâche
         :volunteers: Volontaire
         :working_groups: Groupes de Travail
@@ -386,6 +386,10 @@
           :half_day: Une demie journée
           :all_day: Un jour entier
         :working_group_id: Groupe de Travail
+        :scheduled-time-select:
+          :between: Entre
+          :at: A
+          :on_date: Le Jour
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -713,6 +717,8 @@
         :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes de Travail
       :new:
         :new-working-group: Nouveau Groupe de Travail
+      :edit:
+        :header: Groupe de Travail
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
@@ -809,11 +815,18 @@
         :title: Paramètres Personnels
         :reset_password: Réinitialiser votre mot de passe
         :error_correction: Merci de corriger les erreurs ci-dessous.
+        :country_select: Sélectionner un Pays.
+        :update_settings: Mettre à jour les Paramètres
       :reset_password:
         :reset_password: Réinitialiser votre mot de passe
         :update: Mettre à jour votre mot de passe
         :password: Mot de passe
         :password_confirmation: Confirmez Votre Mot de Passe
+      :show:
+        :edit_profile: Editer mon Profil
+        :title: Ton Profil
+        :reset_password: Ré-initialiser le Mot de Passe
+        :view_public_profile: Voir votre page de profile
     :identities:
       :new:
         :mobile_phone: Tel. Portable
@@ -965,3 +978,17 @@
       :two_words_connector: " et "
       :last_word_connector: ", et "
   :error_correction: Merci de corriger les erreurs ci-dessous.
+  :supplies:
+    :flash:
+      :already_taken: Cette marchandise a déjà été récupéré par quelqun d'autre
+      :complete_failed: Nous n'avons pas pu marquer cette marchandise comme donnée.
+        Merci de réessayer.
+      :completed: Merci pour la marchandise !
+      :decline_failed: Nous n'avons pas pu refuser cette marchandise. Merci de réessayer.
+      :declined: Merci pour votre honnêteté ! Nous allons trouver quelqun d'autre.
+      :invite_failed: Nous n'avons pas pu inviter des membres pour cette marchandise.
+        Merci de réessayer plus tard.
+      :invited: Les membres de %{name} ont été invité pour cette marchandise.
+      :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
+        de réessayer.
+      :volunteered: Merci de vous êtes inscrit !
