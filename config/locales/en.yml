@@ -69,7 +69,7 @@
     :format:
       :separator: "."
       :delimiter: ","
-      :precision: 3
+      :precision: '3'
       :significant: false
       :strip_insignificant_zeros: false
     :currency:
@@ -86,9 +86,9 @@
         :format: "%n%"
     :human:
       :format:
-        :precision: 3
-        :significant: true
-        :strip_insignificant_zeros: true
+        :precision: '3'
+        :significant: 'true'
+        :strip_insignificant_zeros: 'true'
       :storage_units:
         :format: "%n %u"
         :units:
@@ -207,18 +207,18 @@
         :users: Users
       :system_event:
         :action: Action
-        :for: :activerecord.models.for
+        :for: for
         :for_type: For type
         :notifications: Notifications
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :system_event/notification:
         :deliveries: Deliveries
         :system_event: :activerecord.models.system_event
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :system_event/notification/delivery:
         :content: Content
         :method: Method
-        :notification: :activerecord.models.notification
+        :notification: Notification
       :task:
         :completed_at: Completed at
         :completed_tasks: Last Completed Task
@@ -266,7 +266,7 @@
       :task/volunteer_assignment:
         :organizer: Organizer
         :task: :activerecord.models.task
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :role:
         :actions: Actions
       :user:
@@ -296,12 +296,12 @@
       :user/feedback:
         :comment: Comment
         :rating: Rating
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :user/identity:
         :circle: :activerecord.models.circle
         :email: Email
         :password_digest: Password digest
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :working_group:
         :circle: :activerecord.models.circle
         :name: Name
@@ -931,7 +931,7 @@
   :user:
     :account:
       :edit:
-        :title: Personal Settings
+        :title: Your profile
         :reset_password: Reset your Password
         :error_correction: Please correct the errors below.
         :first_name: First Name
