@@ -1,6 +1,5 @@
 class Circle::Join < ::Form
   attribute :user,      :model,   primary: true
-  attribute :location,  :string, required: false, default: proc{ user.address.location_query unless user.address.nil? }
   attribute :circle_id, :integer
 
 

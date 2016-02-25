@@ -6,76 +6,91 @@ main.form
     = form_for form, url: join_circle_path(circle) do |f|
       - if errors.present?
         .form-introduction.error
-          p Please correct the errors below.
+          p= t('error_correction')
 
       - if current_user.present?
 
       - else
         .field-row
           .field.required class=errors.css(:first_name)
-            = f.label :first_name
+            = f.label :first_name, t('user.identities.new.first_name')
             = f.text_field :first_name
             = errors.message_for(:first_name)
 
           .field.required class=errors.css(:last_name)
-            = f.label :last_name
+            = f.label :last_name, t('user.identities.new.last_name')
             = f.text_field :last_name
             = errors.message_for(:last_name)
 
         .field-row
           .field.required class=errors.css(:email)
-            = f.label :email
+            = f.label :email, t('user.identities.new.email')
             = f.text_field :email
             = errors.message_for(:email)
 
           .field.required class=errors.css(:language)
-            = f.label :language
+            = f.label :language, t('user.identities.new.language')
             = f.select :language do
               = options_for_select(@form.language_options, @form.language)
-
             = errors.message_for(:language)
-
 
         .field-row
           .field.required class=errors.css(:password)
-            = f.label :password
+            = f.label :password, t('user.identities.new.password')
             = f.password_field :password
             = errors.message_for(:password)
 
           .field.required class=errors.css(:password_confirmation)
-            = f.label :password_confirmation
+            = f.label :password_confirmation, t('user.identities.new.password_confirmation')
             = f.password_field :password_confirmation
             = errors.message_for(:password_confirmation)
 
-        hr
-
         .field-row
           .field class=errors.css(:mobile_phone)
-            = f.label :mobile_phone
+            = f.label :mobile_phone, t('user.identities.new.mobile_phone')
             = f.text_field :mobile_phone
             = errors.message_for(:mobile_phone)
 
           .field class=errors.css(:home_phone)
-            = f.label :home_phone
+            = f.label :home_phone, t('user.identities.new.home_phone')
             = f.text_field :home_phone
             = errors.message_for(:home_phone)
 
-        .field-row.single
-          .field class=errors.css(:location)
-            = f.label :location
-            = f.text_field :location, placeholder: true
-            = errors.message_for(:location)
+        hr
+
+        .field-row
+          .field class=errors.css(:street_address_1)
+            = f.label :street_address, t('user.identities.new.street_address')
+            = f.text_field :street_address_1
+            = errors.message_for(:street_address_1)
+        .field-row
+          .field class=errors.css(:city)
+            = f.label :city, t('user.identities.new.city')
+            = f.text_field :city
+            = errors.message_for(:city)
+          .field class=errors.css(:state_province)
+            = f.label :state_province, t('user.identities.new.state_province')
+            = f.text_field :state_province
+            = errors.message_for(:state_province)
+        .field-row
+          .field class=errors.css(:postal_code)
+            = f.label :postal_code, t('user.identities.new.postal_code')
+            = f.text_field :postal_code
+            = errors.message_for(:postal_code)
+          .field class=errors.css(:country)
+            = f.label :country, t('user.identities.new.country')
+            = country_select(:user, :country,
+              locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
+              include_blank: t('user.identities.new.country_select'), selected: @form.country)
+            = errors.message_for(:country)
 
         .field-row.single
           .field.required class=errors.css(:accept_terms)
-            = f.label :accept_terms
+            = f.label :accept_terms, t('user.identities.new.accept_terms')
             p
+              = f.check_box :accept_terms, placeholder: true
               a href=t('url.terms_of_service') target="_blank"= t('workflow.read_terms')
-            = f.check_box :accept_terms, placeholder: true
-            p
-
             p= errors.message_for(:accept_terms)
-
 
 
       .submit-row
