@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       end
 
       resource  :calendar
-      resources :members, :roles, :discussions, :organizers
+      resources :members, :roles, :discussions, :organizers, :public_members
 
       resources :supplies do
         put :complete, :volunteer, :decline

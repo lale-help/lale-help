@@ -29,7 +29,7 @@ table.member-list
           div= "H: #{user.home_phone}"
       td
         a href="mailto:#{user.identity.email}"
-        = user.identity.email
+          = user.identity.email
       td= l(user.created_at.to_date, format: :default)
       td
         - if user.last_login != nil
