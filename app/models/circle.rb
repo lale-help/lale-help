@@ -35,14 +35,6 @@ class Circle < ActiveRecord::Base
     tasks.count
   end
 
-  def slug
-    name.strip.downcase.underscore.gsub(/\s+/, ?-)
-  end
-
-  def to_param
-    [id, slug].join(?-)
-  end
-
   def comment_average
     @comment_average  ||= begin
       recent_tasks = tasks.where("tasks.updated_at > ?", 1.month.ago)
