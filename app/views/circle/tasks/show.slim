@@ -66,11 +66,11 @@
           - else
             = render partial: 'user/user_icon', locals: { user: v, link: true }
 
-        - if page.is_missing_volunteers
-          - if can? :volunteer, current_task
-            = button_to circle_task_volunteer_path(current_circle, current_task), method: :put, class: 'task-action-button' do
-              .volunteer-icon
+        - if can? :volunteer, current_task
+          = button_to circle_task_volunteer_path(current_circle, current_task), method: :put, class: 'task-action-button' do
+            .volunteer-icon
 
+        - if page.is_missing_volunteers
           - page.adjusted_missing_volunteer_count.times do
             .user-icon.user-needed
 
