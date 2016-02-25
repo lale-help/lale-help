@@ -19,6 +19,9 @@ class Task::BaseForm < ::Form
 
   attribute :volunteer_count_required, :integer, default: proc { 1 }
 
+  attribute :ability, :model
+  attribute :circle, :model
+
   def duration_unit_options
     [
       [ "Hours",   'hour' ],
@@ -46,6 +49,31 @@ class Task::BaseForm < ::Form
     Task.durations.map do |key, val|
       [I18n.t("activerecord.attributes.task.duration-text.#{key}"), val]
     end
+  end
+
+  def working_group
+    @working_group ||= begin
+      new_working_group = circle.working_groups.find_by(id: working_group_id) || task.working_group
+      if ability.can? :create_task, new_working_group
+        new_working_group
+      else
+        task.working_group
+      end
+    end
+  end
+
+
+  def available_working_groups
+    @available_working_groups ||= begin
+      working_groups = circle.working_groups.to_a
+      working_groups.select! { |wg| ability.can?(:manage, wg) } unless ability.can?(:manage, circle)
+      working_groups << task.working_group unless working_groups.present?
+      working_groups
+    end
+  end
+
+  def available_working_groups_disabled?
+    available_working_groups.size == 1
   end
 
   class Submit < ::Form::Submit
