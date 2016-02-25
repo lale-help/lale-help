@@ -259,7 +259,7 @@
     - Ven
     - Sam
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Fev
     - Mar
@@ -285,7 +285,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Janvier
     - Février
     - Mars
@@ -326,7 +326,7 @@
     :attributes:
       :circle:
         :location: :activerecord.models.location
-        :name: Nom
+        :name: Nom de cercle
         :tasks: Tâche
         :volunteers: Volontaire
         :working_groups: Groupes de Travail
@@ -386,6 +386,8 @@
           :half_day: Une demie journée
           :all_day: Un jour entier
         :working_group_id: Groupe de Travail
+        :scheduled-time-select:
+          :between: Entre
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -713,6 +715,8 @@
         :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes de Travail
       :new:
         :new-working-group: Nouveau Groupe de Travail
+      :edit:
+        :header: Groupe de Travail
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
@@ -814,6 +818,9 @@
         :update: Mettre à jour votre mot de passe
         :password: Mot de passe
         :password_confirmation: Confirmez Votre Mot de Passe
+      :show:
+        :edit_profile: Editer mon Profil
+        :title: Ton Profil
     :identities:
       :new:
         :mobile_phone: Tel. Portable
