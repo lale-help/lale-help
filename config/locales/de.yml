@@ -479,6 +479,12 @@
         :home_phone: Festnetz
         :public_profile: Andere Helfer können mein Profil sehen
         :active_since: Aktiv seit
+        :about_me: "Über mich"
+        :city: Ort
+        :country: Land
+        :postal_code: Postleitzahl
+        :state_province: Bundesland
+        :street_address: Strasse
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung
@@ -835,21 +841,9 @@
       :edit:
         :title: Dein Profil
         :reset_password: Passwort zurücksetzen
-        :about_me: "Über mich"
-        :mobile_phone: Mobiltelefon
-        :email: Email
-        :city: Ort
-        :first_name: Vorname
-        :last_name: Nachname
-        :postal_code: Postleitzahl
-        :state_province: Bundesland
-        :public_profile: Andere Helfer können mein Profil sehen
         :update_settings: "Änderungen speichern"
-        :street_address: Strasse
-        :language: Sprache
-        :country: Land
-        :home_phone: Festnetz
         :error_correction: Bitte die untenstehenden Fehler berichtigen.
+        :country_select: Bitte Land auswählen
       :reset_password:
         :reset_password: Passwort zurücksetzen
         :update: Passwort ändern

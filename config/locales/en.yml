@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -297,6 +297,12 @@
         :home_phone: Home Phone
         :public_profile: Show my profile to all circle members
         :active_since: Active since
+        :street_address: Street Address
+        :city: City
+        :state_province: State / Province
+        :postal_code: Postal Code
+        :country: Country
+        :about_me: About Me
       :user/feedback:
         :comment: Comment
         :rating: Rating
@@ -940,22 +946,8 @@
         :title: Your profile
         :reset_password: Reset your Password
         :error_correction: Please correct the errors below.
-        :first_name: First Name
-        :last_name: Last Name
-        :email: Email
-        :language: Language
-        :mobile_phone: Mobile Phone
-        :home_phone: Home Phone
-        :street_address: Street Address
-        :city: City
-        :state_province: State / Province
-        :postal_code: Postal Code
-        :country: Country
-        :about_me: About Me
-        :public_profile: Show my profile to other circle members
         :update_settings: Update Settings
-        :save: Save
-        :cancel: Cancel
+        :country_select: Select Country
       :reset_password:
         :reset_password: Reset your Password
         :update: Update your Password
