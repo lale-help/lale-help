@@ -847,6 +847,8 @@
         :all-working-groups-dashboard: All Working Groups Dashboard
       :new:
         :new-working-group: New Working Group
+      :edit:
+        :header: Working Group Settings
     :organizers:
       :index:
         :organizers: Organizers
