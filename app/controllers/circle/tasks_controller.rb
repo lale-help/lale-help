@@ -6,20 +6,20 @@ class Circle::TasksController < ApplicationController
 
   def index
     authorize! :read, current_circle
-    @tasks = current_circle.tasks.order('due_date asc').not_completed
+    @tasks = current_circle.tasks.not_completed.ordered_by_date
   end
 
 
   def completed
     authorize! :read, current_circle
-    @tasks = current_circle.tasks.order('due_date asc').completed
+    @tasks = current_circle.tasks.completed.ordered_by_date
   end
 
   def my
     authorize! :read, current_circle
 
-    tasks_vol = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').order('due_date asc')
-    tasks_org = current_user.tasks.for_circle(current_circle).with_role('task.organizer').order('due_date asc')
+    tasks_vol = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').ordered_by_date
+    tasks_org = current_user.tasks.for_circle(current_circle).with_role('task.organizer').ordered_by_date
     @tasks = OpenStruct.new(
         open: tasks_vol.not_completed,
         closed: tasks_vol.completed,
@@ -30,7 +30,7 @@ class Circle::TasksController < ApplicationController
 
   def open
     authorize! :read, current_circle
-    @tasks = current_circle.tasks.order('due_date asc').unassigned.not_completed
+    @tasks = current_circle.tasks.unassigned.not_completed.ordered_by_date
   end
 
 

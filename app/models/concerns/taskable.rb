@@ -23,6 +23,8 @@ module Taskable
     scope :organized,   -> { with_role("#{klass.to_s.downcase}.organizer") }
     scope :unassigned,  -> { joins("LEFT JOIN task_roles on tasks.id = task_roles.task_id AND task_roles.role_type = #{klass::Role.role_types['task.volunteer']}").group('tasks.id', 'working_groups.name').having('count(task_roles.id) < volunteer_count_required') }
 
+    scope :ordered_by_date, -> { reorder(due_date: 'asc')}
+
     # Validations
     validates :name, presence: true
     validates :due_date, presence: true
