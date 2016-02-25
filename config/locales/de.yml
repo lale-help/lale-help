@@ -1005,7 +1005,8 @@
       :already_taken: Die Sachspende wird bereits von jemand übernommen.
       :invite_failed: Problem bei der Einladung zu dieser Sachspende. Bitte probier
         es später noch einmal.
-      :declined: Vielen Dank für Deine Antwort! Wir werden einen anderen Helfer suchen...
+      :declined: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
+        Helfer suchen...
       :completed: Danke für die Sachspende!
       :complete_failed: Problem bei der Fertigstellung dieser Sachspende. Bitte probier
         es später noch einmal.
