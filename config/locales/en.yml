@@ -1002,3 +1002,14 @@
   :error_correction: Please correct the errors below.
   :formtastic:
     :required: Required field
+  :supplies:
+    :flash:
+      :completed: Thanks for the supply!
+      :complete_failed: Unable to mark supply as donated... Please try again.
+      :volunteered: Thanks for signing up!
+      :volunteer_failed: Unable to sign up for this supply. Please try again later.
+      :already_taken: This supply has already been claimed by someone else
+      :declined: Thanks for your honesty! We will find someone else.
+      :decline_failed: Unable to decline this supply. Please try again later.
+      :invited: Invited members of %{name} to this supply
+      :invite_failed: Unable to invite members to this supply. Please try again later.

@@ -28,7 +28,7 @@ class SupplyMailer < BaseMandrillMailer
       "SUPPLY_TITLE"       => supply.name,
       "SUPPLY_DESCRIPTION" => supply.description.truncate(100, separator: /\s/, omission: '...'),
       "SUPPLY_DUE_DATE"    => supply.due_date,
-      "SUPPLY_LOCATION"    => supply.location.address,
+      "SUPPLY_LOCATION"    => supply.location.try(:address),
     }
   end
 end
