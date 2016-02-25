@@ -5,52 +5,52 @@ main
     .field-row
       .field
         label
-          = t('.name')
+          = t('activerecord.attributes.user.name')
         span
           = current_user.name
 
     .field-row
       .field
         label
-          = t('.email')
+          = t('activerecord.attributes.user.email')
         span
           = current_user.email
       .field
         label
-          = t('.language')
+          = t('activerecord.attributes.user.language')
         span
           = I18n.t("language.#{current_user.language}")
 
     .field-row
       .field
         label
-          = t('.mobile_phone')
+          = t('activerecord.attributes.user.mobile_phone')
         span
           = current_user.mobile_phone
 
       .field
         label
-          = t('.home_phone')
+          = t('activerecord.attributes.user.home_phone')
         span
           = current_user.home_phone
 
     .field-row
       .field
         label
-          = t('.address')
+          = t('activerecord.attributes.user.address')
         span
           = current_user.address.full_address
 
     .field-row
       label
-        = t('.about_me')
+        = t('activerecord.attributes.user.about_me')
       span
         = current_user.about_me
 
     .field-row
       .field
         = check_box_tag('public_profile', 'true', current_user.public_profile, disabled: true)
-        = t('.public_profile')
+        = t('activerecord.attributes.user.public_profile')
       - if current_user.public_profile
         .field
           = link_to(t('.view_public_profile'), circle_member_path(current_circle, current_user))

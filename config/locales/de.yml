@@ -485,6 +485,7 @@
         :postal_code: Postleitzahl
         :state_province: Bundesland
         :street_address: Strasse
+        :address: Anschrift
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung

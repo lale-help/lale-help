@@ -456,6 +456,13 @@
         :phone: Numéro de Téléphone
         :public_profile: Montrer mon profil à tous les membres du cercle
         :working_groups: Groupes de Travail
+        :street_address: Rue
+        :city: Ville
+        :country: Pays
+        :about_me: A propose de moi
+        :postal_code: Code Postal
+        :state_province: Etat / Région
+        :address: Adresse
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
