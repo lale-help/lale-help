@@ -30,11 +30,9 @@ class Task::BaseForm < ::Form
   end
 
   def scheduled_time_type_options
-    [
-      ["On Day",      'on_date' ],
-      ["At",          'at'      ],
-      ["In Between",  'between' ]
-    ]
+    ['on_date', 'at', 'between'].map do |val|
+      [I18n.t("activerecord.attributes.task.scheduled-time-select.#{val}"), val]
+    end
   end
 
   def scheduled_time_options
@@ -75,6 +73,7 @@ class Task::BaseForm < ::Form
   def available_working_groups_disabled?
     available_working_groups.size == 1
   end
+
 
   class Submit < ::Form::Submit
     def validate
