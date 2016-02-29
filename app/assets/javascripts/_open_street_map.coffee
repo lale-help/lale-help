@@ -67,7 +67,7 @@ window.CirclesMap = class CirclesMap
 
   fetch_data: (query, handler) ->
     if @fetch_request
-      @fetch_request.cancel()
+      @fetch_request.abort()
 
     @fetch_request = $.ajax(
       url: "/api/circles.json",
