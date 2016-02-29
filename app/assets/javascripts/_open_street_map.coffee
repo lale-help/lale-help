@@ -5,10 +5,11 @@ window.CirclesMap = class CirclesMap
     @joinButton  = @form.find('.sumbit')
 
     @target.addClass('hidden')
-    @input.on 'input', @render
+    @input.on 'input change', @render
 
-    $(window).keydown (event)->
+    $(window).keydown (event) =>
       if(event.keyCode == 13)
+        @render()
         event.preventDefault()
         return false
 
