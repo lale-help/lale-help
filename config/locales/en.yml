@@ -161,6 +161,12 @@
       :empty: Last name is required
     :about_me:
       :too_long: maximum 300 characters
+    :country:
+      :empty: Please choose a valid country
+    :city:
+      :empty: Please include a city
+    :postal_code:
+      :empty: Please include a postal code
   :activerecord:
     :errors:
       :messages:
@@ -507,6 +513,7 @@
     :destroyed: "%{name} was successfully destroyed."
     :failed:
       :create: An error occured while creating the %{name}.
+      :update: An error occurred while updating the %{name}.
     :user:
       :account:
         :saved: You settings have been saved.
@@ -890,6 +897,8 @@
       :header: Edit Circle
       :show: Show
       :back: Back
+    :form:
+      :country_select: Select Country
   :layouts:
     :public:
       :header:

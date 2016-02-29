@@ -1,15 +1,16 @@
 FactoryGirl.define do
 
-  factory :circle_create_form, class: Circle::Create do
-    sequence(:name) {|n| "Circle #{n}" }
-    location        {    "San Francisco, CA" }
-    user            { create :user }
+  factory :circle_create_form, class: Circle::CreateForm do
+    sequence(:name)  {|n| "Circle #{n}" }
+    city             { "San Francisco" }
+    state_providence { "California" }
+    country          { "US" }
+    postal_code      { "94109" }
+    user             { create :user }
   end
 
   factory :circle do
     sequence(:name) {|n| "Circle #{n}" }
-    location_text { "San Francisco, CA" }
-    location
   end
 
   factory :circle_role_volunteer, class: Circle::Role do

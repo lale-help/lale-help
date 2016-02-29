@@ -791,6 +791,8 @@
       :header: Helferkreis bearbeiten
       :show: Anzeigen
       :back: Zurück
+    :form:
+      :country_select: Bitte Land auswählen
   :layouts:
     :public:
       :header:

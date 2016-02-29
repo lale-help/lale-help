@@ -4,29 +4,4 @@ section
   hr
   = t('.details')
 
-  = form_for @form, url: public_circles_path, method: :post do |f|
-    .field-row
-      .field.required class=errors.css(:name)
-        = f.label :name
-        = f.text_field :name, placeholder: true
-        = errors.message_for(:name)
-
-    .field-row
-      .field.required class=errors.css(:language)
-        = f.label :language
-        = f.select :language do
-          = options_for_select(@form.language_options, @form.language)
-
-        = errors.message_for(:language)
-
-
-    .field-row
-      .field.required class=errors.css(:location)
-        = f.label :location
-        = f.text_field :location, placeholder: true
-        = errors.message_for(:location)
-
-    .submit-row
-      = f.submit
-      a.button href=public_circles_path = t('workflow.cancel')
-
+  = render partial: 'circles/form', locals: { form: @form, url: public_circles_path }

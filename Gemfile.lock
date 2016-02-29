@@ -258,6 +258,7 @@ GEM
       ntlm-http (~> 0.1, >= 0.1.1)
       webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
+    migration_data (0.2.1)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.1)
@@ -477,6 +478,7 @@ DEPENDENCIES
   js-routes
   letter_opener_web
   mandrill-api
+  migration_data
   mutations
   neat
   octicons-rails

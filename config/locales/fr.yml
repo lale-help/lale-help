@@ -756,6 +756,8 @@
       :header: Editer le Cercle
       :show: Voir
       :back: Retour
+    :form:
+      :country_select: Sélectionner un Pays.
   :layouts:
     :public:
       :header:

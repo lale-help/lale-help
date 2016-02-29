@@ -7,7 +7,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def show
-    @circle_form = Circle::Update.new(user: current_user, circle: current_circle)
+    @form = Circle::UpdateForm.new(user: current_user, circle: current_circle)
   end
 
   def roles

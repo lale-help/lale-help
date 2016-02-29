@@ -12,6 +12,8 @@ gem 'omniauth-identity'
 gem 'cancancan'
 gem 'mandrill-api'
 gem 'activeadmin', github: 'activeadmin'
+gem 'migration_data'
+
 
 # UI
 gem 'coffee-rails', '~> 4.1.0'

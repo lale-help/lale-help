@@ -24,7 +24,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
         expect(page).to have_content(t('public.circles.index.title'))
 
-        fill_in "user[location]", with: circle.location.geocode_query
+        fill_in "user[location]", with: circle.address.location.geocode_query
         find('.circle-marker .title').drag_by(0, 40)
         find('.circle-marker .button.submit').click
 
@@ -54,8 +54,11 @@ describe 'New User On-boarding', type: :feature, js: true do
 
         click_on t('public.circles.index.create-circle-button')
 
-        fill_in "Circle name", with: 'My Circle'
-        fill_in "Location", with: "San Francisco"
+        fill_in "Circle name",   with: 'My Circle'
+        fill_in "City",          with: "San Francisco"
+        fill_in "Postal code",   with: "94109"
+
+        find(:select, "Country").first(:option, "United States").select_option
 
         click_on t('helpers.submit.create', model: Circle)
 
