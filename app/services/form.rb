@@ -142,7 +142,6 @@ class Form
         if action == :optional
           a[:empty] = true unless a.has_key?(:empty)
           a[:nils]  = true unless a.has_key?(:nils)
-          puts  a.inspect
         end
         subclass.send(action) do
           send(a[:type], a[:name], a)
