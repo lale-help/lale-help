@@ -100,7 +100,7 @@ $deep-orange-50   : #FBE9E7;
 
 // Color classes for styleguide
 
-$colors : ($black: black, $orange: orange, $cream: cream, $white: white);
+$colors : ($black: 'black', $orange: 'orange', $cream: 'cream', $white: 'white');
 
 @each $var, $color in $colors {
   .bg--#{$color} {
