@@ -24,8 +24,8 @@ class Task::Notifications::DailyUpcomingReminders < Mutations::Command
       Task.
         not_completed.
         joins(:circle).
-        joins(circle: :location).
-        where(locations: {timezone: zone_names } ).
+        joins(circle: { address: :location }).
+        where(locations: { timezone: zone_names }).
         where(due_date: zone_due_dates)
     end
   end
