@@ -356,6 +356,11 @@
         :working_groups: Arbeitsgruppen
         :roles: Rollen
         :language: Sprache
+        :street_address: Straße
+        :city: Stadt
+        :postal_code: Postleitzahl
+        :state_province: Bundesland
+        :country: Land
       :location:
         :address: Anschrift
         :circles: Helferkreise
@@ -569,6 +574,8 @@
         :other: ungültige Länge (maximal %{count} Zeichen)
     :about_me:
       :too_long: Maximal 300 Zeichen
+    :name:
+        :empty: kann nicht leer sein
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
