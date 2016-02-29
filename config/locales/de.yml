@@ -567,8 +567,8 @@
         :one: ist zu lang (maximal 1 Zeichen)
         :other: ist zu lang (maxmial %{count} Zeichen)
       :too_short:
-        :one: ist zu kurz (maximal 1 Zeichen)
-        :other: ist zu kurz (maximal %{count} Zeichen)
+        :one: ist zu kurz (mindestens 1 Zeichen)
+        :other: ist zu kurz (mindestens %{count} Zeichen)
       :wrong_length:
         :one: ungültige Länge (maximal 1 Zeichen)
         :other: ungültige Länge (maximal %{count} Zeichen)
@@ -576,6 +576,10 @@
       :too_long: Maximal 300 Zeichen
     :name:
         :empty: kann nicht leer sein
+    :description: 
+      :too_short: ist zu kurz
+    :primary_location:
+      :empty: kann nicht leer sein
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
