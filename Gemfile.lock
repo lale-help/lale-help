@@ -108,6 +108,15 @@ GEM
     byebug (5.0.0)
       columnize (= 0.9.0)
     cancancan (1.12.0)
+    capybara (2.6.2)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    childprocess (0.5.9)
+      ffi (~> 1.0, >= 1.0.11)
     clipboard-rails (1.5.5)
     coderay (1.1.0)
     coffee-rails (4.1.0)
@@ -127,6 +136,7 @@ GEM
     crack (0.4.2)
       safe_yaml (~> 1.0.0)
     currencies (0.4.2)
+    database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
     domain_name (0.5.25)
@@ -360,6 +370,7 @@ GEM
     rspec-support (3.3.0)
     ruby_parser (3.7.1)
       sexp_processor (~> 4.1)
+    rubyzip (1.2.0)
     safe_yaml (1.0.4)
     sass (3.4.18)
     sass-rails (5.0.4)
@@ -368,6 +379,11 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (2.52.0)
+      childprocess (~> 0.5)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     sexp_processor (4.6.0)
     shellany (0.0.1)
     shoulda (3.5.0)
@@ -426,6 +442,9 @@ GEM
       crack (>= 0.3.2)
       hashdiff
     webrobots (0.1.1)
+    websocket (1.2.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -436,9 +455,11 @@ DEPENDENCIES
   better_errors
   bourbon
   cancancan
+  capybara
   clipboard-rails
   coffee-rails (~> 4.1.0)
   country_select
+  database_cleaner
   factory_girl
   faker
   font-awesome-sass
@@ -469,6 +490,7 @@ DEPENDENCIES
   rbsavvy_commons!
   rspec-rails
   sass-rails (>= 3.2)
+  selenium-webdriver
   shoulda
   slim
   slim-rails
