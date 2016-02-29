@@ -13,7 +13,6 @@ class Circle < ActiveRecord::Base
   has_many :tasks, through: :working_groups
   has_many :supplies, through: :working_groups
 
-  belongs_to :location
   belongs_to :address, autosave: true
 
 

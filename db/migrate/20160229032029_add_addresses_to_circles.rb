@@ -1,3 +1,8 @@
+class Circle < ActiveRecord::Base
+  belongs_to :location
+  belongs_to :address, autosave: true
+end
+
 class AddAddressesToCircles < ActiveRecord::Migration
   def change
     add_column :circles, :address_id, :integer
@@ -19,8 +24,8 @@ class AddAddressesToCircles < ActiveRecord::Migration
       circle.save!
 
       puts circle.name
-      puts "location[#{location.id}]: #{location.address}"
-      puts "address[#{address.id}]:  #{address.full_address}"
+      puts "location[#{location.id}]: #{location.address}"    if location.present?
+      puts "address[#{address.id}]:  #{address.full_address}" if address.present?
       puts
     end
   end

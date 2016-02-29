@@ -8,7 +8,7 @@ class Task::BaseForm < ::Form
   attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.location).try :address }
+  attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
