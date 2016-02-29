@@ -1,4 +1,11 @@
 FactoryGirl.define do
+
+  factory :circle_create_form, class: Circle::Create do
+    sequence(:name) {|n| "Circle #{n}" }
+    location        {    "San Francisco, CA" }
+    user            { create :user }
+  end
+
   factory :circle do
     sequence(:name) {|n| "Circle #{n}" }
     location_text { "San Francisco, CA" }
@@ -10,7 +17,7 @@ FactoryGirl.define do
     user
     circle
   end
-  
+
   factory :circle_role_admin, class: Circle::Role do
     role_type { "circle.admin" }
     user
