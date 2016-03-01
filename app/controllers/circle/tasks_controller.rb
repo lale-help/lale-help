@@ -57,11 +57,9 @@ class Circle::TasksController < ApplicationController
 
 
   def create
-    working_group = current_circle.working_groups.find(params[:task][:working_group_id])
-    authorize! :create_task, working_group
-
     @task = Task.new
-    @form = Task::Create.new(params[:task], user: current_user, task: @task, circle: current_circle, working_group: working_group, ability: current_ability)
+    @form = Task::Create.new(params[:task], user: current_user, task: @task, circle: current_circle, ability: current_ability)
+    authorize! :create_task, @form.working_group
 
     outcome = @form.submit
 
