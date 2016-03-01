@@ -4,6 +4,8 @@ module SessionProtection
   def possibly_expire_session
     if session[:expires_at].blank? || session[:expires_at] < Time.current
       session.clear
+      session[:login_redirect] = request.env['PATH_INFO']
+
       redirect_to root_path
 
     else
