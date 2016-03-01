@@ -575,11 +575,17 @@
     :about_me:
       :too_long: Maximal 300 Zeichen
     :name:
-        :empty: kann nicht leer sein
-    :description: 
-      :too_short: ist zu kurz
+      :empty: Name kann nicht leer sein
+    :description:
+      :too_short: Beschreibung ist zu kurz
     :primary_location:
-      :empty: kann nicht leer sein
+      :empty: Standort kann nicht leer sein
+    :postal_code:
+      :empty: Bitte eine Postleitzahl angeben
+    :country:
+      :empty: Bitte ein gültiges Land auswählen.
+    :city:
+      :empty: Bitte eine Stadt angeben.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -603,6 +609,7 @@
           beheben und erneut versuchen.
     :failed:
       :create: Ein Fehler ist bei Erstellung von %{name} aufgetreten.
+      :update: Bei Änderung von %{name} ist ein Fehler aufgetreten.
   :tasks:
     :flash:
       :volunteered: Danke für die Hilfe bei %{name}!
@@ -651,6 +658,7 @@
       :roles:
         :confirm_delete_circle: Bist Du sicher?
         :promote_user: Rolle vergeben
+        :save: Speichern
       :working_groups:
         :confirm_delete_working_group: Bist Du sicher?
         :create_working_group: Neue Arbeitsgruppe

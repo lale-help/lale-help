@@ -56,7 +56,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
         fill_in "Circle name",   with: 'My Circle'
         fill_in "City",          with: "San Francisco"
-        fill_in "Postal code",   with: "94109"
+        fill_in "Postal Code",   with: "94109"
 
         find(:select, "Country").first(:option, "United States").select_option
 
