@@ -1,7 +1,9 @@
+- supply = ::SupplyPresenter.new(current_supply)
+
 - content_for :header_middle do
   a.back href=circle_supplies_path(current_circle) = t('.back')
 
-.task class=page.task_css
+.task class=supply.css
   main
     .task-header
       .date
@@ -10,7 +12,7 @@
       .title
         -if current_supply.complete?
           span.done= t('.task-complete')
-        = current_supply.name
+        = supply.name
       .description= current_supply.description
 
     .task-details

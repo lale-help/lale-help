@@ -184,7 +184,7 @@ section > .task {
   }
 }
 
-section > .task.complete {
+section > .task.urgency--complete {
   .task-header {
     .date {
        .month {
@@ -214,7 +214,34 @@ section > .task.complete {
   }
 }
 
-section > .task.full {
+section > .task.urgency--urgent {
+  .task-header {
+    .date {
+      .month {
+        background-color: $red;
+        color: $blue-light-1;
+      }
+
+      .day {
+        background-color: $red-100;
+        border-color: $red;
+        color: $red;
+      }
+
+    }
+    .title {
+      background-color: $red-100;
+      color: $red;
+    }
+
+    .description {
+      background-color: $red-50;
+      color: $blue-dark-1;
+    }
+  }
+}
+
+section > .task.urgency--on_track {
   .task-header {
     .date {
       .month {
