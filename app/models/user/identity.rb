@@ -13,9 +13,17 @@ class User::Identity < OmniAuth::Identity::Models::ActiveRecord
     self.user ||= User.new
   end
 
+  before_save :normalize_email
+
   delegate :first_name, :last_name, :mobile_phone, :home_phone, :location, :primary_circle_id, :admin?, :public_profile, to: :user
 
   def creating_new_circle?
     commit && commit.downcase == "create a circle"
+  end
+
+  private
+
+  def normalize_email
+    self.email = self.email.downcase
   end
 end
