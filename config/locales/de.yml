@@ -658,6 +658,7 @@
       :roles:
         :confirm_delete_circle: Bist Du sicher?
         :promote_user: Rolle vergeben
+        :save: Speichern
       :working_groups:
         :confirm_delete_working_group: Bist Du sicher?
         :create_working_group: Neue Arbeitsgruppe

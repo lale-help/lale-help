@@ -553,6 +553,18 @@
       :wrong_length:
         :one: est de la mauvaise longueure (doit être 1 charactère)
         :other: est de la mauvaise longueure (doit être %{count} charactères)
+    :city:
+      :empty: Merci de saisir une ville.
+    :country:
+      :empty: Merci de choisir un pays existant.
+    :description:
+      :too_short: La description est trop courte
+    :name:
+      :empty: Le nom ne peut pas être laissé vide
+    :postal_code:
+      :empty: Merci d'inclure le code postal
+    :primary_location:
+      :empty: L'emplacement ne peut pas être vide
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -571,6 +583,7 @@
         :notice: "%{resource_name} a été mis à jour avec succès."
     :failed:
       :create: Une erreur c'est produite lors de la création de %{name}
+      :update: Une erreure c'est produite lors de la mise à jour de %{name}.
     :user:
       :account:
         :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
@@ -619,6 +632,7 @@
       :roles:
         :confirm_delete_circle: Etes-vous sure ?
         :promote_user: Promouvoir cet utilisateur
+        :save: Enregistrer
       :working_groups:
         :confirm_delete_working_group: Etes-vous sure ?
         :create_working_group: Nouveau Groupe de Travail
