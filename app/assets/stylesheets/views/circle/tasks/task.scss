@@ -25,19 +25,20 @@ section > .task {
         @include transform(translate(1.5rem, 1.5rem));
 
         .month {
-          background: $blue-dark-1;
-          color: $blue-light-1;
+          background: $blue-darkish;
+          color: $white;
           padding: 0.5rem 1rem;
           @include border-top-radius($radius);
         }
 
         .day {
-          background: $body-bg;
+          background: $blue-50;
+          color: $blue-darkish;
           display: block;
           padding: 0.5rem 1rem;
           @include border-bottom-radius($radius);
           font-size: 3rem;
-          border: thin solid $border-color;
+          border: thin solid $blue-darkish;
           border-top: 0;
         }
 
@@ -45,14 +46,15 @@ section > .task {
       }
 
       .title {
-        background: $blue-light-1;
-        color: $blue-dark-2;
+        background: $blue-500;
+        color: $blue-50;
         font-size: 2.5em;
         @include border-top-radius($border-radius);
         padding: 1rem 2rem 1rem 9rem;
       }
       .description {
-        background: $blue-light-2;
+        background: $blue-50;
+        color: $blue-500;
         @include border-bottom-radius($border-radius);
         min-height: 8rem;
         font-size: 1.5em;
@@ -190,7 +192,9 @@ section > .task.complete {
        }
 
        .day {
+         background-color: $green-100;
          border-color: $green-500;
+         color: $green;
        }
 
     }
@@ -214,23 +218,25 @@ section > .task.full {
   .task-header {
     .date {
       .month {
-        background-color: $blue-darkish;
-        color: $white;
+        background-color: $blue-dark-1;
+        color: $blue-light-1;
       }
 
       .day {
-        border-color: $blue-500;
+        background-color: $blue-light-1;
+        border-color: $blue-dark-1;
+        color: $blue-dark-1;
       }
 
     }
     .title {
-      background-color: $blue-500;
-      color: $blue-50;
+      background-color: $blue-light-1;
+      color: $blue-dark-2;
     }
 
     .description {
-      background-color: $blue-50;
-      color: $blue-500;
+      background-color: $blue-light-2;
+      color: $blue-dark-1;
     }
   }
 }

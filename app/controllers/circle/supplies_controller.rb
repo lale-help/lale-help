@@ -13,7 +13,7 @@ class Circle::SuppliesController < ApplicationController
   def show
     authorize! :read, current_supply
 
-    page.task_css = "complete" if current_supply.complete?
+    page.task_css = ('complete' if current_supply.complete?) || ('full' if current_supply.volunteers.size > 0) || ''
 
     if can? :create, Comment, current_supply
       @form = Comment::Create.new(commenter: current_user, task: current_supply, comment: Comment.new)
