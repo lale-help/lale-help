@@ -13,6 +13,9 @@ class User < ActiveRecord::Base
   has_many :task_roles, class_name: 'Task::Role', dependent: :destroy
   has_many :tasks, ->{ distinct }, through: :task_roles
 
+  has_many :supply_roles, class_name: 'Supply::Role', dependent: :destroy
+  has_many :supplies, ->{ distinct }, through: :supply_roles
+
   has_many :circle_roles, class_name: 'Circle::Role', dependent: :destroy
   has_many :circles, ->{ distinct }, through: :circle_roles
 
