@@ -19,7 +19,7 @@
 
     .field.required class=errors.css(:organizer_id)
       = f.label :organizer_id
-      = f.collection_select :organizer_id, current_circle.volunteers, :id, :name
+      = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
       = errors.message_for(:organizer_id)
 
 
