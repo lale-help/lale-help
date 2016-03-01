@@ -119,7 +119,6 @@ GEM
       activesupport (>= 3.0.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    clipboard-rails (1.5.5)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -460,7 +459,6 @@ DEPENDENCIES
   cancancan
   capybara
   carmen
-  clipboard-rails
   coffee-rails (~> 4.1.0)
   country_select
   database_cleaner
