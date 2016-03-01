@@ -164,9 +164,15 @@
     :country:
       :empty: Please choose a valid country
     :city:
-      :empty: Please include a city
+      :empty: Please enter a city.
     :postal_code:
       :empty: Please include a postal code
+    :description:
+      :too_short: Description too short
+    :name:
+      :empty: Name cannot be empty
+    :primary_location:
+      :empty: Location cannot be empty
   :activerecord:
     :errors:
       :messages:
@@ -204,6 +210,11 @@
         :working_groups: Working groups
         :roles: Roles
         :language: Language
+        :city: City
+        :country: Country
+        :postal_code: Postal Code
+        :state_province: State / Province
+        :street_address: Street
       :location:
         :address: Address
         :circles: Circles

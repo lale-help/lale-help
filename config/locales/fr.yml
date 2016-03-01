@@ -333,6 +333,11 @@
         :roles: Roles
         :language: Langue
         :admin: Administrateur
+        :city: Ville
+        :country: Pays
+        :postal_code: Code Postal
+        :state_province: Etat / Région
+        :street_address: Rue
       :location:
         :address: Adresse
         :circles: Cercle
