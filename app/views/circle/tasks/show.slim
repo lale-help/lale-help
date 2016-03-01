@@ -1,7 +1,8 @@
+- task = ::TaskPresenter.new(current_task)
 - content_for :header_middle do
   a.back href=circle_tasks_path(current_circle) = t('.back')
 
-.task class=page.task_css
+.task class=task.css
   main
     .task-header
       .date
@@ -10,7 +11,7 @@
       .title
         -if current_task.complete?
           span.done= t('.task-complete')
-        = current_task.name
+        = task.name
       .description= current_task.description
 
     .task-details
@@ -18,7 +19,7 @@
         .icon
         .title= Task.human_attribute_name(:due_date)
         .details
-          = current_task.due_date_and_time
+          = task.due_date_and_time
 
       .row.duration
         .icon

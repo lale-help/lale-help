@@ -1,4 +1,4 @@
-ready = ->
+$(document).on 'page:load ready', ->
   $('#circle_role_role_type').on 'change', (e)->
     $type = $(e.target)
     $name = $type.siblings('#circle_role_name')
@@ -20,5 +20,3 @@ ready = ->
 
       Lale.Flash.info I18n.t('workflow.copied')
 
-
-$(document).on 'page:load ready', ready

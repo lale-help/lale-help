@@ -119,7 +119,6 @@ GEM
       activesupport (>= 3.0.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
-    clipboard-rails (1.5.5)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -304,7 +303,7 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    puma (2.14.0)
+    puma (3.0.2)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -460,7 +459,6 @@ DEPENDENCIES
   cancancan
   capybara
   carmen
-  clipboard-rails
   coffee-rails (~> 4.1.0)
   country_select
   database_cleaner

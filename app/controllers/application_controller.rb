@@ -38,9 +38,8 @@ class ApplicationController < ActionController::Base
     elsif accept_header_lang.present?
       accept_header_lang
     else
-     I18n.default_locale
-   end
-   logger.info "Using locale #{::I18n.locale}"
+      I18n.default_locale
+    end
   end
   before_action :set_locale
 
@@ -66,6 +65,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def active_admin_controller?
     controller_path.starts_with? "admin/"
   end

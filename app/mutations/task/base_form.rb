@@ -71,7 +71,7 @@ class Task::BaseForm < ::Form
   end
 
   def available_working_groups_disabled?
-    available_working_groups.size == 1
+    available_working_groups.size == 1 && ability.cannot?(:manage, available_working_groups.first)
   end
 
 
