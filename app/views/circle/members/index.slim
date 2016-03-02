@@ -1,3 +1,8 @@
-h2 = t('.directory')
+.members_list
 
-= render partial: 'list', locals: { members: @members }
+  .showing= t('.total_members', total: @total_members, showing: @members.length)
+
+  h2 = t('.directory')
+
+  = render partial: 'list', locals: { members: @members }
+

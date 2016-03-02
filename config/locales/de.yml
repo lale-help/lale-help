@@ -575,8 +575,8 @@
     :about_me:
       :too_long: Maximal 300 Zeichen
     :name:
-        :empty: kann nicht leer sein
-    :description: 
+      :empty: kann nicht leer sein
+    :description:
       :too_short: ist zu kurz
     :primary_location:
       :empty: kann nicht leer sein

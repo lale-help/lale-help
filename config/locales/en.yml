@@ -769,6 +769,7 @@
     :members:
       :index:
         :directory: Helper list
+        :total_members: shows %{showing} of %{total} helpers
       :show:
         :back: Back to Helper List
         :contact: Contact

@@ -18,10 +18,9 @@ table.member-list
       td.name
         = link_to user.name, circle_member_path(current_circle, user)
       td
-        - user.working_groups.for_circle(current_circle).each do |wg|
-          a href= circle_working_group_path(current_circle,wg)
-            = wg.name
-      td= user.location.try :address
+        - wg_links = user.working_groups.for_circle(current_circle).map{ |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
+        = wg_links.join(', ').html_safe
+      td= user.address.full_address
       td
         - if user.mobile_phone != nil
           div= "M: #{user.mobile_phone}"
