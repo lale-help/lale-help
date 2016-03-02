@@ -2,10 +2,10 @@
 // Icon Font: lale
 //
 
-@mixin lale-icon($icon, $size: 1em) {
+@mixin lale-icon($icon, $size: 1em, $weight: normal) {
   &:before{
     font-family: 'lale';
-    font-weight: normal;
+    font-weight: $weight;
     font-style: normal;
     font-size: $size;
     display: inline-block;

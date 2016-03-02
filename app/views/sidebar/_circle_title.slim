@@ -2,7 +2,7 @@ a.circle-name href=circle_path(current_circle) = circle.name
 - if can? :create_item, circle
 
   .dropdown.circle-add-menu
-    label.icon for='add-item-selector' New
+    label.icon for='add-item-selector'= t('.new')
     input id='add-item-selector' type='checkbox' class='menu-selector'
     .menu.add-item-dropdown
       - if can? :create_task, circle

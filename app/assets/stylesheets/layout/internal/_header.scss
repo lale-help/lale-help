@@ -33,13 +33,14 @@ body.internal {
           padding-right: 5px;
         }
         .icon {
-          font-size: 1.5rem;
+          font-weight: bold;
+          font-size: 1.3rem;
           color: $white;
-          @include lale-icon($lale-icon-plus-skinny, 0.5rem);
+          @include lale-icon($lale-icon-plus-skinny, 0.5rem, bolder);
           border-radius: 4px;
           background-color: $orange;
           padding: 4px 10px;
-          width: 70px;
+          width: auto;
           @include display(flex);
           @include align-items(center);
           @include justify-content(left);
