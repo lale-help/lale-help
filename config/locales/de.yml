@@ -683,6 +683,7 @@
         :roles: Rollen
         :tasks_supplies_completed: Geleistete Hilfe
         :edit_profile: Dein Profil ändern
+        :working_groups: Arbeitsgruppen
     :supplies:
       :index:
         :header: Sachspenden

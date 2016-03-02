@@ -41,7 +41,7 @@
 
       .row.work-group
         .icon
-        .title= WorkingGroup.model_name.human.pluralize
+        .title= t('.working_groups')
         .details
           - current_member.working_groups.for_circle(current_circle).each do |wg|
             a href= circle_working_group_path(current_circle,wg)

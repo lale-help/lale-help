@@ -637,6 +637,7 @@
         :member_since: Membre Depuis
         :tasks_supplies_completed: Aide fournie
         :edit_profile: Editer mon Profil
+        :working_groups: Groupes de Travail
     :supplies:
       :index:
         :header: Besoins Matériels
