@@ -4,7 +4,7 @@ main
   = form_for @form, url: account_path do |f|
     - if errors.present?
       .form-introduction.error
-        p Please correct the errors below.
+        p= t('.error_correction')
 
 
     .field-row
@@ -23,11 +23,12 @@ main
         = f.label :email
         = f.text_field :email
         = errors.message_for(:email)
+      .field.required class=errors.css(:language)
+        = f.label :language
+        = f.select :language do
+          = options_for_select(@form.language_options, @form.user[:language])
+        = errors.message_for(:language)
 
-      .field.required class=errors.css(:location)
-        = f.label :location
-        = f.text_field :location, placeholder: true
-        = errors.message_for(:location)
 
     .field-row
       .field class=errors.css(:mobile_phone)
@@ -41,17 +42,30 @@ main
         = errors.message_for(:home_phone)
 
     .field-row
-      .field.required class=errors.css(:language)
-        = f.label :language
-        = f.select :language do
-          = options_for_select(@form.language_options, @form.user[:language])
-
-        = errors.message_for(:language)
-
-      .field.required class=errors.css(:primary_circle_id)
-        = f.label :primary_circle_id
-        = f.collection_select :primary_circle_id, @form.primary_circle_options, :id, :name
-        = errors.message_for(:primary_circle_id)
+      .field class=errors.css(:street_address_1)
+        = f.label :street_address
+        = f.text_field :street_address_1
+        = errors.message_for(:street_address_1)
+    .field-row
+      .field class=errors.css(:city)
+        = f.label :city
+        = f.text_field :city
+        = errors.message_for(:city)
+      .field class=errors.css(:state_province)
+        = f.label :state_province
+        = f.text_field :state_province
+        = errors.message_for(:state_province)
+    .field-row
+      .field class=errors.css(:postal_code)
+        = f.label :postal_code
+        = f.text_field :postal_code
+        = errors.message_for(:postal_code)
+      .field class=errors.css(:country)
+        = f.label :country
+        = country_select(:user, :country,
+            locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
+            include_blank: t('.country_select'), selected: @form.country)
+        = errors.message_for(:country)
 
     .field-row
       = f.label :about_me
@@ -63,14 +77,6 @@ main
         = f.check_box :public_profile
         = f.label :public_profile
 
-
-
-
     .submit-row
       = f.submit
-      a.button href=account_reset_password_path =t('.reset_password')
-
-
-
-
-
+      = link_to t('workflow.cancel'), account_path

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
       resources :tasks do
         collection do
           get :my
+          get :open
           get :completed
         end
         resources :comments, only: [:create, :destroy, :update]
@@ -68,7 +69,8 @@ Rails.application.routes.draw do
   get "/token/:token_code", to: "tokens#handle_token", as: "handle_token"
 
   scope module: "user" do
-    get   '/account',                 to: 'account#edit',              as: 'account'
+    get   '/account',                 to: 'account#show',              as: 'account'
+    get   '/account/edit',            to: 'account#edit',              as: 'account_edit'
     patch '/account',                 to: 'account#update'
     get   '/account/reset_password',  to: 'account#reset_password',    as: 'account_reset_password'
     patch '/account/update_password', to: 'account#update_password',   as: 'account_update_password'

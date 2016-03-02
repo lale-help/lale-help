@@ -5,6 +5,6 @@ class Api::CirclesController < ApplicationController
   def index
     @center = params[:location].present? ? Location.location_from(params[:location]) : current_user.location
     locations = Location.near(@center).to_a
-    @circles = Circle.where(location: locations.uniq)
+    @circles = Circle.joins(:address).where(addresses: { location_id: locations.uniq } )
   end
 end

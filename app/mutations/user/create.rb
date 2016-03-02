@@ -12,7 +12,11 @@ class User::Create < ::Form
   attribute :mobile_phone, :string, required: false
   attribute :home_phone, :string, required: false
 
-  attribute :location, :string, required: false
+  attribute :street_address_1,  :string, required: false
+  attribute :city,              :string, required: false
+  attribute :state_province,    :string, required: false
+  attribute :postal_code,       :string, required: false
+  attribute :country,           :string, required: false
   attribute :language, :integer
 
   attribute :public_profile, :boolean, default: proc { true }
@@ -42,8 +46,7 @@ class User::Create < ::Form
     def execute
       user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile, :accept_terms))
       user.identity.assign_attributes(inputs.slice(:email, :password))
-
-      user.location = Location.location_from(location)
+      user.address = Address.new(inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country))
 
       user.save
       user.identity.save

@@ -69,7 +69,7 @@
     :format:
       :separator: "."
       :delimiter: ","
-      :precision: 3
+      :precision: '3'
       :significant: false
       :strip_insignificant_zeros: false
     :currency:
@@ -86,9 +86,9 @@
         :format: "%n%"
     :human:
       :format:
-        :precision: 3
-        :significant: true
-        :strip_insignificant_zeros: true
+        :precision: '3'
+        :significant: 'true'
+        :strip_insignificant_zeros: 'true'
       :storage_units:
         :format: "%n %u"
         :units:
@@ -142,20 +142,31 @@
       :too_short: Please pick a password that is longer than 8 characters.
       :nils: Please provide a password.
       :does_not_match: Your password did not match the password confirmation.
+      :empty: Password is required.
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
       :nils: Please confirm your password.
+      :empty: Password confirmation is required.
     :accept_terms:
       :false: You must accept the Terms and Conditions to sign up for Lale.
     :email:
       :nils: Please provide an email.
       :taken: This email has already been taken. Did you already sign up for Lale?
+      :empty: Email is required
     :first_name:
       :nils: Please provide your first name.
+      :empty: First name is required
     :last_name:
       :nils: Please provide your last name.
+      :empty: Last name is required
     :about_me:
       :too_long: maximum 300 characters
+    :country:
+      :empty: Please choose a valid country
+    :city:
+      :empty: Please include a city
+    :postal_code:
+      :empty: Please include a postal code
   :activerecord:
     :errors:
       :messages:
@@ -187,7 +198,7 @@
       :circle:
         :admin: Admin
         :location: :activerecord.models.location
-        :name: Name
+        :name: Circle name
         :tasks: Tasks
         :volunteers: Volunteers
         :working_groups: Working groups
@@ -202,18 +213,18 @@
         :users: Users
       :system_event:
         :action: Action
-        :for: :activerecord.models.for
+        :for: for
         :for_type: For type
         :notifications: Notifications
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :system_event/notification:
         :deliveries: Deliveries
         :system_event: :activerecord.models.system_event
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :system_event/notification/delivery:
         :content: Content
         :method: Method
-        :notification: :activerecord.models.notification
+        :notification: Notification
       :task:
         :completed_at: Completed at
         :completed_tasks: Last Completed Task
@@ -223,7 +234,7 @@
         :location_assignments: Location assignments
         :locations: Locations
         :name: Name of the Task
-        :working_group_id: :activerecord.models.working_group
+        :working_group_id: Working Group
         :organizer_assignments: Organizer assignments
         :organizer_id: Organizer
         :skill_assignments: Skill assignments
@@ -231,7 +242,7 @@
         :volunteer_assignments: Volunteer assignments
         :volunteers: Volunteers
         :volunteer_count_required: Required number of volunteers
-        :primary_location: Location
+        :primary_location: Place of task
         :duration: Time Commitment
         :scheduled_time_type: Occurs
         :scheduled_time_start: Start Time
@@ -246,6 +257,10 @@
           :half_day: Half a day
           :all_day: All day
         :working_group: Working group
+        :scheduled-time-select:
+          :on_date: On Day
+          :at: At
+          :between: In Between
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
@@ -261,7 +276,7 @@
       :task/volunteer_assignment:
         :organizer: Organizer
         :task: :activerecord.models.task
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :role:
         :actions: Actions
       :user:
@@ -288,15 +303,22 @@
         :home_phone: Home Phone
         :public_profile: Show my profile to all circle members
         :active_since: Active since
+        :street_address: Street Address
+        :city: City
+        :state_province: State / Province
+        :postal_code: Postal Code
+        :country: Country
+        :about_me: About Me
+        :address: Address
       :user/feedback:
         :comment: Comment
         :rating: Rating
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :user/identity:
         :circle: :activerecord.models.circle
         :email: Email
         :password_digest: Password digest
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Helper
       :working_group:
         :circle: :activerecord.models.circle
         :name: Name
@@ -318,6 +340,22 @@
         :due_date: Due Date
         :duration: Duration
         :working_group: Working Group
+        :location_assignments: Location assignments
+        :locations: Locations
+        :name: Name of supply
+        :organizer: Organizer
+        :organizer_assignments: Organizer assignments
+        :primary_location: Location for supply
+        :scheduled-time:
+          :at: at %{start}
+          :between: between %{start} and %{end}
+          :on_date: 'on'
+        :scheduled_time_start: Start
+        :scheduled_time_type: Scheduled time
+        :skill_assignments: Skill assignments
+        :skills: Skills
+        :volunteer: Helper
+        :volunteer_count_required: Number of helpers required
   :datetime:
     :distance_in_words:
       :half_a_minute: half a minute
@@ -475,6 +513,7 @@
     :destroyed: "%{name} was successfully destroyed."
     :failed:
       :create: An error occured while creating the %{name}.
+      :update: An error occurred while updating the %{name}.
     :user:
       :account:
         :saved: You settings have been saved.
@@ -738,6 +777,7 @@
         :roles: Roles
         :member_since: Member Since
         :tasks_supplies_completed: Help provided
+        :edit_profile: Edit Profile
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -802,6 +842,8 @@
         :reopen-task-button: Re-open Task
       :completed:
         :header: All Completed Tasks
+      :open:
+        :header: Open Tasks
       :task_list_item:
         :stats-here: Stats
     :working_groups:
@@ -819,6 +861,8 @@
         :all-working-groups-dashboard: All Working Groups Dashboard
       :new:
         :new-working-group: New Working Group
+      :edit:
+        :header: Working Group Settings
     :organizers:
       :index:
         :organizers: Organizers
@@ -853,6 +897,8 @@
       :header: Edit Circle
       :show: Show
       :back: Back
+    :form:
+      :country_select: Select Country
   :layouts:
     :public:
       :header:
@@ -864,7 +910,7 @@
     :internal:
       :sidebar:
         :my-tasks: My Tasks
-        :all-tasks: All Tasks
+        :all-tasks: Open Tasks
         :supplies: Supplies
         :directory: Helper list
         :discussions: Discussions
@@ -874,10 +920,13 @@
         :all-working-groups: All Working Groups
         :organizers: Organizers
         :completed-tasks: Completed Tasks
+        :all-open-tasks: All Open Tasks
+        :working_groups: Working Groups
       :header:
         :settings: Your profile
         :find-circles: Find Circles
         :sign-out: Sign Out
+        :admin: Lale Admin
   :public:
     :circles:
       :index:
@@ -904,13 +953,40 @@
   :user:
     :account:
       :edit:
-        :title: Personal Settings
+        :title: Your profile
         :reset_password: Reset your Password
+        :error_correction: Please correct the errors below.
+        :update_settings: Update Settings
+        :country_select: Select Country
       :reset_password:
         :reset_password: Reset your Password
         :update: Update your Password
         :password: Password
         :password_confirmation: Password Confirmation
+      :show:
+        :title: Your Profile
+        :view_public_profile: View your public profile
+        :edit_profile: Edit Profile
+        :reset_password: Reset Password
+    :identities:
+      :new:
+        :header: Start helping now
+        :first_name: First Name
+        :last_name: Last Name
+        :email: Email
+        :mobile_phone: Mobile Phone
+        :home_phone: Home Phone
+        :street_address: Street Address
+        :city: City
+        :state_province: State / Province
+        :postal_code: Postal Code
+        :country: Country
+        :country_select: Select Country
+        :language: Language
+        :password: Password
+        :password_confirmation: Password Confirmation
+        :public_profile: Show my profile to all circle members
+        :accept_terms: Accept Terms and Conditions
   :en:
     :roles:
       :name:
@@ -922,3 +998,18 @@
     :presenter:
       :messages:
         :volunteer_needed: Volunteer needed
+        :recent_activity: Recent activity
+  :error_correction: Please correct the errors below.
+  :formtastic:
+    :required: Required field
+  :supplies:
+    :flash:
+      :completed: Thanks for the supply!
+      :complete_failed: Unable to mark supply as donated. Please try again.
+      :volunteered: Thanks for signing up!
+      :volunteer_failed: Unable to sign up for this supply. Please try again later.
+      :already_taken: This supply has already been claimed by someone else
+      :declined: Thanks for your honesty! We will find someone else.
+      :decline_failed: Unable to decline this supply. Please try again later.
+      :invited: Invited members of %{name} to this supply
+      :invite_failed: Unable to invite members to this supply. Please try again later.

@@ -2,7 +2,6 @@
 
 $black         : #2C4C5E;
 $green         : #009E11;
-$blue          : #4A90E2;
 $red           : #D0021B;
 $cream         : #FFF9ED;
 $grey          : #9B9B9B;
@@ -14,6 +13,7 @@ $white         : #FFFFFF;
 $offwhite      : #EEEEEE;
 
 
+$blue-darkish  : #4A90E2;
 $blue          : #00B8D4;
 $blue-dark-1   : #546E7A;
 $blue-dark-2   : #263238;
@@ -100,7 +100,7 @@ $deep-orange-50   : #FBE9E7;
 
 // Color classes for styleguide
 
-$colors : ($black: black, $orange: orange, $cream: cream, $white: white);
+$colors : ($black: 'black', $orange: 'orange', $cream: 'cream', $white: 'white');
 
 @each $var, $color in $colors {
   .bg--#{$color} {

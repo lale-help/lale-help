@@ -1,8 +1,8 @@
 nav
   .sidebar-section
-    = sidebar_link(t('.my-tasks'),    my_circle_tasks_path(current_circle), badge_text: current_user.tasks.for_circle(current_circle).volunteered.not_completed.count)
-    = sidebar_link(t('.all-tasks'),   circle_tasks_path(current_circle),   badge_text: current_circle.tasks.not_completed.count)
-    = sidebar_link(t('.completed-tasks'),   completed_circle_tasks_path(current_circle))
+    = sidebar_link(t('.my-tasks'),        my_circle_tasks_path(current_circle),   badge_text: current_user.tasks.for_circle(current_circle).volunteered.not_completed.count)
+    = sidebar_link(t('.all-open-tasks'),  open_circle_tasks_path(current_circle), badge_text: current_circle.tasks.unassigned.not_completed.count.length)
+    = sidebar_link(t('.completed-tasks'), completed_circle_tasks_path(current_circle))
 
   .sidebar-section
     = sidebar_link(t('.supplies'),    circle_supplies_path(current_circle),   badge_text: current_circle.supplies.not_completed.count)
@@ -17,8 +17,13 @@ nav
       = sidebar_link(t('.admin'),    circle_admin_path(current_circle))
 
   .sidebar-section
-    h4= WorkingGroup.model_name.human.pluralize
-    - current_circle.working_groups.each do |wg|
+    h4= t('.working_groups')
+    - all_working_groups = current_circle.working_groups
+    - working_groups_per_user(all_working_groups, current_user, :include?).each do |wg|
+      - if wg.persisted? && can?(:read, wg)
+        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count)
+    hr
+    - working_groups_per_user(all_working_groups, current_user, :exclude?).each do |wg|
       - if wg.persisted? && can?(:read, wg)
         = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count)
 

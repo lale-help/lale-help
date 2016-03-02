@@ -156,6 +156,8 @@
       :errors:
         :empty_text: Le commentaire n'a pas été enregistré puisque le texte était
           vide.
+      :delete: Supprimer
+      :created_at: Crée
     :devise:
       :username:
         :title: Nom d'utilisateur
@@ -182,6 +184,10 @@
         :sign_in: Connectez-vous
         :forgot_your_password: Vous avez oublié votre mot de passe ?
         :sign_in_with_omniauth_provider: Connectez-vous avec %{provider}
+        :sign_up: S’inscrire
+      :sign_up:
+        :title: S’inscrire
+        :submit: S’inscrire
     :access_denied:
       :message: Vous n'êtes pas autorisé à exécuter cette action
     :index_list:
@@ -197,6 +203,9 @@
   :workflow:
     :continue: Continuer
     :cancel: Annuler
+    :copied: Copié !
+    :join: Rejoindre
+    :read_terms: Voir les Termes et Conditions.
   :language:
     :en: Anglais
     :de: Allemand
@@ -226,6 +235,17 @@
       :create: Créer %{model}
       :submit: Enregistrer %{model}
       :update: Mettre à jour %{model}
+    :page_entries_info:
+      :more_pages:
+        :display_entries: Affiche %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
+          de <b>%{total}</b> au total
+      :one_page:
+        :display_entries:
+          :one: Affiche <b>1</b> %{entry_name}
+          :other: Affiche <b>tous %{count}</b> %{entry_name}
+          :zero: Pas de %{entry_name} trouvé
+    :select:
+      :prompt: Merci de selectionner
   :unauthorized:
     :manage:
       :all: Vous n'êtes pas autorisé à %{action} %{subject}.
@@ -301,15 +321,18 @@
       :supply:
         :one: Besoin
         :other: Besoins
+      :system_event/notification: Evenement Système / notification
+      :system_event/notification/delivery: Evenement Système / notification / distribution
     :attributes:
       :circle:
         :location: :activerecord.models.location
-        :name: Nom
+        :name: Nom de cercle
         :tasks: Tâche
         :volunteers: Volontaire
         :working_groups: Groupes de Travail
         :roles: Roles
         :language: Langue
+        :admin: Administrateur
       :location:
         :address: Adresse
         :circles: Cercle
@@ -319,18 +342,18 @@
         :users: Utilisateur
       :system_event:
         :action: Action
-        :for: :activerecord.models.for
+        :for: pour
         :for_type: Pour Type
         :notifications: Notifications
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :system_event/notification:
         :deliveries: Livraisons
         :system_event: :activerecord.models.system_event
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :system_event/notification/delivery:
         :content: Contenu
         :method: Méthode
-        :notification: :activerecord.models.notification
+        :notification: Notification
       :task:
         :completed_at: Finie le
         :completed_tasks: Tâches Complétées
@@ -362,6 +385,11 @@
           :hours_3: 3 Heures
           :half_day: Une demie journée
           :all_day: Un jour entier
+        :working_group_id: Groupe de Travail
+        :scheduled-time-select:
+          :between: Entre
+          :at: A
+          :on_date: Le Jour
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -405,7 +433,7 @@
       :task/volunteer_assignment:
         :organizer: Organisateur
         :task: :activerecord.models.task
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :role:
         :actions: Actions
       :user:
@@ -424,15 +452,30 @@
         :tasks: Tâches
         :triggered_system_events: Alerte Système
         :role: Role
+        :accept_terms: Accepter les Termes et Conditions
+        :active_since: Actif depuis
+        :home_phone: Tel. Domicile
+        :last_login: Dernière connection
+        :mobile_phone: Tel. Portable
+        :phone: Numéro de Téléphone
+        :public_profile: Montrer mon profil à tous les membres du cercle
+        :working_groups: Groupes de Travail
+        :street_address: Rue
+        :city: Ville
+        :country: Pays
+        :about_me: A propose de moi
+        :postal_code: Code Postal
+        :state_province: Etat / Région
+        :address: Adresse
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :user/identity:
         :circle: :activerecord.models.circle
         :email: Email
         :password_digest: Mot de passe
-        :volunteer: :activerecord.models.volunteer
+        :volunteer: Volontaire
       :working_group:
         :circle: :activerecord.models.circle
         :name: Nom
@@ -440,21 +483,100 @@
         :volunteers: Volontaires
         :admin: Organisateur
         :admin_ids: Organisateurs
+        :actions: Actions
+        :description: Description
+    :errors:
+      :messages:
+        :record_invalid: 'La validation a échoué : %{errors}'
+        :restrict_dependent_destroy:
+          :many: 'Cette entrée ne peut être éffacée car des dépendences existent :
+            %{record}'
+          :one: 'Cette entrée ne peut être éffacée car une dépendence existe : %{record}'
   :errors:
     :password:
       :too_short: Merci de choisir un mot de passe de plus de 8 caractères.
+      :does_not_match: Votre mot de passe ne correspond pas.
+      :nils: Merci de saisir un mot de passe.
+      :empty: Mot de passe est nécessaire.
     :password_confirmation:
       :did_not_match: Votre mot de passe et confirmation de mot de passe ne correspondent
         pas.
+      :nils: Merci de confirmer votre mot de passe.
+      :empty: Confirmation de mot de passe est nécessaire.
     :format: "%{attribute} %{message}"
+    :about_me:
+      :too_long: 300 charactères maximum
+    :accept_terms:
+      :false: Vous devez accepter les Termes et Conditions pour vous inscrire sur
+        Lale.
+    :email:
+      :nils: Merci de saisir un email.
+      :taken: Cette email est déjà utilisé. Vous-êtes vous déjà inscrit ?
+      :empty: Email est nécessaire.
+    :first_name:
+      :nils: Merci de saisir votre prénom.
+      :empty: Prénom est nécessaire
+    :last_name:
+      :nils: Merci de saisir votre nom.
+      :empty: Nom de famille est nécessaire
+    :messages:
+      :accepted: doit être accepté
+      :blank: ne peut être blanc
+      :confirmation: ne correspond pas à %{attribute}
+      :equal_to: doit être égale à %{count}
+      :empty: ne peut être vide
+      :even: doit être pair
+      :exclusion: est réservé
+      :greater_than: doit être plus grand que %{count}
+      :greater_than_or_equal_to: doit être plus grand ou égale à %{count}
+      :inclusion: n'est pas inclus dans la liste
+      :invalid: est invalide
+      :less_than: doit être moins que %{count}
+      :less_than_or_equal_to: doit être égale ou moins que %{count}
+      :not_a_number: n'est pas un nombre
+      :not_an_integer: doit être un nombre entier
+      :odd: 'doit être impaire '
+      :other_than: doit être différent de %{count}
+      :present: doit être blanc
+      :taken: est déjà pris
+      :too_long:
+        :one: est trop long (le maximum est d'1 charactére)
+        :other: est trop long (le maximum est de %{count} charactéres)
+      :too_short:
+        :one: est trop court (le minimum est d'1 charactère)
+        :other: est trop court (le minimum est de %{count} charactères)
+      :wrong_length:
+        :one: est de la mauvaise longueure (doit être 1 charactère)
+        :other: est de la mauvaise longueure (doit être %{count} charactères)
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
     :destroyed: "%{name} a été supprimé avec succès."
+    :actions:
+      :create:
+        :notice: "%{resource_name} a été créé avec succès. "
+      :destroy:
+        :alert: "%{resource_name} n'a pu être éffacé."
+        :notice: "%{resource_name} a été éffacé avec succès."
+      :invited:
+        :one: "%{count} volontaire a été invité à ce %{model}."
+        :other: "%{count} volontaires ont été invité à ce %{model}."
+        :zero: Il n'y a aucun membre à inviter à ce %{model}
+      :update:
+        :notice: "%{resource_name} a été mis à jour avec succès."
+    :failed:
+      :create: Une erreur c'est produite lors de la création de %{name}
+    :user:
+      :account:
+        :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
+          les erreurs et de ré-essayer.
+        :saved: Vos paramètres ont été enregistré.
   :tasks:
     :flash:
       :volunteered: Merci de vous être porté volontaire pour %{name} !
       :completed: Merci d'avoir complété %{name} !
+      :reopened: La tâche a été ré-ouverte
+      :reopening_failed: Il y a eu un problème lors de la ré-ouverture de cette tâche
   :users:
     :flash:
       :password_reset_success: Votre mot de passe a été mis à jour avec succès.
@@ -471,19 +593,50 @@
         :volunteer: Volontaire
         :organizer: Organisateur
       :admin: Administrateur
+      :member: Membre
   :circle:
     :admins:
       :show:
         :settings: Paramètres
+        :confirm_delete_circle: Etes-vous sure ?
+        :confirm_delete_working_group: Etes-vous sure ?
+        :create_working_group: Créer un Groupe de Travail
+        :promote_user: Promouvoir cet utilisateur au role
+      :invite:
+        :invite_members: Inviter des membres à joindre le cerle %{circle}
+        :invite_members_explaination: Pour inviter de nouveaux membres à joindre ce
+          cercle, partagez simplement le lien suivant avec les personnes interessées
+      :nav:
+        :basic-settings: Paramètres de base
+        :invite-volunteers: Inviter des Volontaires
+        :roles: Roles
+        :working-groups: Groupes de Travail
+      :roles:
+        :confirm_delete_circle: Etes-vous sure ?
+        :promote_user: Promouvoir cet utilisateur
+      :working_groups:
+        :confirm_delete_working_group: Etes-vous sure ?
+        :create_working_group: Nouveau Groupe de Travail
     :comments:
       :placeholder: Que voulez-vous dire?
       :post: Poster
       :reply: Répondre
+      :actions:
+        :delete: Effacer
+        :delete_confirm: Etes-vous sure de vouloir effacer ce commentaire ?
+        :edit: Editer
     :members:
       :index:
         :directory: Répertoire
       :show:
         :roles: Roles
+        :address: Adresse
+        :back: Retour à la liste de Volontaires
+        :circles: Cercles
+        :contact: Contacter
+        :member_since: Membre Depuis
+        :tasks_supplies_completed: Aide fournie
+        :edit_profile: Editer mon Profil
     :supplies:
       :index:
         :header: Besoins Matériels
@@ -510,11 +663,16 @@
         :decline-task-button: Je n'ai pas cet objet
         :complete-task-button: Cet objet a été donné
         :edit-task-button: Editer ce Besoin
+        :invite-button: Inviter les membres de %{group}
+      :supply_list_item:
+        :stats-here: Statistiques
     :tasks:
       :index:
         :header: Toutes les Tâches
       :my:
         :header: Mes Tâches
+        :organizer-header: Organise
+        :volunteer-header: Est Volontaire
       :task_list:
         :no-tasks: Aucune tâche trouvée.
       :task_list_item:
@@ -538,6 +696,12 @@
         :organized-by: Organisé par %{name}
         :complete-task-button: Tâche Terminée
         :edit-task-button: Editer la Tâche
+        :invite-button: Inviter %{class}
+        :reopen-task-button: Re-Ouvir la Tâche
+      :completed:
+        :header: Toutes les Tâches Complétées
+      :open:
+        :header: Tâches ouvertes
     :working_groups:
       :show:
         :settings: Paramètres
@@ -549,6 +713,18 @@
         :member-title:
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
+      :index:
+        :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes de Travail
+      :new:
+        :new-working-group: Nouveau Groupe de Travail
+      :edit:
+        :header: Groupe de Travail
+    :invite_flow:
+      :join:
+        :start_helping: Commencer à aider %{circle} aujourd'hui !
+    :organizers:
+      :index:
+        :organizers: Organisateurs
   :circles:
     :new:
       :create: Créer un Cercle
@@ -569,17 +745,26 @@
         :new: Ajouter un Nouveau Groupe de Travail
         :filter: Filtrer les Groupes de Travail
       :view-burnup-chart: Voir le Graphique d'Utilisation
+      :circle-dashboard: Tableau de Bord du Cercle
+      :circle_leaders: Leaders du Cercle
+      :contact_circle_admin: Contacter l'Administrateur du Cercle
+      :dashboard_title: Tableau de Bord pour %{name}
+      :need_help: Besoin d'aide ?
+      :open_tasks: Tâches Ouvertes
+      :working_group_organizers: Organisateurs du Groupe de Travail
     :edit:
       :header: Editer le Cercle
       :show: Voir
       :back: Retour
+    :form:
+      :country_select: Sélectionner un Pays.
   :layouts:
     :public:
       :header:
         :signed-in-as: Connecté en tant que %{user}
         :sign-out: Se Deconnecter
         :account: Compte
-        :sign-up: Se Connecter
+        :sign-up: S’inscrire
         :dont-have-account: Vous n'avez pas de compte utilisateur ?
     :internal:
       :sidebar:
@@ -592,10 +777,15 @@
         :admin: Administration
         :my-working-groups: Mes Groupes de Travail
         :all-working-groups: Tous les Groupes de Travail
+        :completed-tasks: Tâches complétées
+        :organizers: Organisateurs
+        :all-open-tasks: Tâches Ouvertes
+        :working_groups: Groupes de Travail
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles
         :sign-out: Se Déconnecter
+        :admin: Lale Admin
   :public:
     :circles:
       :index:
@@ -626,11 +816,38 @@
       :edit:
         :title: Paramètres Personnels
         :reset_password: Réinitialiser votre mot de passe
+        :error_correction: Merci de corriger les erreurs ci-dessous.
+        :country_select: Sélectionner un Pays.
+        :update_settings: Mettre à jour les Paramètres
       :reset_password:
         :reset_password: Réinitialiser votre mot de passe
         :update: Mettre à jour votre mot de passe
         :password: Mot de passe
         :password_confirmation: Confirmez Votre Mot de Passe
+      :show:
+        :edit_profile: Editer mon Profil
+        :title: Ton Profil
+        :reset_password: Ré-initialiser le Mot de Passe
+        :view_public_profile: Voir votre page de profile
+    :identities:
+      :new:
+        :mobile_phone: Tel. Portable
+        :email: Email
+        :first_name: Prénom
+        :password: Mot de passe
+        :language: Langue
+        :home_phone: Tel. Domicile
+        :last_name: Nom de famille
+        :public_profile: Montrer mon profil à tous les membres du cercle
+        :accept_terms: Accepter les Termes et Conditions
+        :password_confirmation: Confirmez Votre Mot de Passe
+        :city: Ville
+        :country: Pays
+        :country_select: Selectionner un pays
+        :header: Passez à l'action
+        :postal_code: Code Postal
+        :state_province: Etat / Région
+        :street_address: Rue
   :en:
     :roles:
       :name:
@@ -643,12 +860,137 @@
         :precision: '2'
         :separator: ","
         :unit: "€"
+        :format: "%u%n"
+    :format:
+      :delimiter: "."
+      :separator: ","
+      :precision: '3'
+    :human:
+      :storage_units:
+        :units:
+          :gb: GB
+          :kb: KB
+          :mb: MB
+          :tb: TB
+          :byte:
+            :one: Byte
+            :other: Bytes
+        :format: "%n %u"
+      :format:
+        :precision: '3'
+        :significant: 'true'
+        :strip_insignificant_zeros: 'true'
+      :decimal_units:
+        :format: "%n %u"
+        :units:
+          :billion: Milliard
+          :million: Million
+          :quadrillion: Billiard
+          :thousand: Mille
+          :trillion: Mille milliards
+    :percentage:
+      :format:
+        :format: "%n%"
   :datetime:
     :prompts:
       :day: Jour
+      :hour: Heure
+      :minute: Minute
+      :month: Mois
+      :second: Secondes
+      :year: An
     :distance_in_words:
       :x_days:
         :one: 1 jour
         :other: "%{count} jours"
+      :x_seconds:
+        :other: "%{count} secondes"
+        :one: 1 seconde
+      :about_x_hours:
+        :one: environ une heure
+        :other: environ %{count} heures
+      :about_x_months:
+        :one: environ un mois
+        :other: environ %{count} mois
+      :about_x_years:
+        :one: environ un an
+        :other: environ %{count} ans
+      :almost_x_years:
+        :one: presque 1 an
+        :other: presque %{count} ans
+      :half_a_minute: une demi-minute
+      :less_than_x_minutes:
+        :one: moins d'une minute
+        :other: moins de %{count} minutes
+      :less_than_x_seconds:
+        :one: moins d'une seconde
+        :other: moins de %{count} secondes
+      :over_x_years:
+        :one: plus d'un an
+        :other: plus de %{count} ans
+      :x_minutes:
+        :one: 1 minute
+        :other: "%{count} minutes"
+      :x_months:
+        :one: 1 mois
+        :other: "%{count} mois"
   :url:
     :terms_of_service: http://lale.help/terms#terms
+  :mailers:
+    :subject:
+      :supply_mailer:
+        :supply_completion_reminder: Merci pour votre aide !
+        :supply_invitation: Lale a besoin de votre aide pour un ravitaillement.
+      :task_mailer:
+        :task_change: Quelque chose a changé dans votre tâche.
+        :task_comment: Un commentaire a été fait sur votre tâche.
+        :task_completion_reminder: Merci pour votre aide !
+        :task_invitation: Lale a besoin de votre aide pour une tâche.
+        :task_reminder: Pas de questions ?
+        :task_suggestion: Nous aimerions vous suggérer une tâche.
+      :user_mailer:
+        :forgot_password: Avez-vous oublié quelque chose ?
+  :supply:
+    :presenter:
+      :messages:
+        :recent_activity: Activité récente
+        :volunteer_needed: Volontaire requis
+  :task:
+    :presenter:
+      :messages:
+        :more_volunteers_needed: Plus de volontaires requis
+        :recent_activity: Activité récente
+  :time:
+    :pm: pm
+    :am: am
+    :formats:
+      :default: "%a, %d %b %Y %H:%M:%S %z"
+      :long: '"%A, %d. %B %Y, %H:%M"'
+      :short: "%d %b %H:%M"
+  :views:
+    :pagination:
+      :truncate: "&hellip;"
+      :first: "&laquo; Premier"
+      :last: Dernier &raquo;
+      :next: Suivant &rsaquo;
+      :previous: "&lsaquo; Précédent"
+  :support:
+    :array:
+      :words_connector: ", "
+      :two_words_connector: " et "
+      :last_word_connector: ", et "
+  :error_correction: Merci de corriger les erreurs ci-dessous.
+  :supplies:
+    :flash:
+      :already_taken: Cette marchandise a déjà été récupéré par quelqun d'autre
+      :complete_failed: Nous n'avons pas pu marquer cette marchandise comme donnée.
+        Merci de réessayer.
+      :completed: Merci pour la marchandise !
+      :decline_failed: Nous n'avons pas pu refuser cette marchandise. Merci de réessayer.
+      :declined: Merci pour votre honnêteté ! Nous allons trouver quelqun d'autre.
+      :invite_failed: Nous n'avons pas pu inviter des membres pour cette marchandise.
+        Merci de réessayer plus tard.
+      :invited: Les membres de %{name} ont été invité pour cette marchandise.
+      :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
+        de réessayer.
+      :volunteered: Merci de vous êtes inscrit !

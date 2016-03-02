@@ -19,16 +19,17 @@ class Public::CirclesController < ApplicationController
   end
 
   def new
-    @form = Circle::Create.new user: current_user
+    @form = Circle::CreateForm.new user: current_user
   end
 
   def create
-    @form = Circle::Create.new params[:circle], user: current_user
+    @form = Circle::CreateForm.new params[:circle], user: current_user
     outcome = @form.submit
     if outcome.success?
       redirect_to circle_path(outcome.result)
     else
-      raise
+      errors.add outcome.errors
+      render :new
     end
   end
 end

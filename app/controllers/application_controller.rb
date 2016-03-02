@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include SessionProtection
+  include DatabaseTransactions
 
   protect_from_forgery with: :exception
   check_authorization :unless => :active_admin_controller?
@@ -21,17 +22,26 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path) unless current_user.present?
   end
 
+  def ensure_circle
+    redirect_to(root_path) unless current_circle.present?
+  end
+
   def set_locale
-    I18n.locale = if params[:lang].present?
+    accept_header_lang = http_accept_language.compatible_language_from(I18n.available_locales)
+
+    I18n.locale = if Rails.env.test?
+      :en
+    elsif params[:lang].present?
       params[:lang]
     elsif current_user.present?
       current_user.language
     elsif respond_to?(:current_circle) && current_circle.present?
       current_circle.language
+    elsif accept_header_lang.present?
+      accept_header_lang
     else
-     I18n.default_locale
-   end
-   logger.info "Using locale #{::I18n.locale}"
+      I18n.default_locale
+    end
   end
   before_action :set_locale
 
@@ -57,6 +67,7 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def active_admin_controller?
     controller_path.starts_with? "admin/"
   end

@@ -7,14 +7,11 @@ class Circle::SuppliesController < ApplicationController
   def index
     authorize! :read, current_circle
 
-    @supplies = current_circle.supplies.not_completed.order('due_date asc').limit(10)
+    @supplies = current_circle.supplies.not_completed.ordered_by_date
   end
 
   def show
     authorize! :read, current_supply
-
-    page.task_css = "complete" if current_supply.complete?
-
     if can? :create, Comment, current_supply
       @form = Comment::Create.new(commenter: current_user, task: current_supply, comment: Comment.new)
     end

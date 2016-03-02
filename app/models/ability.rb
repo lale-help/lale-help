@@ -6,6 +6,9 @@ class Ability
 
     # Admin
     can :read, ActiveAdmin::Page, :name => "Dashboard"
+    can :manage_site do
+      user.is_admin
+    end
 
     # Circles
     can :create, Circle
@@ -59,9 +62,10 @@ class Ability
 
     # Users
     can :read, User do |member, circle|
-      can?(:read, circle) &&
+      member.id == user.id ||
+      (can?(:read, circle) &&
         (user.working_group_roles.admin.for_circle(circle).exists? ||
-          member.public_profile?)
+          member.public_profile?))
     end
 
 

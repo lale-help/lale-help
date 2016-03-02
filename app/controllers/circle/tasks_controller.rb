@@ -6,20 +6,20 @@ class Circle::TasksController < ApplicationController
 
   def index
     authorize! :read, current_circle
-    @tasks = current_circle.tasks.order('due_date asc').not_completed
+    @tasks = current_circle.tasks.not_completed.ordered_by_date
   end
 
 
   def completed
     authorize! :read, current_circle
-    @tasks = current_circle.tasks.order('due_date asc').completed
+    @tasks = current_circle.tasks.completed.ordered_by_date
   end
 
   def my
     authorize! :read, current_circle
 
-    tasks_vol = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').order('due_date asc')
-    tasks_org = current_user.tasks.for_circle(current_circle).with_role('task.organizer').order('due_date asc')
+    tasks_vol = current_user.tasks.for_circle(current_circle).with_role('task.volunteer').ordered_by_date
+    tasks_org = current_user.tasks.for_circle(current_circle).with_role('task.organizer').ordered_by_date
     @tasks = OpenStruct.new(
         open: tasks_vol.not_completed,
         closed: tasks_vol.completed,
@@ -27,6 +27,11 @@ class Circle::TasksController < ApplicationController
     )
   end
 
+
+  def open
+    authorize! :read, current_circle
+    @tasks = current_circle.tasks.unassigned.not_completed.ordered_by_date
+  end
 
 
   def show
@@ -41,22 +46,20 @@ class Circle::TasksController < ApplicationController
   def new
     authorize! :create_task, current_circle
     @task = current_circle.working_groups.first.tasks.build
-    @form = Task::Create.new(user: current_user, task: current_task)
+    @form = Task::Create.new(user: current_user, task: current_task, circle: current_circle, ability: current_ability)
   end
 
 
   def edit
     authorize! :update, current_task
-    @form = Task::Update.new(current_task, user: current_user, task: current_task)
+    @form = Task::Update.new(current_task, user: current_user, task: current_task, circle: current_circle, ability: current_ability)
   end
 
 
   def create
-    working_group = current_circle.working_groups.find(params[:task][:working_group_id])
-    authorize! :create_task, working_group
-
     @task = Task.new
-    @form = Task::Create.new(params[:task], user: current_user, task: Task.new, working_group: working_group)
+    @form = Task::Create.new(params[:task], user: current_user, task: @task, circle: current_circle, ability: current_ability)
+    authorize! :create_task, @form.working_group
 
     outcome = @form.submit
 
@@ -72,12 +75,9 @@ class Circle::TasksController < ApplicationController
 
 
   def update
-    working_group = current_circle.working_groups.find(params[:task][:working_group_id])
+    authorize! :update,      current_task
 
-    authorize! :update, current_task
-    authorize! :create_task, working_group
-
-    @form = Task::Update.new(params[:task], user: current_user, task: current_task, working_group: working_group)
+    @form = Task::Update.new(params[:task], user: current_user, task: current_task, circle: current_circle, ability: current_ability)
 
     outcome = @form.submit
 
@@ -173,7 +173,6 @@ class Circle::TasksController < ApplicationController
       page.is_missing_volunteers = current_task.volunteer_count_required > current_task.volunteers.size
       page.missing_volunteer_count = current_task.volunteer_count_required - current_task.volunteers.size
       page.adjusted_missing_volunteer_count = can?(:volunteer, current_task) ? page.missing_volunteer_count - 1 : page.missing_volunteer_count
-      page.task_css = "complete" if current_task.complete?
     end
   end
 

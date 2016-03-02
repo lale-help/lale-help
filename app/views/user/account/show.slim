@@ -1,0 +1,63 @@
+main
+  h1= t('.title')
+
+  form
+    .field-row
+      .field
+        label
+          = User.human_attribute_name :name
+        span
+          = current_user.name
+
+    .field-row
+      .field
+        label
+          = User.human_attribute_name :email
+        span
+          = current_user.email
+      .field
+        label
+          =User.human_attribute_name :language
+        span
+          = I18n.t("language.#{current_user.language}")
+
+    .field-row
+      .field
+        label
+          = User.human_attribute_name :mobile_phone
+        span
+          = current_user.mobile_phone
+
+      .field
+        label
+          = User.human_attribute_name :home_phone
+        span
+          = current_user.home_phone
+
+    .field-row
+      .field
+        label
+          = User.human_attribute_name :address
+        span
+          = current_user.address.full_address
+
+    .field-row
+      label
+        = User.human_attribute_name :about_me
+      span
+        = current_user.about_me
+
+    .field-row
+      .field
+        = check_box_tag('public_profile', 'true', current_user.public_profile, disabled: true)
+        = User.human_attribute_name :public_profile
+      - if current_user.public_profile
+        .field
+          = link_to(t('.view_public_profile'), circle_member_path(current_circle, current_user))
+
+    .submit-row
+      a.button.edit-profile-button href=account_edit_path
+        = t('.edit_profile')
+      a.button href=account_reset_password_path =t('.reset_password')
+
+

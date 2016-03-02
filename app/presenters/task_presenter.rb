@@ -33,6 +33,25 @@ class TaskPresenter < Presenter
     I18n.l(_.due_date, format: :long)
   end
 
+  let(:due_date_long) do
+    I18n.l(_.due_date, format: "%A %-d %B %Y")
+  end
+
+
+  let(:due_date_and_time) do
+    str = due_date_long
+    str = "#{str} #{scheduled_time}" if scheduled_time.present?
+    str
+  end
+
+  let :scheduled_time do
+    I18n.t("activerecord.attributes.task.scheduled-time.#{_.scheduled_time_type}", start: _.scheduled_time_start, end: _.scheduled_time_end) if _.scheduled_time_type != 'on_date'
+  end
+
+  let :duration_text do
+    I18n.t("activerecord.attributes.task.duration-text.#{duration}")
+  end
+
 
   let(:on_track?) do
     _.volunteers.size >= _.volunteer_count_required

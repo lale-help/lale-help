@@ -12,6 +12,8 @@ gem 'omniauth-identity'
 gem 'cancancan'
 gem 'mandrill-api'
 gem 'activeadmin', github: 'activeadmin'
+gem 'migration_data'
+gem 'carmen'
 
 # UI
 gem 'coffee-rails', '~> 4.1.0'
@@ -29,8 +31,8 @@ gem 'bourbon'
 gem 'handlebars_assets'
 gem 'font-awesome-sass'
 gem 'octicons-rails'
-gem 'clipboard-rails'
 gem "i18n-js", ">= 3.0.0.rc11"
+gem 'http_accept_language'
 
 # API
 gem 'jbuilder', '~> 2.0'
@@ -42,6 +44,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'geocoder'
 gem 'timezone'
 gem 'terminal-table'
+gem 'country_select'
 
 group :development do
   gem "letter_opener_web"
@@ -60,6 +63,10 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'i18n_generators'
+
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :test do

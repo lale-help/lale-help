@@ -8,7 +8,7 @@ class User::Login < ::Form
     end
 
     def execute
-      identity = User::Identity.authenticate({email: email}, password)
+      identity = User::Identity.authenticate({email: email.downcase}, password)
       unless identity.present? && identity.user.present?
         add_error(:login, :failed)
         return

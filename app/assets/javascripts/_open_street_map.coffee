@@ -5,10 +5,11 @@ window.CirclesMap = class CirclesMap
     @joinButton  = @form.find('.sumbit')
 
     @target.addClass('hidden')
-    @input.on 'input', @render
+    @input.on 'input change', @render
 
-    $(window).keydown (event)->
+    $(window).keydown (event) =>
       if(event.keyCode == 13)
+        @render()
         event.preventDefault()
         return false
 
@@ -66,7 +67,10 @@ window.CirclesMap = class CirclesMap
 
 
   fetch_data: (query, handler) ->
-    $.ajax(
+    if @fetch_request
+      @fetch_request.abort()
+
+    @fetch_request = $.ajax(
       url: "/api/circles.json",
       data: { location: query }
     ).done(handler)

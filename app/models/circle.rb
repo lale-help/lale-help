@@ -13,17 +13,16 @@ class Circle < ActiveRecord::Base
   has_many :tasks, through: :working_groups
   has_many :supplies, through: :working_groups
 
-  belongs_to :location
+  belongs_to :address, autosave: true
 
 
   # Validations
   validates :name, presence: true
-  validates :location, presence: true
+  validates :address, presence: true
 
 
   # Hooks
-  before_save :determine_location
-  after_initialize  :determine_location
+  after_initialize :build_association_defaults
 
   enum language: [:en, :de, :fr]
 
@@ -33,14 +32,6 @@ class Circle < ActiveRecord::Base
 
   def open_task_count
     tasks.count
-  end
-
-  def slug
-    name.strip.downcase.underscore.gsub(/\s+/, ?-)
-  end
-
-  def to_param
-    [id, slug].join(?-)
   end
 
   def comment_average
@@ -61,10 +52,7 @@ class Circle < ActiveRecord::Base
 
   private
 
-
-  def determine_location
-    if location_text.present?
-      self.location ||= Location.location_from(location_text)
-    end
+  def build_association_defaults
+    build_address unless address.present?
   end
 end

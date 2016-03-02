@@ -6,17 +6,23 @@ class User < ActiveRecord::Base
 
   has_one :identity, dependent: :destroy
 
-  belongs_to :location
+  belongs_to :location #DEPRECATED
+  belongs_to :address, dependent: :destroy
   belongs_to :primary_circle, class_name: 'Circle'
 
-  has_many :task_roles, class_name: 'Task::Role'
+  has_many :task_roles, class_name: 'Task::Role', dependent: :destroy
   has_many :tasks, ->{ distinct }, through: :task_roles
 
-  has_many :circle_roles, class_name: 'Circle::Role'
+  has_many :supply_roles, class_name: 'Supply::Role', dependent: :destroy
+  has_many :supplies, ->{ distinct }, through: :supply_roles
+
+  has_many :circle_roles, class_name: 'Circle::Role', dependent: :destroy
   has_many :circles, ->{ distinct }, through: :circle_roles
 
-  has_many :working_group_roles, class_name: 'WorkingGroup::Role'
+  has_many :working_group_roles, class_name: 'WorkingGroup::Role', dependent: :destroy
   has_many :working_groups, ->{ distinct }, through: :working_group_roles
+
+  has_many :comments, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
 
   enum language: [:en, :de, :fr]
 

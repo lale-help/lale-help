@@ -1,9 +1,12 @@
 class User::AccountController < ApplicationController
   before_action :ensure_logged_in
+  before_action :ensure_circle
 
   skip_authorization_check
   layout 'internal'
 
+  def show
+  end
 
   def edit
     @form = User::Update.new(user: current_user)

@@ -1,5 +1,5 @@
 class TranslationManager
-  SUPPORTED_LANGS = [:en, :de, :fr]
+  SUPPORTED_LANGS = I18n.available_locales.map(&:to_sym)
   IGNORED_KEYS = [
     /\Aactive_admin\./,
     /\Aformtastic\./

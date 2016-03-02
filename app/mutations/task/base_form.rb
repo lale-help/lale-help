@@ -8,7 +8,7 @@ class Task::BaseForm < ::Form
   attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.location).try :address }
+  attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
@@ -19,6 +19,9 @@ class Task::BaseForm < ::Form
 
   attribute :volunteer_count_required, :integer, default: proc { 1 }
 
+  attribute :ability, :model
+  attribute :circle, :model
+
   def duration_unit_options
     [
       [ "Hours",   'hour' ],
@@ -27,11 +30,9 @@ class Task::BaseForm < ::Form
   end
 
   def scheduled_time_type_options
-    [
-      ["On Day",      'on_date' ],
-      ["At",          'at'      ],
-      ["In Between",  'between' ]
-    ]
+    ['on_date', 'at', 'between'].map do |val|
+      [I18n.t("activerecord.attributes.task.scheduled-time-select.#{val}"), val]
+    end
   end
 
   def scheduled_time_options
@@ -47,6 +48,32 @@ class Task::BaseForm < ::Form
       [I18n.t("activerecord.attributes.task.duration-text.#{key}"), val]
     end
   end
+
+  def working_group
+    @working_group ||= begin
+      new_working_group = circle.working_groups.find_by(id: working_group_id) || task.working_group
+      if ability.can? :create_task, new_working_group
+        new_working_group
+      else
+        task.working_group
+      end
+    end
+  end
+
+
+  def available_working_groups
+    @available_working_groups ||= begin
+      working_groups = circle.working_groups.to_a
+      working_groups.select! { |wg| ability.can?(:manage, wg) } unless ability.can?(:manage, circle)
+      working_groups << task.working_group unless working_groups.present?
+      working_groups
+    end
+  end
+
+  def available_working_groups_disabled?
+    available_working_groups.size == 1 && ability.cannot?(:manage, available_working_groups.first)
+  end
+
 
   class Submit < ::Form::Submit
     def validate

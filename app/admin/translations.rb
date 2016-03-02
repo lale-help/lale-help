@@ -67,6 +67,11 @@ ActiveAdmin.register_page "translate_key" do
     link_to "Delete", admin_translate_key_delete_path(key: params[:key]), method: 'delete', confirm: 'Are you sure?'
   end
 
+  action_item :view_site do
+    link_to "Clone", admin_translate_key_path(clone: params[:key])
+  end
+
+
   page_action 'delete', method: 'delete' do
     if Rails.env.development?
       TranslationManager.new.remove(params[:key])

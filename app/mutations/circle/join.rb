@@ -1,8 +1,7 @@
 class Circle::Join < ::Form
   attribute :user,      :model,   primary: true
-  attribute :location,  :string, required: false, default: proc{ user.location.address unless user.location.nil? }
   attribute :circle_id, :integer
-
+  attribute :location, :string, default: proc{ user.address.full_address }, required: false
 
   class Submit < ::Form::Submit
     def execute

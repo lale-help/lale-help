@@ -23,7 +23,7 @@ class Supply::Notifications::DailyCompletionReminders < Mutations::Command
       Supply.
         not_completed.
         joins(:circle).
-        joins(circle: :location).
+        joins(circle: { address: :location }).
         where(locations: {timezone: zone_names } ).
         where(due_date: zone_due_dates)
     end
