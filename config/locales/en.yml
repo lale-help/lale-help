@@ -867,6 +867,9 @@
     :organizers:
       :index:
         :organizers: Organizers
+    :public_members:
+      :index:
+        :public_members: Public Members
   :circles:
     :new:
       :create: Create Circle
@@ -923,6 +926,7 @@
         :completed-tasks: Completed Tasks
         :all-open-tasks: All Open Tasks
         :working_groups: Working Groups
+        :public_members: Public Members
       :header:
         :settings: Your profile
         :find-circles: Find Circles

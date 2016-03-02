@@ -6,18 +6,20 @@ table.member-list
     th = User.human_attribute_name("location.address")
     th = User.human_attribute_name("phone")
     th = User.human_attribute_name("email")
+    th = User.human_attribute_name("active_since")
+    th = User.human_attribute_name("last_login")
 
   - members.each do |user|
+    - next unless can?(:read, user, current_circle)
     tr
       td
         = render partial: 'user/user_icon', locals: {user: user, link: true}
       td.name
         = link_to user.name, circle_member_path(current_circle, user)
       td
-        - user.working_groups.for_circle(current_circle).each do |wg|
-          a href= circle_working_group_path(current_circle,wg)
-            = wg.name
-      td= user.location.try :address
+        - wg_links = user.working_groups.for_circle(current_circle).map{ |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
+        = wg_links.join(', ').html_safe
+      td= user.address.full_address
       td
         - if user.mobile_phone != nil
           div= "M: #{user.mobile_phone}"
@@ -26,4 +28,7 @@ table.member-list
       td
         a href="mailto:#{user.identity.email}"
           = user.identity.email
-
+      td= l(user.created_at.to_date, format: :default)
+      td
+        - if user.last_login != nil
+          div= l(user.last_login.to_date, format: :default)
