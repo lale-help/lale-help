@@ -28,15 +28,21 @@ body.internal {
         height: 100%;
         font-size: 2rem;
 
+        :before {
+          @include text-color($white, $grey);
+          padding-right: 5px;
+        }
         .icon {
-          @include lale-icon($lale-icon-plus-skinny);
-          border-radius: 50%;
+          font-size: 1.5rem;
+          color: $white;
+          @include lale-icon($lale-icon-plus-skinny, 0.5rem);
+          border-radius: 4px;
           background-color: $orange;
-          padding: 4px;
-
+          padding: 4px 10px;
+          width: 70px;
           @include display(flex);
           @include align-items(center);
-          @include justify-content(center);
+          @include justify-content(left);
         }
       }
 
