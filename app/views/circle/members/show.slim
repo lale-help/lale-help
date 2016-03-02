@@ -43,9 +43,8 @@
         .icon
         .title= t('.working_groups')
         .details
-          - current_member.working_groups.for_circle(current_circle).each do |wg|
-            a href= circle_working_group_path(current_circle,wg)
-              = wg.name
+          - wg_links = current_member.working_groups.for_circle(current_circle).map{ |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
+          = wg_links.join(', ').html_safe
       .row.member-since
         .icon
         .title= t('.member_since')
