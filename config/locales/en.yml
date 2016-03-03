@@ -1013,3 +1013,6 @@
       :decline_failed: Unable to decline this supply. Please try again later.
       :invited: Invited members of %{name} to this supply
       :invite_failed: Unable to invite members to this supply. Please try again later.
+  :sidebar:
+    :circle_title:
+      :new: New
