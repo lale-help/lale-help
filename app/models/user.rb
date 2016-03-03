@@ -65,4 +65,8 @@ class User < ActiveRecord::Base
   def public_profile?
     identity.try :public_profile
   end
+
+  def without_circles?
+    circles.empty?
+  end
 end
