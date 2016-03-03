@@ -43,14 +43,14 @@ table {
   }
 }
 
-section.admin-invite{
-  text-align: center;
+section.admin-invite, 
+section.admin-pending-members {
+
   p {
-    margin: 4rem;
+    margin: 2rem 0;
   }
 
   .invite-link {
-    margin: auto;
     max-width: 50rem;
   }
 }

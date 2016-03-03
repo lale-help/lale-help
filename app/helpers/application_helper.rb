@@ -4,16 +4,6 @@ module ApplicationHelper
     date.strftime("%d %b %Y")
   end
 
-  def sidebar_link name, path, opts={}
-    opts[:text] = name
-    opts[:path] = path
-    opts[:css_selector] = "sidebar-item"
-    opts[:css_selector] += " selected" if current_page?(path)
-    opts[:icon_id]      ||= nil
-    opts[:badge_text]   ||= nil
-    render partial: 'layouts/internal/sidebar_item', locals: opts
-  end
-
   def lale_form form, opts={}, &block
     opts[:url]    ||= form.url
     opts[:method] ||= form.method
@@ -35,10 +25,6 @@ module ApplicationHelper
     else
       circle_task_comments_path(current_circle, current_task, Comment.new)
     end
-  end
-
-  def working_groups_per_user(working_groups, user, check_method)
-    working_groups.select{ |wg| user.working_groups.map(&:id).send(check_method, wg.id) }
   end
 
 end

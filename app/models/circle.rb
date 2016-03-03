@@ -49,6 +49,9 @@ class Circle < ActiveRecord::Base
     end
   end
 
+  def pending_members
+    users.pending.order('created_at DESC')
+  end
 
   private
 
