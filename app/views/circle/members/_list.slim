@@ -9,8 +9,9 @@ table.member-list
       th = User.human_attribute_name("email")
       th = User.human_attribute_name("active_since")
       th = User.human_attribute_name("last_login")
-      th = t('.help_provided')
-      th = t('.last_help_provided')
+      - if can?(:manage, current_circle)
+        th = t('.help_provided')
+        th = t('.last_help_provided')
 
   tbody
     - members.each do |user|
@@ -35,8 +36,9 @@ table.member-list
         td
           - if user.last_login != nil
             div= l(user.last_login.to_date, format: :default)
-        td
-          = user.tasks.for_circle(current_circle).volunteered.completed.count
-        td
-          - if (task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
-            = link_to l(task.completed_at.to_date, format: :default), circle_task_path(current_circle, task)
+        - if can?(:manage, current_circle)
+          td
+            = user.tasks.for_circle(current_circle).volunteered.completed.count
+          td
+            - if (task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
+              = link_to l(task.completed_at.to_date, format: :default), circle_task_path(current_circle, task)

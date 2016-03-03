@@ -782,6 +782,8 @@
       :list:
         :help_provided: Help Provided
         :last_help_provided: Last Help Provided On
+      :public:
+        :public_members: Public Members
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -870,9 +872,6 @@
     :organizers:
       :index:
         :organizers: Organizers
-    :public_members:
-      :index:
-        :public_members: Public Members
   :circles:
     :new:
       :create: Create Circle

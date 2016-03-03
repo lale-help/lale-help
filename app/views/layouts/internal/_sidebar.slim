@@ -9,7 +9,7 @@ nav
 
   .sidebar-section
     - unless can? :manage, current_circle
-      = sidebar_link(t('.public_members'),   circle_public_members_path(current_circle))
+      = sidebar_link(t('.public_members'),   public_circle_members_path(current_circle))
     - if can? :manage, current_circle
       = sidebar_link(t('.directory'),   circle_members_path(current_circle))
     = sidebar_link(t('.organizers'),  circle_organizers_path(current_circle))
