@@ -11,42 +11,65 @@ body.internal {
 
     .header-left {
       @include flex(0 0 28rem);
-      padding-left: 1.5rem;
-      font-size: 2rem;
-
       @include display(flex);
       @include flex-direction(row);
       @include align-items(center);
+      @include justify-content(space-between);
+
+      padding-left: 1.5rem;
+      font-size: 2rem;
+      max-width: 28rem;
 
       .circle-name {
         @include flex(1);
 
+        display: inline-block;
+        min-width: 0;
+        overflow: hidden;
+        padding-right: 1rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       .circle-add-menu {
-        @include flex(0 0 5rem);
-        height: 100%;
+        @include flex(0 0);
+
         font-size: 2rem;
+        display: inline-block;
 
         :before {
           @include text-color($white, $grey);
           padding-right: 5px;
         }
-        .icon {
-          font-weight: bold;
-          font-size: 1.3rem;
-          color: $white;
-          @include lale-icon($lale-icon-plus-skinny, 0.5rem, bolder);
-          border-radius: 4px;
-          background-color: $orange;
-          padding: 4px 10px;
-          width: auto;
+
+        label {
           @include display(flex);
           @include align-items(center);
-          @include justify-content(left);
+          @include justify-content(middle);
+          padding: 0.5rem;
+
+          .icon {
+            @include display(flex);
+            @include align-items(center);
+            @include justify-content(left);
+            @include lale-icon($lale-icon-plus-skinny, 0.5rem, bolder);
+
+            font-weight: bold;
+            font-size: 1.3rem;
+            color: $white;
+            border-radius: 4px;
+            background-color: $orange;
+            padding: 4px 10px;
+            width: auto;
+          }
+        }
+
+        [type="checkbox"]:checked {
+          & ~ label .icon {
+            background-color: tint($orange, 20%);
+          }
         }
       }
-
     }
 
     .header-middle {
@@ -88,7 +111,7 @@ body.internal {
 
         .user-avatar {
           .user-icon {
-            margin-right: 2rem;  
+            margin-right: 2rem;
             background: $white;
             font-size: 1rem;
             height: 3rem;
