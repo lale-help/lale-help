@@ -781,7 +781,7 @@
         :edit_profile: Edit Profile
       :list:
         :help_provided: Help Provided
-        :last_help_provided: Last Help Provided On
+        :last_help_provided: Last helped
       :public:
         :public_members: Public Members
     :invite_flow:
