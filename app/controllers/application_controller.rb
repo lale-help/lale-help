@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   def ensure_active_user
     return if (request.fullpath == root_path) # prevent endless redirect on root path
     return if (current_user.active? || current_user.without_circles?) # allows pending users to get into a circle
-    # FIXME flash is not showing, yet
+    # FIXME show a proper "Your account is pending" page.
     flash[:notice] = "NOT ACTIVE"
     logout
     redirect_to(root_path)
