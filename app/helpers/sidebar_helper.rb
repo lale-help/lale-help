@@ -1,7 +1,4 @@
-# FIXME: 
-# - these are global helper methods, most names are too generic.
-# - move methods to separate object (presenter, view model?)
-# step 1 is extracting this from template, though.
+# FIXME: move these methods to presenter, view model etc. Phil asks Phil
 module SidebarHelper
 
   def user_open_tasks_counter
