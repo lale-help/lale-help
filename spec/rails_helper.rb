@@ -31,6 +31,11 @@ RSpec.configure do |config|
     FileUtils.rm_rf "tmp/failures"
   end
 
+  config.before :each do
+    # feature specs need to use lale in English to find labels etc.
+    page.driver.headers = { 'ACCEPT-LANGUAGE' => 'en' } if page
+  end
+
   config.around do |example|
     VCR.use_cassette("all_examples", record: :new_episodes) do
       example.run
