@@ -7,9 +7,10 @@ table.member-list
       th = User.human_attribute_name("location.address")
       th = User.human_attribute_name("phone")
       th = User.human_attribute_name("email")
-      th = User.human_attribute_name("active_since")
+      - if controller.controller_name == 'members'
+        th = User.human_attribute_name("active_since")
       th = User.human_attribute_name("last_login")
-      - if can?(:manage, current_circle)
+      - if can?(:manage, current_circle) && controller.controller_name == 'members'
         th = t('.help_provided')
         th = t('.last_help_provided')
 
@@ -32,11 +33,12 @@ table.member-list
         td
           a href="mailto:#{user.identity.email}"
             = user.identity.email
-        td= l(user.created_at.to_date, format: :default)
+        - if controller.controller_name == 'members'
+          td= l(user.created_at.to_date, format: :default)
         td
           - if user.last_login != nil
             div= l(user.last_login.to_date, format: :default)
-        - if can?(:manage, current_circle)
+        - if can?(:manage, current_circle) && controller.controller_name == 'members'
           td
             = user.tasks.for_circle(current_circle).volunteered.completed.count
           td

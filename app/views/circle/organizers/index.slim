@@ -1,8 +1,4 @@
-h2 = t('.organizers')
+.members_list
+  h2 = t('.organizers')
 
-
-= render partial: 'circle/members/list', locals: { members: @members }
-
-
-
-
+  = render partial: 'circle/members/list', locals: { members: @members }
