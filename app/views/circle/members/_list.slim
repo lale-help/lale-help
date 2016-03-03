@@ -23,7 +23,7 @@ table.member-list
           = link_to user.name, circle_member_path(current_circle, user)
         td
           - wg_links = user.working_groups.for_circle(current_circle).map{ |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
-          = wg_links.join(', ').html_safe
+          = wg_links.join(', </br>').html_safe
         td= user.address.full_address
         td
           - if user.mobile_phone != nil
