@@ -31,11 +31,6 @@ RSpec.configure do |config|
     FileUtils.rm_rf "tmp/failures"
   end
 
-  config.before :each do
-    # feature specs need to use lale in English to find labels etc.
-    page.driver.headers = { 'ACCEPT-LANGUAGE' => 'en' } if page
-  end
-
   config.around do |example|
     VCR.use_cassette("all_examples", record: :new_episodes) do
       example.run
@@ -57,6 +52,11 @@ RSpec.configure do |config|
     end
     Rails.logger.info "Finished #{example.full_description}"
     Rails.logger.info "-"*80
+  end
+
+  config.before(:each, js: true) do
+    # feature specs need to use lale in English to find labels etc.
+    page.driver.headers = { 'ACCEPT-LANGUAGE' => 'en' }
   end
 
   config.after(:each, js: true) do |example|
