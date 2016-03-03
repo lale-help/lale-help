@@ -5,6 +5,9 @@ section > .members_list {
   }
   table {
     font-size: 1.3rem;
+    th {
+      cursor: pointer;
+    }
     td, th {
       padding: 0.5rem;
     }
