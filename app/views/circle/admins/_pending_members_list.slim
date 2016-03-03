@@ -1,0 +1,36 @@
+table.member-list
+  tr
+    th
+    th.name = User.human_attribute_name("name")
+    th = User.human_attribute_name("location.address")
+    th = User.human_attribute_name("phone")
+    th = User.human_attribute_name("email")
+    th = User.human_attribute_name("active_since")
+    th
+
+  - pending_members.each do |user|
+    - next unless can?(:read, user, current_circle)
+    tr
+      td
+        = render partial: 'user/user_icon', locals: {user: user, link: true}
+
+      td.name
+        = link_to user.name, circle_member_path(current_circle, user)
+
+      td = user.address.full_address
+
+      td
+        - if user.mobile_phone != nil
+          div= "M: #{user.mobile_phone}"
+        - if user.home_phone != nil
+          div= "H: #{user.home_phone}"
+
+      td
+        a href="mailto:#{user.identity.email}"
+        = user.identity.email
+
+      td= l(user.created_at.to_date, format: :default)
+
+      td
+        button = t('.activate')
+        button = t('.decline')

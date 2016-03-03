@@ -1,8 +1,21 @@
 = render partial: 'nav'
 
 section.admin-invite
-  p  = t('.invite_members_explaination')
+
+  h2 = t('.invite_headline')
+
+  p = t('.invite_members_explaination')
 
   .invite-link.copy-box
     input id="invite-url" type="copy" readonly="" value=join_circle_url(current_circle)
     button type="copy" data-clipboard-target="input#invite-url"
+
+- unless current_circle.pending_members.empty?
+
+  section.admin-pending-members
+
+    h2 = t('.pending_members_headline')
+
+    p = t('.pending_members_explaination')
+
+    = render partial: 'pending_members_list', locals: { pending_members: current_circle.pending_members }

@@ -753,6 +753,11 @@
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
           the following link with people that are interested.
+        :invite_headline: Invite new members
+        :pending_members_headline: Pending members
+        :pending_members_explaination: The following users have asked to join your circle. 
+          Please activate them so they can start helping, or decline them to deny access.
+
       :nav:
         :basic-settings: Basic Settings
         :roles: Roles

@@ -1,28 +1,27 @@
 nav
   .sidebar-section
-    = sidebar_link(t('.my-tasks'),        my_circle_tasks_path(current_circle),   badge_text: current_user.tasks.for_circle(current_circle).volunteered.not_completed.count)
-    = sidebar_link(t('.all-open-tasks'),  open_circle_tasks_path(current_circle), badge_text: current_circle.tasks.unassigned.not_completed.count.length)
+    = sidebar_link(t('.my-tasks'), my_circle_tasks_path(current_circle), badge_text: user_open_tasks_counter)
+    = sidebar_link(t('.all-open-tasks'), open_circle_tasks_path(current_circle), badge_text: circle_open_tasks_counter)
     = sidebar_link(t('.completed-tasks'), completed_circle_tasks_path(current_circle))
 
   .sidebar-section
-    = sidebar_link(t('.supplies'),    circle_supplies_path(current_circle),   badge_text: current_circle.supplies.not_completed.count)
+    = sidebar_link(t('.supplies'), circle_supplies_path(current_circle), badge_text: supplies_counter)
 
   .sidebar-section
-    = sidebar_link(t('.directory'),   circle_members_path(current_circle))
-    = sidebar_link(t('.organizers'),  circle_organizers_path(current_circle))
+    = sidebar_link(t('.directory'), circle_members_path(current_circle))
+    = sidebar_link(t('.organizers'), circle_organizers_path(current_circle))
     - if can? :manage, current_circle
-      = sidebar_link(t('.admin'),    circle_admin_path(current_circle))
+      = sidebar_link(t('.admin'), circle_admin_path(current_circle), badge_text: admin_actions_counter)
 
   .sidebar-section
     h4= t('.working_groups')
-    - all_working_groups = current_circle.working_groups
-    - working_groups_per_user(all_working_groups, current_user, :include?).each do |wg|
+    - current_users_working_groups.each do |wg|
       - if wg.persisted? && can?(:read, wg)
-        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count)
+        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg))
     hr
-    - working_groups_per_user(all_working_groups, current_user, :exclude?).each do |wg|
+    - other_users_working_groups.each do |wg|
       - if wg.persisted? && can?(:read, wg)
-        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count)
+        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg))
 
 
   .bottom
