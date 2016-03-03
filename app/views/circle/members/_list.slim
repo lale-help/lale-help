@@ -23,7 +23,9 @@ table.member-list
         - user.working_groups.for_circle(current_circle).each do |wg|
           a href= circle_working_group_path(current_circle,wg)
             = wg.name
-      td= user.location.try :address
+          br
+
+      td = user.address.full_address
 
       td
         - if user.mobile_phone != nil
