@@ -8,10 +8,10 @@ table.member-list
     th = User.human_attribute_name("email")
     th = User.human_attribute_name("active_since")
     th = User.human_attribute_name("last_login")
-    th = User.human_attribute_name("task.completed_tasks")
+    th = t('.help_provided')
+    th = t('.last_help_provided')
 
   - members.each do |user|
-    - next unless can?(:read, user, current_circle)
     tr
       td
         = render partial: 'user/user_icon', locals: {user: user, link: true}
@@ -34,8 +34,7 @@ table.member-list
         - if user.last_login != nil
           div= l(user.last_login.to_date, format: :default)
       td
+        = user.tasks.for_circle(current_circle).volunteered.completed.count
+      td
         - if (task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
-          div
-            a href=circle_task_path(current_circle, task)
-              = task.name
-          div= l(task.completed_at.to_date, format: :default)
+          = link_to l(task.completed_at.to_date, format: :default), circle_task_path(current_circle, task)

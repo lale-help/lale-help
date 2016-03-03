@@ -10,7 +10,6 @@ table.member-list
     th = User.human_attribute_name("last_login")
 
   - members.each do |user|
-    - next unless can?(:read, user, current_circle)
     tr
       td
         = render partial: 'user/user_icon', locals: {user: user, link: true}

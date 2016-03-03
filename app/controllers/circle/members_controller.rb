@@ -6,9 +6,8 @@ class Circle::MembersController < ApplicationController
 
   def index
     authorize! :manage, current_circle
-    members = current_circle.users.select('users.*, count(distinct circle_roles.*) as circle_role_count').group('users.id').order('users.last_name asc, circle_role_count DESC')
-    @members = members.distinct.includes(:identity, :working_groups, :circle_roles)
-    @total_members = members.distinct.length
+    @members = current_circle.users.order('last_name asc').includes(:identity, :working_groups, :circle_roles)
+    @total_members = @members.length
   end
 
   def show

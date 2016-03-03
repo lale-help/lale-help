@@ -3,4 +3,10 @@ section > .members_list {
   .showing {
     float: right;
   }
+  table {
+    font-size: 1.3rem;
+    td, th {
+      padding: 0.5rem;
+    }
+  }
 }

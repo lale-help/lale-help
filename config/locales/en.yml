@@ -779,6 +779,9 @@
         :member_since: Member Since
         :tasks_supplies_completed: Help provided
         :edit_profile: Edit Profile
+      :list:
+        :help_provided: Help Provided
+        :last_help_provided: Last Help Provided On
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
