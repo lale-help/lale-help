@@ -54,6 +54,11 @@ RSpec.configure do |config|
     Rails.logger.info "-"*80
   end
 
+  config.before(:each, js: true) do
+    # feature specs need to use lale in English to find labels etc.
+    page.driver.headers = { 'ACCEPT-LANGUAGE' => 'en' }
+  end
+
   config.after(:each, js: true) do |example|
     if example.exception != nil
       FileUtils.mkdir_p "tmp/failures/"

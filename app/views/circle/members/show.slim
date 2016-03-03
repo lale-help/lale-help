@@ -32,28 +32,27 @@
         .row.location
           .icon
           .title= t('.address')
-          .details= current_member.location.address
+          .details= current_member.address.full_address
 
       .row.volunteer
         .icon
         .title= t('.circles')
         .details
-          - current_member.circles.each do |circle|
-            = link_to(circle_path(circle))
-              = circle.name
-            br
+          - circle_links = current_member.circles.map{ |circle| link_to(html_escape(circle.name), circle_path(circle)) }
+          = circle_links.to_sentence.html_safe
 
       .row.work-group
         .icon
-        .title= WorkingGroup.model_name.human.pluralize
+        .title= t('.working_groups')
         .details
-          - current_member.working_groups.for_circle(current_circle).each do |wg|
-            a href= circle_working_group_path(current_circle,wg)
-              = wg.name
+          - wg_links = current_member.working_groups.for_circle(current_circle).map{ |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
+          = wg_links.to_sentence.html_safe
+
       .row.member-since
         .icon
         .title= t('.member_since')
         .details= l(current_member.created_at.to_date, format: :long)
+
       .row.completed
         .icon
         .title= t('.tasks_supplies_completed')

@@ -44,3 +44,4 @@ table.member-list
           td
             - if (task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
               = link_to l(task.completed_at.to_date, format: :default), circle_task_path(current_circle, task)
+

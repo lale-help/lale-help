@@ -784,6 +784,7 @@
         :last_help_provided: Last helped
       :public:
         :public_members: Public Members
+        :working_groups: Working Groups
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
