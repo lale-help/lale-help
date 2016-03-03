@@ -63,3 +63,6 @@ docker-compose up
 cp /path/to/database/snapshot/SNAPSHOT_NAME .
 ./docker/restore-db-from SNAPSHOT_NAME
 ```
+
+## License
+This project uses the [MIT License](https://github.com/lale-help/lale-help/blob/master/LICENSE).

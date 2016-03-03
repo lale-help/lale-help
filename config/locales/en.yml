@@ -920,7 +920,6 @@
         :supplies: Supplies
         :directory: Helper list
         :discussions: Discussions
-        :calendar: Calendar
         :admin: Administration
         :my-working-groups: My Working Groups
         :all-working-groups: All Working Groups
@@ -1020,3 +1019,6 @@
       :decline_failed: Unable to decline this supply. Please try again later.
       :invited: Invited members of %{name} to this supply
       :invite_failed: Unable to invite members to this supply. Please try again later.
+  :sidebar:
+    :circle_title:
+      :new: New
