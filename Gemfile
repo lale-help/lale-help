@@ -65,7 +65,7 @@ group :development, :test do
   gem 'i18n_generators'
 
   gem 'capybara'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
   gem 'database_cleaner'
 end
 
