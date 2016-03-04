@@ -29,7 +29,9 @@ class ApplicationController < ActionController::Base
   def set_locale
     accept_header_lang = http_accept_language.compatible_language_from(I18n.available_locales)
 
-    I18n.locale = if params[:lang].present?
+    I18n.locale = if Rails.env.test?
+      :en
+    elsif params[:lang].present?
       params[:lang]
     elsif current_user.present?
       current_user.language
