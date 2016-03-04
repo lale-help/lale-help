@@ -13,6 +13,7 @@ nav
     - if can? :manage, current_circle
       = sidebar_link(t('.directory'), circle_members_path(current_circle))
     = sidebar_link(t('.organizers'), circle_organizers_path(current_circle))
+    - if can? :manage, current_circle
       = sidebar_link(t('.admin'), circle_admin_path(current_circle), badge_text: admin_actions_counter)
 
   .sidebar-section

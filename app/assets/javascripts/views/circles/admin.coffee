@@ -1,4 +1,5 @@
 $(document).on 'page:load ready', ->
+
   $('#circle_role_role_type').on 'change', (e)->
     $type = $(e.target)
     $name = $type.siblings('#circle_role_name')
@@ -20,3 +21,10 @@ $(document).on 'page:load ready', ->
 
       Lale.Flash.info I18n.t('workflow.copied')
 
+  console.log("Hello World");
+  
+  $('document').on 'ajax:success', (e)->
+      console.log("AJAX Success")
+
+  $('document').on 'ajax:error', (e)->
+      console.log("AJAX Error")
