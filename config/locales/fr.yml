@@ -646,6 +646,7 @@
     :members:
       :index:
         :directory: " Liste de Volontaires"
+        :total_members: montre %{showing} des %{total} volontaires
       :show:
         :roles: Roles
         :address: Adresse
@@ -658,6 +659,8 @@
         :working_groups: Groupes de Travail
       :public:
         :public_members: " Liste de Volontaires"
+      :list:
+        :help_provided: Aide fournie
     :supplies:
       :index:
         :header: Besoins Matériels
