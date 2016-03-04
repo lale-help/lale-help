@@ -1,6 +1,7 @@
 - task = ::TaskPresenter.new(current_task)
 - content_for :header_middle do
-  a.back href=circle_tasks_path(current_circle) = t('.back')
+  - back_link = request.env['HTTP_REFERER'] || open_circle_tasks_path(current_circle)
+  = link_to t('.back'), back_link, class: 'back'
 
 .task class=task.css
   main
