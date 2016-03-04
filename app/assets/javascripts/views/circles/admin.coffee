@@ -18,13 +18,12 @@ $(document).on 'page:load ready', ->
   clipboard = new Clipboard('button[type="copy"]');
   clipboard.on 'success', (e)->
       e.clearSelection()
-
       Lale.Flash.info I18n.t('workflow.copied')
 
-  console.log("Hello World");
-  
-  $('document').on 'ajax:success', (e)->
-      console.log("AJAX Success")
 
-  $('document').on 'ajax:error', (e)->
-      console.log("AJAX Error")
+  $('.activate_pending_user').closest('form').on 'ajax:success', (event)->
+      $(event.target.closest('tr')).fadeOut('duration': 1000);
+      Lale.Flash.info I18n.t('workflow.activation_success') 
+
+  $('.activate_pending_user').closest('form').on 'ajax:error', (event)->
+      Lale.Flash.error I18n.t('workflow.activation_error') 

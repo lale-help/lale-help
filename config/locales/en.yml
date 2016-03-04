@@ -688,6 +688,8 @@
     :join: Join
     :copied: Copied!
     :read_terms: View Terms and Conditions.
+    :activation_success: User successfully activated.
+    :activation_error: Failed to activate user.
   :language:
     :en: English
     :de: German

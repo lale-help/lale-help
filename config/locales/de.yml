@@ -229,6 +229,9 @@
     :join: Beitreten
     :copied: Kopiert!
     :read_terms: Bitte Nutzungsbedingungen lesen.
+    :activation_success: Neuer Helfer erfolgreich aktiviert!
+    :activation_error: Fehler beim Aktivieren des neuen Helfers.
+
   :language:
     :en: Englisch
     :de: Deutsch
