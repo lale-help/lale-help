@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         get :roles
         get :working_groups
         get :invite
+        post :activate_member
       end
 
       resources :members do

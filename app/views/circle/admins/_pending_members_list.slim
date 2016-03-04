@@ -32,6 +32,4 @@ table.member-list
       td= l(user.created_at.to_date, format: :default)
 
       td
-        / FIXME buttons are not styled and implemented, yet
-        button = t('.activate')
-        button = t('.decline')
+        = button_to t('.activate'), activate_member_circle_admin_path(current_circle, user_id: user.id), remote: true

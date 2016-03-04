@@ -770,7 +770,9 @@
         :pending_members_headline: Pending members
         :pending_members_explaination: The following users have asked to join your circle. 
           Please activate them so they can start helping, or decline them to deny access.
-
+      :pending_members_list:
+        :activate: Activate
+        :decline: Decline
       :nav:
         :basic-settings: Basic Settings
         :roles: Roles
