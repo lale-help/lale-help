@@ -333,6 +333,11 @@
         :roles: Roles
         :language: Langue
         :admin: Administrateur
+        :city: Ville
+        :country: Pays
+        :postal_code: Code Postal
+        :state_province: Etat / Région
+        :street_address: Rue
       :location:
         :address: Adresse
         :circles: Cercle
@@ -548,6 +553,18 @@
       :wrong_length:
         :one: est de la mauvaise longueure (doit être 1 charactère)
         :other: est de la mauvaise longueure (doit être %{count} charactères)
+    :description:
+      :too_short: est trop court
+    :name:
+      :empty: ne peut être vide
+    :primary_location:
+      :empty: ne peut être vide
+    :postal_code:
+      :empty: Merci d'inclure le code postal
+    :country:
+      :empty: Please choose a valid country
+    :city:
+      :empty: Merci de saisir une ville.
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -566,6 +583,7 @@
         :notice: "%{resource_name} a été mis à jour avec succès."
     :failed:
       :create: Une erreur c'est produite lors de la création de %{name}
+      :update: Une erreure c'est produite lors de la mise à jour de %{name}.
     :user:
       :account:
         :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
@@ -627,7 +645,7 @@
         :edit: Editer
     :members:
       :index:
-        :directory: Répertoire
+        :directory: " Liste de Volontaires"
       :show:
         :roles: Roles
         :address: Adresse
@@ -638,6 +656,8 @@
         :tasks_supplies_completed: Aide fournie
         :edit_profile: Editer mon Profil
         :working_groups: Groupes de Travail
+      :public:
+        :public_members: " Liste de Volontaires"
     :supplies:
       :index:
         :header: Besoins Matériels
@@ -772,7 +792,7 @@
         :my-tasks: Mes Tâches
         :all-tasks: Toutes les Tâches
         :supplies: Besoins Matériels
-        :directory: Répertoire
+        :directory: " Liste de Volontaires"
         :discussions: Discussions
         :admin: Administration
         :my-working-groups: Mes Groupes de Travail
@@ -781,6 +801,7 @@
         :organizers: Organisateurs
         :all-open-tasks: Tâches Ouvertes
         :working_groups: Groupes de Travail
+        :public_members: Liste de Volontaires
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles

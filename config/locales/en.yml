@@ -167,6 +167,12 @@
       :empty: Please include a city
     :postal_code:
       :empty: Please include a postal code
+    :description:
+      :too_short: is too short
+    :name:
+      :empty: can't be empty
+    :primary_location:
+      :empty: can't be empty
   :activerecord:
     :errors:
       :messages:
@@ -204,6 +210,11 @@
         :working_groups: Working groups
         :roles: Roles
         :language: Language
+        :city: City
+        :country: Country
+        :postal_code: Postal Code
+        :state_province: State / Province
+        :street_address: Street
       :location:
         :address: Address
         :circles: Circles
@@ -784,7 +795,7 @@
         :help_provided: Help Provided
         :last_help_provided: Last helped
       :public:
-        :public_members: Public Members
+        :public_members: Helperlist
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -928,7 +939,7 @@
         :completed-tasks: Completed Tasks
         :all-open-tasks: All Open Tasks
         :working_groups: Working Groups
-        :public_members: Public Members
+        :public_members: Helperlist
       :header:
         :settings: Your profile
         :find-circles: Find Circles
