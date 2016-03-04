@@ -661,6 +661,7 @@
         :public_members: " Liste de Volontaires"
       :list:
         :help_provided: Aide fournie
+        :last_help_provided: Dernière contribution
     :supplies:
       :index:
         :header: Besoins Matériels
