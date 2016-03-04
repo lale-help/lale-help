@@ -11,7 +11,13 @@ Rails.application.routes.draw do
         get :invite
       end
 
-      resources :members, :roles, :organizers
+      resources :members do
+        collection do
+          get :public
+        end
+      end
+
+      resources :roles, :organizers
 
       resources :supplies do
         put :complete, :volunteer, :decline

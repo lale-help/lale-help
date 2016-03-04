@@ -1,0 +1,23 @@
+
+section > .members_list {
+  .showing {
+    float: right;
+  }
+  table {
+    font-size: 1.3rem;
+    th {
+      cursor: pointer;
+    }
+    td, th {
+      padding: 0.5rem;
+    }
+  }
+  .user-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
+  td.no-wrap{
+    white-space: nowrap;
+  }
+}

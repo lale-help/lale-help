@@ -32,8 +32,6 @@ body.internal {
       }
 
       .circle-add-menu {
-        @include flex(0 0);
-
         font-size: 2rem;
         display: inline-block;
 
@@ -151,7 +149,7 @@ body.internal {
       @include justify-content(center);
 
 
-      position: relative;
+//      position: relative;
 
       label {
         padding: 0 2rem;
@@ -176,7 +174,7 @@ body.internal {
         font-size: 1.5rem;
         display: none;
         position: absolute;
-        min-width:  100%;
+        min-width:  auto;
 
         top: $header-height;
         background: $white;
@@ -197,7 +195,7 @@ body.internal {
       }
 
       .menu.add-item-dropdown {
-        left: 0;
+//        left: 0;
       }
 
       .menu.user-dropdown {
