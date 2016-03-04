@@ -17,4 +17,7 @@ section > .members_list {
     height: 30px;
     font-size: 1.5rem;
   }
+  td.no-wrap{
+    white-space: nowrap;
+  }
 }

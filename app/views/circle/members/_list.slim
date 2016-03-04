@@ -25,23 +25,23 @@ table.member-list
           - wg_links = user.working_groups.for_circle(current_circle).map{ |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
           = wg_links.join(', </br>').html_safe
         td= user.address.full_address
-        td
-          - if user.mobile_phone != nil
+        td.no-wrap
+          - if user.mobile_phone.present?
             div= "M: #{user.mobile_phone}"
-          - if user.home_phone != nil
+          - if user.home_phone.present?
             div= "H: #{user.home_phone}"
         td
           a href="mailto:#{user.identity.email}"
             = user.identity.email
         - if controller.controller_name == 'members'
-          td= l(user.created_at.to_date, format: :default)
-        td
+          td.no-wrap= l(user.created_at.to_date, format: :default)
+        td.no-wrap
           - if user.last_login != nil
             div= l(user.last_login.to_date, format: :default)
         - if can?(:manage, current_circle) && controller.controller_name == 'members'
           td
             = user.tasks.for_circle(current_circle).volunteered.completed.count
-          td
+          td.no-wrap
             - if (task = user.tasks.for_circle(current_circle).volunteered.completed.max_by{|tsk| tsk.completed_at}).present?
               = link_to l(task.completed_at.to_date, format: :default), circle_task_path(current_circle, task)
 
