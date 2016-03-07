@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
       resources :members do
         get :public, on: :collection
-        get :membership_pending, on: :member
       end
 
       resources :roles, :organizers
@@ -91,6 +90,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :circles, only: [:index, :new, :create] do
       post :join, on: :collection
+      get :membership_pending, on: :member
     end
   end
 

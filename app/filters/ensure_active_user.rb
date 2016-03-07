@@ -17,7 +17,7 @@ class EnsureActiveUser
     
     def pending_member_page_path(c)
       circle = c.current_user.primary_circle
-      c.membership_pending_circle_member_path(circle, c.current_user)
+      c.membership_pending_public_circle_path(circle)
     end
 
   end

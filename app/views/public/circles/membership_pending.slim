@@ -1,0 +1,8 @@
+- presenter = ::CirclePresenter.new(@circle)
+
+section
+  h2 = t('.title')
+
+  h3 = t('.subtitle')
+
+  p == t('.description', admins_list: presenter.admins_with_email_links.to_sentence)

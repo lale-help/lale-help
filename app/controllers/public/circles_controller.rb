@@ -2,6 +2,7 @@ class Public::CirclesController < ApplicationController
   layout 'public'
   skip_authorization_check
   before_action :ensure_logged_in
+  before_action :redirect_to_circle, only: :membership_pending
 
   def index
     @form = Circle::Join.new user: current_user
@@ -32,4 +33,22 @@ class Public::CirclesController < ApplicationController
       render :new
     end
   end
+
+  def membership_pending
+    @circle = circle
+  end
+
+  private
+
+  def redirect_to_circle
+    if current_user.active?
+      redirect_to circle_path(circle)
+    end
+  end
+
+  def circle
+    Circle.find(params[:id])
+  end
+
+
 end
