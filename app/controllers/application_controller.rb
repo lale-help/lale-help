@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   check_authorization :unless => :active_admin_controller?
   before_action :permit_all_params, if: :active_admin_controller?
   before_action :possibly_expire_session, if: :current_user
-  before_action :ensure_active_user, if: :current_user
+  before_action EnsureActiveUser
 
   rescue_from ::CanCan::AccessDenied do |exception|
     puts "access denied due to #{exception.inspect}"
@@ -25,15 +25,6 @@ class ApplicationController < ActionController::Base
 
   def ensure_circle
     redirect_to(root_path) unless current_circle.present?
-  end
-
-  def ensure_active_user
-    return if (request.fullpath == root_path) # prevent endless redirect on root path
-    return if (current_user.active? || current_user.without_circles?) # allows pending users to get into a circle
-    # FIXME show a proper "Your account is pending" page.
-    flash[:notice] = "NOT ACTIVE"
-    logout
-    redirect_to(root_path)
   end
 
   def set_locale

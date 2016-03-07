@@ -66,7 +66,7 @@ class User < ActiveRecord::Base
     identity.try :public_profile
   end
 
-  def without_circles?
-    circles.empty?
+  def has_circles?
+    !circles.empty?
   end
 end
