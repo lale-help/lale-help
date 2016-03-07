@@ -61,7 +61,7 @@ class User::Create < ::Form
     def user_attributes
       inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, 
         :public_profile, :accept_terms
-      ).merge(status: :pending)
+      )
     end
 
   end

@@ -6,8 +6,8 @@ class Circle::Join < ::Form
   class Submit < ::Form::Submit
 
     def execute
-      join_circle(user)
-      notify_circle_admins
+      add_to_circle(user)
+      notify_circle_admins if circle.must_activate_users?
       circle
     end
 
@@ -17,11 +17,12 @@ class Circle::Join < ::Form
 
     private 
 
-    def join_circle(user)
+    def add_to_circle(user)
       unless role.where(user: user, circle: circle).exists?
         role.create(user: user, circle: circle)
       end
-      user.update_attribute :primary_circle, circle
+      status = circle.must_activate_users? ? :pending : :active
+      user.update_attributes(primary_circle: circle, status: status)
     end
 
     def notify_circle_admins
@@ -32,7 +33,7 @@ class Circle::Join < ::Form
     end
 
     def circle
-      Circle.find(circle_id)
+      @circle ||= Circle.find(circle_id)
     end
 
   end

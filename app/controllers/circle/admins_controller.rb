@@ -19,6 +19,9 @@ class Circle::AdminsController < ApplicationController
   def invite
   end
 
+  def extended_settings
+  end
+  
   def activate_member
     outcome = Circle::ActivateMember.run(params)
     head (outcome ? :ok : :unprocessable_entity)

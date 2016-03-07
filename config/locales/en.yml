@@ -338,6 +338,7 @@
         :pending_members_headline: Pending members
       :nav:
         :basic-settings: Basic Settings
+        :extended-settings: Extended Settings
         :invite-volunteers: Invite Volunteers
         :roles: Roles
         :working-groups: Working Groups
