@@ -10,12 +10,12 @@ section.admin-invite
     input id="invite-url" type="copy" readonly="" value=join_circle_url(current_circle)
     button type="copy" data-clipboard-target="input#invite-url"
 
-- unless current_circle.pending_members.empty?
+section.admin-pending-members
 
-  section.admin-pending-members
+  h2 = t('.pending_members_headline')
 
-    h2 = t('.pending_members_headline')
-
+  - if current_circle.pending_members.empty?
+    p = t('.no_pending_members_message')
+  - else
     p = t('.pending_members_explaination')
-
     = render partial: 'pending_members_list', locals: { pending_members: current_circle.pending_members }
