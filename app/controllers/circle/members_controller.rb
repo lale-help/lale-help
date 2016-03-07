@@ -26,4 +26,8 @@ class Circle::MembersController < ApplicationController
     @current_member ||= current_circle.users.find(params[:id])
   end
 
+
+  def membership_pending
+  end
+
 end

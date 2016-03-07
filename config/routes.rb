@@ -13,9 +13,8 @@ Rails.application.routes.draw do
       end
 
       resources :members do
-        collection do
-          get :public
-        end
+        get :public, on: :collection
+        get :membership_pending, on: :member
       end
 
       resources :roles, :organizers

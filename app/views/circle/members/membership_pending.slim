@@ -1,0 +1,7 @@
+- circle = ::CirclePresenter.new(current_circle)
+
+h2 = t('.title')
+
+h3 = t('.subtitle')
+
+p == t('.description', admins_list: circle.admins_with_email_links.to_sentence)
