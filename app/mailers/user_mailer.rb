@@ -11,12 +11,14 @@ class UserMailer < BaseMandrillMailer
   end
 
   # sent to circle admins when new users want to join
-  def account_activation(user)
+  def account_activation(circle, user, token) 
     build_message(user.language, user.email) do
       {
         "FIRST_NAME"          => user.first_name,
         "HELPER_CIRCLE"       => user.primary_circle.name,
-        "APPROVE_REQUEST_URL" => invite_circle_admin_url(user.primary_circle)
+        "APPROVE_REQUEST_URL" => handle_token_url(token.code, 
+          redirect: invite_circle_admin_url(circle)
+        )
       }
     end
   end

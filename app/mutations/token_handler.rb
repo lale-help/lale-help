@@ -31,13 +31,13 @@ class TokenHandler < Mutations::Command
     fail_outcome :token, :not_found,   {token_code: token_code, controller: controller}
   end
 
-
   private
-  def self.lookup_handler id
+
+  def self.lookup_handler(id)
     "TokenHandlers::#{id.classify}".constantize
   end
 
-  def self.fail_outcome key, value, inputs
+  def self.fail_outcome(key, value, inputs)
     errors = Mutations::ErrorHash.new
     errors[key] = Mutations::ErrorAtom.new(key, value)
     Mutations::Outcome.new(false, nil, errors, inputs)
