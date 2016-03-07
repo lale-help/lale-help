@@ -79,7 +79,8 @@
       display: inline-block;
 
       &:before{
-        padding-right: .75rem;
+//        padding-right: .75rem;
+        padding-right: 10px; //TODO find a better way to fix this for IE
       }
 
 
