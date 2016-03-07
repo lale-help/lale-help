@@ -32,7 +32,7 @@ module LaleHelp
     end
     config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
 
-    config.session_expiration = 15.minutes
+    config.session_expiration = 30.minutes
 
     config.i18n.available_locales = %w(en de fr)
   end
