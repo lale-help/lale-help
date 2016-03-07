@@ -25,7 +25,7 @@ class Circle::Join < ::Form
     end
 
     def notify_circle_admins
-      circle.admins.each do |admin|
+      circle.admins.active.each do |admin|
         token = Token.login.create!(context: { user_id: admin.id })
         UserMailer.account_activation(circle, admin, token).deliver_now
       end

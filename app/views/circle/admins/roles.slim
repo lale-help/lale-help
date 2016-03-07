@@ -19,10 +19,10 @@ section
       - if can? :manage, current_circle
         tr#add-role.action-row
           td colspan="3"
-            a href="#" =t('.promote_user')
+            a href="#" = t('.promote_user')
         tr#add-role-fields.hidden
           td
             = select_tag "circle_role[role_type]", options_for_select(Circle::Role.leadership_role_types_with_names)
             = text_field_tag "circle_role[name]", nil, class: 'hidden'
-          td= select_tag "circle_role[user_id]", options_from_collection_for_select(current_circle.volunteers, :id, :name)
+          td= select_tag "circle_role[user_id]", options_from_collection_for_select(current_circle.volunteers.active, :id, :name)
           td= submit_tag t('.save')

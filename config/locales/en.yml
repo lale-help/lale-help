@@ -347,6 +347,7 @@
       :roles:
         :confirm_delete_circle: Are you sure?
         :promote_user: Promote User
+        :save: Save
       :show:
         :confirm_delete_circle: Are you sure?
         :confirm_delete_working_group: Are you sure?

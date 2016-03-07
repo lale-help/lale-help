@@ -7,15 +7,14 @@ class Circle::MembersController < ApplicationController
 
   def index
     authorize! :manage, current_circle
-    @members = current_circle.users.order('last_name asc').includes(:identity, :working_groups, :circle_roles)
-    @total_members = @members.length
+    @members       = active_members
+    @total_members = @members.count
   end
 
 
   def public
-    members = current_circle.users.order('last_name asc')
-    @members = members.where(public_profile: true).includes(:identity, :working_groups, :circle_roles)
-    @total_members = members.count
+    @members       = active_members.where(public_profile: true)
+    @total_members = @members.count
   end
 
 
@@ -24,8 +23,15 @@ class Circle::MembersController < ApplicationController
   end
 
   helper_method def current_member
-    @current_member ||= current_circle.users.find(params[:id])
+    @current_member ||= current_circle.users.active.find(params[:id])
   end
 
+  private 
+
+  def active_members
+    current_circle.users.active
+      .includes(:identity, :working_groups, :circle_roles)
+      .order('last_name asc')
+  end
 
 end

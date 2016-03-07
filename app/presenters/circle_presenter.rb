@@ -5,7 +5,7 @@ class CirclePresenter < Presenter
   include ActionView::Helpers::UrlHelper
 
   let(:admins_with_email_links) do
-    admins.map { |a| mail_to(a.email, a.name) }
+    admins.active.map { |a| mail_to(a.email, a.name) }
   end
 
 end

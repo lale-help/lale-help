@@ -94,7 +94,7 @@ class Circle::TasksController < ApplicationController
   def destroy
     authorize! :destroy, current_task
 
-    outcome = Task::Destroy.run(task: current_task, user: current_user)
+    Task::Destroy.run(task: current_task, user: current_user)
 
     redirect_to circle_tasks_path(current_circle), notice: t('flash.destroyed', name: Task.model_name.human)
   end

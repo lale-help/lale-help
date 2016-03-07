@@ -3,6 +3,7 @@ FactoryGirl.define do
     sequence(:first_name) {|n| "John#{n}" }
     sequence(:last_name)  {|n| "Doe#{n}" }
     after(:create) do |user, _|
+      user.active!
       create(:user_identity, user: user)
     end
   end
