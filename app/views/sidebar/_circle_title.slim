@@ -4,7 +4,7 @@ a.circle-name href=circle_path(current_circle) = circle.name
   .dropdown.circle-add-menu
     input id='add-item-selector' type='checkbox' class='menu-selector'
     label for='add-item-selector'
-      .icon = t('.new')
+      .icon = t('.add')
     .menu.add-item-dropdown
       - if can? :create_task, circle
         a href=new_circle_task_path(current_circle) = Task.model_name.human

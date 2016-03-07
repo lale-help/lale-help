@@ -35,9 +35,9 @@ body.internal {
         font-size: 2rem;
         display: inline-block;
 
-        :before {
-          @include text-color($white, $grey);
-          padding-right: 5px;
+        :after {
+          @include text-color($orange, $grey);
+          margin-left: 5px;
         }
 
         label {
@@ -50,8 +50,21 @@ body.internal {
             @include display(flex);
             @include align-items(center);
             @include justify-content(left);
-            @include lale-icon($lale-icon-plus-skinny, 0.5rem, bolder);
-
+            &:after{
+              font-family: 'lale';
+              font-weight: bolder;
+              font-style: normal;
+              font-size: 1rem;
+              display: inline-block;
+              text-decoration: inherit;
+              line-height: 0.9;
+              content: '+';
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              background: $white;
+              padding: 0.1rem 0.2rem;
+              border-radius: 0.5rem;
+            }
             font-weight: bold;
             font-size: 1.3rem;
             color: $white;
