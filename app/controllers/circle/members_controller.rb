@@ -2,6 +2,8 @@ class Circle::MembersController < ApplicationController
 
   skip_authorization_check # TODO: REMOVE
   before_action :ensure_logged_in
+  before_action :redirect_to_circle, only: :membership_pending
+
   include HasCircle
 
   def index
@@ -28,6 +30,14 @@ class Circle::MembersController < ApplicationController
 
 
   def membership_pending
+  end
+
+  private
+
+  def redirect_to_circle
+    if current_member.active?
+      redirect_to circle_path(current_circle)
+    end
   end
 
 end

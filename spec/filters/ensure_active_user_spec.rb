@@ -33,12 +33,26 @@ describe "EnsureActiveUser filter" do
       end
 
       context "user has a circle" do
-        it "redirects" do
-          user       = double('User', pending?: true, has_circles?: true)
-          controller = double('Controller', current_user: user)
-          allow(controller).to receive(:membership_pending_circle_member_path)
-          expect(controller).to receive(:redirect_to)
-          EnsureActiveUser.before(controller)
+        context "user isn't on pending info page" do
+          it "redirects" do
+            user       = double('User', pending?: true, has_circles?: true)
+            controller = double('Controller', current_user: user, current_circle: 42)
+            allow(controller).to receive(:membership_pending_circle_member_path)
+            allow(EnsureActiveUser).to receive(:on_pending_member_page?) { false }
+            expect(controller).to receive(:redirect_to)
+            EnsureActiveUser.before(controller)
+          end
+        end
+
+        context "user is on pending info page" do
+          it "doesn't redirect" do
+            user       = double('User', pending?: true, has_circles?: true)
+            controller = double('Controller', current_user: user)
+            allow(controller).to receive(:membership_pending_circle_member_path)
+            allow(EnsureActiveUser).to receive(:on_pending_member_page?) { true }
+            expect(controller).not_to receive(:redirect_to)
+            EnsureActiveUser.before(controller)
+          end
         end
       end
     end
