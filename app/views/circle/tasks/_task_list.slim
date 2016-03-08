@@ -5,7 +5,8 @@ h3
 .task-list
   - if tasks.present?
     - tasks.each do |task|
-      = render partial: 'circle/tasks/task_list_item', locals: { circle: circle, task: task }
+      - if can? :read, task
+        = render partial: 'circle/tasks/task_list_item', locals: { circle: circle, task: task }
 
   -else
     = t('.no-tasks')

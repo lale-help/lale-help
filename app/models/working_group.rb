@@ -19,4 +19,8 @@ class WorkingGroup < ActiveRecord::Base
   def underscored_name
     name.downcase.underscore.gsub(' ', '_')
   end
+
+  def type
+    is_private? ? :private : :public
+  end
 end
