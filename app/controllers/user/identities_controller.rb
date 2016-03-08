@@ -3,6 +3,7 @@ class User::IdentitiesController < ApplicationController
   layout 'public'
 
   def new
+    @hide_signed_in_status = true
     @form = User::Create.new
   end
 

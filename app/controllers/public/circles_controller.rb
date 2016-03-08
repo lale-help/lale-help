@@ -35,7 +35,7 @@ class Public::CirclesController < ApplicationController
   end
 
   def membership_pending
-    @hide_signed_in_info = true
+    @hide_signed_in_status = true
     @circle = circle
   end
 
