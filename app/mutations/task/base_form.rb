@@ -63,7 +63,7 @@ class Task::BaseForm < ::Form
 
   def available_working_groups
     @available_working_groups ||= begin
-      working_groups = WorkingGroup.for_circle(circle).to_a
+      working_groups = circle.working_groups.asc_order.to_a
       working_groups.select! { |wg| ability.can?(:manage, wg) } unless ability.can?(:manage, circle)
       working_groups << task.working_group unless working_groups.present?
       working_groups
