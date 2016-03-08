@@ -5,7 +5,7 @@ class EnsureActiveUser
     def before(c) # c = controller
       return unless c.current_user
       if (c.current_user.pending? && c.current_user.has_circles? && !on_pending_member_page?(c))
-        c.redirect_to pending_member_page_path(c.current_user.primary_circle)
+        c.redirect_to pending_member_page_path(c)
       end
     end
 
