@@ -887,7 +887,7 @@
       :edit_members:
         :header: Volunteers for %{name}
       :add_user_form:
-        :add: Add Volunteer
+        :add: Add
       :nav:
         :settings: Basic Settings
         :organizers: Organizers
