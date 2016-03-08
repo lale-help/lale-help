@@ -15,16 +15,14 @@ $(document).on 'page:load ready', ->
     $('#add-role').addClass('hidden')
     $('#add-role-fields').removeClass('hidden')
 
-  clipboard = new Clipboard('button[type="copy"]');
+  clipboard = new Clipboard('button[type="copy"]')
   clipboard.on 'success', (e)->
       e.clearSelection()
       Lale.Flash.info I18n.t('workflow.copied')
 
-
-  $('.activate_pending_user').closest('form').on 'ajax:success', (event)->
-      $(event.target.closest('tr')).fadeOut('duration': 1000, complete: ->
+  $('.activate_pending_user').closest('form')
+    .on 'ajax:success', (event)->
+      $(event.target.closest('tr')).fadeOut 'duration': 1000, complete: ->
         Lale.Flash.info I18n.t('workflow.activation_success')
-      );
-
-  $('.activate_pending_user').closest('form').on 'ajax:error', (event)->
+    .on 'ajax:error', (event)->
       Lale.Flash.error I18n.t('workflow.activation_error') 
