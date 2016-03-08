@@ -406,6 +406,9 @@ GEM
     slop (3.6.0)
     sort_alphabetical (1.0.2)
       unicode_utils (>= 1.2.2)
+    spring (1.6.4)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
     sprockets (3.3.4)
       rack (~> 1.0)
     sprockets-rails (2.3.3)
@@ -497,6 +500,8 @@ DEPENDENCIES
   shoulda
   slim
   slim-rails
+  spring
+  spring-commands-rspec
   terminal-table
   thor
   timezone
