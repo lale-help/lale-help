@@ -3,13 +3,14 @@ header
     = t('lale')
   .actions
     - if current_user.present?
-      - if current_user.first_name?
-        .user= t('.signed-in-as', user: current_user.first_name)
-      - else
-        .user= t('.signed-in-as', user: current_user.email)
-      - if current_user.primary_circle.present?
-        a.action-link href="#{circle_path(current_user.primary_circle)}"= current_user.primary_circle.name
-      a.action-link href="#{logout_path}"= t('.sign-out')
+      - unless @hide_signed_in_info
+        - if current_user.first_name?
+          .user= t('.signed-in-as', user: current_user.first_name)
+        - else
+          .user= t('.signed-in-as', user: current_user.email)
+        - if current_user.primary_circle.present?
+          a.action-link href="#{circle_path(current_user.primary_circle)}"= current_user.primary_circle.name
+        a.action-link href="#{logout_path}"= t('.sign-out')
 
     - elsif @skip_registration_links
     - else
