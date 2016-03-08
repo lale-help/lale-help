@@ -773,7 +773,7 @@
           the following link with people that are interested.
         :invite_headline: Invite new members
         :pending_members_headline: Activate pending members
-        :pending_members_explanation: The following members are waiting for approval, please activate them so they can start contributing
+        :pending_members_explanation: The following members are waiting for approval, please activate them so they can start contributing.
         :no_pending_members_message: There aren't any new members waiting for approval right now.
       :extended_settings: 
         :headline: Extended Settings
