@@ -69,8 +69,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 
-gem 'spring'
-gem 'spring-commands-rspec'
+  gem 'spring'
 end
 
 group :test do
