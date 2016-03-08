@@ -4,14 +4,14 @@ module ApplicationHelper
     date.strftime("%d %b %Y")
   end
 
-  def lale_form form, opts={}, &block
+  def lale_form(form, opts={}, &block)
     opts[:url]    ||= form.url
     opts[:method] ||= form.method
     form_for(form, opts, &block)
   end
 
   # TODO: Move this to ability somehow.
-  def managed_working_groups circle
+  def managed_working_groups(circle)
     if can?(:manage, circle)
       circle.working_groups
     else

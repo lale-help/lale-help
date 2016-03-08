@@ -1,16 +1,17 @@
 # FIXME: move these methods to presenter, view model etc. Phil asks Phil
 module SidebarHelper
 
-  def user_open_tasks_counter
+  def my_tasks_count
+    current_user.tasks.for_circle(current_circle).volunteered.not_completed
     current_user.tasks.for_circle(current_circle).volunteered.not_completed.count
   end
 
-  def circle_open_tasks_counter
-    current_circle.tasks.unassigned.not_completed.count.length
+  def open_tasks_count
+    current_circle.tasks.unassigned.not_completed.select { |t| can?(:read, t) }.count
   end
 
-  def supplies_counter
-    current_circle.supplies.not_completed.count
+  def all_supplies_count
+    current_circle.supplies.not_completed.select { |s| can?(:read, s) }
   end
 
   def admin_actions_counter
@@ -29,13 +30,14 @@ module SidebarHelper
     working_groups_per_user(:exclude?)
   end
 
-  def sidebar_link(name, path, opts = {})
+  def sidebar_link(name, path, opts={})
     opts[:text] = name
     opts[:path] = path
     opts[:css_selector] = "sidebar-item"
     opts[:css_selector] += " selected" if current_page?(path)
     opts[:icon_id]      ||= nil
     opts[:badge_text]   ||= nil
+    opts[:after_icon]   ||= nil
     render partial: 'layouts/internal/sidebar_item', locals: opts
   end
   

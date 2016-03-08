@@ -29,7 +29,7 @@ describe 'New User On-boarding', type: :feature, js: true do
         expect(page).to have_content(t('public.circles.index.title'))
 
         fill_in "user[location]", with: circle.address.location.geocode_query
-        find('.circle-marker .title').drag_by(0, 40)
+        sleep 1
         find('.circle-marker .button.submit').click
 
         expect(page).to have_content(t('circles.show..dashboard_title', name: circle.name))

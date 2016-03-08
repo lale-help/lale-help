@@ -38,5 +38,6 @@ module LaleHelp
   end
 end
 
-
+# Core Extentions
 require 'formtastic/inputs/json_input'
+require 'mutations/symbol_filter'

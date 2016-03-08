@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   before_action EnsureActiveUser
 
   rescue_from ::CanCan::AccessDenied do |exception|
-    puts "access denied due to #{exception.inspect}"
+    logger.error "access denied due to #{exception.inspect}"
     redirect_to root_path, :alert => exception.message
   end
 

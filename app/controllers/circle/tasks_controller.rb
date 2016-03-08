@@ -6,13 +6,17 @@ class Circle::TasksController < ApplicationController
 
   def index
     authorize! :read, current_circle
-    @tasks = current_circle.tasks.not_completed.ordered_by_date
+    @tasks = current_circle.tasks.not_completed.ordered_by_date.select do |task|
+      can? :read, task
+    end
   end
 
 
   def completed
     authorize! :read, current_circle
-    @tasks = current_circle.tasks.completed.ordered_by_date
+    @tasks = current_circle.tasks.completed.ordered_by_date.select do |task|
+      can? :read, task
+    end
   end
 
   def my

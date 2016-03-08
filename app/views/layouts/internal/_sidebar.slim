@@ -1,11 +1,11 @@
 nav
   .sidebar-section
-    = sidebar_link(t('.my-tasks'), my_circle_tasks_path(current_circle), badge_text: user_open_tasks_counter)
-    = sidebar_link(t('.all-open-tasks'), open_circle_tasks_path(current_circle), badge_text: circle_open_tasks_counter)
+    = sidebar_link(t('.my-tasks'), my_circle_tasks_path(current_circle), badge_text: my_tasks_count)
+    = sidebar_link(t('.all-open-tasks'), open_circle_tasks_path(current_circle), badge_text: open_tasks_count)
     = sidebar_link(t('.completed-tasks'), completed_circle_tasks_path(current_circle))
 
   .sidebar-section
-    = sidebar_link(t('.supplies'), circle_supplies_path(current_circle), badge_text: supplies_counter)
+    = sidebar_link(t('.supplies'), circle_supplies_path(current_circle), badge_text: all_supplies_count)
 
   .sidebar-section
     - unless can? :manage, current_circle
@@ -16,16 +16,19 @@ nav
     - if can? :manage, current_circle
       = sidebar_link(t('.admin'), circle_admin_path(current_circle), badge_text: admin_actions_counter)
 
-  .sidebar-section
-    h4= t('.working_groups')
-    - current_users_working_groups.each do |wg|
-      - if wg.persisted? && can?(:read, wg)
-        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg))
-    hr
-    - other_users_working_groups.each do |wg|
-      - if wg.persisted? && can?(:read, wg)
-        = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg))
-
+  - all_working_groups = current_circle.working_groups
+  - if all_working_groups.present?
+    .sidebar-section
+      h4= t('.working_groups')
+      - current_users_working_groups.each do |wg|
+        - if wg.persisted? && can?(:read, wg)
+          - after_icon = 'fa fa-lock' if wg.is_private?
+          = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg), after_icon: after_icon)
+      hr
+      - other_users_working_groups.each do |wg|
+        - if wg.persisted? && can?(:read, wg)
+          - after_icon = 'fa fa-lock' if wg.is_private?
+          = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg), after_icon: after_icon)
 
   .bottom
     = content_for :sidebar_bottom
