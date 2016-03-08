@@ -20,6 +20,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def extended_settings
+    @form = Circle::UpdateForm.new(user: current_user, circle: current_circle)
   end
   
   def activate_member
