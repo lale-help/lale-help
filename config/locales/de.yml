@@ -513,6 +513,7 @@
         :admin: Organisator
         :admin_ids: Organisatoren
         :description: Beschreibung
+        :type: Zugriffsrecht
     :errors:
       :messages:
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
@@ -613,7 +614,7 @@
   :tasks:
     :flash:
       :volunteered: Danke für die Hilfe bei %{name}!
-      :completed: Danke für die Erledigung bei %{name}!
+      :completed: Danke für die Hilfe bei %{name}!
       :reopened: Aufgabe wurde wieder geöffnet
       :reopening_failed: Beim Öffnen der Aufgabe trat ein Problem auf
   :users:
@@ -786,6 +787,13 @@
       :user_list:
         :actions: Aktionen
         :remove: Entfernen
+        :no-volunteers: Keine Helfer
+      :add_user_form:
+        :add: Helfer hinzufügen
+      :edit_organizers:
+        :header: Organisatoren für %{name}
+      :edit_members:
+        :header: Helfer für %{name}
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
@@ -1050,4 +1058,8 @@
       :volunteered: Vielen Dank für Deine Hilfe!
   :sidebar:
     :circle_title:
-      :new: Neu
+      :new: Hinzufügen
+  :working_group:
+    :types:
+      :public: Offen
+      :private: Geschlossen
