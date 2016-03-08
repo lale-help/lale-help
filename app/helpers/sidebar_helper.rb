@@ -11,7 +11,7 @@ module SidebarHelper
   end
 
   def all_supplies_count
-    current_circle.supplies.not_completed.select { |s| can?(:read, s) }
+    current_circle.supplies.not_completed.select { |s| can?(:read, s) }.count
   end
 
   def admin_actions_counter
