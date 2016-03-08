@@ -10,7 +10,7 @@ class Circle < ActiveRecord::Base
   has_many :leadership, ->{ Circle::Role.leadership }, through: :roles, source: :user
 
   has_many :working_groups
-  has_many :admins,   -> { distinct }, through: :working_groups
+  has_many :organizers,   -> { distinct }, through: :working_groups, source: :admins
 
   has_many :tasks, through: :working_groups
   has_many :supplies, through: :working_groups
