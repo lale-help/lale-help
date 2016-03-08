@@ -779,6 +779,13 @@
         :new-working-group: Neue Arbeitsgruppe
       :edit:
         :header: Arbeitsgruppe
+      :nav:
+        :settings: Grundeinstellungen
+        :organizers: Organisatoren
+        :members: Helfer
+      :user_list:
+        :actions: Aktionen
+        :remove: Entfernen
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!

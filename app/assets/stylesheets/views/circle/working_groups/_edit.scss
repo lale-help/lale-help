@@ -1,0 +1,52 @@
+body.internal .edit-working-group{
+  .admin-nav {
+    margin-bottom: 2rem;
+  }
+
+  .field-row {
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
+
+
+    .field {
+      margin: 0;
+      width: auto;
+      margin: 0 0.5rem;
+
+      select {
+        min-width: 200px;
+      }
+    }
+  }
+
+  table {
+    min-width: auto;
+
+    border-top: thin solid $border-color;
+
+    th:last-child, td:last-child {
+      text-align: right;
+    }
+
+    td {
+      padding: 1rem 2rem;
+    }
+
+
+    td.empty {
+      text-align: center;
+      opacity: 0.5;
+    }
+
+    .user-icon-container {
+      display: inline-block;
+      margin-right: 1rem;
+      .user-icon {
+        font-size: 1.5rem;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

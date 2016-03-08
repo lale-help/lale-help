@@ -882,6 +882,20 @@
         :new-working-group: New Working Group
       :edit:
         :header: Working Group Settings
+      :edit_organizers:
+        :header: Organizers for %{name}
+      :edit_members:
+        :header: Volunteers for %{name}
+      :add_user_form:
+        :add: Add Volunteer
+      :nav:
+        :settings: Basic Settings
+        :organizers: Organizers
+        :members: Volunteers
+      :user_list:
+        :actions: Actions
+        :remove: Remove
+        :no-volunteers: No Volunteers
     :organizers:
       :index:
         :organizers: Organizers

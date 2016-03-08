@@ -744,6 +744,13 @@
         :new-working-group: Nouveau Groupe de Travail
       :edit:
         :header: Groupe de Travail
+      :nav:
+        :settings: Paramètres de base
+        :organizers: Organisateurs
+        :members: Volontaires
+      :user_list:
+        :actions: Actions
+        :remove: Enlever
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !

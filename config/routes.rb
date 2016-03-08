@@ -27,6 +27,11 @@ Rails.application.routes.draw do
       end
 
       resources :working_groups do
+        get :edit_members,    path: '/edit/members'
+        get :edit_organizers, path: '/edit/organizers'
+        patch :add_user
+        delete :remove_user
+
         patch :join
         patch :leave
       end
