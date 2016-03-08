@@ -341,6 +341,7 @@
         :description: Description
         :admin: Organiser
         :admin_ids: Organizers
+        :type: Access Type
       :supply:
         :duration-text:
           :hours_3: 3 Hours
@@ -1036,3 +1037,7 @@
   :sidebar:
     :circle_title:
       :new: New
+  :working_group:
+    :types:
+      :public: Public
+      :private: Private
