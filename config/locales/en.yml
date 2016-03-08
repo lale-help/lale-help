@@ -690,7 +690,8 @@
     :join: Join
     :copied: Copied!
     :read_terms: View Terms and Conditions.
-    :activation_error: Failed to activate new member.
+    :activation_success: User successfully activated.
+    :activation_error: Failed to activate user.
   :language:
     :en: English
     :de: German
@@ -985,6 +986,10 @@
         :title: Start your circle of volunteers
         :details: It's a tremendous opportunity to help your community help each other
           and make the world a better place
+      :membership_pending:
+        :title: Welcome to lale!
+        :subtitle: Your circle membership is being activated.
+        :description: "The circle admins have been notified and should activate your account soon. If they don't or if you have questions, please contact them by email: %{admins_list}."
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Reset your password
