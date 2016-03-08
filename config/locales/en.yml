@@ -796,7 +796,7 @@
         :help_provided: Help Provided
         :last_help_provided: Last helped
       :public:
-        :public_members: Helperlist
+        :public_members: Helper list
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -954,7 +954,7 @@
         :completed-tasks: Completed Tasks
         :all-open-tasks: All Open Tasks
         :working_groups: Working Groups
-        :public_members: Helperlist
+        :public_members: Helper list
       :header:
         :settings: Your profile
         :find-circles: Find Circles
@@ -1048,7 +1048,7 @@
       :invite_failed: Unable to invite members to this supply. Please try again later.
   :sidebar:
     :circle_title:
-      :new: New
+      :new: Add
   :working_group:
     :types:
       :public: Public

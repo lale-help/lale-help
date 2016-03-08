@@ -751,6 +751,10 @@
       :user_list:
         :actions: Actions
         :remove: Enlever
+      :edit_organizers:
+        :header: Organisateurs de %{name}
+      :edit_members:
+        :header: Volontaires de %{name}
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
@@ -1026,6 +1030,3 @@
       :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
         de réessayer.
       :volunteered: Merci de vous êtes inscrit !
-  :sidebar:
-    :circle_title:
-      :new: Nouveau
