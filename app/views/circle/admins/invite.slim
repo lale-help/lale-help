@@ -17,5 +17,5 @@ section.admin-pending-members
   - if current_circle.pending_members.empty?
     p = t('.no_pending_members_message')
   - else
-    p = t('.pending_members_explaination')
+    p = t('.pending_members_explanation')
     = render partial: 'pending_members_list', locals: { pending_members: current_circle.pending_members }

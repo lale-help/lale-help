@@ -689,6 +689,7 @@
     :join: Join
     :copied: Copied!
     :read_terms: View Terms and Conditions.
+    :activation_error: Failed to activate new member.
   :language:
     :en: English
     :de: German
@@ -723,6 +724,8 @@
     :subject:
       :user_mailer:
         :forgot_password: Did you forget something?
+        :account_activation: A new member wants to join your circle
+        :account_activated: You have been activated!
       :task_mailer:
         :task_change: Something has changed about your task.
         :task_completion_reminder: Thanks for helping!
@@ -758,6 +761,7 @@
       :roles:
         :confirm_delete_circle: Are you sure?
         :promote_user: Promote User
+        :save: Save
       :working_groups:
         :confirm_delete_working_group: Are you sure?
         :create_working_group: New Working Group
@@ -765,11 +769,20 @@
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
           the following link with people that are interested.
+        :invite_headline: Invite new members
+        :pending_members_headline: Activate pending members
+        :pending_members_explanation: The following members are waiting for approval, please activate them so they can start contributing
+        :no_pending_members_message: There aren't any new members waiting for approval right now.
+      :extended_settings: 
+        :headline: Extended Settings
       :nav:
         :basic-settings: Basic Settings
         :roles: Roles
         :working-groups: Working Groups
         :invite-volunteers: Invite Volunteers
+        :extended-settings: Extended Settings
+      :pending_members_list:
+        :activate: Activate
     :comments:
       :placeholder: What do you want to say?
       :post: Post
