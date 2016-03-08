@@ -789,7 +789,7 @@
         :remove: Entfernen
         :no-volunteers: Keine Helfer
       :add_user_form:
-        :add: Helfer hinzufügen
+        :add: Hinzufügen
       :edit_organizers:
         :header: Organisatoren für %{name}
       :edit_members:
