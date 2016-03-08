@@ -101,8 +101,22 @@ class Task::BaseForm < ::Form
 
         t.save
 
+
         t.roles.send('task.organizer').destroy_all
-        t.roles.send('task.organizer').create user_id: organizer_id
+
+        organizer = User.find_by(id: organizer_id)
+        organizer_ability = Ability.new(organizer)
+
+        if organizer_ability.can?(:read, t)
+          t.roles.send('task.organizer').create user_id: organizer_id
+        else
+          t.roles.send('task.organizer').create user_id: user.id
+        end
+
+        volunteers_to_remove = t.volunteers.select do |volunteer|
+          Ability.new(volunteer).cannot? :read, t
+        end
+        t.roles.where(user: volunteers_to_remove).delete_all if volunteers_to_remove.present?
 
         t.location_assignments.destroy_all
         t.location_assignments.create primary: true, location: Location.location_from(primary_location)

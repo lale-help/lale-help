@@ -7,7 +7,9 @@ class Circle::SuppliesController < ApplicationController
   def index
     authorize! :read, current_circle
 
-    @supplies = current_circle.supplies.not_completed.ordered_by_date
+    @supplies = current_circle.supplies.not_completed.ordered_by_date.select do |supply|
+      can? :read, supply
+    end
   end
 
   def show
