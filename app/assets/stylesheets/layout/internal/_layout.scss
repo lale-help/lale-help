@@ -52,6 +52,12 @@ body.internal {
           &:hover {
            text-decoration: underline;
           }
+
+          .after-icon {
+            padding-left: 0.5rem;
+            opacity: 0.4;
+            font-size: 14px;
+          }
         }
 
         .badge {

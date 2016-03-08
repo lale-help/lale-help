@@ -4,23 +4,12 @@ class Circle::WorkingGroupsController < ApplicationController
 
   include HasCircle
 
-  def index
-    authorize! :read, current_circle
-  end
 
+
+  # CREATE
   def new
     authorize! :create_working_group, current_circle
     @working_group = current_circle.working_groups.build
-    @form = WorkingGroup::BaseForm.new working_group: current_working_group
-  end
-
-  def show
-    authorize! :read, current_working_group
-  end
-
-
-  def edit
-    authorize! :update, current_working_group
     @form = WorkingGroup::BaseForm.new working_group: current_working_group
   end
 
@@ -39,6 +28,59 @@ class Circle::WorkingGroupsController < ApplicationController
 
   end
 
+
+
+  # READ
+  def index
+    authorize! :read, current_circle
+  end
+
+  def show
+    authorize! :read, current_working_group
+  end
+
+
+
+  # Update
+  def edit
+    authorize! :update, current_working_group
+    @form = WorkingGroup::BaseForm.new working_group: current_working_group
+  end
+
+
+  def edit_members
+    authorize! :update, current_working_group
+
+    @members = current_working_group.members
+    @form = WorkingGroup::AddUserForm.new(working_group: current_working_group, type: :member)
+  end
+
+
+  def edit_organizers
+    authorize! :update, current_working_group
+
+    @organizers = current_working_group.admins
+    @form = WorkingGroup::AddUserForm.new(working_group: current_working_group, type: :organizer)
+  end
+
+
+  def add_user
+    authorize! :update, current_working_group
+    @form = WorkingGroup::AddUserForm.new(params[:working_group], working_group: current_working_group)
+    @form.submit
+
+    redirect_to :back
+  end
+
+
+  def remove_user
+    authorize! :update, current_working_group
+
+    current_working_group.roles.where(user_id: params[:user_id]).delete_all
+
+    redirect_to :back
+  end
+
   def update
     authorize! :update, current_working_group
 
@@ -53,6 +95,10 @@ class Circle::WorkingGroupsController < ApplicationController
     end
   end
 
+
+
+
+  # Destroy
   def destroy
     authorize! :destroy, current_working_group
 
@@ -61,6 +107,9 @@ class Circle::WorkingGroupsController < ApplicationController
     redirect_to working_groups_circle_admin_path(current_circle), notice: t('flash.destroyed', name: WorkingGroup.model_name.human)
   end
 
+
+
+  # Actions
   def join
     authorize! :join, current_working_group
 
@@ -81,5 +130,9 @@ class Circle::WorkingGroupsController < ApplicationController
 
   helper_method def current_working_group
     @working_group ||= WorkingGroup.find(params[:id] || params[:working_group_id])
+  end
+
+  helper_method def tab_class key
+    'selected' if action_name == key
   end
 end

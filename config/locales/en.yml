@@ -798,7 +798,7 @@
         :help_provided: Help Provided
         :last_help_provided: Last helped
       :public:
-        :public_members: Helperlist
+        :public_members: Helper list
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -884,6 +884,20 @@
         :new-working-group: New Working Group
       :edit:
         :header: Working Group Settings
+      :edit_organizers:
+        :header: Organizers for %{name}
+      :edit_members:
+        :header: Volunteers for %{name}
+      :add_user_form:
+        :add: Add
+      :nav:
+        :settings: Basic Settings
+        :organizers: Organizers
+        :members: Volunteers
+      :user_list:
+        :actions: Actions
+        :remove: Remove
+        :no-volunteers: No Volunteers
     :organizers:
       :index:
         :organizers: Organizers
@@ -942,7 +956,7 @@
         :completed-tasks: Completed Tasks
         :all-open-tasks: All Open Tasks
         :working_groups: Working Groups
-        :public_members: Helperlist
+        :public_members: Helper list
       :header:
         :settings: Your profile
         :find-circles: Find Circles
@@ -1036,7 +1050,7 @@
       :invite_failed: Unable to invite members to this supply. Please try again later.
   :sidebar:
     :circle_title:
-      :new: New
+      :new: Add
   :working_group:
     :types:
       :public: Public

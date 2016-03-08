@@ -1,0 +1,11 @@
+-if form.available_users.present?
+  = form_for form, url: circle_working_group_add_user_path, method: :patch do |f|
+    = f.hidden_field :type
+
+    .field-row
+      .field
+        = f.collection_select :user_id, form.available_users, :id, :name
+
+      .field
+        = f.submit t('.add'), class: 'button-primary'
+

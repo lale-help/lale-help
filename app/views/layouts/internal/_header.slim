@@ -21,7 +21,7 @@ header
 
       .menu.user-dropdown
         = link_to(t('.settings'), account_path)
-        a href=public_circles_path =t('.find-circles')
+        /a href=public_circles_path =t('.find-circles')
         hr
         - if can?(:manage_site, nil)
           a href=admin_root_path =t('.admin')

@@ -199,7 +199,7 @@
   :hello: Salut !
   :edit: Editer
   :delete: Supprimer
-  :supported-by: Developé par
+  :supported-by: Développé par
   :workflow:
     :continue: Continuer
     :cancel: Annuler
@@ -317,7 +317,7 @@
       :user: Volontaire
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
-      :working_group: Groupe de Travail
+      :working_group: Groupe
       :supply:
         :one: Besoin
         :other: Besoins
@@ -329,7 +329,7 @@
         :name: Nom de cercle
         :tasks: Tâche
         :volunteers: Volontaire
-        :working_groups: Groupes de Travail
+        :working_groups: Groupes
         :roles: Roles
         :language: Langue
         :admin: Administrateur
@@ -374,7 +374,7 @@
         :skills: Compétences
         :volunteer_assignments: Allocation de volontaires
         :volunteers: Volontaires
-        :working_group: Groupe de Travail
+        :working_group: Groupe
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
@@ -390,7 +390,7 @@
           :hours_3: 3 Heures
           :half_day: Une demie journée
           :all_day: Un jour entier
-        :working_group_id: Groupe de Travail
+        :working_group_id: Groupe
         :scheduled-time-select:
           :between: Entre
           :at: A
@@ -407,7 +407,7 @@
         :skill_assignments: Allocation de compétences
         :skills: Compétences
         :volunteer: Volontaire
-        :working_group: Groupe de Travail
+        :working_group: Groupe
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
@@ -464,7 +464,7 @@
         :mobile_phone: Tel. Portable
         :phone: Numéro de Téléphone
         :public_profile: Montrer mon profil à tous les membres du cercle
-        :working_groups: Groupes de Travail
+        :working_groups: Groupes
         :street_address: Rue
         :city: Ville
         :country: Pays
@@ -490,6 +490,7 @@
         :admin_ids: Organisateurs
         :actions: Actions
         :description: Description
+        :type: Type d'Accès
     :errors:
       :messages:
         :record_invalid: 'La validation a échoué : %{errors}'
@@ -618,7 +619,7 @@
         :settings: Paramètres
         :confirm_delete_circle: Etes-vous sure ?
         :confirm_delete_working_group: Etes-vous sure ?
-        :create_working_group: Créer un Groupe de Travail
+        :create_working_group: Créer un Groupe
         :promote_user: Promouvoir cet utilisateur au role
       :invite:
         :invite_members: Inviter des membres à joindre le cerle %{circle}
@@ -628,15 +629,15 @@
         :basic-settings: Paramètres de base
         :invite-volunteers: Inviter des Volontaires
         :roles: Roles
-        :working-groups: Groupes de Travail
+        :working-groups: Groupes
       :roles:
         :confirm_delete_circle: Etes-vous sure ?
         :promote_user: Promouvoir cet utilisateur
       :working_groups:
         :confirm_delete_working_group: Etes-vous sure ?
-        :create_working_group: Nouveau Groupe de Travail
+        :create_working_group: Nouveau Groupe
     :comments:
-      :placeholder: Que voulez-vous dire?
+      :placeholder: Poster un commentaire.
       :post: Poster
       :reply: Répondre
       :actions:
@@ -656,7 +657,7 @@
         :member_since: Membre Depuis
         :tasks_supplies_completed: Aide fournie
         :edit_profile: Editer mon Profil
-        :working_groups: Groupes de Travail
+        :working_groups: Groupes
       :public:
         :public_members: " Liste de Volontaires"
       :list:
@@ -739,11 +740,25 @@
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
       :index:
-        :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes de Travail
+        :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes
       :new:
-        :new-working-group: Nouveau Groupe de Travail
+        :new-working-group: Nouveau Groupe
       :edit:
-        :header: Groupe de Travail
+        :header: Groupe
+      :nav:
+        :settings: Paramètres de base
+        :organizers: Organisateurs
+        :members: Volontaires
+      :user_list:
+        :actions: Actions
+        :remove: Enlever
+        :no-volunteers: Pas de Volontaires
+      :edit_organizers:
+        :header: Organisateurs de %{name}
+      :edit_members:
+        :header: Volontaires de %{name}
+      :add_user_form:
+        :add: Ajouter
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
@@ -767,8 +782,8 @@
         :volunteer: Je peux le faire !
         :complete: Compléter la tâche
       :working-group:
-        :new: Ajouter un Nouveau Groupe de Travail
-        :filter: Filtrer les Groupes de Travail
+        :new: Ajouter un Nouveau Groupe
+        :filter: Filtrer les Groupes
       :view-burnup-chart: Voir le Graphique d'Utilisation
       :circle-dashboard: Tableau de Bord du Cercle
       :circle_leaders: Leaders du Cercle
@@ -776,7 +791,7 @@
       :dashboard_title: Tableau de Bord pour %{name}
       :need_help: Besoin d'aide ?
       :open_tasks: Tâches Ouvertes
-      :working_group_organizers: Organisateurs du Groupe de Travail
+      :working_group_organizers: Organisateurs du Groupe
     :edit:
       :header: Editer le Cercle
       :show: Voir
@@ -799,12 +814,12 @@
         :directory: " Liste de Volontaires"
         :discussions: Discussions
         :admin: Administration
-        :my-working-groups: Mes Groupes de Travail
-        :all-working-groups: Tous les Groupes de Travail
-        :completed-tasks: Tâches complétées
+        :my-working-groups: Mes Groupes
+        :all-working-groups: Tous les Groupes
+        :completed-tasks: Tâches Complétées
         :organizers: Organisateurs
         :all-open-tasks: Tâches Ouvertes
-        :working_groups: Groupes de Travail
+        :working_groups: Groupes
         :public_members: Liste de Volontaires
       :header:
         :settings: Paramètres
@@ -1021,4 +1036,8 @@
       :volunteered: Merci de vous êtes inscrit !
   :sidebar:
     :circle_title:
-      :new: Nouveau
+      :new: Ajouter
+  :working_group:
+    :types:
+      :private: Privé
+      :public: Public

@@ -1,0 +1,13 @@
+table
+  - users.each do |member|
+    tr
+      td
+        = render partial: 'user/user_icon', locals: { user: member, link: true }
+        = member.name
+
+      td
+        = link_to t('.remove'), circle_working_group_remove_user_path(user_id: member), method: :delete
+
+  - unless users.present?
+    tr
+      td.empty colspan=2 = t('.no-volunteers')
