@@ -50,7 +50,6 @@ body.internal {
       }
 
       .circle-add-menu {
-        font-size: 2rem;
         display: inline-block;
 
         :after {
@@ -69,21 +68,21 @@ body.internal {
             @include align-items(center);
             @include justify-content(left);
             &:after{
-              font-weight: bolder;
+              font-weight: 900;
               font-style: normal;
-              font-size: 1rem;
+              font-size: 9px;
               display: inline-block;
               text-decoration: inherit;
-              line-height: 1;
+              line-height: 13px;
               content: '+';
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
               background: $white;
-              padding: 0 0.2rem 0.1rem 0.2rem;
-              border-radius: 0.5rem;
+              padding: 0 3px;
+              border-radius: 0.7rem;
             }
-            font-weight: bold;
-            font-size: 1.3rem;
+            font-weight: 500;
+            font-size: 16px;
             color: $white;
             border-radius: 4px;
             background-color: $orange;
