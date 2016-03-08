@@ -11,6 +11,7 @@ module ApplicationHelper
     opts[:css_selector] += " selected" if current_page?(path)
     opts[:icon_id]      ||= nil
     opts[:badge_text]   ||= nil
+    opts[:after_icon]   ||= nil
     render partial: 'layouts/internal/sidebar_item', locals: opts
   end
 

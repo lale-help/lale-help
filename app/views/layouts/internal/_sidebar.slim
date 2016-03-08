@@ -27,7 +27,7 @@ nav
 
       - working_groups_per_user(all_working_groups, current_user, :include?).each do |wg|
         - if wg.persisted? && can?(:read, wg)
-          = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count)
+          = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count, after_icon: 'fa fa-lock')
       hr
       - working_groups_per_user(all_working_groups, current_user, :exclude?).each do |wg|
         - if wg.persisted? && can?(:read, wg)
