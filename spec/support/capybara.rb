@@ -1,4 +1,5 @@
-Capybara.current_driver = :selenium
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
 
 Capybara.server do |app, port|
   Rack::Handler::Unicorn.run app, Port: port
