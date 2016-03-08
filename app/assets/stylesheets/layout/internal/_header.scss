@@ -30,6 +30,24 @@ body.internal {
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+    }
+
+    .header-middle {
+      @include flex(1);
+
+      a.back {
+        margin-left: 1rem;
+
+        @include lale-icon($lale-icon-arrow-left);
+        @include display(flex);
+        @include flex-direction(row);
+        @include align-items(center);
+
+        &:before {
+          font-size:    2.25rem;
+          margin-right: 0.5em;
+        }
+      }
 
       .circle-add-menu {
         font-size: 2rem;
@@ -51,18 +69,17 @@ body.internal {
             @include align-items(center);
             @include justify-content(left);
             &:after{
-              font-family: 'lale';
               font-weight: bolder;
               font-style: normal;
               font-size: 1rem;
               display: inline-block;
               text-decoration: inherit;
-              line-height: 0.9;
+              line-height: 1;
               content: '+';
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
               background: $white;
-              padding: 0.1rem 0.2rem;
+              padding: 0 0.2rem 0.1rem 0.2rem;
               border-radius: 0.5rem;
             }
             font-weight: bold;
@@ -81,25 +98,6 @@ body.internal {
           }
         }
       }
-    }
-
-    .header-middle {
-      @include flex(1);
-
-      a.back {
-        margin-left: 1rem;
-
-        @include lale-icon($lale-icon-arrow-left);
-        @include display(flex);
-        @include flex-direction(row);
-        @include align-items(center);
-
-        &:before {
-          font-size:    2.25rem;
-          margin-right: 0.5em;
-        }
-      }
-
     }
 
     .header-right {

@@ -1032,5 +1032,5 @@
       :invited: Invited members of %{name} to this supply
       :invite_failed: Unable to invite members to this supply. Please try again later.
   :sidebar:
-    :circle_title:
+    :circle_add_menu:
       :add: Add

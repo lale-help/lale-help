@@ -1,3 +1,6 @@
+- content_for :header_middle do
+  = render partial: 'sidebar/circle_add_menu', locals: { circle: current_circle }
+
 .circle-dashboard
   .header
     .left
