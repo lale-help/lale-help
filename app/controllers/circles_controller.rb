@@ -18,16 +18,16 @@ class CirclesController < ApplicationController
   def update
     authorize! :manage, current_circle
 
-    @form = Circle::UpdateForm.new(params[:circle], user: current_user, circle: current_circle)
+    @form = form_for_update
 
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to redirect_path_after_update, notice: t('flash.updated', name: Circle.model_name.human)
+      redirect_to @form.redirect_path, notice: t('flash.updated', name: Circle.model_name.human)
     else
       flash.now[:error] = t('flash.failed.update', name: Circle.model_name.human)
       errors.add outcome.errors
-      render view_for_update_error
+      render @form.view_for_error
     end
   end
 
@@ -39,19 +39,9 @@ class CirclesController < ApplicationController
 
   private
 
-  # FIXME discuss Phil/Phil if these would be ok on the mutation object, and if mutation objects 
-  # should be used for different actions (basic settings, extended settings).
-  def redirect_path_after_update
-    if params[:circle][:must_activate_users]
-      extended_settings_circle_admin_path(current_circle)
-    else
-      circle_admin_path(current_circle)
-    end
-  end
-
-  # FIXME see above
-  def view_for_update_error
-    params[:circle][:must_activate_users] ? 'circle/admins/extended_settings' : 'circle/admins/show'
+  def form_for_update
+    klass = params[:circle][:must_activate_users] ? Circle::UpdateExtendedSettingsForm : Circle::UpdateBasicSettingsForm
+    klass.new(params[:circle], user: current_user, circle: current_circle)
   end
 
 end

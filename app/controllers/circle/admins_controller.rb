@@ -7,7 +7,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def show
-    @form = Circle::UpdateForm.new(user: current_user, circle: current_circle)
+    @form = Circle::UpdateBasicSettingsForm.new(user: current_user, circle: current_circle)
   end
 
   def roles
@@ -20,7 +20,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def extended_settings
-    @form = Circle::UpdateForm.new(user: current_user, circle: current_circle)
+    @form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
   end
   
   def activate_member
