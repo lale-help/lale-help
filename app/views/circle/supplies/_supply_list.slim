@@ -5,7 +5,8 @@ h2
 .task-list
   - if supplies.present?
     - supplies.each do |supply|
-      = render partial: 'circle/supplies/supply_list_item', locals: { circle: circle, supply: supply }
+      - if can? :read, supply
+        = render partial: 'circle/supplies/supply_list_item', locals: { circle: circle, supply: supply }
 
   -else
     = t('.no-supplies')

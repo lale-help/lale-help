@@ -71,7 +71,12 @@ class Ability
 
     # Work Groups
     can :read, WorkingGroup do |wg|
-      can? :read, wg.circle
+      if wg.is_private?
+        can?(:manage, wg.circle) ||
+          wg.users.include?(user)
+      else
+        can?(:read, wg.circle)
+      end
     end
 
     can :manage, WorkingGroup do |wg|
@@ -100,7 +105,7 @@ class Ability
 
     # Tasks
     can :read, Task do |task|
-      can? :read, task.circle
+      can?(:read, task.working_group)
     end
 
     can :manage, Task do |task|
@@ -162,7 +167,7 @@ class Ability
 
     # Supply
     can :read, Supply do |supply|
-      can? :read, supply.circle
+      can?(:read, supply.working_group)
     end
 
     can :manage, Supply do |supply|

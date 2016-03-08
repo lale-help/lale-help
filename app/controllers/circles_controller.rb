@@ -7,8 +7,12 @@ class CirclesController < ApplicationController
   include HasCircle
 
   def show
-    @open_tasks = current_circle.tasks.not_completed.ordered_by_date
-    @open_supplies = current_circle.supplies.not_completed.ordered_by_date
+    @open_tasks = current_circle.tasks.not_completed.ordered_by_date.select do |task|
+      can? :read, task
+    end
+    @open_supplies = current_circle.supplies.not_completed.ordered_by_date.select do |supply|
+      can? :read, supply
+    end
   end
 
   def update
