@@ -16,6 +16,8 @@ class WorkingGroup < ActiveRecord::Base
 
   validates :name, presence: true
   validates :circle, presence: true
+  validates_uniqueness_of :name, scope: :circle
+
 
   def underscored_name
     name.downcase.underscore.gsub(' ', '_')

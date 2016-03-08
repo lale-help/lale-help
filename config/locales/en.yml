@@ -173,6 +173,8 @@
       :empty: can't be empty
     :primary_location:
       :empty: can't be empty
+    :working_group_name:
+      :not_unique: Working Group name must be unique
   :activerecord:
     :errors:
       :messages:
