@@ -8,6 +8,5 @@ addons:
 
 before_script:
   - rake db:init db:create db:migrate
-  - phantomjs -v # let's see what Travis has available
 
 script: bin/rspec -f doc
