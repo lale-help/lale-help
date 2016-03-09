@@ -17,6 +17,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def invite
+    @pending_members = current_circle.pending_members
   end
 
   def extended_settings
