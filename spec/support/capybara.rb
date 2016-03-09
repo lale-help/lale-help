@@ -2,6 +2,7 @@ if (false)
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
 else
+  # Hello World
   Capybara.current_driver = :selenium
 end
 
