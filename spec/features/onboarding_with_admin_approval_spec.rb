@@ -43,6 +43,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
       # - circle admin is notified by email
       expect(last_email.to.first).to eq(circle.admins.first.email)
+      expect(last_email.subject).to eq("[Lale] #{t('mailers.subject.user_mailer.account_activation')}")
     end
   end
 
@@ -84,6 +85,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       
       # new user is notified
       expect(last_email.to.first).to eq(new_member.email)
+      expect(last_email.subject).to eq("[Lale] #{t('mailers.subject.user_mailer.account_activated')}")
 
       # user appears in helper list
       click_on t('circle.members.index.directory')
