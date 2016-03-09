@@ -1,9 +1,9 @@
 #
-# requires the gem action_mailer_cache_delivery
-#
-# cache_emails has the Rails server thread send the emails in a way that they can be accessed
+# has the Rails server thread send the emails so that they can be accessed
 # from the test thread
 #
+# requires the gem action_mailer_cache_delivery
+# 
 RSpec.configure do |config|
 
   module CachedEmailHelpers

@@ -281,4 +281,148 @@ http_interactions:
         06:41","timezoneId":"America/Los_Angeles","lat":37.7929789}'
     http_version: 
   recorded_at: Mon, 29 Feb 2016 05:06:04 GMT
+- request:
+    method: get
+    uri: http://maps.googleapis.com/maps/api/geocode/json?address=San%20Francisco,%20CA,%2094109,%20USA&language=en&sensor=false
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Wed, 09 Mar 2016 18:04:05 GMT
+      Expires:
+      - Thu, 10 Mar 2016 18:04:05 GMT
+      Cache-Control:
+      - public, max-age=86400
+      Access-Control-Allow-Origin:
+      - "*"
+      Server:
+      - mafe
+      Content-Length:
+      - '465'
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - SAMEORIGIN
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+           "results" : [
+              {
+                 "address_components" : [
+                    {
+                       "long_name" : "94109",
+                       "short_name" : "94109",
+                       "types" : [ "postal_code" ]
+                    },
+                    {
+                       "long_name" : "San Francisco",
+                       "short_name" : "SF",
+                       "types" : [ "locality", "political" ]
+                    },
+                    {
+                       "long_name" : "San Francisco County",
+                       "short_name" : "San Francisco County",
+                       "types" : [ "administrative_area_level_2", "political" ]
+                    },
+                    {
+                       "long_name" : "California",
+                       "short_name" : "CA",
+                       "types" : [ "administrative_area_level_1", "political" ]
+                    },
+                    {
+                       "long_name" : "United States",
+                       "short_name" : "US",
+                       "types" : [ "country", "political" ]
+                    }
+                 ],
+                 "formatted_address" : "San Francisco, CA 94109, USA",
+                 "geometry" : {
+                    "bounds" : {
+                       "northeast" : {
+                          "lat" : 37.8128889,
+                          "lng" : -122.411699
+                       },
+                       "southwest" : {
+                          "lat" : 37.7811169,
+                          "lng" : -122.4326081
+                       }
+                    },
+                    "location" : {
+                       "lat" : 37.7929789,
+                       "lng" : -122.4212424
+                    },
+                    "location_type" : "APPROXIMATE",
+                    "viewport" : {
+                       "northeast" : {
+                          "lat" : 37.8128889,
+                          "lng" : -122.411699
+                       },
+                       "southwest" : {
+                          "lat" : 37.7811169,
+                          "lng" : -122.4326081
+                       }
+                    }
+                 },
+                 "place_id" : "ChIJy0ilcOmAhYARCLOo6oZQNxk",
+                 "types" : [ "postal_code" ]
+              }
+           ],
+           "status" : "OK"
+        }
+    http_version: 
+  recorded_at: Wed, 09 Mar 2016 18:04:05 GMT
+- request:
+    method: get
+    uri: http://api.geonames.org/timezoneJSON?lat=37.7929789&lng=-122.4212424&username=lale
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 09 Mar 2016 18:04:07 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Content-Length:
+      - '249'
+      Connection:
+      - close
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"time":"2016-03-09 10:04","countryName":"United States","sunset":"2016-03-09
+        18:12","rawOffset":-8,"dstOffset":-7,"countryCode":"US","gmtOffset":-8,"lng":-122.4212424,"sunrise":"2016-03-09
+        06:28","timezoneId":"America/Los_Angeles","lat":37.7929789}'
+    http_version: 
+  recorded_at: Wed, 09 Mar 2016 18:04:06 GMT
 recorded_with: VCR 2.9.3

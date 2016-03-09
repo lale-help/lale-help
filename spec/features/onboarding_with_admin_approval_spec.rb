@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'New User On-boarding', type: :feature, js: true do
 
+
   def fill_in_form
     fill_in "First Name",            with: "Phil"
     fill_in "Last Name",             with: "Monroe"
@@ -15,7 +16,8 @@ describe 'New User On-boarding', type: :feature, js: true do
     check   "Accept Terms and Conditions"
   end
 
-    context 'circle membership requires admin approval' do
+
+  context 'circle membership requires admin approval' do
 
     let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
 
@@ -39,9 +41,59 @@ describe 'New User On-boarding', type: :feature, js: true do
       # - sees the "pending" message
       expect(page).to have_content(t('public.circles.membership_pending.subtitle'))
 
-      # circle admin is notified by email
+      # - circle admin is notified by email
       expect(last_email.to.first).to eq(circle.admins.first.email)
     end
+  end
+
+
+  context "admin approves new user", type: :feature do
+    
+    let!(:circle) { submit_form(:circle_create_form).result }
+    let!(:new_member) { create(:pending_user, primary_circle: circle) }
+
+    it "works" do
+      # verify setup
+      # be aware that new_member needs to have primary_circle assigned
+      # AND there must be a role joining them
+      circle.roles.send('circle.volunteer').create user: new_member
+      expect(circle.volunteers).to include(new_member)
+
+      # circle admin goes to manage users page
+      visit circle_path(circle, as: circle.admins.first)
+      click_on t('layouts.internal.sidebar.admin')
+      click_on t('circle.admins.nav.invite-volunteers')
+
+      # ensure we are on track. This also waits for the page to load
+      expect(page).to have_content(t('circle.admins.invite.pending_members_headline'))
+      expect(page).to have_content(new_member.name)
+
+      # ensure admin action is properly indicated
+      expect(page).to have_css('#admin_link .badge')
+      expect(page).to have_css('.admin-nav .invite .before-icon')
+
+      # circle admin clicks on Accept
+      click_on t('circle.admins.pending_members_list.activate')
+
+      # user disappears
+      expect(page).not_to have_content(new_member.name)
+
+      # admin action indicators disappear
+      expect(page).not_to have_css('#admin_link .badge')
+      expect(page).not_to have_css('.admin-nav .invite .before-icon')
+      
+      # new user is notified
+      expect(last_email.to.first).to eq(new_member.email)
+
+      # user appears in helper list
+      click_on t('circle.members.index.directory')
+      expect(page).to have_content(new_member.name)
+    end
+  end
+
+
+  context "new user logs in" do
+    it "works"
   end
 
 end
