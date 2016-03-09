@@ -15,7 +15,7 @@ describe 'New User On-boarding', type: :feature, js: true do
     check   "Accept Terms and Conditions"
   end
 
-  context 'circle membership requires admin approval' do
+    context 'circle membership requires admin approval' do
 
     let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
 
@@ -31,9 +31,16 @@ describe 'New User On-boarding', type: :feature, js: true do
       click_on "Continue"
       expect(page).to have_content(t('public.circles.index.title'))
     
-      # - chooses circle which requires admin approval
-      
+      # - chooses a circle which requires admin approval
+      fill_in "user[location]", with: circle.address.location.geocode_query
+      sleep 1
+      find('.circle-marker .button.submit').click
+
       # - sees the "pending" message
+      expect(page).to have_content(t('public.circles.membership_pending.subtitle'))
+
+      # circle admin is notified by email
+      expect(last_email.to.first).to eq(circle.admins.first.email)
     end
   end
 

@@ -1,10 +1,13 @@
-require 'capybara/poltergeist'
-Capybara.javascript_driver = :poltergeist
+if (true)
+  require 'capybara/poltergeist'
+  Capybara.javascript_driver = :poltergeist
+else
+  Capybara.current_driver = :selenium
+end
 
 Capybara.server do |app, port|
   Rack::Handler::Unicorn.run app, Port: port
 end
-
 
 module CapybaraExtension
   def drag_by(right_by, down_by)

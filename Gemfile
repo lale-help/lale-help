@@ -78,4 +78,5 @@ group :test do
   gem 'faker'
   gem 'vcr'
   gem 'webmock'
+  gem 'action_mailer_cache_delivery'
 end
