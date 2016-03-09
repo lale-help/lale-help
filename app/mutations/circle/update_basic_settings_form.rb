@@ -11,13 +11,7 @@ class Circle::UpdateBasicSettingsForm < Circle::BaseForm
   class Submit < Circle::BaseForm::Submit
 
     def execute
-      circle.assign_attributes inputs.slice(:name)
-      circle.language = Circle.languages[language]
-      circle.address.assign_attributes inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country)
-
-      circle.save
-
-      circle
+      super
     end
 
   end
