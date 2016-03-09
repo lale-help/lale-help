@@ -28,7 +28,8 @@ $(document).on 'page:load ready', ->
         badge = $('#admin_link').children('span.badge')
         task_count = parseInt(badge.text())        
         if (task_count == 1)
-          badge.hide()
+          badge.fadeOut()
+          $('.admin-nav .invite .before-icon').fadeOut()
         else
           badge.text(task_count - 1)
         Lale.Flash.info I18n.t('workflow.activation_success')

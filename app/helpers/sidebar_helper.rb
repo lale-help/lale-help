@@ -15,7 +15,7 @@ module SidebarHelper
   end
 
   def admin_actions_counter
-    current_circle.pending_members.count 
+    pending_admin_actions_count
   end
 
   def working_group_counter(working_group)
@@ -38,6 +38,7 @@ module SidebarHelper
     opts[:icon_id]      ||= nil
     opts[:badge_text]   ||= nil
     opts[:after_icon]   ||= nil
+    opts[:id]           ||= nil
     render partial: 'layouts/internal/sidebar_item', locals: opts
   end
   

@@ -41,6 +41,13 @@ table {
     background: $blue-light-2;
     border-bottom: thick solid $orange;
   }
+
+  .before-icon {
+    padding-right: 0.5rem;
+    opacity: 0.8;
+    font-size: 12px;
+    color: $orange; 
+  }
 }
 
 section.admin-invite, 

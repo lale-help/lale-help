@@ -29,6 +29,6 @@ class Circle::AdminsController < ApplicationController
   end
 
   helper_method def tab_class key
-    'selected' if action_name == key
+    (action_name == key) ? "#{key} selected" : key
   end
 end
