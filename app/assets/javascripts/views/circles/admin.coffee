@@ -23,6 +23,14 @@ $(document).on 'page:load ready', ->
   $('.activate_pending_user').closest('form')
     .on 'ajax:success', (event)->
       $(event.target.closest('tr')).fadeOut 'duration': 1000, complete: ->
+        # FIXME add id to admin link
+        # FIXME also update dot in 2nd level nav
+        badge = $('#admin_link').children('span.badge')
+        task_count = parseInt(badge.text())        
+        if (task_count == 1)
+          badge.hide()
+        else
+          badge.text(task_count - 1)
         Lale.Flash.info I18n.t('workflow.activation_success')
     .on 'ajax:error', (event)->
       Lale.Flash.error I18n.t('workflow.activation_error') 
