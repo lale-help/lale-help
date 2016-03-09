@@ -56,6 +56,11 @@ main.form
             = f.text_field :home_phone
             = errors.message_for(:home_phone)
 
+        .field-row
+          .field
+            = f.check_box :public_profile
+            = f.label :public_profile, t('user.identities.new.public_profile')
+
         hr
 
         .field-row
