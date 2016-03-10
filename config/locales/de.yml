@@ -887,6 +887,11 @@
       :sign-in-phrase: In den Helferkreis einloggen
       :reset-password: Passwort zurücksetzen
       :sign-in: Einloggen
+    :destroy:
+      :signed_out: Erfolgreich ausgeloggt!
+    :create:
+      :login_error: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
+
   :user:
     :account:
       :edit:
