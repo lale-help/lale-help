@@ -7,7 +7,7 @@ describe 'Login and logout', type: :feature, js: true do
     fill_in "Password",      with: user.identity.password
   end
 
-  context 'Login with correct data' do
+  context 'Login with correct data', :ci_ignore do
 
     let!(:circle) { submit_form(:circle_create_form).result }
     let!(:user) do
@@ -23,7 +23,9 @@ describe 'Login and logout', type: :feature, js: true do
       expect(page).to have_content(t('circles.show..dashboard_title', name: circle.name))
 
       find('.user-name').click
+      find('.user-dropdown') # #find waits until the selector becomes available
       click_on t('layouts.internal.header.sign-out')
+      find('body.public h2') # #find waits until the selector becomes available
       expect(page).to have_content(t('sessions.new.sign-in-phrase'))
     end
   end
