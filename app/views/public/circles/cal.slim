@@ -1,0 +1,29 @@
+section
+
+  css:
+    input#datetimepicker {
+      width: auto;
+    }
+
+    .xdsoft_calendar table {
+      min-width: auto;
+    }
+
+  input#datetimepicker type="text" value="10.04.2016 17:15"
+  | &nbsp;
+  i#datetimepicker-toggle.before-icon class="fa fa-calendar"
+
+  javascript:
+    $.datetimepicker.setLocale('de');
+    $('#datetimepicker').datetimepicker({
+      step: 15,
+      dayOfWeekStart: 1,
+      format: 'd.m.Y H:i',
+      minDate: 0,
+      startDate: "10.04.2016 17:15"
+    });
+
+    $('#datetimepicker-toggle').click(function() {
+      console.log("Toggle")
+      $('#datetimepicker').datetimepicker('toggle');
+    });
