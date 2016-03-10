@@ -2,7 +2,6 @@
 module SidebarHelper
 
   def my_tasks_count
-    current_user.tasks.for_circle(current_circle).volunteered.not_completed
     current_user.tasks.for_circle(current_circle).volunteered.not_completed.count
   end
 
