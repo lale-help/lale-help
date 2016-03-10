@@ -24,9 +24,9 @@ module ApplicationHelper
   # TODO: Move this to ability somehow.
   def managed_working_groups circle
     if can?(:manage, circle)
-      circle.working_groups
+      circle.working_groups.asc_order
     else
-      circle.working_groups.select{|wg| can?(:manage, wg)}
+      circle.working_groups.asc_order.select{|wg| can?(:manage, wg)}
     end
   end
 

@@ -7,7 +7,7 @@ section
       th= current_circle.working_groups.human_attribute_name("admin")
       th= current_circle.working_groups.human_attribute_name("actions")
 
-    - current_circle.working_groups.each do |group|
+    - current_circle.working_groups.asc_order.each do |group|
       tr
         td= group.name
         td

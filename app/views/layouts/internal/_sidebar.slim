@@ -20,7 +20,7 @@ nav
     - if can? :manage, current_circle
       = sidebar_link(t('.admin'),    circle_admin_path(current_circle))
 
-  - all_working_groups = current_circle.working_groups
+  - all_working_groups = current_circle.working_groups.asc_order
   - if all_working_groups.present?
     .sidebar-section
       h4= t('.working_groups')
@@ -34,7 +34,6 @@ nav
         - if wg.persisted? && can?(:read, wg)
           - after_icon = 'fa fa-lock' if wg.is_private?
           = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: wg.tasks.not_completed.count + wg.supplies.not_completed.count, after_icon: after_icon)
-
 
   .bottom
     = content_for :sidebar_bottom

@@ -16,12 +16,13 @@ class Circle::WorkingGroupsController < ApplicationController
   def create
     authorize! :create_working_group, current_circle
     @working_group = current_circle.working_groups.build
-    @form = WorkingGroup::BaseForm.new params[:working_group], working_group: current_working_group
+    @form = WorkingGroup::Create.new params[:working_group], working_group: current_working_group
     outcome = @form.submit
 
     if outcome.success?
       redirect_to working_groups_circle_admin_path(current_circle), notice: t('flash.created', name: WorkingGroup.model_name.human)
     else
+      errors.add outcome.errors
       render :new
     end
 
@@ -83,12 +84,13 @@ class Circle::WorkingGroupsController < ApplicationController
   def update
     authorize! :update, current_working_group
 
-    @form = WorkingGroup::BaseForm.new params[:working_group], working_group: current_working_group
+    @form = WorkingGroup::Update.new params[:working_group], working_group: current_working_group
     outcome = @form.submit
 
     if outcome.success?
       redirect_to circle_working_group_path(current_circle, current_working_group), notice: t('flash.updated', name: WorkingGroup.model_name.human)
     else
+      errors.add outcome.errors
       render :edit
     end
   end
