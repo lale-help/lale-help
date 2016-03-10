@@ -78,18 +78,17 @@
       margin-right: 10px;
       display: inline-block;
 
-      &:before{
-//        padding-right: .75rem;
-        padding-right: 10px; //TODO find a better way to fix this for IE
+      i {
+        margin-right: 1rem;
       }
 
-
-      &--users {
+      &--users i{
         @include lale-icon($lale-icon-user, 1.0em);
       }
 
-      &--comments {
-        @include lale-icon($lale-icon-comment, 1.0em);
+      &--comments i {
+         @extend .octicon;
+         @extend .octicon-comment;
       }
     }
 
