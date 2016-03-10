@@ -229,6 +229,9 @@
     :join: Beitreten
     :copied: Kopiert!
     :read_terms: Bitte Nutzungsbedingungen lesen.
+    :activation_error: Fehler beim Aktivieren des neuen Helfers.
+    :activation_success: Neuer Helfer erfolgreich aktiviert!
+    :save: Speichern
   :language:
     :en: Englisch
     :de: Deutsch
@@ -587,6 +590,8 @@
       :empty: Bitte ein gültiges Land angeben
     :postal_code:
       :empty: Bitte eine Postleitzahl angeben
+    :working_group_name:
+      :not_unique: Name der Arbeitsgruppe darf nur einmal vergeben werden
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -624,6 +629,8 @@
     :subject:
       :user_mailer:
         :forgot_password: Passwort vergessen?
+        :account_activated: Dein Konto wurde aktiviert!
+        :account_activation: Ein neuer Helfer möchte Deinem Helferkreis beitreten.
       :task_mailer:
         :task_change: Es gibt etwas Neues bei Deiner Aufgabe.
         :task_completion_reminder: Vielen Dank für Deine Hilfe!
@@ -661,6 +668,7 @@
       :roles:
         :confirm_delete_circle: Bist Du sicher?
         :promote_user: Rolle vergeben
+        :save: Speichern
       :working_groups:
         :confirm_delete_working_group: Bist Du sicher?
         :create_working_group: Neue Arbeitsgruppe
@@ -668,11 +676,22 @@
         :invite_members: Neue Mitglieder zu %{circle} einladen
         :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
           schicke einfach diesen Link an alle Interessierten.
+        :invite_headline: Neue Helfer einladen
+        :no_pending_members_message: Momentan keine ausstehenden Beitrittsanfragen.
+        :pending_members_explanation: Folgende Helfer möchten gerne dem Helferkreis
+          beitreten. Bitte bestätige die Anfragen, damit sie mithelfen können.
+        :pending_members_headline: Offene Beitrittsanfragen
       :nav:
-        :basic-settings: Grundeinstellungen
+        :basic-settings: Helferkreisprofil
         :roles: Rollen
         :working-groups: Arbeitsgruppen
         :invite-volunteers: Helfer einladen
+        :extended-settings: Weitere Einstellungen
+      :extended_settings:
+        :headline: Weitere Einstellungen
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
+      :pending_members_list:
+        :activate: Aktivieren
     :comments:
       :placeholder: Was möchtest du sagen?
       :post: Kommentieren
@@ -708,11 +727,11 @@
       :supply_list_item:
         :stats-here: Statistik
       :new:
-        :back: Zurück zu allen Sachspenden
+        :back: Zurück zu den Sachspenden
       :edit:
         :back: Zurück zur Sachspende
       :show:
-        :back: Zurück zu allen Sachspenden
+        :back: Zurück zu den Sachspenden
         :task-complete: 'Erledigt: '
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"
@@ -741,11 +760,11 @@
       :task_list_item:
         :stats-here: Statistik
       :new:
-        :back: Zurück zu allen Aufgaben
+        :back: Zurück zu den Aufgaben
       :edit:
         :back: Zurück zur Aufgabe
       :show:
-        :back: Zurück zu allen Aufgaben
+        :back: Zurück zu den Aufgaben
         :task-complete: 'Erledigt: '
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"
@@ -874,6 +893,12 @@
         :title: Lege einen neuen Helferkreis an
         :details: Dies ist eine wunderbare Möglichkeit, in Deiner Gemeinschaft mitzuhelfen
           und die Welt ein wenig besser zu machen!
+      :membership_pending:
+        :subtitle: Dein Konto wurde aktiviert!
+        :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
+          und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
+          sie per Email: %{admins_list}.'
+        :title: Willkommen bei Lale!
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Passwort erneuern
@@ -891,7 +916,6 @@
       :signed_out: Erfolgreich ausgeloggt!
     :create:
       :login_error: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
-
   :user:
     :account:
       :edit:
