@@ -8,7 +8,8 @@ module Backdoor
   def auto_login_user
     if params[:as].present?
       user = User.find_by(id: params[:as])
-      login(user) if user.present?
+      success = login(user) if user.present?
+      Rails.logger.info "Logged in user #{user.id} through Backdoor" if success
     end
   end
 end

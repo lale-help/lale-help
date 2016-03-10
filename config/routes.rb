@@ -9,12 +9,12 @@ Rails.application.routes.draw do
         get :roles
         get :working_groups
         get :invite
+        get :extended_settings
+        post :activate_member
       end
 
       resources :members do
-        collection do
-          get :public
-        end
+        get :public, on: :collection
       end
 
       resources :roles, :organizers
@@ -96,6 +96,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :circles, only: [:index, :new, :create] do
       post :join, on: :collection
+      get :membership_pending, on: :member
     end
   end
 

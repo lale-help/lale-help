@@ -6,7 +6,7 @@ class Supply::Notifications::InvitationEmail < Mutations::Command
   end
 
   def execute
-    volunteers = (type == "circle" ? supply.circle.volunteers : supply.working_group.users).to_a
+    volunteers = (type == "circle" ? supply.circle.volunteers : supply.working_group.users).active.to_a
 
     volunteers.reject! { |u| u == current_user }
 

@@ -6,7 +6,7 @@ class Task::Notifications::InvitationEmail < Mutations::Command
   end
 
   def execute
-    volunteers = (type == "circle" ? task.circle.volunteers : task.working_group.users).to_a
+    volunteers = (type == "circle" ? task.circle.volunteers : task.working_group.users).active.to_a
 
     volunteers.reject! { |u| u == current_user || task.volunteers.include?(u) }
 

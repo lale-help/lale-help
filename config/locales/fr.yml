@@ -206,6 +206,9 @@
     :copied: Copié !
     :join: Rejoindre
     :read_terms: Voir les Termes et Conditions.
+    :activation_error: L'activation de l'utilisateur a échoué.
+    :activation_success: L'utilisateur a été activé avec succès.
+    :save: Enregistrer
   :language:
     :en: Anglais
     :de: Allemand
@@ -613,6 +616,8 @@
         :organizer: Organisateur
       :admin: Administrateur
       :member: Membre
+      :supply:
+        :organizer: Organisateur
   :circle:
     :admins:
       :show:
@@ -625,17 +630,29 @@
         :invite_members: Inviter des membres à joindre le cerle %{circle}
         :invite_members_explaination: Pour inviter de nouveaux membres à joindre ce
           cercle, partagez simplement le lien suivant avec les personnes interessées
+        :invite_headline: Inviter de nouveaux membres
+        :no_pending_members_message: Il n'y a aucun membres qui attendent de rejoindre
+          votre cercle en ce moment.
+        :pending_members_explanation: Les utilisateurs suivants ont demandé à rejoindre
+          votre cercle. Merci de les approuver pour qu'ils puissent commencer à aider.
+        :pending_members_headline: Membres en attente.
       :nav:
-        :basic-settings: Paramètres de base
+        :basic-settings: Profil du Cercle
         :invite-volunteers: Inviter des Volontaires
         :roles: Roles
         :working-groups: Groupes
+        :extended-settings: Paramètres avancés
       :roles:
         :confirm_delete_circle: Etes-vous sure ?
         :promote_user: Promouvoir cet utilisateur
+        :save: Enregistrer
       :working_groups:
         :confirm_delete_working_group: Etes-vous sure ?
         :create_working_group: Nouveau Groupe
+      :extended_settings:
+        :headline: Paramètres avancés
+      :pending_members_list:
+        :activate: Activer
     :comments:
       :placeholder: Poster un commentaire.
       :post: Poster
@@ -669,11 +686,11 @@
       :supply_list:
         :no-supplies: Aucun besoin particulier en ce moment.
       :new:
-        :back: Retour à Tous les Besoins
+        :back: Retour aux Besoins
       :edit:
         :back: Retour aux Besoins
       :show:
-        :back: Retour à Tous les Besoins
+        :back: Retour aux Besoins
         :task-complete: 'Fait : '
         :volunteer-count:
           :one: "%{count} volontaire y participe"
@@ -704,11 +721,11 @@
       :task_list_item:
         :stats-here: Les Statistiques vont ici
       :new:
-        :back: Retour à Toutes les Tâches
+        :back: Retour aux Tâches
       :edit:
         :back: Retour à la tâche
       :show:
-        :back: Retour à Toutes les Tâches
+        :back: Retour aux Tâches
         :task-complete: 'Fait : '
         :volunteer-count:
           :one: "%{count} volontaire y participe"
@@ -837,6 +854,12 @@
         :title: Démarrer votre cercle de volontaires
         :details: C'est une belle opportunité pour aider votre communauté à améliorer
           les conditions de vie de tous et toutes
+      :membership_pending:
+        :subtitle: Votre compte a été activé !
+        :description: 'Les administrateurs du cercle ont été notifié et doivent bientôt
+          activer votre compte. Si ce n''est pas le cas ou si vous avez des questions,
+          merci de les contacter par email : %{admins_list}.'
+        :title: Bienvenue sur Lale !
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Réinitialiser votre mot de passe
@@ -990,6 +1013,8 @@
         :task_suggestion: Nous aimerions vous suggérer une tâche.
       :user_mailer:
         :forgot_password: Avez-vous oublié quelque chose ?
+        :account_activated: Votre compte a été activé !
+        :account_activation: Un nouveau membre veut rejoindre votre cercle.
   :supply:
     :presenter:
       :messages:
@@ -1034,10 +1059,10 @@
       :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
         de réessayer.
       :volunteered: Merci de vous êtes inscrit !
-  :sidebar:
-    :circle_title:
-      :new: Ajouter
   :working_group:
     :types:
       :private: Privé
       :public: Public
+  :sidebar:
+    :circle_add_menu:
+      :add: Ajouter

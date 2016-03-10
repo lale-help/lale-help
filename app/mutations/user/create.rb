@@ -44,7 +44,7 @@ class User::Create < ::Form
     end
 
     def execute
-      user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :public_profile, :accept_terms))
+      user.assign_attributes(user_attributes)
       user.identity.assign_attributes(inputs.slice(:email, :password))
       user.address = Address.new(inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country))
 
@@ -55,5 +55,14 @@ class User::Create < ::Form
 
       user
     end
+
+    private
+
+    def user_attributes
+      inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, 
+        :public_profile, :accept_terms
+      )
+    end
+
   end
 end

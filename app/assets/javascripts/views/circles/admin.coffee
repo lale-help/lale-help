@@ -1,4 +1,5 @@
 $(document).on 'page:load ready', ->
+
   $('#circle_role_role_type').on 'change', (e)->
     $type = $(e.target)
     $name = $type.siblings('#circle_role_name')
@@ -14,9 +15,21 @@ $(document).on 'page:load ready', ->
     $('#add-role').addClass('hidden')
     $('#add-role-fields').removeClass('hidden')
 
-  clipboard = new Clipboard('button[type="copy"]');
+  clipboard = new Clipboard('button[type="submit"]');
   clipboard.on 'success', (e)->
       e.clearSelection()
-
       Lale.Flash.info I18n.t('workflow.copied')
 
+  $('.activate_pending_user').closest('form')
+    .on 'ajax:success', (event)->
+      $(event.target.closest('tr')).fadeOut 'duration': 1000, complete: ->
+        badge = $('#admin_link').children('span.badge')
+        task_count = parseInt(badge.text())        
+        if (task_count == 1)
+          badge.fadeOut()
+          $('.admin-nav .invite .before-icon').fadeOut()
+        else
+          badge.text(task_count - 1)
+        Lale.Flash.info I18n.t('workflow.activation_success')
+    .on 'ajax:error', (event)->
+      Lale.Flash.error I18n.t('workflow.activation_error') 

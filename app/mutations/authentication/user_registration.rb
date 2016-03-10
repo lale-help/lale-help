@@ -4,7 +4,6 @@ class Authentication::UserRegistration < Mutations::Command
   end
 
   def execute
-    puts "HERE!!!!"
     location = Location.location_from(identity.location)
     circle = identity.creating_new_circle? ? nil : Circle.find(identity.circle_id)
     identity.user = User.create!(first_name: identity.first_name, last_name: identity.last_name, location: location, circle: circle)

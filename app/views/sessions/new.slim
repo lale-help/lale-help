@@ -6,12 +6,12 @@ section
   = form_for @form, url: login_path, method: :post do
     .field-row
       .field
-        label= t('fields.email')
-        input name="email" type="text" placeholder=t('fields.email-placeholder')
+        label for="email" = t('fields.email')
+        input id="email" name="email" type="text" placeholder=t('fields.email-placeholder')
 
       .field
-        label= t('fields.password')
-        input name="password" type="password" placeholder=t('fields.password-placeholder')
+        label for="password" = t('fields.password')
+        input id="password" name="password" type="password" placeholder=t('fields.password-placeholder')
 
     .submit-row
       button.button.login type="submit"= t('.sign-in')

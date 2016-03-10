@@ -74,22 +74,19 @@
       font-size: 1.2em;
       text-align: center;
       font-family: $fontstack-monospace;
-      letter-spacing: -4px;
       margin-right: 10px;
       display: inline-block;
 
-      &:before{
-//        padding-right: .75rem;
-        padding-right: 10px; //TODO find a better way to fix this for IE
+      i {
+        margin-right: 1rem;
       }
 
-
-      &--users {
+      &--users i{
         @include lale-icon($lale-icon-user, 1.0em);
       }
 
-      &--comments {
-        @include lale-icon($lale-icon-comment, 1.0em);
+      &--comments i {
+        @include octicon-icon(comment);
       }
     }
 

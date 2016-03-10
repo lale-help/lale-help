@@ -1,6 +1,20 @@
 require 'rails_helper'
 
 describe 'New User On-boarding', type: :feature, js: true do
+
+  def fill_in_form
+    fill_in "First Name",            with: "Phil"
+    fill_in "Last Name",             with: "Monroe"
+    fill_in "Email",                 with: "test@example.com"
+    fill_in "Password",              with: "password"
+    fill_in "Password Confirmation", with: "password"
+    fill_in "Mobile Phone",          with: "1-800-867-5309"
+    fill_in "City",                  with: "San Francisco"
+    fill_in "State",                 with: "CA"
+    fill_in "Postal Code",           with: "94109"
+    check   "Accept Terms and Conditions"
+  end
+
   context 'regular sign up flow' do
     context 'with circle nearby' do
       let!(:circle) { submit_form(:circle_create_form).result }
@@ -8,17 +22,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       it 'works', :ci_ignore do
         visit root_path
         click_on t('layouts.public.header.sign-up')
-
-        fill_in "First Name",            with: "Phil"
-        fill_in "Last Name",             with: "Monroe"
-        fill_in "Email",                 with: "test@example.com"
-        fill_in "Password",              with: "password"
-        fill_in "Password Confirmation", with: "password"
-        fill_in "Mobile Phone",          with: "1-800-867-5309"
-        fill_in "City",                  with: "San Francisco"
-        fill_in "State",                 with: "CA"
-        fill_in "Postal Code",           with: "94109"
-        check   "Accept Terms and Conditions"
+        fill_in_form
 
         click_on "Continue"
 
@@ -37,15 +41,7 @@ describe 'New User On-boarding', type: :feature, js: true do
         visit root_path
         click_on t('layouts.public.header.sign-up')
 
-        fill_in "First Name",            with: "Phil"
-        fill_in "Last Name",             with: "Monroe"
-        fill_in "Email",                 with: "test@example.com"
-        fill_in "Password",              with: "password"
-        fill_in "Password Confirmation", with: "password"
-        fill_in "Mobile Phone",          with: "1-800-867-5309"
-        fill_in "City",                  with: "San Francisco"
-        fill_in "State",                 with: "CA"
-        fill_in "Postal Code",           with: "94109"
+        fill_in_form
         check   "Accept Terms and Conditions"
 
         click_on "Continue"
@@ -72,17 +68,10 @@ describe 'New User On-boarding', type: :feature, js: true do
     let!(:circle) { submit_form(:circle_create_form).result }
 
     it 'works' do
+
       visit join_circle_path(circle)
 
-      fill_in "First Name",            with: "Phil"
-      fill_in "Last Name",             with: "Monroe"
-      fill_in "Email",                 with: "test@example.com"
-      fill_in "Password",              with: "password"
-      fill_in "Password Confirmation", with: "password"
-      fill_in "Mobile Phone",          with: "1-800-867-5309"
-      fill_in "City",                  with: "San Francisco"
-      fill_in "State",                 with: "CA"
-      fill_in "Postal Code",           with: "94109"
+      fill_in_form
       check   "Accept Terms and Conditions"
 
       click_on t('workflow.join')

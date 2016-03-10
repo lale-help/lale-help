@@ -27,8 +27,6 @@ class SupplyPresenter < Presenter
     I18n.t("supply.presenter.messages.#{message_key}") if message_key.present?
   end
 
-
-
   let(:due_date) do
     I18n.l(_.due_date, format: :long)
   end

@@ -2,16 +2,17 @@ header
   .logo
     = t('lale')
   .actions
-    - if current_user.present?
-      - if current_user.first_name?
-        .user= t('.signed-in-as', user: current_user.first_name )
-      - else
-        .user= t('.signed-in-as', user: current_user.email )
-      - if current_user.primary_circle.present?
-        a.action-link href="#{circle_path(current_user.primary_circle)}"= current_user.primary_circle.name
-      a.action-link href="#{logout_path}"= t('.sign-out')
+    - unless @hide_signed_in_status
+      - if current_user.present?
+        - if current_user.first_name?
+          .user= t('.signed-in-as', user: current_user.first_name)
+        - else
+          .user= t('.signed-in-as', user: current_user.email)
+        - if current_user.primary_circle.present?
+          a.action-link href="#{circle_path(current_user.primary_circle)}"= current_user.primary_circle.name
+        a.action-link href="#{logout_path}"= t('.sign-out')
 
-    - elsif @skip_registration_links
-    - else
-      p= t('.dont-have-account')
-      a.action-link href="#{register_path}"= t('.sign-up')
+      - elsif @skip_registration_links
+      - else
+        p= t('.dont-have-account')
+        a.action-link href="#{register_path}"= t('.sign-up')

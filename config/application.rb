@@ -17,9 +17,9 @@ module LaleHelp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    unless Rails.env.test?
-      config.mandrill_templates = true
+    config.mandrill_templates = !Rails.env.test?
 
+    unless Rails.env.test?
       config.action_mailer.smtp_settings = {
         address: ENV.fetch("SMTP_ADDRESS"),
         authentication: :plain,
@@ -32,7 +32,7 @@ module LaleHelp
     end
     config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
 
-    config.session_expiration = 15.minutes
+    config.session_expiration = 30.minutes
 
     config.i18n.available_locales = %w(en de fr)
   end

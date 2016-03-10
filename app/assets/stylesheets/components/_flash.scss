@@ -43,7 +43,7 @@
   .warning {
     @include flash-color($alert-color);
   }
-  .error {
+  .error, .alert {
     @include flash-color($error-color);
   }
 

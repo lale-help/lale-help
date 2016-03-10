@@ -4,11 +4,12 @@ class Circle::BaseForm < ::Form
 
   attribute :name,      :string
 
-  attribute :street_address_1,  :string, default: proc { circle.address.try(:street_address_1) }, required: false
-  attribute :city,              :string, default: proc { circle.address.try(:city) }
-  attribute :state_province,    :string, default: proc { circle.address.try(:state_province) },   required: false
-  attribute :postal_code,       :string, default: proc { circle.address.try(:postal_code) }
-  attribute :country,           :string, default: proc { circle.address.try(:country) }
+  attribute :street_address_1,    :string, default: proc { circle.address.try(:street_address_1) }, required: false
+  attribute :city,                :string, default: proc { circle.address.try(:city) }
+  attribute :state_province,      :string, default: proc { circle.address.try(:state_province) },   required: false
+  attribute :postal_code,         :string, default: proc { circle.address.try(:postal_code) }
+  attribute :country,             :string, default: proc { circle.address.try(:country) }
+  attribute :must_activate_users, :boolean, default: false
 
 
   attribute :language,  :string, in: Circle.languages.keys
@@ -19,9 +20,9 @@ class Circle::BaseForm < ::Form
     end
   end
 
-  class Submit < ::Form::Submit
+  class Submit < ::Form::Submit  
     def execute
-      circle.assign_attributes inputs.slice(:name)
+      circle.assign_attributes inputs.slice(:name, :must_activate_users)
       circle.language = Circle.languages[language]
       circle.address.assign_attributes inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country)
 
@@ -29,6 +30,5 @@ class Circle::BaseForm < ::Form
 
       circle
     end
-
   end
- end
+end

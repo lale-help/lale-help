@@ -1,10 +1,13 @@
+- content_for :header_middle do
+  = render partial: 'sidebar/circle_add_menu', locals: { circle: current_circle }
+
 .circle-dashboard
   .header
     .left
       .title =t('.dashboard_title', name: current_circle.name)
     .right
       span.hint =t('.need_help')
-      a.button href="mailto:#{current_circle.admins.first.email}" = t('.contact_circle_admin')
+      a.button href="mailto:#{current_circle.admins.active.first.email}" = t('.contact_circle_admin')
 
   hr
 
@@ -24,15 +27,13 @@
       .members.circle-leaders
         .title= t('.circle_leaders')
         .icons
-          - current_circle.admins.each do |user|
+          - current_circle.admins.active.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
 
       .members.working-group-organizers
         .title= t('.working_group_organizers')
         .icons
-          - current_circle.working_groups.each do |wg|
-            - wg.admins.each do |user|
-              .blah
-                = render partial: 'user/user_icon', locals: {user: user, link: true}
-
+          - current_circle.organizers.active.each do |user|
+            .blah
+              = render partial: 'user/user_icon', locals: {user: user, link: true}

@@ -13,11 +13,11 @@ class Ability
     # Circles
     can :create, Circle
     can :read,   Circle do |circle|
-      circle.users.include? user
+      circle.users.active.include? user
     end
 
     can :manage, Circle do |circle|
-      circle.admins.include? user
+      circle.admins.active.include? user
     end
 
     can :create_task, Circle do |circle|
@@ -54,7 +54,7 @@ class Ability
       can?(:manage, role.circle)
       if role.role_type == 'circle.admin'
         can?(:manage, role.circle) &&
-        role.circle.admins.count > 1
+        role.circle.admins.active.count > 1
       else
         can?(:manage, role.circle)
       end
@@ -81,7 +81,7 @@ class Ability
 
     can :manage, WorkingGroup do |wg|
       can?(:manage, wg.circle) ||
-      wg.admins.include?(user)
+      wg.admins.active.include?(user)
     end
 
     can :create_task, WorkingGroup do |wg|

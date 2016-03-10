@@ -7,7 +7,8 @@ class Circle::CreateForm < Circle::BaseForm
       Circle::Role.send('circle.volunteer').create(circle: circle, user: user)
 
       user.update_attribute :primary_circle, circle
-
+      user.active!
+      
       circle
     end
   end

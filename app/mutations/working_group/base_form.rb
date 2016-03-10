@@ -3,6 +3,7 @@ class WorkingGroup::BaseForm < ::Form
 
   attribute :name, :string
   attribute :description, :string, required: false
+  attribute :admin_ids, :array, class: String, default: proc{ working_group.admins.active.map(&:id) }
   attribute :type, :symbol, default: proc{ working_group.type }, in: %i(public private)
 
 
@@ -15,7 +16,7 @@ class WorkingGroup::BaseForm < ::Form
   end
 
   def admin_options
-    working_group.circle.users.map { |u|
+    working_group.circle.users.active.map { |u|
       [u.name, u.id]
     }
   end

@@ -1,3 +1,6 @@
+- content_for :header_middle do
+  = render partial: 'sidebar/circle_add_menu', locals: { circle: current_circle }
+
 .working-group
   .header
     .left
@@ -9,7 +12,7 @@
 
     .right
       .actions
-        - if can? :join, current_working_group
+        - if can?(:join, current_working_group) and !current_working_group.is_private?
           = button_to circle_working_group_join_path(current_circle, current_working_group), method: :patch do
             = t('.join')
 
@@ -36,9 +39,9 @@
 
     aside
       .members
-        .title= t('.admin-title', count: current_working_group.admins.count )
+        .title= t('.admin-title', count: current_working_group.admins.active.count )
         .icons
-          - current_working_group.admins.each do |user|
+          - current_working_group.admins.active.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
 

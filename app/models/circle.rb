@@ -9,7 +9,9 @@ class Circle < ActiveRecord::Base
   has_many :volunteers, ->{ Circle::Role.send('circle.volunteer') }, through: :roles, source: :user
   has_many :leadership, ->{ Circle::Role.leadership }, through: :roles, source: :user
 
-  has_many :working_groups, -> { order('lower(working_groups.name) ASC') }
+  has_many :working_groups
+  has_many :organizers,   -> { distinct }, through: :working_groups, source: :admins
+
   has_many :tasks, through: :working_groups
   has_many :supplies, through: :working_groups
 
@@ -49,6 +51,9 @@ class Circle < ActiveRecord::Base
     end
   end
 
+  def pending_members
+    users.pending.order('created_at DESC')
+  end
 
   private
 

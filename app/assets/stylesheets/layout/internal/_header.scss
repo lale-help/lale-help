@@ -30,44 +30,6 @@ body.internal {
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-
-      .circle-add-menu {
-        font-size: 2rem;
-        display: inline-block;
-
-        :before {
-          @include text-color($white, $grey);
-          padding-right: 5px;
-        }
-
-        label {
-          @include display(flex);
-          @include align-items(center);
-          @include justify-content(middle);
-          padding: 0.5rem;
-
-          .icon {
-            @include display(flex);
-            @include align-items(center);
-            @include justify-content(left);
-            @include lale-icon($lale-icon-plus-skinny, 0.5rem, bolder);
-
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: $white;
-            border-radius: 4px;
-            background-color: $orange;
-            padding: 4px 10px;
-            width: auto;
-          }
-        }
-
-        [type="checkbox"]:checked {
-          & ~ label .icon {
-            background-color: tint($orange, 20%);
-          }
-        }
-      }
     }
 
     .header-middle {
@@ -87,22 +49,48 @@ body.internal {
         }
       }
 
+      .circle-add-menu {
+        display: inline-block;
+
+        label {
+          @include display(flex);
+          @include align-items(center);
+          @include justify-content(middle);
+
+          .button {
+            font-size: 16px;
+            padding: 0.5rem 1rem;
+            margin: auto;
+            i {
+              @include fa-icon(plus-circle);
+              padding-left: 0.5rem;
+              &:before {
+                color: $white;
+              }
+            }
+          }
+        }
+
+        [type="checkbox"]:checked {
+          & ~ label .button {
+            background-color: tint($orange, 20%);
+          }
+        }
+      }
     }
 
     .header-right {
-      @include flex(1);
-
       @include display(flex);
-      @include flex-direction(row);
       @include align-items(center);
       @include justify-content(flex-end);
 
-      .user-menu {
+      .user-dropdown-menu {
         label {
           @include display(flex);
-          @include flex-direction(row);
           @include align-items(center);
+          @include justify-content(middle);
         }
+
         .user-name{
             margin-right: 1rem;
         }
@@ -142,20 +130,19 @@ body.internal {
     }
 
     .dropdown {
-      height: 100%;
-
       @include display(flex);
       @include align-items(center);
       @include justify-content(center);
 
+      position: relative;
 
-//      position: relative;
 
       label {
-        padding: 0 2rem;
+        padding: 0 1rem;
         margin: 0;
-        height: 100%;
+        height: $header-height;
         width:  100%;
+        user-select: none;
       }
 
       &:hover, label:hover {
@@ -163,26 +150,37 @@ body.internal {
       }
 
       .menu {
-        display: block;
+        font-size: 1.5rem;
+        background: $white;
         border: thin solid $light-grey;
-        border-top: 0;
-        z-index: 1000;
+
         -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
         -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
         box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
 
-        font-size: 1.5rem;
-        display: none;
-        position: absolute;
-        min-width:  auto;
+        min-width: 100%;
 
+        position: absolute;
+        z-index: 3001;
         top: $header-height;
-        background: $white;
+        left: auto;
+        right: 0;
+        display: none;
+
+        line-height: normal;
+        -webkit-border-radius: 0 0 2px 2px;
+        -moz-border-radius: 0 0 2px 2px;
+        border-radius: 0 0 2px 2px;
 
         a {
           display: block;
           width: 100%;
           padding: 1.5rem 2rem;
+          border-bottom: thin solid $light-grey;
+        }
+
+        a:last-child {
+          border-bottom: 0;
         }
 
         a:hover{
@@ -194,12 +192,9 @@ body.internal {
         }
       }
 
-      .menu.add-item-dropdown {
-//        left: 0;
-      }
-
-      .menu.user-dropdown {
-        right: 0;
+      .menu.menu-left {
+        right: auto;
+        left: 0;
       }
     }
   }

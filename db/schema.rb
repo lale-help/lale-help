@@ -55,11 +55,12 @@ ActiveRecord::Schema.define(version: 20160308024853) do
   end
 
   create_table "circles", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "name",                   null: false
-    t.integer  "language",   default: 0, null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "name",                                null: false
+    t.integer  "language",            default: 0,     null: false
     t.integer  "address_id"
+    t.boolean  "must_activate_users", default: false
   end
 
   create_table "comments", id: :bigserial, force: :cascade do |t|
@@ -205,6 +206,7 @@ ActiveRecord::Schema.define(version: 20160308024853) do
     t.boolean  "accept_terms"
     t.string   "about_me"
     t.integer  "address_id"
+    t.integer  "status"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree

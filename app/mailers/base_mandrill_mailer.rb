@@ -13,7 +13,6 @@ class BaseMandrillMailer < ActionMailer::Base
     }
   end
 
-
   private
 
   def send_mail(email, subject, body)
@@ -42,7 +41,6 @@ class BaseMandrillMailer < ActionMailer::Base
     "#{tag} #{content}"
   end
 
-
   def content_type
     if Rails.application.config.mandrill_templates
       "text/html"
@@ -50,7 +48,6 @@ class BaseMandrillMailer < ActionMailer::Base
       "text/plain"
     end
   end
-
 
   def fetch_template(lang, attributes)
     template = template_name(lang)
@@ -66,7 +63,7 @@ class BaseMandrillMailer < ActionMailer::Base
     end
   end
 
-  def _template_debug template, merge_vars
+  def _template_debug(template, merge_vars)
     {
       locale: locale,
       template_name: template,
@@ -79,7 +76,7 @@ class BaseMandrillMailer < ActionMailer::Base
     mandrill.templates.render(template, [], merge_vars)["html"]
   end
 
-  def template_name lang
+  def template_name(lang)
     scope = mailer_name.gsub(/_mailer/, "")
     "#{lang}/#{scope}/#{action_name}"
   end
