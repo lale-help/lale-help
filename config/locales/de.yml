@@ -1056,9 +1056,6 @@
         es später noch einmal.
       :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
       :volunteered: Vielen Dank für Deine Hilfe!
-  :sidebar:
-    :circle_title:
-      :new: Hinzufügen
   :working_group:
     :types:
       :public: Offen

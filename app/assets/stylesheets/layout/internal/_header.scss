@@ -30,44 +30,6 @@ body.internal {
         text-overflow: ellipsis;
         white-space: nowrap;
       }
-
-      .circle-add-menu {
-        font-size: 2rem;
-        display: inline-block;
-
-        :before {
-          @include text-color($white, $grey);
-          padding-right: 5px;
-        }
-
-        label {
-          @include display(flex);
-          @include align-items(center);
-          @include justify-content(middle);
-          padding: 0.5rem;
-
-          .icon {
-            @include display(flex);
-            @include align-items(center);
-            @include justify-content(left);
-            @include lale-icon($lale-icon-plus-skinny, 0.5rem, bolder);
-
-            font-weight: bold;
-            font-size: 1.3rem;
-            color: $white;
-            border-radius: 4px;
-            background-color: $orange;
-            padding: 4px 10px;
-            width: auto;
-          }
-        }
-
-        [type="checkbox"]:checked {
-          & ~ label .icon {
-            background-color: tint($orange, 20%);
-          }
-        }
-      }
     }
 
     .header-middle {
@@ -87,6 +49,54 @@ body.internal {
         }
       }
 
+      .circle-add-menu {
+        display: inline-block;
+
+        :after {
+          @include text-color($orange, $grey);
+          margin-left: 5px;
+        }
+
+        label {
+          @include display(flex);
+          @include align-items(center);
+          @include justify-content(middle);
+          padding: 0.5rem;
+
+          .icon {
+            @include display(flex);
+            @include align-items(center);
+            @include justify-content(left);
+            &:after{
+              font-weight: 900;
+              font-style: normal;
+              font-size: 9px;
+              display: inline-block;
+              text-decoration: inherit;
+              line-height: 13px;
+              content: '+';
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+              background: $white;
+              padding: 0 3px;
+              border-radius: 0.7rem;
+            }
+            font-weight: 500;
+            font-size: 16px;
+            color: $white;
+            border-radius: 4px;
+            background-color: $orange;
+            padding: 4px 10px;
+            width: auto;
+          }
+        }
+
+        [type="checkbox"]:checked {
+          & ~ label .icon {
+            background-color: tint($orange, 20%);
+          }
+        }
+      }
     }
 
     .header-right {

@@ -1034,9 +1034,6 @@
       :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
         de réessayer.
       :volunteered: Merci de vous êtes inscrit !
-  :sidebar:
-    :circle_title:
-      :new: Ajouter
   :working_group:
     :types:
       :private: Privé
