@@ -613,6 +613,8 @@
         :organizer: Organisateur
       :admin: Administrateur
       :member: Membre
+      :supply:
+        :organizer: Organisateur
   :circle:
     :admins:
       :show:
@@ -1034,10 +1036,10 @@
       :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
         de réessayer.
       :volunteered: Merci de vous êtes inscrit !
-  :sidebar:
-    :circle_title:
-      :new: Ajouter
   :working_group:
     :types:
       :private: Privé
       :public: Public
+  :sidebar:
+    :circle_add_menu:
+      :add: Ajouter

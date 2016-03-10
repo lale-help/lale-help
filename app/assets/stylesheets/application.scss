@@ -3,7 +3,8 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "octicons";
+@import "octicons/octicons/sprockets-octicons";
+
 
 @import "settings/**/*";
 @import "helpers/**/*";

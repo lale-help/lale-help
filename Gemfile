@@ -3,6 +3,8 @@ ruby '2.2.3'
 
 gem 'rails', '4.2.4'
 
+gem 'rake', '< 11.0'
+
 # backend
 gem 'pg'
 gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
@@ -30,7 +32,6 @@ gem 'neat'
 gem 'bourbon'
 gem 'handlebars_assets'
 gem 'font-awesome-sass'
-gem 'octicons-rails'
 gem "i18n-js", ">= 3.0.0.rc11"
 gem 'http_accept_language'
 

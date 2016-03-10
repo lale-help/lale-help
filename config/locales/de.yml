@@ -648,6 +648,8 @@
         :organizer: Organisator
       :admin: Administrator
       :member: Mitglied
+      :supply:
+        :organizer: Organisator
   :circle:
     :admins:
       :show:
@@ -1056,10 +1058,10 @@
         es später noch einmal.
       :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
       :volunteered: Vielen Dank für Deine Hilfe!
-  :sidebar:
-    :circle_title:
-      :new: Hinzufügen
   :working_group:
     :types:
       :public: Offen
       :private: Geschlossen
+  :sidebar:
+    :circle_add_menu:
+      :add: Hinzufügen

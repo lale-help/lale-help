@@ -7,7 +7,7 @@ addons:
   postgresql: "9.4"
 
 before_script:
-  - rake db:init db:create db:migrate
+  - bin/rake db:init db:create db:migrate
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - sleep 3 # give xvfb some time to start

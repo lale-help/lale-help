@@ -15,7 +15,7 @@ $(document).on 'page:load ready', ->
     $('#add-role').addClass('hidden')
     $('#add-role-fields').removeClass('hidden')
 
-  clipboard = new Clipboard('button[type="copy"]')
+  clipboard = new Clipboard('button[type="submit"]');
   clipboard.on 'success', (e)->
       e.clearSelection()
       Lale.Flash.info I18n.t('workflow.copied')
