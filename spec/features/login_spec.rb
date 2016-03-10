@@ -23,10 +23,10 @@ describe 'Login and logout', type: :feature, js: true do
       expect(page).to have_content(t('circles.show..dashboard_title', name: circle.name))
 
       find('.user-name').click
-      find('.user-dropdown') # #find waits until the selector becomes available
-      click_on t('layouts.internal.header.sign-out')
-      find('body.public h2') # #find waits until the selector becomes available
-      expect(page).to have_content(t('sessions.new.sign-in-phrase'))
+      find('.user-dropdown').click_on(t('layouts.internal.header.sign-out'))
+       # using the clicks with find here since find *waits* until the element is visible on the page
+       # this should make the tests more reliable.
+      expect(find('body.public h2')).to have_content(t('sessions.new.sign-in-phrase'))
     end
   end
 
