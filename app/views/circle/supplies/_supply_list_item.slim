@@ -16,7 +16,9 @@ a.task href=circle_supply_path(current_circle, supply) class=supply.css
 
     .task-stats
       .task-badge.task-badge--users
-        = "#{supply.volunteers.count} / 1"
+        i
+        = "#{supply.volunteers.count}/1"
 
       .task-badge.task-badge--comments
+        i
         = supply.comments.count
