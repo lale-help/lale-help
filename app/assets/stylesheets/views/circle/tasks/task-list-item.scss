@@ -86,8 +86,7 @@
       }
 
       &--comments i {
-         @extend .octicon;
-         @extend .octicon-comment;
+        @include octicon-icon(comment);
       }
     }
 

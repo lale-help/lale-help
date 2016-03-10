@@ -1,0 +1,16 @@
+@mixin octicon-icon($icon, $size: 1em) {
+  @extend .octicon;
+  @extend .octicon-#{$icon};
+  &:before{
+    font-size: $size;
+  }
+}
+
+@mixin fa-icon($icon, $size: 1em) {
+  @extend .fa;
+  @extend .fa-#{$icon};
+  &:before{
+    font-size: $size;
+  }
+}
+

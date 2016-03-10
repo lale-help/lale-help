@@ -9,7 +9,7 @@ header
   .header-right
     .user-inbox
 
-    .user-menu.dropdown
+    .user-dropdown-menu.dropdown
       input id='user-menu-selector' type='checkbox' class='menu-selector'
       label for='user-menu-selector'
         .user-avatar
@@ -22,9 +22,7 @@ header
       .menu.user-dropdown
         = link_to(t('.settings'), account_path)
         /a href=public_circles_path =t('.find-circles')
-        hr
         - if can?(:manage_site, nil)
           a href=admin_root_path =t('.admin')
-          hr
 
         a href=logout_path =t('.sign-out')

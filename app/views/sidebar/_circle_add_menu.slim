@@ -2,8 +2,10 @@
   .dropdown.circle-add-menu
     input id='add-item-selector' type='checkbox' class='menu-selector'
     label for='add-item-selector'
-      .icon = t('.add')
-    .menu.add-item-dropdown
+      .button.button-primary
+        = t('.add')
+        i
+    .menu.menu-left
       - if can? :create_task, circle
         a href=new_circle_task_path(circle) = Task.model_name.human
 
