@@ -57,7 +57,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       user
     end
 
-    it "works" do
+    it "works", :ci_ignore do
       # verify setup
       expect(circle.volunteers).to include(new_member)
 
@@ -78,7 +78,6 @@ describe 'New User On-boarding', type: :feature, js: true do
       click_on t('circle.admins.pending_members_list.activate')
 
       # user disappears
-      sleep 2
       expect(page).not_to have_content(new_member.name)
 
       # admin action indicators disappear
