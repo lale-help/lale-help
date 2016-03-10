@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get  "/cal",  to: "public/circles#cal"
-
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
