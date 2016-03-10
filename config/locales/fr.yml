@@ -1038,3 +1038,6 @@
     :types:
       :private: Privé
       :public: Public
+  :sidebar:
+    :circle_add_menu:
+      :add: Ajouter
