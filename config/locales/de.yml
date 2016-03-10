@@ -648,6 +648,8 @@
         :organizer: Organisator
       :admin: Administrator
       :member: Mitglied
+      :supply:
+        :organizer: Organisator
   :circle:
     :admins:
       :show:

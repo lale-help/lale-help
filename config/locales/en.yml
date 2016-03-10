@@ -749,6 +749,8 @@
         :organizer: Organizer
       :admin: Admin
       :member: Member
+      :supply:
+        :organizer: Organizer
   :circle:
     :admins:
       :show:

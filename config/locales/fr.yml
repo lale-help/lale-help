@@ -613,6 +613,8 @@
         :organizer: Organisateur
       :admin: Administrateur
       :member: Membre
+      :supply:
+        :organizer: Organisateur
   :circle:
     :admins:
       :show:
