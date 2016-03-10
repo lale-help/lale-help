@@ -3,19 +3,22 @@ body.internal .edit-working-group{
     margin-bottom: 2rem;
   }
 
-  .field-row {
-    @include display(flex);
-    @include justify-content(center);
-    @include align-items(center);
+
+  form.add-user {
+    .field-row {
+      @include display(flex);
+      @include justify-content(center);
+      @include align-items(center);
 
 
-    .field {
-      margin: 0;
-      width: auto;
-      margin: 0 0.5rem;
+      .field {
+        margin: 0;
+        width: auto;
+        margin: 0 0.5rem;
 
-      select {
-        min-width: 200px;
+        select {
+          min-width: 200px;
+        }
       }
     }
   }

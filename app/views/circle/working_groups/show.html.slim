@@ -9,7 +9,7 @@
 
     .right
       .actions
-        - if can? :join, current_working_group
+        - if can?(:join, current_working_group) and !current_working_group.is_private?
           = button_to circle_working_group_join_path(current_circle, current_working_group), method: :patch do
             = t('.join')
 
