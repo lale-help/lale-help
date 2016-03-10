@@ -3,6 +3,8 @@ ruby '2.2.3'
 
 gem 'rails', '4.2.4'
 
+gem 'rake', '< 11.0'
+
 # backend
 gem 'pg'
 gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
