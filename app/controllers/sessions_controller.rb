@@ -22,13 +22,13 @@ class SessionsController < ApplicationController
       redirect_to user_redirect_path
 
     else
-      redirect_to root_path
+      redirect_to root_path, alert: I18n.t("sessions.create.login_error")
     end
   end
 
   def destroy
     logout
-    redirect_to root_path, notice: "Signed out!"
+    redirect_to root_path, notice: I18n.t("sessions.destroy.signed_out")
   end
 
   private

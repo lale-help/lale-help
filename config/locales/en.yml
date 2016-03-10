@@ -1007,6 +1007,10 @@
       :sign-in-phrase: Sign in to your circle
       :reset-password: Reset my password
       :sign-in: Sign in
+    :destroy:
+      :signed_out: Signed out!
+    :create:
+      :login_error: Login failed, please verify your email and password.
   :user:
     :account:
       :edit:
