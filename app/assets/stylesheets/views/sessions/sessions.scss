@@ -16,10 +16,11 @@ form.new_form {
       margin: 0.5rem 0;
     }
     ul, li {
-      list-style-type: circle;
+      list-style-type: disc;
+      list-style-position: inside;
     }
     li {
-      padding-left: 5px;
+      padding-left: 3px;
     }
   }
 

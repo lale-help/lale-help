@@ -921,9 +921,9 @@
       :sign-in: Einloggen
       :login_error_message_title: "Ihr Login ist leider fehlgeschlagen. Bitte prüfen Sie:"
       :login_error_common_reasons: 
-        - haben Sie die richtige E-Mail-Adresse verwendet?
-        - haben Sie Ihr Passwort in letzter Zeit geändert?
-        - ist die Feststelltaste (CAPS LOCK) aktiviert?
+        :one: haben Sie die richtige E-Mail-Adresse verwendet?
+        :two: haben Sie Ihr Passwort in letzter Zeit geändert?
+        :three: ist die Feststelltaste (CAPS LOCK) aktiviert?
     :destroy:
       :signed_out: Erfolgreich ausgeloggt!
     :create:

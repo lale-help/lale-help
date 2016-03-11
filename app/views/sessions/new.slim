@@ -9,8 +9,9 @@ section
       .field-row.single.login_error
         h3 = t('.login_error_message_title')
         ul
-        - t('.login_error_common_reasons').each do |reason|
-            li = reason
+          li = t('.login_error_common_reasons.one')
+          li = t('.login_error_common_reasons.two')
+          li = t('.login_error_common_reasons.three')
 
     .field-row
       .field
