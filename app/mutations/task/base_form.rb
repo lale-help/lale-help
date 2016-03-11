@@ -29,6 +29,45 @@ class Task::BaseForm < ::Form
     fr: '%d.%m.%Y %H:%M'
   }
 
+
+  # previous fields:
+  # - due_date
+  # - duration
+  # - scheduled_time_type
+  # - scheduled_time_start
+  # - scheduled_time_end
+  # 
+  # -------------------------
+  # new inputs
+  # -------------------------
+  # - start_datetime 
+  #   comparable to due_date before
+  #   
+  # - end_datetime 
+  #   only given when 
+  #   
+  # -------------------------
+  # mapping new inputs to old DB fields
+  # -------------------------
+  # 
+  # - due_date
+  #   => fill with date portion of due_datetime
+  #   
+  # - duration
+  #   - when end_datetime is given (scheduled_time_type is "between")
+  #     => calculate: end_datetime - due_datetime
+  #   - else
+  #     => ?
+  # 
+  # - scheduled_time_type
+  # 
+  # - scheduled_time_start
+  #   => fill with time portion of due_datetime
+  #   
+  # - scheduled_time_end
+  # 
+
+
   def i18n_format(date_time)
     date_time.strftime(DT_FORMAT[I18n.locale])
   end

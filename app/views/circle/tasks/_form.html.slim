@@ -61,13 +61,6 @@
       = f.text_field :datetime2, class: :datetimepicker
       i.after-icon.fa.fa-calendar.toggle data-target="task_datetime2"
 
-      / previous fields:
-      / - due_date
-      / - duration
-      / - scheduled_time_type
-      / - scheduled_time_start
-      / - scheduled_time_end
-
   .submit-row
     = f.submit
     - if locals[:delete]
