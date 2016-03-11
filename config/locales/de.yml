@@ -1095,3 +1095,5 @@
   :sidebar:
     :circle_add_menu:
       :add: Hinzufügen
+  :task_edit:
+    :cancel: Abbrechen

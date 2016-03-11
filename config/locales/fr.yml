@@ -262,7 +262,7 @@
     - Ven
     - Sam
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Fev
     - Mar
@@ -288,7 +288,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Janvier
     - Février
     - Mars
@@ -1076,3 +1076,5 @@
       :add: Ajouter
   :formtastic:
     :update: Mettre à jour %{model}
+  :task_edit:
+    :cancel: Annuler

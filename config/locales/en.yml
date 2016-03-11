@@ -1087,3 +1087,5 @@
     :types:
       :public: Public
       :private: Private
+  :task_edit:
+    :cancel: Cancel
