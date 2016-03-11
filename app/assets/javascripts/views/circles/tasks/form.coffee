@@ -31,7 +31,7 @@ ready = ->
     minDate:        0,
   });
 
-  $('.datetimepicker .toggle').on 'click', (e)->
+  $('.datetime-container .toggle').on 'click', (e)->
     # FIXME simplify this mess
     selector = '#' + $(e.target).data('target')
     $(selector).datetimepicker('toggle')
