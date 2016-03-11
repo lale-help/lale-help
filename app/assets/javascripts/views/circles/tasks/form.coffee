@@ -1,43 +1,45 @@
 # FIXME adapt to new UI
-class Time
-  constructor: (@selector)->
-    @str = @selector.val()
-    parts = @str.split(":")
-    @hour   = parseInt(parts[0])
-    @minute = parseInt(parts[1])
+# class Time
+#   constructor: (@selector)->
+#     @str = @selector.val()
+#     parts = @str.split(":")
+#     @hour   = parseInt(parts[0])
+#     @minute = parseInt(parts[1])
 
-  lessThan: (other) ->
-    if @hour < other.hour
-      true
+#   lessThan: (other) ->
+#     if @hour < other.hour
+#       true
 
-    else if @hour == other.hour
-      @minute <= other.minute
+#     else if @hour == other.hour
+#       @minute <= other.minute
 
-    else
-      false
+#     else
+#       false
 
-  update: (other) ->
-    @selector.val(other.str)
+#   update: (other) ->
+#     @selector.val(other.str)
 
 ready = ->
 
-  # http://xdsoft.net/jqplugins/datetimepicker/
-  $.datetimepicker.setLocale(I18n.locale);
+  initTimeDatePickers = ->
+    # http://xdsoft.net/jqplugins/datetimepicker/
+    $.datetimepicker.setLocale(I18n.locale);
 
-  # FIXME pass config in data attributes
-  $('.datepicker').datetimepicker({
-    timepicker:     false,
-    dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
-    format:         I18n.t('datepicker.date_format')
-  });
+    # FIXME pass config in data attributes
+    $('.datepicker').datetimepicker({
+      timepicker:     false,
+      dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
+      format:         I18n.t('datepicker.date_format'),
+      minDate:        0
+    });
 
-  # FIXME pass config in data attributes
-  $('.timepicker').datetimepicker({
-    datepicker:     false,
-    step:           15,
-    dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
-    format:         I18n.t('datepicker.time_format'),
-  });
+    # FIXME pass config in data attributes
+    $('.timepicker').datetimepicker({
+      datepicker:     false,
+      step:           15,
+      format:         I18n.t('datepicker.time_format'),
+      defaultTime:    '12:00'
+    });
 
   showOrHideEndDate = ->
     type = $('#task_scheduled_time_type').val()
@@ -51,17 +53,18 @@ ready = ->
       $('.end_date').hide()
 
   # FIXME adapt to new UI
-  validateTime = ->
-    start = new Time($('#task_scheduled_time_start'))
-    end   = new Time($('#task_scheduled_time_end'))
-    end.update(start) if end.lessThan(start)
+  # validateTime = ->
+  #   start = new Time($('#task_scheduled_time_start'))
+  #   end   = new Time($('#task_scheduled_time_end'))
+  #   end.update(start) if end.lessThan(start)
 
   if $("form.edit_task, form.new_task").length > 0
     showOrHideEndDate()
     $('#task_scheduled_time_type').on 'change', showOrHideEndDate
-
-    validateTime()
-    $('#task_scheduled_time_start, #task_scheduled_time_end').on 'change', validateTime
+    initTimeDatePickers()
+    
+  #   validateTime()
+  #   $('#task_scheduled_time_start, #task_scheduled_time_end').on 'change', validateTime
 
   organizers = $('#task_organizer_id').html()
   showOrganizers = ->
