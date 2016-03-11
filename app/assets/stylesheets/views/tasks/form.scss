@@ -4,20 +4,18 @@
   padding-bottom: 200px;
 
   #task_scheduled_time_type {
-    width: auto;
+    height: 33px;
+  }
+  .datepicker {
+    width: 110px;
   }
 
-  .datetimepicker {
-    width: 140px;
+  .timepicker {
+    width: 90px;
   }
 
-  .datetime-container {
-    margin-left:20px;
-    width: 170px;
-  }
-
-  .after-icon {
-    margin-left: 5px;
+  .field-3 {
+    margin-right: 15px;
   }
 }
 

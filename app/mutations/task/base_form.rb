@@ -5,7 +5,7 @@ class Task::BaseForm < ::Form
 
   attribute :name,             :string
   attribute :working_group_id, :string
-  attribute :due_date,         :date,   default: proc{ Time.now.beginning_of_hour + 1.week }
+  attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
   attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
@@ -24,9 +24,9 @@ class Task::BaseForm < ::Form
 
   # FIXME move to i18n file
   DT_FORMAT = {
-    en: '%m/%d/%Y %H:%M',
-    de: '%d.%m.%Y %H:%M',
-    fr: '%d.%m.%Y %H:%M'
+    en: '%m/%d/%Y',
+    de: '%d.%m.%Y',
+    fr: '%d.%m.%Y'
   }
 
 
@@ -72,24 +72,12 @@ class Task::BaseForm < ::Form
     date_time.strftime(DT_FORMAT[I18n.locale])
   end
 
-  def datetime1
-    if due_date
-      dt = due_date.to_datetime
-      if scheduled_time_start
-        dt = dt + scheduled_time_start.split(':').first.to_i.hours
-      end
-      i18n_format(dt)
-    end
+  def due_date_i18n
+    i18n_format(due_date)
   end
 
-  def datetime2
-    if due_date
-      dt = due_date.to_datetime
-      if scheduled_time_end
-        dt = dt + scheduled_time_end.split(':').first.to_i.hours
-      end
-      i18n_format(dt)
-    end
+  def due_end_date_i18n
+    i18n_format(due_date)
   end
 
   def scheduled_time_type_options
@@ -107,7 +95,6 @@ class Task::BaseForm < ::Form
     end.flatten
   end
 
-  # FIXME remove
   def duration_options
     Task.durations.map do |key, val|
       [I18n.t("activerecord.attributes.task.duration-text.#{key}"), val]

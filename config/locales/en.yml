@@ -2,7 +2,8 @@
 :en:
   :datepicker:
     :day_of_week_start: 0
-    :datetime_format: 'm/d/Y H:i'
+    :date_format: 'm/d/Y'
+    :time_format: 'H:i'
   :date:
     :formats:
       :default: "%Y-%m-%d"
@@ -247,7 +248,7 @@
         :pending_tasks: Pending Tasks
         :description: Description of the Task
         :due_date: Due
-        :datetime1_default: Date/time
+        :datetime1_default: Date
         :datetime1_between: From
         :datetime2: To
         :location_assignments: Location assignments
@@ -263,8 +264,13 @@
         :volunteer_count_required: Required number of volunteers
         :primary_location: Place of task
         :duration: Time Commitment
-        :scheduled_time_type: Occurs
-        :scheduled_time_start: Start Time
+        :scheduled_time_type: Due
+        :due_date: Date
+        :due_date_start: Start date
+        :due_date_end: End date
+        :due_time: Time
+        :due_time_start: Start time
+        :due_time_end: End time
         :scheduled-time:
           :at: at %{start}
           :on_date: 'on'

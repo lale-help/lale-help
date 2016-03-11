@@ -42,24 +42,38 @@
       = f.text_field :primary_location
       = errors.message_for(:primary_location)
 
+  .field-row
+    .field
+      = f.label :duration
+      = f.select :duration do
+        = options_for_select(@form.duration_options)
+
+    .field
+
   .field-row-3
-    .field-3.due_date.required class=errors.css(:due_date)
-      
-      = f.label :due_date
+    .field-3.required class=errors.css(:due_date)
+      = f.label :scheduled_time_type
       = f.select :scheduled_time_type do
         = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
       = errors.message_for(:scheduled_time_type)
 
-    .field-3.datetime-container
-      = f.label :datetime1_default, id: "datetime1-default-label"
-      = f.label :datetime1_between, id: "datetime1-between-label"
-      = f.text_field :datetime1, class: :datetimepicker
-      i.after-icon.fa.fa-calendar.toggle data-target="task_datetime1"
+    .field-3
+      = f.label :due_date, class: 'label-due'
+      = f.label :due_date_start, class: 'label-start-end'
+      = f.text_field :due_date_i18n, class: :datepicker
 
-    #datetime2-container.field-3.datetime-container
-      = f.label :datetime2
-      = f.text_field :datetime2, class: :datetimepicker
-      i.after-icon.fa.fa-calendar.toggle data-target="task_datetime2"
+    .field-3
+      = f.label :due_time, class: 'label-due'
+      = f.label :due_time_start, class: 'label-start-end'
+      = f.text_field :scheduled_time_start, class: :timepicker, placeholder: '(optional)'
+
+    .field-3.end_date
+      = f.label :due_date_end
+      = f.text_field :due_end_date_i18n, class: :datepicker
+
+    .field-3.end_date
+      = f.label :due_time_end
+      = f.text_field :scheduled_time_end, class: :timepicker, placeholder: '(optional)'
 
   .submit-row
     = f.submit

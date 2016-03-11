@@ -23,29 +23,32 @@ ready = ->
 
   # http://xdsoft.net/jqplugins/datetimepicker/
   $.datetimepicker.setLocale(I18n.locale);
+
   # FIXME pass config in data attributes
-  $('.datetimepicker').datetimepicker({
-    step:           15,
+  $('.datepicker').datetimepicker({
+    timepicker:     false,
     dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
-    format:         I18n.t('datepicker.datetime_format'),
-    minDate:        0,
+    format:         I18n.t('datepicker.date_format')
   });
 
-  $('.datetime-container .toggle').on 'click', (e)->
-    # FIXME simplify this mess
-    selector = '#' + $(e.target).data('target')
-    $(selector).datetimepicker('toggle')
+  # FIXME pass config in data attributes
+  $('.timepicker').datetimepicker({
+    datepicker:     false,
+    step:           15,
+    dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
+    format:         I18n.t('datepicker.time_format'),
+  });
 
   showOrHideEndDate = ->
     type = $('#task_scheduled_time_type').val()
     if type == "between" 
-      $('#datetime2-container').show()
-      $('#datetime1-default-label').hide()
-      $('#datetime1-between-label').show()
+      $('.label-due').hide()
+      $('.label-start-end').show()
+      $('.end_date').show()
     else
-      $('#datetime2-container').hide()
-      $('#datetime1-default-label').show()
-      $('#datetime1-between-label').hide()
+      $('.label-due').show()
+      $('.label-start-end').hide()
+      $('.end_date').hide()
 
   # FIXME adapt to new UI
   validateTime = ->

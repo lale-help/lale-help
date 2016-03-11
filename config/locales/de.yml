@@ -2,7 +2,8 @@
 :de:
   :datepicker:
     :day_of_week_start: 1
-    :datetime_format: 'd.m.Y H:i'
+    :date_format: 'd.m.Y'
+    :time_format: 'H:i'
   :ransack:
     :search: suchen
     :predicate: Eigenschaft
