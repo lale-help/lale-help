@@ -1018,10 +1018,15 @@
       :sign-in-phrase: Sign in to your circle
       :reset-password: Reset my password
       :sign-in: Sign in
+      :login_error_message_title: "We couldn't log you in. Please check:"
+      :login_error_common_reasons: 
+        - did you use the right email address for lale?
+        - did you change your password recently?
+        - is the CAPS LOCK key activated?
     :destroy:
       :signed_out: Signed out!
     :create:
-      :login_error: Login failed, please verify your email and password.
+      :login_error_flash: Login failed, please verify your email and password.
   :user:
     :account:
       :edit:

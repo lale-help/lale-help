@@ -4,6 +4,14 @@ section
   hr
 
   = form_for @form, url: login_path, method: :post do
+
+    - if @show_error_message
+      .field-row.single.login_error
+        h3 = t('.login_error_message_title')
+        ul
+        - t('.login_error_common_reasons').each do |reason|
+            li = reason
+
     .field-row
       .field
         label for="email" = t('fields.email')

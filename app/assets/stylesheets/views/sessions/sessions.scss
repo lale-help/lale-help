@@ -1,3 +1,26 @@
-form#new_user {
-  margin-bottom: 100px;
+form.new_form {
+
+  .login_error {
+
+    $color: #fbe3e4;
+
+    padding: 1rem;
+    margin-bottom: .5rem;
+    width: 50%;
+    background-color: $color;
+    border: thin solid;
+    border-color: darken($color, 60%);
+    border-radius: 5px;
+
+    h3 {
+      margin: 0.5rem 0;
+    }
+    ul, li {
+      list-style-type: circle;
+    }
+    li {
+      padding-left: 5px;
+    }
+  }
+
 }
