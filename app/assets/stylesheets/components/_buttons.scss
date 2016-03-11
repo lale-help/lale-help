@@ -8,7 +8,7 @@
   display                : inline-block;
   flex-shrink            : 0;
   font-size              : 1.25rem;
-  font-weight            : $weight-normal;
+  font-weight            : $weight-bold;
   line-height            : 1;
   margin                 : 0 1rem 0 0;
   text-align             : center;
@@ -34,6 +34,10 @@
   color: $white;
   border: thin solid $orange;
   text-shadow   : none;
+
+  &:visited {
+    color: $white;
+  }
 }
 
 .button.button-secondary, .button-secondary {
@@ -42,10 +46,14 @@
   color: $white;
   border: thin solid $blue;
   text-shadow   : none;
+
+  &:visited {
+    color: $white;
+  }
 }
 
 .button {
-  $color: $blue-dark-1;
+  $color: lighten($blue-dark-1, 10%);
 
   @extend %button-base;
   background: white;

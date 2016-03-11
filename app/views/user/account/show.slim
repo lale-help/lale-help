@@ -56,7 +56,7 @@ main
           = link_to(t('.view_public_profile'), circle_member_path(current_circle, current_user))
 
     .submit-row
-      a.button.edit-profile-button href=account_edit_path
+      a.button.button-primary href=account_edit_path
         = t('.edit_profile')
       a.button href=account_reset_password_path =t('.reset_password')
 
