@@ -735,7 +735,7 @@
       :user_mailer:
         :forgot_password: Did you forget something?
         :account_activation: A new member wants to join your circle
-        :account_activated: You have been activated!
+        :account_activated: Your circle membership is being activated.
       :task_mailer:
         :task_change: Something has changed about your task.
         :task_completion_reminder: Thanks for helping!
@@ -782,14 +782,16 @@
         :invite_members_explaination: To invite new members to this circle, just share
           the following link with people that are interested.
         :invite_headline: Invite new members
-        :pending_members_headline: Activate pending members
-        :pending_members_explanation: The following members are waiting for approval, please activate them so they can start contributing.
-        :no_pending_members_message: There aren't any new members waiting for approval right now.
-      :extended_settings: 
+        :pending_members_headline: Pending members
+        :pending_members_explanation: The following members are waiting for approval,
+          please activate them so they can start contributing.
+        :no_pending_members_message: There aren't any new members waiting for approval
+          right now.
+      :extended_settings:
         :headline: Extended Settings
-        :must_activate_users: new members require admin approval
+        :must_activate_users: New members require admin approval
       :nav:
-        :basic-settings: Basic Settings
+        :basic-settings: Circle Profile
         :roles: Roles
         :working-groups: Working Groups
         :invite-volunteers: Invite Volunteers
@@ -997,9 +999,11 @@
         :details: It's a tremendous opportunity to help your community help each other
           and make the world a better place
       :membership_pending:
-        :title: Welcome to lale!
+        :title: Welcome to Lale!
         :subtitle: Your circle membership is being activated.
-        :description: "The circle admins have been notified and should activate your account soon. If they don't or if you have questions, please contact them by email: %{admins_list}."
+        :description: 'The circle admins have been notified and should activate your
+          account soon. If they don''t or if you have questions, please contact them
+          by email: %{admins_list}.'
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Reset your password
