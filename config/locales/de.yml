@@ -1097,3 +1097,5 @@
       :add: Hinzufügen
   :task_edit:
     :cancel: Abbrechen
+  :supply_edit:
+    :cancel: Abbrechen

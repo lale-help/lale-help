@@ -1078,3 +1078,5 @@
     :update: Mettre à jour %{model}
   :task_edit:
     :cancel: Annuler
+  :supply_edit:
+    :cancel: Annuler
