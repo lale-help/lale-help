@@ -156,6 +156,13 @@ form {
     }
   }
 
+  .field-row-3 {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(left);
+    margin: 35px 0;
+  }
+
   .field {
     @include span-columns(2 of 4);
   }

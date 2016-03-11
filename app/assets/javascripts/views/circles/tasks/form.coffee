@@ -1,3 +1,4 @@
+# FIXME adapt to new UI
 class Time
   constructor: (@selector)->
     @str = @selector.val()
@@ -19,31 +20,42 @@ class Time
     @selector.val(other.str)
 
 ready = ->
-  showOrHideTime = ->
+
+  # http://xdsoft.net/jqplugins/datetimepicker/
+  $.datetimepicker.setLocale(I18n.locale);
+  # FIXME pass config in data attributes
+  $('.datetimepicker').datetimepicker({
+    step:           15,
+    dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
+    format:         I18n.t('datepicker.datetime_format'),
+    minDate:        0,
+  });
+
+  $('.datetimepicker-toggle').on 'click', (e)->
+    # FIXME simplify this mess
+    selector = '#' + $(e.target).data('target')
+    $(selector).datetimepicker('toggle')
+
+  showOrHideEndDate = ->
     type = $('#task_scheduled_time_type').val()
-    if type == "at"
-      $('.scheduled-time').show()
-      $('.scheduled-time .start').show()
-      $('.scheduled-time .end').hide()
-
-    else if type == "between"
-      $('.scheduled-time').show()
-      $('.scheduled-time .start').show()
-      $('.scheduled-time .end').show()
-
+    if type == "between" 
+      $('.datetime2').show()
+      $('.datetime1-default-label').hide()
+      $('.datetime1-between-label').show()
     else
-      $('.scheduled-time').hide()
-      $('.scheduled-time .start').hide()
-      $('.scheduled-time .end').hide()
+      $('.datetime2').hide()
+      $('.datetime1-default-label').show()
+      $('.datetime1-between-label').hide()
 
+  # FIXME adapt to new UI
   validateTime = ->
     start = new Time($('#task_scheduled_time_start'))
     end   = new Time($('#task_scheduled_time_end'))
     end.update(start) if end.lessThan(start)
 
   if $("form.edit_task, form.new_task").length > 0
-    showOrHideTime()
-    $('#task_scheduled_time_type').on 'change', showOrHideTime
+    showOrHideEndDate()
+    $('#task_scheduled_time_type').on 'change', showOrHideEndDate
 
     validateTime()
     $('#task_scheduled_time_start, #task_scheduled_time_end').on 'change', validateTime

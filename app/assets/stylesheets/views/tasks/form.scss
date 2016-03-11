@@ -1,8 +1,27 @@
-.edit_task {
-  #task_scheduled_time_type, 
-  #task_due_date,
-  input#datetimepicker {
+.new_task, .edit_task {
+
+  // temp workaround for datepicker overflowing the page
+  padding-bottom: 200px;
+
+  #task_scheduled_time_type {
     width: auto;
   }
 
+  .datetimepicker {
+    width: 140px;
+  }
+
+  .datetime-container {
+    margin-left:20px;
+    width: 170px;
+  }
+
+  .after-icon {
+    margin-left: 5px;
+  }
+}
+
+// FIXME not enough for Safari, calendar still too wide
+.xdsoft_calendar table {
+  min-width: auto;
 }

@@ -1,5 +1,8 @@
 ---
 :en:
+  :datepicker:
+    :day_of_week_start: 0
+    :datetime_format: 'm/d/Y H:i'
   :date:
     :formats:
       :default: "%Y-%m-%d"
@@ -243,7 +246,10 @@
         :completed_tasks: Last Completed Task
         :pending_tasks: Pending Tasks
         :description: Description of the Task
-        :due_date: Due Date
+        :due_date: Due
+        :datetime1_default: "date/time"
+        :datetime1_between: "start"
+        :datetime2: "and"
         :location_assignments: Location assignments
         :locations: Locations
         :name: Name of the Task
@@ -271,9 +277,9 @@
           :all_day: All day
         :working_group: Working group
         :scheduled-time-select:
-          :on_date: On Day
-          :at: At
-          :between: In Between
+          :on_date: at
+          :by: by
+          :between: between
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary

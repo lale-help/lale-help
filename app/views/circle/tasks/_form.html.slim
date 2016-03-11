@@ -42,64 +42,33 @@
       = f.text_field :primary_location
       = errors.message_for(:primary_location)
 
-  .field-row
-    .field.required class=errors.css(:due_date)
+  .field-row-3
+    .field-3.due_date.required class=errors.css(:due_date)
       
-      = f.label "Termin"
+      = f.label :due_date
       = f.select :scheduled_time_type do
         = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
       = errors.message_for(:scheduled_time_type)
 
-    .field.required class=errors.css(:due_date)
-      input#datetimepicker type="text"
-      javascript:
-        $('#datetimepicker').datetimepicker('setOptions', {format: 'd/m/Y'});
+    .field-3.datetime-container class=errors.css(:due_date)
 
-        jQuery('#datetimepicker').datetimepicker({
-          step: 15,
-          dayofWeekStart: 1,
-        });
-        $.datetimepicker.setLocale('de');
+      = f.label :datetime1_default, class: "datetime1-default-label"
+      = f.label :datetime1_between, class: "datetime1-between-label"
+      = f.text_field :datetime1, class: :datetimepicker, id: :datetime1
+      i.after-icon.fa.fa-calendar.datetimepicker-toggle data-target="datetime1"
 
-      = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
-      = errors.message_for(:due_date)
+    .field-3.datetime-container
 
-  / .field-row
-  /   .field.required class=errors.css(:due_date)
-  /     = f.label :due_date
-  /     = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
-  /     = errors.message_for(:due_date)
+      = f.label :datetime2
+      = f.text_field :datetime2, class: :datetimepicker, id: :datetime2
+      i.after-icon.fa.fa-calendar.datetimepicker-toggle data-target="datetime2"
 
-  /   .field.required class=errors.css(:duration)
-  /     = f.label :duration
-  /     = f.select :duration do
-  /       = options_for_select(@form.duration_options, @form.duration)
-
-  /     = errors.message_for(:duration)
-
-
-  / .field-row
-  /   .field class=errors.css(:scheduled_time_type)
-  /     = f.label :scheduled_time_type
-  /     = f.select :scheduled_time_type do
-  /       = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
-  /     = errors.message_for(:scheduled_time_type)
-
-  /   .field.scheduled-time
-  /     = f.label :scheduled_time_start
-  /     span.start
-  /       = f.select :scheduled_time_start, nil, {}, {class: 'timeselect'} do
-  /         = options_for_select(@form.scheduled_time_options, @form.scheduled_time_start)
-  /     span.end
-  /       | to
-  /       = f.select :scheduled_time_end, nil, {}, {class: 'timeselect'}
-  /         = options_for_select(@form.scheduled_time_options, @form.scheduled_time_end)
-
-  /     = errors.message_for(:scheduled_time_start)
-  /     = errors.message_for(:scheduled_time_end)
-
-      / END OLD DATE PICKER SECTION
-
+      / previous fields:
+      / - due_date
+      / - duration
+      / - scheduled_time_type
+      / - scheduled_time_start
+      / - scheduled_time_end
 
   .submit-row
     = f.submit

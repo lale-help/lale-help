@@ -1,5 +1,8 @@
 ---
 :de:
+  :datepicker:
+    :day_of_week_start: 1
+    :datetime_format: 'd.m.Y H:i'
   :ransack:
     :search: suchen
     :predicate: Eigenschaft
@@ -387,7 +390,10 @@
         :completed_tasks: Erledigte Aufgaben
         :pending_tasks: Offene Aufgaben
         :description: Beschreibung
-        :due_date: Fälligkeit
+        :due_date: Termin
+        :datetime1_default: Datum/Zeit
+        :datetime1_between: von
+        :datetime2: bis
         :location_assignments: Standortzuordnung
         :locations: Standorte
         :name: Name der Aufgabe
@@ -415,9 +421,9 @@
           :half_day: halber Tag
           :all_day: ganzer Tag
         :scheduled-time-select:
-          :on_date: Am
-          :between: Zwischen
-          :at: Um
+          :on_date: am
+          :by: bis
+          :between: zwischen
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
