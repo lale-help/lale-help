@@ -2,19 +2,23 @@ form.new_form {
 
   .login_error {
 
-    $color: #fbe3e4;
+    display: none;
 
-    padding: 1rem;
+    $color: $orange;
+
+    padding: 1.5rem 1rem;
+    padding-left: 2.5rem;
     margin-bottom: .5rem;
-    width: 50%;
-    background-color: $color;
-    border: thin solid;
-    border-color: darken($color, 60%);
-    border-radius: 5px;
+    width: 400px;
+    border: 1px solid $color;
+    border-left: 7px solid $color;
+    background-color: lighten($color, 33%);
+    border-radius: 3px;
 
     h3 {
-      margin: 0.5rem 0;
+      margin: 1rem 0 1.5rem 0;
     }
+
     ul, li {
       list-style-type: disc;
       list-style-position: inside;
