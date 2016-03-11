@@ -31,7 +31,7 @@ ready = ->
     minDate:        0,
   });
 
-  $('.datetimepicker-toggle').on 'click', (e)->
+  $('.datetimepicker .toggle').on 'click', (e)->
     # FIXME simplify this mess
     selector = '#' + $(e.target).data('target')
     $(selector).datetimepicker('toggle')
@@ -39,13 +39,13 @@ ready = ->
   showOrHideEndDate = ->
     type = $('#task_scheduled_time_type').val()
     if type == "between" 
-      $('.datetime2').show()
-      $('.datetime1-default-label').hide()
-      $('.datetime1-between-label').show()
+      $('#datetime2-container').show()
+      $('#datetime1-default-label').hide()
+      $('#datetime1-between-label').show()
     else
-      $('.datetime2').hide()
-      $('.datetime1-default-label').show()
-      $('.datetime1-between-label').hide()
+      $('#datetime2-container').hide()
+      $('#datetime1-default-label').show()
+      $('#datetime1-between-label').hide()
 
   # FIXME adapt to new UI
   validateTime = ->
