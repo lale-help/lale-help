@@ -247,9 +247,9 @@
         :pending_tasks: Pending Tasks
         :description: Description of the Task
         :due_date: Due
-        :datetime1_default: "date/time"
-        :datetime1_between: "start"
-        :datetime2: "and"
+        :datetime1_default: Date/time
+        :datetime1_between: From
+        :datetime2: To
         :location_assignments: Location assignments
         :locations: Locations
         :name: Name of the Task

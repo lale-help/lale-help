@@ -424,9 +424,9 @@
           :half_day: halber Tag
           :all_day: ganzer Tag
         :scheduled-time-select:
-          :on_date: am
-          :by: bis
-          :between: zwischen
+          :on_date: Am
+          :by: Bis
+          :between: von/bis
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
