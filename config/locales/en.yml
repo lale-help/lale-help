@@ -174,7 +174,8 @@
     :primary_location:
       :empty: can't be empty
     :working_group_name:
-      :not_unique: Working Group name must be unique
+      :not_unique: This Working Group name is already been used. Please choose a different
+        name.
   :activerecord:
     :errors:
       :messages:
@@ -1067,6 +1068,7 @@
   :error_correction: Please correct the errors below.
   :formtastic:
     :required: Required field
+    :update: Update %{model}
   :supplies:
     :flash:
       :completed: Thanks for the supply!
