@@ -171,11 +171,10 @@
       :too_short: is too short
     :name:
       :empty: can't be empty
-    :primary_location:
-      :empty: can't be empty
-    :working_group_name:
       :not_unique: This Working Group name is already been used. Please choose a different
         name.
+    :primary_location:
+      :empty: can't be empty
   :activerecord:
     :errors:
       :messages:

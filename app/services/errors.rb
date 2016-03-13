@@ -34,4 +34,9 @@ class Errors
     error_for(key).message if error_for(key).present?
   end
 
+  def formatted_message_for(key)
+    error_message = message_for key
+    "<span class=\"error_description\">(#{message_for key})</span>".html_safe if error_message.present?
+  end
+
 end

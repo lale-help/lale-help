@@ -6,17 +6,19 @@
   .field-row
     .field.required class=errors.css(:name)
       = f.label :name
+      = errors.formatted_message_for(:name)
       = f.text_field :name
-      = errors.message_for(:working_group_name)
 
   .field-row
     .field
       = f.label :description
+      = errors.formatted_message_for(:description)
       = f.text_area :description, {maxlength: 200}
 
   .field-row
     .field
       = f.label :type
+      = errors.formatted_message_for(:type)
       = f.select :type, options_for_select(@form.type_options, @form.type)
 
   .actions.submit-row

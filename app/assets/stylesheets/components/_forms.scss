@@ -180,12 +180,22 @@ form {
   }
 
   label {
+    float: left;
     color: #2C4C5E;
     display: block;
     font-size: 1.5rem;
     font-weight: $weight-medium;
     line-height: 21px;
     margin-bottom: 8px;
+  }
+  span.error_description {
+    float: left;
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 21px;
+    margin-bottom: 8px;
+    color: #d0021b;
   }
 
   input[type='text'], input[type='password'], textarea, input[type='date'], input[type='number'] {

@@ -580,6 +580,8 @@
       :too_long: Maximal 300 Zeichen
     :name:
       :empty: kann nicht leer sein
+      :not_unique: Der Name der Arbeitsgruppe ist bereits vergeben. Bitte wähle einen
+        anderen Namen.
     :description:
       :too_short: ist zu kurz
     :primary_location:
@@ -590,9 +592,6 @@
       :empty: Bitte ein gültiges Land angeben
     :postal_code:
       :empty: Bitte eine Postleitzahl angeben
-    :working_group_name:
-      :not_unique: Der Name der Arbeitsgruppe ist bereits vergeben. Bitte wähle einen
-        anderen Namen.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."

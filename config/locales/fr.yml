@@ -561,6 +561,7 @@
       :too_short: est trop court
     :name:
       :empty: ne peut être vide
+      :not_unique: Ce nom de Groupe est déjà utilisé. Merci de choisir un autre nom.
     :primary_location:
       :empty: ne peut être vide
     :postal_code:
@@ -569,8 +570,6 @@
       :empty: Please choose a valid country
     :city:
       :empty: Merci de saisir une ville.
-    :working_group_name:
-      :not_unique: Ce nom de Groupe est déjà utilisé. Merci de choisir un autre nom.
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
