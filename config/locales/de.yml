@@ -73,7 +73,7 @@
     :yes: Ja
     :no: Nein
     :create: "%{model} anlegen"
-    :update: "%{model} aktualisieren"
+    :update: "%{model} speichern"
     :submit: Abschicken
     :cancel: Abbrechen
     :reset: "%{model} zurücksetzen"
@@ -260,7 +260,7 @@
     :submit:
       :create: "%{model} erstellen"
       :submit: "%{model} speichern"
-      :update: "%{model} aktualisieren"
+      :update: "%{model} speichern"
     :page_entries_info:
       :more_pages:
         :display_entries: Anzeige von %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
@@ -591,7 +591,8 @@
     :postal_code:
       :empty: Bitte eine Postleitzahl angeben
     :working_group_name:
-      :not_unique: Name der Arbeitsgruppe darf nur einmal vergeben werden
+      :not_unique: Der Name der Arbeitsgruppe ist bereits vergeben. Bitte wähle einen
+        anderen Namen.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
