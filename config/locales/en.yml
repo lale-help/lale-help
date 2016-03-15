@@ -757,6 +757,7 @@
       :member: Member
       :supply:
         :organizer: Organizer
+        :volunteer: Volunteer
   :circle:
     :admins:
       :show:

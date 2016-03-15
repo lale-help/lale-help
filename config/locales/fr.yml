@@ -262,7 +262,7 @@
     - Ven
     - Sam
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Fev
     - Mar
@@ -288,7 +288,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Janvier
     - Février
     - Mars
@@ -620,6 +620,7 @@
       :member: Membre
       :supply:
         :organizer: Organisateur
+        :volunteer: Volontaire
   :circle:
     :admins:
       :show:
