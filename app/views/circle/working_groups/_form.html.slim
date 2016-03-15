@@ -19,6 +19,11 @@
       = f.label :type
       = f.select :type, options_for_select(@form.type_options, @form.type)
 
+  .field-row
+    .field
+      = f.label :admin_ids
+      = f.select :admin_ids, options_for_select(@form.admin_options, @form.admin_ids), {}, {multiple: true}
+
   .actions.submit-row
     = f.submit
 
