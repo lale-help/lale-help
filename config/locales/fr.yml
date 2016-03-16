@@ -620,6 +620,7 @@
       :member: Membre
       :supply:
         :organizer: Organisateur
+        :volunteer: Volontaire
   :circle:
     :admins:
       :show:
@@ -1076,3 +1077,7 @@
       :add: Ajouter
   :formtastic:
     :update: Mettre à jour %{model}
+  :task_edit:
+    :cancel: Annuler
+  :supply_edit:
+    :cancel: Annuler

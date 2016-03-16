@@ -658,6 +658,7 @@
       :member: Mitglied
       :supply:
         :organizer: Organisator
+        :volunteer: Helfer
   :circle:
     :admins:
       :show:
@@ -895,7 +896,7 @@
         :details: Dies ist eine wunderbare Möglichkeit, in Deiner Gemeinschaft mitzuhelfen
           und die Welt ein wenig besser zu machen!
       :membership_pending:
-        :subtitle: Dein Konto wurde aktiviert!
+        :subtitle: Dein Konto wurde eingerichtet und wird gerade überprüft!
         :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
           und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
           sie per Email: %{admins_list}.'
@@ -1095,3 +1096,7 @@
   :sidebar:
     :circle_add_menu:
       :add: Hinzufügen
+  :task_edit:
+    :cancel: Abbrechen
+  :supply_edit:
+    :cancel: Abbrechen

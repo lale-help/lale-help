@@ -757,6 +757,7 @@
       :member: Member
       :supply:
         :organizer: Organizer
+        :volunteer: Volunteer
   :circle:
     :admins:
       :show:
@@ -1087,3 +1088,7 @@
     :types:
       :public: Public
       :private: Private
+  :task_edit:
+    :cancel: Cancel
+  :supply_edit:
+    :cancel: Cancel
