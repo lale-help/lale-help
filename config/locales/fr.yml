@@ -262,7 +262,7 @@
     - Ven
     - Sam
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Fev
     - Mar
@@ -288,7 +288,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Janvier
     - Février
     - Mars
@@ -569,6 +569,8 @@
       :empty: Please choose a valid country
     :city:
       :empty: Merci de saisir une ville.
+    :working_group_name:
+      :not_unique: Ce nom de Groupe est déjà utilisé. Merci de choisir un autre nom.
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -651,6 +653,8 @@
         :create_working_group: Nouveau Groupe
       :extended_settings:
         :headline: Paramètres avancés
+        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
+          Administrateur
       :pending_members_list:
         :activate: Activer
     :comments:
@@ -874,6 +878,10 @@
       :sign-in-phrase: Se connecter à votre cercle
       :reset-password: Réinitialiser mon mot de passe
       :sign-in: Connexion
+    :create:
+      :login_error: Le login a échoué, merci de vérifier votre email et mot de passe.
+    :destroy:
+      :signed_out: Déconnecté !
   :user:
     :account:
       :edit:
@@ -1066,3 +1074,9 @@
   :sidebar:
     :circle_add_menu:
       :add: Ajouter
+  :formtastic:
+    :update: Mettre à jour %{model}
+  :task_edit:
+    :cancel: Annuler
+  :supply_edit:
+    :cancel: Annuler
