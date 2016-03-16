@@ -1,5 +1,8 @@
 .comment-container
-  - task.comments.limit(max_display).each do |comment|
+  - if task.comments.count > max_display
+    .show_all_comments
+      a data-url="#{circle_task_comments_path(current_circle, current_task)}" href='javascript:void(0);' = t('.show_all_comments')
+  - task.comments.reorder('created_at asc').limit(max_display).each do |comment|
     .comment class="#{comment.commenter == current_user ? 'right' : 'left' }"
       .user-avatar
         = render partial: 'user/user_icon', locals: { user: comment.commenter, link: true }
@@ -15,8 +18,6 @@
           .name=comment.commenter.name
           .time=comment.comment_date_time
 
-- if task.comments.count > max_display
-  a.show_all_comments data-url="#{circle_task_comments_path(current_circle, current_task)}" href='javascript:void(0);' = t('.show_all_comments')
 - if can? :create, Comment, task
   .new-comment
     = form_for [circle, task, @form] do |f|

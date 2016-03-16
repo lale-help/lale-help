@@ -1,9 +1,5 @@
 .task-comments {
-  .comment-container {
-    max-height: 350px;
-    overflow: auto;
-  }
-  
+
   &:before {
 
   }
@@ -103,5 +99,8 @@
         }
       }
     }
+  }
+  .show_all_comments {
+    text-align: center;
   }
 }

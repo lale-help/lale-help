@@ -6,7 +6,7 @@ showComments = ->
   return if elem.hasClass('loading')
   elem.addClass 'loading'
   $.ajax(
-    url: $('.show_all_comments').data('url')
+    url: $('.show_all_comments a').data('url')
     success: (result) =>
       elem.removeClass 'loading'
       elem.html(result)
