@@ -143,6 +143,9 @@
       :nils: Please provide a password.
       :does_not_match: Your password did not match the password confirmation.
       :empty: Password is required.
+      :no_upper: Your password must have at least one uppercase letter
+      :no_lower: Your password must have at least one lowercase letter
+      :no_numeric: Your password must have at least one digit
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
       :nils: Please confirm your password.
