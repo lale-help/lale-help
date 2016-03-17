@@ -38,6 +38,9 @@ class User::Create < ::Form
     def validate
       add_error(:password, :does_not_match) if password != password_confirmation
       add_error(:password, :too_short)      if password && password.length < 8
+      add_error(:password, :no_upper)       if password && /[[:upper:]]/.match(password).nil?
+      add_error(:password, :no_lower)       if password && /[[:lower:]]/.match(password).nil?
+      add_error(:password, :no_numeric)     if password && /[[:digit:]]/.match(password).nil?
 
       add_error(:email, :taken) if User::Identity.where(email: email).exists?
       add_error(:accept_terms, :false) unless accept_terms == true
