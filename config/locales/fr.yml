@@ -889,7 +889,7 @@
       :reset-password: Réinitialiser mon mot de passe
       :sign-in: Connexion
       :login_error_common_reasons:
-        :one: avez-vous utilisé la bonne adresse email pour lale ?
+        :one: avez-vous utilisé la bonne adresse email pour Lale ?
         :three: est-ce que votre touche majuscule est activée ?
         :two: avez-vous changé votre mot de passe récemment ?
       :login_error_message_title: 'Nous n''avons pu vous identifier. Merci de vérifier

@@ -1020,7 +1020,7 @@
       :sign-in: Sign in
       :login_error_message_title: 'We couldn''t log you in. Please check:'
       :login_error_common_reasons:
-        :one: did you use the right email address for lale?
+        :one: did you use the right email address for Lale?
         :two: did you change your password recently?
         :three: is the CAPS LOCK key activated?
     :destroy:
