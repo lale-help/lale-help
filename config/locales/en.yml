@@ -139,12 +139,12 @@
       :even: must be even
       :taken: has already been taken
     :password:
+      :no_lower: Your password must have at least one lowercase letter
       :too_short: Please pick a password that is longer than 8 characters.
       :nils: Please provide a password.
       :does_not_match: Your password did not match the password confirmation.
       :empty: Password is required.
       :no_upper: Your password must have at least one uppercase letter
-      :no_lower: Your password must have at least one lowercase letter
       :no_numeric: Your password must have at least one digit
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
@@ -168,15 +168,15 @@
     :country:
       :empty: Please choose a valid country
     :city:
-      :empty: Please include a city
+      :empty: Please enter a city
     :postal_code:
-      :empty: Please include a postal code
+      :empty: Please enter a postal code
     :description:
-      :too_short: is too short
+      :too_short: Description is too short
     :name:
-      :empty: can't be empty
+      :empty: Name can't be empty
     :primary_location:
-      :empty: can't be empty
+      :empty: Location can't be empty
     :working_group_name:
       :not_unique: This Working Group name is already been used. Please choose a different
         name.
