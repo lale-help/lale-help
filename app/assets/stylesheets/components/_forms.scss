@@ -251,6 +251,9 @@ form {
       @extend .button-primary;
       width: auto;
     }
+    .secondary-action {
+      float:right;
+    }
   }
 
 

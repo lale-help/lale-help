@@ -42,7 +42,7 @@ Rails.application.routes.draw do
           get :open
           get :completed
         end
-        resources :comments, only: [:create, :destroy, :update]
+        resources :comments, only: [:create, :destroy, :update, :index]
 
         put :volunteer
         patch :volunteer

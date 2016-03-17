@@ -158,6 +158,8 @@
           vide.
       :delete: Supprimer
       :created_at: Crée
+      :author_missing: missing_trans
+      :delete_confirmation: missing_trans
     :devise:
       :username:
         :title: Nom d'utilisateur
@@ -185,6 +187,8 @@
         :forgot_your_password: Vous avez oublié votre mot de passe ?
         :sign_in_with_omniauth_provider: Connectez-vous avec %{provider}
         :sign_up: S’inscrire
+        :resend_confirmation_instructions: missing_trans
+        :resend_unlock_instructions: missing_trans
       :sign_up:
         :title: S’inscrire
         :submit: S’inscrire
@@ -507,6 +511,9 @@
       :does_not_match: Votre mot de passe ne correspond pas.
       :nils: Merci de saisir un mot de passe.
       :empty: Mot de passe est nécessaire.
+      :no_lower: Votre mot de passe doit contenir au moins une lettre minuscule
+      :no_numeric: Votre mot de passe doit contenir au moins un chiffre
+      :no_upper: Votre mot de passe doit contenir au moins une lettre majuscule
     :password_confirmation:
       :did_not_match: Votre mot de passe et confirmation de mot de passe ne correspondent
         pas.
@@ -522,6 +529,7 @@
       :nils: Merci de saisir un email.
       :taken: Cette email est déjà utilisé. Vous-êtes vous déjà inscrit ?
       :empty: Email est nécessaire.
+      :matches: L'adresse email est incomplète ou invalide
     :first_name:
       :nils: Merci de saisir votre prénom.
       :empty: Prénom est nécessaire
@@ -558,16 +566,16 @@
         :one: est de la mauvaise longueure (doit être 1 charactère)
         :other: est de la mauvaise longueure (doit être %{count} charactères)
     :description:
-      :too_short: est trop court
+      :too_short: La description est trop court
     :name:
-      :empty: ne peut être vide
+      :empty: Le nom ne peut être vide
       :not_unique: Ce nom de Groupe est déjà utilisé. Merci de choisir un autre nom.
     :primary_location:
-      :empty: ne peut être vide
+      :empty: L'emplacement ne peut être vide
     :postal_code:
       :empty: Merci d'inclure le code postal
     :country:
-      :empty: Please choose a valid country
+      :empty: Merci de choisir un pays existant.
     :city:
       :empty: Merci de saisir une ville.
   :flash:
@@ -619,6 +627,7 @@
       :member: Membre
       :supply:
         :organizer: Organisateur
+        :volunteer: Volontaire
   :circle:
     :admins:
       :show:
@@ -664,6 +673,8 @@
         :delete: Effacer
         :delete_confirm: Etes-vous sure de vouloir effacer ce commentaire ?
         :edit: Editer
+      :comments:
+        :show_all_comments: Voir Tous les Commentaires
     :members:
       :index:
         :directory: " Liste de Volontaires"
@@ -1075,3 +1086,7 @@
       :add: Ajouter
   :formtastic:
     :update: Mettre à jour %{model}
+  :task_edit:
+    :cancel: Annuler
+  :supply_edit:
+    :cancel: Annuler

@@ -76,5 +76,7 @@
 
   .submit-row
     = f.submit
+    - cancel_path = @form.task.persisted? ? circle_task_path(current_circle, current_task) : circle_path(current_circle)
+    = link_to t('task_edit.cancel'), cancel_path, class: 'button'
     - if locals[:delete]
-      = link_to t('delete'), [current_circle, current_task], class: 'button', data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete
+      = link_to t('delete'), [current_circle, current_task], class: 'button secondary-action', data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete
