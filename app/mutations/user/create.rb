@@ -4,7 +4,7 @@ class User::Create < ::Form
 
   attribute :first_name,        :string
   attribute :last_name,         :string
-  attribute :email,             :string
+  attribute :email,             :string, matches: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   attribute :password,              :string
   attribute :password_confirmation, :string
@@ -62,7 +62,7 @@ class User::Create < ::Form
     private
 
     def user_attributes
-      inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, 
+      inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language,
         :public_profile, :accept_terms
       )
     end

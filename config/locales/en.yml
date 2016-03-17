@@ -156,6 +156,7 @@
       :nils: Please provide an email.
       :taken: This email has already been taken. Did you already sign up for Lale?
       :empty: Email is required
+      :matches: Email is incomplete or invalid
     :first_name:
       :nils: Please provide your first name.
       :empty: First name is required
