@@ -1018,8 +1018,8 @@
       :sign-in-phrase: Sign in to your circle
       :reset-password: Reset my password
       :sign-in: Sign in
-      :login_error_message_title: "We couldn't log you in. Please check:"
-      :login_error_common_reasons: 
+      :login_error_message_title: 'We couldn''t log you in. Please check:'
+      :login_error_common_reasons:
         :one: did you use the right email address for lale?
         :two: did you change your password recently?
         :three: is the CAPS LOCK key activated?

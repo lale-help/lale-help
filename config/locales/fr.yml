@@ -888,10 +888,17 @@
       :sign-in-phrase: Se connecter à votre cercle
       :reset-password: Réinitialiser mon mot de passe
       :sign-in: Connexion
+      :login_error_common_reasons:
+        :one: avez-vous utilisé la bonne adresse email pour lale ?
+        :three: est-ce que votre touche majuscule est activée ?
+        :two: avez-vous changé votre mot de passe récemment ?
+      :login_error_message_title: 'Nous n''avons pu vous identifier. Merci de vérifier
+        les informations suivantes :'
     :create:
-      :login_error: Le login a échoué, merci de vérifier votre email et mot de passe.
+      :login_error: Echec du login, merci de vérifier votre email et mot de
+        passe.
     :destroy:
-      :signed_out: Déconnecté !
+      :signed_out: Deconnecté !
   :user:
     :account:
       :edit:
