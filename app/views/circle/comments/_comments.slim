@@ -2,7 +2,7 @@
   - if task.comments.count > max_display
     - tasks = task.comments.limit(max_display).reverse
     .show_all_comments
-      a data-url="#{circle_task_comments_path(current_circle, current_task)}" href='javascript:void(0);' = t('.show_all_comments')
+      a href='javascript:void(0);' = t('.show_all_comments')
   - else
     - tasks = task.comments.reorder('created_at asc')
   - tasks.each do |comment|
