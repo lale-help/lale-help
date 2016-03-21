@@ -51,7 +51,8 @@
         .title= WorkingGroup.model_name.human
         .details= current_supply.working_group.name
 
-    = render partial: 'circle/comments/comments', locals: { task: current_supply, circle: current_circle }
+    .task-comments data-url="#{circle_supply_comments_path(current_circle, current_supply)}"
+      = render partial: 'circle/comments/comments', locals: { task: current_supply, circle: current_circle, max_display: 3 }
 
   aside
     .actions

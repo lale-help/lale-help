@@ -1,8 +1,11 @@
 .comment-container
   - if task.comments.count > max_display
+    - tasks = task.comments.limit(max_display).reverse
     .show_all_comments
-      a data-url="#{circle_task_comments_path(current_circle, current_task)}" href='javascript:void(0);' = t('.show_all_comments')
-  - task.comments.reorder('created_at asc').limit(max_display).each do |comment|
+      a href='javascript:void(0);' = t('.show_all_comments')
+  - else
+    - tasks = task.comments.reorder('created_at asc')
+  - tasks.each do |comment|
     .comment class="#{comment.commenter == current_user ? 'right' : 'left' }"
       .user-avatar
         = render partial: 'user/user_icon', locals: { user: comment.commenter, link: true }
