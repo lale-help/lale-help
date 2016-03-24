@@ -78,6 +78,6 @@
       - if can? :invite_to, current_supply
         = form_tag circle_supply_invite_path(current_circle, current_supply, type: 'working_group'), method: 'post' do
           button.button.button-secondary= t('.invite-button', group: current_supply.working_group.name)
-
+      - unless current_supply.working_group.is_private?
         = form_tag circle_supply_invite_path(current_circle, current_supply, type: 'circle'), method: 'post' do
           button.button.button-secondary= t('.invite-button', group: current_supply.circle.name)

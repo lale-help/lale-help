@@ -82,7 +82,7 @@
         - if can? :invite_to, current_task
           = form_tag circle_task_invite_path(current_circle, current_task, type: 'working_group'), method: 'post' do
             button.button.button-secondary= t('.invite-button', class: WorkingGroup.model_name.human)
-
+        - unless current_task.working_group.is_private?
           = form_tag circle_task_invite_path(current_circle, current_task, type: 'circle'), method: 'post' do
             button.button.button-secondary= t('.invite-button', class: Circle.model_name.human)
 
