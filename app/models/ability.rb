@@ -64,7 +64,8 @@ class Ability
     can :read, User do |member, circle|
       member.id == user.id ||
       (can?(:read, circle) &&
-        (user.working_group_roles.admin.for_circle(circle).exists? ||
+        (user.working_group_roles.admin.for_circle(circle).exists? || 
+          circle.admins.include?(user) ||
           member.public_profile?))
     end
 
