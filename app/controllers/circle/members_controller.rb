@@ -23,7 +23,7 @@ class Circle::MembersController < ApplicationController
   end
 
   helper_method def current_member
-    @current_member ||= current_circle.users.active.find(params[:id])
+    @current_member ||= current_circle.users.find(params[:id])
   end
 
   private 

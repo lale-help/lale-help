@@ -5,6 +5,14 @@ class Circle::CommentsController < ApplicationController
 
   include HasCircle
 
+  def index
+    authorize! :read, current_task
+    if can? :create, Comment, current_task
+      @form = Comment::Create.new(commenter: current_user, task: current_task, comment: Comment.new)
+    end
+    render layout: false
+  end
+
   def create
     authorize! :create, Comment, current_task
 
