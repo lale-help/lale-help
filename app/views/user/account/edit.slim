@@ -10,67 +10,67 @@ main
     .field-row
       .field.required class=errors.css(:first_name)
         = f.label :first_name
+        = errors.formatted_message_for(:first_name)
         = f.text_field :first_name
-        = errors.message_for(:first_name)
 
       .field.required class=errors.css(:last_name)
         = f.label :last_name
+        = errors.formatted_message_for(:last_name)
         = f.text_field :last_name
-        = errors.message_for(:last_name)
 
     .field-row
       .field.required class=errors.css(:email)
         = f.label :email
+        = errors.formatted_message_for(:email)
         = f.text_field :email
-        = errors.message_for(:email)
       .field.required class=errors.css(:language)
         = f.label :language
+        = errors.formatted_message_for(:language)
         = f.select :language do
           = options_for_select(@form.language_options, @form.user[:language])
-        = errors.message_for(:language)
 
 
     .field-row
       .field class=errors.css(:mobile_phone)
         = f.label :mobile_phone
+        = errors.formatted_message_for(:mobile_phone)
         = f.text_field :mobile_phone
-        = errors.message_for(:mobile_phone)
 
       .field class=errors.css(:home_phone)
         = f.label :home_phone
+        = errors.formatted_message_for(:home_phone)
         = f.text_field :home_phone
-        = errors.message_for(:home_phone)
 
     .field-row
       .field class=errors.css(:street_address_1)
         = f.label :street_address
+        = errors.formatted_message_for(:street_address_1)
         = f.text_field :street_address_1
-        = errors.message_for(:street_address_1)
     .field-row
       .field class=errors.css(:city)
         = f.label :city
+        = errors.formatted_message_for(:city)
         = f.text_field :city
-        = errors.message_for(:city)
       .field class=errors.css(:state_province)
         = f.label :state_province
+        = errors.formatted_message_for(:state_province)
         = f.text_field :state_province
-        = errors.message_for(:state_province)
     .field-row
       .field class=errors.css(:postal_code)
         = f.label :postal_code
+        = errors.formatted_message_for(:postal_code)
         = f.text_field :postal_code
-        = errors.message_for(:postal_code)
       .field class=errors.css(:country)
         = f.label :country
+        = errors.formatted_message_for(:country)
         = country_select(:user, :country,
             locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
             include_blank: t('.country_select'), selected: @form.country)
-        = errors.message_for(:country)
 
     .field-row
       = f.label :about_me
+      = errors.formatted_message_for(:about_me)
       = f.text_area :about_me
-      = errors.message_for(:about_me)
 
     .field-row
       .field

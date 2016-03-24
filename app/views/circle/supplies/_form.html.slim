@@ -7,38 +7,38 @@
   .field-row.single
     .field.required class=errors.css(:name)
       = f.label :name
+      = errors.formatted_message_for(:name)
       = f.text_field :name, placeholder: true
-      = errors.message_for(:name)
 
 
   .field-row
     .field.required class=errors.css(:working_group)
       = f.label :working_group_id
+      = errors.formatted_message_for(:working_group)
       = f.collection_select :working_group_id, managed_working_groups(current_circle), :id, :name
-      = errors.message_for(:working_group)
 
     .field.required class=errors.css(:organizer_id)
       = f.label :organizer_id
+      = errors.formatted_message_for(:organizer_id)
       = f.collection_select :organizer_id, current_circle.volunteers.active, :id, :name
-      = errors.message_for(:organizer_id)
 
 
   .field-row.single
     .field.required class=errors.css(:description)
       = f.label :description
+      = errors.formatted_message_for(:description)
       = f.text_area :description
-      = errors.message_for(:description)
 
   .field-row
     .field.required class=errors.css(:due_date)
       = f.label :due_date
+      = errors.formatted_message_for(:due_date)
       = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
-      = errors.message_for(:due_date)
 
     .field.required class=errors.css(:location)
       = f.label :location
+      = errors.formatted_message_for(:location)
       = f.text_field :location
-      = errors.message_for(:location)
 
 
   .submit-row
