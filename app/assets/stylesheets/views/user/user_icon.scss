@@ -47,7 +47,7 @@
   text-align: left;
 
   .user-icon {
-    @include circle-icon(30px);
+    @include circle-icon(50px);
     border-color: $blue-dark-1;
   }
 
