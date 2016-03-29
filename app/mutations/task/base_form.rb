@@ -5,96 +5,46 @@ class Task::BaseForm < ::Form
 
   attribute :name,             :string
   attribute :working_group_id, :string
-  attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
+  
   attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
 
   attribute :scheduled_time_type,  :string, required: false
-  attribute :scheduled_time_start, :string, required: false
-  attribute :scheduled_time_end,   :string, required: false
+
+  attribute :due_date,         :date,   default: proc { Date.today + 1.week }
+  attribute :due_time,         :string,   required: false
+  attribute :start_date,       :date,   required: false
+  attribute :start_time,       :string,   required: false
 
   attribute :volunteer_count_required, :integer, default: proc { 1 }
 
   attribute :ability, :model
   attribute :circle, :model
 
-  # FIXME move to i18n file
-  DT_FORMAT = {
-    en: '%m/%d/%Y',
-    de: '%d.%m.%Y',
-    fr: '%d.%m.%Y'
-  }
+  def i18n_format(date)
+    date && date.strftime(I18n.t('circle.tasks.form.date_format'))
+  end
 
-
-  # previous fields:
-  # - due_date
-  # - duration
-  # - scheduled_time_type
-  # - scheduled_time_start
-  # - scheduled_time_end
-  # 
-  # -------------------------
-  # new inputs
-  # -------------------------
-  # - start_datetime 
-  #   comparable to due_date before
-  #   
-  # - end_datetime 
-  #   only given when 
-  #   
-  # -------------------------
-  # mapping new inputs to old DB fields
-  # -------------------------
-  # 
-  # - due_date
-  #   => fill with date portion of due_datetime
-  #   
-  # - duration
-  #   - when end_datetime is given (scheduled_time_type is "between")
-  #     => calculate: end_datetime - due_datetime
-  #   - else
-  #     => ?
-  # 
-  # - scheduled_time_type
-  # 
-  # - scheduled_time_start
-  #   => fill with time portion of due_datetime
-  #   
-  # - scheduled_time_end
-  # 
-
-
-  def i18n_format(date_time)
-    date_time.strftime(DT_FORMAT[I18n.locale])
+  def start_date_i18n
+    i18n_format(start_date)
   end
 
   def due_date_i18n
     i18n_format(due_date)
   end
 
-  def due_end_date_i18n
-    i18n_format(due_date)
-  end
-
+  # FIXME completely migrate data & code to "at, by, between"
   def scheduled_time_type_options
     ['on_date', 'by', 'between'].map do |val|
       [I18n.t("activerecord.attributes.task.scheduled-time-select.#{val}"), val]
     end
   end
 
-  # FIXME remove
-  def scheduled_time_options
-    ("0".."23").map do |hour|
-      %w(00 15 30 45).map do |min|
-        "#{hour}:#{min}"
-      end
-    end.flatten
-  end
-
+  # the duration is purely informational, i.e. independent of the start/due date.
   def duration_options
     Task.durations.map do |key, val|
       [I18n.t("activerecord.attributes.task.duration-text.#{key}"), val]
@@ -111,7 +61,6 @@ class Task::BaseForm < ::Form
       end
     end
   end
-
 
   def available_working_groups
     @available_working_groups ||= begin
@@ -152,7 +101,6 @@ class Task::BaseForm < ::Form
         t.volunteer_count_required = volunteer_count_required
 
         t.save
-
 
         t.roles.send('task.organizer').destroy_all
 

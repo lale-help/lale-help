@@ -38,19 +38,18 @@ ready = ->
       datepicker:     false,
       step:           15,
       format:         I18n.t('datepicker.time_format'),
-      defaultTime:    '12:00'
+      defaultTime:    '12:00',
+      roundTime:      'floor'
     });
 
   showOrHideEndDate = ->
     type = $('#task_scheduled_time_type').val()
     if type == "between" 
-      $('.label-due').hide()
-      $('.label-start-end').show()
-      $('.end_date').show()
+      $('.at-element').hide()
+      $('.between-element').show()
     else
-      $('.label-due').show()
-      $('.label-start-end').hide()
-      $('.end_date').hide()
+      $('.at-element').show()
+      $('.between-element').hide()
 
   # FIXME adapt to new UI
   # validateTime = ->

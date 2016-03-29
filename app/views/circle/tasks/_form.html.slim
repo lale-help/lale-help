@@ -51,29 +51,36 @@
     .field
 
   .field-row-3
-    .field-3.required class=errors.css(:due_date)
+
+    / select scheduling type
+
+    .field-3.required class=errors.css(:scheduled_time_type)
       = f.label :scheduled_time_type
       = f.select :scheduled_time_type do
         = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
       = errors.message_for(:scheduled_time_type)
 
-    .field-3
-      = f.label :due_date, class: 'label-due'
-      = f.label :due_date_start, class: 'label-start-end'
+    / start date & time (hidden by default)
+
+    .field-3.between-element
+      = f.label :start_date
+      = f.text_field :start_date_i18n, class: :datepicker
+
+    .field-3.between-element
+      = f.label :start_time
+      = f.text_field :start_time, class: :timepicker, placeholder: t('.placeholder_optional')
+
+    / end date & time (always visible)
+
+    .field-3.required
+      = f.label :date, class: 'at-element'
+      = f.label :due_date, class: 'between-element'
       = f.text_field :due_date_i18n, class: :datepicker
 
     .field-3
-      = f.label :due_time, class: 'label-due'
-      = f.label :due_time_start, class: 'label-start-end'
-      = f.text_field :scheduled_time_start, class: :timepicker, placeholder: '(optional)'
-
-    .field-3.end_date
-      = f.label :due_date_end
-      = f.text_field :due_end_date_i18n, class: :datepicker
-
-    .field-3.end_date
-      = f.label :due_time_end
-      = f.text_field :scheduled_time_end, class: :timepicker, placeholder: '(optional)'
+      = f.label :time, class: 'at-element'
+      = f.label :due_time, class: 'between-element'
+      = f.text_field :due_time, class: :timepicker, placeholder: t('.placeholder_optional')
 
   .submit-row
     = f.submit

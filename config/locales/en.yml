@@ -269,12 +269,12 @@
         :primary_location: Place of task
         :duration: Time Commitment
         :scheduled_time_type: Due
-        :due_date: Date
-        :due_date_start: Start date
-        :due_date_end: End date
-        :due_time: Time
-        :due_time_start: Start time
-        :due_time_end: End time
+        :date: Date
+        :time: Time
+        :start_date: Start date
+        :start_time: Start time
+        :due_date: End date
+        :due_time: End time
         :scheduled-time:
           :at: at %{start}
           :on_date: 'on'
@@ -906,6 +906,9 @@
         :header: Open Tasks
       :task_list_item:
         :stats-here: Stats
+      :form:
+        :placeholder_optional: (optional)
+        :date_format: '%m/%d/%Y'
     :working_groups:
       :show:
         :settings: Settings

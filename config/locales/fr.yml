@@ -734,6 +734,8 @@
         :no-tasks: Aucune tâche trouvée.
       :task_list_item:
         :stats-here: Les Statistiques vont ici
+      :form:
+        :date_format: '%d.%m.%Y'
       :new:
         :back: Retour aux Tâches
       :edit:

@@ -773,6 +773,9 @@
         :no-tasks: Keine Aufgaben gefunden.
       :task_list_item:
         :stats-here: Statistik
+      :form:
+        :placeholder_optional: (optional)
+        :date_format: '%d.%m.%Y'
       :new:
         :back: Zurück zu den Aufgaben
       :edit:
