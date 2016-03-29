@@ -45,7 +45,10 @@ class TaskPresenter < Presenter
   end
 
   let :scheduled_time do
-    I18n.t("activerecord.attributes.task.scheduled-time.#{_.scheduled_time_type}", start: _.scheduled_time_start, end: _.scheduled_time_end) if _.scheduled_time_type != 'on_date'
+    # FIXME adapt this to new date/time input
+    if _.scheduling_type != 'on_date'
+      I18n.t("activerecord.attributes.task.scheduled-time.#{_.scheduling_type}", start: _.start_time, end: _.due_time)
+    end
   end
 
   let :duration_text do

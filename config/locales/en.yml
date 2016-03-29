@@ -268,7 +268,7 @@
         :volunteer_count_required: Required number of volunteers
         :primary_location: Place of task
         :duration: Time Commitment
-        :scheduled_time_type: Due
+        :scheduling_type: Due
         :date: Date
         :time: Time
         :start_date: Start date
@@ -286,7 +286,7 @@
           :half_day: Half a day
           :all_day: All day
         :working_group: Working group
-        :scheduled-time-select:
+        :scheduling_type_options:
           :on_date: at
           :by: by
           :between: between
@@ -381,7 +381,7 @@
           :between: between %{start} and %{end}
           :on_date: 'on'
         :scheduled_time_start: Start
-        :scheduled_time_type: Scheduled time
+        :scheduling_type: Scheduled time
         :skill_assignments: Skill assignments
         :skills: Skills
         :volunteer: Helper

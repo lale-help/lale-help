@@ -54,11 +54,11 @@
 
     / select scheduling type
 
-    .field-3.required class=errors.css(:scheduled_time_type)
-      = f.label :scheduled_time_type
-      = f.select :scheduled_time_type do
-        = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
-      = errors.message_for(:scheduled_time_type)
+    .field-3.required class=errors.css(:scheduling_type)
+      = f.label :scheduling_type
+      = f.select :scheduling_type do
+        = options_for_select(@form.scheduling_type_options, @form.scheduling_type)
+      = errors.message_for(:scheduling_type)
 
     / start date & time (hidden by default)
 

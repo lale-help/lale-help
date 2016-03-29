@@ -7,17 +7,15 @@ class Task::BaseForm < ::Form
   attribute :working_group_id, :string
   attribute :description,      :string
 
-  
   attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
 
-  attribute :scheduled_time_type,  :string, required: false
-
-  attribute :due_date,         :date,   default: proc { Date.today + 1.week }
+  attribute :scheduling_type,  :string
+  attribute :due_date_i18n,    :string,   default: proc { Date.today + 1.week }
   attribute :due_time,         :string,   required: false
-  attribute :start_date,       :date,   required: false
+  attribute :start_date_i18n,  :string,   required: false
   attribute :start_time,       :string,   required: false
 
   attribute :volunteer_count_required, :integer, default: proc { 1 }
@@ -37,11 +35,8 @@ class Task::BaseForm < ::Form
     i18n_format(due_date)
   end
 
-  # FIXME completely migrate data & code to "at, by, between"
-  def scheduled_time_type_options
-    ['on_date', 'by', 'between'].map do |val|
-      [I18n.t("activerecord.attributes.task.scheduled-time-select.#{val}"), val]
-    end
+  def scheduling_type_options
+    Array(I18n.t("activerecord.attributes.task.scheduling_type_options").invert)
   end
 
   # the duration is purely informational, i.e. independent of the start/due date.
@@ -88,15 +83,16 @@ class Task::BaseForm < ::Form
     def execute
       task.tap do |t|
         t.name          = name
-        t.due_date      = due_date
         t.description   = description
         t.working_group = working_group
 
         t.duration      = duration
 
-        t.scheduled_time_type   = scheduled_time_type
-        t.scheduled_time_start  = scheduled_time_start
-        t.scheduled_time_end    = scheduled_time_end
+        t.scheduling_type = scheduling_type
+        t.start_date      = parse_date(start_date_i18n)
+        t.start_time      = start_time
+        t.due_date        = parse_date(due_date_i18n)
+        t.due_time        = due_time
 
         t.volunteer_count_required = volunteer_count_required
 
@@ -124,5 +120,12 @@ class Task::BaseForm < ::Form
         t.save
       end
     end
+
+    private
+
+    def parse_date(date)
+      date && Date.strptime(date, I18n.t('circle.tasks.form.date_format'))
+    end
+
   end
 end

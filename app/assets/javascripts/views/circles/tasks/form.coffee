@@ -43,7 +43,7 @@ ready = ->
     });
 
   showOrHideEndDate = ->
-    type = $('#task_scheduled_time_type').val()
+    type = $('#task_scheduling_type').val()
     if type == "between" 
       $('.at-element').hide()
       $('.between-element').show()
@@ -59,7 +59,7 @@ ready = ->
 
   if $("form.edit_task, form.new_task").length > 0
     showOrHideEndDate()
-    $('#task_scheduled_time_type').on 'change', showOrHideEndDate
+    $('#task_scheduling_type').on 'change', showOrHideEndDate
     initTimeDatePickers()
     
   #   validateTime()

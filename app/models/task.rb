@@ -22,8 +22,9 @@ class Task < ActiveRecord::Base
     I18n.l(due_date, format: "%A %-d %B %Y") + " " + scheduled_time
   end
 
+  # FIXME adapt
   def scheduled_time
-    I18n.t("activerecord.attributes.task.scheduled-time.#{scheduled_time_type}", start: scheduled_time_start, end: scheduled_time_end)
+    I18n.t("activerecord.attributes.task.scheduled-time.#{scheduling_type}", start: start_time, end: due_time)
   end
 
   def duration_text

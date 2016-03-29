@@ -385,7 +385,7 @@
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
-        :scheduled_time_type: Se produit
+        :scheduling_type: Se produit
         :scheduled_time_start: Commence
         :scheduled-time:
           :at: "à %{start}"
@@ -418,7 +418,7 @@
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
-        :scheduled_time_type: Se produit
+        :scheduling_type: Se produit
         :scheduled_time_start: Commence
         :scheduled-time:
           :at: "à %{start}"

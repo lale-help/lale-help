@@ -412,7 +412,7 @@
         :volunteer_count_required: Anzahl der benötigten Helfer
         :primary_location: Ort der Aufgabe
         :duration: Zeitaufwand
-        :scheduled_time_type: Zeitpunkt
+        :scheduling_type: Zeitpunkt
         :scheduled_time_start: Beginn
         :scheduled-time:
           :at: um %{start}
@@ -444,7 +444,7 @@
         :volunteer_count_required: Anzahl der benötigten Helfer
         :primary_location: Abgabeort der Sachspende
         :duration: Zeitaufwand
-        :scheduled_time_type: Zeitpunkt
+        :scheduling_type: Zeitpunkt
         :scheduled_time_start: Beginn
         :scheduled-time:
           :at: um %{start}
