@@ -10,6 +10,8 @@
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
+    "RAILS_SERVE_STATIC_FILES": "true",
+    "WEB_CONCURRENCY": "2",
 
     "HEROKU_APP_ID": {
       "required": true
@@ -20,7 +22,7 @@
     "LANG": {
       "required": true
     },
-    "RAILS_SERVE_STATIC_FILES": true,
+
     "SMTP_ADDRESS": {
       "required": true
     },
@@ -32,8 +34,7 @@
     },
     "SMTP_USERNAME": {
       "required": true
-    },
-    "WEB_CONCURRENCY": 2
+    }
   },
   "addons": [
     "papertrail",
