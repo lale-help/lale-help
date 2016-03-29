@@ -4,39 +4,23 @@
     "postdeploy": "bin/setup"
   },
   "env": {
+    "RACK_ENV": "pull_request",
+    "RAILS_ENV": "pull_request",
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+
     "HEROKU_APP_ID": {
       "required": true
     },
     "HEROKU_APP_NAME": {
       "required": true
     },
-    "HEROKU_RELEASE_CREATED_AT": {
-      "required": true
-    },
-    "HEROKU_RELEASE_VERSION": {
-      "required": true
-    },
-    "HEROKU_SLUG_COMMIT": {
-      "required": true
-    },
-    "HEROKU_SLUG_DESCRIPTION": {
-      "required": true
-    },
     "LANG": {
       "required": true
     },
-    "RACK_ENV": {
-      "required": true
-    },
-    "RAILS_ENV": {
-      "required": true
-    },
-    "RAILS_SERVE_STATIC_FILES": {
-      "required": true
-    },
-    "SECRET_KEY_BASE": {
-      "required": true
-    },
+    "RAILS_SERVE_STATIC_FILES": true,
     "SMTP_ADDRESS": {
       "required": true
     },
@@ -49,16 +33,12 @@
     "SMTP_USERNAME": {
       "required": true
     },
-    "WEB_CONCURRENCY": {
-      "required": true
-    }
+    "WEB_CONCURRENCY": 2
   },
   "addons": [
-    "newrelic",
     "papertrail",
-    "heroku-postgresql",
     "rollbar",
-    "scheduler"
+    "heroku-postgresql"
   ],
   "buildpacks": [
     {
