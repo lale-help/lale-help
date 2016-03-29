@@ -546,7 +546,7 @@
       :update: An error occurred while updating the %{name}.
     :user:
       :account:
-        :saved: You settings have been saved.
+        :saved: Your settings have been saved.
         :save-failed: We could not save your settings. Please fix any errors and try
           again.
   :views:
