@@ -48,7 +48,7 @@ describe 'Private Working Groups', type: :feature do
     it "lets them see only the public working group" do
       visit(circle_path(circle, as: user_2))
       expect(page).to have_content(public_group.name)
-      expect(page).to_not have_content(private_group.name)
+      expect(page).to_not have_link(circle_working_group_path(circle, private_group))
 
       visit(circle_working_group_path(circle, private_group, as: user_2))
       expect(current_path).to_not eq(circle_working_group_path(circle, private_group))

@@ -4,7 +4,7 @@ class User::Create < ::Form
 
   attribute :first_name,        :string
   attribute :last_name,         :string
-  attribute :email,             :string
+  attribute :email,             :string, matches: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
 
   attribute :password,              :string
   attribute :password_confirmation, :string
@@ -38,6 +38,9 @@ class User::Create < ::Form
     def validate
       add_error(:password, :does_not_match) if password != password_confirmation
       add_error(:password, :too_short)      if password && password.length < 8
+      add_error(:password, :no_upper)       if password && /[[:upper:]]/.match(password).nil?
+      add_error(:password, :no_lower)       if password && /[[:lower:]]/.match(password).nil?
+      add_error(:password, :no_numeric)     if password && /[[:digit:]]/.match(password).nil?
 
       add_error(:email, :taken) if User::Identity.where(email: email).exists?
       add_error(:accept_terms, :false) unless accept_terms == true
@@ -59,7 +62,7 @@ class User::Create < ::Form
     private
 
     def user_attributes
-      inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, 
+      inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language,
         :public_profile, :accept_terms
       )
     end

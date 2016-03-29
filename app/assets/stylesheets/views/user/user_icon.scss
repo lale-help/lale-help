@@ -1,4 +1,4 @@
-@mixin circle-icon($size:50px) {
+@mixin circle-icon($size:30px, $font-size:1.5rem) {
   width: $size;
   height: $size;
   border: thin solid $border-color;
@@ -8,7 +8,7 @@
   @include align-items(center);
   @include justify-content(center);
 
-  font-size: 2.5rem;
+  font-size: $font-size;
 }
 
 
@@ -47,7 +47,7 @@
   text-align: left;
 
   .user-icon {
-    @include circle-icon(60px);
+    @include circle-icon(50px, 2.5rem);
     border-color: $blue-dark-1;
   }
 
@@ -90,4 +90,12 @@
   color: $white;
   background-color: $orange;
   border: none;
+}
+
+.member-header {
+  .user-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 2.5rem;
+  }
 }

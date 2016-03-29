@@ -1,0 +1,49 @@
+{
+  "name": "lale.help",
+  "scripts": {
+    "postdeploy": "bin/setup"
+  },
+  "env": {
+    "RACK_ENV": "pull_request",
+    "RAILS_ENV": "pull_request",
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "RAILS_SERVE_STATIC_FILES": "true",
+    "WEB_CONCURRENCY": "2",
+
+    "HEROKU_APP_ID": {
+      "required": true
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+
+    "SMTP_ADDRESS": {
+      "required": true
+    },
+    "SMTP_DOMAIN": {
+      "required": true
+    },
+    "SMTP_PASSWORD": {
+      "required": true
+    },
+    "SMTP_USERNAME": {
+      "required": true
+    }
+  },
+  "addons": [
+    "papertrail",
+    "rollbar",
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "urn:buildpack:heroku/ruby"
+    }
+  ]
+}

@@ -5,12 +5,10 @@ section > .task {
   @include flex-direction(row);
   @include align-items(top);
   @include flex-wrap(wrap);
-  @include justify-content(center);
 
   main {
-    max-width: 800px;
+    max-width: 650px;
     @include flex(3 0 50rem);
-    margin-right: 3rem;
     margin-bottom: 3rem;
 
     .task-header {
@@ -128,6 +126,7 @@ section > .task {
   }
 
   aside {
+    margin-left: 3rem;
     @include flex(0 0 30rem);
 
     .volunteers{

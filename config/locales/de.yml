@@ -77,7 +77,7 @@
     :yes: Ja
     :no: Nein
     :create: "%{model} anlegen"
-    :update: "%{model} aktualisieren"
+    :update: "%{model} speichern"
     :submit: Abschicken
     :cancel: Abbrechen
     :reset: "%{model} zurücksetzen"
@@ -264,7 +264,7 @@
     :submit:
       :create: "%{model} erstellen"
       :submit: "%{model} speichern"
-      :update: "%{model} aktualisieren"
+      :update: "%{model} speichern"
     :page_entries_info:
       :more_pages:
         :display_entries: Anzeige von %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
@@ -537,6 +537,9 @@
       :nils: Bitte ein Passwort festlegen.
       :does_not_match: Das Passwort stimmt nicht mit der Bestätigung überein.
       :empty: Passwort ist erforderlich.
+      :no_lower: Passwort muss mindestens einen Kleinbuchstaben enthalten
+      :no_upper: Passwort muss mindestens einen Grossbuchstaben enthalten
+      :no_numeric: Passwort muss mindestens eine Zahl enthalten
     :password_confirmation:
       :did_not_match: Passwort und Passwortwiederholung waren nicht gleich.
       :nils: Bitte das Passwort bestätigen.
@@ -547,6 +550,7 @@
       :nils: Bitte gib Deine Email an.
       :taken: Diese Email wurde bereits verwendet. Bist du bereits bei Lale registriert?
       :empty: E-Mail-Adresse ist erforderlich.
+      :matches: E-Mail-Adresse ist unvollständig oder ungültig
     :first_name:
       :nils: Bitte gib deinen Vornamen an.
       :empty: Vorname ist erforderlich.
@@ -586,19 +590,19 @@
     :about_me:
       :too_long: Maximal 300 Zeichen
     :name:
-      :empty: kann nicht leer sein
+      :empty: Name kann nicht leer sein
+      :not_unique: Der Name der Arbeitsgruppe ist bereits vergeben. Bitte wähle einen
+        anderen Namen.
     :description:
-      :too_short: ist zu kurz
+      :too_short: Beschreibung ist zu kurz
     :primary_location:
-      :empty: kann nicht leer sein
+      :empty: Standort kann nicht leer sein
     :city:
       :empty: Bitte eine Stadt angeben
     :country:
       :empty: Bitte ein gültiges Land angeben
     :postal_code:
       :empty: Bitte eine Postleitzahl angeben
-    :working_group_name:
-      :not_unique: Name der Arbeitsgruppe darf nur einmal vergeben werden
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -664,6 +668,7 @@
       :member: Mitglied
       :supply:
         :organizer: Organisator
+        :volunteer: Helfer
   :circle:
     :admins:
       :show:
@@ -707,6 +712,8 @@
         :delete: Löschen
         :delete_confirm: Diesen Kommentar wirklich löschen?
         :edit: Bearbeiten
+      :comments:
+        :show_all_comments: Alle Kommentare zeigen
     :members:
       :index:
         :directory: Helferliste
@@ -901,7 +908,7 @@
         :details: Dies ist eine wunderbare Möglichkeit, in Deiner Gemeinschaft mitzuhelfen
           und die Welt ein wenig besser zu machen!
       :membership_pending:
-        :subtitle: Dein Konto wurde aktiviert!
+        :subtitle: Dein Konto wurde eingerichtet und wird gerade überprüft!
         :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
           und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
           sie per Email: %{admins_list}.'
@@ -1101,3 +1108,7 @@
   :sidebar:
     :circle_add_menu:
       :add: Hinzufügen
+  :task_edit:
+    :cancel: Abbrechen
+  :supply_edit:
+    :cancel: Abbrechen

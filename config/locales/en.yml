@@ -143,10 +143,13 @@
       :even: must be even
       :taken: has already been taken
     :password:
+      :no_lower: Your password must have at least one lowercase letter
       :too_short: Please pick a password that is longer than 8 characters.
       :nils: Please provide a password.
       :does_not_match: Your password did not match the password confirmation.
       :empty: Password is required.
+      :no_upper: Your password must have at least one uppercase letter
+      :no_numeric: Your password must have at least one digit
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
       :nils: Please confirm your password.
@@ -157,6 +160,7 @@
       :nils: Please provide an email.
       :taken: This email has already been taken. Did you already sign up for Lale?
       :empty: Email is required
+      :matches: Email is incomplete or invalid
     :first_name:
       :nils: Please provide your first name.
       :empty: First name is required
@@ -168,17 +172,17 @@
     :country:
       :empty: Please choose a valid country
     :city:
-      :empty: Please include a city
+      :empty: Please enter a city
     :postal_code:
-      :empty: Please include a postal code
+      :empty: Please enter a postal code
     :description:
-      :too_short: is too short
+      :too_short: Description is too short
     :name:
-      :empty: can't be empty
+      :empty: Name can't be empty
+      :not_unique: This Working Group name is already been used. Please choose a different
+        name.
     :primary_location:
-      :empty: can't be empty
-    :working_group_name:
-      :not_unique: Working Group name must be unique
+      :empty: Location can't be empty
   :activerecord:
     :errors:
       :messages:
@@ -768,6 +772,7 @@
       :member: Member
       :supply:
         :organizer: Organizer
+        :volunteer: Volunteer
   :circle:
     :admins:
       :show:
@@ -812,6 +817,8 @@
         :delete: Delete
         :delete_confirm: Are you sure you want to delete this comment?
         :edit: Edit
+      :comments:
+        :show_all_comments: Show All Comments
     :members:
       :index:
         :directory: Helper list
@@ -1079,6 +1086,7 @@
   :error_correction: Please correct the errors below.
   :formtastic:
     :required: Required field
+    :update: Update %{model}
   :supplies:
     :flash:
       :completed: Thanks for the supply!
@@ -1097,3 +1105,7 @@
     :types:
       :public: Public
       :private: Private
+  :task_edit:
+    :cancel: Cancel
+  :supply_edit:
+    :cancel: Cancel

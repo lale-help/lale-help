@@ -10,6 +10,11 @@ class CLI < Thor
     deploy "dev"
   end
 
+  desc "staging", "deploys the current branch to staging"
+  def staging
+    deploy "stg"
+  end
+
   desc "production", "deploys the current branch to production"
   def production
     deploy "prd"

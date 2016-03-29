@@ -17,7 +17,13 @@
 
   .field-3 {
     margin-right: 15px;
+
+    label {
+      float: none;
+    }
   }
+
+
 }
 
 // FIXME not enough for Safari, calendar still too wide

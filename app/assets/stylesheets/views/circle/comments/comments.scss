@@ -1,9 +1,5 @@
 .task-comments {
-  .comment-container {
-    max-height: 350px;
-    overflow: auto;
-  }
-  
+
   &:before {
 
   }
@@ -14,7 +10,7 @@
   }
 
   textarea {
-    border-color: $light-grey
+    border-color: $grey
   }
 
   .submit-row {
@@ -103,5 +99,8 @@
         }
       }
     }
+  }
+  .show_all_comments {
+    text-align: center;
   }
 }

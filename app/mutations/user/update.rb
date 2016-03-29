@@ -5,7 +5,7 @@ class User::Update < ::Form
   attribute :last_name,         :string
   attribute :mobile_phone,      :string, required: false
   attribute :home_phone,        :string, required: false
-  attribute :email,             :string
+  attribute :email,             :string, matches: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   attribute :language,          :integer
   # attribute :primary_circle_id, :integer
   attribute :about_me,          :string, required: false

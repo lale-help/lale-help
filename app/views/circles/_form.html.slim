@@ -7,45 +7,45 @@
   .field-row
     .field.required class=errors.css(:name)
       = f.label :name
+      = errors.formatted_message_for(:name)
       = f.text_field :name, placeholder: true
-      = errors.message_for(:name)
 
   .field-row
     .field.required class=errors.css(:language)
       = f.label :language
+      = errors.formatted_message_for(:language)
       = f.select :language do
         = options_for_select(form.language_options, form.language)
 
-      = errors.message_for(:language)
 
   hr
     .field-row
       .field class=errors.css(:street_address_1)
         = f.label :street_address
+        = errors.formatted_message_for(:street_address_1)
         = f.text_field :street_address_1
-        = errors.message_for(:street_address_1)
 
     .field-row
       .field.required class=errors.css(:city)
         = f.label :city
+        = errors.formatted_message_for(:city)
         = f.text_field :city
-        = errors.message_for(:city)
       .field class=errors.css(:state_province)
         = f.label :state_province
+        = errors.formatted_message_for(:state_province)
         = f.text_field :state_province
-        = errors.message_for(:state_province)
 
     .field-row
       .field.required class=errors.css(:postal_code)
         = f.label :postal_code
+        = errors.formatted_message_for(:postal_code)
         = f.text_field :postal_code
-        = errors.message_for(:postal_code)
       .field.required class=errors.css(:country)
         = f.label :country
+        = errors.formatted_message_for(:country)
         = country_select(:circle, :country,
           locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
           include_blank: t('.country_select'), selected: form.country)
-        = errors.message_for(:country)
 
   .actions.submit-row
     = f.submit

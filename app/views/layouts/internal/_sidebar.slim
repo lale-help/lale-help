@@ -26,9 +26,10 @@ nav
           = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg), after_icon: after_icon)
       hr
       - other_users_working_groups.each do |wg|
-        - if wg.persisted? && can?(:read, wg)
-          - after_icon = 'fa fa-lock' if wg.is_private?
-          = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg), after_icon: after_icon)
+        - if wg.is_private?
+          = sidebar_link(wg.name, 'javascript:void(0);', after_icon: 'fa fa-lock', link_class: 'disabled')
+        - elsif wg.persisted? && can?(:read, wg)
+          = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg))
 
   .bottom
     = content_for :sidebar_bottom

@@ -34,6 +34,7 @@ module SidebarHelper
     opts[:path] = path
     opts[:css_selector] = "sidebar-item"
     opts[:css_selector] += " selected" if current_page?(path)
+    opts[:css_selector] += " #{opts[:link_class]}" if opts[:link_class].present?
     opts[:icon_id]      ||= nil
     opts[:badge_text]   ||= nil
     opts[:after_icon]   ||= nil
