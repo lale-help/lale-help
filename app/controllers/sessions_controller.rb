@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
       current_user.touch :last_login
       redirect_to user_redirect_path
     else
-      @show_error_message = params[:login_failed].present?
       @form = User::Login.new
     end
   end
@@ -23,7 +22,7 @@ class SessionsController < ApplicationController
       redirect_to user_redirect_path
 
     else
-      redirect_to root_path(login_failed: true)
+      redirect_to root_path, flash: {login_failed: true}
     end
   end
 
