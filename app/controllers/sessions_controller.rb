@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       redirect_to user_redirect_path
 
     else
-      redirect_to root_path, alert: I18n.t("sessions.create.login_error")
+      redirect_to root_path, flash: {login_failed: true}
     end
   end
 
