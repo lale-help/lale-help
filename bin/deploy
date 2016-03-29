@@ -5,11 +5,6 @@ class CLI < Thor
   include Thor::Actions
   class_option :force, :type => :boolean, alias: "-f"
 
-  desc "development", "deploys the current branch to development"
-  def development
-    deploy "dev"
-  end
-
   desc "staging", "deploys the current branch to staging"
   def staging
     deploy "stg"
