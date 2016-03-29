@@ -20,7 +20,7 @@
     "LANG": {
       "required": true
     },
-    "RAILS_SERVE_STATIC_FILES": true,
+    "RAILS_SERVE_STATIC_FILES": "true",
     "SMTP_ADDRESS": {
       "required": true
     },
@@ -33,7 +33,7 @@
     "SMTP_USERNAME": {
       "required": true
     },
-    "WEB_CONCURRENCY": 2
+    "WEB_CONCURRENCY": "2"
   },
   "addons": [
     "papertrail",
