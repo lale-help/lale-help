@@ -15,14 +15,14 @@ class Task::BaseForm < ::Form
   attribute :scheduling_type,   :string
 
   # getters for form display
-  attribute :due_date_string,   :string, default: proc { stringify_date(task.due_date) }
-  attribute :start_date_string, :string, required: false, default: proc { stringify_date(task.start_date) }
+  attribute :due_date_string,   :string, required: false, default: proc { stringify_date(task.due_date || Date.today + 1.week) }
+  attribute :start_date_string, :string, required: false, default: proc { stringify_date(task.start_date) if task.start_date }
   # getters/setters for saving on update
-  attribute :due_date, :date
-  attribute :start_date, :date
+  attribute :due_date,          :date, format: I18n.t('circle.tasks.form.date_format')
+  attribute :start_date,        :date, required: false
   # times
-  attribute :due_time,          :string, required: false
-  attribute :start_time,        :string, required: false
+  attribute :due_time,          :string, required: false, default: proc { nil }
+  attribute :start_time,        :string, required: false, default: proc { nil }
 
   attribute :volunteer_count_required, :integer, default: proc { 1 }
 
@@ -30,7 +30,7 @@ class Task::BaseForm < ::Form
   attribute :circle, :model
 
   def start_date_string=(string)
-    self.start_date = parse_date(string)
+    self.start_date = parse_date(string) if string.present?
   end
 
   def due_date_string=(string)
@@ -47,7 +47,7 @@ class Task::BaseForm < ::Form
   private :parse_date, :stringify_date
 
   def scheduling_type_options
-    Array(I18n.t("activerecord.attributes.task.scheduling_type_options").invert)
+    I18n.t("activerecord.attributes.task.scheduling_type_options").invert.to_a
   end
 
   # the duration is informational only, not relevant for the start/due dates.
@@ -100,10 +100,11 @@ class Task::BaseForm < ::Form
         t.duration      = duration
 
         t.scheduling_type = scheduling_type
-        t.start_date      = start_date
-        t.start_time      = start_time
+        t.start_date      = (scheduling_type == 'between') ? start_date : nil
+        t.start_time      = (scheduling_type == 'between' && start_time.present?) ? start_time : nil
+
         t.due_date        = due_date
-        t.due_time        = due_time
+        t.due_time        = due_time.present? ? due_time : nil
 
         t.volunteer_count_required = volunteer_count_required
 

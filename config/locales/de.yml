@@ -424,8 +424,8 @@
           :hours_3: 3 Stunden
           :half_day: halber Tag
           :all_day: ganzer Tag
-        :scheduled-time-select:
-          :on_date: Am
+        :scheduling_type_options:
+          :at: Am
           :by: Bis
           :between: von/bis
       :supply:

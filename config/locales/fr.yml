@@ -398,10 +398,9 @@
           :half_day: Une demie journée
           :all_day: Un jour entier
         :working_group_id: Groupe
-        :scheduled-time-select:
+        :scheduling_type_options:
           :between: Entre
           :at: A
-          :on_date: Le Jour
       :supply:
         :completed_at: Terminé le
         :description: Description

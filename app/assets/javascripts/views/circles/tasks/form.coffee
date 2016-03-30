@@ -25,7 +25,6 @@ ready = ->
     # http://xdsoft.net/jqplugins/datetimepicker/
     $.datetimepicker.setLocale(I18n.locale);
 
-    # FIXME pass config in data attributes
     $('.datepicker').datetimepicker({
       timepicker:     false,
       dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
@@ -33,13 +32,11 @@ ready = ->
       minDate:        0
     });
 
-    # FIXME pass config in data attributes
     $('.timepicker').datetimepicker({
       datepicker:     false,
       step:           15,
       format:         I18n.t('datepicker.time_format'),
-      defaultTime:    '12:00',
-      roundTime:      'floor'
+      defaultTime:    '12:00'
     });
 
   showOrHideEndDate = ->
