@@ -1,5 +1,5 @@
 class TaskPresenter < Presenter
-  delegate :id, :name, :volunteers, :volunteer_count_required, :comments,  to: :object
+  delegate :id, :name, :volunteers, :volunteer_count_required, :comments, :due_date,  to: :object
 
   let(:statuses) do
     statuses = []
@@ -27,16 +27,9 @@ class TaskPresenter < Presenter
     I18n.t("task.presenter.messages.#{message_key}") if message_key.present?
   end
 
-
-
-  let(:due_date) do
-    I18n.l(_.due_date, format: :long)
-  end
-
   let(:due_date_long) do
     I18n.l(_.due_date, format: "%A %-d %B %Y")
   end
-
 
   let(:due_date_and_time) do
     str = due_date_long

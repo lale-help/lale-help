@@ -2,6 +2,9 @@
 - task = ::TaskPresenter.new(task)
 
 a.task href=circle_task_path(current_circle, task) class=task.css
+  .task-date
+    .month= l(task.due_date, format: "%b").upcase
+    .day= task.due_date.day
   .task-icon
   .task-details
     .task-content
