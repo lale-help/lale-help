@@ -64,7 +64,7 @@
 
     .field-3.between-element
       = f.label :start_date
-      = f.text_field :start_date_i18n, class: :datepicker
+      = f.text_field :start_date_string, class: :datepicker
 
     .field-3.between-element
       = f.label :start_time
@@ -75,7 +75,7 @@
     .field-3.required
       = f.label :date, class: 'at-element'
       = f.label :due_date, class: 'between-element'
-      = f.text_field :due_date_i18n, class: :datepicker
+      = f.text_field :due_date_string, class: :datepicker
 
     .field-3
       = f.label :time, class: 'at-element'

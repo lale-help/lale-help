@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308024853) do
+ActiveRecord::Schema.define(version: 20160329204054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -168,9 +168,10 @@ ActiveRecord::Schema.define(version: 20160308024853) do
     t.date     "due_date"
     t.integer  "volunteer_count_required"
     t.integer  "duration",                           default: 1
-    t.string   "scheduled_time_type"
-    t.string   "scheduled_time_start",               default: "0:00", null: false
-    t.string   "scheduled_time_end",                 default: "0:00", null: false
+    t.string   "scheduling_type"
+    t.string   "start_time",                         default: "0:00"
+    t.string   "due_time",                           default: "0:00"
+    t.date     "start_date"
   end
 
   create_table "tokens", force: :cascade do |t|

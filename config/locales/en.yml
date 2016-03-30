@@ -287,7 +287,7 @@
           :all_day: All day
         :working_group: Working group
         :scheduling_type_options:
-          :on_date: at
+          :at: at
           :by: by
           :between: between
       :task/location_assignment:

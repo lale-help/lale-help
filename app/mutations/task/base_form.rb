@@ -12,34 +12,45 @@ class Task::BaseForm < ::Form
 
   attribute :duration,      :integer
 
-  attribute :scheduling_type,  :string
-  attribute :due_date_i18n,    :string,   default: proc { Date.today + 1.week }
-  attribute :due_time,         :string,   required: false
-  attribute :start_date_i18n,  :string,   required: false
-  attribute :start_time,       :string,   required: false
+  attribute :scheduling_type,   :string
+
+  # getters for form display
+  attribute :due_date_string,   :string, default: proc { stringify_date(task.due_date) }
+  attribute :start_date_string, :string, required: false, default: proc { stringify_date(task.start_date) }
+  # getters/setters for saving on update
+  attribute :due_date, :date
+  attribute :start_date, :date
+  # times
+  attribute :due_time,          :string, required: false
+  attribute :start_time,        :string, required: false
 
   attribute :volunteer_count_required, :integer, default: proc { 1 }
 
   attribute :ability, :model
   attribute :circle, :model
 
-  def i18n_format(date)
+  def start_date_string=(string)
+    self.start_date = parse_date(string)
+  end
+
+  def due_date_string=(string)
+    self.due_date = parse_date(string)
+  end
+
+  def parse_date(string)
+    string.present? && Date.strptime(string, I18n.t('circle.tasks.form.date_format'))
+  end
+
+  def stringify_date(date)
     date && date.strftime(I18n.t('circle.tasks.form.date_format'))
   end
-
-  def start_date_i18n
-    i18n_format(start_date)
-  end
-
-  def due_date_i18n
-    i18n_format(due_date)
-  end
+  private :parse_date, :stringify_date
 
   def scheduling_type_options
     Array(I18n.t("activerecord.attributes.task.scheduling_type_options").invert)
   end
 
-  # the duration is purely informational, i.e. independent of the start/due date.
+  # the duration is informational only, not relevant for the start/due dates.
   def duration_options
     Task.durations.map do |key, val|
       [I18n.t("activerecord.attributes.task.duration-text.#{key}"), val]
@@ -89,9 +100,9 @@ class Task::BaseForm < ::Form
         t.duration      = duration
 
         t.scheduling_type = scheduling_type
-        t.start_date      = parse_date(start_date_i18n)
+        t.start_date      = start_date
         t.start_time      = start_time
-        t.due_date        = parse_date(due_date_i18n)
+        t.due_date        = due_date
         t.due_time        = due_time
 
         t.volunteer_count_required = volunteer_count_required
@@ -120,12 +131,5 @@ class Task::BaseForm < ::Form
         t.save
       end
     end
-
-    private
-
-    def parse_date(date)
-      date && Date.strptime(date, I18n.t('circle.tasks.form.date_format'))
-    end
-
   end
 end
