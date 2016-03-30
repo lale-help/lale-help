@@ -9,6 +9,11 @@ class Task < ActiveRecord::Base
   # Enums
   enum duration: [:hours_1, :hours_2, :hours_3, :half_day, :all_day]
 
+  # enables task.scheduling_type.between? & friends
+  # but task.scheduling_type still returns 'between'.
+  def scheduling_type
+    read_attribute(:scheduling_type).inquiry
+  end
 
   def primary_location
     locations.where(task_location_assignments:{ primary: true}).first
