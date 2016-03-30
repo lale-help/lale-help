@@ -387,9 +387,8 @@
         :duration: Durée
         :scheduling_type: Se produit
         :scheduled_time_start: Commence
-        :scheduled-time:
+        :scheduling_sentence:
           :at: "à %{start}"
-          :on_date: le
           :between: entre %{start} et %{end}
         :duration-text:
           :hours_1: 1 Heure

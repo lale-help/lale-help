@@ -27,34 +27,35 @@ class TaskPresenter < Presenter
     I18n.t("task.presenter.messages.#{message_key}") if message_key.present?
   end
 
-
-
   let(:due_date) do
     I18n.l(_.due_date, format: :long)
   end
 
-  let(:due_date_long) do
-    I18n.l(_.due_date, format: "%A %-d %B %Y")
+  let(:start_date_and_time) do
+    if _.start_date
+      str = I18n.l(_.start_date, format: "%A %-d %B %Y")
+      str << " #{_.start_time}" if _.start_time.present?
+      str
+    end
   end
 
-
   let(:due_date_and_time) do
-    str = due_date_long
-    str = "#{str} #{scheduled_time}" if scheduled_time.present?
+    str = I18n.l(_.due_date, format: "%A %-d %B %Y")
+    str << " #{_.due_time}" if _.due_time.present?
     str
   end
 
-  let :scheduled_time do
-    # FIXME adapt this to new date/time input
-    if _.scheduling_type != 'on_date'
-      I18n.t("activerecord.attributes.task.scheduled-time.#{_.scheduling_type}", start: _.start_time, end: _.due_time)
-    end
+  let(:scheduling_sentence) do
+    I18n.t(_.scheduling_type, 
+      scope: "activerecord.attributes.task.scheduling_sentence",
+      start: start_date_and_time,
+      due:   due_date_and_time
+    ).html_safe
   end
 
   let :duration_text do
     I18n.t("activerecord.attributes.task.duration-text.#{duration}")
   end
-
 
   let(:on_track?) do
     _.volunteers.size >= _.volunteer_count_required

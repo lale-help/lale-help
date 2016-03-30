@@ -414,10 +414,10 @@
         :duration: Zeitaufwand
         :scheduling_type: Zeitpunkt
         :scheduled_time_start: Beginn
-        :scheduled-time:
-          :at: um %{start}
-          :on_date: am
-          :between: zwischen %{start} und %{end}
+        :scheduling_sentence:
+          at: "am %{due}"
+          by: "bis %{due}"
+          between: "zwischen %{start}<br />und %{due}"
         :duration-text:
           :hours_1: 1 Stunde
           :hours_2: 2 Stunden

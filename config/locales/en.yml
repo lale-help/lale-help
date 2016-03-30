@@ -275,10 +275,10 @@
         :start_time: Start time
         :due_date: End date
         :due_time: End time
-        :scheduled-time:
-          :at: at %{start}
-          :on_date: 'on'
-          :between: between %{start} and %{end}
+        :scheduling_sentence:
+          :at: "on %{due}"
+          :by: "by %{due}"
+          :between: "between %{start} and %{due}"
         :duration-text:
           :hours_1: 1 Hour
           :hours_2: 2 Hours
