@@ -12,7 +12,7 @@ class Task < ActiveRecord::Base
   # wrapping the attribute in a StringEnquirer allows task.scheduling_type.between?,
   # but still returns "between" for task.scheduling_type
   def scheduling_type
-    read_attribute(:scheduling_type).inquiry
+    read_attribute(:scheduling_type).try(:inquiry)
   end
 
   def primary_location
