@@ -1,6 +1,14 @@
 class TaskPresenter < Presenter
   delegate :id, :name, :volunteers, :volunteer_count_required, :comments,  to: :object
 
+  def description(length: nil)
+    if length
+      _.description.truncate(length, separator: /\s/, omission: '...')
+    else
+      _.description
+    end
+  end
+
   let(:statuses) do
     statuses = []
     statuses << :complete  if _.complete?
@@ -54,7 +62,7 @@ class TaskPresenter < Presenter
   end
 
   let :duration_text do
-    I18n.t("activerecord.attributes.task.duration-text.#{duration}")
+    I18n.t("activerecord.attributes.task.duration-text.#{_.duration}")
   end
 
   let(:on_track?) do
