@@ -1,9 +1,9 @@
-- task = ::TaskPresenter.new(current_task)
+- task_presenter = ::TaskPresenter.new(current_task)
 - content_for :header_middle do
   - back_link = request.env['HTTP_REFERER'] || open_circle_tasks_path(current_circle)
   = link_to t('.back'), back_link, class: 'back'
 
-.task class=task.css
+.task class=task_presenter.css
   main
     .task-header
       .date
@@ -12,7 +12,7 @@
       .title
         -if current_task.complete?
           span.done= t('.task-complete')
-        = task.name
+        = task_presenter.name
       .description= current_task.description
 
     .task-details
@@ -20,13 +20,13 @@
         .icon
         .title= Task.human_attribute_name(:due_date)
         .details
-          = task.scheduling_sentence
+          = task_presenter.scheduling_sentence
 
       .row.duration
         .icon
         .title= Task.human_attribute_name(:duration)
         .details
-          = current_task.duration_text
+          = task_presenter.duration_text
 
       -if current_task.primary_location.present?
         .row.location

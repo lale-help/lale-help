@@ -54,7 +54,7 @@
 
     / select scheduling type
 
-    .field-3.required class=errors.css(:scheduling_type)
+    .field-3
       = f.label :scheduling_type
       = f.select :scheduling_type do
         = options_for_select(@form.scheduling_type_options, @form.scheduling_type)
@@ -62,25 +62,33 @@
 
     / start date & time (hidden by default)
 
-    .field-3.between-element
+    .field-3.between-element class=errors.css(:start_date)
       = f.label :start_date
       = f.text_field :start_date_string, class: :datepicker
 
-    .field-3.between-element
+    .field-3.between-element class=errors.css(:start_time)
       = f.label :start_time
       = f.text_field :start_time, class: :timepicker, placeholder: t('.placeholder_optional')
 
     / end date & time (always visible)
 
-    .field-3.required
+    .field-3.required class=errors.css(:due_date)
       = f.label :date, class: 'at-element'
       = f.label :due_date, class: 'between-element'
       = f.text_field :due_date_string, class: :datepicker
 
-    .field-3
+    .field-3 class=errors.css(:due_time)
       = f.label :time, class: 'at-element'
       = f.label :due_time, class: 'between-element'
       = f.text_field :due_time, class: :timepicker, placeholder: t('.placeholder_optional')
+
+  - if errors.present?
+    .field-row.single
+      .field
+        - %i(start_date start_time due_date due_time).each do |field|
+          - if errors.message_for(field).present?
+            = errors.message_for(field)
+            br
 
   .submit-row
     = f.submit

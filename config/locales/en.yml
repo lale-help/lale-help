@@ -112,6 +112,10 @@
           :trillion: Trillion
           :quadrillion: Quadrillion
   :errors:
+    :due_time:
+      :format: Please enter the due time in the format 00:00.
+    :start_time:
+      :format: Please enter the start time in the format 00:00.
     :format: "%{attribute} %{message}"
     :messages:
       :inclusion: is not included in the list
@@ -177,6 +181,7 @@
       :empty: Please enter a postal code
     :description:
       :too_short: Description is too short
+      :empty: Description can't be empty.
     :name:
       :empty: Name can't be empty
       :not_unique: This Working Group name is already been used. Please choose a different

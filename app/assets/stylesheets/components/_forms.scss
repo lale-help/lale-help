@@ -167,7 +167,8 @@ form {
     @include span-columns(2 of 4);
   }
 
-  .field.required label:after {
+  .field.required label:after,
+  .field-3.required label:after  {
     color: #2C4C5E;
     content: '*';
     font-size: 2rem;
@@ -175,10 +176,12 @@ form {
     opacity: 0.4;
     text-transform: uppercase;
     margin-left: 3px;
+    line-height: 15px;
     vertical-align: sub;
   }
 
-  .field.error label {
+  .field.error label,
+  .field-3.error label {
     color: #d0021b;
     &:after {
       color: #d0021b;
@@ -232,7 +235,7 @@ form {
     -webkit-appearance: menulist-button;
     border: 1px solid #2C4C5E;
     font-size: 1.4rem;
-    height: 37px;
+    height: 33px;
     width: 100%;
   }
 

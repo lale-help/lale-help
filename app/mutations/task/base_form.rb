@@ -83,12 +83,17 @@ class Task::BaseForm < ::Form
 
 
   class Submit < ::Form::Submit
+
+    TIME_REGEX = /^[0-2]?[0-9]:[0-5][0-9]$/
+
     def validate
       add_error(:name, :too_short)                   if name.length < 5
       add_error(:description, :too_short)            if description.length < 5
       add_error(:due_date, :empty)                   if due_date.blank?
       add_error(:primary_location, :empty)           if primary_location.blank?
       add_error(:volunteer_count_required, :too_low) if volunteer_count_required < 1
+      add_error(:start_time, :format)                if start_time.present? && start_time !~ TIME_REGEX
+      add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
     end
 
     def execute
