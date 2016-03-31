@@ -29,6 +29,10 @@
     border-radius: 50%;
   }
 
+  .task-title {
+    font-size: 1.5rem;
+  }
+
   .task-details {
     @include flex(1);
     margin-left: 2rem;
@@ -65,6 +69,14 @@
       font-size: 1.5rem;
       border: thin solid $blue-darkish;
       border-top: 0;
+      .day_number {
+        font-size: 1.5rem;
+        display: block;
+        font-weight: 700;
+      }
+      .day-of-week {
+        font-size: 1rem;
+      }
     }
   }
 
@@ -76,14 +88,46 @@
 
       &--on_track {
         @include task-urgency($blue-dark-2);
+        .task-date {
+          .month {
+            background-color: $blue-dark-1;
+            color: $blue-light-1;
+          }
+          .day {
+            background-color: $blue-light-1;
+            border-color: $blue-dark-1;
+            color: $blue-dark-1;
+          }
+        }
       }
 
       &--urgent {
         @include task-urgency($red, $red);
+        .task-date {
+          .month {
+            background-color: $red;
+            color: $blue-light-1;
+          }
+          .day {
+            background-color: $red-100;
+            border-color: $red;
+            color: $red;
+          }
+        }
       }
 
       &--complete {
         @include task-urgency($green-500);
+        .task-date {
+          .month {
+            background-color: $green;
+          }
+          .day {
+            background-color: $green-100;
+            border-color: $green-500;
+            color: $green;
+          }
+        }
       }
     }
 
@@ -91,6 +135,22 @@
       color: $medium-gray;
     }
 
+    .task-assignees {
+      display: inline-block;
+      .user-icon-container {
+        display: inline-block;
+        .user-icon {
+          display: inline-block;
+          .text {
+            line-height: 1.8;
+            text-align: center;
+          }
+        }
+      }
+      .more {
+        display: inline-block;
+      }
+    }
 
     .task-badge {
       color: $medium-gray;
