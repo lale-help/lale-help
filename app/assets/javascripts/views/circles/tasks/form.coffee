@@ -1,23 +1,29 @@
-# FIXME adapt to new UI
-# class Time
-#   constructor: (@selector)->
-#     @str = @selector.val()
-#     parts = @str.split(":")
-#     @hour   = parseInt(parts[0])
-#     @minute = parseInt(parts[1])
+class Lale.DateTime
+  constructor: (date_field, time_field)->
+    @value = this.buildDate(date_field, time_field)
 
-#   lessThan: (other) ->
-#     if @hour < other.hour
-#       true
+  buildDate: (date_field, time_field)->
+    date = this.parseDate(date_field)
+    time = this.parseTime(time_field)
+    date.setHours(time['hours'])
+    date.setMinutes(time['minutes'])
+    date
 
-#     else if @hour == other.hour
-#       @minute <= other.minute
+  valid:->
+    @value instanceof Date
 
-#     else
-#       false
+  parseDate: (field)->
+    field.datetimepicker('getValue')
 
-#   update: (other) ->
-#     @selector.val(other.str)
+  parseTime: (field)->
+    if field.val()
+      parts = field.val().split(":")
+      h = parseInt(parts[0])
+      m = parseInt(parts[1])
+    else
+      h = 0
+      m = 0
+    { hours: h, minutes: m }
 
 ready = ->
 
@@ -32,17 +38,19 @@ ready = ->
       dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
       format:         I18n.t('datepicker.date_format'),
       minDate:        0,
-      scrollMonth:    false
+      scrollMonth:    false,
+      onChangeDateTime: validateDateTime
     });
 
     $('.xd_timepicker').datetimepicker({
       datepicker:     false,
       step:           15,
       format:         I18n.t('datepicker.time_format'),
-      defaultTime:    '12:00'
+      defaultTime:    '12:00',
+      onChangeDateTime: validateDateTime
     });
 
-  showOrHideEndDate = ->
+  showOrHideStartDate = ->
     type = $('#task_scheduling_type').val()
     if type == "between" 
       $('.at-element').hide()
@@ -51,19 +59,22 @@ ready = ->
       $('.at-element').show()
       $('.between-element').hide()
 
-  # FIXME adapt to new UI
-  # validateTime = ->
-  #   start = new Time($('#task_scheduled_time_start'))
-  #   end   = new Time($('#task_scheduled_time_end'))
-  #   end.update(start) if end.lessThan(start)
+  validateDateTime = ->
+    start = new Lale.DateTime($('#task_start_date_string'), $('#task_start_time'))
+    due   = new Lale.DateTime($('#task_due_date_string'), $('#task_due_time'))
+
+    # when start date is before due date, set them both to start date
+    if start.valid() && due.valid() && (start.value > due.value)
+      console.log $('#task_due_date_string').val()
+      console.log $('#task_start_date_string').val()
+      $('#task_due_date_string').val($('#task_start_date_string').val())
+      $('#task_due_time').val($('#task_start_time').val())
+
 
   if $("form.edit_task, form.new_task").length > 0
-    showOrHideEndDate()
-    $('#task_scheduling_type').on 'change', showOrHideEndDate
+    showOrHideStartDate()
+    $('#task_scheduling_type').on 'change', showOrHideStartDate
     initTimeDatePickers()
-    
-  #   validateTime()
-  #   $('#task_scheduled_time_start, #task_scheduled_time_end').on 'change', validateTime
 
   organizers = $('#task_organizer_id').html()
   showOrganizers = ->
@@ -71,7 +82,6 @@ ready = ->
     working_group = $('#task_working_group_id :selected').text()
     escaped_wg = working_group.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
     options = $(organizers).filter("optgroup[label='#{escaped_wg}']").html()
-    console.log options
     if options
       $('#task_organizer_id').html(options)
       $('#task_organizer_id').parent().show()
