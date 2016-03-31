@@ -1,5 +1,8 @@
 class Lale.DateTime
   constructor: (date_field, time_field)->
+    # after init, the input element is still empty, 
+    # but the datepicker getValue call already returns a valid date object
+    @dateFilled = date_field.val() != ''
     @value = this.buildDate(date_field, time_field)
 
   buildDate: (date_field, time_field)->
@@ -10,7 +13,7 @@ class Lale.DateTime
     date
 
   valid:->
-    @value instanceof Date
+    @dateFilled && (@value instanceof Date)
 
   parseDate: (field)->
     field.datetimepicker('getValue')
