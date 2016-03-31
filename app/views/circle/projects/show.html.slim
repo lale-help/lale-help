@@ -1,0 +1,8 @@
+p#notice = notice
+
+h1 = @project.name
+p = @project.description
+
+= link_to 'Edit', edit_circle_project_path(current_circle, @project)
+'|
+= link_to 'Back', circle_projects_path(current_circle)

@@ -1,0 +1,23 @@
+h1 Listing Projects
+
+table.default-table
+  thead
+    tr
+      th Name
+      th Working Group
+      th
+      th
+      th
+
+  tbody
+    - @projects.each do |project|
+      tr
+        td = project.name
+        td = project.working_group.name
+        td = link_to 'Show', circle_project_path(current_circle, project)
+        td = link_to 'Edit', edit_circle_project_path(current_circle, project)
+        td = link_to 'Destroy', circle_project_path(current_circle, project), data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Project', new_circle_project_path(current_circle)

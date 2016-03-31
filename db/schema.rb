@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308024853) do
+ActiveRecord::Schema.define(version: 20160331144411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,14 @@ ActiveRecord::Schema.define(version: 20160308024853) do
     t.string   "timezone"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "working_group_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "supplies", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
@@ -94,6 +102,7 @@ ActiveRecord::Schema.define(version: 20160308024853) do
     t.datetime "completed_at"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "project_id"
   end
 
   create_table "supply_roles", force: :cascade do |t|
@@ -159,18 +168,19 @@ ActiveRecord::Schema.define(version: 20160308024853) do
   end
 
   create_table "tasks", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "name",                                           null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.string   "name",                                                null: false
     t.string   "description"
-    t.integer  "working_group_id",         limit: 8,             null: false
+    t.integer  "working_group_id",         limit: 8,                  null: false
     t.datetime "completed_at"
     t.date     "due_date"
     t.integer  "volunteer_count_required"
     t.integer  "duration",                           default: 1
     t.string   "scheduled_time_type"
-    t.string   "scheduled_time_start"
-    t.string   "scheduled_time_end"
+    t.string   "scheduled_time_start",               default: "0:00", null: false
+    t.string   "scheduled_time_end",                 default: "0:00", null: false
+    t.integer  "project_id"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -199,11 +209,11 @@ ActiveRecord::Schema.define(version: 20160308024853) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
+    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
-    t.boolean  "accept_terms"
     t.string   "about_me"
     t.integer  "address_id"
     t.integer  "status"

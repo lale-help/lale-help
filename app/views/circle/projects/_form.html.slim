@@ -1,0 +1,9 @@
+= form_for [current_circle, @project] do |f|
+  - if @project.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@project.errors.count, "error")} prohibited this circle_project from being saved:"
+      ul
+        - @project.errors.full_messages.each do |message|
+          li = message
+
+  .actions = f.submit
