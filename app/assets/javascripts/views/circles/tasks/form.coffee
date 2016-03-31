@@ -27,6 +27,10 @@ class Lale.DateTime
 
 ready = ->
 
+  #
+  # methods first
+  #
+
   initTimeDatePickers = ->
     # http://xdsoft.net/jqplugins/datetimepicker/
     $.datetimepicker.setLocale(I18n.locale);
@@ -65,22 +69,14 @@ ready = ->
 
     # when start date is before due date, set them both to start date
     if start.valid() && due.valid() && (start.value > due.value)
-      console.log $('#task_due_date_string').val()
-      console.log $('#task_start_date_string').val()
       $('#task_due_date_string').val($('#task_start_date_string').val())
       $('#task_due_time').val($('#task_start_time').val())
 
-
-  if $("form.edit_task, form.new_task").length > 0
-    showOrHideStartDate()
-    $('#task_scheduling_type').on 'change', showOrHideStartDate
-    initTimeDatePickers()
-
-  organizers = $('#task_organizer_id').html()
   showOrganizers = ->
     $('#task_organizer_id').parent().hide()
     working_group = $('#task_working_group_id :selected').text()
     escaped_wg = working_group.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
+    organizers = $('#task_organizer_id').html()
     options = $(organizers).filter("optgroup[label='#{escaped_wg}']").html()
     if options
       $('#task_organizer_id').html(options)
@@ -89,8 +85,19 @@ ready = ->
       $('#task_organizer_id').empty()
       $('#task_organizer_id').parent().hide()
 
-  showOrganizers()
-  $('#task_working_group_id').on 'change', showOrganizers
+  init = ->
+    if $("form.edit_task, form.new_task").length > 0
+      showOrHideStartDate()
+      $('#task_scheduling_type').on 'change', showOrHideStartDate
+      initTimeDatePickers()
+
+    showOrganizers()
+    $('#task_working_group_id').on 'change', showOrganizers
+
+  #
+  # init code 
+  #
+  init()
 
 $(document).on 'ready', ready
 $(document).on 'page:load', ready
