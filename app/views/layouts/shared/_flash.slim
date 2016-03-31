@@ -1,4 +1,5 @@
 .flash
-  - flash.each do |key, messages|
-    - Array(messages).each do |message|
-      .flash-message class=key = message
+  - flash.to_hash.symbolize_keys.slice(:error, :alert, :notice).each do |key, messages|
+      - Array(messages).each do |message|
+        .flash-message class=key 
+          = message

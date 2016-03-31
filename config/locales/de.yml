@@ -929,10 +929,15 @@
       :sign-in-phrase: In den Helferkreis einloggen
       :reset-password: Passwort zurücksetzen
       :sign-in: Einloggen
+      :login_error_message_title: Ihr Login ist leider fehlgeschlagen.
+      :login_error_common_reasons:
+        :one: haben Sie die richtige E-Mail-Adresse für Lale verwendet?
+        :two: haben Sie Ihr Passwort in letzter Zeit geändert?
+        :three: ist die Feststelltaste (CAPS LOCK) aktiviert?
     :destroy:
       :signed_out: Erfolgreich ausgeloggt!
     :create:
-      :login_error: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
+      :login_error_flash: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
   :user:
     :account:
       :edit:
