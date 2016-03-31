@@ -41,4 +41,6 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = ENV['IsDockerContainer'] ? :letter_opener_web : :letter_opener
   config.mandrill_templates = ENV.fetch("MANDRILL_TEMPLATES", "false") == "true"
+
+  config.x.feature_toggles.projects = true
 end
