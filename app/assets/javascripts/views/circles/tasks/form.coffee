@@ -25,14 +25,17 @@ ready = ->
     # http://xdsoft.net/jqplugins/datetimepicker/
     $.datetimepicker.setLocale(I18n.locale);
 
-    $('.datepicker').datetimepicker({
+    # using .xd_datepicker since active admin binds it's a jQuery UI datepicker
+    # to all .datepicker classes, which causes two datepickers to appear.
+    $('.xd_datepicker').datetimepicker({
       timepicker:     false,
       dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
       format:         I18n.t('datepicker.date_format'),
-      minDate:        0
+      minDate:        0,
+      scrollMonth:    false
     });
 
-    $('.timepicker').datetimepicker({
+    $('.xd_timepicker').datetimepicker({
       datepicker:     false,
       step:           15,
       format:         I18n.t('datepicker.time_format'),
