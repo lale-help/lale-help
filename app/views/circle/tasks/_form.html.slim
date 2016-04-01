@@ -35,7 +35,7 @@
       = f.label :volunteer_count_required
       = errors.formatted_message_for(:volunteer_count_required)
       = f.select :volunteer_count_required do
-        = options_for_select(1..5, @form.volunteer_count_required)
+        = options_for_select(1..10, @form.volunteer_count_required)
 
     .field.required class=errors.css(:primary_location)
       = f.label :primary_location
