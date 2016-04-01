@@ -189,12 +189,16 @@
     :models:
       :circle: Circle
       :location: Location
+      :project: Project
       :system_event: System event
       :system_event/notification: System event/notification
       :system_event/notification/delivery: System event/notification/delivery
       :task:
         :one: Task
         :other: Tasks
+      :project:
+        :one: Project
+        :other: Projects
       :task/location_assignment: Task/location assignment
       :task/skill: Task/skill
       :task/skill_assignment: Task/skill assignment
@@ -212,6 +216,7 @@
         :location: :activerecord.models.location
         :name: Circle name
         :tasks: Tasks
+        :projects: Projects
         :volunteers: Volunteers
         :working_groups: Working groups
         :roles: Roles
@@ -441,6 +446,8 @@
         :delete: Are you sure you want to delete this task?
       :supply:
         :delete: Are you sure you want to delete this supply?
+      :project:
+        :delete: Are you sure you want to delete this project?
     :placeholder:
       :task:
         :name: E.g. Take Riad to School Orientation
@@ -971,6 +978,7 @@
         :dont-have-account: Don't have an account?
     :internal:
       :sidebar:
+        :projects: Projects
         :my-tasks: My Tasks
         :all-tasks: Open Tasks
         :supplies: Supplies
@@ -1101,4 +1109,6 @@
   :task_edit:
     :cancel: Cancel
   :supply_edit:
+    :cancel: Cancel
+  :project_edit:
     :cancel: Cancel

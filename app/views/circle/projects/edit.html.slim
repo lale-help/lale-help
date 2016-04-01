@@ -1,8 +1,5 @@
-h1 Editing circle_project
+- content_for :header_middle do
+  a.back href=circle_project_path(current_circle, current_project) = t('.back')
 
-== render 'form'
-
-= link_to 'Show', circle_projects_path(current_circle, @project)
-'|
-= link_to 'Back', circle_projects_path(current_circle)
-
+h2 = t('helpers.header.edit', name: current_project.name)
+= render 'form', locals: {delete: true}

@@ -4,6 +4,10 @@ nav
     = sidebar_link(t('.all-open-tasks'), open_circle_tasks_path(current_circle), badge_text: open_tasks_count)
     = sidebar_link(t('.completed-tasks'), completed_circle_tasks_path(current_circle))
 
+  / FIXME add cancan & only show link if there are projects for the user (present & private?)
+  .sidebar-section
+    = sidebar_link(t('.projects'), circle_projects_path(current_circle))
+
   .sidebar-section
     = sidebar_link(t('.supplies'), circle_supplies_path(current_circle), badge_text: all_supplies_count)
 
