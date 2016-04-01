@@ -10,27 +10,20 @@ class Circle::ProjectsController < ApplicationController
     @projects = current_circle.projects
   end
 
+  def show
+    # FIXME cancan
+    authorize! :create_working_group, current_circle
+  end
+
   def new
     # FIXME
     authorize! :create_working_group, current_circle
     
-    @form = Project::Create.new(user: current_user, project: Project.new, circle: current_circle, ability: current_ability)
-  end
-
-  def show
-    # FIXME cancan, find project through circle
-    authorize! :create_working_group, current_circle
-  end
-
-  def edit
-    # FIXME
-    authorize! :create_working_group, current_circle
-    @form = Project::Update.new(user: current_user, project: current_project, circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(user: current_user, circle: current_circle, ability: current_ability)
   end
 
   def create
-    project = current_circle.projects.build
-    @form = Project::Create.new(params[:project], user: current_user, project: project, circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(params[:project], user: current_user, circle: current_circle, ability: current_ability)
     # FIXME
     authorize! :create_working_group, current_circle
 
@@ -42,6 +35,12 @@ class Circle::ProjectsController < ApplicationController
       errors.add outcome.errors
       render :new
     end
+  end
+
+  def edit
+    # FIXME
+    authorize! :create_working_group, current_circle
+    @form = Project::Update.new(user: current_user, project: current_project, circle: current_circle, ability: current_ability)
   end
 
   def update
