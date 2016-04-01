@@ -42,10 +42,19 @@ class Project::BaseForm < ::Form
   end
   
   class Submit < ::Form::Submit  
+
+    def organizer
+      circle.users.find(inputs[:organizer_id])
+    end
+
     def execute
-      p project_attributes
       project.assign_attributes(project_attributes.merge(working_group: working_group))
       project.save!
+      # reset roles for now
+      # FIXME discuss UI for project roles management
+      project.roles = [
+        project.roles.create(role_type: 'admin', user: organizer)
+      ]
       project
     end
 

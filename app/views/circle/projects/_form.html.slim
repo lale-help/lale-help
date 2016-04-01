@@ -1,9 +1,9 @@
 = form_for [current_circle, @form] do |f|
-  - if @project.errors.any?
+  - if current_project.errors.any?
     #error_explanation
-      h2 = "#{pluralize(@project.errors.count, "error")} prohibited this circle_project from being saved:"
+      h2 = "#{pluralize(current_project.errors.count, "error")} prohibited this circle_project from being saved:"
       ul
-        - @project.errors.full_messages.each do |message|
+        - current_project.errors.full_messages.each do |message|
           li = message
 
   

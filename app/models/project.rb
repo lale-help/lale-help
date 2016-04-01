@@ -12,4 +12,13 @@ class Project < ActiveRecord::Base
   has_many :users,   ->{ distinct }, through: :roles
   has_many :admins,  ->{ Role.admin }, through: :roles, source: :user
 
+  # FIXME
+  def tasks
+    admins.first.primary_circle.tasks.limit(5)
+  end
+
+  # FIXME
+  def supplies
+    admins.first.primary_circle.supplies.limit(5)
+  end
 end
