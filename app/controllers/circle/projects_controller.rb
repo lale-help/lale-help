@@ -14,9 +14,7 @@ class Circle::ProjectsController < ApplicationController
     # FIXME
     authorize! :create_working_group, current_circle
     
-    # FIXME must be built of one of the current_user's working groups (group admin)
-    project = current_circle.projects.build
-    @form = Project::Create.new(user: current_user, project: project, circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(user: current_user, project: Project.new, circle: current_circle, ability: current_ability)
   end
 
   def show
@@ -35,7 +33,6 @@ class Circle::ProjectsController < ApplicationController
     @form = Project::Create.new(params[:project], user: current_user, project: project, circle: current_circle, ability: current_ability)
     # FIXME
     authorize! :create_working_group, current_circle
-    #authorize! :create_task, @form.working_group
 
     outcome = @form.submit
 

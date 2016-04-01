@@ -233,6 +233,11 @@
         :longitude: Longitude
         :name: Name
         :users: Users
+      :project:
+        :name: Project name
+        :working_group_id: Working group
+        :organizer_id: Organizer
+        :description: Description
       :system_event:
         :action: Action
         :for: for
@@ -451,6 +456,8 @@
     :placeholder:
       :task:
         :name: E.g. Take Riad to School Orientation
+      :project:
+        :name: Project name placeholder
   :ransack:
     :search: search
     :predicate: predicate
@@ -836,6 +843,17 @@
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
+    :projects:
+      :show:
+        :settings: Settings
+        :admin-title:
+          :one: "%{count} organizer"
+          :other: "%{count} organizers"
+        :member-title:
+          :one: "%{count} volunteer"
+          :other: "%{count} volunteers"
+      :edit:
+        :back: Back to project
     :supplies:
       :index:
         :header: Supplies
@@ -1108,7 +1126,7 @@
       :private: Private
   :task_edit:
     :cancel: Cancel
-  :supply_edit:
-    :cancel: Cancel
   :project_edit:
+    :cancel: Cancel
+  :supply_edit:
     :cancel: Cancel
