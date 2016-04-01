@@ -1,9 +1,9 @@
 = form_for [current_circle, @form] do |f|
-  - if current_project.errors.any?
+  - if @form.project.errors.any?
     #error_explanation
-      h2 = "#{pluralize(current_project.errors.count, "error")} prohibited this circle_project from being saved:"
+      h2 = "#{pluralize(@form.project.errors.count, "error")} prohibited this circle_project from being saved:"
       ul
-        - current_project.errors.full_messages.each do |message|
+        - @form.project.errors.full_messages.each do |message|
           li = message
 
   
@@ -34,7 +34,7 @@
 
   .submit-row
     = f.submit
-    - cancel_path = @form.project.persisted? ? circle_project_path(current_circle, current_project) : circle_path(current_circle)
+    - cancel_path = @form.project.persisted? ? circle_project_path(current_circle, @form.project) : circle_path(current_circle)
     = link_to t('project_edit.cancel'), cancel_path, class: 'button'
     - if locals[:delete]
-      = link_to t('delete'), [current_circle, current_project], class: 'button secondary-action', data: {:confirm => t('helpers.confirm.project.delete')}, :method => :delete
+      = link_to t('delete'), [current_circle, @form.project], class: 'button secondary-action', data: {:confirm => t('helpers.confirm.project.delete')}, :method => :delete
