@@ -12,7 +12,6 @@
       - if can? :create_supply, circle
         a href=new_circle_supply_path(circle) = Supply.model_name.human
 
-      / FIXME cancan
       - if feature_enabled?(:projects)
-        - if can? :create_supply, circle
+        - if can? :create_project, circle
           a href=new_circle_project_path(circle) = Project.model_name.human

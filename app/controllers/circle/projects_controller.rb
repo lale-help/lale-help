@@ -5,27 +5,24 @@ class Circle::ProjectsController < ApplicationController
   include HasCircle
 
   def index
-    # FIXME
+    # FIXME add per-project cancan in the template
     authorize! :read, current_circle
     @projects = current_circle.projects
   end
 
   def show
-    # FIXME cancan
-    authorize! :create_working_group, current_circle
+    authorize! :read, current_project
   end
 
   def new
-    # FIXME
-    authorize! :create_working_group, current_circle
+    authorize! :create_project, current_circle
     
     @form = Project::Create.new(user: current_user, circle: current_circle, ability: current_ability)
   end
 
   def create
+    authorize! :create_project, current_circle
     @form = Project::Create.new(params[:project], user: current_user, circle: current_circle, ability: current_ability)
-    # FIXME
-    authorize! :create_working_group, current_circle
 
     outcome = @form.submit
 
@@ -38,14 +35,12 @@ class Circle::ProjectsController < ApplicationController
   end
 
   def edit
-    # FIXME
-    authorize! :create_working_group, current_circle
+    authorize! :update, current_project
     @form = Project::Update.new(user: current_user, project: current_project, circle: current_circle, ability: current_ability)
   end
 
   def update
-    # FIXME
-    authorize! :create_working_group, current_circle
+    authorize! :update, current_project
     @form = Project::Update.new(params[:project], user: current_user, project: current_project, circle: current_circle, ability: current_ability)
     outcome = @form.submit
     if outcome.success?
@@ -57,8 +52,7 @@ class Circle::ProjectsController < ApplicationController
   end
 
   def destroy
-    # FIXME
-    authorize! :create_working_group, current_circle
+    authorize! :destroy, current_circle
 
     current_project.destroy
 

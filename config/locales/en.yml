@@ -747,7 +747,7 @@
       :user_mailer:
         :forgot_password: Did you forget something?
         :account_activation: A new member wants to join your circle
-        :account_activated: Your circle membership is being activated.
+        :account_activated: Your circle membership was activated.
       :task_mailer:
         :task_change: Something has changed about your task.
         :task_completion_reminder: Thanks for helping!

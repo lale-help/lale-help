@@ -14,6 +14,31 @@ FactoryGirl.define do
         user.pending!
       end
     end
+
+    factory :working_group_admin do
+      after(:create) do |user, _|
+        create(:working_group_admin_role, user: user)
+      end
+    end
+
+    factory :working_group_member do
+      after(:create) do |user, _|
+        create(:working_group_member_role, user: user)
+      end
+    end
+
+    factory :circle_admin do
+      after(:create) do |user, _|
+        create(:circle_role_admin, user: user)
+      end
+    end
+
+    factory :circle_volunteer do
+      after(:create) do |user, _|
+        create(:circle_role_volunteer, user: user)
+      end
+    end
+
   end
 
   factory :user_identity, class: User::Identity, aliases: [:volunteer_identity] do

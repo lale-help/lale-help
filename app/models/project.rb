@@ -1,6 +1,7 @@
 class Project < ActiveRecord::Base
 
   belongs_to :working_group
+  has_one :circle, through: :working_group
   
   validates :name, presence: true
   

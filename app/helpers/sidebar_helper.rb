@@ -1,4 +1,4 @@
-# FIXME: move these methods to presenter, view model etc. Phil asks Phil
+# FIXME: move these methods to cell
 module SidebarHelper
 
   def my_tasks_count
@@ -40,6 +40,13 @@ module SidebarHelper
     opts[:after_icon]   ||= nil
     opts[:id]           ||= nil
     render partial: 'layouts/internal/sidebar_item', locals: opts
+  end
+
+  def visible_projects?
+    return unless feature_enabled?(:projects)
+    projects = current_users_working_groups.map(&:projects).flatten
+    # only show link if there are projects the user can see
+    projects.count > 0 && projects.any? { |project| can?(:read, project) }
   end
   
   private

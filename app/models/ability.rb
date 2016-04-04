@@ -25,7 +25,7 @@ class Ability
       user.working_group_roles.admin.for_circle(circle).exists?
     end
     cannot :create_task, Circle do |circle|
-      circle.working_groups.count == 0
+      circle.working_groups.empty?
     end
 
     can :create_supply, Circle do |circle|
@@ -33,11 +33,7 @@ class Ability
       user.working_group_roles.admin.for_circle(circle).exists?
     end
     cannot :create_supply, Circle do |circle|
-      circle.working_groups.count == 0
-    end
-
-    can :create_group, Circle do |circle|
-      can?(:manage, circle)
+      circle.working_groups.empty?
     end
 
     can :create_item, Circle do |circle|
@@ -46,6 +42,15 @@ class Ability
     end
     cannot :create_item, Circle do |circle|
       !can?(:create_task, circle)
+    end
+
+    can :create_project, Circle do |circle|
+      can?(:manage, circle) or
+      user.working_group_roles.admin.for_circle(circle).exists? or
+      circle.working_groups.any? { |wg| can?(:manage, wg) }
+    end
+    cannot :create_project, Circle do |circle|
+      circle.working_groups.empty?
     end
 
 
@@ -232,5 +237,18 @@ class Ability
     can :create, Comment do |comment|
       user.circles.include?(comment.task.circle)
     end
+
+
+
+    # Projects
+    can :read, Project do |project|
+      can?(:manage, project.circle) or can?(:read, project.working_group)
+    end
+
+    can :manage, Project do |project|
+      can?(:manage, project.circle) or 
+        project.circle.working_groups.any? { |wg| can?(:manage, wg) }
+    end
+
   end
 end
