@@ -15,8 +15,3 @@ table.default-table
         td
           - project.admins.active.each do |user|
             li= link_to(user.name, circle_member_path(current_circle, user))
-
-        / td.actions
-        /   / FIXME cancan
-        /   a.edit href=edit_circle_project_path(current_circle, project)
-        /   = link_to "", circle_project_path(current_circle, project), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_project') }

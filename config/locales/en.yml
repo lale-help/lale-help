@@ -946,12 +946,16 @@
         :header: Organizers for %{name}
       :edit_members:
         :header: Volunteers for %{name}
+      :edit_projects:
+        :header: Projects for %{name}
+        :actions: Actions
       :add_user_form:
         :add: Add
       :nav:
         :settings: Basic Settings
         :organizers: Organizers
         :members: Volunteers
+        :projects: Projects
       :user_list:
         :actions: Actions
         :remove: Remove

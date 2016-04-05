@@ -63,6 +63,13 @@ class Circle::WorkingGroupsController < ApplicationController
     @form = WorkingGroup::AddUserForm.new(working_group: current_working_group, type: :organizer)
   end
 
+  def edit_projects
+    authorize! :update, current_working_group
+
+    @projects = current_working_group.projects
+    #@form = WorkingGroup::AddUserForm.new(working_group: current_working_group, type: :organizer)
+  end
+
 
   def add_user
     authorize! :update, current_working_group
