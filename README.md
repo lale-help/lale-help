@@ -32,6 +32,7 @@ You can run Lale on your development machine using one of two methods:
   To view the rails logs, you can use `./docker/logs`
 
 #### Docker Scripts
+| Script Description                         | How to run               |
 |--------------------------------------------|--------------------------|
 | Start Rails (and other services)           | `./docker/start`         |
 | Open a Rails console                       | `./docker/rails-console` |
