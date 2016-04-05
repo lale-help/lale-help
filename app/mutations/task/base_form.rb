@@ -5,6 +5,7 @@ class Task::BaseForm < ::Form
 
   attribute :name,             :string
   attribute :working_group_id, :string
+  attribute :project_id,       :string
   attribute :description,      :string
 
   attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
@@ -77,10 +78,22 @@ class Task::BaseForm < ::Form
     end
   end
 
+  def project_select(form)
+    # what a ridiculous method dear Rails boys!
+    form.grouped_collection_select(
+      :project_id, 
+      available_working_groups, 
+      :projects, 
+      :name, 
+      :id, 
+      :name, 
+      {include_blank: true}
+    )
+  end
+
   def available_working_groups_disabled?
     available_working_groups.size == 1 && ability.cannot?(:manage, available_working_groups.first)
   end
-
 
   class Submit < ::Form::Submit
 
@@ -96,11 +109,16 @@ class Task::BaseForm < ::Form
       add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
     end
 
+    def project
+      project_id.present? ? Project.find(project_id) : nil
+    end
+
     def execute
       task.tap do |t|
         t.name          = name
         t.description   = description
         t.working_group = working_group
+        t.project       = project
 
         t.duration      = duration
 

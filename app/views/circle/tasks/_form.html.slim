@@ -43,12 +43,15 @@
       = errors.message_for(:primary_location)
 
   .field-row
-    .field
+    .field.required
       = f.label :duration
       = f.select :duration do
         = options_for_select(@form.duration_options)
 
     .field
+      = f.label :project
+      = @form.project_select(f)
+      = errors.message_for(:project_id)
 
   .field-row-3
 
