@@ -1,18 +1,29 @@
 db:
+  container_name: db
+  net: "host"
   image: postgres
   volumes:
     - .:/myapp
 
+
+selenium:
+  container_name: selenium
+  net: "host"
+  image: selenium/standalone-firefox:2.52.0
+
+
 web:
+  container_name: web
+  net: "host"
   build: .
-  command: bash docker/start_web.sh
+  command: bash bin/docker_web_entrypoint.sh
   volumes:
     - .:/myapp
   ports:
     - "5000:5000"
   environment:
     IsDockerContainer: 'true'
+    # FOO: bar
   env_file:
     - .env.example
-  links:
-    - db
+

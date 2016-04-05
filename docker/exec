@@ -1,0 +1,6 @@
+#!/bin/sh
+
+./docker/start
+
+echo "\n== Running '$@' in the web container =="
+exec docker exec -it web "$@"

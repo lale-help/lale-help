@@ -1,0 +1,4 @@
+#!/bin/sh
+
+echo "== Running 'psql' in the db container =="
+exec docker exec -it db psql -U postgres lale_development

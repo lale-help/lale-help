@@ -35,3 +35,20 @@ end
 
 ::Capybara::Selenium::Node.send :include, CapybaraSeleniumExtension
 ::Capybara::Node::Element.send :include, CapybaraExtension
+
+Capybara.register_driver :docker_firefox do |app|
+  Capybara::Selenium::Driver.new(app, {
+    browser: :remote,
+    url: "http://localhost:4444/wd/hub",
+    desired_capabilities: Selenium::WebDriver::Remote::Capabilities.firefox
+  })
+end
+
+if ENV['IsDockerContainer'] == "true"
+  Capybara.current_driver = :docker_firefox
+  Capybara.javascript_driver = :docker_firefox
+
+  Capybara.app_host = "http://localhost:56555"
+  Capybara.server_port = "56555"
+  Capybara.server_host = '0.0.0.0'
+end
