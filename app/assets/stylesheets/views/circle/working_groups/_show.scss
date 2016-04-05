@@ -30,7 +30,7 @@ body.internal .working-group{
     @include flex-wrap(wrap);
 
     main{
-      @include flex(11 0 auto);
+      @include flex(11 1);
     }
 
     aside {

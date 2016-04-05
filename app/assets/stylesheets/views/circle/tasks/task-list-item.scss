@@ -52,12 +52,14 @@
     @include flex-direction(row);
     @include align-items(center);
     @include justify-content(space-between);
-
   }
 
   .task-content {
     @include flex(1 1 0);
-    padding: 0 2rem;
+    padding: 1rem 2rem 1rem 2rem;
+  }
+
+  .task-stats {
   }
 
   .task-date {
@@ -151,6 +153,7 @@
 
     .task-assignees {
       display: inline-block;
+      padding-right: 1rem;
       .user-icon-container {
         display: inline-block;
         .user-icon {
