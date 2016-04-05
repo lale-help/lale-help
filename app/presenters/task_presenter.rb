@@ -48,7 +48,7 @@ class TaskPresenter < Presenter
   end
 
   let(:due_date_day_of_week) do
-    _.due_date.strftime('%a')
+    I18n.l(_.due_date, format: '%a')
   end
 
   let(:start_date_and_time) do
