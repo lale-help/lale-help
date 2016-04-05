@@ -57,6 +57,7 @@
   .task-content {
     @include flex(1 1 0);
     padding: 1rem 2rem 1rem 2rem;
+    -ms-flex: 1;
   }
 
   .task-stats {
