@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "507c8db3512cc5c2dcd885d099dfd3f9095a98f70bbb75d88530bed5fe503e79",
-    "current": "507c8db3512cc5c2dcd885d099dfd3f9095a98f70bbb75d88530bed5fe503e79"
+    "previous": "3a37b198129726a85aa411127032d40b95519c901e23e3055241cf7fb38c574c",
+    "current": "3a37b198129726a85aa411127032d40b95519c901e23e3055241cf7fb38c574c"
   },
   "fonts": [
     "app/assets/fonts/lale/lale.ttf",
@@ -25,6 +25,10 @@
     "clock": {
       "codepoint": 61705,
       "source": "app/assets/icons/clock.svg"
+    },
+    "comment": {
+      "codepoint": 61714,
+      "source": "app/assets/icons/comment.svg"
     },
     "compass": {
       "codepoint": 61708,

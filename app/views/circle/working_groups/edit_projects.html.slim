@@ -3,11 +3,7 @@
 
   h1= t('.header', name: current_working_group.name)
 
-  table
-    thead
-      tr
-        th = Project.human_attribute_name("name")
-        th = t('.actions')
+  table.default-table
 
     tbody
       - @projects.each do |project|
