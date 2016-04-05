@@ -75,6 +75,9 @@ ready = ->
       $('#task_due_date_string').val($('#task_start_date_string').val())
       $('#task_due_time').val($('#task_start_time').val())
 
+  # organizers must be cached since the content of #project_organizer_id will be swapped
+  organizers = $('#task_organizer_id').html()
+  
   showOrganizers = ->
     $('#task_organizer_id').parent().hide()
     working_group = $('#task_working_group_id :selected').text()
@@ -88,6 +91,7 @@ ready = ->
       $('#task_organizer_id').empty()
       $('#task_organizer_id').parent().hide()
 
+<<<<<<< HEAD
   init = ->
     if $("form.edit_task, form.new_task").length > 0
       showOrHideStartDate()
@@ -101,6 +105,7 @@ ready = ->
   # init code 
   #
   init()
+  
 
 $(document).on 'ready', ready
 $(document).on 'page:load', ready

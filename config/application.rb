@@ -35,6 +35,18 @@ module LaleHelp
     config.session_expiration = 30.minutes
 
     config.i18n.available_locales = %w(en de fr)
+
+    #
+    # simple feature toggles using the default Rails config mechanism.
+    # see http://guides.rubyonrails.org/configuring.html#custom-configuration
+    # 
+    # Usage: 
+    # 1.  set new features false here and then true in the envs you want to see them
+    # 1.1 use the feature_enabled?(name) wherever possible
+    # 2.  when ready to go live, set toggle to true here, remove in all other environments
+    # 3.  every now and then, remove toggles for stable features from the application.
+    #
+    config.x.feature_toggles.projects = false # added 2016-03-31
   end
 end
 

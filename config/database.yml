@@ -8,7 +8,7 @@ development:
   database: lale_development
   <% if ENV["IsDockerContainer"] %>
   username: postgres
-  host: db
+  host: 127.0.0.1
   <% end %>
 
 test:
@@ -16,5 +16,5 @@ test:
   database: lale_test
   <% if ENV["IsDockerContainer"] %>
   username: postgres
-  host: db
+  host: 127.0.0.1
   <% end %>

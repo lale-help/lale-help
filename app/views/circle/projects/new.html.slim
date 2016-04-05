@@ -1,0 +1,5 @@
+main.form
+  section
+    h2 = t('helpers.header.add', name: Project.model_name.human)
+
+    == render 'form', locals: {delete: false}

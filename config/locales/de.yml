@@ -336,6 +336,7 @@
     :models:
       :circle: Helferkreis
       :location: Standort
+      :project: Projekt
       :system_event: System-Event
       :task:
         :one: Aufgabe
@@ -1117,6 +1118,8 @@
     :circle_add_menu:
       :add: Hinzufügen
   :task_edit:
+    :cancel: Abbrechen
+  :project_edit:
     :cancel: Abbrechen
   :supply_edit:
     :cancel: Abbrechen

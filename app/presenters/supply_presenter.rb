@@ -1,5 +1,5 @@
 class SupplyPresenter < Presenter
-  delegate :id, :name, :volunteers, :volunteer_count_required, :comments,  to: :object
+  delegate :id, :name, :volunteers, :volunteer_count_required, :comments, :due_date,  to: :object
 
   let(:statuses) do
     statuses = []
@@ -26,11 +26,6 @@ class SupplyPresenter < Presenter
   let(:message) do
     I18n.t("supply.presenter.messages.#{message_key}") if message_key.present?
   end
-
-  let(:due_date) do
-    I18n.l(_.due_date, format: :long)
-  end
-
 
   let(:on_track?) do
     _.volunteer.present?

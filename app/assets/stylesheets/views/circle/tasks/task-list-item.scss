@@ -13,13 +13,23 @@
 }
 
 .task-list {
+  padding-top: 1rem;
   padding-bottom: 5rem;
 
   .task {
-    margin: 0 2rem;
     @include display(flex);
     @include flex-direction(row);
     @include align-items(center);
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      left: 85px;
+      bottom: 0;
+      border-bottom: thin solid $light-grey;
+    }
   }
 
   .task-icon {
@@ -29,16 +39,61 @@
     border-radius: 50%;
   }
 
+  .task-title {
+    font-size: 1.5rem;
+  }
+
   .task-details {
     @include flex(1);
     margin-left: 2rem;
-    border-bottom: thin solid $light-grey;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0 0 0;
 
     @include display(flex);
     @include flex-direction(row);
     @include align-items(center);
     @include justify-content(space-between);
+  }
+
+  .task-content {
+    @include flex(1 1 0);
+    padding: 1rem 2rem 1rem 2rem;
+  }
+
+  .task-stats {
+  }
+
+  .task-date {
+    $radius: 0.75rem;
+    text-align: center;
+    font-size: 1.25rem;
+    width: 50px;
+    margin-bottom: 1rem;
+
+    .month {
+      background: $blue-darkish;
+      color: $white;
+      padding: 0.5rem;
+      @include border-top-radius($radius);
+    }
+
+    .day {
+      background: $blue-50;
+      color: $blue-darkish;
+      display: block;
+      padding: 0.3rem;
+      @include border-bottom-radius($radius);
+      font-size: 1.5rem;
+      border: thin solid $blue-darkish;
+      border-top: 0;
+      .day_number {
+        font-size: 1.5rem;
+        display: block;
+        font-weight: 700;
+      }
+      .day-of-week {
+        font-size: 1rem;
+      }
+    }
   }
 
   .task {
@@ -49,14 +104,46 @@
 
       &--on_track {
         @include task-urgency($blue-dark-2);
+        .task-date {
+          .month {
+            background-color: $blue-dark-1;
+            color: $blue-light-1;
+          }
+          .day {
+            background-color: $blue-light-1;
+            border-color: $blue-dark-1;
+            color: $blue-dark-1;
+          }
+        }
       }
 
       &--urgent {
         @include task-urgency($red, $red);
+        .task-date {
+          .month {
+            background-color: $red;
+            color: $blue-light-1;
+          }
+          .day {
+            background-color: $red-100;
+            border-color: $red;
+            color: $red;
+          }
+        }
       }
 
       &--complete {
         @include task-urgency($green-500);
+        .task-date {
+          .month {
+            background-color: $green;
+          }
+          .day {
+            background-color: $green-100;
+            border-color: $green-500;
+            color: $green;
+          }
+        }
       }
     }
 
@@ -64,6 +151,23 @@
       color: $medium-gray;
     }
 
+    .task-assignees {
+      display: inline-block;
+      padding-right: 1rem;
+      .user-icon-container {
+        display: inline-block;
+        .user-icon {
+          display: inline-block;
+          .text {
+            line-height: 1.8;
+            text-align: center;
+          }
+        }
+      }
+      .more {
+        display: inline-block;
+      }
+    }
 
     .task-badge {
       color: $medium-gray;

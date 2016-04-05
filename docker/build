@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "== Rebuilding the Web Docker Container == "
+docker-compose stop web
+docker-compose build web
+docker-compose create web
+
+
+echo "\n== Done! == "

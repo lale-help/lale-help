@@ -1,0 +1,17 @@
+h1 = t('.title')
+
+table.default-table
+  thead
+    tr
+      th = Project.human_attribute_name("name")
+      th = Project.human_attribute_name("working_group")
+      th = Project.human_attribute_name("organizer")
+
+  tbody
+    - @projects.each do |project|
+      tr
+        td = link_to(project.name, circle_project_path(current_circle, project))
+        td = link_to(project.working_group.name, circle_working_group_path(current_circle, project.working_group))
+        td
+          - project.admins.active.each do |user|
+            li= link_to(user.name, circle_member_path(current_circle, user))

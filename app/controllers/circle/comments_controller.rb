@@ -45,10 +45,6 @@ class Circle::CommentsController < ApplicationController
   end
 
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params[:comment].permit(:body)
-    end
 
     def set_comment
       @comment = current_task.comments.find(params[:id])

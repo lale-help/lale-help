@@ -1,16 +1,35 @@
+#
+# Some notes on abilities
+#
+# - :manage represents ANY action on the object, not just crud.
+#   https://github.com/CanCanCommunity/cancancan/wiki/defining-abilities
+#   
+# - The ability rules further down in a file will override a previous one.
+#   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
+# 
+# - Adding can rules do not override prior rules, but instead are logically or'ed.
+#   Therefore, it is best to place the more generic rules near the top.
+#   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
+#
 class Ability
   include CanCan::Ability
 
   def initialize(user)
     user ||= User.new
 
+    # 
     # Admin
+    # 
+
     can :read, ActiveAdmin::Page, :name => "Dashboard"
     can :manage_site do
       user.is_admin
     end
 
+    # 
     # Circles
+    # 
+
     can :create, Circle
     can :read,   Circle do |circle|
       circle.users.active.include? user
@@ -25,7 +44,7 @@ class Ability
       user.working_group_roles.admin.for_circle(circle).exists?
     end
     cannot :create_task, Circle do |circle|
-      circle.working_groups.count == 0
+      circle.working_groups.empty?
     end
 
     can :create_supply, Circle do |circle|
@@ -33,11 +52,7 @@ class Ability
       user.working_group_roles.admin.for_circle(circle).exists?
     end
     cannot :create_supply, Circle do |circle|
-      circle.working_groups.count == 0
-    end
-
-    can :create_group, Circle do |circle|
-      can?(:manage, circle)
+      circle.working_groups.empty?
     end
 
     can :create_item, Circle do |circle|
@@ -48,8 +63,19 @@ class Ability
       !can?(:create_task, circle)
     end
 
+    can :create_project, Circle do |circle|
+      can?(:manage, circle) or
+      user.working_group_roles.admin.for_circle(circle).exists? or
+      circle.working_groups.any? { |wg| can?(:manage, wg) }
+    end
+    cannot :create_project, Circle do |circle|
+      circle.working_groups.empty?
+    end
 
-
+    #
+    # Circle::Role
+    #
+    
     can :delete, Circle::Role do |role|
       can?(:manage, role.circle)
       if role.role_type == 'circle.admin'
@@ -60,7 +86,10 @@ class Ability
       end
     end
 
+    #
     # Users
+    # 
+    
     can :read, User do |member, circle|
       member.id == user.id ||
       (can?(:read, circle) &&
@@ -69,8 +98,15 @@ class Ability
           member.public_profile?))
     end
 
+    # 
+    # Working Groups
+    # 
+    
+    can :manage, WorkingGroup do |wg|
+      can?(:manage, wg.circle) ||
+      wg.admins.active.include?(user)
+    end
 
-    # Work Groups
     can :read, WorkingGroup do |wg|
       if wg.is_private?
         can?(:manage, wg.circle) ||
@@ -78,11 +114,6 @@ class Ability
       else
         can?(:read, wg.circle)
       end
-    end
-
-    can :manage, WorkingGroup do |wg|
-      can?(:manage, wg.circle) ||
-      wg.admins.active.include?(user)
     end
 
     can :create_task, WorkingGroup do |wg|
@@ -103,8 +134,10 @@ class Ability
       can?(:join, wg)
     end
 
-
+    #
     # Tasks
+    # 
+    
     can :read, Task do |task|
       can?(:read, task.working_group)
     end
@@ -165,8 +198,10 @@ class Ability
       task.incomplete?
     end
 
-
+    #
     # Supply
+    #
+    
     can :read, Supply do |supply|
       can?(:read, supply.working_group)
     end
@@ -224,13 +259,32 @@ class Ability
       supply.complete? || supply.volunteer.present?
     end
 
-
-
-
-
+    # 
     # Comments
+    #
+
     can :create, Comment do |comment|
       user.circles.include?(comment.task.circle)
     end
+
+    # 
+    # Projects
+    # 
+
+    can :manage, Project do |project|
+      can?(:manage, project.circle) or 
+        project.circle.working_groups.any? { |wg| can?(:manage, wg) }
+    end
+    cannot :manage, Project do |project|
+      cannot?(:manage, project.working_group)
+    end
+
+    can :read, Project do |project|
+      can?(:manage, project.circle) or can?(:read, project.working_group)
+    end
+    cannot :read, Project do |project|
+      cannot?(:read, project.working_group)
+    end
+
   end
 end

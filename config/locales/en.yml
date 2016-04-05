@@ -198,12 +198,16 @@
     :models:
       :circle: Circle
       :location: Location
+      :project: Project
       :system_event: System event
       :system_event/notification: System event/notification
       :system_event/notification/delivery: System event/notification/delivery
       :task:
         :one: Task
         :other: Tasks
+      :project:
+        :one: Project
+        :other: Projects
       :task/location_assignment: Task/location assignment
       :task/skill: Task/skill
       :task/skill_assignment: Task/skill assignment
@@ -221,6 +225,7 @@
         :location: :activerecord.models.location
         :name: Circle name
         :tasks: Tasks
+        :projects: Projects
         :volunteers: Volunteers
         :working_groups: Working groups
         :roles: Roles
@@ -237,6 +242,14 @@
         :longitude: Longitude
         :name: Name
         :users: Users
+      :project:
+        :name: Project name
+        :working_group_id: Working group
+        :organizer_id: Organizer
+        :organizer:
+          :one: Organizer
+          :other: Organizers
+        :description: Description
       :system_event:
         :action: Action
         :for: for
@@ -458,9 +471,13 @@
         :delete: Are you sure you want to delete this task?
       :supply:
         :delete: Are you sure you want to delete this supply?
+      :project:
+        :delete: Are you sure you want to delete this project?
     :placeholder:
       :task:
         :name: E.g. Take Riad to School Orientation
+      :project:
+        :name: Project name placeholder
   :ransack:
     :search: search
     :predicate: predicate
@@ -750,7 +767,7 @@
       :user_mailer:
         :forgot_password: Did you forget something?
         :account_activation: A new member wants to join your circle
-        :account_activated: Your circle membership is being activated.
+        :account_activated: Your circle membership was activated.
       :task_mailer:
         :task_change: Something has changed about your task.
         :task_completion_reminder: Thanks for helping!
@@ -846,6 +863,20 @@
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
+    :projects:
+      :show:
+        :settings: Settings
+        :admin-title:
+          :one: "%{count} organizer"
+          :other: "%{count} organizers"
+        :member-title:
+          :one: "%{count} volunteer"
+          :other: "%{count} volunteers"
+      :edit:
+        :back: Back to project
+      :index:
+        :title: Projects
+
     :supplies:
       :index:
         :header: Supplies
@@ -935,12 +966,16 @@
         :header: Organizers for %{name}
       :edit_members:
         :header: Volunteers for %{name}
+      :edit_projects:
+        :header: Projects for %{name}
+        :actions: Actions
       :add_user_form:
         :add: Add
       :nav:
         :settings: Basic Settings
         :organizers: Organizers
         :members: Volunteers
+        :projects: Projects
       :user_list:
         :actions: Actions
         :remove: Remove
@@ -991,6 +1026,7 @@
         :dont-have-account: Don't have an account?
     :internal:
       :sidebar:
+        :projects: Projects
         :my-tasks: My Tasks
         :all-tasks: Open Tasks
         :supplies: Supplies
@@ -1119,6 +1155,8 @@
       :public: Public
       :private: Private
   :task_edit:
+    :cancel: Cancel
+  :project_edit:
     :cancel: Cancel
   :supply_edit:
     :cancel: Cancel

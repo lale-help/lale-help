@@ -1,19 +1,27 @@
 / TODO: this is bad... but better than before
 - task = ::TaskPresenter.new(task)
 
-a.task href=circle_task_path(current_circle, task) class=task.css
-  .task-icon
+div.task href=circle_task_path(current_circle, task) class=task.css
   .task-details
+    .task-date
+      .month= l(task.due_date, format: "%b").upcase
+      .day
+        span.day_number= task.due_date.day
+        span.day-of-week= task.due_date.strftime('%a')
+
     .task-content
       .task-title= task.name
       .subtitle
-        span= task.due_date
         - if task.message.present?
           span.bullet &bullet;
-          span.status-message
-           = task.message
-
+          span.status-message = task.message
     .task-stats
+      .task-assignees
+        - task.volunteers.each_with_index do |volunteer, i|
+          - if i < 5
+            = render partial: 'user/user_icon', locals: { user: volunteer, link: true }
+          - elsif i == 5
+            .more= '...'
       .task-badge.task-badge--users
         i
         = "#{task.volunteers.count}/#{task.volunteer_count_required}"
