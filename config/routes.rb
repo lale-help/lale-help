@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+
   resources :circles do
     scope module: 'circle' do
       resource :admin do
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
 
         patch :join
         patch :leave
+
       end
 
       resources :tasks do
@@ -55,6 +57,9 @@ Rails.application.routes.draw do
 
         post :invite
       end
+
+      resources :projects
+
     end
   end
 

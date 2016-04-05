@@ -4,3 +4,4 @@ RUN mkdir /myapp
 WORKDIR /myapp
 ADD . /myapp
 RUN bundle install --jobs 4
+RUN echo foo

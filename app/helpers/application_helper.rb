@@ -27,4 +27,7 @@ module ApplicationHelper
     end
   end
 
+  def feature_enabled?(name)
+    !!Rails.configuration.x.feature_toggles.send(name)
+  end
 end

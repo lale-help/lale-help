@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "== Stopping Docker Containers == "
+docker-compose stop
+
+echo "\n== Done! == "

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+echo "== Creating Docker Containers == "
+docker-compose create
+
+echo "\n== Starting Docker Containers == "
+docker-compose start
+
+echo "\n== Done! == "
+
+link=http://$(docker-machine ip):5000
+echo "Lale.help is running inside of Docker at $link"

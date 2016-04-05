@@ -48,13 +48,14 @@ ready = ->
     validateTime()
     $('#task_scheduled_time_start, #task_scheduled_time_end').on 'change', validateTime
 
+  # organizers must be cached since the content of #project_organizer_id will be swapped
   organizers = $('#task_organizer_id').html()
+  
   showOrganizers = ->
     $('#task_organizer_id').parent().hide()
     working_group = $('#task_working_group_id :selected').text()
     escaped_wg = working_group.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
     options = $(organizers).filter("optgroup[label='#{escaped_wg}']").html()
-    console.log options
     if options
       $('#task_organizer_id').html(options)
       $('#task_organizer_id').parent().show()
@@ -62,7 +63,8 @@ ready = ->
       $('#task_organizer_id').empty()
       $('#task_organizer_id').parent().hide()
 
-  showOrganizers()
+  if $('#task_working_group_id').length 
+    showOrganizers()
   $('#task_working_group_id').on 'change', showOrganizers
 
 $(document).on 'ready', ready

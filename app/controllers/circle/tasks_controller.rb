@@ -179,11 +179,4 @@ class Circle::TasksController < ApplicationController
       page.adjusted_missing_volunteer_count = can?(:volunteer, current_task) ? page.missing_volunteer_count - 1 : page.missing_volunteer_count
     end
   end
-
-
-  private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def task_params
-      params[:task].permit(:name, :description, :working_group_id, :due_date)
-    end
 end

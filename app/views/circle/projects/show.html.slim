@@ -1,0 +1,50 @@
+.working-group
+  .header
+    .left
+      .title
+        = current_project.name
+
+      .description
+        = current_project.description
+
+    .right
+      .actions
+        / FIXME cancan
+        a.button href=edit_circle_project_path(current_circle, current_project) = t('.settings')
+
+
+  hr
+
+  .details
+    main
+      .tasks
+        h3= Task.model_name.human(:count => current_project.tasks.not_completed.count)
+        / FIXME
+        /= render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_project, tasks: current_project.tasks.not_completed.ordered_by_date }
+
+      .tasks
+        h3= Supply.model_name.human(:count => current_project.supplies.not_completed.count)
+        / FIXME
+        /= render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_project, supplies: current_project.supplies.not_completed.ordered_by_date }
+
+
+    aside
+      .members
+        .title= t('.admin-title', count: current_project.admins.active.count)
+        .icons
+          - current_project.admins.active.each do |user|
+            .blah
+              = render partial: 'user/user_icon', locals: {user: user, link: true}
+
+
+      / FIXME members are all the people who have taken over 1 or many tasks
+      / .members
+      /   .title= t('.member-title', count: current_project.users.count )
+      /   .icons
+      /     - current_project.users.each do |user|
+      /       .blah
+      /         = render partial: 'user/user_icon', locals: {user: user, link: true}
+
+
+
+

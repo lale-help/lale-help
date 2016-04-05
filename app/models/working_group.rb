@@ -4,6 +4,9 @@ class WorkingGroup < ActiveRecord::Base
   has_many :tasks, dependent: :destroy
   has_many :supplies, dependent: :destroy
 
+  # FIXME really destroy projects?
+  has_many :projects, dependent: :destroy
+
   has_many :roles, dependent: :destroy
 
   has_many :users,   ->{ distinct }, through: :roles
