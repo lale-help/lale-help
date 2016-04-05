@@ -91,7 +91,6 @@ ready = ->
       $('#task_organizer_id').empty()
       $('#task_organizer_id').parent().hide()
 
-<<<<<<< HEAD
   init = ->
     if $("form.edit_task, form.new_task").length > 0
       showOrHideStartDate()
