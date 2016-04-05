@@ -969,6 +969,7 @@
       :edit_projects:
         :header: Projects for %{name}
         :actions: Actions
+        :confirm_delete: Really delete the project and all it's tasks?
       :add_user_form:
         :add: Add
       :nav:
