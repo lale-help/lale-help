@@ -123,7 +123,7 @@ describe "User abilities" do
       @project = create(:project, working_group: working_group)
     end
 
-    # FIXME    
+    # FIXME fails
     # it { should     be_able_to(:read, @project) }
     it { should_not be_able_to(:manage, @project) }
 
