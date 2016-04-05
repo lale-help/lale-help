@@ -1,13 +1,12 @@
 - supply = ::SupplyPresenter.new(supply)
 
 div.task href=circle_supply_path(current_circle, supply) class=supply.css
-  .task-date
-    .month= l(supply.due_date, format: "%b").upcase
-    .day
-      span.day_number= supply.due_date.day
-      span.day-of-week= supply.due_date.strftime('%a')
-  .task-icon
   .task-details
+    .task-date
+      .month= l(supply.due_date, format: "%b").upcase
+      .day
+        span.day_number= supply.due_date.day
+        span.day-of-week= supply.due_date.strftime('%a')
     .task-content
       .task-title= supply.name
       .subtitle

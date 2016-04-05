@@ -13,13 +13,23 @@
 }
 
 .task-list {
+  padding-top: 1rem;
   padding-bottom: 5rem;
 
   .task {
-    margin: 0 2rem;
     @include display(flex);
     @include flex-direction(row);
     @include align-items(center);
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 0px;
+      left: 85px;
+      bottom: 0;
+      border-bottom: thin solid $light-grey;
+    }
   }
 
   .task-icon {
@@ -36,20 +46,24 @@
   .task-details {
     @include flex(1);
     margin-left: 2rem;
-    border-bottom: thin solid $light-grey;
-    padding: 1rem 0 1rem 0;
+    padding: 1rem 0 0 0;
 
     @include display(flex);
     @include flex-direction(row);
     @include align-items(center);
     @include justify-content(space-between);
+
+  }
+
+  .task-content {
+    @include flex(1 1 0);
+    padding: 0 2rem;
   }
 
   .task-date {
     $radius: 0.75rem;
     text-align: center;
     font-size: 1.25rem;
-    @include transform(translate(1rem, 1rem));
     width: 50px;
     margin-bottom: 1rem;
 
