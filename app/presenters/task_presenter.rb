@@ -39,6 +39,18 @@ class TaskPresenter < Presenter
     I18n.l(_.due_date, format: :long)
   end
 
+  let(:due_date_month) do
+    I18n.l(_.due_date, format: "%b").upcase
+  end
+
+  let(:due_date_day) do
+    _.due_date.day
+  end
+
+  let(:due_date_day_of_week) do
+    _.due_date.strftime('%a')
+  end
+
   let(:start_date_and_time) do
     if _.start_date
       str = I18n.l(_.start_date, format: "%A %-d %B %Y")

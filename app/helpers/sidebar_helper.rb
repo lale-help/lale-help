@@ -44,9 +44,12 @@ module SidebarHelper
 
   def visible_projects?
     return unless feature_enabled?(:projects)
-    projects = current_users_working_groups.map(&:projects).flatten
-    # only show link if there are projects the user can see
-    projects.count > 0 && projects.any? { |project| can?(:read, project) }
+    # performance: don't load & loop through all projects if user is admin
+    if (can?(:manage, current_circle) && current_circle.projects.present?)
+      true
+    else
+      current_circle.projects.any? { |project| can?(:read, project) }
+    end
   end
   
   private
