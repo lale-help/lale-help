@@ -1,11 +1,11 @@
-h1 Projects
+h1 = t('.title')
 
 table.default-table
   thead
     tr
-      th Name
-      th Working Group
-      th Organisers
+      th = Project.human_attribute_name("name")
+      th = Project.human_attribute_name("working_group")
+      th = Project.human_attribute_name("organizer")
 
   tbody
     - @projects.each do |project|

@@ -237,6 +237,9 @@
         :name: Project name
         :working_group_id: Working group
         :organizer_id: Organizer
+        :organizer:
+          :one: Organizer
+          :other: Organizers
         :description: Description
       :system_event:
         :action: Action
@@ -854,6 +857,9 @@
           :other: "%{count} volunteers"
       :edit:
         :back: Back to project
+      :index:
+        :title: Projects
+
     :supplies:
       :index:
         :header: Supplies
