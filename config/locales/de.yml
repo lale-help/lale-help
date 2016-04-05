@@ -1,5 +1,9 @@
 ---
 :de:
+  :datepicker:
+    :day_of_week_start: 1
+    :date_format: 'd.m.Y'
+    :time_format: 'H:i'
   :ransack:
     :search: suchen
     :predicate: Eigenschaft
@@ -391,7 +395,10 @@
         :completed_tasks: Erledigte Aufgaben
         :pending_tasks: Offene Aufgaben
         :description: Beschreibung
-        :due_date: Fälligkeit
+        :due_date: Termin
+        :datetime1_default: Datum/Zeit
+        :datetime1_between: von
+        :datetime2: bis
         :location_assignments: Standortzuordnung
         :locations: Standorte
         :name: Name der Aufgabe
@@ -406,22 +413,22 @@
         :volunteer_count_required: Anzahl der benötigten Helfer
         :primary_location: Ort der Aufgabe
         :duration: Zeitaufwand
-        :scheduled_time_type: Zeitpunkt
+        :scheduling_type: Zeitpunkt
         :scheduled_time_start: Beginn
-        :scheduled-time:
-          :at: um %{start}
-          :on_date: am
-          :between: zwischen %{start} und %{end}
+        :scheduling_sentence:
+          at: "am %{due}"
+          by: "bis %{due}"
+          between: "zwischen %{start}<br />und %{due}"
         :duration-text:
           :hours_1: 1 Stunde
           :hours_2: 2 Stunden
           :hours_3: 3 Stunden
           :half_day: halber Tag
           :all_day: ganzer Tag
-        :scheduled-time-select:
-          :on_date: Am
-          :between: Zwischen
-          :at: Um
+        :scheduling_type_options:
+          :at: Am
+          :by: Bis
+          :between: von/bis
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
@@ -438,7 +445,7 @@
         :volunteer_count_required: Anzahl der benötigten Helfer
         :primary_location: Abgabeort der Sachspende
         :duration: Zeitaufwand
-        :scheduled_time_type: Zeitpunkt
+        :scheduling_type: Zeitpunkt
         :scheduled_time_start: Beginn
         :scheduled-time:
           :at: um %{start}
@@ -767,6 +774,9 @@
         :no-tasks: Keine Aufgaben gefunden.
       :task_list_item:
         :stats-here: Statistik
+      :form:
+        :placeholder_optional: (optional)
+        :date_format: '%d.%m.%Y'
       :new:
         :back: Zurück zu den Aufgaben
       :edit:

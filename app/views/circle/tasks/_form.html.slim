@@ -7,76 +7,90 @@
   .field-row.single
     .field.required class=errors.css(:name)
       = f.label :name
-      = errors.formatted_message_for(:name)
       = f.text_field :name, placeholder: true
+      = errors.message_for(:name)
 
 
   .field-row
     .field.required class=errors.css(:working_group)
       = f.label :working_group_id
-      = errors.formatted_message_for(:working_group)
       = f.collection_select :working_group_id, @form.available_working_groups, :id, :name, {}, disabled: @form.available_working_groups_disabled?
+      = errors.message_for(:working_group)
 
     .field.required class=errors.css(:organizer_id)
       = f.label :organizer_id
-      = errors.formatted_message_for(:organizer_id)
       = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
+      = errors.message_for(:organizer_id)
 
 
   .field-row.single
     .field.required class=errors.css(:description)
       = f.label :description
-      = errors.formatted_message_for(:description)
       = f.text_area :description
+      = errors.message_for(:description)
 
 
   .field-row
     .field.required class=errors.css(:volunteer_count_required)
       = f.label :volunteer_count_required
-      = errors.formatted_message_for(:volunteer_count_required)
       = f.select :volunteer_count_required do
         = options_for_select(1..10, @form.volunteer_count_required)
+      = errors.message_for(:volunteer_count_required)
 
     .field.required class=errors.css(:primary_location)
       = f.label :primary_location
-      = errors.formatted_message_for(:primary_location)
       = f.text_field :primary_location
-
+      = errors.message_for(:primary_location)
 
   .field-row
-    .field.required class=errors.css(:due_date)
-      = f.label :due_date
-      = errors.formatted_message_for(:due_date)
-      = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
-
-    .field.required class=errors.css(:duration)
+    .field
       = f.label :duration
-      = errors.formatted_message_for(:duration)
       = f.select :duration do
-        = options_for_select(@form.duration_options, @form.duration)
+        = options_for_select(@form.duration_options)
 
-  .field-row
-    .field class=errors.css(:scheduled_time_type)
-      = f.label :scheduled_time_type
-      = errors.formatted_message_for(:scheduled_time_type)
-      = f.select :scheduled_time_type do
-        = options_for_select(@form.scheduled_time_type_options, @form.scheduled_time_type)
+    .field
 
-    .field.scheduled-time
-      = f.label :scheduled_time_start
-      = errors.formatted_message_for(:scheduled_time_start)
-      = errors.formatted_message_for(:scheduled_time_end)
-      span.start
-        = f.select :scheduled_time_start, nil, {}, {class: 'timeselect'} do
-          = options_for_select(@form.scheduled_time_options, @form.scheduled_time_start)
-      span.end
-        | to
-        = f.select :scheduled_time_end, nil, {}, {class: 'timeselect'}
-          = options_for_select(@form.scheduled_time_options, @form.scheduled_time_end)
+  .field-row-3
+
+    / select scheduling type
+
+    .field-3
+      = f.label :scheduling_type
+      = f.select :scheduling_type do
+        = options_for_select(@form.scheduling_type_options, @form.scheduling_type)
+      = errors.message_for(:scheduling_type)
+
+    / start date & time (hidden by default)
+
+    .field-3.between-element class=errors.css(:start_date)
+      = f.label :start_date
+      = f.text_field :start_date_string, class: :xd_datepicker
+
+    .field-3.between-element class=errors.css(:start_time)
+      = f.label :start_time
+      = f.text_field :start_time, class: :xd_timepicker, placeholder: t('.placeholder_optional')
+
+    / end date & time (always visible)
+
+    .field-3.required class=errors.css(:due_date)
+      = f.label :date, class: 'at-element'
+      = f.label :due_date, class: 'between-element'
+      = f.text_field :due_date_string, class: :xd_datepicker
+
+    .field-3 class=errors.css(:due_time)
+      = f.label :time, class: 'at-element'
+      = f.label :due_time, class: 'between-element'
+      = f.text_field :due_time, class: :xd_timepicker, placeholder: t('.placeholder_optional')
+
+  - if errors.present?
+    .field-row.single
+      .field
+        - %i(start_date start_time due_date due_time).each do |field|
+          - if errors.message_for(field).present?
+            = errors.message_for(field)
+            br
 
   .submit-row
     = f.submit
-    - cancel_path = @form.task.persisted? ? circle_task_path(current_circle, current_task) : circle_path(current_circle)
-    = link_to t('task_edit.cancel'), cancel_path, class: 'button'
     - if locals[:delete]
-      = link_to t('delete'), [current_circle, current_task], class: 'button secondary-action', data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete
+      = link_to t('delete'), [current_circle, current_task], class: 'button', data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete

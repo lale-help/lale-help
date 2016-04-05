@@ -1,5 +1,9 @@
 ---
 :en:
+  :datepicker:
+    :day_of_week_start: 0
+    :date_format: 'm/d/Y'
+    :time_format: 'H:i'
   :date:
     :formats:
       :default: "%Y-%m-%d"
@@ -108,6 +112,10 @@
           :trillion: Trillion
           :quadrillion: Quadrillion
   :errors:
+    :due_time:
+      :format: Please enter the due time in the format 00:00.
+    :start_time:
+      :format: Please enter the start time in the format 00:00.
     :format: "%{attribute} %{message}"
     :messages:
       :inclusion: is not included in the list
@@ -173,6 +181,7 @@
       :empty: Please enter a postal code
     :description:
       :too_short: Description is too short
+      :empty: Description can't be empty.
     :name:
       :empty: Name can't be empty
       :not_unique: This Working Group name is already been used. Please choose a different
@@ -260,7 +269,10 @@
         :completed_tasks: Last Completed Task
         :pending_tasks: Pending Tasks
         :description: Description of the Task
-        :due_date: Due Date
+        :due_date: Due
+        :datetime1_default: Date
+        :datetime1_between: From
+        :datetime2: To
         :location_assignments: Location assignments
         :locations: Locations
         :name: Name of the Task
@@ -274,12 +286,17 @@
         :volunteer_count_required: Required number of volunteers
         :primary_location: Place of task
         :duration: Time Commitment
-        :scheduled_time_type: Occurs
-        :scheduled_time_start: Start Time
-        :scheduled-time:
-          :at: at %{start}
-          :on_date: 'on'
-          :between: between %{start} and %{end}
+        :scheduling_type: Due
+        :date: Date
+        :time: Time
+        :start_date: Start date
+        :start_time: Start time
+        :due_date: End date
+        :due_time: End time
+        :scheduling_sentence:
+          :at: "on %{due}"
+          :by: "by %{due}"
+          :between: "between %{start} and %{due}"
         :duration-text:
           :hours_1: 1 Hour
           :hours_2: 2 Hours
@@ -287,10 +304,10 @@
           :half_day: Half a day
           :all_day: All day
         :working_group: Working group
-        :scheduled-time-select:
-          :on_date: On Day
-          :at: At
-          :between: In Between
+        :scheduling_type_options:
+          :at: at
+          :by: by
+          :between: between
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
@@ -382,7 +399,7 @@
           :between: between %{start} and %{end}
           :on_date: 'on'
         :scheduled_time_start: Start
-        :scheduled_time_type: Scheduled time
+        :scheduling_type: Scheduled time
         :skill_assignments: Skill assignments
         :skills: Skills
         :volunteer: Helper
@@ -551,7 +568,7 @@
       :update: An error occurred while updating the %{name}.
     :user:
       :account:
-        :saved: You settings have been saved.
+        :saved: Your settings have been saved.
         :save-failed: We could not save your settings. Please fix any errors and try
           again.
   :views:
@@ -925,6 +942,9 @@
         :header: Open Tasks
       :task_list_item:
         :stats-here: Stats
+      :form:
+        :placeholder_optional: (optional)
+        :date_format: '%m/%d/%Y'
     :working_groups:
       :show:
         :settings: Settings

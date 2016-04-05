@@ -1,52 +1,79 @@
-class Time
-  constructor: (@selector)->
-    @str = @selector.val()
-    parts = @str.split(":")
-    @hour   = parseInt(parts[0])
-    @minute = parseInt(parts[1])
+class Lale.DateTime
+  constructor: (date_field, time_field)->
+    # after init, the input element is still empty, 
+    # but the datepicker getValue call already returns a valid date object
+    @dateFilled = date_field.val() != ''
+    @value = this.buildDate(date_field, time_field)
 
-  lessThan: (other) ->
-    if @hour < other.hour
-      true
+  buildDate: (date_field, time_field)->
+    date = this.parseDate(date_field)
+    time = this.parseTime(time_field)
+    date.setHours(time['hours'])
+    date.setMinutes(time['minutes'])
+    date
 
-    else if @hour == other.hour
-      @minute <= other.minute
+  valid:->
+    @dateFilled && (@value instanceof Date)
 
+  parseDate: (field)->
+    field.datetimepicker('getValue')
+
+  parseTime: (field)->
+    if field.val()
+      parts = field.val().split(":")
+      h = parseInt(parts[0])
+      m = parseInt(parts[1])
     else
-      false
-
-  update: (other) ->
-    @selector.val(other.str)
+      h = 0
+      m = 0
+    { hours: h, minutes: m }
 
 ready = ->
-  showOrHideTime = ->
-    type = $('#task_scheduled_time_type').val()
-    if type == "at"
-      $('.scheduled-time').show()
-      $('.scheduled-time .start').show()
-      $('.scheduled-time .end').hide()
 
-    else if type == "between"
-      $('.scheduled-time').show()
-      $('.scheduled-time .start').show()
-      $('.scheduled-time .end').show()
+  #
+  # methods first
+  #
 
+  initTimeDatePickers = ->
+    # http://xdsoft.net/jqplugins/datetimepicker/
+    $.datetimepicker.setLocale(I18n.locale);
+
+    # using .xd_datepicker since active admin binds it's a jQuery UI datepicker
+    # to all .datepicker classes, which causes two datepickers to appear.
+    $('.xd_datepicker').datetimepicker({
+      timepicker:     false,
+      dayOfWeekStart: I18n.t('datepicker.day_of_week_start'),
+      format:         I18n.t('datepicker.date_format'),
+      minDate:        0,
+      scrollMonth:    false,
+      onChangeDateTime: validateDateTime
+    });
+
+    $('.xd_timepicker').datetimepicker({
+      datepicker:     false,
+      step:           15,
+      format:         I18n.t('datepicker.time_format'),
+      defaultTime:    '12:00',
+      onChangeDateTime: validateDateTime
+    });
+
+  showOrHideStartDate = ->
+    type = $('#task_scheduling_type').val()
+    if type == "between" 
+      $('.at-element').hide()
+      $('.between-element').show()
     else
-      $('.scheduled-time').hide()
-      $('.scheduled-time .start').hide()
-      $('.scheduled-time .end').hide()
+      $('.at-element').show()
+      $('.between-element').hide()
 
-  validateTime = ->
-    start = new Time($('#task_scheduled_time_start'))
-    end   = new Time($('#task_scheduled_time_end'))
-    end.update(start) if end.lessThan(start)
+  validateDateTime = ->
+    start = new Lale.DateTime($('#task_start_date_string'), $('#task_start_time'))
+    due   = new Lale.DateTime($('#task_due_date_string'), $('#task_due_time'))
 
-  if $("form.edit_task, form.new_task").length > 0
-    showOrHideTime()
-    $('#task_scheduled_time_type').on 'change', showOrHideTime
-
-    validateTime()
-    $('#task_scheduled_time_start, #task_scheduled_time_end').on 'change', validateTime
+    # when start date is before due date, set them both to start date
+    if start.valid() && due.valid() && (start.value > due.value)
+      $('#task_due_date_string').val($('#task_start_date_string').val())
+      $('#task_due_time').val($('#task_start_time').val())
 
   # organizers must be cached since the content of #project_organizer_id will be swapped
   organizers = $('#task_organizer_id').html()
@@ -55,6 +82,7 @@ ready = ->
     $('#task_organizer_id').parent().hide()
     working_group = $('#task_working_group_id :selected').text()
     escaped_wg = working_group.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
+    organizers = $('#task_organizer_id').html()
     options = $(organizers).filter("optgroup[label='#{escaped_wg}']").html()
     if options
       $('#task_organizer_id').html(options)
@@ -63,9 +91,20 @@ ready = ->
       $('#task_organizer_id').empty()
       $('#task_organizer_id').parent().hide()
 
-  if $('#task_working_group_id').length 
+  init = ->
+    if $("form.edit_task, form.new_task").length > 0
+      showOrHideStartDate()
+      $('#task_scheduling_type').on 'change', showOrHideStartDate
+      initTimeDatePickers()
+
     showOrganizers()
-  $('#task_working_group_id').on 'change', showOrganizers
+    $('#task_working_group_id').on 'change', showOrganizers
+
+  #
+  # init code 
+  #
+  init()
+  
 
 $(document).on 'ready', ready
 $(document).on 'page:load', ready

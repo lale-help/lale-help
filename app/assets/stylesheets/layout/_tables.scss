@@ -1,44 +1,43 @@
-table {
+.default-table {
+
   margin-bottom: 3rem;
   margin-top: 1rem;
   border-collapse : collapse;
   border-spacing  : 0;
-//  table-layout    : fixed;
   width           : 100%;
   min-width       : 1000px;
-}
 
-th, td {
-  border-bottom : 1px $border-color solid;
-  padding: 0.75rem 0 ;
-}
-
-td {
-  padding: 1.5rem 0 ;
-  word-wrap:break-word;
-}
-
-tr, td, th {
-  vertical-align: middle;
-  text-align: left;
-}
-
-
-table .actions {
-  * {
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    margin: 0 0.5rem;
+  th, td {
+    border-bottom : 1px $border-color solid;
+    padding: 0.75rem 0 ;
   }
 
-  .edit {
-    @include lale-icon(" ");
+  td {
+    padding: 1.5rem 0 ;
+    word-wrap:break-word;
   }
 
-  .delete {
-    @include lale-icon(" ");
+  tr, td, th {
+    vertical-align: middle;
+    text-align: left;
   }
 
+  .actions {
+    * {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      margin: 0 0.5rem;
+    }
 
+    .edit {
+      @include lale-icon(" ");
+    }
+
+    .delete {
+      @include lale-icon(" ");
+    }
+
+
+  }
 }

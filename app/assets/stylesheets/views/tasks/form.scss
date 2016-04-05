@@ -1,0 +1,23 @@
+.new_task, .edit_task {
+
+  // temp workaround for datepicker overflowing the page
+  padding-bottom: 200px;
+
+  .xd_datepicker {
+    width: 100px;
+  }
+
+  .xd_timepicker {
+    width: 85px;
+  }
+
+  .field-3 {
+    margin-right: 15px;
+
+    label {
+      float: none;
+    }
+  }
+
+
+}

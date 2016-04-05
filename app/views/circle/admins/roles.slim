@@ -2,7 +2,7 @@
 
 section
   = form_tag circle_roles_path(current_circle), method: 'POST' do
-    table
+    table.default-table
       tr
         th= User.human_attribute_name("role")
         th= User.model_name.human

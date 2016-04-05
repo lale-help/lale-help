@@ -385,11 +385,10 @@
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
-        :scheduled_time_type: Se produit
+        :scheduling_type: Se produit
         :scheduled_time_start: Commence
-        :scheduled-time:
+        :scheduling_sentence:
           :at: "à %{start}"
-          :on_date: le
           :between: entre %{start} et %{end}
         :duration-text:
           :hours_1: 1 Heure
@@ -398,10 +397,9 @@
           :half_day: Une demie journée
           :all_day: Un jour entier
         :working_group_id: Groupe
-        :scheduled-time-select:
+        :scheduling_type_options:
           :between: Entre
           :at: A
-          :on_date: Le Jour
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -418,7 +416,7 @@
         :volunteer_count_required: Un certain nombre de volontaires est requis
         :primary_location: Emplacement
         :duration: Durée
-        :scheduled_time_type: Se produit
+        :scheduling_type: Se produit
         :scheduled_time_start: Commence
         :scheduled-time:
           :at: "à %{start}"
@@ -734,6 +732,8 @@
         :no-tasks: Aucune tâche trouvée.
       :task_list_item:
         :stats-here: Les Statistiques vont ici
+      :form:
+        :date_format: '%d.%m.%Y'
       :new:
         :back: Retour aux Tâches
       :edit:

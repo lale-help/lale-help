@@ -51,12 +51,13 @@ class TaskMailer < BaseMandrillMailer
 
   private
 
-  def merge_vars user, task
+  def merge_vars(user, task)
+    task = ::TaskPresenter.new(task)
     {
       "FIRST_NAME"            => user.first_name,
       "TASK_TITLE"            => task.name,
-      "TASK_DESCRIPTION"      => task.description.truncate(100, separator: /\s/, omission: '...'),
-      "TASK_DUE_DATE"         => task.due_date_and_time,
+      "TASK_DESCRIPTION"      => task.description(length: 100),
+      "TASK_DUE_DATE"         => task.scheduling_sentence,
       "TASK_TIME_REQUIRED"    => task.duration_text,
       "TASK_HELPERS_REQUIRED" => task.volunteer_count_required
     }
