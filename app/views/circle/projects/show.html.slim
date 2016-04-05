@@ -9,8 +9,8 @@
 
     .right
       .actions
-        / FIXME cancan
-        a.button href=edit_circle_project_path(current_circle, current_project) = t('.settings')
+        - if can?(:manage, current_project)
+          a.button href=edit_circle_project_path(current_circle, current_project) = t('.settings')
 
 
   hr

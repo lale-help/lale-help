@@ -5,9 +5,8 @@ class Circle::ProjectsController < ApplicationController
   include HasCircle
 
   def index
-    # FIXME add per-project cancan in the template
     authorize! :read, current_circle
-    @projects = current_circle.projects
+    @projects = current_circle.projects.order(:name).select { |project| can?(:read, project) }
   end
 
   def show
@@ -16,7 +15,6 @@ class Circle::ProjectsController < ApplicationController
 
   def new
     authorize! :create_project, current_circle
-    
     @form = Project::Create.new(user: current_user, circle: current_circle, ability: current_ability)
   end
 
