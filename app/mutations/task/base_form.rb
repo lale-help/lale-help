@@ -87,7 +87,7 @@ class Task::BaseForm < ::Form
       :name, 
       :id, 
       :name, 
-      {include_blank: true}
+      {include_blank: I18n.t('circle.tasks.form.project_blank')}
     )
   end
 

@@ -945,6 +945,7 @@
       :form:
         :placeholder_optional: (optional)
         :date_format: '%m/%d/%Y'
+        :project_blank: (not part of a project)
     :working_groups:
       :show:
         :settings: Settings
