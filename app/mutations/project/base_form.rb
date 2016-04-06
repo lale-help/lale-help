@@ -29,11 +29,8 @@ class Project::BaseForm < ::Form
     def execute
       project.assign_attributes(project_attributes)
       project.save!
-      # reset roles for now
-      # FIXME discuss UI for project roles management
-      project.roles = [
-        project.roles.create(role_type: 'admin', user: organizer)
-      ]
+      # multiple admins may be added some time in the future
+      project.roles = [ project.roles.create(role_type: 'admin', user: organizer) ]
       project
     end
 
@@ -45,15 +42,6 @@ class Project::BaseForm < ::Form
 
     def working_group
       circle.working_groups.find(inputs[:working_group_id])
-      # FIXME is this relevant in project context?
-      # @working_group ||= begin
-      #   new_working_group = circle.working_groups.find_by(id: working_group_id) || task.working_group
-      #   if ability.can? :create_task, new_working_group
-      #     new_working_group
-      #   else
-      #     task.working_group
-      #   end
-      # end
     end
     
     def project_attributes
