@@ -10,25 +10,11 @@
       = f.text_field :name, placeholder: true
       = errors.message_for(:name)
 
-
-  .field-row
-    .field.required class=errors.css(:working_group)
-      = f.label :working_group_id
-      = f.collection_select :working_group_id, @form.available_working_groups, :id, :name, {}, disabled: @form.available_working_groups_disabled?
-      = errors.message_for(:working_group)
-
-    .field.required class=errors.css(:organizer_id)
-      = f.label :organizer_id
-      = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
-      = errors.message_for(:organizer_id)
-
-
   .field-row.single
     .field.required class=errors.css(:description)
       = f.label :description
       = f.text_area :description
       = errors.message_for(:description)
-
 
   .field-row
     .field.required class=errors.css(:volunteer_count_required)
@@ -37,21 +23,10 @@
         = options_for_select(1..10, @form.volunteer_count_required)
       = errors.message_for(:volunteer_count_required)
 
-    .field.required class=errors.css(:primary_location)
-      = f.label :primary_location
-      = f.text_field :primary_location
-      = errors.message_for(:primary_location)
-
-  .field-row
     .field.required
       = f.label :duration
       = f.select :duration do
         = options_for_select(@form.duration_options)
-
-    .field
-      = f.label :project
-      = @form.project_select(f)
-      = errors.message_for(:project_id)
 
   .field-row-3
 
@@ -92,6 +67,34 @@
           - if errors.message_for(field).present?
             = errors.message_for(field)
             br
+
+  .field-row
+
+    .field.required class=errors.css(:primary_location)
+      = f.label :primary_location
+      = f.text_field :primary_location
+      = errors.message_for(:primary_location)
+
+
+  .field-row
+    .field.required class=errors.css(:working_group)
+      = f.label :working_group_id
+      = f.collection_select :working_group_id, @form.available_working_groups, :id, :name, {}, disabled: @form.available_working_groups_disabled?
+      = errors.message_for(:working_group)
+
+    .field.required class=errors.css(:organizer_id)
+      = f.label :organizer_id
+      = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
+      = errors.message_for(:organizer_id)
+
+
+  .field-row
+
+    .field
+      = f.label :project
+      = @form.project_select(f)
+      = errors.message_for(:project_id)
+
 
   .submit-row
     = f.submit
