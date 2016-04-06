@@ -48,6 +48,14 @@
         .title = WorkingGroup.model_name.human
         .details= current_task.working_group.name
 
+
+      - if current_task.project.present?
+        .row.project
+          .icon
+          .title = Project.model_name.human
+          .details= current_task.project.name
+
+
       - if current_task.organizer.present?
         .row.organizer
           .details= t(".organized-by", name: current_task.organizer.name)

@@ -96,6 +96,9 @@ section > .task {
       .volunteer .icon {
         @include lale-icon($lale-icon-user, 2em);
       }
+      .project .icon {
+        @include lale-icon($lale-icon-drawer, 2em);
+      }
 
 
       > * {

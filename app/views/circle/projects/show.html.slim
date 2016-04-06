@@ -19,13 +19,11 @@
     main
       .tasks
         h3= Task.model_name.human(:count => current_project.tasks.not_completed.count)
-        / WIP
-        /= render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_project, tasks: current_project.tasks.not_completed.ordered_by_date }
+        = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: current_project.tasks.not_completed.ordered_by_date }
 
       .tasks
         h3= Supply.model_name.human(:count => current_project.supplies.not_completed.count)
-        / WIP
-        /= render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_project, supplies: current_project.supplies.not_completed.ordered_by_date }
+        = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: current_project.supplies.not_completed.ordered_by_date }
 
 
     aside

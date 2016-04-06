@@ -28,31 +28,6 @@ class Lale.DateTime
       m = 0
     { hours: h, minutes: m }
 
-class Lale.WorkgroupDependentSelect
-  constructor: (dependent_field_id) ->
-    this.field = $(dependent_field_id)
-    this.all_options = this.field.html()
-
-    this.updateOptions()
-    # the "fat" arrow preserves the value of this :-)
-    $('#task_working_group_id').on 'change', (event) => 
-      this.updateOptions()
-
-  updateOptions: ->
-    new_options = this.getNewOptions()
-    if new_options
-      this.field.html(new_options)
-      this.field.parent().show()
-    else
-      this.field.empty()
-      this.field.parent().hide()
-
-  getNewOptions: -> 
-    working_group = $('#task_working_group_id :selected').text()
-    escaped_wg = working_group.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
-    $(this.all_options).filter("optgroup[label='#{escaped_wg}']").html()
-
-
 ready = ->
 
   #
@@ -106,11 +81,11 @@ ready = ->
       $('#task_scheduling_type').on 'change', showOrHideStartDate
       initTimeDatePickers()
 
-    new Lale.WorkgroupDependentSelect('#task_project_id')
-    new Lale.WorkgroupDependentSelect('#task_organizer_id')
+    new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_project_id')
+    new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_organizer_id')
 
   #
-  # init code 
+  # then init
   #
   init()
   

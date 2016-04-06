@@ -5,7 +5,7 @@ class Task::BaseForm < ::Form
 
   attribute :name,             :string
   attribute :working_group_id, :string
-  attribute :project_id,       :string
+  attribute :project_id,       :string, required: false
   attribute :description,      :string
 
   attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
@@ -58,6 +58,7 @@ class Task::BaseForm < ::Form
     end
   end
 
+  # FIXME extract
   def working_group
     @working_group ||= begin
       new_working_group = circle.working_groups.find_by(id: working_group_id) || task.working_group
@@ -69,6 +70,7 @@ class Task::BaseForm < ::Form
     end
   end
 
+  # FIXME extract to module
   def available_working_groups
     @available_working_groups ||= begin
       working_groups = circle.working_groups.asc_order.to_a
@@ -78,6 +80,7 @@ class Task::BaseForm < ::Form
     end
   end
 
+  # FIXME extract to module
   def project_select(form)
     # what a ridiculous method dear Rails boys!
     form.grouped_collection_select(
@@ -91,6 +94,7 @@ class Task::BaseForm < ::Form
     )
   end
 
+  # FIXME extract to module
   def available_working_groups_disabled?
     if task.new_record?
       available_working_groups.size == 1 && ability.cannot?(:manage, available_working_groups.first)
