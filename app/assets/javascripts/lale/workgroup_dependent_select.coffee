@@ -1,14 +1,17 @@
 #
-# The available projects and organizers of a task (and supply) depends on the
-# working group a task/supply is in. This class updates the availabel options for
-# a dependent field (projects/organizers) after when the working group changes.
+# The available projects and organizers of some entities (a task, supply or project) depend 
+# on the working group it is in. This class updates the available options when the working
+# group changes.
 # 
-# The code expects an optgroup HTML structure which was generated with Rails' 
+# Example: when the workgroup is changed in the task form, the available organizers need 
+# to change to all organizers of the new workgroup.
+# 
+# In order to work, the class needs an optgroup HTML structure generated with
 # #grouped_collection_select in the dependent field.
 #
-# Example usages:
+# Example usage:
 # new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_project_id')
-# new Lale.WorkgroupDependentSelect('#supply_working_group_id', '#supply_organizer_id')
+# 
 class Lale.WorkgroupDependentSelect
   constructor: (workgroup_field_selector, dependent_field_selector) ->
     this.workgroup_field = $(workgroup_field_selector)
@@ -22,7 +25,7 @@ class Lale.WorkgroupDependentSelect
 
   updateOptions: ->
     this.field.empty()  
-    this.field.append(this.getEmptyOption()) # the empty option is only available sometimes
+    this.field.append(this.getEmptyOption()) # the empty option not always available
     this.field.append(this.getNewOptions())
     if this.field.children().length then this.field.parent().show() else this.field.parent().hide()
 
