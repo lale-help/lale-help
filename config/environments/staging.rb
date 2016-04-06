@@ -6,5 +6,5 @@ Rails.application.configure do
 
   config.i18n.fallbacks = false
 
-  config.x.feature_toggles.projects = true
+  config.x.feature_toggles.projects = false
 end
