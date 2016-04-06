@@ -4,7 +4,6 @@ class Project::Destroy < Mutations::Command
   end
 
   def execute
-    ActiveRecord::Base.logger.level = Logger::DEBUG
     project.transaction do
       project.tasks.destroy_all
       project.supplies.destroy_all

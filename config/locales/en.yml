@@ -472,7 +472,7 @@
       :supply:
         :delete: Are you sure you want to delete this supply?
       :project:
-        :delete: Are you sure you want to delete this project?
+        :delete: Really delete this project and all it's tasks?
     :placeholder:
       :task:
         :name: E.g. Take Riad to School Orientation
@@ -970,7 +970,6 @@
       :edit_projects:
         :header: Projects for %{name}
         :actions: Actions
-        :confirm_delete: Really delete the project and all it's tasks?
       :add_user_form:
         :add: Add
       :nav:

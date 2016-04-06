@@ -11,4 +11,4 @@
           td = project.name
           td.actions
             a.edit href=edit_circle_project_path(current_circle, project)
-            = link_to "", circle_project_path(current_circle, project), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete') }
+            = link_to "", circle_project_path(current_circle, project), class: 'delete', method: 'delete', data: { confirm: t('helpers.confirm.project.delete') }
