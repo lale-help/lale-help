@@ -19,8 +19,8 @@ class Project < ActiveRecord::Base
     Task.for_project(self)
   end
 
-  # FIXME
   def supplies
     Supply.for_project(self)
   end
+
 end

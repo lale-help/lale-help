@@ -50,9 +50,8 @@ class Circle::ProjectsController < ApplicationController
   end
 
   def destroy
-    authorize! :destroy, current_circle
-
-    current_project.destroy
+    authorize! :destroy, current_project
+    Project::Destroy.run(project: current_project)
 
     redirect_to circle_projects_path(current_circle), 
       notice: t('flash.destroyed', name: Project.model_name.human)
