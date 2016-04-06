@@ -1,6 +1,6 @@
 ready = ->
 
-  # organizers must be cached since the content of #project_organizer_id will be swapped
+  # must be cached since the content of the field will be swapped
   organizers = $('#project_organizer_id').html()
 
   showOrganizers = ->
