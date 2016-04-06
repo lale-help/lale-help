@@ -50,16 +50,18 @@
 
     @include display(flex);
     @include flex-direction(row);
-    @include align-items(center);
+    @include align-items(top);
     @include justify-content(space-between);
   }
 
   .task-content {
     @include flex(1 1 0);
     padding: 1rem 2rem 1rem 2rem;
+    -ms-flex: 1;
   }
 
   .task-stats {
+    margin: auto 0;
   }
 
   .task-date {
@@ -156,6 +158,7 @@
       padding-right: 1rem;
       .user-icon-container {
         display: inline-block;
+        margin-right: 0.25rem;
         .user-icon {
           display: inline-block;
           .text {

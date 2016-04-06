@@ -38,6 +38,13 @@ section > .task {
           font-size: 3rem;
           border: thin solid $blue-darkish;
           border-top: 0;
+          .day_number {
+            display: block;
+            font-weight: 700;
+          }
+          .day-of-week {
+            font-size: 1.25rem;
+          }
         }
 
 
