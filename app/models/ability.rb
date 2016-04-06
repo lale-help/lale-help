@@ -258,6 +258,17 @@ class Ability
     cannot :invite_to, Supply do |supply|
       supply.complete? || supply.volunteer.present?
     end
+    can :reopen, Supply do |supply|
+      supply.complete? and ((
+      supply.volunteers.include?(user) or
+          supply.organizers.include?(user)
+      ) or
+          can?(:manage, supply.working_group) or
+          can?(:manage, supply.circle))
+    end
+    cannot :reopen, Supply do |supply|
+      supply.incomplete?
+    end
 
     # 
     # Comments
