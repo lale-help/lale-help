@@ -906,6 +906,7 @@
         :complete-task-button: Supply has been donated
         :edit-task-button: Edit Supply
         :invite-button: Invite %{group} members
+        :reopen-task-button: Re-open Supply
     :tasks:
       :index:
         :header: All Tasks
@@ -1147,6 +1148,8 @@
       :decline_failed: Unable to decline this supply. Please try again later.
       :invited: Invited members of %{name} to this supply
       :invite_failed: Unable to invite members to this supply. Please try again later.
+      :reopened: Supply has been re-opened
+      :reopening_failed: There was a problem re-opening this supply
   :sidebar:
     :circle_add_menu:
       :add: Add
