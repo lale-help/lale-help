@@ -39,7 +39,8 @@ class SessionsController < ApplicationController
       path
 
     elsif current_user.primary_circle.present?
-      circle_path(current_user.primary_circle)
+      current_circle = session[:circle_id] || current_user.primary_circle
+      circle_path(current_circle)
 
     else
       public_circles_path

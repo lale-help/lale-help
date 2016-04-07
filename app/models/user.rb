@@ -69,4 +69,8 @@ class User < ActiveRecord::Base
   def has_circles?
     !circles.empty?
   end
+
+  def has_multiple_circles?
+    circles.count > 1
+  end
 end

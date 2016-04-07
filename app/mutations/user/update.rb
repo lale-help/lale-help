@@ -7,7 +7,7 @@ class User::Update < ::Form
   attribute :home_phone,        :string, required: false
   attribute :email,             :string, matches: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   attribute :language,          :integer
-  # attribute :primary_circle_id, :integer
+  attribute :primary_circle_id, :integer
   attribute :about_me,          :string, required: false
   attribute :public_profile,    :boolean
   attribute :street_address_1,  :string, default: proc { user.address.try(:street_address_1) }, required: false
@@ -38,6 +38,7 @@ class User::Update < ::Form
 
     def execute
       user.assign_attributes(inputs.slice(:first_name, :last_name, :mobile_phone, :home_phone, :language, :about_me, :public_profile))
+      user.assign_attributes(inputs.slice(:primary_circle_id)) if user.has_multiple_circles?
       user.identity.assign_attributes(inputs.slice(:email))
       user.address.assign_attributes(inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country))
 
