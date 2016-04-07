@@ -8,8 +8,10 @@
   main
     .task-header
       .date
-        .month= l(current_supply.due_date, format: "%b").upcase
-        .day= current_supply.due_date.day
+        .month= supply.due_date_month
+        .day
+          span.day_number= supply.due_date_day
+          span.day-of-week= supply.due_date_day_of_week
       .title
         -if current_supply.complete?
           span.done= t('.task-complete')
