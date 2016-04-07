@@ -1,9 +1,5 @@
 ---
 :en:
-  :datepicker:
-    :day_of_week_start: 0
-    :date_format: 'm/d/Y'
-    :time_format: 'H:i'
   :date:
     :formats:
       :default: "%Y-%m-%d"
@@ -148,6 +144,10 @@
       :odd: must be odd
       :even: must be even
       :taken: has already been taken
+    :due_time:
+      :format: Please enter the due time in the format 00:00.
+    :start_time:
+      :format: Please enter the start time in the format 00:00.
     :password:
       :no_lower: Your password must have at least one lowercase letter
       :too_short: Please pick a password that is longer than 8 characters.
@@ -200,16 +200,15 @@
     :models:
       :circle: Circle
       :location: Location
-      :project: Project
+      :project:
+        :one: Project
+        :other: Projects
       :system_event: System event
       :system_event/notification: System event/notification
       :system_event/notification/delivery: System event/notification/delivery
       :task:
         :one: Task
         :other: Tasks
-      :project:
-        :one: Project
-        :other: Projects
       :task/location_assignment: Task/location assignment
       :task/skill: Task/skill
       :task/skill_assignment: Task/skill assignment
@@ -271,7 +270,7 @@
         :completed_tasks: Last Completed Task
         :pending_tasks: Pending Tasks
         :description: Description of the Task
-        :due_date: Due
+        :due_date: End date
         :datetime1_default: Date
         :datetime1_between: From
         :datetime2: To
@@ -293,12 +292,11 @@
         :time: Time
         :start_date: Start date
         :start_time: Start time
-        :due_date: End date
         :due_time: End time
         :scheduling_sentence:
-          :at: "on %{due}"
-          :by: "by %{due}"
-          :between: "between %{start} and %{due}"
+          :at: on %{due}
+          :by: by %{due}
+          :between: between %{start} and %{due}
         :duration-text:
           :hours_1: 1 Hour
           :hours_2: 2 Hours
@@ -310,6 +308,7 @@
           :at: at
           :by: by
           :between: between
+        :scheduled_time_start: Start
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
@@ -479,7 +478,7 @@
       :task:
         :name: E.g. Take Riad to School Orientation
       :project:
-        :name: Project name placeholder
+        :name: e.g. Organize Move to new Location
   :ransack:
     :search: search
     :predicate: predicate
@@ -720,6 +719,10 @@
       :block: List
       :grid: Grid
       :blog: Blog
+  :datepicker:
+    :day_of_week_start: '0'
+    :date_format: m/d/Y
+    :time_format: H:i
   :lale: Lale.help
   :hello: Hello world
   :edit: EDIT
@@ -878,7 +881,6 @@
         :back: Back to project
       :index:
         :title: Projects
-
     :supplies:
       :index:
         :header: Supplies
@@ -950,6 +952,9 @@
     :taskable:
       :form:
         :project_blank: (not part of a project)
+        :placeholder_optional: "(optional)"
+        :date_format: "%m/%d/%Y"
+        :project_blank: "(not part of a project)"
     :working_groups:
       :show:
         :settings: Settings
@@ -974,6 +979,8 @@
       :edit_projects:
         :header: Projects for %{name}
         :actions: Actions
+        :confirm_delete: Do you really want to delete the project and all it's tasks
+          and supplies?
       :add_user_form:
         :add: Add
       :nav:
@@ -1088,6 +1095,7 @@
       :signed_out: Signed out!
     :create:
       :login_error_flash: Login failed, please verify your email and password.
+      :login_error: Login failed, please verify your email and password.
   :user:
     :account:
       :edit:
