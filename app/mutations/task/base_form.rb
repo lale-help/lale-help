@@ -17,8 +17,8 @@ class Task::BaseForm < ::Form
   attribute :scheduling_type,   :string
 
   # getters for form display
-  attribute :due_date_string,   :string, required: false, default: proc { stringify_date(task.due_date || Date.today + 1.week) }
-  attribute :start_date_string, :string, required: false, default: proc { stringify_date(task.start_date) if task.start_date }
+  attribute :due_date_string,   :string, required: false, default: proc { stringify_date(self.due_date || Date.today + 1.week) }
+  attribute :start_date_string, :string, required: false, default: proc { stringify_date(self.start_date) }
   # getters/setters for saving on update
   attribute :due_date,          :date, format: I18n.t('circle.tasks.form.date_format')
   attribute :start_date,        :date, required: false
