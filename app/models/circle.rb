@@ -29,6 +29,10 @@ class Circle < ActiveRecord::Base
 
   enum language: [:en, :de, :fr]
 
+  def admin
+    admins.first
+  end
+  
   def user_count
     users.count
   end

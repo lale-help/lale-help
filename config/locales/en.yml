@@ -449,6 +449,12 @@
       :minute: Minute
       :second: Seconds
   :helpers:
+    :edit: Edit %{model}
+    :complete: Complete %{model}
+    :reopen: Reopen %{model}
+    :volunteer: I have this %{model}
+    :decline: I don't have this %{model}
+    :invite: Invite %{model}
     :select:
       :prompt: Please select
     :submit:
@@ -783,6 +789,8 @@
       :supply_mailer:
         :supply_completion_reminder: Thanks for helping!
         :supply_invitation: Lale needs your help with a new supply.
+      :project_mailer:
+        :project_invitation: Lale needs your help with a new project.
   :roles:
     :name:
       :circle:

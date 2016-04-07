@@ -1,4 +1,4 @@
-.working-group
+.project
   .header
     .left
       .title
@@ -6,11 +6,6 @@
 
       .description
         = current_project.description
-
-    .right
-      .actions
-        - if can?(:manage, current_project)
-          a.button href=edit_circle_project_path(current_circle, current_project) = t('.settings')
 
 
   hr
@@ -27,6 +22,25 @@
 
 
     aside
+
+      .actions
+        / FIXME to be implemented
+        / - if can? :complete, current_project
+        /   = form_tag circle_project_complete_path(current_circle, current_project), method: :put do
+        /     button.button-primary= t('helpers.complete', model: current_project.model_name.human)
+
+        - if can? :invite_to, current_project
+          = form_tag circle_project_invite_path(current_circle, current_project, type: :working_group), method: :post do
+            button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)
+
+        - unless current_project.working_group.is_private?
+          = form_tag circle_project_invite_path(current_circle, current_project, type: :circle), method: :post do
+            button.button.button-secondary= t('helpers.invite', model: Circle.model_name.human)
+        
+        - if can? :edit, current_project
+          = form_tag edit_circle_project_path(current_circle, current_project), method: :get do
+            button.button= t('helpers.edit', model: current_project.model_name.human)
+
       .members
         .title= t('.admin-title', count: current_project.admins.active.count)
         .icons
@@ -41,7 +55,5 @@
           - current_project.members.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
-
-
 
 

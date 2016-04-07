@@ -116,6 +116,7 @@ class Circle::SuppliesController < ApplicationController
   end
 
 
+  # TODO extract to an InvitationsController (which can then also be used by the other resources that need invitations)
   def invite
     authorize! :invite_to, current_supply
 

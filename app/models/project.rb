@@ -15,6 +15,10 @@ class Project < ActiveRecord::Base
 
   scope :asc_order, -> { order('lower(projects.name) ASC') }
 
+  def admin
+    admins.first
+  end
+  
   def tasks
     Task.for_project(self)
   end

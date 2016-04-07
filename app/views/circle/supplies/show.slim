@@ -61,29 +61,31 @@
       = render partial: 'circle/comments/comments', locals: { task: current_supply, circle: current_circle, max_display: 3 }
 
   aside
-    .actions
-      - if can? :volunteer, current_supply
-        = form_tag circle_supply_volunteer_path(current_circle, current_supply), method: 'put' do
-          button.button-primary= t('.volunteer-task-button')
-
-      - if can? :complete, current_supply
-        = form_tag circle_supply_complete_path(current_circle, current_supply), method: 'put' do
-          button.button-primary= t('.complete-task-button')
-
-      - if can? :decline, current_supply
-        = form_tag circle_supply_decline_path(current_circle, current_supply), method: 'put' do
-          button.button= t('.decline-task-button')
-
-
-      - if can? :edit, current_supply
-        = form_tag edit_circle_supply_path(current_circle, current_supply), method: 'get' do
-          button.button= t('.edit-task-button')
-
 
     .actions
       - if can? :invite_to, current_supply
-        = form_tag circle_supply_invite_path(current_circle, current_supply, type: 'working_group'), method: 'post' do
-          button.button.button-secondary= t('.invite-button', group: current_supply.working_group.name)
+        = form_tag circle_supply_invite_path(current_circle, current_supply, type: :working_group), method: :post do
+          button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)
       - unless current_supply.working_group.is_private?
-        = form_tag circle_supply_invite_path(current_circle, current_supply, type: 'circle'), method: 'post' do
-          button.button.button-secondary= t('.invite-button', group: current_supply.circle.name)
+        = form_tag circle_supply_invite_path(current_circle, current_supply, type: :circle), method: :post do
+          button.button.button-secondary= t('helpers.invite', model: Circle.model_name.human)
+
+    .actions
+      - if can? :volunteer, current_supply
+        = form_tag circle_supply_volunteer_path(current_circle, current_supply), method: :put do
+          button.button-primary= t('helpers.volunteer', model: current_supply.model_name.human)
+
+      - if can? :complete, current_supply
+        = form_tag circle_supply_complete_path(current_circle, current_supply), method: :put do
+          button.button-primary= t('helpers.complete', model: current_supply.model_name.human)
+
+      - if can? :decline, current_supply
+        = form_tag circle_supply_decline_path(current_circle, current_supply), method: :put do
+          button.button= t('helpers.decline', model: current_supply.model_name.human)
+
+
+      - if can? :edit, current_supply
+        = form_tag edit_circle_supply_path(current_circle, current_supply), method: :get do
+          button.button= t('helpers.edit', model: current_supply.model_name.human)
+
+

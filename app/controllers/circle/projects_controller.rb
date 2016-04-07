@@ -25,7 +25,7 @@ class Circle::ProjectsController < ApplicationController
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to circle_projects_path(current_circle), notice: t('flash.created', name: Project.model_name.human)
+      redirect_to circle_project_path(current_circle, @form.project), notice: t('flash.created', name: Project.model_name.human)
     else
       errors.add outcome.errors
       render :new
@@ -42,7 +42,7 @@ class Circle::ProjectsController < ApplicationController
     @form = Project::Update.new(params[:project], user: current_user, project: current_project, circle: current_circle, ability: current_ability)
     outcome = @form.submit
     if outcome.success?
-      redirect_to circle_projects_path(current_circle), notice: t('flash.updated', name: Project.model_name.human)
+      redirect_to circle_project_path(current_circle, current_project), notice: t('flash.updated', name: Project.model_name.human)
     else
       errors.add outcome.errors
       render :edit
@@ -55,6 +55,22 @@ class Circle::ProjectsController < ApplicationController
 
     redirect_to circle_projects_path(current_circle), 
       notice: t('flash.destroyed', name: Project.model_name.human)
+  end
+
+  # TODO extract to an InvitationsController (which can then also be used by the other resources that need invitations)
+  def invite
+    authorize! :manage, current_project
+
+    outcome = Project::Notifications::InvitationEmail.run(current_user: current_user, project: current_project, type: params[:type])
+
+    if outcome.success?
+      flash[:notice] = t('flash.actions.invited', 
+        name: current_project.name, count: outcome.result.volunteers.size, model: Project.model_name.human.downcase)
+    else
+      # FIXME adapt message
+      flash[:error] = t('tasks.flash.invite_failed', name: current_project.name)
+    end
+    redirect_to circle_project_path(current_circle, current_project)
   end
 
   helper_method def current_project

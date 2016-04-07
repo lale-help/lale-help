@@ -59,7 +59,9 @@ Rails.application.routes.draw do
         post :invite
       end
 
-      resources :projects
+      resources :projects do
+        post :invite
+      end
 
     end
   end
