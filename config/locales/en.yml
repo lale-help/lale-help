@@ -877,6 +877,8 @@
       :join:
         :start_helping: Start helping with %{circle} today!
     :projects:
+      :nav:
+        :info: Info
       :show:
         :settings: Settings
         :admin-title:

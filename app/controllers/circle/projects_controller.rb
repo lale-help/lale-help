@@ -78,4 +78,3 @@ class Circle::ProjectsController < ApplicationController
   end
 
 end
-

@@ -1,0 +1,8 @@
+.tab-nav.admin-nav
+
+  a.info data-tab='info'
+    = t('.info')
+  a.tasks data-tab='tasks'
+    = Task.model_name.plural.capitalize
+  a.supplies data-tab='supplies'
+    = Supply.model_name.plural.capitalize

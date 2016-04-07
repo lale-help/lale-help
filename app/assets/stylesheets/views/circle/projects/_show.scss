@@ -20,6 +20,10 @@ body.internal .project {
 
   }
 
+  .tab-nav > a {
+    cursor: pointer;
+  }
+  
   .details {
     @include display(flex);
     @include flex-direction(row);
@@ -45,9 +49,11 @@ body.internal .project {
         }
       }
     }
+
   }
 
   .members {
+
     $radius: 10px;
     border: thin solid $border-color;
     margin: 2rem;
