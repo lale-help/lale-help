@@ -1067,6 +1067,7 @@
         :find-circles: Find Circles
         :sign-out: Sign Out
         :admin: Lale Admin
+        :switch_to_circle: Switch to "%{circle_name}"
   :public:
     :circles:
       :index:
