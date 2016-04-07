@@ -61,9 +61,9 @@ class Circle::TasksController < ApplicationController
 
 
   def create
+    authorize! :create_task, current_circle
     @task = Task.new
     @form = Task::Create.new(params[:task], user: current_user, task: @task, circle: current_circle, ability: current_ability)
-    authorize! :create_task, @form.working_group
 
     outcome = @form.submit
 
