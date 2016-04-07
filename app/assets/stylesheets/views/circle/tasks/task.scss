@@ -33,9 +33,9 @@ section > .task {
           background: $blue-50;
           color: $blue-darkish;
           display: block;
-          padding: 0.5rem 1rem;
+          padding: 0.25rem 1rem;
           @include border-bottom-radius($radius);
-          font-size: 3rem;
+          font-size: 2rem;
           border: thin solid $blue-darkish;
           border-top: 0;
           .day_number {
