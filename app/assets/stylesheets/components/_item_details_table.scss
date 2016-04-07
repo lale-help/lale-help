@@ -10,7 +10,11 @@ $border-radius: 1.5rem;
     border-bottom: thin solid $border-color;
   }
 
-  .due-date .icon{
+  .start-date .icon {
+    @include lale-icon($lale-icon-calendar, 2em);
+  }
+
+  .due-date .icon {
     @include lale-icon($lale-icon-calendar, 2em);
   }
 
