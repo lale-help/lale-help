@@ -21,11 +21,11 @@ class ProjectPresenter < Presenter
   end
 
   let(:tasks) do
-    _.tasks.not_completed.ordered_by_date
+    _.tasks.ordered_by_date
   end
 
   let(:supplies) do
-    _.supplies.not_completed.ordered_by_date
+    _.supplies.ordered_by_date
   end
 
   let(:admins_count) do
