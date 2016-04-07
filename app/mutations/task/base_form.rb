@@ -1,5 +1,4 @@
 class Task::BaseForm < ::Form
-
   attribute :task, :model, primary: true, new_records: true
   attribute :user, :model
   attribute :working_group, :model
@@ -31,9 +30,6 @@ class Task::BaseForm < ::Form
   attribute :ability, :model
   attribute :circle, :model
 
-  include Taskable::Form
-  alias :taskable :task
-
   def start_date_string=(string)
     self.start_date = parse_date(string) if string.present?
   end
@@ -62,6 +58,51 @@ class Task::BaseForm < ::Form
     end
   end
 
+  # FIXME extract
+  def working_group
+    @working_group ||= begin
+      new_working_group = circle.working_groups.find_by(id: working_group_id) || task.working_group
+      if ability.can? :create_task, new_working_group
+        new_working_group
+      else
+        task.working_group
+      end
+    end
+  end
+
+  # FIXME extract to module
+  def available_working_groups
+    @available_working_groups ||= begin
+      working_groups = circle.working_groups.asc_order.to_a
+      working_groups.select! { |wg| ability.can?(:manage, wg) } unless ability.can?(:manage, circle)
+      working_groups << task.working_group unless working_groups.present?
+      working_groups
+    end
+  end
+
+  # FIXME extract to module
+  def project_select(form)
+    # what a ridiculous method dear Rails boys!
+    form.grouped_collection_select(
+      :project_id, 
+      available_working_groups, 
+      :projects, 
+      :name, 
+      :id, 
+      :name, 
+      {include_blank: I18n.t('circle.tasks.form.project_blank')}
+    )
+  end
+
+  # FIXME extract to module
+  def available_working_groups_disabled?
+    if task.new_record?
+      available_working_groups.size == 1 && ability.cannot?(:manage, available_working_groups.first)
+    else
+      true
+    end
+  end
+
   class Submit < ::Form::Submit
 
     TIME_REGEX = /^[0-2]?[0-9]:[0-5][0-9]$/
@@ -74,7 +115,6 @@ class Task::BaseForm < ::Form
       add_error(:volunteer_count_required, :too_low) if volunteer_count_required < 1
       add_error(:start_time, :format)                if start_time.present? && start_time !~ TIME_REGEX
       add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
-      add_error(:start_date, :empty)                 if scheduling_type == 'between' && start_date.blank?
     end
 
     def project
@@ -91,7 +131,7 @@ class Task::BaseForm < ::Form
         t.duration      = duration
 
         t.scheduling_type = scheduling_type
-        t.start_date      = scheduling_type == 'between' ? start_date : nil
+        t.start_date      = (scheduling_type == 'between') ? start_date : nil
         t.start_time      = (scheduling_type == 'between' && start_time.present?) ? start_time : nil
 
         t.due_date        = due_date
