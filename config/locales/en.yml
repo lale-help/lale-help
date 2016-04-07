@@ -112,6 +112,8 @@
           :trillion: Trillion
           :quadrillion: Quadrillion
   :errors:
+    :start_date:
+      :empty: Start date can't be blank.
     :due_time:
       :format: Please enter the due time in the format 00:00.
     :start_time:
@@ -945,6 +947,8 @@
       :form:
         :placeholder_optional: (optional)
         :date_format: '%m/%d/%Y'
+    :taskable:
+      :form:
         :project_blank: (not part of a project)
     :working_groups:
       :show:
