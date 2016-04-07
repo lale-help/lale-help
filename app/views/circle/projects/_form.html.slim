@@ -14,6 +14,12 @@
       = f.text_field :name, placeholder: true
 
 
+  .field-row.single
+    .field class=errors.css(:description)
+      = f.label :description
+      = errors.formatted_message_for(:description)
+      = f.text_area :description
+
   .field-row
     .field.required class=errors.css(:working_group)
       = f.label :working_group_id
@@ -25,12 +31,6 @@
       = errors.formatted_message_for(:organizer_id)
       = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
 
-
-  .field-row.single
-    .field class=errors.css(:description)
-      = f.label :description
-      = errors.formatted_message_for(:description)
-      = f.text_area :description
 
   .submit-row
     = f.submit
