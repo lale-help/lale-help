@@ -5,6 +5,7 @@ module Taskable
 
     # Associations
     belongs_to :working_group
+    belongs_to :project
     has_one :circle, through: :working_group
 
     has_many :roles
@@ -16,6 +17,7 @@ module Taskable
 
     # Scopes
     scope :for_circle, ->(circle) { joins(:working_group).where(working_groups: { circle_id: circle.id } ) }
+    scope :for_project, ->(project) { where(project_id: project.id) }
 
     scope :with_role, ->(role) { where(task_roles: {role_type: klass::Role.role_types[role]}) }
 
@@ -30,6 +32,7 @@ module Taskable
     validates :due_date, presence: true
     validates :description, presence: true
     validates :working_group, presence: true
+    validates :project_id, numericality: true, allow_nil: true # project is optional
   end
 
   def organizer

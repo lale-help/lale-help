@@ -9,11 +9,11 @@
 
   th, td {
     border-bottom : 1px $border-color solid;
-    padding: 0.75rem 0 ;
+    padding: 0.75rem 0;
   }
 
   td {
-    padding: 1.5rem 0 ;
+    padding: 1.5rem 0;
     word-wrap:break-word;
   }
 
@@ -31,11 +31,11 @@
     }
 
     .edit {
-      @include lale-icon(" ");
+      @include lale-icon($lale-icon-pencil);
     }
 
     .delete {
-      @include lale-icon(" ");
+      @include lale-icon($lale-icon-delete);
     }
 
 

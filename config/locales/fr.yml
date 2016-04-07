@@ -400,6 +400,8 @@
         :scheduling_type_options:
           :between: Entre
           :at: A
+        :date: Date
+        :datetime1_default: Date
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -496,6 +498,13 @@
         :actions: Actions
         :description: Description
         :type: Type d'Accès
+      :project:
+        :description: Description
+        :organizer:
+          :one: Organisateur
+          :other: Organisateurs
+        :organizer_id: Organisateur
+        :working_group_id: Groupe
     :errors:
       :messages:
         :record_invalid: 'La validation a échoué : %{errors}'
@@ -565,6 +574,7 @@
         :other: est de la mauvaise longueure (doit être %{count} charactères)
     :description:
       :too_short: La description est trop court
+      :empty: La description ne peut être vide.
     :name:
       :empty: Le nom ne peut être vide
       :not_unique: Ce nom de Groupe est déjà utilisé. Merci de choisir un autre nom.
@@ -733,7 +743,7 @@
       :task_list_item:
         :stats-here: Les Statistiques vont ici
       :form:
-        :date_format: '%d.%m.%Y'
+        :date_format: "%d.%m.%Y"
       :new:
         :back: Retour aux Tâches
       :edit:
@@ -796,6 +806,15 @@
     :organizers:
       :index:
         :organizers: Organisateurs
+    :projects:
+      :show:
+        :admin-title:
+          :one: "%{count} organisateur"
+          :other: "%{count} organisateurs"
+        :member-title:
+          :other: "%{count} volontaires"
+          :one: "%{count} volontaire"
+        :settings: Paramètres
   :circles:
     :new:
       :create: Créer un Cercle
@@ -895,7 +914,8 @@
       :login_error_message_title: 'Nous n''avons pu vous identifier. Merci de vérifier
         les informations suivantes :'
     :create:
-      :login_error: Echec du login, merci de vérifier votre email et mot de
+      :login_error: Echec du login, merci de vérifier votre email et mot de passe.
+      :login_error_flash: Echec du login, merci de vérifier votre email et mot de
         passe.
     :destroy:
       :signed_out: Deconnecté !
@@ -1097,3 +1117,7 @@
     :cancel: Annuler
   :supply_edit:
     :cancel: Annuler
+  :datepicker:
+    :date_format: d.m.Y
+    :time_format: H:i
+    :day_of_week_start: '1'

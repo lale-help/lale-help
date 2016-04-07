@@ -1,9 +1,13 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2016-4-5: Created with FontForge (http://fontforge.org)
+-->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20150501 at Thu Mar  3 17:35:48 2016
- By Kristy Gateley
+Created by FontForge 20150913 at Tue Apr  5 16:52:07 2016
+ By Phillip Oertel
+Copyright (c) 2016, Phillip Oertel
 </metadata>
 <defs>
 <font id="lale" horiz-adv-x="487" >
@@ -18,11 +22,13 @@ Created by FontForge 20150501 at Thu Mar  3 17:35:48 2016
     bbox="-0.0275866 -64 512 448.75"
     underline-thickness="25.6"
     underline-position="-51.2"
-    unicode-range="U+0020-F111"
+    unicode-range="U+0020-F112"
   />
     <missing-glyph />
     <glyph glyph-name="space" unicode=" " horiz-adv-x="200" 
  />
+    <glyph glyph-name="uniF112" unicode="&#xf112;" horiz-adv-x="326" 
+d="M293 340h-260v-172h153l36 -37l37 37h34v172zM293 373v0c18 0 33 -15 33 -33v-172c0 -18 -15 -33 -33 -33h-20l-28 -28c-6 -6 -14 -9 -23 -9h-1c-9 0 -17 4 -23 10l-26 27h-139c-18 0 -33 15 -33 33v172c0 18 15 33 33 33h260z" />
     <glyph glyph-name="uniF110" unicode="&#xf110;" horiz-adv-x="483" 
 d="M340 414c32 32 86 32 118 0c13 -14 25 -40 25 -59s-12 -45 -25 -59l-26 -27l-311 -310c-2 -2 -4 -3 -6 -3h-106c-5 0 -9 4 -9 9v106v0c0 2 2 5 3 6l310 311v0v0zM17 -26l77 -1l-77 77v-76zM115 -23v0l298 299l-93 93l-299 -298zM426 288l14 14l-94 94l-14 -15zM452 315
 c7 10 13 28 13 40c0 15 -8 36 -19 47c-23 23 -62 25 -87 6z" />
@@ -76,9 +82,5 @@ c21 0 37 -17 37 -38zM17 390v0v-20h447v20c0 11 -9 21 -20 21h-407c-11 0 -20 -10 -2
 d="M248 433c56 -1 132 -35 171 -75c45 -47 69 -108 68 -173c-2 -132 -111 -239 -243 -239h-5c-134 2 -241 114 -239 248c2 132 112 239 244 239h4zM244 -37v0c122 0 224 100 226 222v5c0 50 -29 120 -64 156c-42 44 -98 68 -158 69h-4c-122 0 -224 -100 -226 -222
 c-2 -125 97 -228 222 -230h4zM322 277v0c1 1 4 2 6 2s6 -1 7 -2s2 -4 2 -6s-2 -6 -3 -7l-78 -75l75 -78c1 -1 3 -4 3 -6c0 -5 -4 -9 -9 -9c-2 0 -5 2 -6 3l-76 78l-78 -76c-1 -1 -4 -2 -6 -2s-5 2 -6 3s-3 4 -3 6s2 5 3 6l78 75l-75 79c-2 1 -3 4 -3 6c0 5 4 9 9 9
 c2 0 5 -1 6 -3l76 -78z" />
-    <glyph glyph-name="uniF075" unicode="&#xf075;" horiz-adv-x="0" 
-d="M334.848 269.468h-260.096v-172.544h153.342l35.9062 -56.9238l37.0439 56.9238h33.8037v172.544zM334.848 302.235c18.0967 0 32.7686 -14.667 32.7646 -32.7676v-172.544c0 -18.0967 -22.4484 -32.7686 -32.7686 -32.7686h-20.2305l-27.4463 -54.5586
-c-6.14746 -6.14746 -14.4834 -9.59668 -23.167 -9.59668c-0.134766 0 -0.265625 0 -0.401367 0.00390625c-8.83105 0.106445 -17.2402 3.76855 -23.3301 10.166l-26.2158 53.9854h-139.301c-17.764 0 -32.7676 14.6719 -32.7676 32.7686v172.544
-c0 18.0957 14.6719 32.7676 32.7676 32.7676h260.096z" />
   </font>
 </defs></svg>

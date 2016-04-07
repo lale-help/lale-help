@@ -75,33 +75,17 @@ ready = ->
       $('#task_due_date_string').val($('#task_start_date_string').val())
       $('#task_due_time').val($('#task_start_time').val())
 
-  # organizers must be cached since the content of #project_organizer_id will be swapped
-  organizers = $('#task_organizer_id').html()
-  
-  showOrganizers = ->
-    $('#task_organizer_id').parent().hide()
-    working_group = $('#task_working_group_id :selected').text()
-    escaped_wg = working_group.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
-    organizers = $('#task_organizer_id').html()
-    options = $(organizers).filter("optgroup[label='#{escaped_wg}']").html()
-    if options
-      $('#task_organizer_id').html(options)
-      $('#task_organizer_id').parent().show()
-    else
-      $('#task_organizer_id').empty()
-      $('#task_organizer_id').parent().hide()
-
   init = ->
     if $("form.edit_task, form.new_task").length > 0
       showOrHideStartDate()
       $('#task_scheduling_type').on 'change', showOrHideStartDate
       initTimeDatePickers()
 
-    showOrganizers()
-    $('#task_working_group_id').on 'change', showOrganizers
+    new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_project_id')
+    new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_organizer_id')
 
   #
-  # init code 
+  # then init
   #
   init()
   

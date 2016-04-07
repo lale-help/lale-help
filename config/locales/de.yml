@@ -1,9 +1,5 @@
 ---
 :de:
-  :datepicker:
-    :day_of_week_start: 1
-    :date_format: 'd.m.Y'
-    :time_format: 'H:i'
   :ransack:
     :search: suchen
     :predicate: Eigenschaft
@@ -222,6 +218,10 @@
       :block: Liste
       :grid: Gitter
       :blog: Blog
+  :datepicker:
+    :day_of_week_start: '1'
+    :date_format: d.m.Y
+    :time_format: H:i
   :lale: Lale
   :hello: Hallo Welt
   :edit: Bearbeiten
@@ -258,9 +258,13 @@
         :delete: Bist Du sicher, dass diese Aufgabe gelöscht werden soll?
       :supply:
         :delete: Bist Du sicher, dass diese Sachspende gelöscht werden soll?
+      :project:
+        :delete: Willst Du dieses Projekt wirklich löschen?
     :placeholder:
       :task:
         :name: z.B. Begleitung für Riad zur Schuleinschreibung
+      :project:
+        :name: z.B. Umzug in neue Unterkunft organisieren
     :submit:
       :create: "%{model} erstellen"
       :submit: "%{model} speichern"
@@ -336,7 +340,9 @@
     :models:
       :circle: Helferkreis
       :location: Standort
-      :project: Projekt
+      :project:
+        :one: Projekt
+        :other: Projekte
       :system_event: System-Event
       :task:
         :one: Aufgabe
@@ -369,6 +375,7 @@
         :postal_code: Postleitzahl
         :state_province: Bundesland
         :country: Land
+        :projects: Projekte
       :location:
         :address: Anschrift
         :circles: Helferkreise
@@ -416,9 +423,9 @@
         :scheduling_type: Zeitpunkt
         :scheduled_time_start: Beginn
         :scheduling_sentence:
-          at: "am %{due}"
-          by: "bis %{due}"
-          between: "zwischen %{start}<br />und %{due}"
+          :at: am %{due}
+          :by: bis %{due}
+          :between: zwischen %{start}<br />und %{due}
         :duration-text:
           :hours_1: 1 Stunde
           :hours_2: 2 Stunden
@@ -429,6 +436,11 @@
           :at: Am
           :by: Bis
           :between: von/bis
+        :date: Datum
+        :start_date: Anfangsdatum
+        :start_time: Anfangszeit
+        :due_time: Endzeit
+        :time: Zeit
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
@@ -525,6 +537,14 @@
         :admin_ids: Organisatoren
         :description: Beschreibung
         :type: Zugriffsrecht
+      :project:
+        :description: Beschreibung
+        :organizer:
+          :one: Organisator
+          :other: Organisatoren
+        :organizer_id: Organisator
+        :working_group_id: Arbeitsgruppe
+        :name: Projektname
     :errors:
       :messages:
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
@@ -596,6 +616,7 @@
         anderen Namen.
     :description:
       :too_short: Beschreibung ist zu kurz
+      :empty: Beschreibung kann nicht leer sein.
     :primary_location:
       :empty: Standort kann nicht leer sein
     :city:
@@ -604,6 +625,10 @@
       :empty: Bitte ein gültiges Land angeben
     :postal_code:
       :empty: Bitte eine Postleitzahl angeben
+    :due_time:
+      :format: Bitte die Zeit im Format 00:00 eingeben.
+    :start_time:
+      :format: Bitte die Anfangszeit im Format 00:00 eingeben.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -775,8 +800,9 @@
       :task_list_item:
         :stats-here: Statistik
       :form:
-        :placeholder_optional: (optional)
-        :date_format: '%d.%m.%Y'
+        :placeholder_optional: "(optional)"
+        :date_format: "%d.%m.%Y"
+        :project_blank: "(nicht in einem Projekt)"
       :new:
         :back: Zurück zu den Aufgaben
       :edit:
@@ -823,6 +849,7 @@
         :settings: Grundeinstellungen
         :organizers: Organisatoren
         :members: Helfer
+        :projects: Projekte
       :user_list:
         :actions: Aktionen
         :remove: Entfernen
@@ -833,12 +860,30 @@
         :header: Organisatoren für %{name}
       :edit_members:
         :header: Helfer für %{name}
+      :edit_projects:
+        :header: Projekte für %{name}
+        :actions: Aktionen
+        :confirm_delete: Willst du wirklich das Projekt und alle seine Aufgabe und
+          Sachspenden löschen?
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
     :organizers:
       :index:
         :organizers: Organisatoren
+    :projects:
+      :show:
+        :admin-title:
+          :one: "%{count} Organisator"
+          :other: "%{count} Organisatoren"
+        :member-title:
+          :other: "%{count} Helfer"
+          :one: "%{count} Helfer"
+        :settings: Einstellungen
+      :index:
+        :title: Projekte
+      :edit:
+        :back: Zurück zu Projekt
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -895,6 +940,7 @@
         :working_groups: Arbeitsgruppen
         :all-open-tasks: Offene Aufgaben
         :public_members: Helferliste
+        :projects: Projekte
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden
@@ -939,6 +985,7 @@
       :signed_out: Erfolgreich ausgeloggt!
     :create:
       :login_error_flash: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
+      :login_error: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
   :user:
     :account:
       :edit:

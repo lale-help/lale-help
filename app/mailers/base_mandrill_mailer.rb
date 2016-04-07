@@ -6,7 +6,7 @@ class BaseMandrillMailer < ActionMailer::Base
     reply_to: "Lale <info@lale.help>"
   )
 
-  def defaule_merge_vars
+  def default_merge_vars
     {
       "CURRENT_YEAR" => Time.now.year,
       "LIST:COMPANY" => "Lale"
@@ -22,7 +22,7 @@ class BaseMandrillMailer < ActionMailer::Base
   def build_message lang, email, &block
     I18n.with_locale(lang) do
       merge_vars = block.call
-      merge_vars.merge!(defaule_merge_vars)
+      merge_vars.merge!(default_merge_vars)
 
       body = begin
         fetch_template(I18n.locale, merge_vars)
