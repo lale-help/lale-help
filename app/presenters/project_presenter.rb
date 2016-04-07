@@ -11,11 +11,13 @@ class ProjectPresenter < Presenter
   end
 
   let(:start_date) do
-    _.tasks.minimum("due_date")
+    date = _.tasks.minimum("due_date")
+    I18n.l(date, format: :long)
   end
 
   let(:due_date) do
-    _.tasks.maximum("due_date")
+    date = _.tasks.maximum("due_date")
+    I18n.l(date, format: :long)
   end
 
   let(:tasks) do

@@ -1,20 +1,28 @@
 ready = ->
 
   handleTabNavClick = (event) ->
-    tab = $(event.target).closest('a').data('tab')
-    showTab(tab)
+    name = $(event.target).closest('a').data('tab')
+    showTab(name)
 
   showTab = (name) ->
     # update look of nav
-    $('.project .tab-nav a').removeClass('selected')
-    $('.project .tab-nav a.' + name).addClass('selected')
+    $('.project-page .tab-nav a').removeClass('selected').filter("." + name).addClass('selected')
     # toggle tabs
-    $('.project .tab').hide()
-    $(".project .tab." + name).show()
+    $('.project-page .tab').hide().filter("." + name).show()
+
+  handleMemberBoxClick = (event) ->
+    el = $(event.target).closest('.members')
+    if (el.data('moved') != true)
+      el.animate({left: "-=150"})
+      el.data('moved', true)
+    else
+      el.animate({left: "+=150"})
 
   init = ->
     showTab('info')
-    $('.project .tab-nav a').on 'click', handleTabNavClick
+    $('.project-page .tab-nav a').on 'click', handleTabNavClick
+    # WIP
+    # $('.project-page .members .title').on 'click', handleMemberBoxClick
 
   init()
 

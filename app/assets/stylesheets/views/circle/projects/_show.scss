@@ -1,4 +1,4 @@
-body.internal .project {
+body.internal .project-page {
 
   .header {
     @include display(flex);
@@ -20,10 +20,18 @@ body.internal .project {
 
   }
 
+  .tab-nav {
+    margin-top: 1px; // align with buttons
+  }
+
   .tab-nav > a {
     cursor: pointer;
   }
-  
+
+  .tab.info {
+    margin-top: 2rem;
+  }
+
   .details {
     @include display(flex);
     @include flex-direction(row);
@@ -32,16 +40,27 @@ body.internal .project {
     @include flex-wrap(wrap);
 
     main {
+      margin-top: 3rem;
       @include flex(11 1);
+
+      .button {
+        margin-top: 2rem;
+      }
     }
 
     aside {
+      margin-top: 3rem;
+      margin-left: 3rem;
       @include flex(1 0 20rem);
 
       .actions {
         form {
           margin: 0;
           padding: 0.5rem;
+
+          &:first-child {
+            padding-top: 0;
+          }
         }
 
         .button, .button-primary {
@@ -53,6 +72,18 @@ body.internal .project {
   }
 
   .members {
+
+    &.organizers {
+      top: 50px;
+    }
+
+    &.volunteers {
+      top: 150px;
+    }
+    cursor: pointer;
+    position: relative;
+    left: 150px;
+    transform: rotate(270deg);
 
     $radius: 10px;
     border: thin solid $border-color;
@@ -76,6 +107,7 @@ body.internal .project {
       @include flex-wrap(wrap);
 
       > * {
+        transform: rotate(90deg);
         margin-right: 1rem;
         margin-bottom: 1rem;
       }

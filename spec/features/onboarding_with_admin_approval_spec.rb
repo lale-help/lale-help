@@ -72,7 +72,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
       # ensure admin action is properly indicated
       expect(page).to have_css('#admin_link .badge')
-      expect(page).to have_css('.admin-nav .invite .before-icon')
+      expect(page).to have_css('.tab-nav .invite .before-icon')
 
       # circle admin clicks on Accept
       click_on t('circle.admins.pending_members_list.activate')
@@ -82,7 +82,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
       # admin action indicators disappear
       expect(page).not_to have_css('#admin_link .badge')
-      expect(page).not_to have_css('.admin-nav .invite .before-icon')
+      expect(page).not_to have_css('.tab-nav .invite .before-icon')
       
       # new user is notified
       expect(last_email.to.first).to eq(new_member.email)

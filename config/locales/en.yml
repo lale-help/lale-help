@@ -449,6 +449,7 @@
       :minute: Minute
       :second: Seconds
   :helpers:
+    :new: New %{model}
     :edit: Edit %{model}
     :complete: Complete %{model}
     :reopen: Reopen %{model}
@@ -880,7 +881,7 @@
       :nav:
         :info: Info
       :show:
-        :settings: Settings
+        :organized-by: Organized by %{name}
         :admin-title:
           :one: "%{count} organizer"
           :other: "%{count} organizers"

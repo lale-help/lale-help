@@ -17,7 +17,7 @@
         = task_presenter.name
       .description= current_task.description
 
-    .task-details
+    .item-details-table
       .row.due-date
         .icon
         .title= Task.human_attribute_name(:due_date)
@@ -54,7 +54,6 @@
           .icon
           .title = Project.model_name.human
           .details= current_task.project.name
-
 
       - if current_task.organizer.present?
         .row.organizer
