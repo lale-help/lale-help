@@ -16,6 +16,10 @@ gem 'mandrill-api'
 gem 'activeadmin', github: 'activeadmin'
 gem 'migration_data'
 gem 'carmen'
+gem 'fog'
+gem 'fog-aws', require: 'fog/aws'
+gem 'carrierwave'
+
 
 # UI
 gem 'coffee-rails', '~> 4.1.0'
