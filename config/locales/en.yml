@@ -112,6 +112,8 @@
       :format: Please enter the due time in the format 00:00.
     :start_time:
       :format: Please enter the start time in the format 00:00.
+    :start_date:
+      :empty: Start date can't be blank.
     :format: "%{attribute} %{message}"
     :messages:
       :inclusion: is not included in the list

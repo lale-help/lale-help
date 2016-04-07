@@ -115,6 +115,7 @@ class Task::BaseForm < ::Form
       add_error(:volunteer_count_required, :too_low) if volunteer_count_required < 1
       add_error(:start_time, :format)                if start_time.present? && start_time !~ TIME_REGEX
       add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
+      add_error(:start_date, :empty)                 if scheduling_type == 'between' && start_date.blank?
     end
 
     def project
