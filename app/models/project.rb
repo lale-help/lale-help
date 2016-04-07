@@ -23,4 +23,8 @@ class Project < ActiveRecord::Base
     Supply.for_project(self)
   end
 
+  def members
+    (tasks.map(&:users) + supplies.map(&:users)).flatten.uniq
+  end
+
 end

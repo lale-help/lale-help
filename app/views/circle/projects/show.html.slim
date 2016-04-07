@@ -35,13 +35,12 @@
               = render partial: 'user/user_icon', locals: {user: user, link: true}
 
 
-      / WIP members are all the people who have taken over 1 or many tasks
-      / .members
-      /   .title= t('.member-title', count: current_project.users.count )
-      /   .icons
-      /     - current_project.users.each do |user|
-      /       .blah
-      /         = render partial: 'user/user_icon', locals: {user: user, link: true}
+      .members
+        .title= t('.member-title', count: current_project.members.count )
+        .icons
+          - current_project.members.each do |user|
+            .blah
+              = render partial: 'user/user_icon', locals: {user: user, link: true}
 
 
 
