@@ -3,11 +3,7 @@
 
   h1= t('.header', name: current_working_group.name)
 
-  table
-    thead
-      tr
-        th = Project.human_attribute_name("name")
-        th = t('.actions')
+  table.default-table
 
     tbody
       - @projects.each do |project|
@@ -15,4 +11,4 @@
           td = project.name
           td.actions
             a.edit href=edit_circle_project_path(current_circle, project)
-            = link_to "", circle_project_path(current_circle, project), class: 'delete', method: 'delete', data: { confirm: "t('.confirm_delete_project')" }
+            = link_to "", circle_project_path(current_circle, project), class: 'delete', method: 'delete', data: { confirm: t('helpers.confirm.project.delete') }

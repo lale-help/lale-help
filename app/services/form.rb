@@ -135,9 +135,12 @@ class Form
 
   class Submit < Mutations::Command
     def self.inherited(subclass)
+
+      # 'Task::Update::Submit' => 'Task::Update'
       form_class = subclass.to_s.split("::")[0..-2].join("::").constantize
 
       form_class.attributes.each do |a|
+        # copy the required/optional options from the form to the mutation object
         action = a[:required] ? :required : :optional
         if action == :optional
           a[:empty] = true unless a.has_key?(:empty)

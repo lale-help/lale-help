@@ -13,6 +13,7 @@
 //= require '_lale'
 
 //= require_tree ./components
+//= require_tree ./lale
 //= require_tree ./templates
 //= require_tree ./views
 //= require_tree .

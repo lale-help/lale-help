@@ -10,19 +10,6 @@
       = errors.formatted_message_for(:name)
       = f.text_field :name, placeholder: true
 
-
-  .field-row
-    .field.required class=errors.css(:working_group)
-      = f.label :working_group_id
-      = errors.formatted_message_for(:working_group)
-      = f.collection_select :working_group_id, managed_working_groups(current_circle), :id, :name
-
-    .field.required class=errors.css(:organizer_id)
-      = f.label :organizer_id
-      = errors.formatted_message_for(:organizer_id)
-      = f.collection_select :organizer_id, current_circle.volunteers.active, :id, :name
-
-
   .field-row.single
     .field.required class=errors.css(:description)
       = f.label :description
@@ -40,6 +27,22 @@
       = errors.formatted_message_for(:location)
       = f.text_field :location
 
+  .field-row
+    .field.required class=errors.css(:working_group)
+      = f.label :working_group_id
+      = f.collection_select :working_group_id, @form.available_working_groups, :id, :name, {}, disabled: @form.available_working_groups_disabled?
+      = errors.message_for(:working_group)
+
+    .field.required class=errors.css(:organizer_id)
+      = f.label :organizer_id
+      = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
+      = errors.message_for(:organizer_id)
+
+  .field-row
+    .field
+      = f.label :project
+      = @form.project_select(f)
+      = errors.message_for(:project_id)
 
   .submit-row
     = f.submit
