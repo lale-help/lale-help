@@ -108,12 +108,6 @@
           :trillion: Trillion
           :quadrillion: Quadrillion
   :errors:
-    :due_time:
-      :format: Please enter the due time in the format 00:00.
-    :start_time:
-      :format: Please enter the start time in the format 00:00.
-    :start_date:
-      :empty: Start date can't be blank.
     :format: "%{attribute} %{message}"
     :messages:
       :inclusion: is not included in the list
@@ -148,6 +142,8 @@
       :format: Please enter the due time in the format 00:00.
     :start_time:
       :format: Please enter the start time in the format 00:00.
+    :start_date:
+      :empty: Start date can't be blank.
     :password:
       :no_lower: Your password must have at least one lowercase letter
       :too_short: Please pick a password that is longer than 8 characters.
@@ -449,13 +445,6 @@
       :minute: Minute
       :second: Seconds
   :helpers:
-    :new: New %{model}
-    :edit: Edit %{model}
-    :complete: Complete %{model}
-    :reopen: Reopen %{model}
-    :volunteer: I have this %{model}
-    :decline: I don't have this %{model}
-    :invite: Invite %{model}
     :select:
       :prompt: Please select
     :submit:
@@ -471,6 +460,13 @@
       :more_pages:
         :display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
           of <b>%{total}</b> in total
+    :new: New %{model}
+    :edit: Edit %{model}
+    :complete: Complete %{model}
+    :reopen: Reopen %{model}
+    :volunteer: I have this %{model}
+    :decline: I don't have this %{model}
+    :invite: Invite %{model}
     :header:
       :add: Create a new %{name}
       :edit: Editing %{name}
@@ -891,6 +887,7 @@
         :member-title:
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
+        :settings: Settings
       :edit:
         :back: Back to project
       :index:
@@ -962,9 +959,6 @@
       :task_list_item:
         :stats-here: Stats
       :form:
-        :placeholder_optional: (optional)
-        :date_format: '%m/%d/%Y'
-        :project_blank: (not part of a project)
         :placeholder_optional: "(optional)"
         :date_format: "%m/%d/%Y"
         :project_blank: "(not part of a project)"
