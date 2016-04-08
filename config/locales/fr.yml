@@ -821,7 +821,7 @@
         :new-working-group: Nouveau Groupe
       :edit:
         :header: Groupe
-      :nav:
+      :admin_nav:
         :settings: Paramètres de base
         :organizers: Organisateurs
         :members: Volontaires

@@ -991,7 +991,7 @@
           and supplies?
       :add_user_form:
         :add: Add
-      :nav:
+      :admin_nav:
         :settings: Basic Settings
         :organizers: Organizers
         :members: Volunteers

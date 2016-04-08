@@ -1,7 +1,7 @@
 ready = ->
 
   init = ->
-    new Lale.TabNav('.project-page .tab-nav', '.project-page .tab')
+    new Lale.TabNav('.working-group .tab-nav', '.working-group .tab')
 
   init()
 

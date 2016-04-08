@@ -21,18 +21,18 @@
           a.button href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
 
 
-  hr
-
   .details
     main
-      .tasks
-        h3= Task.model_name.human(:count => current_working_group.tasks.not_completed.count)
+
+      = render 'nav'
+
+      .tab.tasks
         = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: current_working_group.tasks.not_completed.ordered_by_date }
 
-      .tasks
-        h3= Supply.model_name.human(:count => current_working_group.supplies.not_completed.count)
+      .tab.supplies
         = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: current_working_group.supplies.not_completed.ordered_by_date }
 
+      .tab.projects
 
     aside
       .members

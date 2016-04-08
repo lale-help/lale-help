@@ -1,4 +1,5 @@
 body.internal .working-group {
+
   .header {
     @include display(flex);
     @include justify-content(space-between);
@@ -20,6 +21,10 @@ body.internal .working-group {
     .actions {
       padding: 1rem 0;
     }
+  }
+
+  .tab-nav {
+    margin-top: 23px; // align with buttons
   }
 
   .details {
