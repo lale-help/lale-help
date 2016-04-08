@@ -881,6 +881,8 @@
       :nav:
         :info: Info
       :show:
+        :date_range: Period
+        :date_range_sentence: from %{start_date} to %{due_date}
         :organized-by: Organized by %{name}
         :admin-title:
           :one: "%{count} organizer"

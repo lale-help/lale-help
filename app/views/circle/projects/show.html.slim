@@ -17,17 +17,12 @@
       .tab.info
 
         .item-details-table
-          .row.start-date
-            .icon
-            .title= Task.human_attribute_name(:start_date)
-            .details
-              = project.start_date
-
-          .row.due-date
-            .icon
-            .title= Task.human_attribute_name(:due_date)
-            .details
-              = project.due_date
+          - if project.has_date_range?
+            .row.date-range
+              .icon
+              .title = t('.date_range')
+              .details
+                = project.date_range_sentence
 
           .row.work-group
             .icon

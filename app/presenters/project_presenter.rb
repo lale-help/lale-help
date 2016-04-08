@@ -20,6 +20,14 @@ class ProjectPresenter < Presenter
     I18n.l(date, format: :long) if date
   end
 
+  let(:has_date_range?) do
+    start_date && due_date
+  end
+
+  let(:date_range_sentence) do
+    I18n.t('circle.projects.show.date_range_sentence', start_date: start_date, due_date: due_date)
+  end
+
   let(:tasks) do
     _.tasks.ordered_by_date
   end
