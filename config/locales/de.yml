@@ -280,6 +280,13 @@
           :zero: Kein %{entry_name} gefunden
     :select:
       :prompt: Bitte auswählen
+    :edit: "%{model} bearbeiten"
+    :invite: "%{model} einladen"
+    :new: "%{model} erstellen"
+    :complete: "%{model} abschliessen"
+    :reopen: "%{model} wieder öffnen"
+    :volunteer: Ich habe diese %{model}
+    :decline: Ich habe diese %{model} nicht
   :unauthorized:
     :manage:
       :all: Keine Berechtigung %{subject} zu %{action}.
@@ -629,6 +636,8 @@
       :format: Bitte die Zeit im Format 00:00 eingeben.
     :start_time:
       :format: Bitte die Anfangszeit im Format 00:00 eingeben.
+    :start_date:
+      :empty: Beginndatum kann nicht leer sein.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -650,6 +659,7 @@
         :saved: Einstellungen wurden gespeichert.
         :save-failed: Einstellungen konnten nicht gespeichert werden. Bitte Fehler
           beheben und erneut versuchen.
+        :circle_invalid: Keine Berechtigung diesen Helferkreis zu sehen
     :failed:
       :create: Ein Fehler ist bei Erstellung von %{name} aufgetreten.
       :update: Bei Änderung von %{name} ist ein Fehler aufgetreten.
@@ -671,13 +681,15 @@
       :task_mailer:
         :task_change: Es gibt etwas Neues bei Deiner Aufgabe.
         :task_completion_reminder: Vielen Dank für Deine Hilfe!
-        :task_invitation: Lale braucht Hilfe für eine neue Aufgabe
+        :task_invitation: Lale braucht Deine Hilfe für eine neue Aufgabe.
         :task_reminder: Passt noch alles?
         :task_suggestion: Lale möchte Dir eine Aufgabe vorschlagen
         :task_comment: Deine Aufgabe hat einen neuen Kommentar.
       :supply_mailer:
         :supply_completion_reminder: Vielen Dank für Deine Hilfe!
-        :supply_invitation: Lale braucht Hilfe für eine neue Sachspende
+        :supply_invitation: Lale braucht Deine Hilfe für eine neue Sachspende.
+      :project_mailer:
+        :project_invitation: Lale braucht Deine Hilfe für ein neues Projekt.
   :roles:
     :name:
       :circle:
@@ -788,6 +800,7 @@
         :complete-task-button: Sachspende wurde abgegeben
         :edit-task-button: Sachspende bearbeiten
         :invite-button: Mitglieder von %{group} einladen
+        :reopen-task-button: Sachspende wieder öffnen
     :tasks:
       :index:
         :header: Alle Aufgaben
@@ -880,10 +893,15 @@
           :other: "%{count} Helfer"
           :one: "%{count} Helfer"
         :settings: Einstellungen
+        :date_range: Zeitraum
+        :organized-by: Organisiert von %{name}
+        :date_range_sentence: von %{start_date} bis %{due_date}
       :index:
         :title: Projekte
       :edit:
         :back: Zurück zu Projekt
+      :nav:
+        :info: Info
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -946,6 +964,7 @@
         :find-circles: Helferkreise finden
         :sign-out: Ausloggen
         :admin: Lale Admin
+        :switch_to_circle: Wechseln zu "%{circle_name}"
   :public:
     :circles:
       :index:
@@ -1157,6 +1176,8 @@
         es später noch einmal.
       :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
       :volunteered: Vielen Dank für Deine Hilfe!
+      :reopened: Sachspende wurde wieder geöffnet
+      :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
   :working_group:
     :types:
       :public: Offen
