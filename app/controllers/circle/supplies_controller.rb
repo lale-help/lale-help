@@ -130,6 +130,18 @@ class Circle::SuppliesController < ApplicationController
   end
 
 
+  def reopen
+    authorize! :reopen, current_supply
+
+    outcome = Supply::Reopen.run(user: current_user, supply: current_supply)
+
+    if outcome.success?
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.reopened', name: current_supply.name)
+    else
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.reopening_failed', name: current_supply.name)
+    end
+  end
+
 
   helper_method def errors
     @errors ||= Errors.new

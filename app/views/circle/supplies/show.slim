@@ -80,6 +80,9 @@
       - if can? :complete, current_supply
         = form_tag circle_supply_complete_path(current_circle, current_supply), method: :put do
           button.button-primary= t('helpers.complete', model: current_supply.model_name.human)
+      - if can? :reopen, current_supply
+        = form_tag circle_supply_reopen_path(current_circle, current_supply), method: 'put' do
+          button.button-primary= t('helpers.reopen', model: current_supply.model_name.human)
 
       - if can? :decline, current_supply
         = form_tag circle_supply_decline_path(current_circle, current_supply), method: :put do

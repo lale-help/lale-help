@@ -21,7 +21,7 @@ Rails.application.routes.draw do
       resources :roles, :organizers
 
       resources :supplies do
-        put :complete, :volunteer, :decline
+        put :complete, :volunteer, :decline, :reopen
         resources :comments, only: [:create, :index]
 
         post :invite

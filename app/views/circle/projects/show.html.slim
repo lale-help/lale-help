@@ -48,11 +48,6 @@
 
       .actions
 
-        / FIXME completing projects in not implemented yet
-        / - if can? :complete, current_project
-        /   = form_tag circle_project_complete_path(current_circle, project), method: :put do
-        /     button.button-primary= t('helpers.complete', model: project.model_name.human)
-
         - if can? :invite_to, current_project
           = form_tag circle_project_invite_path(current_circle, project, type: :working_group), method: :post do
             button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)
