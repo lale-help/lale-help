@@ -235,9 +235,13 @@
         :delete: Etes-vous sûr de vouloir effacer cette tâche ?
       :supply:
         :delete: Etes-vous sûr de vouloir effacer cet objet ?
+      :project:
+        :delete: Etes-vous sure de vouloir effacer ce projet ?
     :placeholder:
       :task:
         :name: Ex. Amener Riad à l'école
+      :project:
+        :name: ex. Organiser le déménagement vers une nouvelle adresse
     :submit:
       :create: Créer %{model}
       :submit: Enregistrer %{model}
@@ -253,6 +257,13 @@
           :zero: Pas de %{entry_name} trouvé
     :select:
       :prompt: Merci de selectionner
+    :edit: Editer %{model}
+    :invite: Inviter %{model}
+    :new: Créer %{model}
+    :complete: Terminer %{model}
+    :reopen: Re-Ouvir %{model}
+    :decline: Je n'ai pas ce %{model}
+    :volunteer: J'ai ce %{model}
   :unauthorized:
     :manage:
       :all: Vous n'êtes pas autorisé à %{action} %{subject}.
@@ -330,6 +341,9 @@
         :other: Besoins
       :system_event/notification: Evenement Système / notification
       :system_event/notification/delivery: Evenement Système / notification / distribution
+      :project:
+        :one: Projet
+        :other: Projets
     :attributes:
       :circle:
         :location: :activerecord.models.location
@@ -345,6 +359,7 @@
         :postal_code: Code Postal
         :state_province: Etat / Région
         :street_address: Rue
+        :projects: Projets
       :location:
         :address: Adresse
         :circles: Cercle
@@ -390,6 +405,7 @@
         :scheduling_sentence:
           :at: "à %{start}"
           :between: entre %{start} et %{end}
+          :by: avant %{due}
         :duration-text:
           :hours_1: 1 Heure
           :hours_2: 2 Heures
@@ -400,8 +416,15 @@
         :scheduling_type_options:
           :between: Entre
           :at: A
+          :by: avant
         :date: Date
         :datetime1_default: Date
+        :datetime1_between: de
+        :datetime2: a
+        :due_time: Fin
+        :start_date: Date de début
+        :time: Heure
+        :start_time: Heure de début
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -505,6 +528,7 @@
           :other: Organisateurs
         :organizer_id: Organisateur
         :working_group_id: Groupe
+        :name: Nom du projet
     :errors:
       :messages:
         :record_invalid: 'La validation a échoué : %{errors}'
@@ -586,6 +610,12 @@
       :empty: Merci de choisir un pays existant.
     :city:
       :empty: Merci de saisir une ville.
+    :due_time:
+      :format: Merci d'entrer une date de fin dans le format 00:00
+    :start_time:
+      :format: Merci d'entrer une date de commencement dans le format 00:00
+    :start_date:
+      :empty: La date de début ne peut être vide.
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -610,6 +640,7 @@
         :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
           les erreurs et de ré-essayer.
         :saved: Vos paramètres ont été enregistré.
+        :circle_invalid: Non authorisé à voir ce cercle
   :tasks:
     :flash:
       :volunteered: Merci de vous être porté volontaire pour %{name} !
@@ -729,6 +760,7 @@
         :complete-task-button: Cet objet a été donné
         :edit-task-button: Editer ce Besoin
         :invite-button: Inviter les membres de %{group}
+        :reopen-task-button: Re-ouvrir la Fourniture
       :supply_list_item:
         :stats-here: Statistiques
     :tasks:
@@ -744,6 +776,8 @@
         :stats-here: Les Statistiques vont ici
       :form:
         :date_format: "%d.%m.%Y"
+        :placeholder_optional: "(optionel)"
+        :project_blank: "(ne fait pas parti d'un projet)"
       :new:
         :back: Retour aux Tâches
       :edit:
@@ -761,10 +795,10 @@
           :one: " (%{count} manquant)"
           :other: " (%{count} manquants)"
         :organized-by: Organisé par %{name}
-        :complete-task-button: Tâche Terminée
+        :complete-task-button: Terminer la Tâche
         :edit-task-button: Editer la Tâche
         :invite-button: Inviter %{class}
-        :reopen-task-button: Re-Ouvir la Tâche
+        :reopen-task-button: Re-Ouvrir la Tâche
       :completed:
         :header: Toutes les Tâches Complétées
       :open:
@@ -790,6 +824,7 @@
         :settings: Paramètres de base
         :organizers: Organisateurs
         :members: Volontaires
+        :projects: Projets
       :user_list:
         :actions: Actions
         :remove: Enlever
@@ -800,6 +835,11 @@
         :header: Volontaires de %{name}
       :add_user_form:
         :add: Ajouter
+      :edit_projects:
+        :actions: Actions
+        :confirm_delete: Voulez-vous vraiment effacer le projet ainsi que toutes ses
+          taches et fournitures ?
+        :header: Projets pour %{name}
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
@@ -815,6 +855,15 @@
           :other: "%{count} volontaires"
           :one: "%{count} volontaire"
         :settings: Paramètres
+        :date_range: Période
+        :date_range_sentence: du %{start_date} au %{due_date}
+        :organized-by: Organisé par %{name}
+      :edit:
+        :back: Retour au projet
+      :index:
+        :title: Projets
+      :nav:
+        :info: Info
   :circles:
     :new:
       :create: Créer un Cercle
@@ -871,11 +920,13 @@
         :all-open-tasks: Tâches Ouvertes
         :working_groups: Groupes
         :public_members: Liste de Volontaires
+        :projects: Projets
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles
         :sign-out: Se Déconnecter
         :admin: Lale Admin
+        :switch_to_circle: Basculer sur "%{circle_name}"
   :public:
     :circles:
       :index:
@@ -1060,6 +1111,8 @@
         :forgot_password: Avez-vous oublié quelque chose ?
         :account_activated: Votre compte a été activé !
         :account_activation: Un nouveau membre veut rejoindre votre cercle.
+      :project_mailer:
+        :project_invitation: Lale a besoin de votre aide pour un nouveau projet.
   :supply:
     :presenter:
       :messages:
@@ -1104,6 +1157,8 @@
       :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
         de réessayer.
       :volunteered: Merci de vous êtes inscrit !
+      :reopened: La fourniture a été ré-ouverte
+      :reopening_failed: Il y a eu un problème lors de la ré-ouverture de cette fourniture
   :working_group:
     :types:
       :private: Privé
@@ -1121,3 +1176,5 @@
     :date_format: d.m.Y
     :time_format: H:i
     :day_of_week_start: '1'
+  :project_edit:
+    :cancel: Annuler
