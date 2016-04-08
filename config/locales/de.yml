@@ -551,6 +551,7 @@
           :other: Organisatoren
         :organizer_id: Organisator
         :working_group_id: Arbeitsgruppe
+        :working_group: Arbeitsgruppe
         :name: Projektname
     :errors:
       :messages:

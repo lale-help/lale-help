@@ -242,6 +242,7 @@
       :project:
         :name: Project name
         :working_group_id: Working group
+        :working_group: Working group
         :organizer_id: Organizer
         :organizer:
           :one: Organizer

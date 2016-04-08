@@ -528,6 +528,7 @@
           :other: Organisateurs
         :organizer_id: Organisateur
         :working_group_id: Groupe
+        :working_group: Groupe
         :name: Nom du projet
     :errors:
       :messages:
