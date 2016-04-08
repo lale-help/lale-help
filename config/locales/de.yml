@@ -285,6 +285,7 @@
     :new: "%{model} erstellen"
     :complete: "%{model} abschliessen"
     :reopen: "%{model} wieder öffnen"
+    :clone: "%{model} kopieren"
     :volunteer: Ich habe diese %{model}
     :decline: Ich habe diese %{model} nicht
   :unauthorized:

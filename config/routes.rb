@@ -55,6 +55,8 @@ Rails.application.routes.draw do
         patch :complete
         put :reopen
         patch :reopen
+        put :clone
+        patch :clone
 
         post :invite
       end

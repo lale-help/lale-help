@@ -198,6 +198,10 @@ class Ability
       task.incomplete?
     end
 
+    can :clone, Task do |task|
+      can? :create_task, task.circle
+    end
+    
     #
     # Supply
     #

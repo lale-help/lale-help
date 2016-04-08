@@ -169,6 +169,19 @@ class Circle::TasksController < ApplicationController
     end
   end
 
+  def clone
+    authorize! :clone, current_task
+
+    outcome = Task::Clone.run(user: current_user, task: current_task)
+
+    if outcome.success?
+      cloned_task = outcome.result
+      redirect_to edit_circle_task_path(current_circle, cloned_task), notice: t('tasks.flash.cloned', name: cloned_task.name)
+    else
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.cloning_failed', name: current_task.name)
+    end
+  end
+
   helper_method def current_task
     @task ||= Task.find(params[:id] || params[:task_id])
   end

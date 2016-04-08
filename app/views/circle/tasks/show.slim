@@ -103,7 +103,9 @@
       - if can? :reopen, current_task
         = form_tag circle_task_reopen_path(current_circle, current_task), method: :put do
           button.button-primary= t('helpers.reopen', model: current_task.model_name.human)
-
+      - if can? :clone, current_task
+        = form_tag circle_task_clone_path(current_circle, current_task), method: :put do
+          button.button= t('helpers.clone', model: current_task.model_name.human)
       - if can? :edit, current_task
         = form_tag edit_circle_task_path(current_circle, current_task), method: :get do
           button.button= t('helpers.edit', model: current_task.model_name.human)

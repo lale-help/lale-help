@@ -465,6 +465,7 @@
     :edit: Edit %{model}
     :complete: Complete %{model}
     :reopen: Reopen %{model}
+    :clone: Copy %{model}
     :volunteer: I have this %{model}
     :decline: I don't have this %{model}
     :invite: Invite %{model}
@@ -878,6 +879,9 @@
     :projects:
       :nav:
         :info: Info
+      :clone:
+        :new_task_name: "%{base_name} copy"
+        :new_task_name_regexp: 'copy( (\d+))?$'
       :show:
         :date_range: Period
         :date_range_sentence: from %{start_date} to %{due_date}
