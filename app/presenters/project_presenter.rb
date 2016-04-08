@@ -1,6 +1,6 @@
 class ProjectPresenter < Presenter
   
-  delegate :id, :name, :working_group, :admin, :admins, :members, to: :object
+  delegate :id, :name, :working_group, :admin, to: :object
 
   def description(length: nil)
     if length
