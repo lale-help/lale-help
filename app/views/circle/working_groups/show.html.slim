@@ -33,6 +33,8 @@
         = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: current_working_group.supplies.not_completed.ordered_by_date }
 
       .tab.projects
+        = render partial: 'projects', locals: { projects: current_working_group.projects.order(:name).select { |project| can?(:read, project) } }
+
 
     aside
       .members

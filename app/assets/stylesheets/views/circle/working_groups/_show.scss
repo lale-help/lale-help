@@ -24,7 +24,7 @@ body.internal .working-group {
   }
 
   .tab-nav {
-    margin-top: 23px; // align with buttons
+   margin-top: 22px;
   }
 
   .details {
@@ -36,6 +36,20 @@ body.internal .working-group {
 
     main{
       @include flex(11 1);
+    }
+
+    .tab  {
+      &.projects {
+        margin-top: 20px;
+
+        .default-table {
+          min-width: auto;
+          th, td {
+            font-weight: normal;
+            font-size: 1.5rem;
+          }
+        }
+      }
     }
 
     aside {
