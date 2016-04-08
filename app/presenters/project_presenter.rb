@@ -16,14 +16,14 @@ class ProjectPresenter < Presenter
     # quick hack: if no task has a start date, use the earliest end date. 
     dates << _.tasks.minimum("due_date")
     dates << _.supplies.minimum("due_date")
-    I18n.l(dates.compact.min, format: :long) unless dates.empty?
+    I18n.l(dates.compact.min, format: :long) unless dates.compact.empty?
   end
 
   let(:due_date) do
     dates = []
     dates << _.tasks.maximum("due_date")
     dates << _.supplies.maximum("due_date")
-    I18n.l(dates.compact.max, format: :long) unless dates.empty?
+    I18n.l(dates.compact.max, format: :long) unless dates.compact.empty?
   end
 
   let(:has_date_range?) do
