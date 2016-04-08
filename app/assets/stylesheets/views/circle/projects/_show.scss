@@ -32,7 +32,7 @@ body.internal .project-page {
     margin-top: 2rem;
   }
 
-  .details {
+  .project-details {
     @include display(flex);
     @include flex-direction(row);
     @include align-items(top);

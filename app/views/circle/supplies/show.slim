@@ -31,20 +31,6 @@
           .title= Location.model_name.human
           .details= current_supply.location.address
 
-
-      .row.contact
-        .icon
-        .title= Supply.human_attribute_name(:organizer)
-        .details
-          a href=circle_member_path(current_circle, current_supply.organizer)
-            = current_supply.organizer.name
-
-      - if current_supply.volunteer.present?
-        .row.volunteer
-          .icon
-          .title= Supply.human_attribute_name(:volunteer)
-          .details = link_to_user(current_supply.volunteer)
-
       .row.work-group
         .icon
         .title= WorkingGroup.model_name.human
@@ -55,6 +41,10 @@
           .icon
           .title = Project.model_name.human
           .details= link_to_project(current_supply.project)
+
+      - if current_supply.organizer.present?
+        .row.organizer
+          .details == t(".organized-by", name: link_to_user(current_supply.organizer))
 
     .task-comments data-url="#{circle_supply_comments_path(current_circle, current_supply)}"
       = render partial: 'circle/comments/comments', locals: { task: current_supply, circle: current_circle, max_display: 3 }
