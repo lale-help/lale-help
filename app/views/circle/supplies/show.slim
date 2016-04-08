@@ -36,6 +36,12 @@
         .title= WorkingGroup.model_name.human
         .details= link_to_working_group(current_supply.working_group)
 
+      - if current_supply.volunteer.present?
+        .row.volunteer
+          .icon
+          .title= Supply.human_attribute_name(:volunteer)
+          .details = link_to_user(current_supply.volunteer)
+
       - if current_supply.project.present?
         .row.project
           .icon
