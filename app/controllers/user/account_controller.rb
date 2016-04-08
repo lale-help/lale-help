@@ -38,8 +38,23 @@ class User::AccountController < ApplicationController
     end
   end
 
+  def switch_circle
+    if can? :read, Circle.find(params[:circle_id].to_i)
+      session[:circle_id] = params[:circle_id].to_i
+      redirect_to circle_path(session[:circle_id])
+    else
+      redirect_to root_path, error: t('flash.user.account.circle_invalid')
+    end
+  end
+
   helper_method def current_circle
-    current_user.primary_circle if current_user.present?
+    if current_user.present?
+      if session[:circle_id].present?
+        Circle.find(session[:circle_id])
+      else
+        current_user.primary_circle
+      end
+    end
   end
 
   helper_method def errors

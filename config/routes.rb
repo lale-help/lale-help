@@ -92,6 +92,7 @@ Rails.application.routes.draw do
     patch '/account',                 to: 'account#update'
     get   '/account/reset_password',  to: 'account#reset_password',    as: 'account_reset_password'
     patch '/account/update_password', to: 'account#update_password',   as: 'account_update_password'
+    get   '/account/switch_circle/:circle_id', to: 'account#switch_circle',  as: 'switch_circle'
   end
 
 

@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+  def current_session_circle_id
+    session[:circle_id] || current_user.primary_circle.id
+  end
+  helper_method :current_session_circle_id
 
   def ensure_logged_in
     redirect_to(root_path) unless current_user.present?

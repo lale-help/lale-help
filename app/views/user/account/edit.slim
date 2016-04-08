@@ -67,6 +67,13 @@ main
             locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
             include_blank: t('.country_select'), selected: @form.country)
 
+    - if current_user.has_multiple_circles?
+      .field-row
+        .field.required class=errors.css(:primary_circle_id)
+          = f.label :primary_circle_id
+          = errors.formatted_message_for(:primary_circle_id)
+          = f.collection_select :primary_circle_id, @form.primary_circle_options, :id, :name
+
     .field-row
       = f.label :about_me
       = errors.formatted_message_for(:about_me)

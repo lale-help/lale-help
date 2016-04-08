@@ -24,6 +24,10 @@ header
 
       .menu.user-dropdown
         = link_to(t('.settings'), account_path)
+        - if current_user.has_multiple_circles?
+          - current_user.circles.each do |circle|
+            - unless circle.id == current_session_circle_id
+              = link_to t('.switch_to_circle', circle_name: circle.name), switch_circle_path(circle)
         /a href=public_circles_path =t('.find-circles')
         - if can?(:manage_site, nil)
           a href=admin_root_path =t('.admin')
