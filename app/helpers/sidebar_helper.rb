@@ -43,7 +43,6 @@ module SidebarHelper
   end
 
   def visible_projects?
-    return unless feature_enabled?(:projects)
     # performance: don't load & loop through all projects if user is admin
     if (can?(:manage, current_circle) && current_circle.projects.present?)
       true

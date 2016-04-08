@@ -7,9 +7,10 @@ nav
   .sidebar-section
     = sidebar_link(t('.supplies'), circle_supplies_path(current_circle), badge_text: all_supplies_count)
 
-  - if visible_projects?
-    .sidebar-section
-      = sidebar_link(t('.projects'), circle_projects_path(current_circle))
+  - if feature_enabled?(:projects)
+    - if visible_projects?
+      .sidebar-section
+        = sidebar_link(t('.projects'), circle_projects_path(current_circle))
 
   .sidebar-section
     - unless can? :manage, current_circle

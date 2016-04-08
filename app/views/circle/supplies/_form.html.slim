@@ -38,11 +38,12 @@
       = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
       = errors.message_for(:organizer_id)
 
-  .field-row
-    .field
-      = f.label :project
-      = @form.project_select(f)
-      = errors.message_for(:project_id)
+  - if feature_enabled?(:projects)
+    .field-row
+      .field
+        = f.label :project
+        = @form.project_select(f)
+        = errors.message_for(:project_id)
 
   .submit-row
     = f.submit

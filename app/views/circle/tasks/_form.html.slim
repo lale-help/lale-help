@@ -88,12 +88,12 @@
       = errors.message_for(:organizer_id)
 
 
-  .field-row
-
-    .field
-      = f.label :project
-      = @form.project_select(f)
-      = errors.message_for(:project_id)
+  - if feature_enabled?(:projects)
+    .field-row
+      .field
+        = f.label :project
+        = @form.project_select(f)
+        = errors.message_for(:project_id)
 
 
   .submit-row
