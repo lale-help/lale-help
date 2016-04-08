@@ -13,7 +13,8 @@
 # new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_project_id')
 # 
 class Lale.WorkgroupDependentSelect
-  constructor: (workgroup_field_selector, dependent_field_selector) ->
+  constructor: (workgroup_field_selector, dependent_field_selector, config = {hideOnEmpty: true}) ->
+    this.config          = config
     this.workgroup_field = $(workgroup_field_selector)
     this.field           = $(dependent_field_selector)
     this.all_options     = $(this.field.html())
@@ -22,12 +23,14 @@ class Lale.WorkgroupDependentSelect
     # the "fat arrow" preserves the value of this in the called method :-)
     this.workgroup_field.on 'change', (event) => 
       this.updateOptions()
-
+  
   updateOptions: ->
     this.field.empty()  
     this.field.append(this.getEmptyOption()) # the empty option not always available
-    this.field.append(this.getNewOptions())
-    if this.field.children().length then this.field.parent().show() else this.field.parent().hide()
+    newOptions = this.getNewOptions()
+    this.field.append(newOptions)
+    if this.config.hideOnEmpty
+      if newOptions.length then this.field.parent().show() else this.field.parent().hide()
 
   getEmptyOption: ->
     this.all_options.clone().filter('option[value=""]')
