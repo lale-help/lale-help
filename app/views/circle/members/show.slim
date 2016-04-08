@@ -38,14 +38,14 @@
         .icon
         .title= t('.circles')
         .details
-          - circle_links = current_member.circles.map{ |circle| link_to(html_escape(circle.name), circle_path(circle)) }
+          - circle_links = current_member.circles.map{ |circle| link_to_circle(circle) }
           = circle_links.to_sentence.html_safe
 
       .row.work-group
         .icon
         .title= t('.working_groups')
         .details
-          - wg_links = current_member.working_groups.for_circle(current_circle).map{ |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
+          - wg_links = current_member.working_groups.for_circle(current_circle).map{ |wg| link_to_working_group(wg) }
           = wg_links.to_sentence.html_safe
 
       .row.member-since

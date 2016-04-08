@@ -46,18 +46,18 @@
       .row.work-group
         .icon
         .title = WorkingGroup.model_name.human
-        .details= current_task.working_group.name
+        .details= link_to_working_group(current_task.working_group)
 
 
       - if current_task.project.present?
         .row.project
           .icon
           .title = Project.model_name.human
-          .details= current_task.project.name
+          .details= link_to_project(current_task.project)
 
       - if current_task.organizer.present?
         .row.organizer
-          .details= t(".organized-by", name: current_task.organizer.name)
+          .details == t(".organized-by", name: link_to_user(current_task.organizer))
 
     .task-comments data-url="#{circle_task_comments_path(current_circle, current_task)}"
       = render partial: 'circle/comments/comments', locals: { task: current_task, circle: current_circle, max_display: 3 }

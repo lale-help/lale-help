@@ -43,21 +43,18 @@
         .row.volunteer
           .icon
           .title= Supply.human_attribute_name(:volunteer)
-          .details
-            a href=circle_member_path(current_circle, current_supply.volunteer)
-              = "#{current_supply.volunteer.name}"
-
+          .details = link_to_user(current_supply.volunteer)
 
       .row.work-group
         .icon
         .title= WorkingGroup.model_name.human
-        .details= current_supply.working_group.name
+        .details= link_to_working_group(current_supply.working_group)
 
       - if current_supply.project.present?
         .row.project
           .icon
           .title = Project.model_name.human
-          .details= current_supply.project.name
+          .details= link_to_project(current_supply.project)
 
     .task-comments data-url="#{circle_supply_comments_path(current_circle, current_supply)}"
       = render partial: 'circle/comments/comments', locals: { task: current_supply, circle: current_circle, max_display: 3 }
