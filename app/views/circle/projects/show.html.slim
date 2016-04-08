@@ -39,18 +39,14 @@
             .details= t(".organized-by", name: project.admin.name)
 
       .tab.tasks
-        - if project.tasks.empty?
-          a.button href=new_circle_task_path(current_circle, project_id: project.id)
-            = t('helpers.new', model: Task.model_name.singular)
-        - else
-          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: project.tasks }
+        a.button href=new_circle_task_path(current_circle, project_id: project.id)
+          = t('helpers.new', model: Task.model_name.singular)
+        = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: project.tasks }
 
       .tab.supplies
-        - if project.supplies.empty?
-          a.button href=new_circle_supply_path(current_circle, project_id: project.id)
-            = t('helpers.new', model: Supply.model_name.singular)
-        - else
-          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: project.supplies }
+        a.button href=new_circle_supply_path(current_circle, project_id: project.id)
+          = t('helpers.new', model: Supply.model_name.singular)
+        = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: project.supplies }
 
 
     aside
