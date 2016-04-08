@@ -6,10 +6,6 @@ class Task::Notifications::InvitationEmail < Mutations::Command
   end
 
   def execute
-    volunteers = (type == "circle" ? task.circle.volunteers : task.working_group.users).active.to_a
-
-    volunteers.reject! { |u| u == current_user || task.volunteers.include?(u) }
-
     volunteers.each do |user|
       next unless user.email.present?
       token    = Token.task_invitation.create! context: { user_id: user.id, task_id: task.id }
@@ -17,5 +13,14 @@ class Task::Notifications::InvitationEmail < Mutations::Command
     end
 
     OpenStruct.new(volunteers: volunteers)
+  end
+
+  private
+
+  def volunteers
+    @volunteers ||= begin
+      volunteers = (type == "circle" ? task.circle.volunteers : task.working_group.users)
+      volunteers.active.to_a.reject { |u| u == current_user || task.volunteers.include?(u) }
+    end
   end
 end

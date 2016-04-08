@@ -13,13 +13,22 @@ class Project < ActiveRecord::Base
   has_many :users,   ->{ distinct }, through: :roles
   has_many :admins,  ->{ Role.admin }, through: :roles, source: :user
 
-  # FIXME
+  scope :asc_order, -> { order('lower(projects.name) ASC') }
+
+  def admin
+    admins.first
+  end
+  
   def tasks
-    admins.first.primary_circle.tasks.limit(5)
+    Task.for_project(self)
   end
 
-  # FIXME
   def supplies
-    admins.first.primary_circle.supplies.limit(5)
+    Supply.for_project(self)
   end
+
+  def members
+    (tasks.map(&:users) + supplies.map(&:users)).flatten.uniq
+  end
+
 end

@@ -21,7 +21,7 @@ describe 'Private Working Groups', type: :feature do
 
   it "is setup" do
     expect(circle_admin_role.persisted?).to eq(true)
-    expect(circle.admins.first.email).to be_present
+    expect(circle.admin.email).to be_present
 
     expect(circle.volunteers).to include(user_1, user_2)
 

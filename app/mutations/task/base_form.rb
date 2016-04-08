@@ -5,6 +5,7 @@ class Task::BaseForm < ::Form
 
   attribute :name,             :string
   attribute :working_group_id, :string
+  attribute :project_id,       :string, required: false
   attribute :description,      :string
 
   attribute :primary_location, :string, default: proc{ (task.primary_location || task.circle.address.location).try :address }
@@ -15,8 +16,8 @@ class Task::BaseForm < ::Form
   attribute :scheduling_type,   :string
 
   # getters for form display
-  attribute :due_date_string,   :string, required: false, default: proc { stringify_date(task.due_date || Date.today + 1.week) }
-  attribute :start_date_string, :string, required: false, default: proc { stringify_date(task.start_date) if task.start_date }
+  attribute :due_date_string,   :string, required: false, default: proc { stringify_date(self.due_date || Date.today + 1.week) }
+  attribute :start_date_string, :string, required: false, default: proc { stringify_date(self.start_date) }
   # getters/setters for saving on update
   attribute :due_date,          :date, format: I18n.t('circle.tasks.form.date_format')
   attribute :start_date,        :date, required: false
@@ -57,6 +58,7 @@ class Task::BaseForm < ::Form
     end
   end
 
+  # FIXME extract
   def working_group
     @working_group ||= begin
       new_working_group = circle.working_groups.find_by(id: working_group_id) || task.working_group
@@ -68,6 +70,7 @@ class Task::BaseForm < ::Form
     end
   end
 
+  # FIXME extract to module
   def available_working_groups
     @available_working_groups ||= begin
       working_groups = circle.working_groups.asc_order.to_a
@@ -77,6 +80,21 @@ class Task::BaseForm < ::Form
     end
   end
 
+  # FIXME extract to module
+  def project_select(form)
+    # what a ridiculous method dear Rails boys!
+    form.grouped_collection_select(
+      :project_id, 
+      available_working_groups, 
+      :projects, 
+      :name, 
+      :id, 
+      :name, 
+      {include_blank: I18n.t('circle.tasks.form.project_blank')}
+    )
+  end
+
+  # FIXME extract to module
   def available_working_groups_disabled?
     if task.new_record?
       available_working_groups.size == 1 && ability.cannot?(:manage, available_working_groups.first)
@@ -84,7 +102,6 @@ class Task::BaseForm < ::Form
       true
     end
   end
-
 
   class Submit < ::Form::Submit
 
@@ -98,6 +115,11 @@ class Task::BaseForm < ::Form
       add_error(:volunteer_count_required, :too_low) if volunteer_count_required < 1
       add_error(:start_time, :format)                if start_time.present? && start_time !~ TIME_REGEX
       add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
+      add_error(:start_date, :empty)                 if scheduling_type == 'between' && start_date.blank?
+    end
+
+    def project
+      project_id.present? ? Project.find(project_id) : nil
     end
 
     def execute
@@ -105,6 +127,7 @@ class Task::BaseForm < ::Form
         t.name          = name
         t.description   = description
         t.working_group = working_group
+        t.project       = project
 
         t.duration      = duration
 

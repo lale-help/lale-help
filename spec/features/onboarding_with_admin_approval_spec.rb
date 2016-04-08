@@ -42,7 +42,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       expect(page).to have_content(t('public.circles.membership_pending.subtitle'))
 
       # - circle admin is notified by email
-      expect(last_email.to.first).to eq(circle.admins.first.email)
+      expect(last_email.to.first).to eq(circle.admin.email)
       expect(last_email.subject).to eq("[Lale] #{t('mailers.subject.user_mailer.account_activation')}")
     end
   end
@@ -62,7 +62,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       expect(circle.volunteers).to include(new_member)
 
       # circle admin goes to manage users page
-      visit circle_path(circle, as: circle.admins.first)
+      visit circle_path(circle, as: circle.admin)
       click_on t('layouts.internal.sidebar.admin')
       click_on t('circle.admins.nav.invite-volunteers')
 
@@ -72,7 +72,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
       # ensure admin action is properly indicated
       expect(page).to have_css('#admin_link .badge')
-      expect(page).to have_css('.admin-nav .invite .before-icon')
+      expect(page).to have_css('.tab-nav .invite .before-icon')
 
       # circle admin clicks on Accept
       click_on t('circle.admins.pending_members_list.activate')
@@ -82,7 +82,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
       # admin action indicators disappear
       expect(page).not_to have_css('#admin_link .badge')
-      expect(page).not_to have_css('.admin-nav .invite .before-icon')
+      expect(page).not_to have_css('.tab-nav .invite .before-icon')
       
       # new user is notified
       expect(last_email.to.first).to eq(new_member.email)

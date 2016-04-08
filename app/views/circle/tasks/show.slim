@@ -17,7 +17,7 @@
         = task_presenter.name
       .description= current_task.description
 
-    .task-details
+    .item-details-table
       .row.due-date
         .icon
         .title= Task.human_attribute_name(:due_date)
@@ -47,6 +47,13 @@
         .icon
         .title = WorkingGroup.model_name.human
         .details= current_task.working_group.name
+
+
+      - if current_task.project.present?
+        .row.project
+          .icon
+          .title = Project.model_name.human
+          .details= current_task.project.name
 
       - if current_task.organizer.present?
         .row.organizer
@@ -82,22 +89,21 @@
 
       .actions
         - if can? :invite_to, current_task
-          = form_tag circle_task_invite_path(current_circle, current_task, type: 'working_group'), method: 'post' do
-            button.button.button-secondary= t('.invite-button', class: WorkingGroup.model_name.human)
+          = form_tag circle_task_invite_path(current_circle, current_task, type: 'working_group'), method: :post do
+            button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)
         - unless current_task.working_group.is_private?
-          = form_tag circle_task_invite_path(current_circle, current_task, type: 'circle'), method: 'post' do
-            button.button.button-secondary= t('.invite-button', class: Circle.model_name.human)
+          = form_tag circle_task_invite_path(current_circle, current_task, type: 'circle'), method: :post do
+            button.button.button-secondary= t('helpers.invite', model: Circle.model_name.human)
 
 
     .actions
       - if can? :complete, current_task
-        = form_tag circle_task_complete_path(current_circle, current_task), method: 'put' do
-          button.button-primary= t('.complete-task-button')
+        = form_tag circle_task_complete_path(current_circle, current_task), method: :put do
+          button.button-primary= t('helpers.complete', model: current_task.model_name.human)
       - if can? :reopen, current_task
-        = form_tag circle_task_reopen_path(current_circle, current_task), method: 'put' do
-          button.button-primary= t('.reopen-task-button')
-
+        = form_tag circle_task_reopen_path(current_circle, current_task), method: :put do
+          button.button-primary= t('helpers.reopen', model: current_task.model_name.human)
 
       - if can? :edit, current_task
-        = form_tag edit_circle_task_path(current_circle, current_task), method: 'get' do
-          button.button= t('.edit-task-button')
+        = form_tag edit_circle_task_path(current_circle, current_task), method: :get do
+          button.button= t('helpers.edit', model: current_task.model_name.human)

@@ -22,23 +22,22 @@ class Circle::SuppliesController < ApplicationController
 
   def new
     authorize! :create_supply, current_circle
-    @supply = @circle.working_groups.first.supplies.build
-    @form = Supply::Create.new(current_supply, user: current_user, supply: current_supply)
+    @supply = @circle.working_groups.first.supplies.build(project_id: params[:project_id ])
+    @form = Supply::Create.new(current_supply, user: current_user, supply: current_supply, circle: current_circle, ability: current_ability)
   end
 
 
   def edit
     authorize! :update, current_supply
-    @form = Supply::Update.new(current_supply, user: current_user, supply: current_supply)
+    @form = Supply::Update.new(current_supply, user: current_user, supply: current_supply, circle: current_circle, ability: current_ability)
   end
 
 
   def create
-    working_group = current_circle.working_groups.find(params[:supply][:working_group_id])
-    authorize! :create_supply, working_group
+    authorize! :create_supply, current_circle
 
     @supply = Supply.new
-    @form = Supply::Create.new(params[:supply], user: current_user, supply: @supply, working_group: working_group)
+    @form = Supply::Create.new(params[:supply], user: current_user, supply: @supply, circle: current_circle, ability: current_ability)
 
     outcome = @form.submit
 
@@ -54,11 +53,9 @@ class Circle::SuppliesController < ApplicationController
 
 
   def update
-    working_group = current_circle.working_groups.find(params[:supply][:working_group_id])
-
     authorize! :update, current_supply
 
-    @form = Supply::Update.new(params[:supply], user: current_user, supply: current_supply, working_group: working_group)
+    @form = Supply::Update.new(params[:supply], user: current_user, supply: current_supply, circle: current_circle, ability: current_ability)
 
     outcome = @form.submit
 
@@ -75,7 +72,7 @@ class Circle::SuppliesController < ApplicationController
   def destroy
     authorize! :destroy, current_supply
 
-    outcome = Supply::Destroy.run(supply: current_supply, user: current_user)
+    Supply::Destroy.run(supply: current_supply, user: current_user)
 
     redirect_to circle_supplies_path(current_circle), notice: t('flash.destroyed', name: Supply.model_name.human)
   end
@@ -119,6 +116,7 @@ class Circle::SuppliesController < ApplicationController
   end
 
 
+  # TODO extract to an InvitationsController (which can then also be used by the other resources that need invitations)
   def invite
     authorize! :invite_to, current_supply
 

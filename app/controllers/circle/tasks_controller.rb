@@ -61,9 +61,9 @@ class Circle::TasksController < ApplicationController
 
 
   def create
+    authorize! :create_task, current_circle
     @task = Task.new
     @form = Task::Create.new(params[:task], user: current_user, task: @task, circle: current_circle, ability: current_ability)
-    authorize! :create_task, @form.working_group
 
     outcome = @form.submit
 
@@ -154,6 +154,7 @@ class Circle::TasksController < ApplicationController
     end
   end
 
+  # TODO extract to an InvitationsController (which can then also be used by the other resources that need invitations)
   def invite
     authorize! :manage, current_task
 
@@ -173,10 +174,13 @@ class Circle::TasksController < ApplicationController
   end
 
   helper_method def page
-    @page ||= OpenStruct.new.tap do |page|
-      page.is_missing_volunteers = current_task.volunteer_count_required > current_task.volunteers.size
-      page.missing_volunteer_count = current_task.volunteer_count_required - current_task.volunteers.size
-      page.adjusted_missing_volunteer_count = can?(:volunteer, current_task) ? page.missing_volunteer_count - 1 : page.missing_volunteer_count
+    t = current_task
+    @page ||= begin
+      OpenStruct.new(
+        is_missing_volunteers: t.is_missing_volunteers?,
+        missing_volunteer_count: t.missing_volunteer_count,
+        adjusted_missing_volunteer_count: can?(:volunteer, t) ? t.missing_volunteer_count - 1 : t.missing_volunteer_count
+      )
     end
   end
 end
