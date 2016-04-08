@@ -16,11 +16,11 @@ div.task href=circle_supply_path(current_circle, supply) class=supply.css
            = supply.message
     .task-stats
       .task-assignees
-        - supply.volunteers.each_with_index do |volunteer, i|
-          = render partial: 'user/user_icon', locals: { user: volunteer, link: true }
+        - unless supply.volunteers.empty?
+          = render partial: 'user/user_icon', locals: { user: supply.volunteers.first, link: true }
       .task-badge.task-badge--users
         i
-        = "#{supply.volunteers.count}/1"
+        = "#{supply.volunteers.count > 0 ? 1 : 0}/1"
 
       .task-badge.task-badge--comments
         i

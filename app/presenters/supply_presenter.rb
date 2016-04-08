@@ -43,4 +43,16 @@ class SupplyPresenter < Presenter
     "urgency--#{status}" if status.present?
   end
 
+  let(:due_date_month) do
+    I18n.l(_.due_date, format: "%b").upcase
+  end
+
+  let(:due_date_day) do
+    _.due_date.day
+  end
+
+  let(:due_date_day_of_week) do
+    I18n.l(_.due_date, format: '%a')
+  end
+
 end
