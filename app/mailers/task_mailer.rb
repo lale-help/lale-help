@@ -44,6 +44,7 @@ class TaskMailer < BaseMandrillMailer
       merge_vars(user, task).merge({
         "TASK_COMMENT"    => comment.body,
         "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_path(task.circle, task)),
+        "COMMENT_AUTHOR"  => comment.commenter.name
       })
     end
   end
