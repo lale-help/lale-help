@@ -22,7 +22,9 @@ class Circle::Join < ::Form
         role.create(user: user, circle: circle)
       end
       status = circle.must_activate_users? ? :pending : :active
-      user.update_attributes(primary_circle: circle, status: status)
+      user.status = status
+      user.primary_circle = circle unless user.primary_circle_id.present?
+      user.save!
     end
 
     def notify_circle_admins
