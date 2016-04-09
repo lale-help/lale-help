@@ -41,6 +41,13 @@ main
         span
           = current_user.address.full_address
 
+    - if current_user.has_multiple_circles?
+      .field-row
+        label
+          = User.human_attribute_name :primary_circle
+        span
+          = current_user.primary_circle.name
+
     .field-row
       label
         = User.human_attribute_name :about_me
