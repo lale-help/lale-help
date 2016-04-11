@@ -9,6 +9,7 @@
 //= require i18n/translations
 //= require jquery.tablesorter
 //= require jquery.datetimepicker/jquery.datetimepicker.full.min
+//= require sweet-alert
 
 //= require '_lale'
 

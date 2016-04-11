@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -823,6 +823,15 @@
       :working_groups:
         :confirm_delete_working_group: Are you sure?
         :create_working_group: New Working Group
+        :delete_pop_up:
+          :title: Delete %{working_group}?
+          :warning: Deleting this work group will also delete all its included tasks, supplies and project. This step cannot be undone. To delete this working group, please input the name of the working group (Case Sensitive)
+          :delete: Delete
+          :cancel: Cancel
+          :deleted: Deleted
+          :cancelled: Cancelled
+          :delete_confirmed: The %{working_group} working group has been deleted!
+          :cancel_confirmed: You have not deleted the working group
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share

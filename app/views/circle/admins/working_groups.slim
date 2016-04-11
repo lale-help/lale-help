@@ -16,7 +16,7 @@ section
 
         td.actions
           a.edit href=edit_circle_working_group_path(current_circle, group)
-          = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_working_group') }
+          = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: group.name }
 
     - if can? :manage, current_circle
       tr#add-working-group.action-row
