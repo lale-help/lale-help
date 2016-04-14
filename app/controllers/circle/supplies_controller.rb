@@ -22,8 +22,7 @@ class Circle::SuppliesController < ApplicationController
 
   def new
     authorize! :create_supply, current_circle
-    @supply = @circle.working_groups.first.supplies.build(project_id: params[:project_id ])
-    @form = Supply::Create.new(current_supply, user: current_user, supply: current_supply, circle: current_circle, ability: current_ability)
+    @form = Supply::Create.new(user: current_user, circle: current_circle, ability: current_ability, project_id: params[:project_id])
   end
 
 
@@ -36,8 +35,7 @@ class Circle::SuppliesController < ApplicationController
   def create
     authorize! :create_supply, current_circle
 
-    @supply = Supply.new
-    @form = Supply::Create.new(params[:supply], user: current_user, supply: @supply, circle: current_circle, ability: current_ability)
+    @form = Supply::Create.new(params[:supply], user: current_user, circle: current_circle, ability: current_ability)
 
     outcome = @form.submit
 

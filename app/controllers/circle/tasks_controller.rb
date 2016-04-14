@@ -49,8 +49,7 @@ class Circle::TasksController < ApplicationController
 
   def new
     authorize! :create_task, current_circle
-    @task = current_circle.working_groups.first.tasks.build
-    @form = Task::Create.new(user: current_user, task: current_task, circle: current_circle, ability: current_ability)
+    @form = Task::Create.new(user: current_user, circle: current_circle, ability: current_ability, project_id: params[:project_id])
   end
 
 
@@ -62,8 +61,7 @@ class Circle::TasksController < ApplicationController
 
   def create
     authorize! :create_task, current_circle
-    @task = Task.new
-    @form = Task::Create.new(params[:task], user: current_user, task: @task, circle: current_circle, ability: current_ability)
+    @form = Task::Create.new(params[:task], user: current_user, circle: current_circle, ability: current_ability)
 
     outcome = @form.submit
 

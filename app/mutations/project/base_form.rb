@@ -23,8 +23,8 @@ class Project::BaseForm < ::Form
   def available_working_groups_disabled?
     !project.new_record?
   end
-  
-  class Submit < ::Form::Submit  
+
+  class Submit < ::Form::Submit
 
     def execute
       project.assign_attributes(project_attributes)
@@ -43,7 +43,7 @@ class Project::BaseForm < ::Form
     def working_group
       circle.working_groups.find(inputs[:working_group_id])
     end
-    
+
     def project_attributes
       inputs.slice(:name, :description).merge(working_group: working_group)
     end

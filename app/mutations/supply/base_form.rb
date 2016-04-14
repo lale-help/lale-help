@@ -1,64 +1,19 @@
 class Supply::BaseForm < ::Form
-  attribute :supply, :model, primary: true, new_records: true
+  attribute :supply, :model, primary: true, new_records: true, default: proc { Supply.new circle: circle, working_group: available_working_groups.first }
   attribute :user, :model
-  attribute :working_group, :model
 
   attribute :name,             :string
-  attribute :working_group_id, :string
-  attribute :project_id,       :string, required: false
+
   attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :location, :string, default: proc{ (supply.location || supply.circle.address.location).try :address }
+  attribute :location, :string, default: proc{ (supply.location || circle.address.location).try :address }
   attribute :organizer_id,     :integer, default: proc { supply.organizer.try(:id) || user.id }
 
   attribute :ability, :model
   attribute :circle, :model
 
-  # FIXME extract to module
-  def working_group
-    @working_group ||= begin
-      new_working_group = circle.working_groups.find_by(id: working_group_id) || supply.working_group
-      if ability.can? :create_supply, new_working_group
-        new_working_group
-      else
-        supply.working_group
-      end
-    end
-  end
-
-  # FIXME extract to module
-  def available_working_groups
-    @available_working_groups ||= begin
-      working_groups = circle.working_groups.asc_order.to_a
-      working_groups.select! { |wg| ability.can?(:manage, wg) } unless ability.can?(:manage, circle)
-      working_groups << supply.working_group unless working_groups.present?
-      working_groups
-    end
-  end
-
-  # FIXME extract to module
-  def project_select(form)
-    # what a ridiculous method dear Rails boys!
-    form.grouped_collection_select(
-      :project_id, 
-      available_working_groups, 
-      :projects, 
-      :name, 
-      :id, 
-      :name, 
-      {include_blank: I18n.t('circle.tasks.form.project_blank')}
-    )
-  end
-
-  # FIXME extract to module
-  def available_working_groups_disabled?
-    if supply.new_record?
-      available_working_groups.size == 1 && ability.cannot?(:manage, available_working_groups.first)
-    else
-      true
-    end
-  end
+  include TaskableForm
 
   class Submit < ::Form::Submit
 
