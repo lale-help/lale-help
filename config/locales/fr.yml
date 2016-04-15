@@ -704,6 +704,8 @@
       :working_groups:
         :confirm_delete_working_group: Etes-vous sure ?
         :create_working_group: Nouveau Groupe
+        :edit: Modifier
+        :delete: Supprimer
       :extended_settings:
         :headline: Paramètres avancés
         :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un

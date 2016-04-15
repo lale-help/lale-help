@@ -728,6 +728,8 @@
       :working_groups:
         :confirm_delete_working_group: Bist Du sicher?
         :create_working_group: Neue Arbeitsgruppe
+        :edit: Bearbeiten
+        :delete: Lösche
       :invite:
         :invite_members: Neue Mitglieder zu %{circle} einladen
         :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
