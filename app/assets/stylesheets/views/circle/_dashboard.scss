@@ -26,7 +26,8 @@ body.internal .circle-dashboard{
     @include flex-wrap(wrap);
 
     main{
-      @include flex(11 0 auto);
+//      @include flex(11 0 auto);
+      -ms-flex: 11 0 auto;
     }
 
     aside {
