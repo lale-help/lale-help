@@ -46,8 +46,6 @@ class Lale.WorkgroupDependentSelect
     else
       working_group = this.workgroup_field.find(':selected').text()
 
-    console.log(working_group, @workgroup_field.siblings())
-
     escaped_wg_name = working_group.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
 
 
