@@ -264,6 +264,7 @@
     :reopen: Re-Ouvir %{model}
     :decline: Je n'ai pas ce %{model}
     :volunteer: J'ai ce %{model}
+    :clone: Copie %{model}
   :unauthorized:
     :manage:
       :all: Vous n'êtes pas autorisé à %{action} %{subject}.
@@ -865,6 +866,9 @@
         :title: Projets
       :nav:
         :info: Info
+      :clone:
+        :new_task_name_regexp: copie( (\d+))?$
+        :new_task_name: "%{base_name} - copie"
   :circles:
     :new:
       :create: Créer un Cercle
