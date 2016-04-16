@@ -1,6 +1,7 @@
 class Circle::WorkingGroupsController < ApplicationController
   layout 'internal'
   before_action :ensure_logged_in
+  before_action :set_back_path, only: [:show]
 
   include HasCircle
 

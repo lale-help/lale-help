@@ -1,8 +1,7 @@
 - supply = ::SupplyPresenter.new(current_supply)
 
 - content_for :header_middle do
-  - back_link = request.env['HTTP_REFERER'] || circle_supplies_path(current_circle)
-  = link_to t('.back'), back_link, class: 'back'
+  = link_to_back
 
 .task class=supply.css
   main

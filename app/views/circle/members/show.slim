@@ -1,9 +1,5 @@
 - content_for :header_middle do
-  - if can?(:manage, current_circle)
-    - link_back = circle_members_path(current_circle)
-  - else
-    - link_back = public_circle_members_path(current_circle)
-  = link_to t('.back'), link_back, class: 'back'
+  = link_to_back
 
 .member
   main

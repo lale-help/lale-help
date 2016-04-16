@@ -1,6 +1,7 @@
 class Circle::ProjectsController < ApplicationController
   layout 'internal'
   before_action :ensure_logged_in
+  before_action :set_back_path, only: [:show]
 
   include HasCircle
 
@@ -53,7 +54,7 @@ class Circle::ProjectsController < ApplicationController
     authorize! :destroy, current_project
     Project::Destroy.run(project: current_project)
 
-    redirect_to circle_projects_path(current_circle), 
+    redirect_to circle_projects_path(current_circle),
       notice: t('flash.destroyed', name: Project.model_name.human)
   end
 
@@ -64,7 +65,7 @@ class Circle::ProjectsController < ApplicationController
     outcome = Project::Notifications::InvitationEmail.run(current_user: current_user, project: current_project, type: params[:type])
 
     if outcome.success?
-      flash[:notice] = t('flash.actions.invited', 
+      flash[:notice] = t('flash.actions.invited',
         name: current_project.name, count: outcome.result.volunteers.size, model: Project.model_name.human.downcase)
     else
       # FIXME adapt message

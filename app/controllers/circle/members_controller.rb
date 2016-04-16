@@ -2,6 +2,7 @@ class Circle::MembersController < ApplicationController
 
   skip_authorization_check # TODO: REMOVE
   before_action :ensure_logged_in
+  before_action :set_back_path, only: [:index, :public]
 
   include HasCircle
 
@@ -26,7 +27,7 @@ class Circle::MembersController < ApplicationController
     @current_member ||= current_circle.users.find(params[:id])
   end
 
-  private 
+  private
 
   def active_members
     current_circle.users.active

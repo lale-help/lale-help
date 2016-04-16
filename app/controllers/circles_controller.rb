@@ -2,9 +2,12 @@ class CirclesController < ApplicationController
   layout 'internal'
 
   before_action :ensure_logged_in
+  before_action :set_back_path, only: [:show]
+
   load_and_authorize_resource
 
   include HasCircle
+
 
   def show
     @open_tasks = current_circle.tasks.not_completed.ordered_by_date.select do |task|

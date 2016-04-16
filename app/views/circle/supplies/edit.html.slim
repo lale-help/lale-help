@@ -1,5 +1,5 @@
 - content_for :header_middle do
-  a.back href=circle_supply_path(current_circle, current_supply) = t('.back')
+  = link_to_back
 
 h2 = t('helpers.header.edit', name: current_supply.name)
 = render 'form', locals: {delete: true}

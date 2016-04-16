@@ -1,6 +1,7 @@
 class Circle::TasksController < ApplicationController
   layout "internal"
   before_action :ensure_logged_in
+  before_action :set_back_path, only: [:index, :my, :open, :completed]
 
   include HasCircle
 

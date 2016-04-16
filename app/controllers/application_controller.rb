@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionProtection
   include DatabaseTransactions
+  include BackLink
 
   protect_from_forgery with: :exception
   check_authorization :unless => :active_admin_controller?

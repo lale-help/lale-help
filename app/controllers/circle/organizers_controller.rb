@@ -5,6 +5,7 @@ class Circle::OrganizersController < ApplicationController
   include HasCircle
 
   before_action :ensure_logged_in
+  before_action :set_back_path, only: [:index]
 
   def index
     circle_organizers = User.

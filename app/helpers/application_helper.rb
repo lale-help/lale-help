@@ -21,4 +21,9 @@ module ApplicationHelper
   def feature_enabled?(name)
     !!Rails.configuration.x.feature_toggles.send(name)
   end
+
+  def link_to_back
+    link_to t('.back'), back_path, class: 'back'
+  end
+
 end
