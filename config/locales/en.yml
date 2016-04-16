@@ -402,6 +402,10 @@
         :skills: Skills
         :volunteer: Helper
         :volunteer_count_required: Number of helpers required
+        :location: Location
+        :working_group_id: Working Group
+        :organizer_id: Organizer
+        :project_id: Project
   :datetime:
     :distance_in_words:
       :half_a_minute: half a minute

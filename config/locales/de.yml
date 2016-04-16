@@ -477,6 +477,10 @@
           :hours_3: 3 Stunden
           :half_day: halber Tag
           :all_day: ganzer Tag
+        :working_group_id: Arbeitsgruppe
+        :organizer_id: Organisator
+        :project_id: Projekt
+        :location: Standort
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primär

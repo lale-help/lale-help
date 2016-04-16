@@ -46,7 +46,7 @@
   - if feature_enabled?(:projects)
     .field-row
       .field
-        = f.label :project
+        = f.label :project_id
         - unless @form.project_disabled?
           = @form.project_select(f)
           = errors.message_for(:project_id)
