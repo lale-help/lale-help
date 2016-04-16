@@ -904,6 +904,9 @@
         :back: Zurück zu Projekt
       :nav:
         :info: Info
+      :clone:
+        :new_task_name_regexp: Kopie( (\d+))?$
+        :new_task_name: "%{base_name} - Kopie"
   :circles:
     :new:
       :create: Helferkreis anlegen

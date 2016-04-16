@@ -880,8 +880,8 @@
       :nav:
         :info: Info
       :clone:
-        :new_task_name: "%{base_name} copy"
-        :new_task_name_regexp: 'copy( (\d+))?$'
+        :new_task_name: "%{base_name} - copy"
+        :new_task_name_regexp: copy( (\d+))?$
       :show:
         :date_range: Period
         :date_range_sentence: from %{start_date} to %{due_date}
