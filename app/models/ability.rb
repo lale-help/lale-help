@@ -199,7 +199,8 @@ class Ability
     end
 
     can :clone, Task do |task|
-      can? :create_task, task.circle
+      # can? :create_task, task.circle
+      can?(:create_task, task.working_group)
     end
 
     #
