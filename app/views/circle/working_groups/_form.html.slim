@@ -25,5 +25,4 @@
     = f.submit
 
     - cancel_path = current_working_group.persisted? ? circle_working_group_path(current_circle, current_working_group) : circle_admin_path(current_circle)
-    a.button href=cancel_path
-      =t('workflow.cancel')
+    = link_to t('workflow.cancel'), cancel_path

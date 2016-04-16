@@ -57,6 +57,6 @@
   .submit-row
     = f.submit
     - cancel_path = @form.supply.persisted? ? circle_supply_path(current_circle, current_supply) : circle_path(current_circle)
-    = link_to t('supply_edit.cancel'), cancel_path, class: 'button'
+    = link_to t('supply_edit.cancel'), cancel_path
     - if locals[:delete]
       = link_to t('delete'), circle_supply_path(current_circle, current_supply), class: 'button secondary-action', data: {:confirm => t('helpers.confirm.supply.delete')}, :method => :delete

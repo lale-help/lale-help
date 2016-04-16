@@ -827,6 +827,8 @@
       :working_groups:
         :confirm_delete_working_group: Are you sure?
         :create_working_group: New Working Group
+        :edit: Edit
+        :delete: Delete
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share

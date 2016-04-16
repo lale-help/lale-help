@@ -35,6 +35,6 @@
   .submit-row
     = f.submit
     - cancel_path = @form.project.persisted? ? circle_project_path(current_circle, @form.project) : circle_path(current_circle)
-    = link_to t('project_edit.cancel'), cancel_path, class: 'button'
+    = link_to t('project_edit.cancel'), cancel_path
     - if locals[:delete]
       = link_to t('delete'), [current_circle, @form.project], class: 'button secondary-action', data: {:confirm => t('helpers.confirm.project.delete')}, :method => :delete
