@@ -4,10 +4,9 @@ class Task::Clone < Mutations::Command
     model :task
   end
 
-  # TODO validate & handle error  
+  # TODO validate & handle error
   def execute
     cloned_task = Task.new(new_task_attributes)
-    cloned_task.save!
     cloned_task
   end
 
@@ -26,7 +25,7 @@ class Task::Clone < Mutations::Command
     regexp    = Regexp.new(I18n.t('circle.projects.clone.new_task_name_regexp'))
     matches   = regexp.match(old_name).to_a
     base_name = old_name.gsub(regexp, '')
-    
+
     if matches.empty?
       # task hasn't been cloned yet. return "Some task name copy"
       I18n.t('circle.projects.clone.new_task_name', base_name: base_name)

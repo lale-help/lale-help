@@ -174,8 +174,10 @@ class Circle::TasksController < ApplicationController
     outcome = Task::Clone.run(user: current_user, task: current_task)
 
     if outcome.success?
-      cloned_task = outcome.result
-      redirect_to edit_circle_task_path(current_circle, cloned_task), notice: t('tasks.flash.cloned', name: cloned_task.name)
+      @task = outcome.result
+      @form = Task::Update.new(current_task, user: current_user, task: @task, circle: current_circle, ability: current_ability)
+      render :new
+
     else
       redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.cloning_failed', name: current_task.name)
     end
