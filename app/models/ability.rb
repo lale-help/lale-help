@@ -3,10 +3,10 @@
 #
 # - :manage represents ANY action on the object, not just crud.
 #   https://github.com/CanCanCommunity/cancancan/wiki/defining-abilities
-#   
+#
 # - The ability rules further down in a file will override a previous one.
 #   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
-# 
+#
 # - Adding can rules do not override prior rules, but instead are logically or'ed.
 #   Therefore, it is best to place the more generic rules near the top.
 #   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
@@ -17,18 +17,18 @@ class Ability
   def initialize(user)
     user ||= User.new
 
-    # 
+    #
     # Admin
-    # 
+    #
 
     can :read, ActiveAdmin::Page, :name => "Dashboard"
     can :manage_site do
       user.is_admin
     end
 
-    # 
+    #
     # Circles
-    # 
+    #
 
     can :create, Circle
     can :read,   Circle do |circle|
@@ -75,7 +75,7 @@ class Ability
     #
     # Circle::Role
     #
-    
+
     can :delete, Circle::Role do |role|
       can?(:manage, role.circle)
       if role.role_type == 'circle.admin'
@@ -88,20 +88,20 @@ class Ability
 
     #
     # Users
-    # 
-    
+    #
+
     can :read, User do |member, circle|
       member.id == user.id ||
       (can?(:read, circle) &&
-        (user.working_group_roles.admin.for_circle(circle).exists? || 
+        (user.working_group_roles.admin.for_circle(circle).exists? ||
           circle.admins.include?(user) ||
           member.public_profile?))
     end
 
-    # 
+    #
     # Working Groups
-    # 
-    
+    #
+
     can :manage, WorkingGroup do |wg|
       can?(:manage, wg.circle) ||
       wg.admins.active.include?(user)
@@ -136,8 +136,8 @@ class Ability
 
     #
     # Tasks
-    # 
-    
+    #
+
     can :read, Task do |task|
       can?(:read, task.working_group)
     end
@@ -201,11 +201,11 @@ class Ability
     can :clone, Task do |task|
       can? :create_task, task.circle
     end
-    
+
     #
     # Supply
     #
-    
+
     can :read, Supply do |supply|
       can?(:read, supply.working_group)
     end
@@ -274,7 +274,7 @@ class Ability
       supply.incomplete?
     end
 
-    # 
+    #
     # Comments
     #
 
@@ -282,13 +282,12 @@ class Ability
       user.circles.include?(comment.task.circle)
     end
 
-    # 
+    #
     # Projects
-    # 
+    #
 
     can :manage, Project do |project|
-      can?(:manage, project.circle) or 
-        project.circle.working_groups.any? { |wg| can?(:manage, wg) }
+      can?(:manage, project.circle) or can?(:manage, project.working_group)
     end
     cannot :manage, Project do |project|
       cannot?(:manage, project.working_group)

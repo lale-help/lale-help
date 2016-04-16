@@ -34,13 +34,15 @@
             .details== t(".organized-by", name: link_to_user(project.admin).html_safe)
 
       .tab.tasks
-        a.button href=new_circle_task_path(current_circle, project_id: project.id)
-          = t('helpers.new', model: Task.model_name.human)
+        - if can? :manage, current_project
+          a.button href=new_circle_task_path(current_circle, project_id: project.id)
+            = t('helpers.new', model: Task.model_name.human)
         = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: project.tasks }
 
       .tab.supplies
-        a.button href=new_circle_supply_path(current_circle, project_id: project.id)
-          = t('helpers.new', model: Supply.model_name.human)
+        - if can? :manage, current_project
+          a.button href=new_circle_supply_path(current_circle, project_id: project.id)
+            = t('helpers.new', model: Supply.model_name.human)
         = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: project.supplies }
 
 
@@ -56,7 +58,7 @@
           - if can? :manage, current_project.circle
             = form_tag circle_project_invite_path(current_circle, project, type: :circle), method: :post do
               button.button.button-secondary= t('helpers.invite', model: Circle.model_name.human)
-          
+
         - if can? :edit, current_project
           = form_tag edit_circle_project_path(current_circle, project), method: :get do
             button.button= t('helpers.edit', model: project.model_name.human)

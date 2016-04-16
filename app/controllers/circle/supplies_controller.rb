@@ -22,7 +22,10 @@ class Circle::SuppliesController < ApplicationController
 
 
   def new
+    project = Project.find(params[:project_id]) if params[:project_id]
     authorize! :create_supply, current_circle
+    authorize!(:manage, project) if project.present?
+
     @form = Supply::Create.new(user: current_user, circle: current_circle, ability: current_ability, project_id: params[:project_id])
   end
 
