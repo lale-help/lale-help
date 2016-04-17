@@ -19,15 +19,15 @@ class BaseMandrillMailer < ActionMailer::Base
     mail(to: email, subject: subject, body: body, content_type: content_type)
   end
 
-  def build_message lang, email, &block
+  def build_message lang, email, version: nil, &block
     I18n.with_locale(lang) do
       merge_vars = block.call
       merge_vars.merge!(default_merge_vars)
 
       body = begin
-        fetch_template(I18n.locale, merge_vars)
+        fetch_template(I18n.locale, version, merge_vars)
       rescue Mandrill::UnknownTemplateError
-        fetch_template("en", merge_vars)
+        fetch_template("en", version, merge_vars)
       end
 
       send_mail(email, subject, body)
@@ -49,8 +49,8 @@ class BaseMandrillMailer < ActionMailer::Base
     end
   end
 
-  def fetch_template(lang, attributes)
-    template = template_name(lang)
+  def fetch_template(lang, version, attributes)
+    template = template_name(lang, version)
 
     merge_vars = attributes.map do |key, value|
       { name: key, content: value }
@@ -76,9 +76,13 @@ class BaseMandrillMailer < ActionMailer::Base
     mandrill.templates.render(template, [], merge_vars)["html"]
   end
 
-  def template_name(lang)
+  def template_name(lang, version)
     scope = mailer_name.gsub(/_mailer/, "")
-    "#{lang}/#{scope}/#{action_name}"
+    if version.present?
+      "#{lang}/#{scope}/#{action_name}/v#{version}"
+    else
+      "#{lang}/#{scope}/#{action_name}"
+    end
   end
 
 end
