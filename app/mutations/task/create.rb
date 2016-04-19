@@ -1,9 +1,8 @@
 class Task::Create < Task::BaseForm
   class Submit < Task::BaseForm::Submit
-    def execute
-      super.tap do |outcome|
-        # TODO: Send task created email
-      end
+
+    def working_group
+      @working_group ||= WorkingGroup.find(working_group_id)
     end
   end
 end
