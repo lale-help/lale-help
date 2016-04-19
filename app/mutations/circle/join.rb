@@ -6,8 +6,10 @@ class Circle::Join < ::Form
   class Submit < ::Form::Submit
 
     def execute
-      add_to_circle(user)
-      notify_circle_admins if circle.must_activate_users?
+      unless user_in_circle?
+        add_to_circle(user)
+        notify_circle_admins if circle.must_activate_users?
+      end
       circle
     end
 
@@ -36,6 +38,10 @@ class Circle::Join < ::Form
 
     def circle
       @circle ||= Circle.find(circle_id)
+    end
+
+    def user_in_circle?
+      user.circles.map(&:id).include?(circle_id)
     end
 
   end
