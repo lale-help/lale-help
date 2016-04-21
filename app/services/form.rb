@@ -10,18 +10,20 @@ class Form
     self.attributes << opts
 
     attr_writer name
-    define_method name do
-      if defined?("@#{name}") && instance_variable_defined?("@#{name}")
-        instance_variable_get("@#{name}")
+    unless instance_methods.include?(name)
+      define_method name do
+        if defined?("@#{name}") && instance_variable_defined?("@#{name}")
+          instance_variable_get("@#{name}")
 
-      elsif opts[:default].is_a? Proc
-        p = opts[:default]
-        val = self.instance_eval(&p)
-        instance_variable_set("@#{name}", val)
-        val
+        elsif opts[:default].is_a? Proc
+          p = opts[:default]
+          val = self.instance_eval(&p)
+          instance_variable_set("@#{name}", val)
+          val
 
-      elsif primary_object.respond_to?(name)
-        primary_object.send(name)
+        elsif primary_object.respond_to?(name)
+          primary_object.send(name)
+        end
       end
     end
   end
