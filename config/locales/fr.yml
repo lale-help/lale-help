@@ -544,13 +544,17 @@
           :one: 'Cette entrée ne peut être éffacée car une dépendence existe : %{record}'
   :errors:
     :password:
-      :too_short: Merci de choisir un mot de passe de plus de 8 caractères.
+      :too_short: Votre mot de passe doit avoir un minimum de 8 caractères et inclure
+        au moins une majuscule, une minuscule et un chiffre.
       :does_not_match: Votre mot de passe ne correspond pas.
       :nils: Merci de saisir un mot de passe.
       :empty: Mot de passe est nécessaire.
-      :no_lower: Votre mot de passe doit contenir au moins une lettre minuscule
-      :no_numeric: Votre mot de passe doit contenir au moins un chiffre
-      :no_upper: Votre mot de passe doit contenir au moins une lettre majuscule
+      :no_lower: Votre mot de passe doit avoir un minimum de 8 caractères et inclure
+        au moins une majuscule, une minuscule et un chiffre.
+      :no_numeric: Votre mot de passe doit avoir un minimum de 8 caractères et inclure
+        au moins une majuscule, une minuscule et un chiffre.
+      :no_upper: Votre mot de passe doit avoir un minimum de 8 caractères et inclure
+        au moins une majuscule, une minuscule et un chiffre.
     :password_confirmation:
       :did_not_match: Votre mot de passe et confirmation de mot de passe ne correspondent
         pas.

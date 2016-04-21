@@ -145,13 +145,17 @@
     :start_date:
       :empty: Start date can't be blank.
     :password:
-      :no_lower: Your password must have at least one lowercase letter
-      :too_short: Please pick a password that is longer than 8 characters.
+      :no_lower: Your password must be at least 8 characters long and contain at least
+        one uppercase letter, one lowercase letter and one digit.
+      :too_short: Your password must be at least 8 characters long and contain at
+        least one uppercase letter, one lowercase letter and one digit.
       :nils: Please provide a password.
       :does_not_match: Your password did not match the password confirmation.
       :empty: Password is required.
-      :no_upper: Your password must have at least one uppercase letter
-      :no_numeric: Your password must have at least one digit
+      :no_upper: Your password must be at least 8 characters long and contain at least
+        one uppercase letter, one lowercase letter and one digit.
+      :no_numeric: Your password must be at least 8 characters long and contain at
+        least one uppercase letter, one lowercase letter and one digit.
     :password_confirmation:
       :did_not_match: Your password and password confirmation did not match.
       :nils: Please confirm your password.
