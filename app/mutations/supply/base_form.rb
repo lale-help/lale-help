@@ -1,5 +1,5 @@
 class Supply::BaseForm < ::Form
-  attribute :supply, :model, primary: true, new_records: true, default: proc { Supply.new circle: circle, working_group: available_working_groups.first }
+  attribute :supply, :model, primary: true, new_records: true, default: proc { Supply.new }
   attribute :user, :model
 
   attribute :name,             :string
@@ -33,7 +33,10 @@ class Supply::BaseForm < ::Form
         s.name          = name
         s.due_date      = due_date
         s.description   = description
+
         s.working_group = working_group
+        s.circle        = circle
+
         s.location      = Location.location_from(location)
         s.project       = project
         s.save

@@ -101,7 +101,7 @@
           = errors.message_for(:project_id)
         - else
           = f.hidden_field :project_id
-          = text_field_tag :disabled, @form.project.name, disabled: true
+          = text_field_tag :disabled, @form.project.try(:name), disabled: true
 
 
 

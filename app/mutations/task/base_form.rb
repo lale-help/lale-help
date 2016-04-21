@@ -1,5 +1,5 @@
 class Task::BaseForm < ::Form
-  attribute :task, :model, primary: true, new_records: true, default: proc{ Task.new circle: circle, working_group: available_working_groups.first }
+  attribute :task, :model, primary: true, new_records: true, default: proc{ Task.new }
   attribute :user, :model
 
   attribute :name,             :string
@@ -28,6 +28,7 @@ class Task::BaseForm < ::Form
   attribute :circle, :model
 
   include TaskableForm
+
 
 
 
@@ -78,6 +79,8 @@ class Task::BaseForm < ::Form
       task.tap do |t|
         t.name          = name
         t.description   = description
+
+        t.circle        = circle
         t.working_group = working_group
         t.project       = project
 

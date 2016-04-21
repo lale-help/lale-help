@@ -2,20 +2,22 @@ module TaskableForm
   extend ActiveSupport::Concern
 
   included do
-    attribute :working_group, :model
-    attribute :working_group_id, :string
+    attribute :working_group_id, :string, required: false
+    attribute :working_group,    :model
 
     attribute :project_id,       :string, required: false
-    attribute :project,          :model, required: false, default: proc { project_id.present? ? Project.find(project_id) : nil }
-  end
-
-  def working_group_id
-    @working_group_id ||= working_group.id
+    attribute :project,          :model,  required: false, default: proc { Project.find(project_id) if project_id.present? }
   end
 
   def working_group
     @working_group ||= begin
-      primary_object.working_group || available_working_groups.first
+      if primary_object.working_group.present?
+        primary_object.working_group
+      elsif working_group_id.present?
+        WorkingGroup.find(working_group_id)
+      else
+        available_working_groups.first
+      end
     end
   end
 
@@ -34,15 +36,11 @@ module TaskableForm
   end
 
   def working_group_disabled?
-    if primary_object.new_record?
-      available_working_groups.size == 1
-    else
-      true
-    end
+    primary_object.persisted? || available_working_groups.size == 1
   end
 
   def project_disabled?
-    project.present?
+    primary_object.persisted? || project.present?
   end
 
   def project_select(form)
