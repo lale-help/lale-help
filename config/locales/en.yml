@@ -310,6 +310,7 @@
           :by: by
           :between: between
         :scheduled_time_start: Start
+        :project: Project
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary

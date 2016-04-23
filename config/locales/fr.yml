@@ -426,6 +426,7 @@
         :start_date: Date de début
         :time: Heure
         :start_time: Heure de début
+        :project: Projet
       :supply:
         :completed_at: Terminé le
         :description: Description
