@@ -68,3 +68,5 @@ end
 # Core Extentions
 require 'formtastic/inputs/json_input'
 require 'mutations/symbol_filter'
+require 'serializers/secure_hash_serializer'
+require 'serializers/symbol_serializer'

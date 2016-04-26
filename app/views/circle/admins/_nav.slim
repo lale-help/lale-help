@@ -2,11 +2,13 @@
 
   a class=tab_class('show') href=circle_admin_path(current_circle)
     = t('.basic-settings')
+  a class=tab_class('files') href=files_circle_admin_path(current_circle)
+    = t('.files')
   a class=tab_class('extended_settings') href=extended_settings_circle_admin_path(current_circle)
     = t('.extended-settings')
-  a class=tab_class('roles') href=roles_circle_admin_path(current_circle) 
+  a class=tab_class('roles') href=roles_circle_admin_path(current_circle)
     = t('.roles')
-  a class=tab_class('working_groups') href=working_groups_circle_admin_path(current_circle) 
+  a class=tab_class('working_groups') href=working_groups_circle_admin_path(current_circle)
     = t('.working-groups')
   a class=tab_class('invite') href=invite_circle_admin_path(current_circle)
     - if pending_admin_actions?

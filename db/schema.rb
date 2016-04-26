@@ -77,14 +77,17 @@ ActiveRecord::Schema.define(version: 20160417005737) do
   add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
 
   create_table "file_uploads", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "name"
+    t.string   "upload_type"
+    t.boolean  "is_public",               default: false
+    t.integer  "uploader_id"
+    t.string   "uploadable_type"
+    t.integer  "uploadable_id"
     t.string   "file_name"
     t.string   "file_path"
     t.string   "file_content_type"
     t.string   "file_extension"
     t.string   "file_encryption_details"
-    t.boolean  "is_public",               default: false
-    t.string   "uploadable_type"
-    t.integer  "uploadable_id"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
   end
@@ -202,8 +205,8 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.string   "scheduling_type"
     t.string   "start_time"
     t.string   "due_time"
-    t.date     "start_date"
     t.integer  "project_id"
+    t.date     "start_date"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -232,11 +235,11 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
-    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
+    t.boolean  "accept_terms"
     t.string   "about_me"
     t.integer  "address_id"
     t.integer  "status"

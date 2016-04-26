@@ -34,3 +34,10 @@
           - current_circle.organizers.active.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
+
+      .panel
+        .title= t('.files')
+        .body
+          ul
+            - current_circle.files.select{|f| can?(:read, f)}.each do |file|
+              li= link_to file.name, file_path(file)
