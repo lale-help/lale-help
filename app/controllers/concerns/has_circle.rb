@@ -9,7 +9,6 @@ module HasCircle
 
   def save_current_circle_to_session
     session[:circle_id] = current_circle.id if current_circle.present?
-    puts session.to_json
   end
 
   def current_circle
