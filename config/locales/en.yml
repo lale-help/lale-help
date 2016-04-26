@@ -595,6 +595,9 @@
         :save-failed: We could not save your settings. Please fix any errors and try
           again.
         :circle_invalid: Not authorized to view this circle
+    :file_uploads:
+      :updated: File Updated
+      :created: File successfully uploaded
   :views:
     :pagination:
       :first: "&laquo; First"
@@ -1222,3 +1225,5 @@
   :files:
     :new:
       :header: Add file to %{name}
+    :edit:
+      :header: Edit File

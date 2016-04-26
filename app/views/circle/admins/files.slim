@@ -16,6 +16,7 @@ section
         td= file.uploader.name
         td= l(file.created_at, format: :short)
         td.actions
+          = link_to '', edit_file_path(file), class: 'edit'
           = link_to '', file_path(file), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_file') }
 
   = link_to t('.new-file'), new_file_path(FileUpload.uploadable_gid(current_circle)), class: 'button button-primary'

@@ -32,7 +32,7 @@ class FilesController < ApplicationController
     authorize! :manage, @form.uploadable
     outcome = @form.submit
     if outcome.success?
-      redirect_to @form.redirect_path
+      redirect_to @form.redirect_path, notice: t('flash.file_uploads.created')
 
     else
       render :new
@@ -40,9 +40,23 @@ class FilesController < ApplicationController
   end
 
   def edit
+    file = FileUpload.find(params[:id])
+    authorize! :manage, file
+    @form = FileUpload::UpdateForm.new(file_upload: file, redirect_path: URI(request.referer || '').path)
   end
 
   def update
+    file = FileUpload.find(params[:id])
+    authorize! :manage, file
+    @form = FileUpload::UpdateForm.new(params[:file_upload], file_upload: file)
+    outcome = @form.submit
+    if outcome.success?
+      redirect_to @form.redirect_path, notice: t('flash.file_uploads.updated')
+
+    else
+      errors.add outcome.errors
+      render :edit
+    end
   end
 
   def destroy
