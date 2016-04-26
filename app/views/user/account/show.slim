@@ -66,5 +66,5 @@ main
       a.button.button-primary href=account_edit_path
         = t('.edit_profile')
       a.button href=account_reset_password_path =t('.reset_password')
-      = link_to t('.new-file'), new_file_path(Base64.strict_encode64(current_user.to_gid.to_s)), class: 'button'
+      / = link_to t('.new-file'), new_file_path(Base64.strict_encode64(current_user.to_gid.to_s)), class: 'button'
 

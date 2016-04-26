@@ -1219,3 +1219,6 @@
     :cancel: Cancel
   :supply_edit:
     :cancel: Cancel
+  :files:
+    :new:
+      :header: Add file to %{name}
