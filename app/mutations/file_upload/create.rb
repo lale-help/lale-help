@@ -36,7 +36,6 @@ class FileUpload::Create < Mutations::Command
     FileUpload.directory.files.create({
       :body         => encrypted.data,
       :key          => upload.file_path,
-      :content_type => upload.file_content_type,
       :public       => false
     })
 
