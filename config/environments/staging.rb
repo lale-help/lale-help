@@ -5,4 +5,6 @@ Rails.application.configure do
   # staging + production should be the same
 
   config.i18n.fallbacks = false
+
+  config.x.feature_toggles.files = true
 end

@@ -24,7 +24,7 @@ class FileUpload::Create < Mutations::Command
     upload.is_public   = is_public
 
 
-    encrypted = EncryptedStorage::Encryptor.new.process(file.read)
+    encrypted = Crypto::Encryptor.new.process(file.read)
 
     upload.file_encryption_details = encrypted.details
 

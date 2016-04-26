@@ -9,7 +9,7 @@ class FileUpload < ActiveRecord::Base
 
   def self.directory
     @bucket ||= begin
-      storage   = Fog::Storage.new(Rails.application.config.x.fog.storage_opts)
+      storage = Fog::Storage.new(Rails.application.config.x.fog.storage_opts)
       storage.directories.new(Rails.application.config.x.fog.directory_opts)
     end
   end
@@ -19,8 +19,7 @@ class FileUpload < ActiveRecord::Base
   end
 
   def read
-    # encrypted = self.class.bucket.files.head(self.file_path).body
     encrypted = self.class.directory.files.get(self.file_path).body
-    EncryptedStorage::Decryptor.new(self.file_encryption_details).process(encrypted)
+    Crypto::Decryptor.new(self.file_encryption_details).process(encrypted)
   end
 end
