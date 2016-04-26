@@ -15,11 +15,11 @@ class BaseMandrillMailer < ActionMailer::Base
 
   private
 
-  def send_mail(email, subject, body)
-    mail(to: email, subject: subject, body: body, content_type: content_type)
+  def send_mail(email, subject, body, reply_to)
+    mail(to: email, subject: subject, body: body, content_type: content_type, reply_to: reply_to)
   end
 
-  def build_message lang, email, version: nil, &block
+  def build_message lang, email, reply_to=self.default_params[:reply_to], version: nil, &block
     I18n.with_locale(lang) do
       merge_vars = block.call
       merge_vars.merge!(default_merge_vars)
@@ -30,7 +30,7 @@ class BaseMandrillMailer < ActionMailer::Base
         fetch_template("en", version, merge_vars)
       end
 
-      send_mail(email, subject, body)
+      send_mail(email, subject, body, reply_to)
     end
   end
 

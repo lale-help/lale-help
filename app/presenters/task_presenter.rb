@@ -1,5 +1,5 @@
 class TaskPresenter < Presenter
-  delegate :id, :name, :volunteers, :volunteer_count_required, :comments, :due_date,  to: :object
+  delegate :id, :name, :volunteers, :volunteer_count_required, :comments, :due_date, :circle, :organizer,  to: :object
 
   def description(length: nil)
     if length
