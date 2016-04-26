@@ -46,8 +46,7 @@ class FilesController < ApplicationController
   end
 
   def destroy
-    file = FileUpload.find(params[:id])
-    file.destroy!
+    FileUpload::Destroy.run!( user: current_user, file: FileUpload.find(params[:id]) )
     redirect_to :back
   end
 end
