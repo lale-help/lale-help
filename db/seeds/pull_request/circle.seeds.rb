@@ -5,7 +5,8 @@
 location = Location.find_or_create_by(
     geocode_query: 'Munich',
     latitude: 48.1351253,
-    longitude: 11.5819806
+    longitude: 11.5819806,
+    timezone: 'Europe/Berlin'
 )
 Address.reset_callbacks(:save)
 address = Address.find_or_create_by(city: 'Munich', country: 'DE', location_id: location.id)
