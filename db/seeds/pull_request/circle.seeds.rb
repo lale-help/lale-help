@@ -5,8 +5,7 @@
 location = Location.find_or_create_by(
     geocode_query: 'Munich',
     latitude: 48.1351253,
-    longitude: 11.5819806,
-    timezone: 'Europe/Berlin'
+    longitude: 11.5819806
 )
 if location.geocode_data.nil?
   location.geocode_data={"address_components"=>
