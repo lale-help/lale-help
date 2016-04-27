@@ -7,6 +7,7 @@ location = Location.find_or_create_by(
     latitude: 48.1351253,
     longitude: 11.5819806
 )
+Address.reset_callbacks(:save)
 address = Address.find_or_create_by(city: 'Munich', country: 'DE', location_id: location.id)
 circle = Circle.find_or_create_by(name: "Default", address: address)
 working_group = WorkingGroup.find_or_create_by(name: "Default WG", circle: circle)
