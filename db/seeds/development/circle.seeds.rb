@@ -8,22 +8,6 @@ location = Location.find_or_create_by(
     longitude: 11.5819806,
     timezone: 'Europe/Berlin'
    )
-if location.geocode_data.nil?
-  location.geocode_data={"address_components"=>
-                                  [{"long_name"=>"Munich", "short_name"=>"Munich", "types"=>["locality", "political"]},
-                                   {"long_name"=>"Upper Bavaria", "short_name"=>"Upper Bavaria", "types"=>["administrative_area_level_2", "political"]},
-                                   {"long_name"=>"Bavaria", "short_name"=>"BY", "types"=>["administrative_area_level_1", "political"]},
-                                   {"long_name"=>"Germany", "short_name"=>"DE", "types"=>["country", "political"]}],
-                              "formatted_address"=>"Munich, Germany",
-                              "geometry"=>
-                                  {"bounds"=>{"northeast"=>{"lat"=>48.2482197, "lng"=>11.7228755}, "southwest"=>{"lat"=>48.0616018, "lng"=>11.360796}},
-                                   "location"=>{"lat"=>48.1351253, "lng"=>11.5819806},
-                                   "location_type"=>"APPROXIMATE",
-                                   "viewport"=>{"northeast"=>{"lat"=>48.2482197, "lng"=>11.7228755}, "southwest"=>{"lat"=>48.0616018, "lng"=>11.360796}}},
-                              "place_id"=>"ChIJ2V-Mo_l1nkcRfZixfUq4DAE",
-                              "types"=>["locality", "political"]}.to_json
-  location.save
-end
 address = Address.find_or_create_by(city: 'Munich', country: 'DE', location_id: location.id)
 circle = Circle.find_or_create_by(name: "Default", address: address)
 working_group = WorkingGroup.find_or_create_by(name: "Default WG", circle: circle)
