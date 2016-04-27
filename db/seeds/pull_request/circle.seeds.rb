@@ -14,7 +14,7 @@ working_group = WorkingGroup.find_or_create_by(name: "Default WG", circle: circl
 
 
 # Create Admin User
-admin = User.find_or_create_by(first_name: "Lale", last_name: "Admin", is_admin: true, primary_circle_id: circle.id, status: 'active')
+admin = User.find_or_create_by(first_name: "Lale", last_name: "Admin", is_admin: true, primary_circle_id: circle.id, status: :active)
 if admin.identity.nil?
   User::Identity.create(user_id: admin.id, email: "admin@lale.help", password: "Example1234")
 end
@@ -29,7 +29,7 @@ working_group.roles.admin.find_or_create_by! user: admin
 
 # Create some volunteer users
 (1..5).each do |i|
-  user = User.find_or_create_by(first_name: "Lale", last_name: "App#{i}", status: 'active')
+  user = User.find_or_create_by(first_name: "Lale", last_name: "App#{i}", status: :active)
   if user.identity.nil?
     User::Identity.create(user_id: user.id, email: "user#{1}@lale.help", password: "Example1234")
   end
