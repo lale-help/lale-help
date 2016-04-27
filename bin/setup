@@ -10,5 +10,5 @@ Dir.chdir APP_ROOT do
   system "bundle check || bundle install"
 
   puts "\n== Preparing database =="
-  system "bin/rake db:create db:migrate"
+  system "bin/rake db:create db:migrate db:seed"
 end
