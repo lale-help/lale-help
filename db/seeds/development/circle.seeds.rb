@@ -1,3 +1,6 @@
+# ---- WARNING ----
+# This file creates an **admin** user.
+# This should never be run on any staging or production environment
 
 location = Location.location_from("Munich")
 address = Address.find_or_create_by(city: 'Munich', country: 'DE', location_id: location.id)
