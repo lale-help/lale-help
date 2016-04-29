@@ -800,6 +800,7 @@
       :reopened: Task has been re-opened
     :auto_comment:
       :user_assigned: "%{user} signed up for this task on %{date}."
+      :copied: This task was copied from task %{original_task} on %{date}.
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated

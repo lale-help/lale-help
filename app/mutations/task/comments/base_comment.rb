@@ -1,4 +1,4 @@
-class Task::AutoComment < Mutations::Command
+class Task::Comments::BaseComment < Mutations::Command
   required do
     model :task
     model :user
@@ -9,24 +9,21 @@ class Task::AutoComment < Mutations::Command
   def execute
     I18n.locale = task.circle.language
     Comment.create(task: task,
-                   commenter: Task::AutoComment.commenter,
+                   commenter: Task::Comments::BaseComment.commenter,
                    body: build_message)
   end
 
   private
 
-  def build_message
-    params = {}.tap do |hash|
+  def message_params
+    {}.tap do |hash|
       hash[:date] =  I18n.l(Date.today, format: :long)
       hash[:user] = user.name
-      case message
-        when 'copied'
-          hash[:original_task] = task_copied.name
-        when 'data_changed'
-          hash[:fields_changed] = '...'
-      end
     end
-    I18n.t("tasks.auto_comment.#{message}", params)
+  end
+
+  def build_message
+    I18n.t("tasks.auto_comment.#{message}", message_params)
   end
 
   def self.commenter
