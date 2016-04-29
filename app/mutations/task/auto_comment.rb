@@ -8,15 +8,9 @@ class Task::AutoComment < Mutations::Command
 
   def execute
     I18n.locale = task.circle.language
-
-    # TODO create bot user
-    commenter = User.find_by(first_name: 'Lale', last_name: 'Bot')
-
-    comment = Comment.create(task: task,
-                             commenter: commenter,
-                             body: build_message)
-
-    comment
+    Comment.create(task: task,
+                   commenter: Task::AutoComment.commenter,
+                   body: build_message)
   end
 
   private
@@ -33,6 +27,10 @@ class Task::AutoComment < Mutations::Command
       end
     end
     I18n.t("tasks.auto_comment.#{message}", params)
+  end
+
+  def self.commenter
+    @commenter ||= User::Identity.find_by(email: 'lale-bot@lale.help').user
   end
 
 end

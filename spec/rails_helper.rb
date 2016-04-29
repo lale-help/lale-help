@@ -60,6 +60,9 @@ RSpec.configure do |config|
   #   # feature specs need to use lale in English to find labels etc.
   #   page.driver.headers = { 'ACCEPT-LANGUAGE' => 'en' }
   # end
+  config.before(:each) do
+    load Rails.root + 'db/seeds.rb'
+  end
 
   config.after(:each, js: true) do |example|
     if example.exception != nil
