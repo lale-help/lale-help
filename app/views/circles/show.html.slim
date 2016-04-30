@@ -36,7 +36,7 @@
               = render partial: 'user/user_icon', locals: {user: user, link: true}
 
       - if @files.present? && feature_enabled?(:files)
-        .panel
+        .files.panel
           .title= t('.files')
           .body
             ul
