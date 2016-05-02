@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "3a37b198129726a85aa411127032d40b95519c901e23e3055241cf7fb38c574c",
-    "current": "3a37b198129726a85aa411127032d40b95519c901e23e3055241cf7fb38c574c"
+    "previous": "dd0213e31c153b70a500737058b59ab3eed8e9a2b0105e129bf9899d05a2d69f",
+    "current": "dd0213e31c153b70a500737058b59ab3eed8e9a2b0105e129bf9899d05a2d69f"
   },
   "fonts": [
     "app/assets/fonts/lale/lale.ttf",
@@ -22,6 +22,10 @@
       "codepoint": 61707,
       "source": "app/assets/icons/calendar.svg"
     },
+    "circle": {
+      "codepoint": 61715,
+      "source": "app/assets/icons/circle.svg"
+    },
     "clock": {
       "codepoint": 61705,
       "source": "app/assets/icons/clock.svg"
@@ -34,9 +38,17 @@
       "codepoint": 61708,
       "source": "app/assets/icons/compass.svg"
     },
+    "dashboard": {
+      "codepoint": 61716,
+      "source": "app/assets/icons/dashboard.svg"
+    },
     "delete": {
       "codepoint": 61713,
       "source": "app/assets/icons/delete.svg"
+    },
+    "document": {
+      "codepoint": 61717,
+      "source": "app/assets/icons/document.svg"
     },
     "drawer": {
       "codepoint": 61697,
@@ -46,9 +58,21 @@
       "codepoint": 61710,
       "source": "app/assets/icons/envelope-open.svg"
     },
+    "heart": {
+      "codepoint": 61718,
+      "source": "app/assets/icons/heart.svg"
+    },
     "inbox": {
       "codepoint": 61698,
       "source": "app/assets/icons/inbox.svg"
+    },
+    "kanji": {
+      "codepoint": 61719,
+      "source": "app/assets/icons/kanji.svg"
+    },
+    "location-marker": {
+      "codepoint": 61720,
+      "source": "app/assets/icons/location-marker.svg"
     },
     "missing": {
       "codepoint": 61702,
@@ -65,6 +89,10 @@
     "plus-skinny": {
       "codepoint": 61703,
       "source": "app/assets/icons/plus-skinny.svg"
+    },
+    "supply": {
+      "codepoint": 61721,
+      "source": "app/assets/icons/supply.svg"
     },
     "user": {
       "codepoint": 61701,

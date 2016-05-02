@@ -73,7 +73,7 @@ body.public {
           @include lale-icon($lale-icon-papers, $icon-size);
         }
         &.location {
-          @include lale-icon($lale-icon-compass, $icon-size);
+          @include lale-icon($lale-icon-location-marker, $icon-size);
         }
         &.working-groups {
           @include lale-icon($lale-icon-archive, $icon-size);

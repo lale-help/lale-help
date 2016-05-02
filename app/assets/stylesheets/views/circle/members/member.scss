@@ -55,10 +55,10 @@ section > .member {
       }
 
       .completed .icon {
-        @include lale-icon($lale-icon-plus-skinny, 2em);
+        @include lale-icon($lale-icon-heart, 2em);
       }
       .location .icon {
-        @include lale-icon($lale-icon-compass, 2em);
+        @include lale-icon($lale-icon-location-marker, 2em);
       }
       .work-group .icon {
         @include lale-icon($lale-icon-archive, 2em);
@@ -66,8 +66,8 @@ section > .member {
       .contact .icon {
         @include lale-icon($lale-icon-envelope-open, 2em);
       }
-      .volunteer .icon {
-        @include lale-icon($lale-icon-user, 2em);
+      .circles .icon {
+        @include lale-icon($lale-icon-circle, 2em);
       }
 
       > * {

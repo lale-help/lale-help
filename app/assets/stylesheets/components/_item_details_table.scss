@@ -20,7 +20,7 @@ $border-radius: 1.5rem;
     @include lale-icon($lale-icon-clock, 2em);
   }
   .location .icon {
-    @include lale-icon($lale-icon-compass, 2em);
+    @include lale-icon($lale-icon-location-marker, 2em);
   }
   .work-group .icon {
     @include lale-icon($lale-icon-archive, 2em);
@@ -32,7 +32,7 @@ $border-radius: 1.5rem;
     @include lale-icon($lale-icon-user, 2em);
   }
   .project .icon {
-    @include lale-icon($lale-icon-drawer, 2em);
+    @include lale-icon($lale-icon-document, 2em);
   }
   .user .icon {
     @include lale-icon($lale-icon-user, 2em);
@@ -41,9 +41,8 @@ $border-radius: 1.5rem;
     @include lale-icon($lale-icon-papers, 2em);
   }
   .supply .icon {
-    @include lale-icon($lale-icon-papers, 2em);
+    @include lale-icon($lale-icon-supply, 2em);
   }
-
 
   > * {
     padding: 1.5rem;
