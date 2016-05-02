@@ -405,7 +405,7 @@
         :scheduled_time_start: Commence
         :scheduling_sentence:
           :at: "à %{start}"
-          :between: entre %{start} et %{end}
+          :between: entre %{start} et %{due}
           :by: avant %{due}
         :duration-text:
           :hours_1: 1 Heure
@@ -448,7 +448,7 @@
         :scheduled-time:
           :at: "à %{start}"
           :on_date: le
-          :between: entre %{start} et %{end}
+          :between: entre %{start} et %{due}
         :duration-text:
           :hours_1: 1 Heure
           :hours_2: 2 Heures
