@@ -468,10 +468,6 @@
         :duration: Zeitaufwand
         :scheduling_type: Zeitpunkt
         :scheduled_time_start: Beginn
-        :scheduled-time:
-          :at: um %{start}
-          :on_date: am
-          :between: zwischen %{start} und %{end}
         :duration-text:
           :hours_1: 1 Stunde
           :hours_2: 2 Stunden

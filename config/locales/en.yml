@@ -397,10 +397,6 @@
         :organizer: Organizer
         :organizer_assignments: Organizer assignments
         :primary_location: Location for supply
-        :scheduled-time:
-          :at: at %{start}
-          :between: between %{start} and %{end}
-          :on_date: 'on'
         :scheduled_time_start: Start
         :scheduling_type: Scheduled time
         :skill_assignments: Skill assignments
