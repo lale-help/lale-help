@@ -28,7 +28,7 @@ class Task < ActiveRecord::Base
   end
 
   def on_track?
-    missing_volunteer_count == 0
+    completed_at? || (missing_volunteer_count == 0)
   end
 
   def is_missing_volunteers?

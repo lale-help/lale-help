@@ -10,7 +10,7 @@ class Supply < ActiveRecord::Base
   end
 
   def on_track?
-    volunteers.present?
+    completed_at? || volunteers.present?
   end
 
 end
