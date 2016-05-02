@@ -914,6 +914,14 @@
       :clone:
         :new_task_name_regexp: Kopie( (\d+))?$
         :new_task_name: "%{base_name} - Kopie"
+      :status_labels:
+        :open: offen
+        :urgent: dringend
+        :done: erledigt
+        :done: erledigt
+        :signed_up: angemeldet
+        :needed: benötigt
+
   :circles:
     :new:
       :create: Helferkreis anlegen

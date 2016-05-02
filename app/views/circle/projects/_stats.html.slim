@@ -1,0 +1,6 @@
+ul.stats-box
+  - stats.each_pair do |key, value|
+    li
+      = value
+      span.label 
+        = t(key, scope: 'circle.projects.status_labels')

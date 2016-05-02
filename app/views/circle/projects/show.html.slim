@@ -22,43 +22,19 @@
             .icon
             .title= Task.model_name.human(count: 2)
             .details
-              ul.stats-box
-                li
-                  = project.stats.tasks.open
-                  span.label = t(".open")
-                li
-                  = project.stats.tasks.urgent
-                  span.label = t(".urgent")
-                li
-                  = project.stats.tasks.done
-                  span.label = t(".done")
+              = render partial: 'stats', object: project.stats.tasks
 
           .row.supply
             .icon
             .title= Supply.model_name.human(count: 2)
             .details
-              ul.stats-box
-                li
-                  = project.stats.supplies.open
-                  span.label = t(".open")
-                li
-                  = project.stats.supplies.urgent
-                  span.label = t(".urgent")
-                li
-                  = project.stats.supplies.done
-                  span.label = t(".done")
+              = render partial: 'stats', object: project.stats.supplies
 
           .row.user
             .icon
             .title= User.model_name.human(count: 2)
             .details
-              ul.stats-box
-                li
-                  = project.stats.users.needed
-                  span.label = t(".needed")
-                li
-                  = project.stats.users.signed_up
-                  span.label = t(".signed_up")
+              = render partial: 'stats', object: project.stats.users
 
           - if project.has_date_range?
             .row.date-range

@@ -70,6 +70,7 @@ body.internal .project-page {
       display: inline-block;
       min-width: 50px;
       border-right: 1px solid $light-grey;
+      padding: 0 4px;
       &:last-child {
         border-right: none;
       }

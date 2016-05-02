@@ -891,6 +891,13 @@
       :clone:
         :new_task_name: "%{base_name} - copy"
         :new_task_name_regexp: copy( (\d+))?$
+      :status_labels:
+        :open: open
+        :urgent: urgent
+        :done: done
+        :done: done
+        :signed_up: signed up
+        :needed: needed
       :show:
         :date_range: Period
         :date_range_sentence: from %{start_date} to %{due_date}
