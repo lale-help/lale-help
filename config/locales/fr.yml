@@ -333,7 +333,9 @@
       :task/skill: Tâche/Compétence
       :task/skill_assignment: Tâche/Allocation de Compétence
       :task/volunteer_assignment: Tâche/Allocation de volontaire(s)
-      :user: Volontaire
+      :user: 
+        one: Volontaire
+        other: Volontaires
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
       :working_group: Groupe

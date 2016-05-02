@@ -213,9 +213,11 @@
       :task/skill: Task/skill
       :task/skill_assignment: Task/skill assignment
       :task/volunteer_assignment: Task/volunteer assignment
-      :user: Volunteer
       :user/feedback: Volunteer/feedback
       :user/identity: Volunteer/identity
+      :user:
+        one: Helper
+        other: Helpers
       :working_group: Working Group
       :supply:
         :one: Supply

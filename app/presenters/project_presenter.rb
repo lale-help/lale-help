@@ -48,4 +48,22 @@ class ProjectPresenter < Presenter
     _.admins.active.count
   end
 
+  let(:stats) do
+    OpenStruct.new(
+      tasks: OpenStruct.new(
+        open: _.tasks.count,
+        urgent: _.tasks.count,
+        done: _.tasks.count
+      ),
+      supplies: OpenStruct.new(
+        open: _.supplies.count,
+        urgent: _.supplies.count,
+        done: _.supplies.count
+      ),
+      users: OpenStruct.new(
+        needed: _.members.count,
+        signed_up: _.members.count
+      )
+    )
+  end
 end

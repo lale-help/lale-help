@@ -64,7 +64,21 @@ body.internal .project-page {
         }
       }
     }
-
+    .stats-box li {
+      font-size: 2rem;
+      text-align: center;
+      display: inline-block;
+      min-width: 50px;
+      border-right: 1px solid $light-grey;
+      &:last-child {
+        border-right: none;
+      }
+      .label {
+        display: block;
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+    }
   }
 
 }
