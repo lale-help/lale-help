@@ -9,7 +9,7 @@ class FileUpload::CreateForm < ::Form
   attribute :uploadable_gid, :string
   attribute :uploadable,     :model, class: ActiveRecord::Base
 
-  attribute :redirect_path,  :string
+  attribute :redirect_path,  :string, required: false
 
   def uploadable
     @uploadable ||= GlobalID::Locator.locate(uploadable_gid)

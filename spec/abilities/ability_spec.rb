@@ -1,5 +1,4 @@
 require 'rails_helper'
-require "cancan/matchers"
 
 describe "User abilities" do
 
@@ -96,7 +95,7 @@ describe "User abilities" do
         @project = create(:project, working_group: working_group)
         @project.working_group.update_attribute(:is_private, true)
       end
-      
+
       context "own" do
         it { should be_able_to(:read, @project) }
         it { should be_able_to(:update, @project) }
@@ -132,7 +131,7 @@ describe "User abilities" do
       before do
         @project.working_group.update_attribute(:is_private, true)
       end
-      
+
       context "own" do
         it { should be_able_to(:read, @project) }
         it { should_not be_able_to(:update, @project) }
