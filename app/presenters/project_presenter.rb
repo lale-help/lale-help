@@ -61,8 +61,8 @@ class ProjectPresenter < Presenter
         done: _.supplies.count
       ),
       users: OpenStruct.new(
-        needed: _.members.count,
-        signed_up: _.members.count
+        needed:    _.tasks.to_a.sum(&:missing_volunteer_count),
+        signed_up: _.tasks.to_a.sum { |t| t.volunteers.size }
       )
     )
   end
