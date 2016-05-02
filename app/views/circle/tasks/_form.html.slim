@@ -26,7 +26,7 @@
     .field.required
       = f.label :duration
       = f.select :duration do
-        = options_for_select(@form.duration_options)
+        = options_for_select(@form.duration_options, @form.duration)
 
   .field-row-3
 
