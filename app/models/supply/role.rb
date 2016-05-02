@@ -1,5 +1,5 @@
 class Supply::Role < ActiveRecord::Base
-  belongs_to :supply
+  belongs_to :supply, touch: true
   belongs_to :user
 
   enum role_type: %w[
