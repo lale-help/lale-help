@@ -24,6 +24,8 @@ module Taskable
     scope :volunteered, -> { with_role("#{klass.to_s.downcase}.volunteer") }
     scope :organized,   -> { with_role("#{klass.to_s.downcase}.organizer") }
     scope :unassigned,  -> { joins("LEFT JOIN task_roles on tasks.id = task_roles.task_id AND task_roles.role_type = #{klass::Role.role_types['task.volunteer']}").group('tasks.id', 'working_groups.name').having('count(task_roles.id) < volunteer_count_required') }
+    scope :complete,    -> { where.not(completed_at: nil) }
+    scope :incomplete,  -> { where(completed_at: nil) }
 
     scope :ordered_by_date, -> { reorder(due_date: 'asc')}
 
@@ -33,6 +35,14 @@ module Taskable
     validates :description, presence: true
     validates :working_group, presence: true
     validates :project_id, numericality: true, allow_nil: true # project is optional
+  end
+
+  def more_volunteers_needed?
+    !on_track? && due_soon?
+  end
+
+  def due_soon?
+    due_date < 3.days.from_now
   end
 
   def organizer

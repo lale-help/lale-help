@@ -9,4 +9,8 @@ class Supply < ActiveRecord::Base
     volunteers.first
   end
 
+  def on_track?
+    volunteers.present?
+  end
+
 end

@@ -23,14 +23,16 @@ class Task < ActiveRecord::Base
     locations.where(task_location_assignments:{ primary: false})
   end
 
-  # to decide if this stays here or goes to a presenter
   def missing_volunteer_count
     volunteer_count_required - volunteers.size
   end
 
-  # to decide if this stays here or goes to a presenter
+  def on_track?
+    missing_volunteer_count == 0
+  end
+
   def is_missing_volunteers?
-    missing_volunteer_count > 0
+    !on_track?
   end
 
 end

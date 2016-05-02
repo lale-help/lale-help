@@ -52,6 +52,7 @@ module LaleHelp
       #{config.root}/app/mutations/concerns
     )
 
+    config.cache_store = :memory_store, { size: 64.megabytes }
   end
 end
 

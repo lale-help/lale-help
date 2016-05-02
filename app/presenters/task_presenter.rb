@@ -12,8 +12,8 @@ class TaskPresenter < Presenter
   let(:statuses) do
     statuses = []
     statuses << :complete  if _.complete?
-    statuses << :on_track  if on_track?
-    statuses << :urgent    if more_volunteers_needed?
+    statuses << :on_track  if _.on_track?
+    statuses << :urgent    if _.more_volunteers_needed?
     statuses << :new
     statuses
   end
@@ -24,7 +24,7 @@ class TaskPresenter < Presenter
 
   let(:messages) do
     statuses = []
-    statuses << :more_volunteers_needed if more_volunteers_needed?
+    statuses << :more_volunteers_needed if _.more_volunteers_needed?
     statuses << :recent_activity        if recent_comments?
     statuses
   end
@@ -73,16 +73,8 @@ class TaskPresenter < Presenter
     ).html_safe
   end
 
-  let :duration_text do
+  let(:duration_text) do
     I18n.t("activerecord.attributes.task.duration-text.#{_.duration}")
-  end
-
-  let(:on_track?) do
-    _.volunteers.size >= _.volunteer_count_required
-  end
-
-  let(:more_volunteers_needed?) do
-    !on_track? and _.due_date < 3.days.from_now
   end
 
   let(:recent_comments?) do

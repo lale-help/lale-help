@@ -49,21 +49,37 @@ class ProjectPresenter < Presenter
   end
 
   let(:stats) do
-    OpenStruct.new(
-      tasks: OpenStruct.new(
-        open: _.tasks.count,
-        urgent: _.tasks.count,
-        done: _.tasks.count
-      ),
-      supplies: OpenStruct.new(
-        open: _.supplies.count,
-        urgent: _.supplies.count,
-        done: _.supplies.count
-      ),
-      users: OpenStruct.new(
-        needed:    _.tasks.to_a.sum(&:missing_volunteer_count),
-        signed_up: _.tasks.to_a.sum { |t| t.volunteers.size }
+    # all this calculation is quite expensive; caching the result across requests.
+    Rails.cache.fetch(cache_key_for_stats) do
+      OpenStruct.new(
+        tasks: OpenStruct.new(
+          open:   _.tasks.incomplete.count,
+          urgent: _.tasks.to_a.select { |t| t.more_volunteers_needed? }.count,
+          done:   _.tasks.complete.count
+        ),
+        supplies: OpenStruct.new(
+          open:   _.supplies.incomplete.count,
+          urgent: _.supplies.to_a.select { |s| s.more_volunteers_needed? }.count,
+          done:   _.supplies.complete.count
+        ),
+        users: OpenStruct.new(
+          needed:    _.tasks.to_a.sum(&:missing_volunteer_count),
+          signed_up: _.tasks.to_a.sum { |t| t.volunteers.size }
+        )
       )
-    )
+    end
+  end
+
+  private
+
+  # could cache more effectively if it was invalidated only on task/supply state changes
+  # rather than any change, but it'll do for now.
+  let(:cache_key_for_stats) do
+    parts  = []
+    parts << _.tasks.count.to_s
+    parts << _.tasks.maximum(:updated_at).try(:utc).try(:to_i)
+    parts << _.supplies.count.to_s
+    parts << _.supplies.maximum(:updated_at).try(:utc).try(:to_i)
+    "project-stats/#{parts.join('-')}"
   end
 end
