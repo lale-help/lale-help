@@ -37,6 +37,10 @@ class Circle < ActiveRecord::Base
     users.count
   end
 
+  def has_active_user?(user)
+    roles.active.exists?(user: user)
+  end
+
   def open_task_count
     tasks.count
   end

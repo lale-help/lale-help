@@ -3,8 +3,10 @@ class EnsureActiveUser
   class << self
 
     def before(c) # c = controller
-      return unless c.current_user
-      if (c.current_user.pending? && c.current_user.has_circles? && !on_pending_member_page?(c))
+      return unless c.current_user && c.try(:current_circle)
+      if c.current_circle.has_active_user?(c.current_user) || on_pending_member_page?(c)
+        return
+      else
         c.redirect_to pending_member_page_path(c)
       end
     end
@@ -16,8 +18,7 @@ class EnsureActiveUser
     end
     
     def pending_member_page_path(c)
-      circle = c.current_user.primary_circle
-      c.membership_pending_public_circle_path(circle)
+      c.membership_pending_public_circle_path(c.current_circle)
     end
 
   end
