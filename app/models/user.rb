@@ -47,8 +47,6 @@ class User < ActiveRecord::Base
     identity.try :email
   end
 
-
-
   def tasks_for_circle circle
     task_assignments.where(circle: circle).tasks
   end
