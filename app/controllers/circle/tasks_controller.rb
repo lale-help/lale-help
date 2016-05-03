@@ -174,11 +174,12 @@ class Circle::TasksController < ApplicationController
   def clone
     authorize! :clone, current_task
 
+    original_task_id = current_task.id
     outcome = Task::Clone.run(user: current_user, task: current_task)
 
     if outcome.success?
       @task = outcome.result
-      @form = Task::Update.new(current_task, user: current_user, task: @task, circle: current_circle, ability: current_ability)
+      @form = Task::Update.new(current_task, user: current_user, task: @task, circle: current_circle, ability: current_ability, original_task_id: original_task_id)
       render :new
 
     else
