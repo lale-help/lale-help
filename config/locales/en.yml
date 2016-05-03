@@ -801,6 +801,10 @@
     :auto_comment:
       :user_assigned: "%{user} signed up for this task on %{date}."
       :copied: This task was copied from task %{original_task} on %{date}.
+      :completed: "%{user} completed this task on %{date}"
+      :user_unassigned: "%{user} unassigned this task on %{date}"
+      :reopened: "%{user} re-opened this task on %{date}"
+      :invited: "%{user} invited %{invite_count} helpers to this task on %{date}"
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated
