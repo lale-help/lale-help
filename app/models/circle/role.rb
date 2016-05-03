@@ -20,6 +20,8 @@ class Circle::Role < ActiveRecord::Base
   scope :for_circle, ->(circle) { where(circle: circle ) }
 
   validates :user_id, uniqueness: { scope: [:role_type, :circle_id] }
+  validates :user_id, presence: true
+  validates :circle_id, presence: true
 
   def self.role_types_with_names
     self.role_types.keys.map do |role_type|

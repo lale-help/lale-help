@@ -45,23 +45,29 @@ class Circle < ActiveRecord::Base
     tasks.count
   end
 
-  def comment_average
-    @comment_average  ||= begin
-      recent_tasks = tasks.where("tasks.updated_at > ?", 1.month.ago)
-
-      recent_task_count    = recent_tasks.count
-      recent_comment_count = recent_tasks.joins(:comments).count
-
-      if recent_task_count > 0
-        recent_comment_count / recent_task_count
-      else
-        0
-      end
-    end
+  # FIXME don't access Circle::Role internals
+  def active_members
+    users.where(circle_roles: {status: Circle::Role.statuses[:active]})
   end
 
+  # FIXME don't access Circle::Role internals
+  def active_admins
+    admins.where(circle_roles: {status: Circle::Role.statuses[:active]})
+  end
+
+  # FIXME don't access Circle::Role internals
   def pending_members
-    users.pending.order('created_at DESC')
+    users.where(circle_roles: {status: Circle::Role.statuses[:pending]})
+  end
+
+  # FIXME don't access Circle::Role internals
+  def active_volunteers
+    volunteers.where(circle_roles: {status: Circle::Role.statuses[:active]})
+  end
+
+  # FIXME don't access Circle::Role internals
+  def active_organizers
+    organizers.where(circle_roles: {status: Circle::Role.statuses[:active]})
   end
 
   private

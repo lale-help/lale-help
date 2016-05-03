@@ -30,7 +30,7 @@ class Circle::MembersController < ApplicationController
   private
 
   def active_members
-    current_circle.users.active
+    current_circle.active_members
       .includes(:identity, :working_groups, :circle_roles)
       .order('last_name asc')
   end

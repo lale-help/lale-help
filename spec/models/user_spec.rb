@@ -7,8 +7,4 @@ describe User do
   it "should default to language :en" do
     expect(subject.language).to eq("en")
   end
-  it { should respond_to(:status) }
-  it "should default to status nil" do
-    expect(subject.status).to be_nil
-  end
 end

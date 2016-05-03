@@ -42,7 +42,7 @@ class Public::CirclesController < ApplicationController
   private
 
   def redirect_to_circle
-    if current_user.active?
+    if current_user.active_in_circle?(circle)
       redirect_to circle_path(circle)
     end
   end

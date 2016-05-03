@@ -32,11 +32,11 @@ class Ability
 
     can :create, Circle
     can :read,   Circle do |circle|
-      circle.users.active.include? user
+      circle.has_active_user?(user)
     end
 
     can :manage, Circle do |circle|
-      circle.admins.active.include? user
+      circle.has_active_user?(user) && circle.admins.include?(user)
     end
 
     can :create_task, Circle do |circle|
@@ -77,12 +77,13 @@ class Ability
     #
 
     can :delete, Circle::Role do |role|
-      can?(:manage, role.circle)
+      circle = role.circle
+      can?(:manage, circle)
       if role.role_type == 'circle.admin'
-        can?(:manage, role.circle) &&
-        role.circle.admins.active.count > 1
+        can?(:manage, circle) && 
+          circle.admins.where(circle_roles: {status: Circle::Role.statuses[:active]}).count > 1
       else
-        can?(:manage, role.circle)
+        can?(:manage, circle)
       end
     end
 
@@ -103,8 +104,10 @@ class Ability
     #
 
     can :manage, WorkingGroup do |wg|
-      can?(:manage, wg.circle) ||
-      wg.admins.active.include?(user)
+      can?(:manage, wg.circle) 
+      # ||
+      # FIXME
+      #wg.admins.active.include?(user)
     end
 
     can :read, WorkingGroup do |wg|

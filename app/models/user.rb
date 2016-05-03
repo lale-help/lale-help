@@ -63,6 +63,10 @@ class User < ActiveRecord::Base
     identity.try :public_profile
   end
 
+  def active_in_circle?(circle)
+    circle.has_active_user?(self)
+  end
+
   def has_circles?
     !circles.empty?
   end

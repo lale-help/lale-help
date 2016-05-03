@@ -13,7 +13,7 @@ class Circle::ActivateMember < Mutations::Command
   private
 
   def activate_user
-    user.active!
+    circle.roles.find_by(user: user).active!
   end
 
   def notify_user

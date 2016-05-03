@@ -13,5 +13,6 @@ table.default-table
         td = link_to_project(project)
         td = link_to_working_group(project.working_group)
         td
+          / FIXME
           - project.admins.active.each do |user|
             li= link_to_user(user)

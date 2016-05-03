@@ -13,15 +13,18 @@ FactoryGirl.define do
     sequence(:name) {|n| "Circle #{n}" }
   end
 
-  factory :circle_role_volunteer, class: Circle::Role do
-    role_type { "circle.volunteer" }
+  factory :circle_role, class: Circle::Role do
+    
     user
     circle
-  end
+    status { :active }
 
-  factory :circle_role_admin, class: Circle::Role do
-    role_type { "circle.admin" }
-    user
-    circle
+    factory :circle_role_volunteer do
+      role_type { "circle.volunteer" }
+    end
+
+    factory :circle_role_admin do
+      role_type { "circle.admin" }
+    end
   end
 end

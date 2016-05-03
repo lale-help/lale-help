@@ -51,11 +51,7 @@ describe 'New User On-boarding', type: :feature, js: true do
   context "admin approves new user", type: :feature do
     
     let!(:circle) { submit_form(:circle_create_form).result }
-    let!(:new_member) do
-      user = create(:pending_user, primary_circle: circle)
-      circle.roles.send('circle.volunteer').create user: user
-      user
-    end
+    let!(:new_member) { create(:circle_role_volunteer, circle: circle, status: :pending).user }
 
     it "works", :ci_ignore do
       # verify setup

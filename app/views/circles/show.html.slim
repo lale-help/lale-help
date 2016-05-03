@@ -4,7 +4,7 @@
       .title =t('.dashboard_title', name: current_circle.name)
     .right
       span.hint =t('.need_help')
-      a.button href="mailto:#{current_circle.admins.active.first.email}" = t('.contact_circle_admin')
+      a.button href="mailto:#{current_circle.active_admins.first.email}" = t('.contact_circle_admin')
 
   hr
 
@@ -24,13 +24,13 @@
       .members.circle-leaders
         .title= t('.circle_leaders')
         .icons
-          - current_circle.admins.active.each do |user|
+          - current_circle.active_admins.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
 
       .members.working-group-organizers
         .title= t('.working_group_organizers')
         .icons
-          - current_circle.organizers.active.each do |user|
+          - current_circle.active_organizers.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}

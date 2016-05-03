@@ -19,16 +19,15 @@ class Circle::Join < ::Form
 
     def add_to_circle(user)
       unless role.where(user: user, circle: circle).exists?
-        role.create(user: user, circle: circle)
+        status = circle.must_activate_users? ? :pending : :active
+        role.create(user: user, circle: circle, status: status)
       end
-      status = circle.must_activate_users? ? :pending : :active
-      user.status = status
       user.primary_circle = circle unless user.primary_circle_id.present?
       user.save!
     end
 
     def notify_circle_admins
-      circle.admins.active.each do |admin|
+      circle.active_admins.each do |admin|
         token = Token.login.create!(context: { user_id: admin.id })
         UserMailer.account_activation(circle, admin, token).deliver_now
       end
