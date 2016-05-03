@@ -1,13 +1,27 @@
 class Circle < ActiveRecord::Base
   attr_accessor :location_text
 
-  has_many :roles
-  has_many :users,      ->{ distinct }, through: :roles
+  module RoleStatusExtension
+    def active
+      with_status(:active)
+    end
+    def pending
+      with_status(:pending)
+    end
+    def with_status(status)
+      circle = proxy_association.owner
+      # association_name will be users, admins, volunteers, etc.
+      association_name = proxy_association.reflection.delegate_reflection.name
+      circle.send(association_name).where(circle_roles: {status: Circle::Role.statuses[status]})
+    end
+  end
 
-  has_many :admins,     ->{ Circle::Role.send('circle.admin')     }, through: :roles, source: :user
-  has_many :officials,  ->{ Circle::Role.send('circle.official')  }, through: :roles, source: :user
-  has_many :volunteers, ->{ Circle::Role.send('circle.volunteer') }, through: :roles, source: :user
-  has_many :leadership, ->{ Circle::Role.leadership }, through: :roles, source: :user
+  has_many :roles
+  has_many :users,      ->{ distinct.extending(RoleStatusExtension) }, through: :roles
+  has_many :admins,     ->{ Circle::Role.send('circle.admin').extending(RoleStatusExtension)     }, through: :roles, source: :user
+  has_many :officials,  ->{ Circle::Role.send('circle.official').extending(RoleStatusExtension)  }, through: :roles, source: :user
+  has_many :volunteers, ->{ Circle::Role.send('circle.volunteer').extending(RoleStatusExtension) }, through: :roles, source: :user
+  has_many :leadership, ->{ Circle::Role.leadership.extending(RoleStatusExtension) }, through: :roles, source: :user
 
   has_many :working_groups
   has_many :organizers,   -> { distinct }, through: :working_groups, source: :admins
@@ -45,29 +59,25 @@ class Circle < ActiveRecord::Base
     tasks.count
   end
 
-  # FIXME don't access Circle::Role internals
+  # FIXME methods left here only for demo purposes
   def active_members
-    users.where(circle_roles: {status: Circle::Role.statuses[:active]})
+    users.active
   end
 
-  # FIXME don't access Circle::Role internals
   def active_admins
-    admins.where(circle_roles: {status: Circle::Role.statuses[:active]})
+    admins.active
   end
 
-  # FIXME don't access Circle::Role internals
   def pending_members
-    users.where(circle_roles: {status: Circle::Role.statuses[:pending]})
+    users.pending
   end
 
-  # FIXME don't access Circle::Role internals
   def active_volunteers
-    volunteers.where(circle_roles: {status: Circle::Role.statuses[:active]})
+    volunteers.active
   end
 
-  # FIXME don't access Circle::Role internals
   def active_organizers
-    organizers.where(circle_roles: {status: Circle::Role.statuses[:active]})
+    organizers.active
   end
 
   private
