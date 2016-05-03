@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
   has_many :comments, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
 
   enum language: [:en, :de, :fr]
-  enum status: [:pending, :active]
 
   alias_attribute :active_since, :created_at
 

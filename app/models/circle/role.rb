@@ -10,6 +10,8 @@ class Circle::Role < ActiveRecord::Base
     circle.helpee
   ]
 
+  enum status: [:pending, :active]
+  
   LEADERSHIP_TYPES = %w(circle.admin circle.official circle.custom)
   ORGANIZER_TYPES  = %w(circle.admin)
   ORGANIZER_TYPE_IDS  = ORGANIZER_TYPES.map {|id| Circle::Role.role_types[id] }

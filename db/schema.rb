@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401084433) do
+ActiveRecord::Schema.define(version: 20160503092026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160401084433) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "name"
+    t.integer  "status"
   end
 
   create_table "circles", id: :bigserial, force: :cascade do |t|
@@ -225,7 +226,6 @@ ActiveRecord::Schema.define(version: 20160401084433) do
     t.boolean  "public_profile"
     t.string   "about_me"
     t.integer  "address_id"
-    t.integer  "status"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
