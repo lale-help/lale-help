@@ -2,7 +2,6 @@ class Task::Comments::BaseComment < Mutations::Command
   required do
     model :task
     model :user
-    # model :task_copied, required: false
     string :message
   end
 
@@ -27,7 +26,10 @@ class Task::Comments::BaseComment < Mutations::Command
   end
 
   def self.commenter
-    @commenter ||= User::Identity.find_by(email: 'lale-bot@lale.help').user
+    @commenter ||= User::Identity.find_or_create_by(email: 'lale-bot@lale.help') do |identity|
+      identity.password = SecureRandom.uuid
+      identity.user = User.new(first_name: 'Lale', last_name: 'Bot', status: :active)
+    end.user
   end
 
 end
