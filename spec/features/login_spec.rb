@@ -7,14 +7,11 @@ describe 'Login and logout', type: :feature, js: true do
     fill_in "Password",      with: user.identity.password
   end
 
+  let!(:circle) { submit_form(:circle_create_form).result }
+  
   context 'Login with correct data', :ci_ignore do
 
-    let!(:circle) { submit_form(:circle_create_form).result }
-    let!(:user) do
-      user = create(:user, primary_circle: circle)
-      circle.roles.send('circle.volunteer').create(user: user, status: :active)
-      user
-    end
+    let!(:user) { create(:circle_role_volunteer, circle: circle, status: :active).user }
 
     it 'works (as well as logout)' do
       visit root_path
@@ -34,7 +31,7 @@ describe 'Login and logout', type: :feature, js: true do
   context 'Login with incorrect data' do
 
     let!(:user) do 
-      user = create(:user)
+      user = create(:circle_role_volunteer, circle: circle, status: :active).user
       user.identity.password = "wrong password"
       user
     end
@@ -51,11 +48,7 @@ describe 'Login and logout', type: :feature, js: true do
   context 'Pending user logs in' do
 
     let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
-    let!(:user) do
-      user = create(:user, primary_circle: circle)
-      circle.roles.send('circle.volunteer').create(user: user, status: :pending)
-      user
-    end
+    let!(:user) { create(:circle_role_volunteer, circle: circle, status: :pending).user }
 
     it 'sees membership pending message' do
       visit root_path

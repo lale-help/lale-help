@@ -19,6 +19,10 @@ FactoryGirl.define do
     circle
     status { :active }
 
+    after(:create) do |role, evaluator|
+      role.user.update_attribute(:primary_circle, role.circle)
+    end
+
     factory :circle_role_volunteer do
       role_type { "circle.volunteer" }
     end
