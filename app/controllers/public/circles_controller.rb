@@ -1,7 +1,7 @@
 class Public::CirclesController < ApplicationController
   layout 'public'
   skip_authorization_check
-  before_action :ensure_logged_in, except: :cal
+  before_action :ensure_logged_in
   before_action :redirect_to_circle, only: :membership_pending
 
   def index
