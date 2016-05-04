@@ -80,7 +80,7 @@ class Ability
       circle = role.circle
       can?(:manage, circle)
       if role.role_type == 'circle.admin'
-        can?(:manage, circle) && circle.active_admins.count > 1
+        can?(:manage, circle) && circle.admins.active.count > 1
       else
         can?(:manage, circle)
       end

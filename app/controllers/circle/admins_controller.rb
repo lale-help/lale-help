@@ -17,7 +17,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def invite
-    @pending_members = current_circle.pending_members.order('created_at DESC')
+    @pending_members = current_circle.users.pending.order('created_at DESC')
   end
 
   def extended_settings

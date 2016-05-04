@@ -10,7 +10,7 @@ class Circle::Role < ActiveRecord::Base
     circle.helpee
   ]
 
-  enum status: [:pending, :active]
+  enum status: %i(pending active blocked)
   
   LEADERSHIP_TYPES = %w(circle.admin circle.official circle.custom)
   ORGANIZER_TYPES  = %w(circle.admin)

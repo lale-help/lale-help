@@ -1,11 +1,22 @@
 require 'rails_helper'
 
 describe Circle do
-  it { should have_many(:users).class_name(User) }
-  it { should have_many(:admins).class_name(User) }
-  it { should have_many(:volunteers).class_name(User) }
-  it { should have_many(:officials).class_name(User) }
-  it { should have_many(:leadership).class_name(User) }
-  it { should have_many(:tasks).class_name(Task) }
-  it { should belong_to(:address).class_name(Address) }
+
+  it { is_expected.to have_many(:roles).class_name(Circle::Role) }
+  it { is_expected.to have_many(:tasks).class_name(Task) }
+  it { is_expected.to have_many(:supplies).class_name(Supply) }
+  it { is_expected.to have_many(:projects).class_name(Project) }
+  it { is_expected.to have_many(:organizers).class_name(User) }
+  it { is_expected.to have_many(:working_groups).class_name(WorkingGroup) }
+
+  it { is_expected.to belong_to(:address).class_name(Address) }
+
+  %i(users admins officials volunteers leadership).each do |association|    
+    it { is_expected.to have_many(association).class_name(User) }
+    describe "Circle.new.#{association}" do
+      subject(:association) { Circle.new.send(association) }
+      it { is_expected.to respond_to(:active) }
+      it { is_expected.to respond_to(:pending) }
+    end
+  end
 end

@@ -8,13 +8,13 @@ class Circle::MembersController < ApplicationController
 
   def index
     authorize! :manage, current_circle
-    @members       = active_members
+    @members       = active_users
     @total_members = @members.count
   end
 
 
   def public
-    @members       = active_members.where(public_profile: true)
+    @members       = active_users.where(public_profile: true)
     @total_members = @members.count
   end
 
@@ -29,8 +29,8 @@ class Circle::MembersController < ApplicationController
 
   private
 
-  def active_members
-    current_circle.active_members
+  def active_users
+    current_circle.users.active
       .includes(:identity, :working_groups, :circle_roles)
       .order('last_name asc')
   end

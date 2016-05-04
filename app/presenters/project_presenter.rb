@@ -45,7 +45,7 @@ class ProjectPresenter < Presenter
   end
 
   let(:admins_count) do
-    _.active_admins.count
+    _.admins.active.count
   end
 
   let(:stats) do
