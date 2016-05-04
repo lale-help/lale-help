@@ -15,8 +15,9 @@ describe Circle do
     it { is_expected.to have_many(association).class_name(User) }
     describe "Circle.new.#{association}" do
       subject(:association) { Circle.new.send(association) }
-      it { is_expected.to respond_to(:active) }
-      it { is_expected.to respond_to(:pending) }
+      Circle::Role.statuses.keys.each do |method|
+        it { is_expected.to respond_to(method) }
+      end
     end
   end
 end

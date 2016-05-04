@@ -8,7 +8,7 @@ class WorkingGroup < ActiveRecord::Base
 
   has_many :roles, dependent: :destroy
 
-  has_many :users,   ->{ distinct.extending(UserAssociationExtension) }, through: :roles
+  has_many :users,   ->{ distinct }, through: :roles
   has_many :admins,  ->{ Role.admin }, through: :roles, source: :user
   has_many :members, ->{ Role.member }, through: :roles, source: :user
 
