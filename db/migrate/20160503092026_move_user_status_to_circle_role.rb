@@ -14,8 +14,7 @@ class MoveUserStatusToCircleRole < ActiveRecord::Migration
   def down
     add_column :users, :status, :integer
     User.find_each do |user|
-      status = user.circle_roles.pluck(:status).include?(User.statuses[:pending]) ? :pending : :active
-      status_id = STATUS_MAP.index(status)
+      status_id = STATUS_MAP.index(:active) # hard fix
       user.update_attribute(:status, status_id)
     end
     remove_column :circle_roles, :status
