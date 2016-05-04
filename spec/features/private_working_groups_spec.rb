@@ -10,13 +10,13 @@ describe 'Private Working Groups', type: :feature do
   let(:private_group) { create(:working_group, is_private: true , circle: circle) }
 
   before do
-    circle.roles.send('circle.volunteer').create user: user_1
-    circle.roles.send('circle.volunteer').create user: user_2
+    create(:circle_role_volunteer, circle: circle, user: user_1)
+    create(:circle_role_volunteer, circle: circle, user: user_2)
 
-    public_group.roles.member.create user: user_1
-    public_group.roles.member.create user: user_2
+    public_group.roles.member.create(user: user_1)
+    public_group.roles.member.create(user: user_2)
 
-    private_group.roles.member.create user: user_1
+    private_group.roles.member.create(user: user_1)
   end
 
   it "is setup" do
