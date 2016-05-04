@@ -103,10 +103,7 @@ class Ability
     #
 
     can :manage, WorkingGroup do |wg|
-      can?(:manage, wg.circle) 
-      # ||
-      # FIXME
-      #wg.admins.active.include?(user)
+      can?(:manage, wg.circle) || wg.active_admins.include?(user)
     end
 
     can :read, WorkingGroup do |wg|
