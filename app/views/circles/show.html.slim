@@ -29,6 +29,6 @@
       .members.working-group-organizers
         .title= t('.working_group_organizers')
         .icons
-          - current_circle.organizers.active.each do |user|
+          - current_circle.active_organizers.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}

@@ -29,6 +29,10 @@ class Circle < ActiveRecord::Base
 
   enum language: [:en, :de, :fr]
 
+  def active_organizers
+    organizers.joins(:circle_roles).where(circle_roles: { status: Circle::Role.statuses[:active] })
+  end
+
   def admin
     admins.first
   end
