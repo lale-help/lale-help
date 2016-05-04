@@ -14,7 +14,7 @@ section.admin-pending-members
 
   h2 = t('.pending_members_headline')
 
-  - if current_circle.pending_members.empty?
+  - if current_circle.users.pending.empty?
     p = t('.no_pending_members_message')
   - else
     p = t('.pending_members_explanation')
