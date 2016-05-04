@@ -12,7 +12,7 @@ describe 'Login and logout', type: :feature, js: true do
     let!(:circle) { submit_form(:circle_create_form).result }
     let!(:user) do
       user = create(:user, primary_circle: circle)
-      circle.roles.send('circle.volunteer').create user: user
+      circle.roles.send('circle.volunteer').create(user: user, status: :active)
       user
     end
 
@@ -51,7 +51,11 @@ describe 'Login and logout', type: :feature, js: true do
   context 'Pending user logs in' do
 
     let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
-    let!(:user) { create(:circle_role_volunteer, circle: circle, status: :pending).user }
+    let!(:user) do
+      user = create(:user, primary_circle: circle)
+      circle.roles.send('circle.volunteer').create(user: user, status: :pending)
+      user
+    end
 
     it 'sees membership pending message' do
       visit root_path
