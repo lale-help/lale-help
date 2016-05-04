@@ -68,7 +68,6 @@ class Circle::ProjectsController < ApplicationController
       flash[:notice] = t('flash.actions.invited',
         name: current_project.name, count: outcome.result.volunteers.size, model: Project.model_name.human.downcase)
     else
-      # FIXME adapt message
       flash[:error] = t('tasks.flash.invite_failed', name: current_project.name)
     end
     redirect_to circle_project_path(current_circle, current_project)

@@ -5,8 +5,6 @@ FactoryGirl.define do
     sequence(:last_name)  {|n| "Doe#{n}" }
     address { create(:user_address) }
     after(:create) do |user, _|
-      # FIXME "active" has no meaning without a circle now.
-      # user.active!
       create(:user_identity, user: user)
     end
 
