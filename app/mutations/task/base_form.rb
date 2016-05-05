@@ -27,6 +27,8 @@ class Task::BaseForm < ::Form
   attribute :ability, :model
   attribute :circle, :model
 
+  attribute :original_task_id,  :string, required: false, default: proc { nil }
+
   include TaskableForm
 
 
@@ -117,6 +119,10 @@ class Task::BaseForm < ::Form
         t.location_assignments.create primary: true, location: Location.location_from(primary_location)
 
         t.save
+
+        if original_task_id.present?
+          Task::Comments::ClonedTaskComment.run(task: t, message: 'copied', user: user, task_cloned: Task.find(original_task_id))
+        end
       end
     end
   end
