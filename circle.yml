@@ -4,4 +4,5 @@ test:
 
 general:
   artifacts:
+    - log
     - tmp
