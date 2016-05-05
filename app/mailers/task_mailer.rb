@@ -31,10 +31,11 @@ class TaskMailer < BaseMandrillMailer
   end
 
 
-  def task_change(task, user)
+  def task_change(task, user, changes)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge({
         "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_path(task.circle, task)),
+        "TASK_CHANGES" => changes
       })
     end
   end
