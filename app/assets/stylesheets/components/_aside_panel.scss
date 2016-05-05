@@ -1,0 +1,23 @@
+aside > .panel {
+  $radius: 10px;
+  border: thin solid $border-color;
+  margin: 2rem;
+
+  @include border-bottom-radius($radius);
+  @include border-top-radius($radius);
+
+  > * {
+    padding: 1rem;
+  }
+
+  > *:not(:first-child) {
+    border-top: thin solid $border-color;
+  }
+
+  .body ul {
+    li {
+      list-style: disc inside;
+    }
+
+  }
+}

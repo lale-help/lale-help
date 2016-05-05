@@ -17,6 +17,9 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'migration_data'
 gem 'carmen'
 
+gem 'fog-aws', require: 'fog/aws'
+gem 'fog-local', require: 'fog/local'
+
 # UI
 gem 'coffee-rails', '~> 4.1.0'
 gem 'haml-rails', "~> 0.9"
@@ -50,6 +53,7 @@ gem 'country_select'
 group :development do
   gem "letter_opener_web"
   gem 'thor', require: false
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
@@ -59,10 +63,6 @@ group :development, :test do
   gem 'hologram', github: 'trulia/hologram'
   gem 'guard-hologram', github: 'kmayer/guard-hologram', require: false
 
-  gem 'pry-byebug'
-  gem 'pry-stack_explorer'
-  gem 'web-console', '~> 2.0'
-  gem 'better_errors'
   gem 'i18n_generators'
 
   gem 'capybara'
@@ -71,6 +71,8 @@ group :development, :test do
   gem 'database_cleaner'
 
   gem 'spring'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
 end
 
 group :test do

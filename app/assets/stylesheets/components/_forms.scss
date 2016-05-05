@@ -208,7 +208,7 @@ form {
     color: #d0021b;
   }
 
-  input[type='text'], input[type='password'], textarea, input[type='date'], input[type='number'] {
+  input[type='text'], input[type='password'], textarea, input[type='date'], input[type='number'], input[type='file'] {
     @include placeholder {
       color: #bfc9ce;
       font-weight: $weight-normal;

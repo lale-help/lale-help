@@ -7,6 +7,9 @@ addons:
   postgresql: "9.4"
 
 before_script:
+  - openssl version -a
+  - openssl ciphers
+  - ruby -e "require 'openssl'; puts OpenSSL::OPENSSL_VERSION"
   - bin/rake db:init db:create db:migrate
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"

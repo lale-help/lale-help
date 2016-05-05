@@ -17,6 +17,9 @@ class Ability
   def initialize(user)
     user ||= User.new
 
+
+    add_permissions FileUpload, user
+
     #
     # Admin
     #
@@ -89,6 +92,9 @@ class Ability
     #
     # Users
     #
+    can :manage, User do |the_user|
+      user == the_user
+    end
 
     can :read, User do |member, circle|
       member.id == user.id ||
@@ -301,5 +307,11 @@ class Ability
       cannot?(:read, project.working_group)
     end
 
+
+  end
+
+  def add_permissions model_klass, user
+    permissions = model_klass.const_get :Abilities
+    permissions.apply(self, user)
   end
 end

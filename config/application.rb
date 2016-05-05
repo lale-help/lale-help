@@ -47,15 +47,27 @@ module LaleHelp
     # 3.  every now and then, remove toggles for stable features from the application.
     #
     config.x.feature_toggles.projects = true # added 2016-03-31 | released 2016-04-16
+    config.x.feature_toggles.files = false   # added 2016-04-25
 
     config.autoload_paths += %W(
       #{config.root}/app/mutations/concerns
     )
 
+
     config.cache_store = :memory_store, { size: 64.megabytes }
+
+    if ENV['AWS_ACCESS_KEY'].present?
+      config.x.fog.storage_opts   = { provider: 'AWS', aws_access_key_id: ENV['AWS_ACCESS_KEY'], aws_secret_access_key: ENV['AWS_SECRET_KEY'], region: ENV['AWS_REGION'] }
+      config.x.fog.directory_opts = { key: ENV['AWS_BUCKET'], public: false }
+    else
+      config.x.fog.storage_opts   = { provider: 'Local', local_root: 'tmp' }
+      config.x.fog.directory_opts = { key: 'files' }
+    end
   end
 end
 
 # Core Extentions
 require 'formtastic/inputs/json_input'
 require 'mutations/symbol_filter'
+require 'serializers/secure_hash_serializer'
+require 'serializers/symbol_serializer'
