@@ -49,6 +49,7 @@ gem 'geocoder'
 gem 'timezone'
 gem 'terminal-table'
 gem 'country_select'
+gem 'seedbank'
 
 group :development do
   gem "letter_opener_web"
