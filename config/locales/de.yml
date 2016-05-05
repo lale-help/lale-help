@@ -150,7 +150,7 @@
       :link: erstellen
       :action_label: "%{title} ausgewählte"
       :labels:
-        :destroy: Lösche
+        :destroy: Löschen
     :comments:
       :resource_type: Res­sour­cen-Typ
       :author_type: Autor-Typ
@@ -368,6 +368,7 @@
         :other: Sachspenden
       :system_event/notification: System event/notification
       :system_event/notification/delivery: System event/notification/delivery
+      :file_upload: Datei
     :attributes:
       :circle:
         :admin: Administrator
@@ -555,6 +556,15 @@
         :working_group_id: Arbeitsgruppe
         :working_group: Arbeitsgruppe
         :name: Projektname
+      :file_upload:
+        :created_at: Hochgeladen um
+        :permission_is_public:
+          :false: Privat
+          :true: "Öffentlich"
+        :uploader: Hochgeladen von
+      :file_upload/permission_is_public:
+        :false: Privat
+        :true: "Öffentlich"
     :errors:
       :messages:
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
@@ -645,6 +655,10 @@
       :format: Bitte die Anfangszeit im Format 00:00 eingeben.
     :start_date:
       :empty: Beginndatum kann nicht leer sein.
+    :unavailable_session: 'Sitzung %{id} ist nicht mehr verfügbar. '
+    :unacceptable_request: Eine unterstütze Version wird im Accept header erwartet.
+    :connection_refused: Hoppla! Wir konnten uns nicht mit der Web-Konsole verbinden.
+      Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -670,6 +684,9 @@
     :failed:
       :create: Ein Fehler ist bei Erstellung von %{name} aufgetreten.
       :update: Bei Änderung von %{name} ist ein Fehler aufgetreten.
+    :file_uploads:
+      :updated: Datei aktualisiert
+      :created: Datei erfolgreich hochgeladen
   :tasks:
     :flash:
       :volunteered: Danke für die Hilfe bei %{name}!
@@ -746,11 +763,15 @@
         :working-groups: Arbeitsgruppen
         :invite-volunteers: Helfer einladen
         :extended-settings: Weitere Einstellungen
+        :files: Dokumente
       :extended_settings:
         :headline: Weitere Einstellungen
         :must_activate_users: Neue Beitrittsanfragen erst überprüfen
       :pending_members_list:
         :activate: Aktivieren
+      :files:
+        :confirm_delete_file: Willst Du diese Datei wirklich löschen?
+        :new-file: Datei hochladen
     :comments:
       :placeholder: Was möchtest du sagen?
       :post: Kommentieren
@@ -918,10 +939,8 @@
         :open: offen
         :urgent: dringend
         :done: erledigt
-        :done: erledigt
         :signed_up: angemeldet
         :needed: benötigt
-
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -949,6 +968,7 @@
       :dashboard_title: "Übersicht für %{name}"
       :circle_leaders: Leitung
       :working_group_organizers: Organisatoren
+      :files: Dokumente des Helferkreises
     :edit:
       :header: Helferkreis bearbeiten
       :show: Anzeigen
@@ -1211,3 +1231,8 @@
     :cancel: Abbrechen
   :supply_edit:
     :cancel: Abbrechen
+  :files:
+    :new:
+      :header: Datei %{name} hinzufügen
+    :edit:
+      :header: Datei bearbeiten
