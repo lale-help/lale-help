@@ -28,7 +28,7 @@ class Task::Comments::BaseComment < Mutations::Command
   def self.commenter
     @commenter ||= User::Identity.find_or_create_by(email: 'lale-bot@lale.help') do |identity|
       identity.password = SecureRandom.uuid
-      identity.user = User.new(first_name: 'Lale', last_name: 'Bot', status: :active)
+      identity.user = User.new(first_name: 'Lale', last_name: 'Bot')
     end.user
   end
 
