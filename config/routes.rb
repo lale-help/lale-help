@@ -12,11 +12,11 @@ Rails.application.routes.draw do
         get :working_groups
         get :invite
         get :extended_settings
-        post :activate_member
       end
 
       resources :members do
         get :public, on: :collection
+        put :activate, on: :member
         put :block, on: :member
       end
 

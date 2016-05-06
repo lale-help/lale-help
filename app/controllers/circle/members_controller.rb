@@ -23,11 +23,23 @@ class Circle::MembersController < ApplicationController
     authorize! :read, current_member, current_circle
   end
 
+
+  def activate
+    outcome = Circle::Member::Activate.run(params)
+    if request.xhr?
+      head (outcome ? :ok : :unprocessable_entity)
+    else
+      redirect_to circle_member_path(current_circle, current_member)
+    end
+  end
+
+
   def block
     authorize! :block, current_member, current_circle
-    outcome = Circle::Member::Block.run(params)
+    Circle::Member::Block.run(params)
     redirect_to circle_member_path(current_circle, current_member)
   end
+
 
   helper_method def current_member
     @current_member ||= current_circle.users.find(params[:id])

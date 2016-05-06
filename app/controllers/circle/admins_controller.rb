@@ -27,11 +27,6 @@ class Circle::AdminsController < ApplicationController
     @form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
   end
 
-  def activate_member
-    outcome = Circle::ActivateMember.run(params)
-    head (outcome ? :ok : :unprocessable_entity)
-  end
-
   helper_method def tab_class key
     (action_name == key) ? "#{key} selected" : key
   end

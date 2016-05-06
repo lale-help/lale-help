@@ -31,4 +31,4 @@ table.default-table.member-list
       td= l(user.created_at.to_date, format: :default)
 
       td
-        = button_to t('.activate'), activate_member_circle_admin_path(current_circle, user_id: user.id), remote: true, class: 'activate_pending_user'
+        = button_to t('.activate'), activate_circle_member_path(current_circle, user), remote: true, method: :put, class: 'activate_pending_user'

@@ -60,4 +60,5 @@
           button.button-primary = t('helpers.block')
 
       - if can?(:unblock, current_member, current_circle)
-        button.button.button-primary = t('helpers.unblock')
+        = form_tag activate_circle_member_path(current_circle, current_member), method: :put do
+          button.button-primary = t('helpers.unblock')
