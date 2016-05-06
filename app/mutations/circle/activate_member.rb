@@ -17,7 +17,7 @@ class Circle::ActivateMember < Mutations::Command
   end
 
   def notify_user
-    UserMailer.account_activated(user).deliver_now
+    UserMailer.account_activated(circle, user).deliver_now
   end
 
   def circle

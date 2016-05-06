@@ -15,8 +15,7 @@ class UserMailer < BaseMandrillMailer
     build_message(user.language, user.email) do
       {
         "FIRST_NAME"          => user.first_name,
-        # FIXME needs to be adapted to multicircle
-        "HELPER_CIRCLE"       => user.primary_circle.name,
+        "HELPER_CIRCLE"       => circle.name,
         "APPROVE_REQUEST_URL" => handle_token_url(token.code, 
           redirect: invite_circle_admin_url(circle)
         )
@@ -25,12 +24,11 @@ class UserMailer < BaseMandrillMailer
   end
 
   # sent to new circle member when account was activated
-  def account_activated(user)
+  def account_activated(circle, user)
     build_message(user.language, user.email) do
       {
         "FIRST_NAME"       => user.first_name,
-        # FIXME needs to be adapted to multicircle
-        "HELPER_CIRCLE"    => user.primary_circle.name,
+        "HELPER_CIRCLE"    => circle.name,
         "CIRCLE_LOGIN_URL" => login_url
       }
     end
