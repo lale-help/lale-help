@@ -16,6 +16,8 @@ class Task::Decline < Mutations::Command
       TaskMailer.task_change(task, outboud_user).deliver_now
     end
 
+    Task::Comments::BaseComment.run(task: task, message: 'user_unassigned', user: user)
+
     assignment
   end
 end

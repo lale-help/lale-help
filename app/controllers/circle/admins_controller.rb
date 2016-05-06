@@ -10,6 +10,9 @@ class Circle::AdminsController < ApplicationController
     @form = Circle::UpdateBasicSettingsForm.new(user: current_user, circle: current_circle)
   end
 
+  def files
+  end
+
   def roles
   end
 
@@ -23,7 +26,7 @@ class Circle::AdminsController < ApplicationController
   def extended_settings
     @form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
   end
-  
+
   def activate_member
     outcome = Circle::ActivateMember.run(params)
     head (outcome ? :ok : :unprocessable_entity)

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     scope module: 'circle' do
       resource :admin do
         get :roles
+        get :files
         get :working_groups
         get :invite
         get :extended_settings
@@ -67,6 +68,9 @@ Rails.application.routes.draw do
 
     end
   end
+
+  resources :files, only: [:show, :create, :edit, :update, :destroy]
+  resources :files, path: '/files/:uploadable', only: [:new]
 
   get '/ping', to: 'website#ping'
 

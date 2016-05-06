@@ -13,6 +13,7 @@ module Mutations
       # Handle nil case
       if data.nil?
         return [nil, nil] if options[:nils]
+        return [options[:default], nil] if options[:default].present?
         return [nil, :nils]
       end
 

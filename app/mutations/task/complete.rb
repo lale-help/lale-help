@@ -7,7 +7,11 @@ class Task::Complete < Mutations::Command
   def execute
     task.complete = true
 
-    add_error :task, :completion_failed unless task.save
+    if task.save
+      Task::Comments::BaseComment.run(task: task, message: 'completed', user: user)
+    else
+      add_error :task, :completion_failed
+    end
 
     task
   end

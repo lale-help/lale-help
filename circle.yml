@@ -1,0 +1,8 @@
+test:
+  override:
+    - bin/rspec -f doc
+
+general:
+  artifacts:
+    - log
+    - tmp

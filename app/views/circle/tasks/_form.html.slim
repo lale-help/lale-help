@@ -104,7 +104,7 @@
           = text_field_tag :disabled, @form.project.try(:name), disabled: true
 
 
-
+  = f.hidden_field(:original_task_id, value: @form.original_task_id)
   .submit-row
     = f.submit
     = link_to(t('task_edit.cancel'), :back)

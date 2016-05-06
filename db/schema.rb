@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160503092026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -75,6 +76,22 @@ ActiveRecord::Schema.define(version: 20160503092026) do
 
   add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
   add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
+
+  create_table "file_uploads", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
+    t.string   "name"
+    t.string   "upload_type"
+    t.boolean  "is_public",               default: false
+    t.integer  "uploader_id"
+    t.string   "uploadable_type"
+    t.integer  "uploadable_id"
+    t.string   "file_name"
+    t.string   "file_path"
+    t.string   "file_content_type"
+    t.string   "file_extension"
+    t.string   "file_encryption_details"
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",    null: false

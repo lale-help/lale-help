@@ -7,7 +7,11 @@ class Task::Reopen < Mutations::Command
   def execute
     task.completed_at = nil
 
-    add_error :task, :reopening_failed unless task.save
+    if task.save
+      Task::Comments::BaseComment.run(task: task, message: 'reopened', user: user)
+    else
+      add_error :task, :reopening_failed
+    end
 
     task
   end
