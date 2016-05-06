@@ -50,7 +50,7 @@ describe 'New User On-boarding', type: :feature, js: true do
 
   context "admin approves new user", type: :feature do
     
-    let!(:circle) { submit_form(:circle_create_form).result }
+    let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
     let!(:new_member) { create(:circle_role_volunteer, circle: circle, status: :pending).user }
 
     it "works", :ci_ignore do
@@ -87,6 +87,27 @@ describe 'New User On-boarding', type: :feature, js: true do
       # user appears in helper list
       click_on t('circle.members.index.directory')
       expect(page).to have_content(new_member.name)
+    end
+  end
+
+  context "User joins second circle", type: :feature do
+
+    let!(:circle_1) { submit_form(:circle_create_form, must_activate_users: true).result }
+    let!(:circle_2) { submit_form(:circle_create_form, must_activate_users: true).result }
+    let!(:circle_1_role) { create(:circle_role_volunteer, circle: circle_1, status: :active) }
+    let!(:user) { circle_1_role.user }
+    let!(:circle_2_role) { create(:circle_role_volunteer, circle: circle_2, user: user, status: :pending) }
+
+    it "is still active on first circle, pending on the second" do
+
+      pending "Storing circle id in session keeps this spec from working"
+      visit circle_path(circle_1, as: user)
+      expect(page).to have_content(t('circles.show.dashboard_title', name: circle_1.name))
+
+      visit switch_circle_path(circle_2, as: user) # doesn't work
+      
+      visit circle_path(circle_2, as: user)
+      expect(page).to have_content(t('public.circles.membership_pending.subtitle'))
     end
   end
 
