@@ -494,6 +494,8 @@
     :volunteer: I have this %{model}
     :decline: I don't have this %{model}
     :invite: Invite %{model}
+    :block: Block
+    :unblock: Unblock
     :header:
       :add: Create a new %{name}
       :edit: Editing %{name}

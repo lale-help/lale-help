@@ -47,6 +47,10 @@ class Circle < ActiveRecord::Base
     roles.active.exists?(user: user)
   end
 
+  def has_blocked_user?(user)
+    roles.blocked.exists?(user: user)
+  end
+
   def open_task_count
     tasks.count
   end
@@ -56,4 +60,5 @@ class Circle < ActiveRecord::Base
   def build_association_defaults
     build_address unless address.present?
   end
+
 end

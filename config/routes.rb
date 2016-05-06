@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
       resources :members do
         get :public, on: :collection
+        put :block, on: :member
       end
 
       resources :roles, :organizers

@@ -53,3 +53,11 @@
         .icon
         .title= t('.tasks_supplies_completed')
         .details= current_member.tasks.for_circle(current_circle).completed.count
+
+    .actions
+      - if can?(:block, current_member, current_circle)
+        = form_tag block_circle_member_path(current_circle, current_member), method: :put do
+          button.button-primary = t('helpers.block')
+
+      - if can?(:unblock, current_member, current_circle)
+        button.button.button-primary = t('helpers.unblock')

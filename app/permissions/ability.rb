@@ -104,6 +104,16 @@ class Ability
           member.public_profile?))
     end
 
+    can :block, User do |member, circle|
+      can?(:manage, circle) && circle.has_active_user?(member)
+    end
+    can :unblock, User do |member, circle|
+      can?(:manage, circle) && circle.has_blocked_user?(member)
+    end
+    cannot [:block, :unblock], User do |member, circle|
+      member == user
+    end
+
     #
     # Working Groups
     #
