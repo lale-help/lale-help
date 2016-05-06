@@ -41,6 +41,8 @@ class Public::CirclesController < ApplicationController
 
   private
 
+  # when a previously pending member still has the pending page open in the browser,
+  # redirect to the circle.
   def redirect_to_circle
     if current_user.active_in_circle?(circle)
       redirect_to circle_path(circle)
