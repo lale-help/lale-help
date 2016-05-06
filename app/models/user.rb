@@ -67,6 +67,10 @@ class User < ActiveRecord::Base
     circle.has_active_user?(self)
   end
 
+  def active_circles
+    circles.select { |circle| circle.has_active_user?(self) }
+  end
+
   def has_circles?
     !circles.empty?
   end
