@@ -870,8 +870,10 @@
         :pending_members_headline: Pending members
         :pending_members_explanation: The following members are waiting for approval,
           please activate them so they can start contributing.
-        :no_pending_members_message: There aren't any new members waiting for approval
-          right now.
+        :no_pending_members_message: There aren't any new members waiting for approval right now.
+        :blocked_members_headline: Blocked members
+        :blocked_members_explanation: The following members were blocked (i.e. disabled) by an admin.
+        :no_blocked_members_message: There aren't any blocked members right now.
       :extended_settings:
         :headline: Extended Settings
         :must_activate_users: New members require admin approval

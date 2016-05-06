@@ -28,7 +28,7 @@ table.default-table.member-list
         a href="mailto:#{user.identity.email}"
         = user.identity.email
 
-      td= l(user.created_at.to_date, format: :default)
+      td= l(user.circle_roles.find_by(circle: current_circle).updated_at.to_date, format: :default)
 
       td
         = button_to t('.activate'), activate_circle_member_path(current_circle, user), remote: true, method: :put, class: 'activate_pending_user'

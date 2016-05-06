@@ -19,3 +19,11 @@ section.admin-pending-members
   - else
     p = t('.pending_members_explanation')
     = render partial: 'pending_members_list', locals: { pending_members: @pending_members }
+
+  h2 = t('.blocked_members_headline')
+
+  - if current_circle.users.blocked.empty?
+    p = t('.no_blocked_members_message')
+  - else
+    p = t('.blocked_members_explanation')
+    = render partial: 'pending_members_list', locals: { pending_members: current_circle.users.blocked }
