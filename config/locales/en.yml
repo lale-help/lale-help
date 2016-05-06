@@ -1134,6 +1134,7 @@
         :description: 'The circle admins have been notified and should activate your
           account soon. If they don''t or if you have questions, please contact them
           by email: %{admins_list}.'
+        :active_circle_links: 'You can also switch to one of your other circles: %{links}.'
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Reset your password

@@ -1,4 +1,4 @@
-- presenter = ::CirclePresenter.new(@circle)
+- presenter = ::CirclePresenter.new(@circle, current_user)
 
 section.membership_pending
 
@@ -7,3 +7,8 @@ section.membership_pending
   h3 = t('.subtitle')
 
   p == t('.description', admins_list: presenter.admins_with_email_links.to_sentence)
+
+  - unless presenter.active_circle_links.empty?
+    br
+    p 
+      == t('.active_circle_links', links: presenter.active_circle_links.to_sentence)
