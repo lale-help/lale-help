@@ -42,5 +42,6 @@ nav
       = t('supported-by')
       .logo
       = t('lale')
-      - if !Rails.env.production?
-        p= Rails.application.config.env_indicator
+      .env-tag
+        - if !Rails.env.production?
+          p= Rails.application.config.env_indicator
