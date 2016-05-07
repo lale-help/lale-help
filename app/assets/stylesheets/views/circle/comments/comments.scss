@@ -61,6 +61,18 @@
         }
       }
     }
+    &.lale-bot {
+      .comment-main {
+        .body {
+          background: $white;
+          border: 1px dashed $grey;
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+
 
     .user-avatar {
       vertical-align:top;

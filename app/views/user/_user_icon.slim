@@ -1,8 +1,11 @@
 - href = circle_member_path(current_circle, user) if local_assigns[:link].present? && can?(:read, user, current_circle)
 .user-icon-container
-  .user-icon href=href
-    .text
-      = user.initials
+  .user-icon href=href class="#{user.lale_bot? ? 'lale-bot' : ''}"
+    - if user.lale_bot?
+      .lale-bot-avatar
+    - else
+      .text
+        = user.initials
 
   - if href.present?
     .user-preview

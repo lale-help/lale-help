@@ -73,4 +73,9 @@ class User < ActiveRecord::Base
   def has_multiple_circles?
     circles.count > 1
   end
+
+  def lale_bot?
+    self.id == Task::Comments::BaseComment.commenter.id
+  end
+
 end
