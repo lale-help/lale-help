@@ -7,14 +7,14 @@ class Circle::CommentsController < ApplicationController
 
   def index
     authorize! :read, current_item
-    if can? :create, Comment, current_item
+    if can? :create, Comment, current_item, current_circle
       @form = Comment::Create.new(commenter: current_user, item: current_item, comment: Comment.new)
     end
     render layout: false
   end
 
   def create
-    authorize! :create, Comment, current_item
+    authorize! :create, Comment, current_item, current_circle
 
     @comment = Comment.new
     @form = Comment::Create.new(params[:comment], commenter: current_user, item: current_item, comment: @comment)
