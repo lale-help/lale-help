@@ -41,7 +41,7 @@ describe "EnsureActiveUser filter" do
 
         before { allow(current_circle).to receive(:has_active_user?) { false } }
         # stub the method; not relevant for test setup
-        before { allow(controller).to receive(:membership_inactive_public_circle_path) }
+        before { allow(controller).to receive(:inactive_circle_membership_path) }
 
         context "when user isn't on an info page" do
           it "redirects" do

@@ -2,7 +2,7 @@ class EnsureActiveUser
 
   delegate :request, :redirect_to,
     :current_user, :current_circle, :try,
-    :pending_member_page_path, :membership_inactive_public_circle_path,
+    :pending_member_page_path, :inactive_circle_membership_path,
     to: :controller
 
   def self.before(controller)
@@ -28,11 +28,11 @@ class EnsureActiveUser
   end
   
   def info_path
-    membership_inactive_public_circle_path(current_circle, status: current_user_status)
+    inactive_circle_membership_path(current_circle, status: current_user_status)
   end
 
   def current_user_status
-    current_user.circle_roles.find(circle_id: c.current_circle).status
+    current_user.circle_roles.find_by(circle: c.current_circle).status.to_sym
   end
 
 end

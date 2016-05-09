@@ -39,7 +39,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       find('.circle-marker .button.submit').click
 
       # - sees the "pending" message
-      expect(page).to have_content(t('public.circles.membership_pending.subtitle'))
+      expect(page).to have_content(t('public.circles.membership_inactive.subtitle'))
 
       # - circle admin is notified by email
       expect(last_email.to.first).to eq(circle.admin.email)
@@ -107,7 +107,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       visit switch_circle_path(circle_2, as: user) # doesn't work
       
       visit circle_path(circle_2, as: user)
-      expect(page).to have_content(t('public.circles.membership_pending.subtitle'))
+      expect(page).to have_content(t('public.circles.membership_inactive.subtitle'))
     end
   end
 

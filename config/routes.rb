@@ -112,7 +112,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :circles, only: [:index, :new, :create] do
       post :join, on: :collection
-      get :membership_inactive, on: :member
+      get "membership_inactive/:status", action: :membership_inactive, as: :inactive_circle_membership
     end
   end
 

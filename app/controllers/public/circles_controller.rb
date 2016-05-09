@@ -2,7 +2,7 @@ class Public::CirclesController < ApplicationController
   layout 'public'
   skip_authorization_check
   before_action :ensure_logged_in
-  before_action :redirect_to_circle, only: :membership_pending
+  before_action :redirect_to_circle, only: :membership_inactive
 
   def index
     @form = Circle::Join.new user: current_user
@@ -41,7 +41,7 @@ class Public::CirclesController < ApplicationController
 
   private
 
-  # when a previously pending member still has the pending page open in the browser,
+  # when a previously pending/blocked member still has the info page open in the browser,
   # redirect to the circle.
   def redirect_to_circle
     if current_user.active_in_circle?(circle)
