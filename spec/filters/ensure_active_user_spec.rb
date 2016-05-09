@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "EnsureActiveUser filter" do
   
   let(:current_circle) { double('Circle') }
-  let(:current_user) { double('User') }
+  let(:current_user) { double('User', role_for_circle: double('Circle::Role')) }
   let(:controller) { double('Controller', current_user: current_user, current_circle: current_circle) }
 
   context "when no current_user is available" do

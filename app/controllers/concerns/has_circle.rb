@@ -16,7 +16,8 @@ module HasCircle
     return unless session[:circle_id].present? || params[:circle_id].present? || params[:id].present?
 
     @circle = begin
-      circle_id = session[:circle_id] || params[:circle_id] || params[:id]
+      # circle_id = session[:circle_id] || params[:circle_id] || params[:id]
+      circle_id = params[:circle_id] || params[:id]
       Circle.find(circle_id)
     end
   end
