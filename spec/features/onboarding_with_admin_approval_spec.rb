@@ -39,7 +39,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       find('.circle-marker .button.submit').click
 
       # - sees the "pending" message
-      expect(page).to have_content(t('public.circles.membership_inactive.subtitle'))
+      expect(page).to have_content(t('public.circles.membership_inactive.pending.title'))
 
       # - circle admin is notified by email
       expect(last_email.to.first).to eq(circle.admin.email)
@@ -71,7 +71,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       expect(page).to have_css('.tab-nav .invite .before-icon')
 
       # circle admin clicks on Accept
-      click_on t('circle.admins.pending_members_list.activate')
+      click_on t('circle.admins.inactive_members_list.activate')
 
       # user disappears
       expect(page).not_to have_content(new_member.name)
@@ -100,14 +100,13 @@ describe 'New User On-boarding', type: :feature, js: true do
 
     it "is still active on first circle, pending on the second" do
 
-      pending "Storing circle id in session keeps this spec from working"
       visit circle_path(circle_1, as: user)
       expect(page).to have_content(t('circles.show.dashboard_title', name: circle_1.name))
 
       visit switch_circle_path(circle_2, as: user) # doesn't work
       
       visit circle_path(circle_2, as: user)
-      expect(page).to have_content(t('public.circles.membership_inactive.subtitle'))
+      expect(page).to have_content(t('public.circles.membership_inactive.pending.title'))
     end
   end
 
