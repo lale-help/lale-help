@@ -3,6 +3,9 @@ class EnsureActiveUser
   class << self
 
     def before(c) # c = controller
+      # FIXME
+      # handle case user is not in circle at all
+      # handle blocked user
       return unless c.current_user && c.try(:current_circle)
       if c.current_circle.has_active_user?(c.current_user) || on_pending_member_page?(c)
         return

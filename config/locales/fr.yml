@@ -713,7 +713,7 @@
         :headline: Paramètres avancés
         :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
           Administrateur
-      :pending_members_list:
+      :inactive_members_list:
         :activate: Activer
     :comments:
       :placeholder: Poster un commentaire.

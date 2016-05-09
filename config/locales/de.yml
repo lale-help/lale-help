@@ -767,7 +767,7 @@
       :extended_settings:
         :headline: Weitere Einstellungen
         :must_activate_users: Neue Beitrittsanfragen erst überprüfen
-      :pending_members_list:
+      :inactive_members_list:
         :activate: Aktivieren
       :files:
         :confirm_delete_file: Willst Du diese Datei wirklich löschen?

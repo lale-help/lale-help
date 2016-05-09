@@ -886,7 +886,7 @@
         :invite-volunteers: Invite Volunteers
         :extended-settings: Extended Settings
         :files: Documents
-      :pending_members_list:
+      :inactive_members_list:
         :activate: Activate
       :files:
         :new-file: Upload File

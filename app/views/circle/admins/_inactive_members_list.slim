@@ -8,7 +8,7 @@ table.default-table.member-list
     th = User.human_attribute_name("active_since")
     th
 
-  - pending_members.each do |user|
+  - users.each do |user|
     tr
       td
         = render partial: 'user/user_icon', locals: {user: user, link: true}
