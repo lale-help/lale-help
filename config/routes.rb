@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
       resources :members do
         get :public, on: :collection
+        resources :comments, only: [:create, :index]
       end
 
       resources :roles, :organizers
