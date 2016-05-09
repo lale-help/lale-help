@@ -5,8 +5,6 @@ section.membership_inactive
 
   h2 = t('title', scope: i18n_scope)
 
-  h3 = t('subtitle', scope: i18n_scope)
-
   p == t('description', admins_list: presenter.admins_with_email_links.to_sentence, scope: i18n_scope)
 
   - unless presenter.active_circle_links.empty?

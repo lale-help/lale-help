@@ -1017,11 +1017,11 @@
         :details: Dies ist eine wunderbare Möglichkeit, in Deiner Gemeinschaft mitzuhelfen
           und die Welt ein wenig besser zu machen!
       :membership_inactive:
-        :subtitle: Dein Konto wurde eingerichtet und wird gerade überprüft!
-        :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
-          und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
-          sie per Email: %{admins_list}.'
-        :title: Willkommen bei Lale!
+        :pending:
+          :title: Willkommen bei Lale! Dein Konto wurde eingerichtet und wird gerade überprüft!
+          :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
+            und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
+            sie per Email: %{admins_list}.'
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Passwort erneuern

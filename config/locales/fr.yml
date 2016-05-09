@@ -953,11 +953,11 @@
         :details: C'est une belle opportunité pour aider votre communauté à améliorer
           les conditions de vie de tous et toutes
       :membership_inactive:
-        :subtitle: Votre compte a été activé !
-        :description: 'Les administrateurs du cercle ont été notifié et doivent bientôt
-          activer votre compte. Si ce n''est pas le cas ou si vous avez des questions,
-          merci de les contacter par email : %{admins_list}.'
-        :title: Bienvenue sur Lale !
+        :pending:
+          :description: 'Les administrateurs du cercle ont été notifié et doivent bientôt
+            activer votre compte. Si ce n''est pas le cas ou si vous avez des questions,
+            merci de les contacter par email: %{admins_list}.'
+          :title: Bienvenue sur Lale ! Votre compte a été activé !
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Réinitialiser votre mot de passe

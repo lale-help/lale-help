@@ -36,7 +36,7 @@ class Public::CirclesController < ApplicationController
 
   def membership_inactive
     @hide_signed_in_status = true
-    @user_status = current_user.circle_roles.find_by(circle: circle).status.to_sym
+    @user_status = current_user.circle_roles.find_by(circle: circle).try(:status)
     @circle = circle
   end
 
