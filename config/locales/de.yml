@@ -693,6 +693,13 @@
       :completed: Danke für die Hilfe bei %{name}!
       :reopened: Aufgabe wurde wieder geöffnet
       :reopening_failed: Beim Öffnen der Aufgabe trat ein Problem auf
+    :auto_comment:
+      :completed: "%{user} hat diese Aufgabe am %{date} erledigt."
+      :copied: Diese Aufgabe wurde von Aufgabe %{original_task} am %{date} kopiert.
+      :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Aufgabe eingeladen."
+      :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
+      :user_assigned: "%{user} hat sich für diese Aufgabe am %{date} angemeldet."
+      :user_unassigned: "%{user} hat sich für diese Aufgabe am %{date} abgemeldet."
   :users:
     :flash:
       :password_reset_success: Das Passwort wurde erfolgreich geändert.
@@ -747,7 +754,7 @@
         :confirm_delete_working_group: Bist Du sicher?
         :create_working_group: Neue Arbeitsgruppe
         :edit: Bearbeiten
-        :delete: Lösche
+        :delete: Löschen
       :invite:
         :invite_members: Neue Mitglieder zu %{circle} einladen
         :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
