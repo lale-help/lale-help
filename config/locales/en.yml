@@ -198,8 +198,9 @@
       processes/workers to one (1) or using a different server in development.
     :unacceptable_request: |
       A supported version is expected in the Accept header.
-    :connection_refused: 'Oops! Failed to connect to the Web Console middleware. Please
-      make sure a rails development server is running.      '
+    :connection_refused: |
+      Oops! Failed to connect to the Web Console middleware.
+      Please make sure a rails development server is running.
   :activerecord:
     :errors:
       :messages:
@@ -801,10 +802,10 @@
     :auto_comment:
       :user_assigned: "%{user} signed up for this task on %{date}."
       :copied: This task was copied from task %{original_task} on %{date}.
-      :completed: "%{user} completed this task on %{date}"
+      :completed: "%{user} completed this task on %{date}."
       :user_unassigned: "%{user} unassigned this task on %{date}"
-      :reopened: "%{user} re-opened this task on %{date}"
-      :invited: "%{user} invited %{invite_count} helpers to this task on %{date}"
+      :reopened: "%{user} re-opened this task on %{date}."
+      :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated
@@ -1122,7 +1123,7 @@
     :circles:
       :index:
         :title: Circles in your area
-        :create-circle-phrase: If you dont want to join this circle, you can
+        :create-circle-phrase: If you don't want to join this circle, you can
         :create-circle-button: Create a new Circle
       :new:
         :title: Start your circle of volunteers
