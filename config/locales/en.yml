@@ -1135,12 +1135,20 @@
         :details: It's a tremendous opportunity to help your community help each other
           and make the world a better place
       :membership_inactive:
-        :title: Welcome to Lale!
-        :subtitle: Your circle membership is being activated.
-        :description: 'The circle admins have been notified and should activate your
-          account soon. If they don''t or if you have questions, please contact them
-          by email: %{admins_list}.'
-        :active_circle_links: 'You can also switch to one of your other circles: %{links}.'
+        :pending:
+          :title: Welcome to Lale!
+          :subtitle: Your circle membership is being activated.
+          :description: 'The circle admins have been notified and should activate your
+            account soon. If they don''t or if you have questions, please contact them
+            by email: %{admins_list}.'
+          :active_circle_links: 'You can also switch to one of your other circles: %{links}.'
+        :blocked:
+          :title: Your circle membership is currently deactivated.
+          :subtitle: Your circle membership is being activated.
+          :description: 'The circle admins have been notified and should activate your
+            account soon. If they don''t or if you have questions, please contact them
+            by email: %{admins_list}.'
+          :active_circle_links: 'You can also switch to one of your other circles: %{links}.'
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Reset your password
