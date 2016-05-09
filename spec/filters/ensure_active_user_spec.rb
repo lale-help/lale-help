@@ -11,7 +11,7 @@ describe "EnsureActiveUser filter" do
 
     it "doesn't redirect" do
       expect(controller).not_to receive(:redirect_to)
-      EnsureActiveUser.before(controller)
+      EnsureActiveUser.new.before(controller)
     end
   end
 
@@ -20,7 +20,7 @@ describe "EnsureActiveUser filter" do
 
     it "doesn't redirect" do
       expect(controller).not_to receive(:redirect_to)
-      EnsureActiveUser.before(controller)
+      EnsureActiveUser.new.before(controller)
     end
   end
 
@@ -33,32 +33,36 @@ describe "EnsureActiveUser filter" do
 
         it "doesn't redirect" do
           expect(controller).not_to receive(:redirect_to)
-          EnsureActiveUser.before(controller)
+          EnsureActiveUser.new.before(controller)
         end
       end
 
-      context "when user is pending" do
+      context "when user is not active" do
 
         before { allow(current_circle).to receive(:has_active_user?) { false } }
         # stub the method; not relevant for test setup
-        before { allow(controller).to receive(:membership_pending_public_circle_path) }
+        before { allow(controller).to receive(:membership_inactive_public_circle_path) }
 
-        context "when user isn't on pending info page" do
+        context "when user isn't on an info page" do
           it "redirects" do
-            allow(EnsureActiveUser).to receive(:on_pending_member_page?) { false }
+            instance = EnsureActiveUser.new
+            allow(instance).to receive(:on_info_path?) { false }
+            allow(instance).to receive(:current_user_status)
             expect(controller).to receive(:redirect_to)
-            EnsureActiveUser.before(controller)
+            instance.before(controller)
           end
         end
 
-        context "when user is on pending info page" do
+        context "when user is on an info page" do
           it "doesn't redirect" do
-            allow(EnsureActiveUser).to receive(:on_pending_member_page?) { true }
+            instance = EnsureActiveUser.new
+            allow(instance).to receive(:on_info_path?) { true }
             expect(controller).not_to receive(:redirect_to)
-            EnsureActiveUser.before(controller)
+            instance.before(controller)
           end
         end
       end
+
     end
 
   end

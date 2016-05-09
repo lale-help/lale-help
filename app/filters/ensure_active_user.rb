@@ -1,29 +1,38 @@
 class EnsureActiveUser
 
-  class << self
+  delegate :request, :redirect_to,
+    :current_user, :current_circle, :try,
+    :pending_member_page_path, :membership_inactive_public_circle_path,
+    to: :controller
 
-    def before(c) # c = controller
-      # FIXME
-      # handle case user is not in circle at all
-      # handle blocked user
-      return unless c.current_user && c.try(:current_circle)
-      if c.current_circle.has_active_user?(c.current_user) || on_pending_member_page?(c)
-        return
-      else
-        c.redirect_to pending_member_page_path(c)
-      end
+  def self.before(controller)
+    new.before(controller)
+  end
+
+  attr_reader :controller
+
+  def before(controller)
+    @controller = controller
+    return unless current_user && try(:current_circle)
+    if current_circle.has_active_user?(current_user) || on_info_path?
+      return
+    else
+      redirect_to info_path
     end
+  end
 
-    private
+  private
 
-    def on_pending_member_page?(c)
-      c.request.fullpath == pending_member_page_path(c)
-    end
-    
-    def pending_member_page_path(c)
-      c.membership_pending_public_circle_path(c.current_circle)
-    end
+  def on_info_path?
+    request.fullpath == info_path
+  end
+  
+  def info_path
+    membership_inactive_public_circle_path(current_circle, status: current_user_status)
+  end
 
+  def current_user_status
+    current_user.circle_roles.find(circle_id: c.current_circle).status
   end
 
 end
