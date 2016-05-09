@@ -78,4 +78,9 @@ class User < ActiveRecord::Base
   def has_multiple_circles?
     circles.count > 1
   end
+
+  def role_for_circle(circle)
+    circle_roles.find_by(circle: circle)
+  end
+
 end
