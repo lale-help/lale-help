@@ -12,7 +12,7 @@ class FilesController < ApplicationController
     if stale? file
       expires_in(1.hour, public: false)
       filename = file.name + file.file_extension
-      disposition = params.has_key?(:inline) ? 'inline' : 'attachment'
+      disposition = params.has_key?(:download) ? 'attachment' : 'inline'
       send_data file.read, disposition: disposition, filename: filename, type: file.file_content_type
     end
 
