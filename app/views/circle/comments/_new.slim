@@ -1,0 +1,8 @@
+- post_url = item.is_a?(User) ? circle_member_comments_path(circle, item) : nil
+.new-comment
+  = form_for [circle, item, @form], url: post_url do |f|
+    .field-row.single
+      .field.required
+        = f.text_area :body, placeholder: t('circle.comments.placeholder')
+    .submit-row
+      = f.submit t("circle.comments.#{item.comments.empty? ? 'post' : 'reply'}")

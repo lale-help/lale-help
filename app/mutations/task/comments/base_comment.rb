@@ -7,7 +7,7 @@ class Task::Comments::BaseComment < Mutations::Command
 
   def execute
     I18n.locale = task.circle.language
-    Comment.create(task: task,
+    Comment.create(item: task,
                    commenter: Task::Comments::BaseComment.commenter,
                    body: build_message)
   end

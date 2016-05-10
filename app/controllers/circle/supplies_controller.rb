@@ -15,7 +15,7 @@ class Circle::SuppliesController < ApplicationController
 
   def show
     authorize! :read, current_supply
-    if can? :create, Comment, current_supply
+    if can? :create, Comment.new, current_supply, current_circle
       @form = Comment::Create.new(commenter: current_user, task: current_supply, comment: Comment.new)
     end
   end

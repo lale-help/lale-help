@@ -1,6 +1,7 @@
 class Supply < ActiveRecord::Base
   include Completable
   include Taskable
+  include Commentable
 
   # Associations
   belongs_to :location

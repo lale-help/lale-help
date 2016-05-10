@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Commentable
+
   # has_many :feedback
 
   has_many :triggered_system_events, class_name: '::SystemEvent'
@@ -22,7 +24,7 @@ class User < ActiveRecord::Base
   has_many :working_group_roles, class_name: 'WorkingGroup::Role', dependent: :destroy
   has_many :working_groups, ->{ distinct }, through: :working_group_roles
 
-  has_many :comments, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
+  has_many :comments_made, class_name: Comment, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
 
   enum language: [:en, :de, :fr]
 
