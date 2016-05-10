@@ -914,6 +914,9 @@
         :signed_up: enregistré
         :urgent: urgent
         :open: ouvert
+    :documents:
+      :index:
+        :new-file: Uploader un Fichier
   :circles:
     :new:
       :create: Créer un Cercle
@@ -972,6 +975,7 @@
         :working_groups: Groupes
         :public_members: Liste de Volontaires
         :projects: Projets
+        :documents: Documents
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles
@@ -1234,3 +1238,5 @@
       :header: Editer le Fichier
     :new:
       :header: Ajouter le fichier à %{name}
+    :list:
+      :confirm_delete_file: Etes-vous sure de vouloir effacer ce fichier ?
