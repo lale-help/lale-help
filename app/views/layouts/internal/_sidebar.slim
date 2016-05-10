@@ -13,6 +13,7 @@ nav
         = sidebar_link(t('.projects'), circle_projects_path(current_circle))
 
   .sidebar-section
+    = sidebar_link(t('.documents'), circle_documents_path(current_circle))
     - unless can? :manage, current_circle
       = sidebar_link(t('.public_members'), public_circle_members_path(current_circle))
     - if can? :manage, current_circle

@@ -948,6 +948,9 @@
         :done: erledigt
         :signed_up: angemeldet
         :needed: benötigt
+    :documents:
+      :index:
+        :new-file: Datei hochladen
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -1006,6 +1009,7 @@
         :all-open-tasks: Offene Aufgaben
         :public_members: Helferliste
         :projects: Projekte
+        :documents: Dokumente
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden
@@ -1243,3 +1247,5 @@
       :header: Datei %{name} hinzufügen
     :edit:
       :header: Datei bearbeiten
+    :list:
+      :confirm_delete_file: Willst Du diese Datei wirklich löschen?

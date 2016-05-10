@@ -1,0 +1,21 @@
+.document-repository
+  .tab-nav
+    a.circle-documents data-tab='circle-documents'
+      = t('.circle-documents')
+
+    - if feature_enabled? :working_group_files
+      a.working-group-documents data-tab='working-group-documents'
+        = t('.working-group-documents')
+
+
+  .tabs
+    .tab.circle-documents
+      = render partial: "files/list", locals: { files: @circle_files, show_actions: can?(:manage, current_circle) }
+
+      - if can? :add_file?, current_circle
+        = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_circle)), class: 'button button-primary'
+
+
+    - if feature_enabled? :working_group_files
+      .tab.working-group-documents
+        = render partial: "files/list", locals: { files: @working_group_files, show_actions: false }

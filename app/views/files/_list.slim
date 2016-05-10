@@ -1,0 +1,21 @@
+table.default-table.file-list
+  tr
+    th= FileUpload.model_name.human
+    th= FileUpload.human_attribute_name(:permissions)
+    th= FileUpload.human_attribute_name(:uploader)
+    th= FileUpload.human_attribute_name(:created_at)
+    - if show_actions
+      th= FileUpload.human_attribute_name(:actions)
+
+  - files.each do |file|
+    tr
+      td= link_to file.name, file_path(file), target: "_blank"
+      td= FileUpload.human_attribute_name(['permission_is_public', file.is_public].join('.').downcase)
+      td= file.uploader.name
+      td= l(file.created_at, format: :short)
+      - if show_actions
+        td.actions
+          - if can? :manage, file
+            = link_to '', edit_circle_file_path(current_circle, file), class: 'edit'
+            = link_to '', circle_file_path(current_circle, file), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_file') }
+

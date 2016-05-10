@@ -48,6 +48,7 @@ module LaleHelp
     #
     config.x.feature_toggles.projects = true # added 2016-03-31 | released 2016-04-16
     config.x.feature_toggles.files = false   # added 2016-04-25
+    config.x.feature_toggles.working_group_files = false   # added 2016-05-09
 
     config.autoload_paths += %W(
       #{config.root}/app/mutations/concerns

@@ -67,11 +67,14 @@ Rails.application.routes.draw do
         post :invite
       end
 
+      resources :documents, only: :index
     end
+
+    resources :files, only: [:create, :edit, :destroy]
+    resources :files, path: '/files/:uploadable', only: [:new]
   end
 
-  resources :files, only: [:show, :create, :edit, :update, :destroy]
-  resources :files, path: '/files/:uploadable', only: [:new]
+  resources :files, only: [:show, :update]
 
   get '/ping', to: 'website#ping'
 

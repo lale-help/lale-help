@@ -1061,6 +1061,11 @@
     :organizers:
       :index:
         :organizers: Organizers
+    :documents:
+      :index:
+        :circle-documents: Circle Documents
+        :working-group-documents: Working Group Documents
+        :new-file: Upload File
   :circles:
     :new:
       :create: Create Circle
@@ -1119,6 +1124,7 @@
         :all-open-tasks: All Open Tasks
         :working_groups: Working Groups
         :public_members: Helper list
+        :documents: Documents
       :header:
         :settings: Your profile
         :find-circles: Find Circles
@@ -1253,3 +1259,5 @@
       :header: Add file to %{name}
     :edit:
       :header: Edit File
+    :list:
+      :confirm_delete_file: Are you sure you want to delete this file?
