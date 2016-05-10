@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
   has_many :working_group_roles, class_name: 'WorkingGroup::Role', dependent: :destroy
   has_many :working_groups, ->{ distinct }, through: :working_group_roles
 
+  has_many :project_roles, class_name: 'Project::Role', dependent: :destroy
+  has_many :projects, ->{ distinct }, through: :project_roles
+
   has_many :comments_made, class_name: Comment, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
 
   enum language: [:en, :de, :fr]
@@ -84,5 +87,4 @@ class User < ActiveRecord::Base
   def role_for_circle(circle)
     circle_roles.find_by(circle: circle)
   end
-
 end

@@ -103,6 +103,19 @@ section > .member {
     }
     .actions {
       margin-top: 20px;
+
+      .organizer-info {
+        h3 {
+          font-size: 1.5rem;
+          font-weight: normal;
+          margin: 5px 0;
+        }
+        a {
+          color: $blue;
+        }
+        margin: 10px 0;
+        display: none;
+      }
     }
 
   }

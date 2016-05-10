@@ -916,6 +916,8 @@
         :tasks_supplies_completed: Help provided
         :edit_profile: Edit Profile
         :working_groups: Working Groups
+      :show_actions:
+        :organizer_info_title: "This user can't be blocked because he/she is still responsible for the following items. Please update the responsibilities there, reload this page, and try again."
       :list:
         :help_provided: Help Provided
         :last_help_provided: Last helped
