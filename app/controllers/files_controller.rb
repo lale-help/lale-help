@@ -1,5 +1,4 @@
 class FilesController < ApplicationController
-  layout 'internal'
   include HasCircle
 
   before_action :ensure_logged_in, except: :show
