@@ -11,7 +11,7 @@ describe "EnsureActiveUser filter" do
 
     it "doesn't redirect" do
       expect(controller).not_to receive(:redirect_to)
-      EnsureActiveUser.new.before(controller)
+      EnsureActiveUser.new(controller).before
     end
   end
 
@@ -20,7 +20,7 @@ describe "EnsureActiveUser filter" do
 
     it "doesn't redirect" do
       expect(controller).not_to receive(:redirect_to)
-      EnsureActiveUser.new.before(controller)
+      EnsureActiveUser.new(controller).before
     end
   end
 
@@ -33,7 +33,7 @@ describe "EnsureActiveUser filter" do
 
         it "doesn't redirect" do
           expect(controller).not_to receive(:redirect_to)
-          EnsureActiveUser.new.before(controller)
+          EnsureActiveUser.new(controller).before
         end
       end
 
@@ -45,20 +45,20 @@ describe "EnsureActiveUser filter" do
 
         context "when user isn't on an info page" do
           it "redirects" do
-            instance = EnsureActiveUser.new
+            instance = EnsureActiveUser.new(controller)
             allow(instance).to receive(:on_info_path?) { false }
             allow(instance).to receive(:current_user_status)
             expect(controller).to receive(:redirect_to)
-            instance.before(controller)
+            instance.before
           end
         end
 
         context "when user is on an info page" do
           it "doesn't redirect" do
-            instance = EnsureActiveUser.new
+            instance = EnsureActiveUser.new(controller)
             allow(instance).to receive(:on_info_path?) { true }
             expect(controller).not_to receive(:redirect_to)
-            instance.before(controller)
+            instance.before
           end
         end
       end

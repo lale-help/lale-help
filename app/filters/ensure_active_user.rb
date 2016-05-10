@@ -6,27 +6,38 @@ class EnsureActiveUser
     to: :controller
 
   def self.before(controller)
-    new.before(controller)
+    new(controller).before
   end
 
   attr_reader :controller
 
-  def before(controller)
+  def initialize(controller)
     @controller = controller
-    return unless current_user && try(:current_circle)
-    if !user_is_circle_member? # user has no role in circle
-      redirect_to circle_path(current_user.primary_circle)
-    elsif current_circle.has_active_user?(current_user) || on_info_path?
+  end
+
+  def before
+
+    unless current_user && controller.try(:current_circle)
       return
+    end
+
+    if user_has_circle_role?
+      if current_circle.has_active_user?(current_user) 
+        return
+      elsif on_info_path?
+        return
+      else
+        redirect_to info_path
+      end
     else
-      redirect_to info_path
+      redirect_to circle_path(current_user.primary_circle)
     end
   end
 
   private
 
-  def user_is_circle_member?
-    current_user.role_for_circle(current_circle)
+  def user_has_circle_role?
+    !!current_user.role_for_circle(current_circle)
   end
 
   def on_info_path?
