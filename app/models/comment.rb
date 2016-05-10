@@ -2,10 +2,10 @@ class Comment < ActiveRecord::Base
   default_scope { order('created_at DESC') }
 
   belongs_to :commenter, class_name: 'User'
-  belongs_to :task, polymorphic: true
+  belongs_to :item, polymorphic: true
 
   validates :commenter, presence: true
-  validates :task, presence: true
+  validates :item, presence: true
   validates :body, presence: true
 
   def comment_date_time

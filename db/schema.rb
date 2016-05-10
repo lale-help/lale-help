@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417005737) do
+ActiveRecord::Schema.define(version: 20160508154809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,15 +66,17 @@ ActiveRecord::Schema.define(version: 20160417005737) do
 
   create_table "comments", id: :bigserial, force: :cascade do |t|
     t.integer  "commenter_id", limit: 8, null: false
-    t.integer  "task_id",      limit: 8, null: false
-    t.string   "task_type",              null: false
+    t.integer  "task_id",      limit: 8
+    t.string   "task_type"
     t.text     "body"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "item_id"
+    t.string   "item_type"
   end
 
   add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
-  add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
+  add_index "comments", ["item_type", "item_id"], name: "index_comments_on_item_type_and_item_id", using: :btree
 
   create_table "file_uploads", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
     t.string   "name"

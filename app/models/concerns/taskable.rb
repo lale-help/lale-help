@@ -13,7 +13,6 @@ module Taskable
     has_many :users,       ->{ distinct                    }, through: :roles
     has_many :volunteers,  ->{ klass::Role.send("#{klass.to_s.downcase}.volunteer") }, through: :roles, source: :user
     has_many :organizers,  ->{ klass::Role.send("#{klass.to_s.downcase}.organizer") }, through: :roles, source: :user
-    has_many :comments,    as: :task
 
     # Scopes
     scope :for_circle, ->(circle) { joins(:working_group).where(working_groups: { circle_id: circle.id } ) }

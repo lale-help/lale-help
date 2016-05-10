@@ -21,6 +21,9 @@ class Circle::MembersController < ApplicationController
 
   def show
     authorize! :read, current_member, current_circle
+    if can? :create, Comment.new, current_member, current_circle
+      @form = Comment::Create.new(commenter: current_user, item: current_member, comment: Comment.new)
+    end
   end
 
   helper_method def current_member

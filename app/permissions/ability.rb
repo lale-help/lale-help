@@ -285,8 +285,16 @@ class Ability
     # Comments
     #
 
-    can :create, Comment do |comment|
-      user.circles.include?(comment.task.circle)
+    can :create, Comment, Taskable do |comment, item, circle|
+      user.circles.include?(circle)
+    end
+
+    can :create, Comment, User do |comment, member, circle|
+      can?(:manage, circle)
+    end
+
+    can :read, Comment, User do |comment, member, circle|
+      can?(:manage, circle)
     end
 
     #
