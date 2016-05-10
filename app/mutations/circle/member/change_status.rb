@@ -8,7 +8,8 @@ class Circle::Member::ChangeStatus < Mutations::Command
   private
 
   def change_user_status(status)
-    circle.roles.find_by(user: user).update_attribute(:status, status)
+    # an admin has multiple roles in one circle.
+    circle.roles.where(user: user).each { |role| role.update_attribute(:status, status) }
   end
 
   def circle
