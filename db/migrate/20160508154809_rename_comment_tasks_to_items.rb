@@ -9,7 +9,10 @@ class RenameCommentTasksToItems < ActiveRecord::Migration
   def up
     add_reference :comments, :item, index: true, polymorphic: true
 
-    Comment.all.each do |comment|
+    Comment.find_each do |comment|
+      # I have comments without task reference in my DB, they cause save! to fail
+      # (dependent: destroy was missing on the has_many :comments association).
+      next unless comment.task 
       comment.item = comment.task
       comment.save!
     end
