@@ -81,7 +81,7 @@ ready = ->
       $('#task_scheduling_type').on 'change', showOrHideStartDate
       initTimeDatePickers()
 
-    new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_project_id')
+    new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_project_id', {hideOnEmpty: true})
     new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_organizer_id')
 
   #
