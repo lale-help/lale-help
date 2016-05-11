@@ -10,10 +10,8 @@ class ViewModel < Cell::ViewModel
     if key.starts_with?('.')
       scope  = ['cells']
       scope << self.class.to_s.split('::').map { |s| s.underscore.gsub('_cell', '') }
-      I18n.t(key, {scope: scope.join('.')}.merge(options))
-    else
-      I18n.t(key, options)
+      options = {scope: scope.join('.')}.merge(options)
     end
+    I18n.t(key, options)
   end
-  # end superclass stuff
 end
