@@ -121,7 +121,7 @@ class Task::BaseForm < ::Form
         t.save
 
         if original_task_id.present?
-          Task::Comments::ClonedTaskComment.run(task: t, message: 'copied', user: user, task_cloned: Task.find(original_task_id))
+          Task::Comments::Cloned.run(task: t, message: 'copied', user: user, task_cloned: Task.find(original_task_id))
         end
       end
     end
