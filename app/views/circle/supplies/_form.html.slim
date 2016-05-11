@@ -43,16 +43,11 @@
       = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
       = errors.message_for(:organizer_id)
 
-  - if feature_enabled?(:projects)
-    .field-row
-      .field
-        = f.label :project_id
-        - unless @form.project_disabled?
-          = @form.project_select(f)
-          = errors.message_for(:project_id)
-        - else
-          = f.hidden_field :project_id
-          = text_field_tag :disabled, @form.project.try(:name), disabled: true
+  .field-row
+    .field
+      = f.label :project_id
+      = @form.project_select(f)
+      = errors.message_for(:project_id)
 
   .submit-row
     = f.submit
