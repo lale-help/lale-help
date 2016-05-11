@@ -6,9 +6,11 @@ class Task::Comments::Cloned < Task::Comments::Base
   private
 
   def message_params
-    super.tap do |params|
-      params[:original_task] = task_cloned.name
-    end
+    { original_task: task_cloned.name }
+  end
+
+  def message
+    :copied
   end
 
 end

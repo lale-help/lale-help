@@ -6,9 +6,10 @@ class Task::Comments::Invited < Task::Comments::Base
   private
 
   def message_params
-    super.tap do |params|
-      params[:invite_count] = invite_count
-    end
+    { invite_count: invite_count }
   end
 
+  def message
+    :invited
+  end
 end

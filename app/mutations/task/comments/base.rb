@@ -22,15 +22,19 @@ class Task::Comments::Base < Mutations::Command
 
   private
 
-  def message_params
+  def common_message_params
     {
       date: I18n.l(Date.today, format: :long),
       user: user.name
     }
   end
 
+  def message_params
+    {}
+  end
+
   def build_message
-    I18n.t("tasks.auto_comment.#{message}", message_params)
+    I18n.t("tasks.auto_comment.#{message}", common_message_params.merge(message_params))
   end
 
   def self.commenter
