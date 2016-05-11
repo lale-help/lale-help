@@ -806,7 +806,7 @@
       :user_unassigned: "%{user} unassigned this task on %{date}."
       :reopened: "%{user} re-opened this task on %{date}."
       :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
-      :updated: "%{user} changed %{updated_fields}."
+      :updated: "%{user} changed %{changed_fields}."
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated

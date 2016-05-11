@@ -97,6 +97,7 @@ class Task::BaseForm < ::Form
 
         t.volunteer_count_required = volunteer_count_required
 
+        task_changes = t.changes.dup
         t.save
 
         t.roles.send('task.organizer').destroy_all
@@ -123,6 +124,8 @@ class Task::BaseForm < ::Form
         if original_task_id.present?
           Task::Comments::Cloned.run(task: t, user: user, task_cloned: Task.find(original_task_id))
         end
+
+        OpenStruct.new(task: task, changes: task_changes)
       end
     end
   end
