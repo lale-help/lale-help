@@ -39,12 +39,7 @@ module TaskableForm
     primary_object.persisted? || available_working_groups.size == 1
   end
 
-  def project_disabled?
-    primary_object.persisted? || project.present?
-  end
-
   def project_select(form)
-    # what a ridiculous method dear Rails boys!
     form.grouped_collection_select(
       :project_id,
       available_working_groups,
@@ -52,8 +47,7 @@ module TaskableForm
       :name,
       :id,
       :name,
-      { include_blank: I18n.t('circle.tasks.form.project_blank') },
-      { disabled: project.present? }
+      { include_blank: I18n.t('circle.tasks.form.project_blank') }
     )
   end
 end

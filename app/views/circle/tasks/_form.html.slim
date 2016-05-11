@@ -92,16 +92,11 @@
       = errors.message_for(:organizer_id)
 
 
-  - if feature_enabled?(:projects)
-    .field-row
-      .field
-        = f.label :project
-        - unless @form.project_disabled?
-          = @form.project_select(f)
-          = errors.message_for(:project_id)
-        - else
-          = f.hidden_field :project_id
-          = text_field_tag :disabled, @form.project.try(:name), disabled: true
+  .field-row
+    .field
+      = f.label :project
+      = @form.project_select(f)
+      = errors.message_for(:project_id)
 
 
   = f.hidden_field(:original_task_id, value: @form.original_task_id)
