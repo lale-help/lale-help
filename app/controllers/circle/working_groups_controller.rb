@@ -134,7 +134,17 @@ class Circle::WorkingGroupsController < ApplicationController
     redirect_to circle_working_group_path(current_circle, current_working_group)
   end
 
+  def disable
+    authorize! :disable_working_group, current_circle
+    WorkingGroup::ChangeStatus.run(working_group: current_working_group, status: :disabled)
+    redirect_to working_groups_circle_admin_path(current_circle)
+  end
 
+  def activate
+    authorize! :activate_working_group, current_circle
+    WorkingGroup::ChangeStatus.run(working_group: current_working_group, status: :active)
+    redirect_to working_groups_circle_admin_path(current_circle)
+  end
 
   helper_method def current_working_group
     @working_group ||= WorkingGroup.find(params[:id] || params[:working_group_id])

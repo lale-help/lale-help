@@ -226,7 +226,9 @@
       :task/volunteer_assignment: Task/volunteer assignment
       :user/feedback: Volunteer/feedback
       :user/identity: Volunteer/identity
-      :user: '{:one=>"Helper", :other=>"Helpers"}'
+      :user: 
+        :one: Helper
+        :other: Helpers
       :working_group: Working Group
       :supply:
         :one: Supply
@@ -862,6 +864,10 @@
         :create_working_group: New Working Group
         :edit: Edit
         :delete: Delete
+        :disable: Deactivate
+        :reactivate: Reactivate
+        :title_active: Active Working Groups
+        :title_disabled: Deactivated Working Groups
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share

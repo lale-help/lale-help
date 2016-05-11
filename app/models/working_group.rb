@@ -1,4 +1,7 @@
 class WorkingGroup < ActiveRecord::Base
+
+  enum status: %i(active disabled)
+  
   belongs_to :circle
 
   has_many :tasks, dependent: :destroy

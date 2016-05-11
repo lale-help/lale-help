@@ -25,14 +25,28 @@ table {
 
 }
 
-section.admin-invite, 
-section.admin-pending-members {
+section.circle-admin {
+
+  margin: 0;
+  padding: 0;
+
+  h2 {
+    padding: 0;
+    margin: 1em 0;
+  }
 
   p {
-    margin: 2rem 0;
+    margin: 2em 0;
   }
 
   .invite-link {
     max-width: 50rem;
+  }
+
+  .wg-table {
+    margin-bottom: 0;
+    .actions {
+      width: 20%;
+    }
   }
 }

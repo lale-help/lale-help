@@ -1,4 +1,4 @@
-= render partial: 'circle/admins/nav'
+= render partial: 'nav'
 
-section
+section.circle-admin
   = render partial: 'circles/form', locals: { form: @form, url: circle_path(current_circle) }

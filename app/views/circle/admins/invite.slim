@@ -1,6 +1,6 @@
 = render partial: 'nav'
 
-section.admin-invite
+section.circle-admin
 
   h2 = t('.invite_headline')
 
@@ -10,7 +10,7 @@ section.admin-invite
     input id="invite-url" type="copy" readonly="" value=join_circle_url(current_circle)
     button type="submit" data-clipboard-target="input#invite-url"
 
-section.admin-pending-members
+section.circle-admin
 
   h2 = t('.pending_members_headline')
 
