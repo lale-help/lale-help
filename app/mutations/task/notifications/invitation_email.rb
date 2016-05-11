@@ -14,7 +14,7 @@ class Task::Notifications::InvitationEmail < Mutations::Command
       TaskMailer.task_invitation(task, user, token).deliver_now
     end
 
-    Task::Comments::InviteToTaskComment.run(task: task, message: 'invited', user: current_user, invite_count: invite_count)
+    Task::Comments::Invited.run(task: task, message: 'invited', user: current_user, invite_count: invite_count)
 
     OpenStruct.new(volunteers: volunteers)
   end
