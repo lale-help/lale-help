@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe Task::Comments::Base do
-  let(:task) { FactoryGirl.create(:task) }
-  let(:user) { FactoryGirl.create(:user, first_name: 'Generic', last_name: 'User') }
+  let(:task) { create(:task) }
+  let(:user) { create(:user, first_name: 'Generic', last_name: 'User') }
 
   context '#execute' do
     it 'creates a comment' do

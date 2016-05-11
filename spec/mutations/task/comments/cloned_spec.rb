@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 describe Task::Comments::Cloned do
-  let(:task) { FactoryGirl.create(:task) }
-  let(:cloned_task) { FactoryGirl.create(:task, name: 'Original Task') }
-  let(:user) { FactoryGirl.create(:user, first_name: 'Generic', last_name: 'User') }
+  let(:task) { create(:task) }
+  let(:cloned_task) { create(:task, name: 'Original Task') }
+  let(:user) { create(:user, first_name: 'Generic', last_name: 'User') }
 
   context '#execute' do
     it 'creates a comment' do
