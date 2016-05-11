@@ -1,12 +1,15 @@
 .comment-container
+
   - if item.comments.count > max_display
     - comments = item.comments.limit(max_display).reverse
     .show_all_comments
       a href='javascript:void(0);' = t('.show_all_comments')
   - else
     - comments = item.comments.reorder('created_at asc')
+
   - comments.each do |comment|
-    .comment class="#{comment.commenter == current_user ? 'right' : 'left' }"
+    .comment class="#{comment.commenter == current_user ? 'right' : 'left' } #{comment.commenter.lale_bot? ? 'lale-bot' : ''}"
+
       .user-avatar
         = render partial: 'user/user_icon', locals: { user: comment.commenter, link: true }
       .comment-main
