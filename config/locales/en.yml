@@ -587,10 +587,11 @@
         :title_active: 'Active working groups'
         :title_disabled: 'Deactivated working groups'
         :edit: 'Edit'
-        :disable: 'Deactivate'
-        :reactivate: 'Reactivate'
+        :disable: 'Disable'
+        :reactivate: 'Enable'
         :delete: 'Delete'
         :confirm_delete: Are you sure?
+        :no_groups: No groups to show right now.
 
   :flash:
     :actions:

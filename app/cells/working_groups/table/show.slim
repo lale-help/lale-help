@@ -1,18 +1,24 @@
 h2 = title
 
-table.default-table.wg-table
-  tr
-    th= WorkingGroup.human_attribute_name("name")
-    th= WorkingGroup.human_attribute_name("admin")
-    th= WorkingGroup.human_attribute_name("actions")
+- if groups.empty?
 
-  - groups.each do |group|
+  p = no_groups_message
+
+- else
+
+  table.default-table.wg-table
     tr
-      td = group.name
-      td
-        - group.admins.each do |name|
-          li = name
+      th= WorkingGroup.human_attribute_name("name")
+      th= WorkingGroup.human_attribute_name("admin")
+      th= WorkingGroup.human_attribute_name("actions")
 
-      td
-        - group.actions.each do |link|
-          = link
+    - groups.each do |group|
+      tr
+        td = group.name
+        td
+          - group.admins.each do |name|
+            li = name
+
+        td
+          - group.actions.each do |link|
+            = link

@@ -12,16 +12,23 @@ class WorkingGroups::TableCell < ::ViewModel
   end
 
   def show
-    @active = model.first.active?
     render
   end
 
+  def showing_active?
+    @options[:status] == :active
+  end
+
   def title
-    @active ? t('.title_active') : t('.title_disabled')
+    t(".title_#{@options[:status]}")
+  end
+
+  def no_groups_message
+    t('.no_groups')
   end
 
   def links_for(group)
-    if @active
+    if showing_active?
       [link_to_edit(group), link_to_disable(group)]
     else
       [link_to_edit(group), link_to_delete(group), link_to_reactivate(group)]

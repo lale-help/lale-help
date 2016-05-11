@@ -2,11 +2,11 @@
 
 section.circle-admin
 
-  = cell('working_groups/table', current_circle.working_groups.active.asc_order)
+  = cell('working_groups/table', current_circle.working_groups.active.asc_order, status: :active)
 
 section.circle-admin
   
-  = cell('working_groups/table', current_circle.working_groups.disabled.asc_order)
+  = cell('working_groups/table', current_circle.working_groups.disabled.asc_order, status: :disabled)
 
 section.circle-admin
   - if can? :manage, current_circle
