@@ -1,4 +1,4 @@
-class Task::Comments::BaseComment < Mutations::Command
+class Task::Comments::Base < Mutations::Command
   required do
     model :task
     model :user
@@ -8,7 +8,7 @@ class Task::Comments::BaseComment < Mutations::Command
   def execute
     I18n.locale = task.circle.language
     Comment.create(item: task,
-                   commenter: Task::Comments::BaseComment.commenter,
+                   commenter: Task::Comments::Base.commenter,
                    body: build_message)
   end
 

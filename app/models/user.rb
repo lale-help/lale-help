@@ -77,7 +77,7 @@ class User < ActiveRecord::Base
   end
 
   def lale_bot?
-    self.id == Task::Comments::BaseComment.commenter.id
+    self.id == Task::Comments::Base.commenter.id
   end
 
 end

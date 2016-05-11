@@ -1,4 +1,4 @@
-class Task::Comments::InviteToTaskComment < Task::Comments::BaseComment
+class Task::Comments::InviteToTaskComment < Task::Comments::Base
   required do
     integer :invite_count
   end

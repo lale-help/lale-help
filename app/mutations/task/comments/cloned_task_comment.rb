@@ -1,5 +1,5 @@
 
-class Task::Comments::ClonedTaskComment < Task::Comments::BaseComment
+class Task::Comments::ClonedTaskComment < Task::Comments::Base
   required do
     model :task_cloned, class: Task
   end
