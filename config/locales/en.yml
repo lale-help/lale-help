@@ -592,6 +592,7 @@
         :delete: 'Delete'
         :confirm_delete: Are you sure?
         :no_groups: No groups to show right now.
+        :cant_delete_group_with_items: The group can't be deleted because it still contains tasks or supplies. Please complete/remove them and try again.
 
   :flash:
     :actions:

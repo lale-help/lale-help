@@ -41,6 +41,9 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def link_to_disable(group)
     options = { class: 'button', method: 'patch' }
+    if (group.tasks.incomplete.count + group.supplies.incomplete.count) > 0
+      options[:onclick] = "alert(#{t('.cant_delete_group_with_items').to_json}); return false;"
+    end
     link_to t('.disable'), circle_working_group_disable_path(group.circle, group), options
   end
 
