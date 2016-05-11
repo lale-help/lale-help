@@ -2,28 +2,34 @@ require 'rails_helper'
 
 describe Task::Create do
   let(:user) { create(:user) }
-  let(:ability) { Ability.new(user) }
+  # I don't care about permissions at this point
+  let(:ability) { double('Ability', 'can?': true) }
+  let(:circle) { create(:circle)}
   let(:task) { build(:task) }
 
   describe '#new' do
 
-    describe "#project_disabled?" do
+    describe "#working_group_disabled?" do
 
-      context "when task has no project" do
-        it 'returns false' do
-          form = Task::Create.new({}, user: user, task: task, circle: task.circle, ability: ability)
-          expect(form.project_disabled?).to be(false)
+      context "when one working group is available" do
+        before do
+          1.times { create(:working_group, circle: circle) }
         end
-      end
-
-      context "when task has a project" do
-        before { task.project = create(:project) }
         it 'returns true' do
-          form = Task::Create.new({}, user: user, task: task, circle: task.circle, ability: ability)
-          expect(form.project_disabled?).to be(true)
+          form = Task::Create.new(user: user, task: task, circle: circle, ability: ability)
+          expect(form.working_group_disabled?).to be(true)
         end
       end
 
+      context "when more than one working group is available" do
+        before do
+          2.times { create(:working_group, circle: circle) }
+        end
+        it 'returns false' do
+          form = Task::Create.new(user: user, task: task, circle: circle, ability: ability)
+          expect(form.working_group_disabled?).to be(false)
+        end
+      end
     end
 
   end
