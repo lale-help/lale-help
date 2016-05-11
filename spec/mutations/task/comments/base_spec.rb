@@ -10,7 +10,7 @@ describe Task::Comments::Base do
       expect(outcome).to be_success
     end
     it 'fills the comment body with an internationalized message' do
-      Timecop.freeze(Time.new(2016, 01, 01, 00, 00, 00)) do
+      Timecop.freeze(Time.parse("2016-01-01")) do
         outcome = Task::Comments::Base.run(task: task, user: user, message: 'user_assigned')
         expect(outcome.result.body).to eq('Generic User signed up for this task on January 01, 2016.')
       end
