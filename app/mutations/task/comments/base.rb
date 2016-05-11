@@ -15,8 +15,9 @@ class Task::Comments::Base < Mutations::Command
   def with_locale(locale)
     original_locale = I18n.locale
     I18n.locale = locale
-    yield
+    result = yield
     I18n.locale = original_locale
+    result
   end
 
   private
