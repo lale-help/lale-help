@@ -27,7 +27,7 @@ module TaskableForm
       if project.present?
         [ project.working_group ]
       else
-        working_groups = circle.working_groups.asc_order.to_a
+        working_groups = circle.working_groups.active.asc_order.to_a
         working_groups.select! { |wg| ability.can?(:manage, wg) } unless ability.can?(:manage, circle)
         working_groups << primary_object.working_group unless working_groups.present?
         working_groups
