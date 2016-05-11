@@ -6,30 +6,25 @@ class Task::Comments::Base < Mutations::Command
   end
 
   def execute
-    with_locale(task.circle.language) do
-      attrs = { item: task, commenter: Task::Comments::Base.commenter, body: build_message }
-      Comment.create(attrs)
-    end
+    attrs = { item: task, commenter: Task::Comments::Base.commenter, body: build_message }
+    Comment.create(attrs)
   end
 
   private
 
-  def with_locale(locale)
-    original_locale = I18n.locale
-    I18n.locale = locale
-    yield
-    I18n.locale = original_locale
-  end
-
   def message_params
     {
-      date: I18n.l(Date.today, format: :long),
+      date: I18n.l(Date.today, format: :long, locale: locale),
       user: user.name
     }
   end
 
   def build_message
-    I18n.t("tasks.auto_comment.#{message}", message_params)
+    I18n.t("tasks.auto_comment.#{message}", message_params, locale: locale)
+  end
+
+  def locale
+    task.circle.language
   end
 
   def self.commenter
