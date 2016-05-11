@@ -2,49 +2,13 @@
 
 section.circle-admin
 
-  h2 = t('.title_active')
-
-  table.default-table.wg-table
-    tr
-      th= current_circle.working_groups.human_attribute_name("name")
-      th= current_circle.working_groups.human_attribute_name("admin")
-      th= current_circle.working_groups.human_attribute_name("actions")
-
-    - current_circle.working_groups.active.asc_order.each do |group|
-      tr
-        td= group.name
-        td
-          - group.admins.active.each do |user|
-            li= user.name
-
-        td
-          = link_to t('.edit'), edit_circle_working_group_path(current_circle, group), class: 'button-primary'
-          = link_to t('.disable'), circle_working_group_disable_path(current_circle, group), class: 'button', method: 'patch'
+  = cell('working_groups/table', current_circle.working_groups.active.asc_order)
 
 section.circle-admin
   
-  h2 = t('.title_disabled')
-
-  table.default-table.wg-table
-    tr
-      th= current_circle.working_groups.human_attribute_name("name")
-      th= current_circle.working_groups.human_attribute_name("admin")
-      th= current_circle.working_groups.human_attribute_name("actions")
-
-    - current_circle.working_groups.disabled.asc_order.each do |group|
-      tr
-        td= group.name
-        td
-          - group.admins.active.each do |user|
-            li= user.name
-
-        td
-          = link_to t('.edit'), edit_circle_working_group_path(current_circle, group), class: 'button-primary'
-          = link_to t('.delete'), circle_working_group_path(current_circle, group), class: 'button', method: 'delete', data: { confirm: t('.confirm_delete_working_group') }
-          = link_to t('.reactivate'), circle_working_group_activate_path(current_circle, group), class: 'button', method: 'patch'
+  = cell('working_groups/table', current_circle.working_groups.disabled.asc_order)
 
 section.circle-admin
   - if can? :manage, current_circle
     = link_to new_circle_working_group_path(current_circle) do
       button.button-primary = t('.create_working_group')
-

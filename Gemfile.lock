@@ -114,6 +114,15 @@ GEM
       xpath (~> 2.0)
     carmen (1.0.2)
       activesupport (>= 3.0.0)
+    cells (4.1.1)
+      tilt (>= 1.4, < 3)
+      uber (>= 0.0.9)
+    cells-rails (0.0.4)
+      actionpack (>= 3.0)
+      cells (>= 4.0)
+    cells-slim (0.0.5)
+      cells (>= 4.0.1, < 6.0.0)
+      slim (~> 3.0)
     childprocess (0.5.9)
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
@@ -442,6 +451,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uber (0.0.15)
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
@@ -482,6 +492,8 @@ DEPENDENCIES
   cancancan
   capybara
   carmen
+  cells-rails
+  cells-slim
   coffee-rails (~> 4.1.0)
   country_select
   database_cleaner

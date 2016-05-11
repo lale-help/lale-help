@@ -581,6 +581,17 @@
       :blank: is blank
       :null: is null
       :not_null: is not null
+  :cells:
+    :working_groups:
+      :table:
+        :title_active: 'Active working groups'
+        :title_disabled: 'Deactivated working groups'
+        :edit: 'Edit'
+        :disable: 'Deactivate'
+        :reactivate: 'Reactivate'
+        :delete: 'Delete'
+        :confirm_delete: Are you sure?
+
   :flash:
     :actions:
       :create:
@@ -860,14 +871,11 @@
         :promote_user: Promote User
         :save: Save
       :working_groups:
-        :confirm_delete_working_group: Are you sure?
         :create_working_group: New Working Group
         :edit: Edit
         :delete: Delete
         :disable: Deactivate
         :reactivate: Reactivate
-        :title_active: Active Working Groups
-        :title_disabled: Deactivated Working Groups
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
