@@ -18,15 +18,9 @@ class Circle::AdminsController < ApplicationController
 
   def invite
     @extended_settings_form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
-    @pending_members = current_circle.pending_members
   end
 
   def extended_settings
-  end
-
-  def activate_member
-    outcome = Circle::ActivateMember.run(params)
-    head (outcome ? :ok : :unprocessable_entity)
   end
 
   helper_method def tab_class key

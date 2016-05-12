@@ -333,7 +333,9 @@
       :task/skill: Tâche/Compétence
       :task/skill_assignment: Tâche/Allocation de Compétence
       :task/volunteer_assignment: Tâche/Allocation de volontaire(s)
-      :user: '{:one=>"Volontaire", :other=>"Volontaires"}'
+      :user: 
+        one: Volontaire
+        other: Volontaires
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
       :working_group: Groupe
@@ -742,7 +744,7 @@
         :headline: Paramètres avancés
         :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
           Administrateur
-      :pending_members_list:
+      :inactive_members_list:
         :activate: Activer
       :files:
         :confirm_delete_file: Etes-vous sure de vouloir effacer ce fichier ?
@@ -998,12 +1000,12 @@
         :title: Démarrer votre cercle de volontaires
         :details: C'est une belle opportunité pour aider votre communauté à améliorer
           les conditions de vie de tous et toutes
-      :membership_pending:
-        :subtitle: Votre compte a été activé !
-        :description: 'Les administrateurs du cercle ont été notifié et doivent bientôt
-          activer votre compte. Si ce n''est pas le cas ou si vous avez des questions,
-          merci de les contacter par email : %{admins_list}.'
-        :title: Bienvenue sur Lale !
+      :membership_inactive:
+        :pending:
+          :description: 'Les administrateurs du cercle ont été notifié et doivent bientôt
+            activer votre compte. Si ce n''est pas le cas ou si vous avez des questions,
+            merci de les contacter par email: %{admins_list}.'
+          :title: Bienvenue sur Lale ! Votre compte a été activé !
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Réinitialiser votre mot de passe

@@ -21,3 +21,4 @@
 .idea
 .tags*
 .DS_Store
+.byebug_history

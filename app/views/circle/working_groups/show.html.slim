@@ -45,9 +45,9 @@
 
     aside
       .members
-        .title= t('.admin-title', count: current_working_group.admins.active.count )
+        .title= t('.admin-title', count: current_working_group.active_admins.count )
         .icons
-          - current_working_group.admins.active.each do |user|
+          - current_working_group.active_admins.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
 

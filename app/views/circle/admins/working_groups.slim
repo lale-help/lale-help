@@ -11,7 +11,7 @@ section
       tr
         td= group.name
         td
-          - group.admins.active.each do |user|
+          - group.active_admins.each do |user|
             li= user.name
 
         td

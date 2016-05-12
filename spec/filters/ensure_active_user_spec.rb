@@ -2,59 +2,68 @@ require 'rails_helper'
 
 describe "EnsureActiveUser filter" do
   
-  context "user is logged out" do
+  let(:current_circle) { double('Circle') }
+  let(:current_user) { double('User', role_for_circle: double('Circle::Role')) }
+  let(:controller) { double('Controller', current_user: current_user, current_circle: current_circle) }
+
+  context "when no current_user is available" do
+    let(:current_user) { nil }
+
     it "doesn't redirect" do
-      controller = double('Controller', current_user: nil)
       expect(controller).not_to receive(:redirect_to)
-      EnsureActiveUser.before(controller)
+      EnsureActiveUser.new(controller).before
     end
   end
 
-  context "user is logged in" do
+  context "when no current_circle is available" do
+    let(:current_circle) { nil }
+
+    it "doesn't redirect" do
+      expect(controller).not_to receive(:redirect_to)
+      EnsureActiveUser.new(controller).before
+    end
+  end
+
+  context "when current_user is available" do
     
-    context "user is not pending" do
-      it "doesn't redirect" do
-        user       = double('User', pending?: false)
-        controller = double('Controller', current_user: user)
-        expect(controller).not_to receive(:redirect_to)
-        EnsureActiveUser.before(controller)
-      end
-    end
+    context "when user is in one circle" do
 
-    context "user is pending" do
+      context "when user is active" do
+        before { allow(current_circle).to receive(:has_active_user?) { true } }
 
-      context "user doesn't have a circle, yet" do
-        it "redirects" do
-          user       = double('User', pending?: true, has_circles?: false)
-          controller = double('Controller', current_user: user)
+        it "doesn't redirect" do
           expect(controller).not_to receive(:redirect_to)
-          EnsureActiveUser.before(controller)
+          EnsureActiveUser.new(controller).before
         end
       end
 
-      context "user has a circle" do
-        context "user isn't on pending info page" do
+      context "when user is not active" do
+
+        before { allow(current_circle).to receive(:has_active_user?) { false } }
+        # stub the method; not relevant for test setup
+        before { allow(controller).to receive(:inactive_circle_membership_path) }
+
+        context "when user isn't on an info page" do
           it "redirects" do
-            user       = double('User', pending?: true, has_circles?: true, primary_circle: 42)
-            controller = double('Controller', current_user: user)
-            allow(controller).to receive(:membership_pending_public_circle_path)
-            allow(EnsureActiveUser).to receive(:on_pending_member_page?) { false }
+            instance = EnsureActiveUser.new(controller)
+            allow(instance).to receive(:on_info_path?) { false }
+            allow(instance).to receive(:current_user_status)
             expect(controller).to receive(:redirect_to)
-            EnsureActiveUser.before(controller)
+            instance.before
           end
         end
 
-        context "user is on pending info page" do
+        context "when user is on an info page" do
           it "doesn't redirect" do
-            user       = double('User', pending?: true, has_circles?: true)
-            controller = double('Controller', current_user: user)
-            allow(controller).to receive(:membership_pending_public_circle_path)
-            allow(EnsureActiveUser).to receive(:on_pending_member_page?) { true }
+            instance = EnsureActiveUser.new(controller)
+            allow(instance).to receive(:on_info_path?) { true }
             expect(controller).not_to receive(:redirect_to)
-            EnsureActiveUser.before(controller)
+            instance.before
           end
         end
       end
+
     end
+
   end
 end

@@ -8,13 +8,13 @@ class Circle::MembersController < ApplicationController
 
   def index
     authorize! :manage, current_circle
-    @members       = active_members
+    @members       = active_users
     @total_members = @members.count
   end
 
 
   def public
-    @members       = active_members.where(public_profile: true)
+    @members       = active_users.where(public_profile: true)
     @total_members = @members.count
   end
 
@@ -26,13 +26,31 @@ class Circle::MembersController < ApplicationController
     end
   end
 
+
+  def activate
+    outcome = Circle::Member::Activate.run(params)
+    if request.xhr?
+      head (outcome ? :ok : :unprocessable_entity)
+    else
+      redirect_to circle_member_path(current_circle, current_member)
+    end
+  end
+
+
+  def block
+    authorize! :block, current_member, current_circle
+    Circle::Member::Block.run(params)
+    redirect_to circle_member_path(current_circle, current_member)
+  end
+
+
   helper_method def current_member
     @current_member ||= current_circle.users.find(params[:id])
   end
 
   private
 
-  def active_members
+  def active_users
     current_circle.users.active
       .includes(:identity, :working_groups, :circle_roles)
       .order('last_name asc')

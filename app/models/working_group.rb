@@ -21,6 +21,11 @@ class WorkingGroup < ActiveRecord::Base
   validates :circle, presence: true
   validates_uniqueness_of :name, scope: :circle
 
+  # active admins are: working group admins whose role in the **circle** is active. 
+  # working group roles have no status.
+  def active_admins
+    admins.select {|admin| circle.has_active_user?(admin) }
+  end
 
   def underscored_name
     name.downcase.underscore.gsub(' ', '_')

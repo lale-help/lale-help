@@ -10,5 +10,5 @@ table.default-table
       tr
         td = link_to_project(project)
         td
-          - project.admins.active.each do |user|
+          - project.active_admins.each do |user|
             li= link_to_user(user)

@@ -499,6 +499,8 @@
     :volunteer: I have this %{model}
     :decline: I don't have this %{model}
     :invite: Invite %{model}
+    :block: Block
+    :unblock: Unblock
     :header:
       :add: Create a new %{name}
       :edit: Editing %{name}
@@ -874,8 +876,10 @@
         :pending_members_headline: Pending members
         :pending_members_explanation: The following members are waiting for approval,
           please activate them so they can start contributing.
-        :no_pending_members_message: There aren't any new members waiting for approval
-          right now.
+        :no_pending_members_message: There aren't any new members waiting for approval right now.
+        :blocked_members_headline: Blocked members
+        :blocked_members_explanation: The following members were blocked (i.e. disabled) by an admin.
+        :no_blocked_members_message: There aren't any blocked members right now.
         :require_approval_headline: Invitation Settings
         :must_activate_users: New members require admin approval
       :extended_settings:
@@ -888,7 +892,7 @@
         :invite-volunteers: Invite Volunteers
         :extended-settings: Extended Settings
         :files: Documents
-      :pending_members_list:
+      :inactive_members_list:
         :activate: Activate
       :files:
         :new-file: Upload File
@@ -917,6 +921,8 @@
         :tasks_supplies_completed: Help provided
         :edit_profile: Edit Profile
         :working_groups: Working Groups
+      :show_actions:
+        :organizer_info_title: "This user can't be blocked because he/she is still responsible for the following items. Please update the responsibilities there, reload this page, and try again."
       :list:
         :help_provided: Help Provided
         :last_help_provided: Last helped
@@ -1145,12 +1151,17 @@
         :title: Start your circle of volunteers
         :details: It's a tremendous opportunity to help your community help each other
           and make the world a better place
-      :membership_pending:
-        :title: Welcome to Lale!
-        :subtitle: Your circle membership is being activated.
-        :description: 'The circle admins have been notified and should activate your
-          account soon. If they don''t or if you have questions, please contact them
-          by email: %{admins_list}.'
+      :membership_inactive:
+        :pending:
+          :title: Welcome to Lale! Your circle membership is being activated.
+          :description: 'The circle admins have been notified and should activate your
+            account soon. If they don''t or if you have questions, please contact them
+            by email: %{admins_list}.'
+          :active_circle_links: 'You can still switch to one of your other circles: %{links}.'
+        :blocked:
+          :title: Your circle membership was deactivated.
+          :description: 'Please contact a circle admin if you feel this happened by mistake: %{admins_list}.'
+          :active_circle_links: 'You can still switch to one of your other circles: %{links}.'
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Reset your password

@@ -2,7 +2,7 @@
 module AdminActionsHelper
 
   def pending_admin_actions_count
-    current_circle.pending_members.count 
+    current_circle.users.pending.count 
   end
 
   def pending_admin_actions?
