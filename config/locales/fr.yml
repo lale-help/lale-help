@@ -333,9 +333,9 @@
       :task/skill: Tâche/Compétence
       :task/skill_assignment: Tâche/Allocation de Compétence
       :task/volunteer_assignment: Tâche/Allocation de volontaire(s)
-      :user: 
-        one: Volontaire
-        other: Volontaires
+      :user:
+        :one: Volontaire
+        :other: Volontaires
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
       :working_group: Groupe
@@ -1002,9 +1002,9 @@
           les conditions de vie de tous et toutes
       :membership_inactive:
         :pending:
-          :description: 'Les administrateurs du cercle ont été notifié et doivent bientôt
-            activer votre compte. Si ce n''est pas le cas ou si vous avez des questions,
-            merci de les contacter par email: %{admins_list}.'
+          :description: 'Les administrateurs du cercle ont été notifié et doivent
+            bientôt activer votre compte. Si ce n''est pas le cas ou si vous avez
+            des questions, merci de les contacter par email: %{admins_list}.'
           :title: Bienvenue sur Lale ! Votre compte a été activé !
     :reset_password_flow:
       :reset_password:

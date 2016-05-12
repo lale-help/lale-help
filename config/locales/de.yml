@@ -288,6 +288,8 @@
     :clone: "%{model} kopieren"
     :volunteer: Ich habe diese %{model}
     :decline: Ich habe diese %{model} nicht
+    :block: Sperren
+    :unblock: Entsperren
   :unauthorized:
     :manage:
       :all: Keine Berechtigung %{subject} zu %{action}.
@@ -359,7 +361,9 @@
       :task/skill: Aufgabe/Fähigkeit
       :task/skill_assignment: Aufgabe/Fähigkeitszuordnung
       :task/volunteer_assignment: Aufgabe/Helferzuordnung
-      :user: Helfer
+      :user:
+        :one: Helfer
+        :other: Helfer
       :user/feedback: Helfer/Feedbackeedback
       :user/identity: Helfer/Identität
       :working_group: Arbeitsgruppe
@@ -769,6 +773,10 @@
         :pending_members_headline: Offene Beitrittsanfragen
         :must_activate_users: Neue Beitrittsanfragen erst überprüfen
         :require_approval_headline: Einstellungen
+        :blocked_members_explanation: Die folgenden Helfer wurden vom Administrator
+          gesperrt.
+        :blocked_members_headline: Gesperrte Helfer
+        :no_blocked_members_message: Es gibt derzeit keine gesperrten Helfer.
       :nav:
         :basic-settings: Helferkreisprofil
         :roles: Rollen
@@ -813,6 +821,10 @@
         :help_provided: Bereits geholfen
       :public:
         :public_members: Helferliste
+      :show_actions:
+        :organizer_info_title: Dieser Helfer kann nicht gesperrt werden, da sie /
+          er noch für die folgenden Dinge zuständig ist. Bitte finde andere Helfer
+          für diese Tätigkeiten und versuche es erneut.
     :supplies:
       :index:
         :header: Sachspenden
@@ -1039,10 +1051,19 @@
           und die Welt ein wenig besser zu machen!
       :membership_inactive:
         :pending:
-          :title: Willkommen bei Lale! Dein Konto wurde eingerichtet und wird gerade überprüft!
+          :title: Willkommen bei Lale! Dein Konto wurde eingerichtet und wird gerade
+            überprüft!
           :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
             und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
             sie per Email: %{admins_list}.'
+          :active_circle_links: 'Du kannst jederzeit zu einem deiner anderen Helferkreise
+            wechseln: %{links}.'
+        :blocked:
+          :active_circle_links: 'Du kannst jederzeit zu einem deiner anderen Helferkreise
+            wechseln: %{links}.'
+          :description: 'Bitte kontaktiere deinen Administrator, falls dies zu Unrecht
+            geschehen ist: %{admins_list}.'
+          :title: Deine Mitgliedschaft im Helferkreis wurde gesperrt.
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Passwort erneuern
