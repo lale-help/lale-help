@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160508154809) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "name"
+    t.integer  "status"
   end
 
   create_table "circles", id: :bigserial, force: :cascade do |t|
@@ -245,7 +246,6 @@ ActiveRecord::Schema.define(version: 20160508154809) do
     t.boolean  "public_profile"
     t.string   "about_me"
     t.integer  "address_id"
-    t.integer  "status"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree

@@ -54,7 +54,7 @@ describe 'Login and logout', type: :feature, js: true do
       visit root_path
       fill_in_form
       click_on "Sign in"
-      expect(page).to have_content(t('public.circles.membership_inactive.subtitle'))
+      expect(page).to have_content(t('public.circles.membership_inactive.pending.title'))
     end
   end
 
