@@ -562,6 +562,8 @@
           :false: Privat
           :true: "Öffentlich"
         :uploader: Hochgeladen von
+        :uploadable: Hochgeladen zu
+        :file_size_bytes: Dateigrösse
       :file_upload/permission_is_public:
         :false: Privat
         :true: "Öffentlich"
@@ -700,6 +702,7 @@
       :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
       :user_assigned: "%{user} hat sich für diese Aufgabe am %{date} angemeldet."
       :user_unassigned: "%{user} hat sich für diese Aufgabe am %{date} abgemeldet."
+      :updated: "%{user} hat %{changed_fields} geändert."
   :users:
     :flash:
       :password_reset_success: Das Passwort wurde erfolgreich geändert.
@@ -765,6 +768,7 @@
           beitreten. Bitte bestätige die Anfragen, damit sie mithelfen können.
         :pending_members_headline: Offene Beitrittsanfragen
         :must_activate_users: Neue Beitrittsanfragen erst überprüfen
+        :require_approval_headline: Einstellungen
       :nav:
         :basic-settings: Helferkreisprofil
         :roles: Rollen
@@ -955,6 +959,8 @@
     :documents:
       :index:
         :new-file: Datei hochladen
+        :working-group-documents: Dokumente der Arbeitsgruppen
+        :circle-documents: Dokumente des Helferkreises
   :circles:
     :new:
       :create: Helferkreis anlegen
