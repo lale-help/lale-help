@@ -521,7 +521,7 @@ DEPENDENCIES
   rake (< 11.0)
   rbsavvy_commons!
   rspec-rails
-  rspec_junit_formatter (= 0.2.2)
+  rspec_junit_formatter (~> 0.2.0)
   sass-rails (>= 3.2)
   seedbank
   selenium-webdriver

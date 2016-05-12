@@ -84,5 +84,5 @@ group :test do
   gem 'webmock'
   gem 'action_mailer_cache_delivery'
   gem 'timecop'
-  gem 'rspec_junit_formatter', '0.2.2' # doesn't do much but slows the build?
+  gem 'rspec_junit_formatter', '~> 0.2.0'
 end
