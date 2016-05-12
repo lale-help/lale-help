@@ -88,6 +88,7 @@ class Task::BaseForm < ::Form
         organizer = User.find_by(id: organizer_id)
         organizer_ability = Ability.new(organizer)
 
+        # FIXME add to task_changes when the organizer changes
         if organizer_ability.can?(:read, t)
           t.roles.send('task.organizer').create user_id: organizer_id
         else
@@ -99,6 +100,7 @@ class Task::BaseForm < ::Form
         end
         t.roles.where(user: volunteers_to_remove).delete_all if volunteers_to_remove.present?
 
+        # FIXME add to task_changes when the organizer changes
         t.location_assignments.destroy_all
         t.location_assignments.create primary: true, location: Location.location_from(primary_location)
 
