@@ -47,5 +47,12 @@
           locale: I18n.locale, priority_countries: ['DE', 'FR', 'US'],
           include_blank: t('.country_select'), selected: form.country)
 
+  hr
+
+    .field-row
+      .field
+        = f.check_box :must_activate_users
+        = f.label :must_activate_users
+
   .actions.submit-row
     = f.submit
