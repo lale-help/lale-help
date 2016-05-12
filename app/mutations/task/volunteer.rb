@@ -14,7 +14,7 @@ class Task::Volunteer < Mutations::Command
     if assignment.persisted?
       (task.users.uniq - [ user ]).each do |outboud_user|
         next unless outboud_user.email.present?
-        TaskMailer.task_change(task, outboud_user).deliver_now
+        TaskMailer.task_change(task, outboud_user, {}).deliver_now
       end
       Task::Comments::Base.run(task: task, message: 'user_assigned', user: user)
     else
