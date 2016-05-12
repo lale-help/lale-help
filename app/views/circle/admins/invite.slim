@@ -22,7 +22,7 @@ section.circle-admin
     = render partial: 'inactive_members_list', locals: { users: users }
 
 - if current_circle.must_activate_users
-  section.admin-pending-members
+  section.circle-admin
 
     h2 = t('.pending_members_headline')
 
