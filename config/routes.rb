@@ -10,7 +10,6 @@ Rails.application.routes.draw do
         get :roles
         get :working_groups
         get :invite
-        get :extended_settings
         post :activate_member
       end
 

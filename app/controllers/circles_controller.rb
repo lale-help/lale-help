@@ -21,16 +21,16 @@ class CirclesController < ApplicationController
   def update
     authorize! :manage, current_circle
 
-    @form = form_for_update
+    @form = Circle::Update.new(params[:circle], user: current_user, circle: current_circle)
 
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to @form.redirect_path, notice: t('flash.updated', name: Circle.model_name.human)
+      redirect_to circle_admin_path(current_circle), notice: t('flash.updated', name: Circle.model_name.human)
     else
       flash.now[:error] = t('flash.failed.update', name: Circle.model_name.human)
       errors.add outcome.errors
-      render @form.view_for_error
+      render 'circle/admins/show'
     end
   end
 
@@ -38,13 +38,6 @@ class CirclesController < ApplicationController
   # TODO: move to page object
   helper_method def tab_class key
     'selected' if key == 'show'
-  end
-
-  private
-
-  def form_for_update
-    klass = params[:circle][:must_activate_users] ? Circle::UpdateExtendedSettingsForm : Circle::UpdateBasicSettingsForm
-    klass.new(params[:circle], user: current_user, circle: current_circle)
   end
 
 end

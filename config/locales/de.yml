@@ -782,11 +782,7 @@
         :roles: Rollen
         :working-groups: Arbeitsgruppen
         :invite-volunteers: Helfer einladen
-        :extended-settings: Weitere Einstellungen
         :files: Dokumente
-      :extended_settings:
-        :headline: Weitere Einstellungen
-        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
       :inactive_members_list:
         :activate: Aktivieren
       :files:

@@ -729,7 +729,6 @@
         :invite-volunteers: Inviter des Volontaires
         :roles: Roles
         :working-groups: Groupes
-        :extended-settings: Paramètres avancés
         :files: Documents
       :roles:
         :confirm_delete_circle: Etes-vous sure ?
@@ -740,10 +739,6 @@
         :create_working_group: Nouveau Groupe
         :edit: Modifier
         :delete: Supprimer
-      :extended_settings:
-        :headline: Paramètres avancés
-        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
-          Administrateur
       :inactive_members_list:
         :activate: Activer
       :files:

@@ -7,7 +7,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def show
-    @form = Circle::UpdateBasicSettingsForm.new(user: current_user, circle: current_circle)
+    @form = Circle::Update.new(user: current_user, circle: current_circle)
   end
 
   def roles
@@ -17,10 +17,6 @@ class Circle::AdminsController < ApplicationController
   end
 
   def invite
-    @extended_settings_form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
-  end
-
-  def extended_settings
   end
 
   helper_method def tab_class key

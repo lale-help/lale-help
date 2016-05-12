@@ -885,14 +885,11 @@
         :no_blocked_members_message: There aren't any blocked members right now.
         :require_approval_headline: Invitation Settings
         :must_activate_users: New members require admin approval
-      :extended_settings:
-        :headline: Extended Settings
       :nav:
         :basic-settings: Circle Profile
         :roles: Roles
         :working-groups: Working Groups
         :invite-volunteers: Invite Volunteers
-        :extended-settings: Extended Settings
         :files: Documents
       :inactive_members_list:
         :activate: Activate
