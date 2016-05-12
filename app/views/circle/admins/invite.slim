@@ -10,12 +10,33 @@ section.admin-invite
     input id="invite-url" type="copy" readonly="" value=join_circle_url(current_circle)
     button type="submit" data-clipboard-target="input#invite-url"
 
-section.admin-pending-members
 
-  h2 = t('.pending_members_headline')
 
-  - if current_circle.pending_members.empty?
-    p = t('.no_pending_members_message')
-  - else
-    p = t('.pending_members_explanation')
-    = render partial: 'pending_members_list', locals: { pending_members: @pending_members }
+- if current_circle.must_activate_users
+  section.admin-pending-members
+
+    h2 = t('.pending_members_headline')
+
+    - if current_circle.pending_members.empty?
+      p = t('.no_pending_members_message')
+    - else
+      p = t('.pending_members_explanation')
+      = render partial: 'pending_members_list', locals: { pending_members: @pending_members }
+
+
+section
+  h2 = t('.require_approval_headline')
+
+  = form_for @extended_settings_form, url: circle_path(current_circle) do |f|
+    - if errors.present?
+      .form-introduction.error
+        p= t('error_correction')
+
+    .field-row
+      .field
+        = f.check_box :must_activate_users
+        = f.label :must_activate_users, t('.must_activate_users')
+
+    .submit-row
+      = f.submit t('workflow.save')
+

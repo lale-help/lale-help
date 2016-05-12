@@ -720,6 +720,8 @@
         :pending_members_explanation: Les utilisateurs suivants ont demandé à rejoindre
           votre cercle. Merci de les approuver pour qu'ils puissent commencer à aider.
         :pending_members_headline: Membres en attente.
+        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
+          Administrateur
       :nav:
         :basic-settings: Profil du Cercle
         :invite-volunteers: Inviter des Volontaires

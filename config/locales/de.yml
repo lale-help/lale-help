@@ -764,6 +764,7 @@
         :pending_members_explanation: Folgende Helfer möchten gerne dem Helferkreis
           beitreten. Bitte bestätige die Anfragen, damit sie mithelfen können.
         :pending_members_headline: Offene Beitrittsanfragen
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
       :nav:
         :basic-settings: Helferkreisprofil
         :roles: Rollen

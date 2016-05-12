@@ -32,7 +32,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       fill_in_form
       click_on "Continue"
       expect(page).to have_content(t('public.circles.index.title'))
-    
+
       # - chooses a circle which requires admin approval
       fill_in "user[location]", with: circle.address.location.geocode_query
       sleep 1
@@ -49,12 +49,16 @@ describe 'New User On-boarding', type: :feature, js: true do
 
 
   context "admin approves new user", type: :feature do
-    
+
     let!(:circle) { submit_form(:circle_create_form).result }
     let!(:new_member) do
       user = create(:pending_user, primary_circle: circle)
       circle.roles.send('circle.volunteer').create user: user
       user
+    end
+
+    before do
+      circle.update_attribute :must_activate_users, true
     end
 
     it "works", :ci_ignore do
@@ -83,7 +87,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       # admin action indicators disappear
       expect(page).not_to have_css('#admin_link .badge')
       expect(page).not_to have_css('.tab-nav .invite .before-icon')
-      
+
       # new user is notified
       expect(last_email.to.first).to eq(new_member.email)
       expect(last_email.subject).to eq("[Lale] #{t('mailers.subject.user_mailer.account_activated')}")

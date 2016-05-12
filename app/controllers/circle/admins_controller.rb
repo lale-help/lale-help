@@ -17,11 +17,11 @@ class Circle::AdminsController < ApplicationController
   end
 
   def invite
+    @extended_settings_form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
     @pending_members = current_circle.pending_members
   end
 
   def extended_settings
-    @form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
   end
 
   def activate_member

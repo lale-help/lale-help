@@ -801,7 +801,7 @@
       :reopened: Task has been re-opened
     :auto_comment:
       :user_assigned: "%{user} signed up for this task on %{date}."
-      :copied: "This task was copied from task %{original_task} on %{date}."
+      :copied: This task was copied from task %{original_task} on %{date}.
       :completed: "%{user} completed this task on %{date}."
       :user_unassigned: "%{user} unassigned this task on %{date}."
       :reopened: "%{user} re-opened this task on %{date}."
@@ -872,6 +872,8 @@
           please activate them so they can start contributing.
         :no_pending_members_message: There aren't any new members waiting for approval
           right now.
+        :require_approval_headline: Invitation Settings
+        :must_activate_users: New members require admin approval
       :extended_settings:
         :headline: Extended Settings
         :must_activate_users: New members require admin approval

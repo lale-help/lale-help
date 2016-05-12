@@ -8,10 +8,8 @@ Rails.application.routes.draw do
     scope module: 'circle' do
       resource :admin do
         get :roles
-        get :files
         get :working_groups
         get :invite
-        get :extended_settings
         post :activate_member
       end
 
