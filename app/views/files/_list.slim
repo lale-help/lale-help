@@ -5,6 +5,9 @@ table.default-table.file-list
     th= FileUpload.human_attribute_name(:permissions)
     th= FileUpload.human_attribute_name(:uploader)
     th= FileUpload.human_attribute_name(:created_at)
+    - if show_uploadable
+      th= FileUpload.human_attribute_name(:uploadable)
+
     - if show_actions
       th= FileUpload.human_attribute_name(:actions)
 
@@ -15,6 +18,9 @@ table.default-table.file-list
       td= FileUpload.human_attribute_name(['permission_is_public', file.is_public].join('.').downcase)
       td= file.uploader.name
       td= l(file.created_at, format: :short)
+      - if show_uploadable
+        td= file.uploadable.name
+
       - if show_actions
         td.actions
           - if can? :manage, file

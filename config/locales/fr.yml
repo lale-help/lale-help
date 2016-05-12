@@ -857,6 +857,7 @@
         :member-title:
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
+        :new-file: Uploader un Fichier
       :index:
         :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes
       :new:
@@ -883,6 +884,8 @@
         :confirm_delete: Voulez-vous vraiment effacer le projet ainsi que toutes ses
           taches et fournitures ?
         :header: Projets pour %{name}
+      :nav:
+        :documents: Documents
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !

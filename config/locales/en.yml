@@ -426,6 +426,7 @@
         :uploader: Uploaded By
         :created_at: Uploaded At
         :file_size_bytes: File Size
+        :uploadable: Uploaded To
       :file_upload/permission_is_public:
         :false: Private
         :true: Public
@@ -1030,6 +1031,7 @@
         :member-title:
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
+        :new-file: Upload File
       :index:
         :all-working-groups-dashboard: All Working Groups Dashboard
       :new:
@@ -1056,6 +1058,8 @@
         :actions: Actions
         :remove: Remove
         :no-volunteers: No Volunteers
+      :nav:
+        :documents: Documents
     :organizers:
       :index:
         :organizers: Organizers
