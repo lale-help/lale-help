@@ -7,7 +7,7 @@ describe 'Login and logout', type: :feature, js: true do
     fill_in "Password",      with: user.identity.password
   end
 
-  context 'Login with correct data', :ci_ignore do
+  context 'Login with correct data' do
 
     let!(:circle) { submit_form(:circle_create_form).result }
     let!(:user) do
