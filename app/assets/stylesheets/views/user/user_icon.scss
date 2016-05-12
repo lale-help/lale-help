@@ -87,7 +87,7 @@
 }
 
 .lale-bot-avatar {
-  @include lale-logo-grey-bg(contain, #FFFFFF);
+  @include lale-logo(contain, #FFFFFF);
   width: 3rem;
   height: 3rem;
 }
