@@ -10,9 +10,6 @@ class Circle::AdminsController < ApplicationController
     @form = Circle::UpdateBasicSettingsForm.new(user: current_user, circle: current_circle)
   end
 
-  def files
-  end
-
   def roles
   end
 
