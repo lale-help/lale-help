@@ -764,6 +764,7 @@
         :pending_members_explanation: Folgende Helfer möchten gerne dem Helferkreis
           beitreten. Bitte bestätige die Anfragen, damit sie mithelfen können.
         :pending_members_headline: Offene Beitrittsanfragen
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
       :nav:
         :basic-settings: Helferkreisprofil
         :roles: Rollen
@@ -889,6 +890,7 @@
         :member-title:
           :one: "%{count} Helfer"
           :other: "%{count} Helfer"
+        :new-file: Datei hochladen
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
       :new:
@@ -915,6 +917,8 @@
         :actions: Aktionen
         :confirm_delete: Willst du wirklich das Projekt und alle seine Aufgabe und
           Sachspenden löschen?
+      :nav:
+        :documents: Dokumente
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!

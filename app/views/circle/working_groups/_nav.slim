@@ -6,3 +6,7 @@
     = Supply.model_name.human(count: 2)
   a.projects data-tab='projects'
     = Project.model_name.human(count: 2)
+  - if feature_enabled? :working_group_files
+    a.documents data-tab='documents'
+      = t('.documents')
+

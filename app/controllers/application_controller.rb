@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   before_action :permit_all_params, if: :active_admin_controller?
   before_action :possibly_expire_session, if: :current_user
   before_action EnsureActiveUser
+  around_action :with_time_zone, if: :current_user
+
 
   rescue_from ::CanCan::AccessDenied do |exception|
     logger.error "access denied due to #{exception.inspect}"
@@ -50,6 +52,13 @@ class ApplicationController < ActionController::Base
     end
   end
   before_action :set_locale
+
+  DEFAULT_TIME_ZONE = "UTC"
+  def with_time_zone
+    user_time_zone = current_user.address.try(:location).try(:timezone)
+    Time.use_zone(user_time_zone || DEFAULT_TIME_ZONE) { yield }
+  end
+
 
   def login user
     session[:user_id] = user.id

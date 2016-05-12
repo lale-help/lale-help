@@ -1,5 +1,0 @@
-= render partial: 'nav'
-
-section
-  = render partial: "files/list", locals: { files: current_circle.files, show_actions: true }
-  = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_circle)), class: 'button button-primary'

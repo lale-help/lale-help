@@ -78,27 +78,11 @@ class Task::BaseForm < ::Form
     end
 
     def execute
+      task.assign_attributes(attributes_for_task_update)
+      task_changes = task.changes
+      task.save
+
       task.tap do |t|
-        t.name          = name
-        t.description   = description
-
-        t.circle        = circle
-        t.working_group = working_group
-        t.project       = project
-
-        t.duration      = duration
-
-        t.scheduling_type = scheduling_type
-        t.start_date      = (scheduling_type == 'between') ? start_date : nil
-        t.start_time      = (scheduling_type == 'between' && start_time.present?) ? start_time : nil
-
-        t.due_date        = due_date
-        t.due_time        = due_time.present? ? due_time : nil
-
-        t.volunteer_count_required = volunteer_count_required
-
-        t.save
-
         t.roles.send('task.organizer').destroy_all
 
         organizer = User.find_by(id: organizer_id)
@@ -119,11 +103,37 @@ class Task::BaseForm < ::Form
         t.location_assignments.create primary: true, location: Location.location_from(primary_location)
 
         t.save
-
-        if original_task_id.present?
-          Task::Comments::ClonedTaskComment.run(task: t, message: 'copied', user: user, task_cloned: Task.find(original_task_id))
-        end
       end
+
+      if original_task_id.present?
+        Task::Comments::Cloned.run(task: task, user: user, task_cloned: Task.find(original_task_id))
+      end
+
+      OpenStruct.new(task: task, changes: task_changes)
+    end
+
+    def attributes_for_task_update
+      # quick and dirty way to break up the huge #execute method
+      attrs = OpenStruct.new
+
+      attrs.name            = name
+      attrs.description     = description
+
+      attrs.circle          = circle
+      attrs.working_group   = working_group
+      attrs.project         = project
+
+      attrs.duration        = duration
+
+      attrs.scheduling_type = scheduling_type
+      attrs.start_date      = (scheduling_type == 'between') ? start_date : nil
+      attrs.start_time      = (scheduling_type == 'between' && start_time.present?) ? start_time : nil
+
+      attrs.due_date        = due_date
+      attrs.due_time        = due_time.present? ? due_time : nil
+
+      attrs.volunteer_count_required = volunteer_count_required
+      attrs.to_h
     end
   end
 end

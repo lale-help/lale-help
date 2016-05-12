@@ -87,4 +87,9 @@ class User < ActiveRecord::Base
   def role_for_circle(circle)
     circle_roles.find_by(circle: circle)
   end
+
+  def lale_bot?
+    self.id == Task::Comments::Base.commenter.id
+  end
+
 end

@@ -29,6 +29,7 @@ class FileUpload::Create < Mutations::Command
     upload.file_encryption_details = encrypted.details
 
     upload.file_name         = file_name
+    upload.file_size_bytes   = file.size
     upload.file_path         = "file_uploads/#{upload.id}"
     upload.file_content_type = ::MIME::Types.type_for(file.path).first.to_s
     upload.file_extension    = File.extname(file.path)

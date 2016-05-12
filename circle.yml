@@ -1,6 +1,6 @@
 test:
   override:
-    - bin/rspec -f doc
+    - bin/rspec -f doc -r rspec_junit_formatter -f RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
 
 general:
   artifacts:

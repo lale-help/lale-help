@@ -9,7 +9,7 @@ describe 'Login and logout', type: :feature, js: true do
 
   let!(:circle) { submit_form(:circle_create_form).result }
   
-  context 'Login with correct data', :ci_ignore do
+  context 'Login with correct data' do
 
     let!(:user) { create(:circle_role_volunteer, circle: circle, status: :active).user }
 

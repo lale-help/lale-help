@@ -427,6 +427,8 @@
           :false: Private
         :uploader: Uploaded By
         :created_at: Uploaded At
+        :file_size_bytes: File Size
+        :uploadable: Uploaded To
       :file_upload/permission_is_public:
         :false: Private
         :true: Public
@@ -807,9 +809,10 @@
       :user_assigned: "%{user} signed up for this task on %{date}."
       :copied: This task was copied from task %{original_task} on %{date}.
       :completed: "%{user} completed this task on %{date}."
-      :user_unassigned: "%{user} unassigned this task on %{date}"
+      :user_unassigned: "%{user} unassigned this task on %{date}."
       :reopened: "%{user} re-opened this task on %{date}."
       :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
+      :updated: "%{user} changed %{changed_fields}."
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated
@@ -877,6 +880,8 @@
         :blocked_members_headline: Blocked members
         :blocked_members_explanation: The following members were blocked (i.e. disabled) by an admin.
         :no_blocked_members_message: There aren't any blocked members right now.
+        :require_approval_headline: Invitation Settings
+        :must_activate_users: New members require admin approval
       :extended_settings:
         :headline: Extended Settings
         :must_activate_users: New members require admin approval
@@ -1034,6 +1039,7 @@
         :member-title:
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
+        :new-file: Upload File
       :index:
         :all-working-groups-dashboard: All Working Groups Dashboard
       :new:
@@ -1060,6 +1066,8 @@
         :actions: Actions
         :remove: Remove
         :no-volunteers: No Volunteers
+      :nav:
+        :documents: Documents
     :organizers:
       :index:
         :organizers: Organizers

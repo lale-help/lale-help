@@ -1,11 +1,11 @@
 class Circle::UpdateExtendedSettingsForm < Circle::BaseForm
 
   def redirect_path
-    extended_settings_circle_admin_path(circle)
+    invite_circle_admin_path(circle)
   end
 
   def view_for_error
-    'circle/admins/extended_settings'
+    'circle/admins/invite'
   end
 
   class Submit < Circle::BaseForm::Submit
@@ -15,6 +15,6 @@ class Circle::UpdateExtendedSettingsForm < Circle::BaseForm
       circle.save
       circle
     end
-    
+
   end
 end

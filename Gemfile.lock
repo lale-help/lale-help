@@ -387,6 +387,9 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    rspec_junit_formatter (0.2.2)
+      builder (< 4)
+      rspec-core (>= 2, < 4, != 2.12.0)
     ruby_parser (3.7.1)
       sexp_processor (~> 4.1)
     rubyzip (1.2.0)
@@ -518,6 +521,7 @@ DEPENDENCIES
   rake (< 11.0)
   rbsavvy_commons!
   rspec-rails
+  rspec_junit_formatter (~> 0.2.0)
   sass-rails (>= 3.2)
   seedbank
   selenium-webdriver

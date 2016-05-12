@@ -722,6 +722,8 @@
         :pending_members_explanation: Les utilisateurs suivants ont demandé à rejoindre
           votre cercle. Merci de les approuver pour qu'ils puissent commencer à aider.
         :pending_members_headline: Membres en attente.
+        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
+          Administrateur
       :nav:
         :basic-settings: Profil du Cercle
         :invite-volunteers: Inviter des Volontaires
@@ -857,6 +859,7 @@
         :member-title:
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
+        :new-file: Uploader un Fichier
       :index:
         :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes
       :new:
@@ -883,6 +886,8 @@
         :confirm_delete: Voulez-vous vraiment effacer le projet ainsi que toutes ses
           taches et fournitures ?
         :header: Projets pour %{name}
+      :nav:
+        :documents: Documents
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !

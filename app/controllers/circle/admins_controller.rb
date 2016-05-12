@@ -10,9 +10,6 @@ class Circle::AdminsController < ApplicationController
     @form = Circle::UpdateBasicSettingsForm.new(user: current_user, circle: current_circle)
   end
 
-  def files
-  end
-
   def roles
   end
 
@@ -20,10 +17,10 @@ class Circle::AdminsController < ApplicationController
   end
 
   def invite
+    @extended_settings_form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
   end
 
   def extended_settings
-    @form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
   end
 
   helper_method def tab_class key
