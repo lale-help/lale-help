@@ -1,6 +1,7 @@
 module LinksHelper
 
   def link_to_user(user, text: user.name)
+    # FIXME may need to be adapted to multicircle
     href = circle_member_path(user.primary_circle, user)
     link_to(html_escape(text), href)
   end

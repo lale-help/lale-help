@@ -38,6 +38,7 @@ class Circle::WorkingGroupsController < ApplicationController
 
   def show
     authorize! :read, current_working_group
+    @files = current_working_group.files.select { |f| can?(:read, f)}
   end
 
 

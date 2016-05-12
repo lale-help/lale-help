@@ -17,3 +17,14 @@ span.translation_missing {
   color: red;
 }
 
+.env-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #000;
+  padding: 4px;
+  width:280px;
+  text-align: center;
+  background-color: $orange;
+  opacity: 0.7;
+}

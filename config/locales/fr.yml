@@ -333,7 +333,9 @@
       :task/skill: Tâche/Compétence
       :task/skill_assignment: Tâche/Allocation de Compétence
       :task/volunteer_assignment: Tâche/Allocation de volontaire(s)
-      :user: '{:one=>"Volontaire", :other=>"Volontaires"}'
+      :user:
+        :one: Volontaire
+        :other: Volontaires
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
       :working_group: Groupe
@@ -720,12 +722,13 @@
         :pending_members_explanation: Les utilisateurs suivants ont demandé à rejoindre
           votre cercle. Merci de les approuver pour qu'ils puissent commencer à aider.
         :pending_members_headline: Membres en attente.
+        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
+          Administrateur
       :nav:
         :basic-settings: Profil du Cercle
         :invite-volunteers: Inviter des Volontaires
         :roles: Roles
         :working-groups: Groupes
-        :extended-settings: Paramètres avancés
         :files: Documents
       :roles:
         :confirm_delete_circle: Etes-vous sure ?
@@ -736,11 +739,7 @@
         :create_working_group: Nouveau Groupe
         :edit: Modifier
         :delete: Supprimer
-      :extended_settings:
-        :headline: Paramètres avancés
-        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
-          Administrateur
-      :pending_members_list:
+      :inactive_members_list:
         :activate: Activer
       :files:
         :confirm_delete_file: Etes-vous sure de vouloir effacer ce fichier ?
@@ -855,6 +854,7 @@
         :member-title:
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
+        :new-file: Uploader un Fichier
       :index:
         :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes
       :new:
@@ -881,6 +881,8 @@
         :confirm_delete: Voulez-vous vraiment effacer le projet ainsi que toutes ses
           taches et fournitures ?
         :header: Projets pour %{name}
+      :nav:
+        :documents: Documents
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
@@ -993,12 +995,12 @@
         :title: Démarrer votre cercle de volontaires
         :details: C'est une belle opportunité pour aider votre communauté à améliorer
           les conditions de vie de tous et toutes
-      :membership_pending:
-        :subtitle: Votre compte a été activé !
-        :description: 'Les administrateurs du cercle ont été notifié et doivent bientôt
-          activer votre compte. Si ce n''est pas le cas ou si vous avez des questions,
-          merci de les contacter par email : %{admins_list}.'
-        :title: Bienvenue sur Lale !
+      :membership_inactive:
+        :pending:
+          :description: 'Les administrateurs du cercle ont été notifié et doivent
+            bientôt activer votre compte. Si ce n''est pas le cas ou si vous avez
+            des questions, merci de les contacter par email: %{admins_list}.'
+          :title: Bienvenue sur Lale ! Votre compte a été activé !
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Réinitialiser votre mot de passe

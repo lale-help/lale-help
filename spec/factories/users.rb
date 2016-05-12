@@ -5,14 +5,7 @@ FactoryGirl.define do
     sequence(:last_name)  {|n| "Doe#{n}" }
     address { create(:user_address) }
     after(:create) do |user, _|
-      user.active!
       create(:user_identity, user: user)
-    end
-
-    factory :pending_user do
-      after(:create) do |user, _|
-        user.pending!
-      end
     end
 
     factory :working_group_admin do

@@ -288,6 +288,8 @@
     :clone: "%{model} kopieren"
     :volunteer: Ich habe diese %{model}
     :decline: Ich habe diese %{model} nicht
+    :block: Sperren
+    :unblock: Entsperren
   :unauthorized:
     :manage:
       :all: Keine Berechtigung %{subject} zu %{action}.
@@ -359,7 +361,9 @@
       :task/skill: Aufgabe/Fähigkeit
       :task/skill_assignment: Aufgabe/Fähigkeitszuordnung
       :task/volunteer_assignment: Aufgabe/Helferzuordnung
-      :user: Helfer
+      :user:
+        :one: Helfer
+        :other: Helfer
       :user/feedback: Helfer/Feedbackeedback
       :user/identity: Helfer/Identität
       :working_group: Arbeitsgruppe
@@ -562,6 +566,8 @@
           :false: Privat
           :true: "Öffentlich"
         :uploader: Hochgeladen von
+        :uploadable: Hochgeladen zu
+        :file_size_bytes: Dateigrösse
       :file_upload/permission_is_public:
         :false: Privat
         :true: "Öffentlich"
@@ -700,6 +706,7 @@
       :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
       :user_assigned: "%{user} hat sich für diese Aufgabe am %{date} angemeldet."
       :user_unassigned: "%{user} hat sich für diese Aufgabe am %{date} abgemeldet."
+      :updated: "%{user} hat %{changed_fields} geändert."
   :users:
     :flash:
       :password_reset_success: Das Passwort wurde erfolgreich geändert.
@@ -764,17 +771,19 @@
         :pending_members_explanation: Folgende Helfer möchten gerne dem Helferkreis
           beitreten. Bitte bestätige die Anfragen, damit sie mithelfen können.
         :pending_members_headline: Offene Beitrittsanfragen
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
+        :require_approval_headline: Einstellungen
+        :blocked_members_explanation: Die folgenden Helfer wurden vom Administrator
+          gesperrt.
+        :blocked_members_headline: Gesperrte Helfer
+        :no_blocked_members_message: Es gibt derzeit keine gesperrten Helfer.
       :nav:
         :basic-settings: Helferkreisprofil
         :roles: Rollen
         :working-groups: Arbeitsgruppen
         :invite-volunteers: Helfer einladen
-        :extended-settings: Weitere Einstellungen
         :files: Dokumente
-      :extended_settings:
-        :headline: Weitere Einstellungen
-        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
-      :pending_members_list:
+      :inactive_members_list:
         :activate: Aktivieren
       :files:
         :confirm_delete_file: Willst Du diese Datei wirklich löschen?
@@ -808,6 +817,10 @@
         :help_provided: Bereits geholfen
       :public:
         :public_members: Helferliste
+      :show_actions:
+        :organizer_info_title: Dieser Helfer kann nicht gesperrt werden, da sie /
+          er noch für die folgenden Dinge zuständig ist. Bitte finde andere Helfer
+          für diese Tätigkeiten und versuche es erneut.
     :supplies:
       :index:
         :header: Sachspenden
@@ -889,6 +902,7 @@
         :member-title:
           :one: "%{count} Helfer"
           :other: "%{count} Helfer"
+        :new-file: Datei hochladen
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
       :new:
@@ -915,6 +929,8 @@
         :actions: Aktionen
         :confirm_delete: Willst du wirklich das Projekt und alle seine Aufgabe und
           Sachspenden löschen?
+      :nav:
+        :documents: Dokumente
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
@@ -951,6 +967,8 @@
     :documents:
       :index:
         :new-file: Datei hochladen
+        :working-group-documents: Dokumente der Arbeitsgruppen
+        :circle-documents: Dokumente des Helferkreises
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -1027,12 +1045,21 @@
         :title: Lege einen neuen Helferkreis an
         :details: Dies ist eine wunderbare Möglichkeit, in Deiner Gemeinschaft mitzuhelfen
           und die Welt ein wenig besser zu machen!
-      :membership_pending:
-        :subtitle: Dein Konto wurde eingerichtet und wird gerade überprüft!
-        :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
-          und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
-          sie per Email: %{admins_list}.'
-        :title: Willkommen bei Lale!
+      :membership_inactive:
+        :pending:
+          :title: Willkommen bei Lale! Dein Konto wurde eingerichtet und wird gerade
+            überprüft!
+          :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
+            und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
+            sie per Email: %{admins_list}.'
+          :active_circle_links: 'Du kannst jederzeit zu einem deiner anderen Helferkreise
+            wechseln: %{links}.'
+        :blocked:
+          :active_circle_links: 'Du kannst jederzeit zu einem deiner anderen Helferkreise
+            wechseln: %{links}.'
+          :description: 'Bitte kontaktiere deinen Administrator, falls dies zu Unrecht
+            geschehen ist: %{admins_list}.'
+          :title: Deine Mitgliedschaft im Helferkreis wurde gesperrt.
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Passwort erneuern

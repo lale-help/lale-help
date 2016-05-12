@@ -7,10 +7,7 @@ class Circle::AdminsController < ApplicationController
   end
 
   def show
-    @form = Circle::UpdateBasicSettingsForm.new(user: current_user, circle: current_circle)
-  end
-
-  def files
+    @form = Circle::Update.new(user: current_user, circle: current_circle)
   end
 
   def roles
@@ -20,16 +17,6 @@ class Circle::AdminsController < ApplicationController
   end
 
   def invite
-    @pending_members = current_circle.pending_members
-  end
-
-  def extended_settings
-    @form = Circle::UpdateExtendedSettingsForm.new(user: current_user, circle: current_circle)
-  end
-
-  def activate_member
-    outcome = Circle::ActivateMember.run(params)
-    head (outcome ? :ok : :unprocessable_entity)
   end
 
   helper_method def tab_class key

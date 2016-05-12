@@ -35,12 +35,19 @@
       .tab.projects
         = render partial: 'projects', locals: { projects: current_working_group.projects.order(:name).select { |project| can?(:read, project) } }
 
+      - if feature_enabled? :working_group_files
+        .tab.documents
+          = render partial: 'files/list', locals: { files: @files, show_actions: can?(:manage, current_working_group), show_uploadable: false }
+          - if can? :add_file?, current_working_group
+            = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_working_group)), class: 'button button-primary'
+
+
 
     aside
       .members
-        .title= t('.admin-title', count: current_working_group.admins.active.count )
+        .title= t('.admin-title', count: current_working_group.active_admins.count )
         .icons
-          - current_working_group.admins.active.each do |user|
+          - current_working_group.active_admins.each do |user|
             .blah
               = render partial: 'user/user_icon', locals: {user: user, link: true}
 

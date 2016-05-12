@@ -8,15 +8,15 @@ Rails.application.routes.draw do
     scope module: 'circle' do
       resource :admin do
         get :roles
-        get :files
         get :working_groups
         get :invite
-        get :extended_settings
         post :activate_member
       end
 
       resources :members do
         get :public, on: :collection
+        put :activate, on: :member
+        put :block, on: :member
         resources :comments, only: [:create, :index]
       end
 
@@ -116,7 +116,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :circles, only: [:index, :new, :create] do
       post :join, on: :collection
-      get :membership_pending, on: :member
+      get "membership_inactive/:status", action: :membership_inactive, as: :inactive_circle_membership
     end
   end
 

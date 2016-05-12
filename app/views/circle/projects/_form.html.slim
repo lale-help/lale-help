@@ -29,6 +29,7 @@
     .field.required class=errors.css(:organizer_id)
       = f.label :organizer_id
       = errors.formatted_message_for(:organizer_id)
+      / FIXME will need to be adapted; only active users should show up
       = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
 
 
