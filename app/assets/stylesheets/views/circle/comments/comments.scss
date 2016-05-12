@@ -55,9 +55,8 @@
         float: right;
         .body {
            &::before {
-            // remove for now for consistency with lale bot comment
-            //border-color: $light-grey transparent transparent transparent;
-            //right: -10px;
+            border-color: $light-grey transparent transparent transparent;
+            right: -10px;
           }
         }
       }
