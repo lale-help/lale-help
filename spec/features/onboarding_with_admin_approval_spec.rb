@@ -61,7 +61,7 @@ describe 'New User On-boarding', type: :feature, js: true do
       circle.update_attribute :must_activate_users, true
     end
 
-    it "works", :ci_ignore do
+    it "works" do
       # verify setup
       expect(circle.volunteers).to include(new_member)
 
