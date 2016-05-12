@@ -1,6 +1,7 @@
 table.default-table.file-list
   tr
     th= FileUpload.model_name.human
+    th= FileUpload.human_attribute_name(:file_size_bytes)
     th= FileUpload.human_attribute_name(:permissions)
     th= FileUpload.human_attribute_name(:uploader)
     th= FileUpload.human_attribute_name(:created_at)
@@ -9,7 +10,8 @@ table.default-table.file-list
 
   - files.each do |file|
     tr
-      td= link_to file.name, file_path(file), target: "_blank"
+      td= link_to file.name + file.file_extension, file_path(file), target: "_blank"
+      td= number_to_human_size(file.file_size_bytes, precision: 2)
       td= FileUpload.human_attribute_name(['permission_is_public', file.is_public].join('.').downcase)
       td= file.uploader.name
       td= l(file.created_at, format: :short)
