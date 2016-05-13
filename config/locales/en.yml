@@ -1032,6 +1032,7 @@
         :project_blank: "(not part of a project)"
     :working_groups:
       :show:
+        :leave_group_confirmation: 'Do you really want to end your membership in this group?'
         :settings: Settings
         :join: Join
         :leave: Leave

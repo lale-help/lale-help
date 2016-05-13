@@ -14,7 +14,8 @@
             = t('.join')
 
         - if can? :leave, current_working_group
-          = button_to circle_working_group_leave_path(current_circle, current_working_group), method: :patch do
+          - options = { method: :patch, "data-confirm": t('.leave_group_confirmation') }
+          = button_to circle_working_group_leave_path(current_circle, current_working_group), options do
             = t('.leave')
 
         - if can? :manage, current_working_group
