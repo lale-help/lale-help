@@ -13,7 +13,7 @@ class Circle::DocumentsController < ApplicationController
     @circle_files = current_circle.files.select{ |f| can?(:read, f) }
     @circle_links = [] # current_circle.links.select{ |f| can?(:read, f) }
 
-    @working_group_files = FileUpload.where(uploadable: current_circle.working_groups).select{ |f| can?(:read, f) }
+    @working_group_files = FileUpload.where(uploadable: current_circle.working_groups).select { |f| can?(:read, f) }
     @working_group_links = [] # links.select{ |f| can?(:read, f) }
   end
 end
