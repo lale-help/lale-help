@@ -15,7 +15,7 @@ table.default-table.file-list
 
   - files.each do |file|
     tr
-      td= link_to file.name, file_path(file), target: "_blank"
+      td= link_to file.name, file_path(file, circle_id: current_circle.id), target: "_blank"
       / FIXME Ralf says this is too much info for the average joe; maybe make this available 
       / for admins in a separate view or on the edit file view later.
       / td= number_to_human_size(file.file_size_bytes, precision: 2)
