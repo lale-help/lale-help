@@ -6,17 +6,18 @@ class Task::Clone < Mutations::Command
 
   # TODO validate & handle error
   def execute
-    cloned_task = Task.new(new_task_attributes)
-    cloned_task
+    Task.new(new_task_attributes)
   end
 
   private
 
-  # TODO: what about task roles?
   def new_task_attributes
-    task.attributes.reject do |key, value|
+    attrs = task.attributes.reject do |key, value|
       %w(id created_at updated_at completed_at).include?(key) || value.nil?
     end
+    attrs[:organizers] = task.organizers
+    # FIXME primary task location must still be cloned
+    attrs
   end
 
 end
