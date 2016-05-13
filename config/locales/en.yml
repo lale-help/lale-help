@@ -433,6 +433,7 @@
         :updated_at: Last modified
         :file_size_bytes: File Size
         :uploadable: Uploaded To
+        :working_group: Working Group
       :file_upload/permission_is_public:
         :false: Private
         :true: Public

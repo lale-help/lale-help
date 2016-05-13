@@ -543,6 +543,7 @@
           :false: Privé
           :true: Publique
         :uploader: Uploadé par
+        :working_group: Groupe
       :file_upload/permission_is_public:
         :false: Privé
         :true: Publique

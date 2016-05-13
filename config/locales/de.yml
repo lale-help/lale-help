@@ -568,6 +568,7 @@
           :true: "Öffentlich"
         :uploader: Hochgeladen von
         :uploadable: Hochgeladen zu
+        :working_group: Arbeitsgruppe
         :file_size_bytes: Dateigrösse
         :updated_at: Zuletzt geändert
       :file_upload/permission_is_public:
