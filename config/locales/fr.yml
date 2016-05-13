@@ -364,6 +364,8 @@
         :state_province: Etat / Région
         :street_address: Rue
         :projects: Projets
+        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
+          Administrateur
       :location:
         :address: Adresse
         :circles: Cercle
@@ -726,7 +728,6 @@
           Administrateur
       :nav:
         :basic-settings: Profil du Cercle
-        :invite-volunteers: Inviter des Volontaires
         :roles: Roles
         :working-groups: Groupes
         :files: Documents

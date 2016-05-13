@@ -389,6 +389,7 @@
         :state_province: Bundesland
         :country: Land
         :projects: Projekte
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
       :location:
         :address: Anschrift
         :circles: Helferkreise
@@ -568,6 +569,7 @@
         :uploader: Hochgeladen von
         :uploadable: Hochgeladen zu
         :file_size_bytes: Dateigrösse
+        :updated_at: Zuletzt geändert
       :file_upload/permission_is_public:
         :false: Privat
         :true: "Öffentlich"
@@ -781,7 +783,7 @@
         :basic-settings: Helferkreisprofil
         :roles: Rollen
         :working-groups: Arbeitsgruppen
-        :invite-volunteers: Helfer einladen
+        :invite-volunteers: Helfer verwalten
         :files: Dokumente
       :inactive_members_list:
         :activate: Aktivieren
@@ -895,7 +897,7 @@
       :show:
         :settings: Einstellungen
         :join: Beitreten
-        :leave: Verlassen
+        :leave: Austreten
         :admin-title:
           :one: "%{count} Organisator"
           :other: "%{count} Organisatoren"
@@ -903,6 +905,8 @@
           :one: "%{count} Helfer"
           :other: "%{count} Helfer"
         :new-file: Datei hochladen
+        :leave_group_confirmation: Möchtest Du Deine Mitarbeit in dieser Arbeitsgruppe
+          wirklich beenden?
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
       :new:
