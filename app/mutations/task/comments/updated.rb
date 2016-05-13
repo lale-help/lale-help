@@ -12,7 +12,7 @@ class Task::Comments::Updated < Task::Comments::Base
   private
 
   def message_params
-    { changed_fields: changed_fields.to_sentence }
+    { changed_fields: changed_fields.map { |key| Task.human_attribute_name(key) }.to_sentence }
   end
 
   def message
@@ -20,7 +20,7 @@ class Task::Comments::Updated < Task::Comments::Base
   end
 
   def changed_fields
-    @changed_fields ||= changes.keys.map { |key| Task.human_attribute_name(key) }
+    changes.keys
   end
 
 end
