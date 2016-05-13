@@ -53,6 +53,7 @@ module LaleHelp
       #{config.root}/app/mutations/concerns
     )
 
+    config.time_zone = 'Berlin'
 
     config.cache_store = :memory_store, { size: 64.megabytes }
 
