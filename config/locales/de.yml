@@ -567,7 +567,7 @@
           :false: Privat
           :true: "Öffentlich"
         :uploader: Hochgeladen von
-        :uploadable: Hochgeladen zu
+        :uploadable: Hochgeladen für
         :file_size_bytes: Dateigrösse
         :updated_at: Zuletzt geändert
       :file_upload/permission_is_public:
@@ -1275,7 +1275,7 @@
     :cancel: Abbrechen
   :files:
     :new:
-      :header: Datei %{name} hinzufügen
+      :header: Datei zu %{name} hinzufügen
     :edit:
       :header: Datei bearbeiten
     :list:
