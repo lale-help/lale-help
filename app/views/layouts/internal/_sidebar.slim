@@ -9,7 +9,7 @@ nav
 
   - if visible_projects?
     .sidebar-section
-      = sidebar_link(t('.projects'), circle_projects_path(current_circle))
+      = sidebar_link(t('.projects'), circle_projects_path(current_circle), badge_text: projects_count)
 
   .sidebar-section
     - if feature_enabled?(:files)

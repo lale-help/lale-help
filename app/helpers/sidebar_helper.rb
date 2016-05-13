@@ -13,6 +13,10 @@ module SidebarHelper
     current_circle.supplies.not_completed.select { |s| can?(:read, s) }.count
   end
 
+  def projects_count
+    current_circle.projects.select { |project| can?(:read, project) }.count
+  end
+
   def admin_actions_counter
     pending_admin_actions_count
   end
