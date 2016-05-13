@@ -428,6 +428,7 @@
           :false: Private
         :uploader: Uploaded By
         :created_at: Uploaded At
+        :updated_at: Last modified
         :file_size_bytes: File Size
         :uploadable: Uploaded To
       :file_upload/permission_is_public:
