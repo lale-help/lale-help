@@ -668,6 +668,8 @@
     :unacceptable_request: Eine unterstütze Version wird im Accept header erwartet.
     :connection_refused: Hoppla! Wir konnten uns nicht mit der Web-Konsole verbinden.
       Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
+    :file:
+      :nils: Datei ist erforderlich.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."

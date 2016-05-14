@@ -265,6 +265,8 @@
     :decline: Je n'ai pas ce %{model}
     :volunteer: J'ai ce %{model}
     :clone: Copie %{model}
+    :block: Bloquer
+    :unblock: Débloquer
   :unauthorized:
     :manage:
       :all: Vous n'êtes pas autorisé à %{action} %{subject}.
@@ -544,6 +546,9 @@
           :true: Publique
         :uploader: Uploadé par
         :working_group: Groupe
+        :file_size_bytes: Taille du Fichier
+        :updated_at: Modifié le
+        :uploadable: Uploadé vers
       :file_upload/permission_is_public:
         :false: Privé
         :true: Publique
@@ -646,6 +651,8 @@
       requête demande n'enregistre pas %{id} en mémoire. Considérez de mettre le nombre
       de processes/workers à un (1) ou utilisez un serveur différent pour votre environnement
       de dévelopement.
+    :file:
+      :nils: Fichier est nécessaire.
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -687,6 +694,7 @@
       :reopened: "%{user} a re-ouvert cette tâche le %{date}."
       :user_assigned: "%{user} s'est enregistré pour cette tâche le %{date}."
       :user_unassigned: "%{user} s'est désisté de cette tâche le %{date}."
+      :updated: "%{user} a changé %{changed_fields}."
   :users:
     :flash:
       :password_reset_success: Votre mot de passe a été mis à jour avec succès.
@@ -727,11 +735,17 @@
         :pending_members_headline: Membres en attente.
         :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
           Administrateur
+        :blocked_members_explanation: Les membres suivants ont été désactivés par
+          un admin.
+        :blocked_members_headline: Membres désactivés
+        :no_blocked_members_message: 'Il n''y a pas de membres désactivés en ce moment. '
+        :require_approval_headline: Paramétres d'invitation
       :nav:
         :basic-settings: Profil du Cercle
         :roles: Roles
         :working-groups: Groupes
         :files: Documents
+        :invite-volunteers: Gérer les volontaires
       :roles:
         :confirm_delete_circle: Etes-vous sure ?
         :promote_user: Promouvoir cet utilisateur
@@ -775,6 +789,10 @@
       :list:
         :help_provided: Aide fournie
         :last_help_provided: Dernière contribution
+      :show_actions:
+        :organizer_info_title: Cet utilisateur ne peut être bloqué car il/elle est
+          toujours responsable des éléments suivants. Merci de mettre à jour ces éléments
+          avant de ré-essayer.
     :supplies:
       :index:
         :header: Besoins Matériels
@@ -857,6 +875,8 @@
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
         :new-file: Uploader un Fichier
+        :leave_group_confirmation: Voulez-vous vraiment mettre fin à votre participation
+          à ce groupe
       :index:
         :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes
       :new:
@@ -921,6 +941,8 @@
     :documents:
       :index:
         :new-file: Uploader un Fichier
+        :circle-documents: Documents du Cercle
+        :working-group-documents: Documents du Groupe
   :circles:
     :new:
       :create: Créer un Cercle
@@ -1003,6 +1025,14 @@
             bientôt activer votre compte. Si ce n''est pas le cas ou si vous avez
             des questions, merci de les contacter par email: %{admins_list}.'
           :title: Bienvenue sur Lale ! Votre compte a été activé !
+          :active_circle_links: 'Vous pouvez toujours basculer sur l''un de vos autres
+            cercles : %{links}.'
+        :blocked:
+          :active_circle_links: 'Vous pouvez toujours basculer sur l''un de vos autres
+            cercles : %{links}.'
+          :description: 'Merci de contacter un admi de cercle si vous pensez que cela
+            c''est produit par erreur : %{admins_list}.'
+          :title: Votre participation à ce cercle a été bloqué.
     :reset_password_flow:
       :reset_password:
         :reset-password-phrase: Réinitialiser votre mot de passe
