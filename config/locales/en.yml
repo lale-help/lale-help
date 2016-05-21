@@ -22,7 +22,7 @@
     - Fri
     - Sat
     :month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -36,7 +36,7 @@
     - November
     - December
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -437,6 +437,20 @@
       :file_upload/permission_is_public:
         :false: Private
         :true: Public
+  :confirm:
+    :defaults:
+      :title: Are you sure?
+      :text: That seems potentially dangerous. Are you sure you want to continue?
+      :confirmButtonText: Confirm
+      :cancelButtonText: Cancel
+      :completed: Let it be done
+      :cancelled: Good call
+      :confirmQuery: CONFIRM
+    :working_group:
+      :title: Delete %{working_group}?
+      :text: To delete this working group, please input the name of the working group
+      :delete_confirmed: The working group has been deleted!
+      :cancel_confirmed: You have not deleted the working group
   :datetime:
     :distance_in_words:
       :half_a_minute: half a minute

@@ -14,9 +14,9 @@ section
           - group.active_admins.each do |user|
             li= user.name
 
-        td
-          = link_to t('.edit'), edit_circle_working_group_path(current_circle, group), class: 'button-primary'
-          = link_to t('.delete'), circle_working_group_path(current_circle, group), class: 'button', method: 'delete', data: { confirm: t('.confirm_delete_working_group') }
+        td.actions
+          a.edit href=edit_circle_working_group_path(current_circle, group)
+          = link_to "", circle_working_group_path(current_circle, group), class: 'delete', method: 'delete', data: { confirm: {type: t('confirm.working_group').merge(title: t('confirm.working_group.title', working_group: group.name)), working_group: group.name } }
 
     - if can? :manage, current_circle
       tr#add-working-group.action-row
