@@ -6,16 +6,24 @@ class Supply::Notifications::InvitationEmail < Mutations::Command
   end
 
   def execute
-    volunteers = (type == "circle" ? supply.circle.volunteers : supply.working_group.users).active.to_a
-
-    volunteers.reject! { |u| u == current_user }
-
-    volunteers.each do |user|
-      next unless user.email.present?
+    invitees.each do |user|
       token = Token.supply_invitation.create! context: { user_id: user.id, supply_id: supply.id }
       SupplyMailer.supply_invitation(supply, user, token).deliver_now
     end
 
-    OpenStruct.new(volunteers: volunteers)
+    Task::Comments::Invited.run(task: supply, user: current_user, invite_count: invitees.count)
+
+    OpenStruct.new(volunteers: invitees)
+  end
+
+  private
+
+  def invitees
+    @invitees ||= begin
+      invitees = (type == "circle" ? supply.circle.volunteers : supply.working_group.users).active.to_a
+      invitees.to_a.reject do |u|
+        u == current_user || !u.email.present?
+      end
+    end
   end
 end

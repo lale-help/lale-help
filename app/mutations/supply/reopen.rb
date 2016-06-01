@@ -7,7 +7,12 @@ class Supply::Reopen < Mutations::Command
   def execute
     supply.completed_at = nil
 
-    add_error :supply, :reopening_failed unless supply.save
+
+    if supply.save
+      Task::Comments::Base.run(task: supply, message: 'reopened', user: user)
+    else
+      add_error :supply, :reopening_failed
+    end
 
     supply
   end

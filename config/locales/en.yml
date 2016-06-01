@@ -1261,6 +1261,13 @@
       :invite_failed: Unable to invite members to this supply. Please try again later.
       :reopened: Supply has been re-opened
       :reopening_failed: There was a problem re-opening this supply
+    :auto_comment:
+      :user_assigned: "%{user} signed up for this supply on %{date}."
+      :completed: "%{user} completed this supply on %{date}."
+      :invited: "%{user} invited %{invite_count} helpers to this supply on %{date}"
+      :reopened: "%{user} re-opened this supply on %{date}."
+      :updated: "%{user} changed %{changed_fields}."
+      :user_unassigned: "%{user} unassigned this supplies on %{date}."
   :sidebar:
     :circle_add_menu:
       :add: Add
