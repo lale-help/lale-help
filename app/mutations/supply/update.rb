@@ -1,11 +1,9 @@
 class Supply::Update < Supply::BaseForm
   class Submit < Supply::BaseForm::Submit
     def execute
-      super.tap do |outcome|
-        outcome = super
-        create_updates_comment(outcome.changes)
-        outcome.supply
-      end
+      outcome = super
+      create_updates_comment(outcome.changes)
+      outcome.supply
     end
 
     private

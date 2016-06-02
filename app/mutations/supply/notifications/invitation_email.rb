@@ -20,7 +20,7 @@ class Supply::Notifications::InvitationEmail < Mutations::Command
 
   def invitees
     @invitees ||= begin
-      invitees = (type == "circle" ? supply.circle.volunteers : supply.working_group.users).active.to_a
+      invitees = (type == "circle" ? supply.circle.volunteers.active : supply.working_group.users).to_a
       invitees.to_a.reject do |u|
         u == current_user || !u.email.present?
       end
