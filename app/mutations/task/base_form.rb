@@ -5,7 +5,7 @@ class Task::BaseForm < ::Form
   attribute :name,             :string
   attribute :description,      :string
 
-  attribute :primary_location, :string, default: proc{ (task.primary_location || circle.address.location).try :address }
+  attribute :primary_location, :string, default: proc{ (task.primary_location || circle.address.location).try(:address) }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
@@ -30,9 +30,6 @@ class Task::BaseForm < ::Form
   attribute :original_task_id,  :string, required: false, default: proc { nil }
 
   include TaskableForm
-
-
-
 
   def start_date_string=(string)
     self.start_date = parse_date(string) if string.present?
@@ -79,31 +76,13 @@ class Task::BaseForm < ::Form
 
     def execute
       task.assign_attributes(attributes_for_task_update)
-      task_changes = task.changes
+      track_task_changes(task.changes)
       task.save
 
       task.tap do |t|
-        t.roles.send('task.organizer').destroy_all
-
-        organizer = User.find_by(id: organizer_id)
-        organizer_ability = Ability.new(organizer)
-
-        # FIXME add to task_changes when the organizer changes
-        if organizer_ability.can?(:read, t)
-          t.roles.send('task.organizer').create user_id: organizer_id
-        else
-          t.roles.send('task.organizer').create user_id: user.id
-        end
-
-        volunteers_to_remove = t.volunteers.select do |volunteer|
-          Ability.new(volunteer).cannot? :read, t
-        end
-        t.roles.where(user: volunteers_to_remove).delete_all if volunteers_to_remove.present?
-
-        # FIXME add to task_changes when the organizer changes
-        t.location_assignments.destroy_all
-        t.location_assignments.create primary: true, location: Location.location_from(primary_location)
-
+        update_organizer(t)
+        update_volunteers(t)
+        update_location(t)
         t.save
       end
 
@@ -136,6 +115,60 @@ class Task::BaseForm < ::Form
 
       attrs.volunteer_count_required = volunteer_count_required
       attrs.to_h
+    end
+
+    private 
+
+    def track_task_changes(hash)
+      @task_changes ||= {}
+      @task_changes.merge!(hash)
+    end
+    attr_reader :task_changes
+
+    def update_organizer(task)
+      old_organizers = task.organizer_ids.to_set
+      
+      task.roles.send('task.organizer').destroy_all
+
+      organizer = User.find_by(id: organizer_id)
+      ability = Ability.new(organizer)
+
+      if ability.can?(:read, task)
+        task.roles.send('task.organizer').create(user_id: organizer_id)
+      else
+        task.roles.send('task.organizer').create(user_id: user.id)
+      end
+
+      if task.organizer_ids.to_set != old_organizers
+        track_task_changes(organizer: true)
+      end
+    end
+
+    def update_volunteers(task)
+      old_volunteers = task.volunteer_ids.to_set
+
+      volunteers_to_remove = task.volunteers.select do |volunteer|
+        Ability.new(volunteer).cannot?(:read, task)
+      end
+      if volunteers_to_remove.present?
+        task.roles.where(user: volunteers_to_remove).delete_all 
+      end
+
+      if task.volunteer_ids.to_set != old_volunteers
+        track_task_changes(volunteers: true)
+      end
+    end
+
+    def update_location(task)
+      old_location = task.primary_location.geocode_query
+      
+      task.location_assignments.destroy_all
+      new_location = Location.location_from(primary_location)
+      task.location_assignments.create(primary: true, location: new_location)
+
+      if task.primary_location.geocode_query != old_location
+        track_task_changes(location: true)
+      end
     end
   end
 end
