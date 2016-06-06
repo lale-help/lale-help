@@ -1130,6 +1130,7 @@
         :account: Account
         :sign-up: Sign up
         :dont-have-account: Don't have an account?
+        :contact_us_for_new_circle: Contact us to create a new circle for you.
     :internal:
       :sidebar:
         :projects: Projects
