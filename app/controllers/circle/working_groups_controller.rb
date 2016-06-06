@@ -85,7 +85,7 @@ class Circle::WorkingGroupsController < ApplicationController
   def remove_user
     authorize! :update, current_working_group
 
-    outcome = WorkingGroup::RemoveUser.run(user_id: params[:user_id], working_group: current_working_group)
+    outcome = WorkingGroup::RemoveUser.run(working_group: current_working_group, user_id: params[:user_id])
     if outcome.success?
       redirect_to :back
     else
@@ -132,13 +132,9 @@ class Circle::WorkingGroupsController < ApplicationController
 
   def leave
     authorize! :leave, current_working_group
-
-    WorkingGroup::Role.where(working_group: current_working_group, user: current_user).delete_all
-
-    redirect_to circle_working_group_path(current_circle, current_working_group)
+    outcome = WorkingGroup::RemoveUser.run(working_group: current_working_group, user_id: current_user.id)
+    redirect_to circle_working_group_path(current_circle, current_working_group), alert: outcome.errors.try(:message_list)
   end
-
-
 
   helper_method def current_working_group
     @working_group ||= WorkingGroup.find(params[:id] || params[:working_group_id])
