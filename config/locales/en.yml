@@ -140,6 +140,8 @@
       :taken: has already been taken
     :due_time:
       :format: Please enter the due time in the format 00:00.
+    organizer_id: 
+      :empty: Please choose an organizer
     :start_time:
       :format: Please enter the start time in the format 00:00.
     :start_date:
@@ -393,8 +395,8 @@
         :volunteers: Volunteers
         :actions: Actions
         :description: Description
-        :admin: Organiser
-        :admin_ids: Organizers
+        :organizer: Organiser
+        :organizer_id: Organiser
         :type: Access Type
       :supply:
         :duration-text:
@@ -1034,6 +1036,8 @@
         :date_format: "%m/%d/%Y"
         :project_blank: "(not part of a project)"
     :working_groups:
+      :form:
+        :organizer_blank: "(please select)"
       :show:
         :leave_group_confirmation: Do you really want to end your membership in this
           group?

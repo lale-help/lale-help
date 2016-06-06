@@ -1,5 +1,7 @@
 class WorkingGroup::Update < WorkingGroup::BaseForm
+
   class Submit < WorkingGroup::BaseForm::Submit
+
     def validate
       condition = [
         'lower(name) = ? AND circle_id = ? AND id <> ?', 
@@ -7,5 +9,10 @@ class WorkingGroup::Update < WorkingGroup::BaseForm
       ]
       add_error(:name, :not_unique) if WorkingGroup.exists?(condition)
     end
+
+    def execute
+      update_attributes
+    end
+
   end
 end
