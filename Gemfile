@@ -37,6 +37,7 @@ gem 'handlebars_assets'
 gem 'font-awesome-sass'
 gem "i18n-js", ">= 3.0.0.rc11"
 gem 'http_accept_language'
+gem 'actionview-encoded_mail_to' # encode email addresses in HTML to protect them from spam harvesters
 
 # API
 gem 'jbuilder', '~> 2.0'
