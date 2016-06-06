@@ -142,6 +142,7 @@
       :format: Please enter the due time in the format 00:00.
     organizer_id: 
       :empty: Please choose an organizer
+      :at_least_one_required: The last organizer can't be deleted.
     :start_time:
       :format: Please enter the start time in the format 00:00.
     :start_date:

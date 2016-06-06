@@ -85,9 +85,12 @@ class Circle::WorkingGroupsController < ApplicationController
   def remove_user
     authorize! :update, current_working_group
 
-    current_working_group.roles.where(user_id: params[:user_id]).delete_all
-
-    redirect_to :back
+    outcome = WorkingGroup::RemoveUser.run(user_id: params[:user_id], working_group: current_working_group)
+    if outcome.success?
+      redirect_to :back
+    else
+      redirect_to :back, alert: outcome.errors.message_list
+    end
   end
 
   def update
