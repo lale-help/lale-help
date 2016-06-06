@@ -422,10 +422,12 @@
         :datetime2: bis
         :location_assignments: Standortzuordnung
         :locations: Standorte
+        :location: Standort
         :name: Name der Aufgabe
         :working_group_id: Arbeitsgruppe
         :organizer_assignments: Organisatorzuordnung
         :organizer_id: Organisator
+        :organizer: Organisator
         :skill_assignments: Fähigkeitszuordnungen
         :skills: Fähigkeiten
         :volunteer_assignments: Helferzuordnungen

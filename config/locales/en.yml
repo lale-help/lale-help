@@ -297,10 +297,12 @@
         :datetime2: To
         :location_assignments: Location assignments
         :locations: Locations
+        :location: Location
         :name: Name of the Task
         :working_group_id: Working Group
         :organizer_assignments: Organizer assignments
         :organizer_id: Organizer
+        :organizer: Organizer
         :skill_assignments: Skill assignments
         :skills: Skills
         :volunteer_assignments: Volunteer assignments
