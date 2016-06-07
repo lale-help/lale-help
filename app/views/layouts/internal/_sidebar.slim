@@ -22,8 +22,7 @@ nav
     - if can? :manage, current_circle
       = sidebar_link(t('.admin'), circle_admin_path(current_circle), badge_text: admin_actions_counter, id: 'admin_link')
 
-  - all_working_groups = current_circle.working_groups.asc_order
-  - if all_working_groups.present?
+  - if current_circle.working_groups.present?
     .sidebar-section
       h4= t('.working_groups')
       - current_users_working_groups.each do |wg|
