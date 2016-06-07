@@ -17,5 +17,19 @@
 
 
     - if feature_enabled? :working_group_files
+
       .tab.working-group-documents
-        = render partial: "files/list", locals: { files: @working_group_files, show_actions: false, show_uploadable: true }
+
+        table.default-table.file-list
+          tr
+            th= FileUpload.human_attribute_name(:working_group)
+            th= FileUpload.model_name.human
+            th= FileUpload.human_attribute_name(:uploader)
+            th= FileUpload.human_attribute_name(:updated_at)
+
+          - @working_group_files.sort_by { |f| f.uploadable.name }.each do |file|
+            tr
+              td= file.uploadable.name
+              td= link_to file.name, file_path(file, circle_id: current_circle.id), target: "_blank"
+              td= file.uploader.name
+              td= l(file.updated_at, format: :short)

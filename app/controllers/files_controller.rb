@@ -34,6 +34,7 @@ class FilesController < ApplicationController
       redirect_to @form.redirect_path, notice: t('flash.file_uploads.created')
 
     else
+      errors.add outcome.errors
       render :new
     end
   end

@@ -21,6 +21,13 @@
       = errors.formatted_message_for(:type)
       = f.select :type, options_for_select(@form.type_options, @form.type)
 
+  - if @form.organizer_assignable?
+    .field-row
+      .field
+        = f.label :organizer_id
+        = errors.formatted_message_for(:organizer_id)
+        = f.select :organizer_id, options_for_select(@form.organizer_options, @form.organizer_id), include_blank: t('.organizer_blank')
+
   .actions.submit-row
     = f.submit
 

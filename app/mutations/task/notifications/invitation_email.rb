@@ -22,7 +22,7 @@ class Task::Notifications::InvitationEmail < Mutations::Command
     @invitees ||= begin
       invitees = (type == "circle" ? task.circle.volunteers.active : task.working_group.users)
       invitees.to_a.reject do |u| 
-        u == current_user || task.invitees.include?(u) || !user.email.present?
+        u == current_user || task.volunteers.include?(u) || !u.email.present?
       end
     end
   end

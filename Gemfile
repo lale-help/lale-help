@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails', '4.2.4'
-
 gem 'rake', '< 11.0'
 
 # backend
@@ -39,12 +38,10 @@ gem "i18n-js", ">= 3.0.0.rc11"
 gem 'http_accept_language'
 gem 'cells-rails'
 gem 'cells-slim'
+gem 'actionview-encoded_mail_to' # encode email addresses in HTML to protect them from spam harvesters
 
 # API
 gem 'jbuilder', '~> 2.0'
-
-
-
 
 # Other
 gem 'geocoder'

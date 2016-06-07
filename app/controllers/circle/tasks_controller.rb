@@ -83,7 +83,8 @@ class Circle::TasksController < ApplicationController
   def update
     authorize! :update,      current_task
 
-    @form = Task::Update.new(params[:task], user: current_user, task: current_task, circle: current_circle, ability: current_ability)
+    model_params = {user: current_user, task: current_task, circle: current_circle, ability: current_ability}
+    @form = Task::Update.new(params[:task], model_params, send_notifications: !!params[:send_notifications])
 
     outcome = @form.submit
 

@@ -140,6 +140,9 @@
       :taken: has already been taken
     :due_time:
       :format: Please enter the due time in the format 00:00.
+    organizer_id: 
+      :empty: Please choose an organizer
+      :at_least_one_required: The last organizer can't be deleted.
     :start_time:
       :format: Please enter the start time in the format 00:00.
     :start_date:
@@ -167,6 +170,8 @@
       :taken: This email has already been taken. Did you already sign up for Lale?
       :empty: Email is required
       :matches: Email is incomplete or invalid
+    :file:
+      :nils: File is required.
     :first_name:
       :nils: Please provide your first name.
       :empty: First name is required
@@ -292,10 +297,12 @@
         :datetime2: To
         :location_assignments: Location assignments
         :locations: Locations
+        :location: Location
         :name: Name of the Task
         :working_group_id: Working Group
         :organizer_assignments: Organizer assignments
         :organizer_id: Organizer
+        :organizer: Organizer
         :skill_assignments: Skill assignments
         :skills: Skills
         :volunteer_assignments: Volunteer assignments
@@ -391,8 +398,8 @@
         :volunteers: Volunteers
         :actions: Actions
         :description: Description
-        :admin: Organiser
-        :admin_ids: Organizers
+        :organizer: Organiser
+        :organizer_id: Organiser
         :type: Access Type
       :supply:
         :duration-text:
@@ -428,8 +435,10 @@
           :false: Private
         :uploader: Uploaded By
         :created_at: Uploaded At
+        :updated_at: Last modified
         :file_size_bytes: File Size
         :uploadable: Uploaded To
+        :working_group: Working Group
       :file_upload/permission_is_public:
         :false: Private
         :true: Public
@@ -903,7 +912,7 @@
         :basic-settings: Circle Profile
         :roles: Roles
         :working-groups: Working Groups
-        :invite-volunteers: Invite Volunteers
+        :invite-volunteers: Manage Volunteers
         :files: Documents
       :inactive_members_list:
         :activate: Activate
@@ -1043,8 +1052,13 @@
         :placeholder_optional: "(optional)"
         :date_format: "%m/%d/%Y"
         :project_blank: "(not part of a project)"
+        :update_and_notify: Update Task and notify
     :working_groups:
+      :form:
+        :organizer_blank: "(please select)"
       :show:
+        :leave_group_confirmation: Do you really want to end your membership in this
+          group?
         :settings: Settings
         :join: Join
         :leave: Leave
@@ -1133,6 +1147,7 @@
         :account: Account
         :sign-up: Sign up
         :dont-have-account: Don't have an account?
+        :contact_us_for_new_circle: Contact us to create a new circle for you.
     :internal:
       :sidebar:
         :projects: Projects

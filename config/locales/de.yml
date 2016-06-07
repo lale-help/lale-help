@@ -389,6 +389,7 @@
         :state_province: Bundesland
         :country: Land
         :projects: Projekte
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
       :location:
         :address: Anschrift
         :circles: Helferkreise
@@ -421,10 +422,12 @@
         :datetime2: bis
         :location_assignments: Standortzuordnung
         :locations: Standorte
+        :location: Standort
         :name: Name der Aufgabe
         :working_group_id: Arbeitsgruppe
         :organizer_assignments: Organisatorzuordnung
         :organizer_id: Organisator
+        :organizer: Organisator
         :skill_assignments: Fähigkeitszuordnungen
         :skills: Fähigkeiten
         :volunteer_assignments: Helferzuordnungen
@@ -455,6 +458,7 @@
         :due_time: Endzeit
         :time: Zeit
         :project: Projekt
+        :project_id: Projekt
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
@@ -566,8 +570,10 @@
           :false: Privat
           :true: "Öffentlich"
         :uploader: Hochgeladen von
-        :uploadable: Hochgeladen zu
+        :working_group: Arbeitsgruppe
+        :uploadable: Hochgeladen für
         :file_size_bytes: Dateigrösse
+        :updated_at: Zuletzt geändert
       :file_upload/permission_is_public:
         :false: Privat
         :true: "Öffentlich"
@@ -665,6 +671,8 @@
     :unacceptable_request: Eine unterstütze Version wird im Accept header erwartet.
     :connection_refused: Hoppla! Wir konnten uns nicht mit der Web-Konsole verbinden.
       Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
+    :file:
+      :nils: Datei ist erforderlich.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -781,7 +789,7 @@
         :basic-settings: Helferkreisprofil
         :roles: Rollen
         :working-groups: Arbeitsgruppen
-        :invite-volunteers: Helfer einladen
+        :invite-volunteers: Helfer verwalten
         :files: Dokumente
       :inactive_members_list:
         :activate: Aktivieren
@@ -895,7 +903,7 @@
       :show:
         :settings: Einstellungen
         :join: Beitreten
-        :leave: Verlassen
+        :leave: Austreten
         :admin-title:
           :one: "%{count} Organisator"
           :other: "%{count} Organisatoren"
@@ -903,6 +911,8 @@
           :one: "%{count} Helfer"
           :other: "%{count} Helfer"
         :new-file: Datei hochladen
+        :leave_group_confirmation: Möchtest Du Deine Mitarbeit in dieser Arbeitsgruppe
+          wirklich beenden?
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
       :new:
@@ -1271,7 +1281,7 @@
     :cancel: Abbrechen
   :files:
     :new:
-      :header: Datei %{name} hinzufügen
+      :header: Datei zu %{name} hinzufügen
     :edit:
       :header: Datei bearbeiten
     :list:
