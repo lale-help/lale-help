@@ -46,11 +46,15 @@ class WorkingGroups::TableCell < ::ViewModel
   end
 
   def link_to_deactivate(group)
-    options = { class: 'button', method: :patch }
+    options = { class: 'button' }
     if (group.tasks.incomplete.count + group.supplies.incomplete.count) > 0
       options[:onclick] = "alert(#{t('.cant_deactivate_group_with_items').to_json}); return false;"
+    else
+      # this will submit the form anyhow even if onclick returns false, so only add it when
+      # the link really should be followed.
+      options[:method] = :patch
     end
-    link_to t('.deactivate'), circle_working_group_disable_path(group.circle, group), options
+    link_to(t('.deactivate'), circle_working_group_disable_path(group.circle, group), options)
   end
 
   def link_to_delete(group)
