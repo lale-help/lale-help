@@ -38,7 +38,8 @@ Rails.application.routes.draw do
 
         patch :join
         patch :leave
-
+        patch :activate
+        patch :disable
       end
 
       resources :tasks do

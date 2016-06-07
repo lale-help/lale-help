@@ -281,6 +281,7 @@
     :select:
       :prompt: Bitte auswählen
     :edit: "%{model} bearbeiten"
+    :edit_no_model: Bearbeiten
     :invite: "%{model} einladen"
     :new: "%{model} erstellen"
     :complete: "%{model} abschliessen"
@@ -290,6 +291,9 @@
     :decline: Ich habe diese %{model} nicht
     :block: Sperren
     :unblock: Entsperren
+    :deactivate: Deaktivieren
+    :reactivate: Reaktivieren
+    :delete: Löschen
   :unauthorized:
     :manage:
       :all: Keine Berechtigung %{subject} zu %{action}.
@@ -673,6 +677,15 @@
       Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
     :file:
       :nils: Datei ist erforderlich.
+  :cells:
+    :working_groups:
+      :table:
+        :title_active: 'Aktive Arbeitsgruppen'
+        :title_deactivated: 'Inaktive Arbeitsgruppen'
+        :confirm_delete: Sind Sie sicher?
+        :no_groups: Aktuell keine Gruppen.
+        :cant_deactivate_group_with_items: Die Arbeitsgruppe enthält noch offene Aufgaben und/oder Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen es dann noch einmal.
+
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."

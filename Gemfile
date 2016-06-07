@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails', '4.2.4'
-
 gem 'rake', '< 11.0'
 
 # backend
@@ -22,13 +21,11 @@ gem 'fog-local', require: 'fog/local'
 
 # UI
 gem 'coffee-rails', '~> 4.1.0'
-gem 'haml-rails', "~> 0.9"
 gem 'jquery-rails'
 gem 'sass-rails', '>= 3.2'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 gem 'autoprefixer-rails'
-gem 'slim'
 gem 'slim-rails'
 gem 'js-routes'
 gem 'neat'
@@ -37,13 +34,12 @@ gem 'handlebars_assets'
 gem 'font-awesome-sass'
 gem "i18n-js", ">= 3.0.0.rc11"
 gem 'http_accept_language'
+gem 'cells-rails'
+gem 'cells-slim'
 gem 'actionview-encoded_mail_to' # encode email addresses in HTML to protect them from spam harvesters
 
 # API
 gem 'jbuilder', '~> 2.0'
-
-
-
 
 # Other
 gem 'geocoder'

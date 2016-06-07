@@ -503,6 +503,7 @@
           of <b>%{total}</b> in total
     :new: New %{model}
     :edit: Edit %{model}
+    :edit_no_model: Edit
     :complete: Complete %{model}
     :reopen: Reopen %{model}
     :clone: Copy %{model}
@@ -511,6 +512,9 @@
     :invite: Invite %{model}
     :block: Block
     :unblock: Unblock
+    :deactivate: Deactivate
+    :reactivate: Reactivate
+    :delete: Delete
     :header:
       :add: Create a new %{name}
       :edit: Editing %{name}
@@ -595,6 +599,15 @@
       :blank: is blank
       :null: is null
       :not_null: is not null
+  :cells:
+    :working_groups:
+      :table:
+        :title_active: 'Active working groups'
+        :title_deactivated: 'Inactive working groups'
+        :confirm_delete: Are you sure?
+        :no_groups: No groups to show right now.
+        :cant_deactivate_group_with_items: The group still contains incomplete tasks or supplies. Please complete them first, then try again.
+
   :flash:
     :actions:
       :create:
@@ -874,10 +887,11 @@
         :promote_user: Promote User
         :save: Save
       :working_groups:
-        :confirm_delete_working_group: Are you sure?
         :create_working_group: New Working Group
         :edit: Edit
         :delete: Delete
+        :disable: Deactivate
+        :reactivate: Reactivate
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
