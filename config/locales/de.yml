@@ -458,6 +458,7 @@
         :due_time: Endzeit
         :time: Zeit
         :project: Projekt
+        :project_id: Projekt
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
