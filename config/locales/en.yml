@@ -503,6 +503,7 @@
           of <b>%{total}</b> in total
     :new: New %{model}
     :edit: Edit %{model}
+    :edit_no_model: Edit
     :complete: Complete %{model}
     :reopen: Reopen %{model}
     :clone: Copy %{model}
@@ -603,13 +604,9 @@
       :table:
         :title_active: 'Active working groups'
         :title_deactivated: 'Inactive working groups'
-        :edit: 'Edit'
-        :deactivate: 'Deactivate'
-        :reactivate: 'Activate'
-        :delete: 'Delete'
         :confirm_delete: Are you sure?
         :no_groups: No groups to show right now.
-        :cant_deactivate_group_with_items: The group can't be deleted because it still contains incomplete tasks or supplies. Please complete/remove them and try again.
+        :cant_deactivate_group_with_items: The group still contains incomplete tasks or supplies. Please complete them first, then try again.
 
   :flash:
     :actions:

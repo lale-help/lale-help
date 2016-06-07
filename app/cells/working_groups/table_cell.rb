@@ -42,7 +42,7 @@ class WorkingGroups::TableCell < ::ViewModel
   end
 
   def link_to_edit(group)
-    link_to t('.edit'), edit_circle_working_group_path(group.circle, group), class: 'button-primary'
+    link_to t('helpers.edit_no_model'), edit_circle_working_group_path(group.circle, group), class: 'button-primary'
   end
 
   def link_to_deactivate(group)
