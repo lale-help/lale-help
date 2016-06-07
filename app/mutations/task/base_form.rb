@@ -28,6 +28,7 @@ class Task::BaseForm < ::Form
   attribute :circle, :model
 
   attribute :original_task_id,  :string, required: false, default: proc { nil }
+  attribute :send_notifications, :boolean, default: proc { false }
 
   include TaskableForm
 
@@ -93,6 +94,8 @@ class Task::BaseForm < ::Form
       OpenStruct.new(task: task, changes: task_changes)
     end
 
+    private 
+
     def attributes_for_task_update
       # quick and dirty way to break up the huge #execute method
       attrs = OpenStruct.new
@@ -116,8 +119,6 @@ class Task::BaseForm < ::Form
       attrs.volunteer_count_required = volunteer_count_required
       attrs.to_h
     end
-
-    private 
 
     def track_task_changes(hash)
       @task_changes ||= {}
@@ -160,7 +161,7 @@ class Task::BaseForm < ::Form
     end
 
     def update_location(task)
-      old_location = task.primary_location.geocode_query
+      old_location = task.primary_location.try(:geocode_query)
       
       task.location_assignments.destroy_all
       new_location = Location.location_from(primary_location)

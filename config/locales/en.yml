@@ -1038,6 +1038,7 @@
         :placeholder_optional: "(optional)"
         :date_format: "%m/%d/%Y"
         :project_blank: "(not part of a project)"
+        :update_and_notify: Update Task and notify
     :working_groups:
       :form:
         :organizer_blank: "(please select)"
