@@ -6,7 +6,7 @@ class WorkingGroups::TableCell < ::ViewModel
   def groups
     working_groups.map do |group|
       OpenStruct.new(
-        name: group.name,
+        link_with_name: link_to_group(group),
         admins: group_admins(group),
         actions: links_for(group)
       )
@@ -15,6 +15,10 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def show
     render
+  end
+
+  def link_to_group(group)
+    link_to(group.name, circle_working_group_path(group.circle, group))
   end
 
   def showing_active?
@@ -31,7 +35,7 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def links_for(group)
     if showing_active?
-      [link_to_edit(group), link_to_disable(group)]
+      [link_to_edit(group), link_to_deactivate(group)]
     else
       [link_to_edit(group), link_to_delete(group), link_to_reactivate(group)]
     end
@@ -41,12 +45,12 @@ class WorkingGroups::TableCell < ::ViewModel
     link_to t('.edit'), edit_circle_working_group_path(group.circle, group), class: 'button-primary'
   end
 
-  def link_to_disable(group)
-    options = { class: 'button', method: 'patch' }
+  def link_to_deactivate(group)
+    options = { class: 'button', method: :patch }
     if (group.tasks.incomplete.count + group.supplies.incomplete.count) > 0
-      options[:onclick] = "alert(#{t('.cant_delete_group_with_items').to_json}); return false;"
+      options[:onclick] = "alert(#{t('.cant_deactivate_group_with_items').to_json}); return false;"
     end
-    link_to t('.disable'), circle_working_group_disable_path(group.circle, group), options
+    link_to t('.deactivate'), circle_working_group_disable_path(group.circle, group), options
   end
 
   def link_to_delete(group)
@@ -60,8 +64,7 @@ class WorkingGroups::TableCell < ::ViewModel
   end
 
   def group_admins(group)
-    # FIXME get active only
-    group.admins.map { |u| u.name }
+    group.active_admins.map { |u| u.name }
   end
 
 end

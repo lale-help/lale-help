@@ -14,7 +14,7 @@ h2 = title
 
     - groups.each do |group|
       tr
-        td = group.name
+        td = group.link_with_name
         td
           - group.admins.each do |name|
             li = name

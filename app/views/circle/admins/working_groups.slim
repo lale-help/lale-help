@@ -6,7 +6,7 @@ section.circle-admin
 
 section.circle-admin
   
-  == cell('working_groups/table', current_circle.working_groups.disabled.asc_order, status: :disabled)
+  == cell('working_groups/table', current_circle.working_groups.disabled.asc_order, status: :deactivated)
 
 section.circle-admin
   - if can? :manage, current_circle
