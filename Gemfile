@@ -21,7 +21,6 @@ gem 'fog-local', require: 'fog/local'
 
 # UI
 gem 'coffee-rails', '~> 4.1.0'
-gem 'haml-rails', "~> 0.9"
 gem 'jquery-rails'
 gem 'sass-rails', '>= 3.2'
 gem 'turbolinks'
