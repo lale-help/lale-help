@@ -45,8 +45,32 @@ section.circle-admin {
 
   .wg-table {
     margin-bottom: 0;
-    .actions {
-      width: 20%;
+    width: auto;
+    .name {
+      min-width: 250px;
+      max-width: 250px;
+      padding-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+    .admins {
+      min-width: 150px;
+      max-width: 150px;
+      padding-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .action-buttons {
+      width: 400px;
+      a {
+        margin: 0;
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
   }
+
 }
