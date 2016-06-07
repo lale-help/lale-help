@@ -176,7 +176,7 @@ class Circle::TasksController < ApplicationController
     authorize! :clone, current_task
 
     original_task_id = current_task.id
-    outcome = Task::Clone.run(user: current_user, task: current_task)
+    outcome = Task::Clone.run(task: current_task)
 
     if outcome.success?
       @task = outcome.result

@@ -5,7 +5,7 @@ class Task::BaseForm < ::Form
   attribute :name,             :string
   attribute :description,      :string
 
-  attribute :primary_location, :string, default: proc{ (task.primary_location || circle.address.location).try(:address) }
+  attribute :primary_location, :string, default: proc { (task.primary_location || circle.address.location).try(:address) }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
@@ -164,8 +164,7 @@ class Task::BaseForm < ::Form
       old_location = task.primary_location.try(:geocode_query)
       
       task.location_assignments.destroy_all
-      new_location = Location.location_from(primary_location)
-      task.location_assignments.create(primary: true, location: new_location)
+      task.primary_location = Location.location_from(primary_location)
 
       if task.primary_location.geocode_query != old_location
         track_task_changes(location: true)

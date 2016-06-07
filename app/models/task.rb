@@ -20,6 +20,10 @@ class Task < ActiveRecord::Base
     locations.where(task_location_assignments:{ primary: true}).first
   end
 
+  def primary_location=(new_location)
+    location_assignments.create(primary: true, location: new_location)
+  end
+
   def extra_locations
     locations.where(task_location_assignments:{ primary: false})
   end
