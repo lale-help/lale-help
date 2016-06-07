@@ -55,19 +55,19 @@ section.circle-admin {
       white-space: nowrap;
     }
     .admins {
-      min-width: 150px;
-      max-width: 150px;
-      padding-right: 10px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      li {
+        min-width: 175px;
+        max-width: 175px;
+        padding-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;        
+      }
     }
     .action-buttons {
-      width: 400px;
       a {
-        margin: 0;
-        margin-right: 5px;
-        margin-bottom: 5px;
+        margin: 3px;
+        margin-left: 0px;
       }
     }
 

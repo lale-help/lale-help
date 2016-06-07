@@ -37,7 +37,7 @@ class WorkingGroups::TableCell < ::ViewModel
     if showing_active?
       [link_to_edit(group), link_to_deactivate(group)]
     else
-      [link_to_edit(group), link_to_delete(group), link_to_reactivate(group)]
+      [link_to_edit(group), link_to_reactivate(group), link_to_delete(group)]
     end
   end
 
@@ -54,17 +54,17 @@ class WorkingGroups::TableCell < ::ViewModel
       # the link really should be followed.
       options[:method] = :patch
     end
-    link_to(t('.deactivate'), circle_working_group_disable_path(group.circle, group), options)
+    link_to(t('helpers.deactivate'), circle_working_group_disable_path(group.circle, group), options)
   end
 
   def link_to_delete(group)
     options = { class: 'button', method: 'delete', data: { confirm: t('.confirm_delete') } }
-    link_to t('.delete'), circle_working_group_path(group.circle, group), options
+    link_to t('helpers.delete'), circle_working_group_path(group.circle, group), options
   end
 
   def link_to_reactivate(group)
     options = { class: 'button', method: 'patch' }
-    link_to t('.reactivate'), circle_working_group_activate_path(group.circle, group), options
+    link_to t('helpers.reactivate'), circle_working_group_activate_path(group.circle, group), options
   end
 
   def group_admins(group)

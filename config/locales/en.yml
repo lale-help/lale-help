@@ -511,6 +511,9 @@
     :invite: Invite %{model}
     :block: Block
     :unblock: Unblock
+    :deactivate: Deactivate
+    :reactivate: Reactivate
+    :delete: Delete
     :header:
       :add: Create a new %{name}
       :edit: Editing %{name}
@@ -606,7 +609,7 @@
         :delete: 'Delete'
         :confirm_delete: Are you sure?
         :no_groups: No groups to show right now.
-        :cant_deactivate_group_with_items: The group can't be deleted because it still contains tasks or supplies. Please complete/remove them and try again.
+        :cant_deactivate_group_with_items: The group can't be deleted because it still contains incomplete tasks or supplies. Please complete/remove them and try again.
 
   :flash:
     :actions:
