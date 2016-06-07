@@ -1,8 +1,10 @@
 class WorkingGroups::TableCell < ::ViewModel
 
+  # "model" is the cells calls to the first argument in the cell() call 
+  alias :working_groups :model
+  
   def groups
-    # cells refers to the first argument in the cell() call as model
-    model.map do |group|
+    working_groups.map do |group|
       OpenStruct.new(
         name: group.name,
         admins: group_admins(group),
@@ -58,7 +60,8 @@ class WorkingGroups::TableCell < ::ViewModel
   end
 
   def group_admins(group)
-    group.admins.active.map { |u| u.name }
+    # FIXME get active only
+    group.admins.map { |u| u.name }
   end
 
 end
