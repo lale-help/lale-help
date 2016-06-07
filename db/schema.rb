@@ -266,6 +266,7 @@ ActiveRecord::Schema.define(version: 20160512065121) do
     t.string   "name",                                  null: false
     t.string   "description"
     t.boolean  "is_private",            default: false
+    t.integer  "status",                default: 0
   end
 
 end

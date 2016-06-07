@@ -1,24 +1,14 @@
 = render partial: 'nav'
 
-section
-  table.default-table
-    tr
-      th= current_circle.working_groups.human_attribute_name("name")
-      th= current_circle.working_groups.human_attribute_name("admin")
-      th= current_circle.working_groups.human_attribute_name("actions")
+section.circle-admin
 
-    - current_circle.working_groups.asc_order.each do |group|
-      tr
-        td= group.name
-        td
-          - group.active_admins.each do |user|
-            li= user.name
+  == cell('working_groups/table', current_circle.working_groups.active.asc_order, status: :active)
 
-        td
-          = link_to t('.edit'), edit_circle_working_group_path(current_circle, group), class: 'button-primary'
-          = link_to t('.delete'), circle_working_group_path(current_circle, group), class: 'button', method: 'delete', data: { confirm: t('.confirm_delete_working_group') }
+section.circle-admin
+  
+  == cell('working_groups/table', current_circle.working_groups.disabled.asc_order, status: :deactivated)
 
-    - if can? :manage, current_circle
-      tr#add-working-group.action-row
-        td colspan="3"
-          a href=new_circle_working_group_path(current_circle) = t('.create_working_group')
+section.circle-admin
+  - if can? :manage, current_circle
+    = link_to new_circle_working_group_path(current_circle) do
+      button.button-primary = t('.create_working_group')
