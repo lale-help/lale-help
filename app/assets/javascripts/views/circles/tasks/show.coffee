@@ -1,6 +1,7 @@
 ready = ->
   $('.show_all_comments').on 'click', showComments
-
+  $('#assigned_volunteer_id').select2();
+  
 showComments = ->
   elem = $('.task-comments')
   return if elem.hasClass('loading')

@@ -1,6 +1,7 @@
 .title
-  p
-    = title
+  p = t('.title')
+  .task-badge.task-badge--users
+      i = "#{missing_volunteer_count}/#{volunteer_count_required}"
 
 .icons
   - volunteers.each do |v|
@@ -18,9 +19,6 @@
     .user-icon.user-needed
 
 .actions
-  
-  = assignable_volunteers_select
-
   - if can?(:invite_to, task)
     = form_tag(links.invite_wg, method: :post) do
       button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)

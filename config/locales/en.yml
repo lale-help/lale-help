@@ -601,7 +601,12 @@
       :not_null: is not null
   :cells:
     :tasks:
+      :volunteer_select_tag:
+        :assignee_blank: (no helper selected)
+        :in_working_group: In working group
+        :all_helpers: All helpers
       :sourcing_widget:
+        :title: Helpers
         :volunteer-count:
           :one: "%{count} volunteer is going"
           :other: "%{count} volunteers are going"

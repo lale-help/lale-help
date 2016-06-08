@@ -1,5 +1,7 @@
 class Tasks::SourcingWidgetCell < ::ViewModel
 
+  include ActionView::Helpers::FormOptionsHelper
+
   # the first argument to the #cell call is "model" in here
   alias :task :model 
 
@@ -11,6 +13,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
 
   def show
     render
+    #render + "<hr style='margin:25px' />" + render('show_new')
   end
 
   private
@@ -33,6 +36,10 @@ class Tasks::SourcingWidgetCell < ::ViewModel
 
   def missing_volunteer_count
     can?(:volunteer, task) ? task.missing_volunteer_count - 1 : task.missing_volunteer_count
+  end
+
+  def assignable_volunteers_select
+    cell('tasks/volunteer_select_tag', task)
   end
 
   def ability
