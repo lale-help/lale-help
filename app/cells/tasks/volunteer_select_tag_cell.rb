@@ -1,3 +1,6 @@
+#
+# renders a select tag to select volunteers for a task.
+#
 class Tasks::VolunteerSelectTagCell < ::ViewModel
 
   attr_accessor :group_public, :group_members, :non_group_members, :volunteers
@@ -13,7 +16,7 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
 
   # this is the default cell action
   def show
-    select_tag('assigned_volunteer_id', select_options, include_blank: t('.assignee_blank'))
+    select_tag('assign_volunteer_id', select_options, include_blank: t('.assignee_blank'))
   end
 
   private 

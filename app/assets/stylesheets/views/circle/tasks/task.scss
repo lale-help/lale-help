@@ -1,5 +1,10 @@
 $border-radius: 1.5rem;
 
+// temp styling
+#assign_volunteer_id {
+  width: 100%;
+}
+
 section > .task {
   @include display(flex);
   @include flex-direction(row);

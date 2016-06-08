@@ -19,7 +19,9 @@
 
 .actions
   
-  = assignable_volunteers_select
+  h4 style="margin-bottom:3 px;" Assign helper ...
+  form action=links.assign_volunteer method="put"
+    = assignable_volunteers_select
 
   - if can?(:invite_to, task)
     = form_tag(links.invite_wg, method: :post) do
