@@ -62,8 +62,7 @@
       = render partial: 'circle/comments/comments', locals: { item: current_task, circle: current_circle, max_display: 3 }
 
   aside
-    .volunteers
-      == cell 'tasks/sourcing_widget', current_task, current_user: current_user
+    == cell 'tasks/sourcing_widget', current_task, current_user: current_user
 
     .actions
       - if can? :complete, current_task

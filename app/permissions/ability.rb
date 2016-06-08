@@ -173,6 +173,14 @@ class Ability
       task.complete? or task.volunteers.include?(user)
     end
 
+    can :assign_volunteer, Task do |task, assignee|
+      assignee_can_read = Ability.new(assignee).can?(:read, task)
+      can(:manage, task) && assignee_can_read
+    end
+    cannot :assign_volunteer, Task do |task, assignee|
+      task.complete? or task.volunteers.include?(assignee)
+    end
+
     can :decline, Task do |task|
       task.volunteers.include?(user)
     end

@@ -36,10 +36,7 @@ Rails.application.routes.draw do
         patch :add_user
         delete :remove_user
 
-        patch :join
-        patch :leave
-        patch :activate
-        patch :disable
+        patch :join, :leave, :activate, :disable
       end
 
       resources :tasks do
@@ -50,16 +47,8 @@ Rails.application.routes.draw do
         end
         resources :comments, only: [:create, :destroy, :update, :index]
 
-        put :volunteer
-        patch :volunteer
-        put :decline
-        patch :decline
-        put :complete
-        patch :complete
-        put :reopen
-        patch :reopen
-        put :clone
-        patch :clone
+        put   :volunteer, :assign_volunteer, :decline, :complete, :reopen, :clone
+        patch :volunteer, :assign_volunteer, :decline, :complete, :reopen, :clone
 
         post :invite
       end

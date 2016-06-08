@@ -33,8 +33,12 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   def circle
     task.circle
   end
+  # deep down the user icon partial is rendered, which uses current_circle.
+  # since it is used globally I don't want to change the variable name
+  alias :current_circle :circle 
 
   def missing_volunteer_count
+    # FIXME I think cancan doesn't work correctly right now
     can?(:volunteer, task) ? task.missing_volunteer_count - 1 : task.missing_volunteer_count
   end
 
@@ -53,7 +57,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
         accept: circle_task_volunteer_path(circle, task),
         invite_wg: circle_task_invite_path(circle, task, type: 'working_group'),
         invite_circle: circle_task_invite_path(circle, task, type: 'circle'),
-        assign_volunteer: circle_task_volunteer_path(circle, task)
+        assign_volunteer: circle_task_assign_volunteer_path(circle, task)
       )
     end
   end

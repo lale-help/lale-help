@@ -1,8 +1,8 @@
 ready = ->
-  $('.show_all_comments').on 'click', showComments
+  $('.show_all_comments').on('click', showComments)
 
-  $('#assign_volunteer_id').select2()
-  $('#assign_volunteer_id').on 'change', assignVolunteer
+  $('#new_volunteer_id').select2()
+  $(document).on('change', '#new_volunteer_id', assignVolunteer)
 
 showComments = ->
   elem = $('.task-comments')
@@ -13,20 +13,22 @@ showComments = ->
     success: (result) =>
       elem.removeClass 'loading'
       elem.html(result)
-    error: (error, response)=>
+    error: (error, response) =>
       elem.removeClass('loading')
   )
 
 assignVolunteer = ->
-  userId = $(this).val()
   form = $(this).closest('form')
-  if userId != ""
-    $.ajax({
-      url:  $(form).attr('action'),
-      method: $(form).attr('method'),
-      data: $(form).serialize()
-    })
-
+  promise = $.ajax({
+    url:  form.attr('action'),
+    method: form.attr('method'),
+    data: form.serialize(),
+    success: (result) => 
+      widgetParent = $(this).closest('.volunteers').parent();
+      widgetParent.html(result)
+      # need to reinitialize because it's a new HTML received from the server
+      $('#new_volunteer_id').select2()
+  })
 
 
 $(document).on 'ready', ready

@@ -119,6 +119,20 @@ class Circle::TasksController < ApplicationController
     end
   end
 
+  def assign_volunteer
+    new_volunteer = User.find(params['new_volunteer_id'])
+    authorize! :assign_volunteer, current_task, new_volunteer
+
+    outcome = Task::Volunteer.run(user: new_volunteer, task: current_task)
+
+    if outcome.success?
+      render html: cell('tasks/sourcing_widget', current_task, current_user: current_user)
+    else
+      # FIXME handle error correctly
+      head :unprocessable_entity
+    end
+  end
+
   def decline
     authorize! :decline, current_task
 
