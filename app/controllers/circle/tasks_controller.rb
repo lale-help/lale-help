@@ -192,14 +192,4 @@ class Circle::TasksController < ApplicationController
     @task ||= Task.find(params[:id] || params[:task_id])
   end
 
-  helper_method def page
-    t = current_task
-    @page ||= begin
-      OpenStruct.new(
-        is_missing_volunteers: t.is_missing_volunteers?,
-        missing_volunteer_count: t.missing_volunteer_count,
-        adjusted_missing_volunteer_count: can?(:volunteer, t) ? t.missing_volunteer_count - 1 : t.missing_volunteer_count
-      )
-    end
-  end
 end

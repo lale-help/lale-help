@@ -1,6 +1,6 @@
 class WorkingGroups::TableCell < ::ViewModel
 
-  # "model" is the cells calls to the first argument in the cell() call 
+  # the first argument to the #cell call is "model" in here
   alias :working_groups :model
   
   def groups

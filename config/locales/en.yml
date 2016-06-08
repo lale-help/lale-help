@@ -600,6 +600,17 @@
       :null: is null
       :not_null: is not null
   :cells:
+    :tasks:
+      :sourcing_widget:
+        :volunteer-count:
+          :one: "%{count} volunteer is going"
+          :other: "%{count} volunteers are going"
+        :volunteer-count-required:
+          :one: Requires %{count} volunteer
+          :other: Requires %{count} volunteers
+        :volunteer-count-missing:
+          :one: " (%{count} missing)"
+          :other: " (%{count} missing)"
     :working_groups:
       :table:
         :title_active: 'Active working groups'
@@ -996,15 +1007,6 @@
       :show:
         :back: Back to All Supplies
         :task-complete: 'Done: '
-        :volunteer-count:
-          :one: "%{count} volunteer is going"
-          :other: "%{count} volunteers are going"
-        :volunteer-count-required:
-          :one: Requires %{count} volunteer
-          :other: Requires %{count} volunteers
-        :volunteer-count-missing:
-          :one: " (%{count} missing)"
-          :other: " (%{count} missing)"
         :organized-by: Organized by %{name}
         :volunteer-task-button: I have this supply
         :decline-task-button: I don't have this supply
