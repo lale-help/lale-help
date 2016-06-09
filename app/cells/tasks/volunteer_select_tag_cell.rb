@@ -5,6 +5,8 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
 
   attr_accessor :group_public, :group_members, :non_group_members, :volunteers
 
+  include ERB::Util
+
   def initialize(task, options)
     @group_public   = !task.working_group.is_private?
     @volunteers     = task.volunteers
@@ -38,7 +40,7 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
   def option_tags(users)
     users.map do |user|
       attributes = {value: user.id, disabled: volunteers.include?(user) }
-      content_tag(:option, h(user.name), attributes)
+      content_tag(:option, html_escape(user.name), attributes)
     end.join
   end
 
