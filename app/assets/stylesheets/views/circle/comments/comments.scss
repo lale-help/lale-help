@@ -103,11 +103,16 @@
         }
       }
       .commenter {
-        .name, .time {
+        .name, .time, .actions {
           display: inline-block;
         }
         .time {
           float: right;
+        }
+        .actions {
+          a:hover {
+            text-decoration: underline;
+          }
         }
       }
     }

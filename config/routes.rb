@@ -17,7 +17,7 @@ Rails.application.routes.draw do
         get :public, on: :collection
         put :activate, on: :member
         put :block, on: :member
-        resources :comments, only: [:create, :index]
+        resources :comments, only: [:create, :index, :destroy]
       end
 
       resources :roles, :organizers

@@ -15,13 +15,13 @@
       .comment-main
         .body=comment.body
         .commenter
-          / .actions
-          /     = link_to t('circle.comments.actions.delete'),
-          /         circle_task_comment_path(circle.id, task.id, comment.id), remote: true,  method: :delete
-          /
-          /     = link_to t('circle.comments.actions.edit'), '#', {data: {"edit-comment" => comment.id}}
-
-          .name=comment.commenter.name
+          - if comment.commenter == current_user
+            .actions
+              - edit_url = item.is_a?(User) ? circle_member_comment_path(circle, item, comment) : circle_task_comment_path(circle, item, comment)
+              = link_to t('circle.comments.actions.delete'), edit_url, method: :delete, data: { confirm: t('circle.comments.actions.delete_confirm') }
+              / = link_to t('circle.comments.actions.edit'), '#', {data: {"edit-comment" => comment.id}}
+          - else
+            .name=comment.commenter.name
           .time=comment.comment_date_time
 
 - if can? :create, Comment.new, item, circle

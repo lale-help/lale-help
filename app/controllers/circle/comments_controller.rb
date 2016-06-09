@@ -31,8 +31,11 @@ class Circle::CommentsController < ApplicationController
   end
 
   def destroy
-    # TODO: Implement comment destroy method
+    authorize! :update, Comment, current_item, current_circle
 
+    @comment.destroy
+
+    redirect_to circle_commentable_path(current_circle, current_item)
   end
 
   helper_method def current_item
