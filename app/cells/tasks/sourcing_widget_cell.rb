@@ -5,8 +5,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   # the first argument to the #cell call is "model" in here
   alias :task :model 
 
-  delegate :can?, 
-    to: :ability
+  delegate :can?, to: :ability
 
   delegate :is_missing_volunteers?, :volunteer_count_required, :volunteers,
     to: :task
@@ -18,12 +17,16 @@ class Tasks::SourcingWidgetCell < ::ViewModel
 
   private
 
-  def title
-    string = t(".volunteer-count-required", count: volunteer_count_required)
-    if is_missing_volunteers?
-      string << t(".volunteer-count-missing", count: task.missing_volunteer_count)
-    end
-    string
+  # def title
+  #   string = t(".volunteer-count-required", count: volunteer_count_required)
+  #   if is_missing_volunteers?
+  #     string << t(".volunteer-count-missing", count: task.missing_volunteer_count)
+  #   end
+  #   string
+  # end
+  # 
+  def helper_stats
+    "[ #{volunteers.count} / #{volunteer_count_required} ]"
   end
 
   def current_user

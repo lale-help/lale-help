@@ -1,0 +1,15 @@
+.user-badge {
+
+  border: 1px solid #666;
+  border-radius: 7px;
+  padding: 4px 6px;
+  width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  .user-icon-container {
+    display: inline-block;
+    margin-right: 6px;  
+  }
+}

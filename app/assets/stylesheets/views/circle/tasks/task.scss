@@ -1,10 +1,5 @@
 $border-radius: 1.5rem;
 
-// temp styling
-#assign_volunteer_id {
-  width: 100%;
-}
-
 section > .task {
   @include display(flex);
   @include flex-direction(row);
@@ -78,11 +73,15 @@ section > .task {
     margin-left: 3rem;
     @include flex(0 0 30rem);
 
-    .volunteers{
+    .volunteers {
       @include border-top-radius($border-radius);
       @include border-bottom-radius($border-radius);
       border: thin solid $border-color;
       margin-bottom: 3rem;
+
+      .task-action-button {
+        padding: 0.5em 0;
+      }
 
       > * {
         border-top: thin solid $border-color;
@@ -99,6 +98,7 @@ section > .task {
         @include border-top-radius($border-radius);
       }
 
+      // FIXME partially unused
       .icons {
         @include display(flex);
         @include flex-direction(row);
@@ -116,6 +116,12 @@ section > .task {
             content: " ";
           }
         }
+      }
+
+      .helper-stats {
+        display: inline-block;
+        float: right;
+        position: right;
       }
     }
 
@@ -214,4 +220,32 @@ section > .task.urgency--on_track {
       color: $blue-dark-1;
     }
   }
+}
+
+.modal-find-helpers {
+
+  text-align: left;
+  width: 500px;
+
+  form {
+    width: auto;
+  }
+
+  h3 {
+    margin: 30px 0 15px 0;
+    border-bottom: 1px solid #bbb;
+
+    &.first {
+      margin-top: 10px;
+    }
+  }
+
+  .button {
+    margin-top: 10px;
+  }
+
+  #new_volunteer_id {
+    width: 100%px;
+  }
+
 }

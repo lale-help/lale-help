@@ -1,31 +1,47 @@
 .title
-  p
-    = title
+  span.helper-stats = helper_stats
+  p = t('.title')
 
 .icons
-  - volunteers.each do |v|
-    - if current_user == v && can?(:decline, task)
-      = button_to(links.decline, method: :put, class: 'task-action-button') do
-        = render partial: 'user/user_icon', locals: { user: v }
-    - else
-      = render partial: 'user/user_icon', locals: { user: v, link: true }
-
-  - if can?(:volunteer, task)
-    = button_to(links.accept, method: :put, class: 'task-action-button') do
-      .volunteer-icon
-
-  - missing_volunteer_count.times do
-    .user-icon.user-needed
+  - volunteers.each do |volunteer|
+    == cell('tasks/user_badge', volunteer, task: task, current_user: current_user)
 
 .actions
   
-  h4 style="margin-bottom:3 px;" Assign helper ...
+  - if can?(:volunteer, task)
+    = form_tag(links.accept, method: :put, class: 'task-action-button') do
+      button.button-primary = t('.accept')
+  - else # decline
+    = form_tag(links.decline, method: :put, class: 'task-action-button') do
+      button.button-primary = t('.decline')
+
+  - if can?(:manage, task)
+    a.button.button-secondary href="#find-helpers" = t('.find_helpers')
+  
+
+/ start of modal window with sourcing options
+.remodal.modal-find-helpers data-remodal-id="find-helpers"
+  button.remodal-close data-remodal-action="close"
+
+  / FIXME cancan  
+  h3.first = t('.modal.title_assign')
   form action=links.assign_volunteer method="put"
     = assignable_volunteers_select
+    br
+    a.button.button-secondary = t('helpers.assign', model: User)
+  
 
   - if can?(:invite_to, task)
-    = form_tag(links.invite_wg, method: :post) do
-      button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)
-    - unless task.working_group.is_private?
-      = form_tag(links.invite_circle, method: :post) do
-        button.button.button-secondary= t('helpers.invite', model: Circle.model_name.human)
+    h3 = t('.modal.title_invite')
+    / = form_tag(links.invite_wg, method: :post) do
+    / = form_tag(links.invite_circle, method: :post)
+    = radio_button_tag('invite', 'working_group')
+    = label_tag('invite_working_group', t('.modal.invite_working_group'))
+    br
+    = radio_button_tag('invite', 'circle', disabled: task.working_group.is_private?)
+    = label_tag('invite_circle', t('.modal.invite_all'))
+    br
+    = radio_button_tag('invite', 'by_name')
+    = label_tag('invite_by_name', t('.modal.invite_by_name'))
+    br
+    a.button.button-secondary = t('helpers.invite', model: User)

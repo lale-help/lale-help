@@ -16,7 +16,8 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
 
   # this is the default cell action
   def show
-    select_tag('new_volunteer_id', select_options, include_blank: t('.assignee_blank'))
+    opts = { multiple: true, include_blank: t('.assignee_blank'), placeholder: 'by name' }
+    select_tag('new_volunteer_id', select_options, opts)
   end
 
   private 

@@ -5,7 +5,7 @@ class Task::Update < Task::BaseForm
     def execute
       outcome = super
       notify_users
-      create_updates_comment
+      create_task_comment
       outcome.task
     end
 
@@ -17,7 +17,7 @@ class Task::Update < Task::BaseForm
       end
     end
 
-    def create_updates_comment
+    def create_task_comment
       Task::Comments::Updated.run!(task: task, user: user, changes: task_changes)
     end
 

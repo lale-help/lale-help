@@ -1,7 +1,7 @@
 ready = ->
   $('.show_all_comments').on('click', showComments)
 
-  $('#new_volunteer_id').select2()
+  $('#new_volunteer_id').select2({placeholder: "by name"})
   $(document).on('change', '#new_volunteer_id', assignVolunteer)
 
 showComments = ->
@@ -27,7 +27,7 @@ assignVolunteer = ->
       widget = $(this).closest('.volunteers');
       widget.html(result)
       # need to reinitialize because it's a new DOM node
-      $('#new_volunteer_id').select2()
+      $('#new_volunteer_id').select2({placeholder: "by name"})
   })
 
 

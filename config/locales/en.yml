@@ -510,6 +510,7 @@
     :volunteer: I have this %{model}
     :decline: I don't have this %{model}
     :invite: Invite %{model}
+    :assign: Assign %{model}
     :block: Block
     :unblock: Unblock
     :deactivate: Deactivate
@@ -606,7 +607,17 @@
         :in_working_group: In this working group
         :all_helpers: All helpers
       :sourcing_widget:
+        :modal:
+          :title_assign: Assign to helper
+          :title_invite: Invite by email
+          :invite_working_group: All helpers in the working group
+          :invite_all: All helpers in the circle
+          :invite_by_name: By name
         :title: Helpers
+        :find_helpers: Find helpers &hellip;
+        # FIXME these aren't used
+        :accept: I'll help
+        :decline: I can't help anymore
         :volunteer-count:
           :one: "%{count} volunteer is going"
           :other: "%{count} volunteers are going"
@@ -862,6 +873,7 @@
         :account_activation: A new member wants to join your circle
         :account_activated: Your circle membership was activated.
       :task_mailer:
+        :task_assigned: A task was assigned to you.
         :task_change: Something has changed about your task.
         :task_completion_reminder: Thanks for helping!
         :task_invitation: Lale needs your help with a new task.
