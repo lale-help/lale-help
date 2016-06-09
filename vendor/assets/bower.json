@@ -5,6 +5,7 @@
     "select2": "^4.0.3",
     "remodal": "^1.0.7",
     "datetimepicker": "^2.5.4",
-    "tablesorter": "*"
+    "tablesorter": "*",
+    "clipboard": "^1.5.11"
   }
 }

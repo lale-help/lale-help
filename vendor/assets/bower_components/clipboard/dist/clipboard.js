@@ -1,5 +1,5 @@
 /*!
- * clipboard.js v1.5.9
+ * clipboard.js v1.5.10
  * https://zenorocha.github.io/clipboard.js
  *
  * Licensed MIT © Zeno Rocha
@@ -434,14 +434,10 @@ module.exports = E;
         };
 
         ClipboardAction.prototype.initSelection = function initSelection() {
-            if (this.text && this.target) {
-                throw new Error('Multiple attributes declared, use either "target" or "text"');
-            } else if (this.text) {
+            if (this.text) {
                 this.selectFake();
             } else if (this.target) {
                 this.selectTarget();
-            } else {
-                throw new Error('Missing required attributes, use either "target" or "text"');
             }
         };
 
@@ -454,7 +450,7 @@ module.exports = E;
 
             this.fakeHandler = document.body.addEventListener('click', function () {
                 return _this.removeFake();
-            });
+            }) || true;
 
             this.fakeElem = document.createElement('textarea');
             // Prevent zooming on iOS
@@ -464,7 +460,7 @@ module.exports = E;
             this.fakeElem.style.padding = '0';
             this.fakeElem.style.margin = '0';
             // Move element out of screen horizontally
-            this.fakeElem.style.position = 'fixed';
+            this.fakeElem.style.position = 'absolute';
             this.fakeElem.style[isRTL ? 'right' : 'left'] = '-9999px';
             // Move element to the same position vertically
             this.fakeElem.style.top = (window.pageYOffset || document.documentElement.scrollTop) + 'px';
@@ -554,6 +550,14 @@ module.exports = E;
             set: function set(target) {
                 if (target !== undefined) {
                     if (target && (typeof target === 'undefined' ? 'undefined' : _typeof(target)) === 'object' && target.nodeType === 1) {
+                        if (this.action === 'copy' && target.hasAttribute('disabled')) {
+                            throw new Error('Invalid "target" attribute. Please use "readonly" instead of "disabled" attribute');
+                        }
+
+                        if (this.action === 'cut' && (target.hasAttribute('readonly') || target.hasAttribute('disabled'))) {
+                            throw new Error('Invalid "target" attribute. You can\'t cut text from elements with "readonly" or "disabled" attributes');
+                        }
+
                         this._target = target;
                     } else {
                         throw new Error('Invalid "target" value, use a valid Element');

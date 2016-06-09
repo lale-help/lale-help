@@ -4,9 +4,9 @@
 //= require js-routes
 //= require handlebars.runtime
 //= require ol
-//= require clipboard
 //= require i18n
 //= require i18n/translations
+//= require clipboard/dist/clipboard
 //= require tablesorter/jquery.tablesorter
 //= require datetimepicker/build/jquery.datetimepicker.full.min
 //= require select2/dist/js/select2
