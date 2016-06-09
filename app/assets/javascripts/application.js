@@ -3,7 +3,6 @@
 //= require turbolinks
 //= require js-routes
 //= require handlebars.runtime
-//= require ol
 //= require i18n
 //= require i18n/translations
 //= require clipboard/dist/clipboard
