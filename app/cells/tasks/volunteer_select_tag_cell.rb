@@ -5,8 +5,6 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
 
   attr_accessor :group_public, :group_members, :non_group_members, :volunteers
 
-  include ERB::Util
-
   def initialize(task, options)
     @group_public   = !task.working_group.is_private?
     @volunteers     = task.volunteers

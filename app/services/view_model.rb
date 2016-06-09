@@ -8,8 +8,13 @@ class ViewModel < Cell::ViewModel
   self.view_paths << 'app/views'
   include Partial
 
+  # supplies #t
   include ActionView::Helpers::TranslationHelper
   include Cell::Translation
+
+  # supplies #h, #html_escape
+  include ERB::Util
+
   
   def t(key, options = {})
     if key.starts_with?('.')
