@@ -4,7 +4,10 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "octicons/octicons/sprockets-octicons";
-@import "jquery.datetimepicker";
+@import "datetimepicker/build/jquery.datetimepicker.min";
+@import "select2/dist/css/select2";
+@import "remodal/dist/remodal";
+@import "remodal/dist/remodal-default-theme";
 
 @import "settings/**/*";
 @import "helpers/**/*";

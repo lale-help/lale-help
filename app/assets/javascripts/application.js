@@ -7,8 +7,10 @@
 //= require clipboard
 //= require i18n
 //= require i18n/translations
-//= require jquery.tablesorter
-//= require jquery.datetimepicker/jquery.datetimepicker.full.min
+//= require tablesorter/jquery.tablesorter
+//= require datetimepicker/build/jquery.datetimepicker.full.min
+//= require select2/dist/js/select2
+//= require remodal/dist/remodal
 
 //= require '_lale'
 

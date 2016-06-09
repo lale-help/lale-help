@@ -1,6 +1,10 @@
 {
   "name": "lale",
   "dependencies": {
-    "octicons": "*"
+    "octicons": "*",
+    "select2": "^4.0.3",
+    "remodal": "^1.0.7",
+    "datetimepicker": "^2.5.4",
+    "tablesorter": "*"
   }
 }
