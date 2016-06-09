@@ -1,13 +1,5 @@
-@import "bourbon";
-@import "neat";
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "octicons/octicons/sprockets-octicons";
-@import "datetimepicker/build/jquery.datetimepicker.min";
-@import "select2/dist/css/select2";
-@import "remodal/dist/remodal";
-@import "remodal/dist/remodal-default-theme";
+// require all 3rd party stuff in vendor.
+@import "vendor";
 
 @import "settings/**/*";
 @import "helpers/**/*";
