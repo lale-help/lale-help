@@ -19,14 +19,14 @@ showComments = ->
 
 assignVolunteer = ->
   form = $(this).closest('form')
-  promise = $.ajax({
+  $.ajax({
     url:  form.attr('action'),
     method: form.attr('method'),
     data: form.serialize(),
     success: (result) => 
-      widgetParent = $(this).closest('.volunteers').parent();
-      widgetParent.html(result)
-      # need to reinitialize because it's a new HTML received from the server
+      widget = $(this).closest('.volunteers');
+      widget.html(result)
+      # need to reinitialize because it's a new DOM node
       $('#new_volunteer_id').select2()
   })
 

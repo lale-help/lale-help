@@ -23,14 +23,14 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
 
   def select_options
     if group_public
-      optgroup_tags(group_members, t('.in_working_group')) + 
-      optgroup_tags(non_group_members, t('.all_helpers'))
+      optgroup_tags(group_members, label: t('.in_working_group')) + 
+        optgroup_tags(non_group_members, label: t('.all_helpers'))
     else
       option_tags(group_members)
     end
   end
 
-  def optgroup_tags(users, label)
+  def optgroup_tags(users, label:)
     content_tag('optgroup', label: label) { option_tags(users) }
   end
 

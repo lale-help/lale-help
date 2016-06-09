@@ -11,9 +11,9 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   delegate :is_missing_volunteers?, :volunteer_count_required, :volunteers,
     to: :task
 
+  # this is the cells default action, ran when using the cell('path') helper
   def show
     render
-    #render + "<hr style='margin:25px' />" + render('show_new')
   end
 
   private
