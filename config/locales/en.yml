@@ -140,9 +140,9 @@
       :taken: has already been taken
     :due_time:
       :format: Please enter the due time in the format 00:00.
-    organizer_id: 
+    :organizer_id:
       :empty: Please choose an organizer
-      :at_least_one_required: The last organizer can't be deleted.
+      :at_least_one_required: Working group must have at least one organizer.
     :start_time:
       :format: Please enter the start time in the format 00:00.
     :start_date:
@@ -333,6 +333,7 @@
           :between: between
         :scheduled_time_start: Start
         :project: Project
+        :project_id: Project
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
@@ -398,9 +399,11 @@
         :volunteers: Volunteers
         :actions: Actions
         :description: Description
-        :organizer: Organiser
-        :organizer_id: Organiser
+        :organizer: Organizer
+        :organizer_id: Organizer
         :type: Access Type
+        :admin: Organizer
+        :admin_ids: Organizers
       :supply:
         :duration-text:
           :hours_3: 3 Hours
@@ -600,41 +603,6 @@
       :blank: is blank
       :null: is null
       :not_null: is not null
-  :cells:
-    :tasks:
-      :volunteer_select_tag:
-        :assignee_blank: (no helper selected)
-        :in_working_group: In this working group
-        :all_helpers: All helpers
-      :sourcing_widget:
-        :modal:
-          :title_assign: Assign to helper
-          :title_invite: Invite by email
-          :invite_working_group: All helpers in the working group
-          :invite_all: All helpers in the circle
-          :invite_by_name: By name
-        :title: Helpers
-        :find_helpers: Find helpers &hellip;
-        # FIXME these aren't used
-        :accept: I'll help
-        :decline: I can't help anymore
-        :volunteer-count:
-          :one: "%{count} volunteer is going"
-          :other: "%{count} volunteers are going"
-        :volunteer-count-required:
-          :one: Requires %{count} volunteer
-          :other: Requires %{count} volunteers
-        :volunteer-count-missing:
-          :one: " (%{count} missing)"
-          :other: " (%{count} missing)"
-    :working_groups:
-      :table:
-        :title_active: 'Active working groups'
-        :title_deactivated: 'Inactive working groups'
-        :confirm_delete: Are you sure?
-        :no_groups: No groups to show right now.
-        :cant_deactivate_group_with_items: The group still contains incomplete tasks or supplies. Please complete them first, then try again.
-
   :flash:
     :actions:
       :create:
@@ -810,6 +778,40 @@
       :block: List
       :grid: Grid
       :blog: Blog
+  :cells:
+    :tasks:
+      :volunteer_select_tag:
+        :assignee_blank: "(no helper selected)"
+        :in_working_group: In this working group
+        :all_helpers: All helpers
+      :sourcing_widget:
+        :modal:
+          :title_assign: Assign to helper
+          :title_invite: Invite by email
+          :invite_working_group: All helpers in the working group
+          :invite_all: All helpers in the circle
+          :invite_by_name: Invite specific helpers
+        :title: Helpers
+        :find_helpers: Find helpers &hellip;
+        :accept: I'll help
+        :decline: I can't help anymore
+        :volunteer-count:
+          :one: "%{count} volunteer has signed up"
+          :other: "%{count} volunteers have signed up"
+        :volunteer-count-required:
+          :one: Requires %{count} volunteer
+          :other: Requires %{count} volunteers
+        :volunteer-count-missing:
+          :one: " (%{count} missing)"
+          :other: " (%{count} missing)"
+    :working_groups:
+      :table:
+        :title_active: Active working groups
+        :title_deactivated: Inactive working groups
+        :confirm_delete: Are you sure?
+        :no_groups: No groups to show right now.
+        :cant_deactivate_group_with_items: The group still contains incomplete tasks
+          or supplies. Please complete them first, then try again.
   :datepicker:
     :day_of_week_start: '0'
     :date_format: m/d/Y
@@ -920,6 +922,7 @@
         :delete: Delete
         :disable: Deactivate
         :reactivate: Reactivate
+        :confirm_delete_working_group: Are you sure?
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
@@ -950,7 +953,7 @@
     :comments:
       :placeholder: What do you want to say?
       :post: Post
-      :reply: Reply
+      :reply: Add a comment
       :actions:
         :delete: Delete
         :delete_confirm: Are you sure you want to delete this comment?
@@ -1031,6 +1034,15 @@
         :edit-task-button: Edit Supply
         :invite-button: Invite %{group} members
         :reopen-task-button: Re-open Supply
+        :volunteer-count-required:
+          :one: Requires %{count} volunteer
+          :other: Requires %{count} volunteers
+        :volunteer-count-missing:
+          :one: " (%{count} missing)"
+          :other: "(%{count} missing)"
+        :volunteer-count:
+          :one: "%{count} volunteer has signed up"
+          :other: "%{count} volunteers have signed up"
     :tasks:
       :index:
         :header: All Tasks
@@ -1078,7 +1090,7 @@
       :show:
         :leave_group_confirmation: Do you really want to end your membership in this
           group?
-        :settings: Settings
+        :settings: Manage group
         :join: Join
         :leave: Leave
         :admin-title:
@@ -1136,7 +1148,7 @@
           :other: "%{count} tasks"
         :volunteer-needed:
           :one: Need one helper
-          :other: Need %{count} helpers
+          :other: Requires %{count} volunteers
         :volunteer-filled: Filled
         :volunteer: I can do this!
         :complete: Complete Task
