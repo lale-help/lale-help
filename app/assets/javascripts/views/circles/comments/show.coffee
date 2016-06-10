@@ -1,4 +1,22 @@
 ready = ->
+  $('.show_all_comments').on 'click', showComments
+  bindEditEvents()
+
+showComments = ->
+  elem = $('.task-comments')
+  return if elem.hasClass('loading')
+  elem.addClass 'loading'
+  $.ajax(
+    url: elem.data('url')
+    success: (result) =>
+      elem.removeClass 'loading'
+      elem.html(result)
+      bindEditEvents()
+    error: (error, response)=>
+      elem.removeClass('loading')
+  )
+
+bindEditEvents = ->
   $('.edit_comment_link').on 'click', editCommentModeOn
   $('.cancel_edit_comment').on 'click', editCommentModeOff
   $('.edit-comment form').on 'submit', editCommentSubmit
