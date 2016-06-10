@@ -23,19 +23,18 @@ class Task::Volunteer < Mutations::Command
 
   private
 
-  def notify_users
-    users_to_notify.each do |user|
+  def notify_existing_volunteers
+    existing_volunteers.each do |user|
       changes = { volunteers: [] } # a slight hack; only the key is relevant
-      TaskMailer.task_assigned(task, user, changes).deliver_now
+      TaskMailer.task_change(task, user, changes).deliver_now
     end
-    TaskMailer.task_assigned(task, user, changes).deliver_now
   end
 
   def create_task_comment
-    Task::Comments::Assigned.run(task: task, user: user)
+    Task::Comments::Volunteered.run(task: task, user: user)
   end
 
-  def users_to_notify
+  def existing_volunteers
     (task.users.uniq - [ user ]).select { |u| u.email.present? }
   end
 

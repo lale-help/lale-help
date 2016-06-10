@@ -120,11 +120,10 @@ class Circle::TasksController < ApplicationController
   end
 
   def assign_volunteer
-    new_volunteers = User.where(id: params['new_volunteer_ids'])
+    new_volunteers = User.where(id: params['new_volunteer_ids']).to_a
     new_volunteers.each { |v| authorize!(:assign_volunteer, current_task, v)}
 
-    # FIXME need to assign all of them!
-    outcome = Task::Volunteer.run(user: new_volunteers.first, task: current_task)
+    outcome = Task::Assign.run(users: new_volunteers, task: current_task)
 
     if outcome.success?
       render html: cell('tasks/sourcing_widget', current_task, current_user: current_user)
@@ -140,9 +139,9 @@ class Circle::TasksController < ApplicationController
     outcome = Task::Decline.run(user: current_user, task: current_task)
 
     if outcome.success?
-      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.volunteered', name: current_task.name)
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.declined', name: current_task.name)
     else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.volunteer_failed', name: current_task.name)
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.decline_failed', name: current_task.name)
     end
   end
 
