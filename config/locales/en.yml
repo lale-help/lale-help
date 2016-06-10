@@ -863,12 +863,12 @@
       :reopened: Task has been re-opened
     :auto_comment:
       :users_assigned: 
-        one: "%{users} was assigned to this task on %{date}."
-        other: "%{users} were assigned to this task on %{date}."
+        one: "%{assignees} was assigned to this task by %{assigner} on %{date}."
+        other: "%{assignees} were assigned to this task by %{assigner} on %{date}."
       :copied: This task was copied from task %{original_task} on %{date}.
       :completed: "%{user} completed this task on %{date}."
-      :user_volunteered: "%{user} volunteered for this task on %{date}."
-      :user_unassigned: "%{user} unassigned this task on %{date}."
+      :user_volunteered: "%{user} signed up for this task on %{date}."
+      :user_unassigned: "%{user} unassigned himself from this task on %{date}."
       :reopened: "%{user} re-opened this task on %{date}."
       :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
       :updated: "%{user} changed %{changed_fields}."

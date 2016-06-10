@@ -123,12 +123,11 @@ class Circle::TasksController < ApplicationController
     new_volunteers = User.where(id: params['new_volunteer_ids']).to_a
     new_volunteers.each { |v| authorize!(:assign_volunteer, current_task, v)}
 
-    outcome = Task::Assign.run(users: new_volunteers, task: current_task)
+    outcome = Task::Assign.run(users: new_volunteers, task: current_task, current_user: current_user)
 
     if outcome.success?
-      render html: cell('tasks/sourcing_widget', current_task, current_user: current_user)
+      head :ok
     else
-      # FIXME handle error correctly
       head :unprocessable_entity
     end
   end

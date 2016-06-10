@@ -12,8 +12,8 @@ class Task::Volunteer < Mutations::Command
     assignment = volunteer_role.create(task: task, user: user)
 
     if assignment.persisted?
-      #notify_users
-      #create_task_comment
+      notify_existing_volunteers
+      create_task_comment
     else
       add_error :assignment, :failed
     end
