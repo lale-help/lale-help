@@ -29,14 +29,6 @@ class Tasks::SourcingWidgetCell < ::ViewModel
     @options[:current_user]
   end
 
-  def working_group_invitees_count
-    circle.users.active.count - volunteers.count
-  end
-
-  def circle_invitees_count
-    circle.users.active.count - volunteers.count
-  end
-
   def assignable_volunteers_select
     cell('tasks/volunteer_select_tag', task)
   end
@@ -55,6 +47,28 @@ class Tasks::SourcingWidgetCell < ::ViewModel
         assign_volunteer: circle_task_assign_volunteer_path(circle, task)
       )
     end
+  end
+
+  def working_group_invitees_count
+    wg_count          = current_user_corrected_count(working_group.active_users)
+    volunteers_count  = current_user_corrected_count(volunteers)
+    ensure_non_negative_number(wg_count - volunteers_count)
+  end
+
+  def circle_invitees_count
+    circle_count      = current_user_corrected_count(circle.users.active)
+    volunteers_count  = current_user_corrected_count(volunteers)
+    ensure_non_negative_number(circle_count - volunteers_count)
+  end
+
+  # the current user is never invited, so subtract him/her from all numbers
+  def current_user_corrected_count(users)
+    users.include?(current_user) ? users.count - 1 : users.count
+  end
+
+  # since a task can be overassigned with helpers (more volunteers than required)
+  def ensure_non_negative_number(number)
+    number > 0 ? number : 0
   end
 
 end

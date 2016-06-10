@@ -27,7 +27,11 @@ class WorkingGroup < ActiveRecord::Base
   # active admins are: working group admins whose role in the **circle** is active. 
   # working group roles have no status.
   def active_admins
-    admins.select {|admin| circle.has_active_user?(admin) }
+    admins.select { |admin| circle.has_active_user?(admin) }
+  end
+
+  def active_users
+    users.select { |user| circle.has_active_user?(user) }
   end
 
   def underscored_name
