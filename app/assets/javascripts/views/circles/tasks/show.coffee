@@ -11,12 +11,12 @@ initSourcingOptionsModal = ->
 
   # The modal is initialized via JS instead of the .remodal class since the latter
   # didn't work when loading the page with turbolinks
-  modalSelector = "[data-remodal-id=sourcing-options-modal]"
+  modalSelector = "[data-remodal-id=find-helpers]"
   $(modalSelector).remodal();
   
   # FIXME it'd be better to load this on the 'opening' event (or even on page load)
   # 1) on page load didnt init correctly, ") opening didn't init correctly when displaying the modal 
-  # with "hashTracking" (http://.../tasks/169#sourcing-options-modal)
+  # with "hashTracking" (http://.../tasks/169#find-helpers)
   $(document).on('opened', modalSelector, -> 
     # select2 didn't init correctly in the dom ready callback; probably a issue with being in the modal.
     options = { placeholder: "by name", language: I18n.locale }

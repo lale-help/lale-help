@@ -241,8 +241,13 @@ section > .task.urgency--on_track {
       font-weight: normal;
     }    
     .remodal-close {
-      position: absolute;
-      right: 150px
+      // need to overwrite default style
+      left: auto;
+      top: 1px;
+      right: 0px;
+      &:hover {
+        color: $header-text;
+      }
     }
   }
 
@@ -255,8 +260,9 @@ section > .task.urgency--on_track {
   }
 
   h3 {
+    padding-bottom: 3px;
     margin: 30px 0 15px 0;
-    border-bottom: 1px solid #bbb;
+    border-bottom: 1px solid $grey;
 
     &.first {
       margin-top: 0;

@@ -609,8 +609,8 @@
       :sourcing_widget:
         :modal:
           :title_main: 'Find helpers'
-          :title_assign: Assign to helper
-          :title_invite: Invite by email
+          :title_assign: Assign to helpers
+          :title_invite: Invite helpers by email
           :invite_working_group: All helpers in the working group
           :invite_all: All helpers in the circle
           :invite_by_name: By name
