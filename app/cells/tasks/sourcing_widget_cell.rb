@@ -21,14 +21,6 @@ class Tasks::SourcingWidgetCell < ::ViewModel
 
   private
 
-  # def title
-  #   string = t(".volunteer-count-required", count: volunteer_count_required)
-  #   if is_missing_volunteers?
-  #     string << t(".volunteer-count-missing", count: task.missing_volunteer_count)
-  #   end
-  #   string
-  # end
-  # 
   def helper_stats
     "[ #{volunteers.count} / #{volunteer_count_required} ]"
   end
@@ -43,11 +35,6 @@ class Tasks::SourcingWidgetCell < ::ViewModel
 
   def circle_invitees_count
     circle.users.active.count - volunteers.count
-  end
-
-  def missing_volunteer_count
-    # FIXME I think cancan doesn't work correctly right now
-    can?(:volunteer, task) ? task.missing_volunteer_count - 1 : task.missing_volunteer_count
   end
 
   def assignable_volunteers_select
