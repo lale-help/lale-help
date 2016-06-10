@@ -1,3 +1,5 @@
+findHelpersModalSelector = "[data-remodal-id=find-helpers]"
+
 ready = ->
   initComments();
   initSourcingOptionsModal();
@@ -6,23 +8,21 @@ initComments = ->
   $('.show_all_comments').on('click', showComments)
 
 initSourcingOptionsModal = -> 
-  # FIXME adapt
-  # $(document).on('change', '#new_volunteer_id', assignVolunteer)
 
-  # The modal is initialized via JS instead of the .remodal class since the latter
+  # Initializing the via JS instead of the .remodal class since the latter
   # didn't work when loading the page with turbolinks
-  modalSelector = "[data-remodal-id=find-helpers]"
-  $(modalSelector).remodal();
+  $(findHelpersModalSelector).remodal();
   
   # FIXME it'd be better to load this on the 'opening' event (or even on page load)
   # 1) on page load didnt init correctly, ") opening didn't init correctly when displaying the modal 
   # with "hashTracking" (http://.../tasks/169#find-helpers)
-  $(document).on('opened', modalSelector, -> 
+  $(document).on('opening', findHelpersModalSelector, -> 
     # select2 didn't init correctly in the dom ready callback; probably a issue with being in the modal.
     options = { placeholder: "by name", language: I18n.locale }
-    $('#new_volunteer_id').select2(options)
+    $('#new_volunteer_ids').select2(options)
   )
 
+  $(document).on('click', '#submit-assign-volunteer', assignVolunteer)
 
 showComments = ->
   elem = $('.task-comments')
@@ -37,16 +37,17 @@ showComments = ->
       elem.removeClass('loading')
   )
 
-# assignVolunteer = ->
-#   form = $(this).closest('form')
-#   $.ajax({
-#     url:  form.attr('action'),
-#     method: form.attr('method'),
-#     data: form.serialize(),
-#     success: (result) => 
-#       widget = $(this).closest('.volunteers');
-#       widget.html(result)
-#   })
+assignVolunteer = (event)->
+  event.preventDefault();
+  form = $(this).closest('form')
+  $.ajax({
+    url:  form.attr('action'),
+    method: form.attr('method'),
+    data: form.serialize(),
+    success: (result) => 
+      $(findHelpersModalSelector).remodal().close()
+      Turbolinks.visit(location.href)
+  })
 
 
 $(document).on 'ready', ready

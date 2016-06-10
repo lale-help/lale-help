@@ -27,12 +27,14 @@
     h2 = t('.modal.title_main')
 
   .modal-content
+
     / FIXME cancan  
     h3.first = t('.modal.title_assign')
     form action=links.assign_volunteer method="put"
       = assignable_volunteers_select
       br
-      a.button.button-secondary = t('helpers.assign', model: User)
+      button.button.button-secondary id="submit-assign-volunteer"
+        = t('helpers.assign', model: User)
     
 
     - if can?(:invite_to, task)
@@ -48,4 +50,4 @@
       = radio_button_tag('invite', 'by_name')
       = label_tag('invite_by_name', t('.modal.invite_by_name'))
       br
-      a.button.button-secondary = t('helpers.invite', model: User)
+      button.button.button-secondary = t('helpers.invite', model: User)

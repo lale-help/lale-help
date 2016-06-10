@@ -120,10 +120,11 @@ class Circle::TasksController < ApplicationController
   end
 
   def assign_volunteer
-    new_volunteer = User.find(params['new_volunteer_id'])
-    authorize! :assign_volunteer, current_task, new_volunteer
+    new_volunteers = User.where(id: params['new_volunteer_ids'])
+    new_volunteers.each { |v| authorize!(:assign_volunteer, current_task, v )}
 
-    outcome = Task::Volunteer.run(user: new_volunteer, task: current_task)
+    # FIXME need to assign all of them!
+    outcome = Task::Volunteer.run(user: new_volunteers.first, task: current_task)
 
     if outcome.success?
       render html: cell('tasks/sourcing_widget', current_task, current_user: current_user)

@@ -21,7 +21,7 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
       include_blank: t('.assignee_blank'), 
       placeholder: 'by name'
     }
-    select_tag('new_volunteer_id', select_options, opts)
+    select_tag('new_volunteer_ids', select_options, opts)
   end
 
   private 
