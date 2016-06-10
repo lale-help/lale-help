@@ -19,13 +19,8 @@ initSourcingOptionsModal = ->
   # with "hashTracking" (http://.../tasks/169#sourcing-options-modal)
   $(document).on('opened', modalSelector, -> 
     # select2 didn't init correctly in the dom ready callback; probably a issue with being in the modal.
-    selector = $('#new_volunteer_id')
-    options = {
-      placeholder: "by name", 
-      maximumSelectionLength: selector.data('max-selection-length'),
-      language: I18n.locale
-    }
-    selector.select2(options)
+    options = { placeholder: "by name", language: I18n.locale }
+    $('#new_volunteer_id').select2(options)
   )
 
 

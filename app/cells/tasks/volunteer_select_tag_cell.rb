@@ -6,7 +6,6 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
   attr_accessor :group_public, :group_members, :non_group_members, :volunteers
 
   def initialize(task, options)
-    @options        = options
     @group_public   = !task.working_group.is_private?
     @volunteers     = task.volunteers
     circle_members  = task.circle.users.active.order(:first_name)
@@ -20,8 +19,7 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
     opts = { 
       multiple: true, 
       include_blank: t('.assignee_blank'), 
-      placeholder: 'by name', 
-      'data-max-selection-length': @options[:max_selection_length]
+      placeholder: 'by name'
     }
     select_tag('new_volunteer_id', select_options, opts)
   end
