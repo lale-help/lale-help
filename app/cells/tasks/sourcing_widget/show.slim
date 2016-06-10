@@ -21,27 +21,31 @@
 
 / start of modal window with sourcing options
 .modal-find-helpers data-remodal-id="sourcing-options-modal"
-  button.remodal-close data-remodal-action="close"
 
-  / FIXME cancan  
-  h3.first = t('.modal.title_assign')
-  form action=links.assign_volunteer method="put"
-    = assignable_volunteers_select
-    br
-    a.button.button-secondary = t('helpers.assign', model: User)
-  
+  .modal-header
+    button.remodal-close data-remodal-action="close"
+    h2 = t('.modal.title_main')
 
-  - if can?(:invite_to, task)
-    h3 = t('.modal.title_invite')
-    / = form_tag(links.invite_wg, method: :post) do
-    / = form_tag(links.invite_circle, method: :post)
-    = radio_button_tag('invite', 'working_group')
-    = label_tag('invite_working_group', t('.modal.invite_working_group'))
-    br
-    = radio_button_tag('invite', 'circle', disabled: task.working_group.is_private?)
-    = label_tag('invite_circle', t('.modal.invite_all'))
-    br
-    = radio_button_tag('invite', 'by_name')
-    = label_tag('invite_by_name', t('.modal.invite_by_name'))
-    br
-    a.button.button-secondary = t('helpers.invite', model: User)
+  .modal-content
+    / FIXME cancan  
+    h3.first = t('.modal.title_assign')
+    form action=links.assign_volunteer method="put"
+      = assignable_volunteers_select
+      br
+      a.button.button-secondary = t('helpers.assign', model: User)
+    
+
+    - if can?(:invite_to, task)
+      h3 = t('.modal.title_invite')
+      / = form_tag(links.invite_wg, method: :post) do
+      / = form_tag(links.invite_circle, method: :post)
+      = radio_button_tag('invite', 'working_group')
+      = label_tag('invite_working_group', t('.modal.invite_working_group'))
+      br
+      = radio_button_tag('invite', 'circle', disabled: task.working_group.is_private?)
+      = label_tag('invite_circle', t('.modal.invite_all'))
+      br
+      = radio_button_tag('invite', 'by_name')
+      = label_tag('invite_by_name', t('.modal.invite_by_name'))
+      br
+      a.button.button-secondary = t('helpers.invite', model: User)

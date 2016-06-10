@@ -224,8 +224,31 @@ section > .task.urgency--on_track {
 
 .modal-find-helpers {
 
+  // hide border overlap with h2
+  border-radius: 15px 15px 10px 10px;
+  padding: 0;
   text-align: left;
   width: 500px;
+
+  .modal-header {
+    
+    h2 {
+      border-radius: 10px 10px 0px 0px;
+      width: 100%;
+      background-color: $header-bg;
+      padding: 7px 10px;
+      color: $header-text;
+      font-weight: normal;
+    }    
+    .remodal-close {
+      position: absolute;
+      right: 150px
+    }
+  }
+
+  .modal-content {
+    padding: 35px;
+  }
 
   form {
     width: auto;
@@ -236,7 +259,7 @@ section > .task.urgency--on_track {
     border-bottom: 1px solid #bbb;
 
     &.first {
-      margin-top: 10px;
+      margin-top: 0;
     }
   }
 
@@ -245,7 +268,7 @@ section > .task.urgency--on_track {
   }
 
   #new_volunteer_id {
-    width: 100%px;
+    width: 100%;
   }
 
 }

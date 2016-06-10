@@ -608,6 +608,7 @@
         :all_helpers: All helpers
       :sourcing_widget:
         :modal:
+          :title_main: 'Find helpers'
           :title_assign: Assign to helper
           :title_invite: Invite by email
           :invite_working_group: All helpers in the working group
