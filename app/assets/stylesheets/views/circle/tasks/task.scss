@@ -225,7 +225,7 @@ section > .task.urgency--on_track {
 .modal-find-helpers {
 
   // hide border overlap with h2
-  border-radius: 15px 15px 10px 10px;
+  border-radius: 2rem 2rem 1.5rem 1.5rem;
   padding: 0;
   text-align: left;
   width: 500px;
@@ -233,7 +233,7 @@ section > .task.urgency--on_track {
   .modal-header {
     
     h2 {
-      border-radius: 10px 10px 0px 0px;
+      border-radius: 1.5rem 1.5rem 0 0;
       width: 100%;
       background-color: $header-bg;
       padding: 7px 10px;
