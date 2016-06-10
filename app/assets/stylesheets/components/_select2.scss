@@ -1,34 +1,42 @@
-.select2-container--default .select2-selection--multiple {
-  
-  padding: 4px;
-  vertical-align: middle;
-  border-color: $light-grey;
-  min-height: 42px;
-  border-radius: 0;
+.select2-container--default {
 
-  .select2-search__field {
-    margin-top: 10px;
-  }
-  
-  .select2-selection__rendered {
-    padding: 2px;
+  .select2-results__option--highlighted[aria-selected] {
+    color: grey;
+    background-color: $light-grey;
   }
 
-  .select2-selection__choice {
-    span {
-      margin-right: 4px;
-      font-size: 15px;
+  .select2-selection--multiple {
+  
+    padding: 4px;
+    vertical-align: middle;
+    border-color: $light-grey;
+    min-height: 42px;
+    border-radius: 0;
+
+    .select2-search__field {
+      margin-top: 10px;
     }
-    background-color: #fff;
-    border: 1px solid #666;
-    border-radius: 7px;
-    margin: 2px;
-    padding: 6px 7px;
-    padding-top: 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    color: $blue;
-  }
+    
+    .select2-selection__rendered {
+      padding: 2px;
+    }
 
+    .select2-selection__choice {
+      span {
+        margin-right: 4px;
+        font-size: 15px;
+      }
+      background-color: #fff;
+      border: 1px solid #666;
+      border-radius: 7px;
+      margin: 2px;
+      padding: 6px 7px;
+      padding-top: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $blue;
+    }
+
+  }
 }
