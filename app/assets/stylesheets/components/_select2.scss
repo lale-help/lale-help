@@ -3,15 +3,15 @@
   padding: 4px;
   vertical-align: middle;
   border-color: $light-grey;
-  height: 42px;
+  min-height: 42px;
   border-radius: 0;
 
   .select2-search__field {
-    margin-top: 9px;
+    margin-top: 10px;
   }
   
   .select2-selection__rendered {
-    padding-left: 0;
+    padding: 2px;
   }
 
   .select2-selection__choice {
@@ -22,8 +22,9 @@
     background-color: #fff;
     border: 1px solid #666;
     border-radius: 7px;
-    margin: 0;
+    margin: 2px;
     padding: 6px 7px;
+    padding-top: 5px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
