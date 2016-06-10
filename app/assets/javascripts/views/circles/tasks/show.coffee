@@ -14,8 +14,10 @@ initSourcingOptionsModal = ->
   modalSelector = "[data-remodal-id=sourcing-options-modal]"
   $(modalSelector).remodal();
   
+  # FIXME it'd be better to load this on the 'opening' event (or even on page load)
+  # 1) on page load didnt init correctly, ") opening didn't init correctly when displaying the modal 
+  # with "hashTracking" (http://.../tasks/169#sourcing-options-modal)
   $(document).on('opened', modalSelector, -> 
-    console.log(I18n.locale)
     # select2 didn't init correctly in the dom ready callback; probably a issue with being in the modal.
     selector = $('#new_volunteer_id')
     options = {
