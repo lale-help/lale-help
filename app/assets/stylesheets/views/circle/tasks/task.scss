@@ -277,4 +277,9 @@ section > .task.urgency--on_track {
     width: 100%;
   }
 
+  input[type=radio] {
+    margin: 4px;
+    margin-left: 0;
+  }
+
 }

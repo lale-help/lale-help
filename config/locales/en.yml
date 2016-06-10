@@ -614,8 +614,8 @@
           :title_main: Find helpers
           :title_assign: Assign to helper
           :title_invite: Invite by email
-          :invite_working_group: All helpers in the working group
-          :invite_all: All helpers in the circle
+          :invite_working_group: All helpers in the working group (%{count})
+          :invite_all: All helpers in the circle (%{count})
           :invite_by_name: Invite specific helpers
         :title: Helpers
         :find_helpers: Find helpers &hellip;

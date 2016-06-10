@@ -121,7 +121,7 @@ class Circle::TasksController < ApplicationController
 
   def assign_volunteer
     new_volunteers = User.where(id: params['new_volunteer_ids'])
-    new_volunteers.each { |v| authorize!(:assign_volunteer, current_task, v )}
+    new_volunteers.each { |v| authorize!(:assign_volunteer, current_task, v)}
 
     # FIXME need to assign all of them!
     outcome = Task::Volunteer.run(user: new_volunteers.first, task: current_task)

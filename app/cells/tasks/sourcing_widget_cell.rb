@@ -7,8 +7,12 @@ class Tasks::SourcingWidgetCell < ::ViewModel
 
   delegate :can?, to: :ability
 
-  delegate :is_missing_volunteers?, :volunteer_count_required, :volunteers,
+  delegate :is_missing_volunteers?, :volunteer_count_required, :volunteers, :circle, :working_group,
     to: :task
+
+  # deep down the user icon partial is rendered, which uses current_circle.
+  # since that partial is used globally I don't want to change the variable name
+  alias :current_circle :circle 
 
   # this is the cells default action, ran when using the cell('path') helper
   def show
@@ -33,12 +37,13 @@ class Tasks::SourcingWidgetCell < ::ViewModel
     @options[:current_user]
   end
 
-  def circle
-    task.circle
+  def working_group_invitees_count
+    circle.users.active.count - volunteers.count
   end
-  # deep down the user icon partial is rendered, which uses current_circle.
-  # since it is used globally I don't want to change the variable name
-  alias :current_circle :circle 
+
+  def circle_invitees_count
+    circle.users.active.count - volunteers.count
+  end
 
   def missing_volunteer_count
     # FIXME I think cancan doesn't work correctly right now
