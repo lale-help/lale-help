@@ -1,5 +1,4 @@
 require 'faker'
-require 'factory_girl'
 
 unless Rails.env.development? || Rails.env.pull_request?
   raise "This file creates an **admin** user and dummy data. It should never be run on a staging or production environment."
