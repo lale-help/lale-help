@@ -48,11 +48,13 @@ if WorkingGroup.find_by(name: 'Default WG', circle_id: circle.id).nil?
   ).submit
 end
 
-def fake_user
-  first, last = Faker::StarWars.character.split(" ", 2)
-  last  = last || "of Nil"
-  email = "#{first.downcase.gsub(' ', '-')}.#{last.downcase.gsub(' ', '-')}@lale.help"
-  OpenStruct.new(first: first, last: last, email: email)
+class << self
+  def fake_user
+    first, last = Faker::StarWars.character.split(" ", 2)
+    last  = last || "of Nil"
+    email = "#{first.downcase.gsub(' ', '-')}.#{last.downcase.gsub(' ', '-')}@lale.help"
+    OpenStruct.new(first: first, last: last, email: email)
+  end
 end
 
 # Create some volunteer users
