@@ -46,7 +46,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   end
 
   def assignable_volunteers_select
-    cell('tasks/volunteer_select_tag', task)
+    cell('tasks/volunteer_select_tag', task, 'max_selection_length': missing_volunteer_count)
   end
 
   def ability

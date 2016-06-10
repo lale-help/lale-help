@@ -13,9 +13,17 @@ initSourcingOptionsModal = ->
   # didn't work when loading the page with turbolinks
   modalSelector = "[data-remodal-id=sourcing-options-modal]"
   $(modalSelector).remodal();
-  $(document).on('opening', modalSelector, -> 
+  
+  $(document).on('opened', modalSelector, -> 
+    console.log(I18n.locale)
     # select2 didn't init correctly in the dom ready callback; probably a issue with being in the modal.
-    $('#new_volunteer_id').select2({placeholder: "by name"})
+    selector = $('#new_volunteer_id')
+    options = {
+      placeholder: "by name", 
+      maximumSelectionLength: selector.data('max-selection-length'),
+      language: I18n.locale
+    }
+    selector.select2(options)
   )
 
 
@@ -41,8 +49,6 @@ showComments = ->
 #     success: (result) => 
 #       widget = $(this).closest('.volunteers');
 #       widget.html(result)
-#       # need to reinitialize because it's a new DOM node
-#       $('#new_volunteer_id').select2({placeholder: "by name"})
 #   })
 
 

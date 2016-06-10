@@ -11,4 +11,6 @@
 //= require tablesorter/jquery.tablesorter
 //= require datetimepicker/build/jquery.datetimepicker.full.min
 //= require select2/dist/js/select2
+//= require select2/dist/js/i18n/de
+//= require select2/dist/js/i18n/fr
 //= require remodal/dist/remodal
