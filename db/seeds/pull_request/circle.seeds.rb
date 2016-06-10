@@ -1,7 +1,6 @@
-# ---- WARNING ----
-# This file creates an **admin** user.
-# This should never be run on any staging or production environment
-
+if Rails.env.production? || Rails.env.staging?
+  raise "This file creates an **admin** user. It should never be run on a staging or production environment."
+end
 
 # Create Admin User
 admin = User::Identity.find_by(email: 'admin@lale.help').try(:user)
