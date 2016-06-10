@@ -1,0 +1,33 @@
+.select2-container--default .select2-selection--multiple {
+  
+  padding: 4px;
+  vertical-align: middle;
+  border-color: $light-grey;
+  height: 42px;
+  border-radius: 0;
+
+  .select2-search__field {
+    margin-top: 9px;
+  }
+  
+  .select2-selection__rendered {
+    padding-left: 0;
+  }
+
+  .select2-selection__choice {
+    span {
+      margin-right: 4px;
+      font-size: 15px;
+    }
+    background-color: #fff;
+    border: 1px solid #666;
+    border-radius: 7px;
+    margin: 0;
+    padding: 6px 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: $blue;
+  }
+
+}
