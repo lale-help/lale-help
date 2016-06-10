@@ -46,7 +46,6 @@ gem 'geocoder'
 gem 'timezone'
 gem 'terminal-table'
 gem 'country_select'
-gem 'seedbank' # also used for seed data
 gem 'faker' # also used for seed data
  
 group :development do
