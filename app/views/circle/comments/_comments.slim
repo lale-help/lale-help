@@ -13,13 +13,15 @@
       .user-avatar
         = render partial: 'user/user_icon', locals: { user: comment.commenter, link: true }
       .comment-main
-        .body=comment.body
+        .body
+          .comment-text=comment.body
+          = render partial: 'circle/comments/edit', locals: { comment: comment, item: item, circle: circle }
         .commenter
           - if comment.commenter == current_user
             .actions
               - edit_url = item.is_a?(User) ? circle_member_comment_path(circle, item, comment) : circle_task_comment_path(circle, item, comment)
               = link_to t('circle.comments.actions.delete'), edit_url, method: :delete, data: { confirm: t('circle.comments.actions.delete_confirm') }
-              / = link_to t('circle.comments.actions.edit'), '#', {data: {"edit-comment" => comment.id}}
+              = link_to t('circle.comments.actions.edit'), '#', { data: { comment: comment.id }, class: 'edit_comment_link' }
           - else
             .name=comment.commenter.name
           .time=comment.comment_date_time

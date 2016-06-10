@@ -929,6 +929,8 @@
         :edit: Edit
       :comments:
         :show_all_comments: Show All Comments
+      :edit: Edit
+      :edit_cancel: Cancel
     :members:
       :index:
         :directory: Helper list

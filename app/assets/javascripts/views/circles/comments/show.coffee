@@ -1,0 +1,38 @@
+ready = ->
+  $('.edit_comment_link').on 'click', editCommentModeOn
+  $('.cancel_edit_comment').on 'click', editCommentModeOff
+  $('.edit-comment form').on 'submit', editCommentSubmit
+
+editCommentModeOn = (e) ->
+  main = $(e.currentTarget).parents('.comment-main')
+  main.find('.body .comment-text').toggleClass('inactive')
+  main.find('.body .edit-comment').toggleClass('inactive')
+  main.find('.actions').toggleClass('inactive')
+
+editCommentModeOff = (e) ->
+  main = $(e.currentTarget).parents('.comment-main')
+  main.find('.body .comment-text').toggleClass('inactive')
+  main.find('.body .edit-comment').toggleClass('inactive')
+  main.find('.actions').toggleClass('inactive')
+
+editCommentSubmit = (e) ->
+  form = $(e.currentTarget)
+  main = form.parents('.comment-main')
+  body = form.find('#comment_body')
+  $.ajax(
+    url:      form.attr('action')
+    method:   'PUT'
+    dataType: 'json'
+    data:     { comment: { body: body.val() } }
+    success: (result) =>
+      main.find('.body .comment-text').text(body.val())
+      form.find('textarea').removeClass('error')
+      editCommentModeOff(e)
+    error: (error, response)=>
+      body.addClass('error')
+  )
+  e.preventDefault()
+  return false
+
+$(document).on 'ready', ready
+$(document).on 'page:load', ready

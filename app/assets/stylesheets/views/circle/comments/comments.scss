@@ -101,6 +101,20 @@
           border-width: 10px 10px 0 10px;
           border-color: $light-grey transparent transparent transparent;
         }
+        .comment-text {
+          &.inactive {
+            display: none;
+          }
+        }
+        .edit-comment {
+          &.inactive {
+            display: none;
+          }
+          textarea.error {
+            border-color: $red-500;
+            border-width: 2px;
+          }
+        }
       }
       .commenter {
         .name, .time, .actions {
@@ -110,8 +124,15 @@
           float: right;
         }
         .actions {
+          margin-top: 0;
+          a {
+            margin-right: 0.5em;
+          }
           a:hover {
             text-decoration: underline;
+          }
+          &.inactive {
+            display: none;
           }
         }
       }

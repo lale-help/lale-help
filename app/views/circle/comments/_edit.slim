@@ -1,0 +1,7 @@
+- post_url = item.is_a?(User) ? circle_member_comment_path(circle, item, comment) : nil
+.edit-comment.inactive data-comment_id=comment.id
+  = form_for [circle, item, comment], url: post_url do |f|
+    = f.text_area :body, placeholder: t('circle.comments.placeholder')
+    .submit-row
+      = f.submit t('circle.comments.edit')
+      = link_to t('circle.comments.edit_cancel'), '#', { class: 'cancel_edit_comment' }
