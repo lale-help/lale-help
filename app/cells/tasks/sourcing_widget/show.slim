@@ -16,11 +16,11 @@
       button.button-primary = t('.decline')
 
   - if can?(:manage, task)
-    a.button.button-secondary href="#find-helpers" = t('.find_helpers')
+    a.button.button-secondary href="#sourcing-options-modal" = t('.find_helpers')
   
 
 / start of modal window with sourcing options
-.modal-find-helpers data-remodal-id="find-helpers"
+.modal-find-helpers data-remodal-id="sourcing-options-modal"
   button.remodal-close data-remodal-action="close"
 
   / FIXME cancan  

@@ -1,12 +1,23 @@
 ready = ->
+  initComments();
+  initSourcingOptionsModal();
+
+initComments = ->
   $('.show_all_comments').on('click', showComments)
 
-  $('#new_volunteer_id').select2({placeholder: "by name"})
-  $(document).on('change', '#new_volunteer_id', assignVolunteer)
+initSourcingOptionsModal = -> 
+  # FIXME adapt
+  # $(document).on('change', '#new_volunteer_id', assignVolunteer)
 
-  # I'm initializing the modal here rather than with the .remodal class
-  # because that didn't work when the page was loaded with turbolinks
-  $('[data-remodal-id=find-helpers]').remodal();
+  # The modal is initialized via JS instead of the .remodal class since the latter
+  # didn't work when loading the page with turbolinks
+  modalSelector = "[data-remodal-id=sourcing-options-modal]"
+  $(modalSelector).remodal();
+  $(document).on('opening', modalSelector, -> 
+    # select2 didn't init correctly in the dom ready callback; probably a issue with being in the modal.
+    $('#new_volunteer_id').select2({placeholder: "by name"})
+  )
+
 
 showComments = ->
   elem = $('.task-comments')
@@ -21,18 +32,18 @@ showComments = ->
       elem.removeClass('loading')
   )
 
-assignVolunteer = ->
-  form = $(this).closest('form')
-  $.ajax({
-    url:  form.attr('action'),
-    method: form.attr('method'),
-    data: form.serialize(),
-    success: (result) => 
-      widget = $(this).closest('.volunteers');
-      widget.html(result)
-      # need to reinitialize because it's a new DOM node
-      $('#new_volunteer_id').select2({placeholder: "by name"})
-  })
+# assignVolunteer = ->
+#   form = $(this).closest('form')
+#   $.ajax({
+#     url:  form.attr('action'),
+#     method: form.attr('method'),
+#     data: form.serialize(),
+#     success: (result) => 
+#       widget = $(this).closest('.volunteers');
+#       widget.html(result)
+#       # need to reinitialize because it's a new DOM node
+#       $('#new_volunteer_id').select2({placeholder: "by name"})
+#   })
 
 
 $(document).on 'ready', ready
