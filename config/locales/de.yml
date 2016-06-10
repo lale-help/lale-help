@@ -294,6 +294,7 @@
     :deactivate: Deaktivieren
     :reactivate: Reaktivieren
     :delete: Löschen
+    :assign: "%{model} eintragen"
   :unauthorized:
     :manage:
       :all: Keine Berechtigung %{subject} zu %{action}.
@@ -559,6 +560,8 @@
         :admin_ids: Organisatoren
         :description: Beschreibung
         :type: Zugriffsrecht
+        :organizer: Organisator
+        :organizer_id: Organisator
       :project:
         :description: Beschreibung
         :organizer:
@@ -677,15 +680,44 @@
       Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
     :file:
       :nils: Datei ist erforderlich.
+    :organizer_id:
+      :empty: Bitte einen Organisator festlegen
+      :at_least_one_required: Mindestens ein Organisator must festgelegt sein.
   :cells:
     :working_groups:
       :table:
-        :title_active: 'Aktive Arbeitsgruppen'
-        :title_deactivated: 'Inaktive Arbeitsgruppen'
+        :title_active: Aktive Arbeitsgruppen
+        :title_deactivated: Inaktive Arbeitsgruppen
         :confirm_delete: Sind Sie sicher?
         :no_groups: Aktuell keine Gruppen.
-        :cant_deactivate_group_with_items: Die Arbeitsgruppe enthält noch offene Aufgaben und/oder Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen es dann noch einmal.
-
+        :cant_deactivate_group_with_items: Die Arbeitsgruppe enthält noch offene Aufgaben
+          und/oder Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen
+          es dann noch einmal.
+    :tasks:
+      :sourcing_widget:
+        :modal:
+          :invite_all: Alle Helfer im Helferkreis
+          :invite_by_name: Einzelne Helfer ansprechen
+          :invite_working_group: Alle Helfer in dieser Arbeitsgruppe
+          :title_assign: Helfer festlegen
+          :title_invite: Mit Email einladen
+        :find_helpers: Helfer finden &hellip;
+        :decline: Ich kann leider nicht helfen
+        :accept: Ich übernehme das
+        :title: Helfer
+        :volunteer-count-missing:
+          :one: " (%{count} fehlt)"
+          :other: " (%{count} fehlen)"
+        :volunteer-count-required:
+          :one: Benötigt %{count} Helfer
+          :other: Benötigt %{count} Helfer
+        :volunteer-count:
+          :one: "%{count} Helfer hat sich eingetragen"
+          :other: "%{count} Helfer haben sich eingetragen"
+      :volunteer_select_tag:
+        :all_helpers: Alle Helfer
+        :assignee_blank: "(kein Helfer ausgewählt)"
+        :in_working_group: In dieser Arbeitsgruppe
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -744,6 +776,7 @@
         :task_reminder: Passt noch alles?
         :task_suggestion: Lale möchte Dir eine Aufgabe vorschlagen
         :task_comment: Deine Aufgabe hat einen neuen Kommentar.
+        :task_assigned: Eine Aufgabe wurde zugeteilt.
       :supply_mailer:
         :supply_completion_reminder: Vielen Dank für Deine Hilfe!
         :supply_invitation: Lale braucht Deine Hilfe für eine neue Sachspende.
@@ -783,6 +816,8 @@
         :create_working_group: Neue Arbeitsgruppe
         :edit: Bearbeiten
         :delete: Löschen
+        :disable: Deaktivieren
+        :reactivate: Reaktivieren
       :invite:
         :invite_members: Neue Mitglieder zu %{circle} einladen
         :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
@@ -812,7 +847,7 @@
     :comments:
       :placeholder: Was möchtest du sagen?
       :post: Kommentieren
-      :reply: Antworten
+      :reply: Kommentar hinzufügen
       :actions:
         :delete: Löschen
         :delete_confirm: Diesen Kommentar wirklich löschen?
@@ -887,6 +922,7 @@
         :placeholder_optional: "(optional)"
         :date_format: "%d.%m.%Y"
         :project_blank: "(nicht in einem Projekt)"
+        :update_and_notify: Speichern und benachrichtigen
       :new:
         :back: Zurück zu den Aufgaben
       :edit:
@@ -914,7 +950,7 @@
         :header: Offene Aufgaben
     :working_groups:
       :show:
-        :settings: Einstellungen
+        :settings: Gruppe verwalten
         :join: Beitreten
         :leave: Austreten
         :admin-title:
@@ -954,6 +990,8 @@
           Sachspenden löschen?
       :nav:
         :documents: Dokumente
+      :form:
+        :organizer_blank: "(bitte auswählen)"
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
@@ -1034,6 +1072,7 @@
         :sign-up: Registrieren
         :dont-have-account: Noch kein Konto?
         :account: Konto
+        :contact_us_for_new_circle: Kontaktiere uns, um einen neuen Helferkreis anzulegen.
     :internal:
       :sidebar:
         :my-tasks: Meine Aufgaben
