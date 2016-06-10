@@ -39,7 +39,7 @@ class Task::Assign < Mutations::Command
   end
 
   def notify_new_assignees
-    users.each do |user|
+    (users - [current_user]).each do |user|
       TaskMailer.task_assigned(task, user).deliver_now
     end
   end
