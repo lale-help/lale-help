@@ -11,8 +11,9 @@ showComments = ->
       elem.removeClass('loading')
 
 openSourcingOptionsModal = -> 
-  $(sourcingOptionsModalSelector).remodal().open();
-  $('#new_volunteer_ids').select2(placeholder: "by name", language: I18n.locale)
+  $(sourcingOptionsModalSelector).remodal().open()
+  el = $('#new_volunteer_ids')
+  el.select2(placeholder: el.attr('placeholder'), language: I18n.locale)
 
 closeModalAndReloadPage = ->
   $(sourcingOptionsModalSelector).remodal().close()

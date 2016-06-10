@@ -607,6 +607,7 @@
     :tasks:
       :volunteer_select_tag:
         :assignee_blank: "(no helper selected)"
+        :placeholder: by name
         :in_working_group: In this working group
         :all_helpers: All helpers
       :sourcing_widget:
