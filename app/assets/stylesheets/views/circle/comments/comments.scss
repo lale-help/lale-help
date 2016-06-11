@@ -114,6 +114,14 @@
             border-color: $red-500;
             border-width: 2px;
           }
+          input[type="submit"] {
+            line-height: 0.7;
+            padding: .5rem 2rem;
+          }
+          .cancel_edit_comment {
+            display: inline-block;
+            padding-top: 5px;
+          }
         }
       }
       .commenter {
@@ -126,7 +134,7 @@
         .actions {
           margin-top: 0;
           a {
-            margin-right: 0.5em;
+            margin-left: 0.5em;
           }
           a:hover {
             text-decoration: underline;

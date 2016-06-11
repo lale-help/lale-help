@@ -20,8 +20,8 @@
           - if comment.commenter == current_user
             .actions
               - edit_url = item.is_a?(User) ? circle_member_comment_path(circle, item, comment) : circle_task_comment_path(circle, item, comment)
-              = link_to t('circle.comments.actions.delete'), edit_url, method: :delete, data: { confirm: t('circle.comments.actions.delete_confirm') }
               = link_to t('circle.comments.actions.edit'), '#', { data: { comment: comment.id }, class: 'edit_comment_link' }
+              = link_to t('circle.comments.actions.delete'), edit_url, method: :delete, data: { confirm: t('circle.comments.actions.delete_confirm') }
           - else
             .name=comment.commenter.name
           .time=comment.comment_date_time
