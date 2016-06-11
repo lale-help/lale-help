@@ -1105,6 +1105,16 @@
         :circle-documents: Circle Documents
         :working-group-documents: Working Group Documents
         :new-file: Upload File
+    :taskables:
+      :nav:
+        :volunteering: Volunteering
+        :organizing: Organizing
+      :organizer:
+        :tasks-header: Tasks
+        :supplies-header: Supplies
+      :volunteer:
+        :tasks-header: Tasks
+        :supplies-header: Supplies
   :circles:
     :new:
       :create: Create Circle
@@ -1165,6 +1175,9 @@
         :working_groups: Working Groups
         :public_members: Helper list
         :documents: Documents
+        :home-page: Home Page
+        :my-calendar: My Calendar
+        :overviews: Overviews
       :header:
         :settings: Your profile
         :find-circles: Find Circles
