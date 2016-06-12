@@ -14,7 +14,7 @@
             = t('.join')
 
         - if can? :leave, current_working_group
-          - options = { method: :patch, "data-confirm": t('.leave_group_confirmation') }
+          - options = { method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
           = button_to circle_working_group_leave_path(current_circle, current_working_group), options do
             = t('.leave')
 
@@ -28,10 +28,20 @@
       = render 'nav'
 
       .tab.tasks
-        = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: current_working_group.tasks.not_completed.ordered_by_date }
+        .task_section.open_tasks data-tab='open_tasks'
+          a.task_status data-tab='completed_tasks' =t(".show_completed_tasks")
+          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: current_working_group.tasks.not_completed.ordered_by_date }
+        .task_section.completed_tasks data-tab='completed_tasks'
+          a.task_status data-tab='open_tasks' =t(".show_open_tasks")
+          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: current_working_group.tasks.completed.ordered_by_date }
 
       .tab.supplies
-        = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: current_working_group.supplies.not_completed.ordered_by_date }
+        .task_section.open_supplies data-tab='open_supplies'
+          a.task_status data-tab='completed_supplies' =t(".show_completed_supplies")
+          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: current_working_group.supplies.not_completed.ordered_by_date }
+        .task_section.completed_supplies data-tab='completed_supplies'
+          a.task_status data-tab='open_supplies' =t(".show_open_supplies")
+          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: current_working_group.supplies.completed.ordered_by_date }
 
       .tab.projects
         = render partial: 'projects', locals: { projects: current_working_group.projects.order(:name).select { |project| can?(:read, project) } }
