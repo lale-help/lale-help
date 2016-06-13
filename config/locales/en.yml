@@ -333,6 +333,7 @@
           :between: between
         :scheduled_time_start: Start
         :project: Project
+        :project_id: Project
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
@@ -398,9 +399,11 @@
         :volunteers: Volunteers
         :actions: Actions
         :description: Description
-        :organizer: Organiser
-        :organizer_id: Organiser
+        :organizer: Organizer
+        :organizer_id: Organizer
         :type: Access Type
+        :admin: Organizer
+        :admin_ids: Organizers
       :supply:
         :duration-text:
           :hours_3: 3 Hours
@@ -599,15 +602,6 @@
       :blank: is blank
       :null: is null
       :not_null: is not null
-  :cells:
-    :working_groups:
-      :table:
-        :title_active: 'Active working groups'
-        :title_deactivated: 'Inactive working groups'
-        :confirm_delete: Are you sure?
-        :no_groups: No groups to show right now.
-        :cant_deactivate_group_with_items: The group still contains incomplete tasks or supplies. Please complete them first, then try again.
-
   :flash:
     :actions:
       :create:
@@ -783,6 +777,15 @@
       :block: List
       :grid: Grid
       :blog: Blog
+  :cells:
+    :working_groups:
+      :table:
+        :title_active: Active working groups
+        :title_deactivated: Inactive working groups
+        :confirm_delete: Are you sure?
+        :no_groups: No groups to show right now.
+        :cant_deactivate_group_with_items: The group still contains incomplete tasks
+          or supplies. Please complete them first, then try again.
   :datepicker:
     :day_of_week_start: '0'
     :date_format: m/d/Y
@@ -892,6 +895,7 @@
         :delete: Delete
         :disable: Deactivate
         :reactivate: Reactivate
+        :confirm_delete_working_group: Are you sure?
       :invite:
         :invite_members: Invite members to %{circle}
         :invite_members_explaination: To invite new members to this circle, just share
@@ -1057,7 +1061,7 @@
         :placeholder_optional: "(optional)"
         :date_format: "%m/%d/%Y"
         :project_blank: "(not part of a project)"
-        :update_and_notify: Update Task and notify
+        :update_and_notify: Save and notify
     :working_groups:
       :form:
         :organizer_blank: "(please select)"
@@ -1191,7 +1195,7 @@
         :public_members: Helper list
         :documents: Documents
         :home-page: Home Page
-        :my-calendar: My Calendar
+        :my-calendar: My activities
         :overviews: Overviews
       :header:
         :settings: Your profile

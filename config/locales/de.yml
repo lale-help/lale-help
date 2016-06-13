@@ -559,6 +559,8 @@
         :admin_ids: Organisatoren
         :description: Beschreibung
         :type: Zugriffsrecht
+        :organizer: Organisator
+        :organizer_id: Organisator
       :project:
         :description: Beschreibung
         :organizer:
@@ -677,15 +679,19 @@
       Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
     :file:
       :nils: Datei ist erforderlich.
+    :organizer_id:
+      :empty: Bitte einen Organisator festlegen
+      :at_least_one_required: Mindestens ein Organisator must festgelegt sein.
   :cells:
     :working_groups:
       :table:
-        :title_active: 'Aktive Arbeitsgruppen'
-        :title_deactivated: 'Inaktive Arbeitsgruppen'
+        :title_active: Aktive Arbeitsgruppen
+        :title_deactivated: Inaktive Arbeitsgruppen
         :confirm_delete: Sind Sie sicher?
         :no_groups: Aktuell keine Gruppen.
-        :cant_deactivate_group_with_items: Die Arbeitsgruppe enthält noch offene Aufgaben und/oder Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen es dann noch einmal.
-
+        :cant_deactivate_group_with_items: Die Arbeitsgruppe enthält noch offene Aufgaben
+          und/oder Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen
+          es dann noch einmal.
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -783,6 +789,8 @@
         :create_working_group: Neue Arbeitsgruppe
         :edit: Bearbeiten
         :delete: Löschen
+        :disable: Deaktivieren
+        :reactivate: Reaktivieren
       :invite:
         :invite_members: Neue Mitglieder zu %{circle} einladen
         :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
@@ -844,6 +852,9 @@
         :organizer_info_title: Dieser Helfer kann nicht gesperrt werden, da sie /
           er noch für die folgenden Dinge zuständig ist. Bitte finde andere Helfer
           für diese Tätigkeiten und versuche es erneut.
+      :nav:
+        :organizers: Organisatoren
+        :all-helpers: Alle Helfer
     :supplies:
       :index:
         :header: Sachspenden
@@ -879,8 +890,8 @@
         :header: Alle Aufgaben
       :my:
         :header: Meine Aufgaben
-        :volunteer-header: Was ich erledige
-        :organizer-header: Was ich organisiere
+        :volunteer-header: Ich erledige
+        :organizer-header: Ich organisiere
       :task_list:
         :no-tasks: Keine Aufgaben gefunden.
       :task_list_item:
@@ -889,6 +900,7 @@
         :placeholder_optional: "(optional)"
         :date_format: "%d.%m.%Y"
         :project_blank: "(nicht in einem Projekt)"
+        :update_and_notify: Speichern und benachrichtigen
       :new:
         :back: Zurück zu den Aufgaben
       :edit:
@@ -928,6 +940,10 @@
         :new-file: Datei hochladen
         :leave_group_confirmation: Möchtest Du Deine Mitarbeit in dieser Arbeitsgruppe
           wirklich beenden?
+        :show_completed_supplies: Erledigte Sachspenden anzeigen...
+        :show_open_supplies: Offene Sachspenden anzeigen...
+        :show_open_tasks: Offene Aufgaben anzeigen...
+        :show_completed_tasks: Erledigte Aufgaben anzeigen...
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
       :new:
@@ -956,6 +972,8 @@
           Sachspenden löschen?
       :nav:
         :documents: Dokumente
+      :form:
+        :organizer_blank: "(bitte auswählen)"
     :invite_flow:
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
@@ -994,6 +1012,16 @@
         :new-file: Datei hochladen
         :working-group-documents: Dokumente der Arbeitsgruppen
         :circle-documents: Dokumente des Helferkreises
+    :taskables:
+      :organizer:
+        :supplies-header: Sachspenden
+        :tasks-header: Aufgaben
+      :volunteer:
+        :supplies-header: Sachspenden
+        :tasks-header: Aufgaben
+      :nav:
+        :volunteering: Ich erledige
+        :organizing: Ich organisiere
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -1022,12 +1050,18 @@
       :circle_leaders: Leitung
       :working_group_organizers: Organisatoren
       :files: Dokumente des Helferkreises
+      :show_completed_supplies: Erledigte Sachspenden anzeigen...
+      :show_open_supplies: Offene Sachspenden anzeigen...
+      :show_open_tasks: Offene Aufgaben anzeigen...
+      :show_completed_tasks: Erledigte Aufgaben anzeigen...
     :edit:
       :header: Helferkreis bearbeiten
       :show: Anzeigen
       :back: Zurück
     :form:
       :country_select: Bitte Land auswählen
+    :nav:
+      :documents: Dokumente
   :layouts:
     :public:
       :header:
@@ -1036,6 +1070,7 @@
         :sign-up: Registrieren
         :dont-have-account: Noch kein Konto?
         :account: Konto
+        :contact_us_for_new_circle: Kontaktiere uns, um einen neuen Helferkreis anzulegen.
     :internal:
       :sidebar:
         :my-tasks: Meine Aufgaben
@@ -1053,6 +1088,9 @@
         :public_members: Helferliste
         :projects: Projekte
         :documents: Dokumente
+        :my-calendar: Meine Aktivitäten
+        :overviews: "Übersichten"
+        :home-page: Startseite
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden
@@ -1281,6 +1319,14 @@
       :volunteered: Vielen Dank für Deine Hilfe!
       :reopened: Sachspende wurde wieder geöffnet
       :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
+    :auto_comment:
+      :completed: "%{user} hat diese Aufgabe am %{date} erledigt."
+      :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Sachspende
+        eingeladen."
+      :reopened: "%{user} hat diese Sachspende am %{date} wieder geöffnet."
+      :updated: "%{user} hat %{changed_fields} geändert."
+      :user_assigned: "%{user} hat sich für diese Sachspende am %{date} eingetragen."
+      :user_unassigned: "%{user} hat sich für diese Sachspende am %{date} ausgetragen."
   :working_group:
     :types:
       :public: Offen
