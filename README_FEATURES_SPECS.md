@@ -28,6 +28,10 @@ All of there are standard Rails gems (libraries) and can be found on GitHub.
 
 https://goo.gl/7xVCwL
 
+run it with
+
+`rake spec:features SPEC=spec/features/files/circle_files_spec.rb`
+
 ## Using the rails console to test/debug factories (sometimes useful)
 
 ```
