@@ -306,6 +306,13 @@ class Ability
       can?(:manage, circle)
     end
 
+    can :update, Comment, Taskable do |comment, item, circle|
+      comment.commenter_id == user.id
+    end
+
+    can :update, Comment, User do |comment, member, circle|
+      comment.commenter_id == user.id
+    end
     #
     # Projects
     #

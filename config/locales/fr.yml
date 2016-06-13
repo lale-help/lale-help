@@ -770,6 +770,8 @@
         :edit: Editer
       :comments:
         :show_all_comments: Voir Tous les Commentaires
+      :edit: Enregistrer
+      :edit_cancel: Annuler
     :members:
       :index:
         :directory: " Liste de Volontaires"

@@ -140,7 +140,7 @@
       :taken: has already been taken
     :due_time:
       :format: Please enter the due time in the format 00:00.
-    organizer_id: 
+    :organizer_id:
       :empty: Please choose an organizer
       :at_least_one_required: The last organizer can't be deleted.
     :start_time:
@@ -929,6 +929,8 @@
         :edit: Edit
       :comments:
         :show_all_comments: Show All Comments
+      :edit: Save
+      :edit_cancel: Cancel
     :members:
       :index:
         :directory: Helper list

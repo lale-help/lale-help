@@ -28,7 +28,7 @@
         = errors.formatted_message_for(:organizer_id)
         = f.select :organizer_id, options_for_select(@form.organizer_options, @form.organizer_id), include_blank: t('.organizer_blank')
 
-  .actions.submit-row
+  .submit-row
     = f.submit
 
     - cancel_path = current_working_group.persisted? ? circle_working_group_path(current_circle, current_working_group) : circle_admin_path(current_circle)

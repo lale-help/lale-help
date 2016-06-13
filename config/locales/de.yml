@@ -819,6 +819,8 @@
         :edit: Bearbeiten
       :comments:
         :show_all_comments: Alle Kommentare zeigen
+      :edit: Speichern
+      :edit_cancel: Abbrechen
     :members:
       :index:
         :directory: Helferliste
