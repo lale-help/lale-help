@@ -3,8 +3,12 @@
   p = t('.title')
 
 .icons
-  - volunteers.each do |volunteer|
-    == cell('tasks/user_badge', volunteer, task: task, current_user: current_user)
+
+  - if volunteers.empty?
+    = t('.no_volunteers_yet')
+  else
+    - volunteers.each do |volunteer|
+      == cell('tasks/user_badge', volunteer, task: task, current_user: current_user)
 
 .actions
   

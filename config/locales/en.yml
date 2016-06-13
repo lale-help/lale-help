@@ -610,6 +610,7 @@
         :in_working_group: In this working group
         :all_helpers: All helpers
       :sourcing_widget:
+        :no_volunteers_yet: No one signed up yet.
         :modal:
           :title_main: Find helpers
           :title_assign: Assign to helper
