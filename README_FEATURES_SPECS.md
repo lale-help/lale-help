@@ -24,9 +24,10 @@ http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
 
 All of there are standard Rails gems (libraries) and can be found on GitHub.
 
-## Example feature spec (uploading a file)
+## Example feature specs (uploading a file)
 
-https://goo.gl/7xVCwL
+- uploading a file https://goo.gl/7xVCwL. Example for filling forms
+- testing the top level add menu: https://goo.gl/Qx4vsZ. Example for test setup, finding dom elements and clicking them.
 
 run it with
 
