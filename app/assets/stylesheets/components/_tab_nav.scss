@@ -24,3 +24,12 @@
     color: $orange; 
   }
 }
+
+.task_section {
+  a.task_status {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

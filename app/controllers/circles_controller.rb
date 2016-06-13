@@ -13,7 +13,13 @@ class CirclesController < ApplicationController
     @open_tasks = current_circle.tasks.not_completed.ordered_by_date.select do |task|
       can? :read, task
     end
+    @completed_tasks = current_circle.tasks.completed.ordered_by_date.select do |task|
+      can? :read, task
+    end
     @open_supplies = current_circle.supplies.not_completed.ordered_by_date.select do |supply|
+      can? :read, supply
+    end
+    @completed_supplies = current_circle.supplies.completed.ordered_by_date.select do |supply|
       can? :read, supply
     end
   end

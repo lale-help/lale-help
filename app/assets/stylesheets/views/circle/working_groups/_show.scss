@@ -26,14 +26,6 @@ body.internal .working-group {
   .tab-nav {
    margin-top: 22px;
   }
-  .task_section {
-    a.task_status {
-      cursor: pointer;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
 
   .details {
     @include display(flex);

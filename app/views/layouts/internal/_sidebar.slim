@@ -15,7 +15,6 @@ nav
       = sidebar_link(t('.documents'), circle_documents_path(current_circle))
     - if visible_projects?
       = sidebar_link(t('.projects'), circle_projects_path(current_circle), badge_text: projects_count)
-    /= sidebar_link(t('.organizers'), circle_organizers_path(current_circle))
 
   - if current_circle.working_groups.present?
     .sidebar-section

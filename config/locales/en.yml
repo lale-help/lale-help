@@ -1147,12 +1147,18 @@
       :contact_circle_admin: Contact Circle Admin
       :open_tasks: Open Tasks
       :files: Circle Documents
+      :show_completed_tasks: Show completed tasks...
+      :show_open_tasks: Show open tasks...
+      :show_completed_supplies: Show completed supplies...
+      :show_open_supplies: Show open supplies...
     :edit:
       :header: Edit Circle
       :show: Show
       :back: Back
     :form:
       :country_select: Select Country
+    :nav:
+      :documents: Documents
   :layouts:
     :public:
       :header:
