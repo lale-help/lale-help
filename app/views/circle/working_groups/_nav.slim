@@ -2,8 +2,10 @@
 
   a.tasks data-tab='tasks'
     = Task.model_name.human(count: 2)
+    span.badge=current_working_group.tasks.not_completed.count
   a.supplies data-tab='supplies'
     = Supply.model_name.human(count: 2)
+    span.badge=current_working_group.supplies.not_completed.count
   a.projects data-tab='projects'
     = Project.model_name.human(count: 2)
   - if feature_enabled? :working_group_files

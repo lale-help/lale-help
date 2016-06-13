@@ -2,8 +2,10 @@
 
   a.tasks data-tab='tasks'
     = Task.model_name.human(count: 2)
+    span.badge=@open_tasks.count
   a.supplies data-tab='supplies'
     = Supply.model_name.human(count: 2)
+    span.badge=@open_supplies.count
   - if can?(:manage, current_circle) && current_circle.projects.present?
     a.projects data-tab='projects'
       = Project.model_name.human(count: 2)
