@@ -8,10 +8,10 @@ def default_working_group
   WorkingGroup.find_by(name: 'Default WG')
 end
 
-def fake_user
+def fake_user(number)
   first, last = Faker::StarWars.character.split(" ", 2)
   last  = last || "of Nil"
-  email = "#{first.downcase.gsub(' ', '-')}.#{last.downcase.gsub(' ', '-')}@lale.help"
+  email = "user#{number}@lale.help"
   OpenStruct.new(first: first, last: last, email: email)
 end
 
@@ -62,11 +62,12 @@ end
 # Create some volunteer users
 users = []
 loop do
-  fake  = fake_user
+  user_number = users.size + 1
+  fake        = fake_user(user_number)
   user = if (identity = User::Identity.find_by(email: fake.email))
     identity.user
   else
-    User::Create.new(
+    u = User::Create.new(
       first_name:            fake.first,
       last_name:             fake.last,
       email:                 fake.email,
@@ -75,6 +76,8 @@ loop do
       accept_terms:          true,
       language:              User.languages.values.sample
     ).submit.result
+    puts "Created user #{u.name} with email #{u.email}."
+    u
   end
   users << user
   Circle::Join.new(user: user, circle_id: circle.id).submit
