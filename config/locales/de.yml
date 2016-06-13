@@ -1320,7 +1320,7 @@
       :reopened: Sachspende wurde wieder geöffnet
       :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
     :auto_comment:
-      :completed: "%{user} hat diese Aufgabe am %{date} erledigt."
+      :completed: "%{user} hat diese Sachspende am %{date} erledigt."
       :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Sachspende
         eingeladen."
       :reopened: "%{user} hat diese Sachspende am %{date} wieder geöffnet."

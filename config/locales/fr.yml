@@ -897,6 +897,10 @@
         :new-file: Uploader un Fichier
         :leave_group_confirmation: Voulez-vous vraiment mettre fin à votre participation
           à ce groupe
+        :show_completed_supplies: Voir les fournitures reçues...
+        :show_completed_tasks: Voir les tâches complétées...
+        :show_open_supplies: Voir les fournitures en cours...
+        :show_open_tasks: Voir les tâches ouvertes...
       :index:
         :all-working-groups-dashboard: Tableau de Bord de Tous les Groupes
       :new:
@@ -1003,6 +1007,10 @@
       :open_tasks: Tâches Ouvertes
       :working_group_organizers: Organisateurs du Groupe
       :files: Documents de cercle
+      :show_completed_supplies: Voir les fournitures reçues...
+      :show_completed_tasks: Voir les tâches complétées...
+      :show_open_supplies: Voir les fournitures en cours...
+      :show_open_tasks: Voir les tâches ouvertes...
     :edit:
       :header: Editer le Cercle
       :show: Voir
@@ -1038,6 +1046,9 @@
         :public_members: Liste de Volontaires
         :projects: Projets
         :documents: Documents
+        :home-page: Accueil
+        :my-calendar: Mes activités
+        :overviews: Vue d'ensemble
       :header:
         :settings: Paramètres
         :find-circles: Trouver des Cercles
@@ -1286,6 +1297,11 @@
       :reopening_failed: Il y a eu un problème lors de la ré-ouverture de cette fourniture
     :auto_comment:
       :updated: "%{user} a changé %{changed_fields}."
+      :completed: "%{user} a complété cette fourniture le %{date}"
+      :invited: "%{user} a invité %{invite_count} aides pour cette fourniture le %{date}"
+      :reopened: "%{user} a ré-ouvert cette fourniture le %{date}"
+      :user_assigned: "%{user} c'est enregistré pour cette fourniture le %{date}"
+      :user_unassigned: "%{user} c'est dé-enregistré pour cette fourniture le %{date}"
   :working_group:
     :types:
       :private: Privé
@@ -1318,3 +1334,6 @@
         :confirm_delete: Etes-vous sure ?
         :title_active: Groupes actifs
         :title_deactivated: Groupes inactifs
+        :cant_deactivate_group_with_items: Le groupe contient encore des tâches or
+          fournitures incomplètes. Merci de les complèter et de ré-essayer.
+        :no_groups: Pas de groupes à montrer en ce moment.
