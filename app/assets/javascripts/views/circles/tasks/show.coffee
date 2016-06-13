@@ -28,6 +28,20 @@ assignVolunteer = (event)->
     data:    form.serialize(),
     success: closeModalAndReloadPage
 
+unassignVolunteer = (event)->
+  event.preventDefault();
+  badge = $(this).closest('.user-badge')
+  console.log(badge)
+
+  $.ajax
+    url:     badge.data('unassign-action'),
+    method:  badge.data('unassign-method')
+    success: -> 
+      $(badge).hide()
+    error: ->
+      console.log("ERROR in unassignVolunteer")
+
+
 inviteHelpers = (event)->
   event.preventDefault();
   container = $(this).closest('.invite-helpers')
@@ -45,4 +59,5 @@ $(document)
   .on('click', '#button-open-find-helpers', openSourcingOptionsModal)
   .on('click', '.assign-helpers .button', assignVolunteer)    
   .on('click', '.invite-helpers .button', inviteHelpers)    
+  .on('click', '.volunteers .unassign-user-icon', unassignVolunteer)    
   

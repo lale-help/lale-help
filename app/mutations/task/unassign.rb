@@ -1,4 +1,4 @@
-class Task::Assign < Mutations::Command
+class Task::Unassign < Mutations::Command
   
   required do
     array :users
@@ -9,24 +9,24 @@ class Task::Assign < Mutations::Command
   def validate
     add_error(:user, :empty) if users.empty?
     users.each do |user|
-      add_error(:user, :already_volunteered) if volunteer_role.exists?(task: task, user: user)
+      add_error(:user, :no_volunteer) unless volunteer_role.exists?(task: task, user: user)
     end
   end
 
   def execute
-    assignments = users.map do |user|
-      volunteer_role.create(task: task, user: user)
+    unassignments = users.map do |user|
+      volunteer_role.destroy(task: task, user: user)
     end
 
-    if assignments.all? { |a| a.persisted? }
+    if unassignments.all? { |a| a.destroyed? }
       notify_existing_volunteers
-      notify_new_assignees
+      notify_unassignees
       create_task_comment
     else
       add_error :assignment, :failed
     end
 
-    assignments
+    unassignments
   end
 
   private
@@ -38,14 +38,14 @@ class Task::Assign < Mutations::Command
     end
   end
 
-  def notify_new_assignees
+  def notify_unassignees
     (users - [current_user]).each do |user|
       TaskMailer.task_assigned(task, user).deliver_now
     end
   end
 
   def create_task_comment
-    Task::Comments::Assigned.run!(task: task, assignees: users, user: current_user)
+    Task::Comments::Unassigned.run!(task: task, unassignees: users, user: current_user)
   end
 
   def existing_volunteers

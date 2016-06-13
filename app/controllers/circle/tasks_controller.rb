@@ -125,11 +125,16 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Assign.run(users: new_volunteers, task: current_task, current_user: current_user)
 
-    if outcome.success?
-      head :ok
-    else
-      head :unprocessable_entity
-    end
+    outcome.success? ? head(:ok) : head(:unprocessable_entity)
+  end
+
+  def unassign_volunteer
+    user = User.find(params['user_id'])
+    authorize!(:unassign_volunteers, current_task, user)
+
+    outcome = Task::Unassign.run(users: [user], task: current_task, current_user: current_user)
+
+    outcome.success? ? head(:ok) : head(:unprocessable_entity)
   end
 
   def decline

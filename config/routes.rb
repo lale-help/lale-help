@@ -47,8 +47,9 @@ Rails.application.routes.draw do
         end
         resources :comments, only: [:create, :destroy, :update, :index]
 
-        put   :volunteer, :assign_volunteer, :decline, :complete, :reopen, :clone
-        patch :volunteer, :assign_volunteer, :decline, :complete, :reopen, :clone
+        # FIXME task roles need a controller of their own!
+        put   :volunteer, :assign_volunteer, :unassign_volunteer, :decline, :complete, :reopen, :clone
+        patch :volunteer, :assign_volunteer, :unassign_volunteer, :decline, :complete, :reopen, :clone
 
         post :invite
       end

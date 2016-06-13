@@ -1,3 +1,4 @@
-.user-badge class=user_badge_class
+.user-badge *user_badge_attributes
+  i.unassign-user-icon x
   = render partial: 'user/user_icon', locals: { user: user, link: true }
-  span.user-name = user_link
+  .user-name = user_link
