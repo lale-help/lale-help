@@ -716,7 +716,6 @@
           :other: "%{count} Helfer haben sich eingetragen"
       :volunteer_select_tag:
         :all_helpers: Alle Helfer
-        :assignee_blank: "(kein Helfer ausgewählt)"
         :in_working_group: In dieser Arbeitsgruppe
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
