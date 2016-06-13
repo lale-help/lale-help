@@ -1,0 +1,5 @@
+= render partial: 'nav', locals: { current: 'organizer' }
+
+= render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: nil, tasks: @tasks, title: t('.tasks-header') }
+
+= render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: nil, supplies: @supplies, title: t('.supplies-header')}

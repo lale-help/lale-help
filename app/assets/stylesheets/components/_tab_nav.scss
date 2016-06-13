@@ -23,4 +23,17 @@
     font-size: 12px;
     color: $orange; 
   }
+  .badge {
+    margin-left: 0.5em;
+    background: #BBBBBB;
+  }
+}
+
+.task_section {
+  a.task_status {
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }

@@ -42,6 +42,14 @@ Rails.application.routes.draw do
         patch :disable
       end
 
+      resources :taskables do
+        collection do
+          get :volunteer
+          get :organizer
+        end
+      end
+
+
       resources :tasks do
         collection do
           get :my

@@ -1,26 +1,20 @@
 nav
   .sidebar-section
-    = sidebar_link(t('.my-tasks'), my_circle_tasks_path(current_circle), badge_text: my_tasks_count)
-    = sidebar_link(t('.all-open-tasks'), open_circle_tasks_path(current_circle), badge_text: open_tasks_count)
-    = sidebar_link(t('.completed-tasks'), completed_circle_tasks_path(current_circle))
+    = sidebar_link(t('.home-page'), circle_path(current_circle))
+    = sidebar_link(t('.my-calendar'),  volunteer_circle_taskables_path(current_circle))
+    - if can? :manage, current_circle
+      = sidebar_link(t('.admin'), circle_admin_path(current_circle), badge_text: admin_actions_counter, id: 'admin_link')
 
   .sidebar-section
-    = sidebar_link(t('.supplies'), circle_supplies_path(current_circle), badge_text: all_supplies_count)
-
-  - if visible_projects?
-    .sidebar-section
-      = sidebar_link(t('.projects'), circle_projects_path(current_circle), badge_text: projects_count)
-
-  .sidebar-section
-    - if feature_enabled?(:files)
-      = sidebar_link(t('.documents'), circle_documents_path(current_circle))
+    h4= t('.overviews')
     - unless can? :manage, current_circle
       = sidebar_link(t('.public_members'), public_circle_members_path(current_circle))
     - if can? :manage, current_circle
       = sidebar_link(t('.directory'), circle_members_path(current_circle))
-    = sidebar_link(t('.organizers'), circle_organizers_path(current_circle))
-    - if can? :manage, current_circle
-      = sidebar_link(t('.admin'), circle_admin_path(current_circle), badge_text: admin_actions_counter, id: 'admin_link')
+    - if feature_enabled?(:files)
+      = sidebar_link(t('.documents'), circle_documents_path(current_circle))
+    - if visible_projects?
+      = sidebar_link(t('.projects'), circle_projects_path(current_circle), badge_text: projects_count)
 
   - if current_circle.working_groups.present?
     .sidebar-section

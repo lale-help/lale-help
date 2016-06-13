@@ -954,6 +954,9 @@
         :last_help_provided: Last helped
       :public:
         :public_members: Helper list
+      :nav:
+        :all-helpers: All Helpers
+        :organizers: Organizers
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -1071,6 +1074,10 @@
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
         :new-file: Upload File
+        :show_completed_tasks: Show completed tasks...
+        :show_open_tasks: Show open tasks...
+        :show_completed_supplies: Show completed supplies...
+        :show_open_supplies: Show open supplies...
       :index:
         :all-working-groups-dashboard: All Working Groups Dashboard
       :new:
@@ -1107,6 +1114,16 @@
         :circle-documents: Circle Documents
         :working-group-documents: Working Group Documents
         :new-file: Upload File
+    :taskables:
+      :nav:
+        :volunteering: Volunteering
+        :organizing: Organizing
+      :organizer:
+        :tasks-header: Tasks
+        :supplies-header: Supplies
+      :volunteer:
+        :tasks-header: Tasks
+        :supplies-header: Supplies
   :circles:
     :new:
       :create: Create Circle
@@ -1135,12 +1152,18 @@
       :contact_circle_admin: Contact Circle Admin
       :open_tasks: Open Tasks
       :files: Circle Documents
+      :show_completed_tasks: Show completed tasks...
+      :show_open_tasks: Show open tasks...
+      :show_completed_supplies: Show completed supplies...
+      :show_open_supplies: Show open supplies...
     :edit:
       :header: Edit Circle
       :show: Show
       :back: Back
     :form:
       :country_select: Select Country
+    :nav:
+      :documents: Documents
   :layouts:
     :public:
       :header:
@@ -1167,6 +1190,9 @@
         :working_groups: Working Groups
         :public_members: Helper list
         :documents: Documents
+        :home-page: Home Page
+        :my-calendar: My Calendar
+        :overviews: Overviews
       :header:
         :settings: Your profile
         :find-circles: Find Circles
