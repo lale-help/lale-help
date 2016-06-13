@@ -98,6 +98,11 @@ section > .task {
         @include border-top-radius($border-radius);
       }
 
+      .task-badge {
+        position: relative;
+        top: -7px;
+        left: 8px;
+      }
       // FIXME partially unused
       .icons {
         @include display(flex);

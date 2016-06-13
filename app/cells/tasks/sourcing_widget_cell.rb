@@ -22,7 +22,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   private
 
   def helper_stats
-    "[ #{volunteers.count} / #{volunteer_count_required} ]"
+    [volunteers.count, volunteer_count_required].join('/')
   end
 
   def current_user
