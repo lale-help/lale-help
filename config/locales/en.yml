@@ -883,6 +883,7 @@
         :account_activated: Your circle membership was activated.
       :task_mailer:
         :task_assigned: A task was assigned to you.
+        :task_unassigned: You were unassigned from a task.
         :task_change: Something has changed about your task.
         :task_completion_reminder: Thanks for helping!
         :task_invitation: Lale needs your help with a new task.

@@ -59,6 +59,15 @@ class TaskMailer < BaseMandrillMailer
     end
   end
 
+  def task_unassigned(task, user)
+    build_message(user.language, user.email, task.organizer.try(:email)) do
+      merge_vars(user, task).merge(
+        "WORKGROUP"       => task.working_group.name,
+        "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task))
+      )
+    end
+  end
+
   private
 
   def merge_vars(user, task)

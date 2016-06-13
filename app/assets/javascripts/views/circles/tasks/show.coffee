@@ -31,16 +31,10 @@ assignVolunteer = (event)->
 unassignVolunteer = (event)->
   event.preventDefault();
   badge = $(this).closest('.user-badge')
-  console.log(badge)
-
   $.ajax
     url:     badge.data('unassign-action'),
     method:  badge.data('unassign-method')
-    success: -> 
-      $(badge).hide()
-    error: ->
-      console.log("ERROR in unassignVolunteer")
-
+    success: closeModalAndReloadPage
 
 inviteHelpers = (event)->
   event.preventDefault();

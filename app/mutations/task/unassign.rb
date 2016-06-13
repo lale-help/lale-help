@@ -15,7 +15,7 @@ class Task::Unassign < Mutations::Command
 
   def execute
     unassignments = users.map do |user|
-      volunteer_role.destroy(task: task, user: user)
+      volunteer_role.find_by(task: task, user: user).destroy
     end
 
     if unassignments.all? { |a| a.destroyed? }
@@ -40,7 +40,7 @@ class Task::Unassign < Mutations::Command
 
   def notify_unassignees
     (users - [current_user]).each do |user|
-      TaskMailer.task_assigned(task, user).deliver_now
+      TaskMailer.task_unassigned(task, user).deliver_now
     end
   end
 
