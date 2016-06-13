@@ -7,7 +7,12 @@ class Supply::Complete < Mutations::Command
   def execute
     supply.complete = true
 
-    add_error :complete, :failed unless supply.save
+
+    if supply.save
+      Task::Comments::Base.run(task: supply, message: 'completed', user: user)
+    else
+      add_error :complete, :failed
+    end
 
     supply
   end

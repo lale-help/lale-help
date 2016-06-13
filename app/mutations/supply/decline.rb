@@ -6,6 +6,12 @@ class Supply::Decline < Mutations::Command
 
   def execute
     assignment = Supply::Role.send('supply.volunteer').find_by(supply: supply, user: user)
-    assignment.destroy if assignment.present?
+
+    return unless assignment.present?
+
+    assignment.destroy
+    Task::Comments::Base.run(task: supply, message: 'user_unassigned', user: user)
+
+    assignment
   end
 end

@@ -29,18 +29,11 @@ class Supply::BaseForm < ::Form
     end
 
     def execute
+      supply.assign_attributes(attributes_for_supply_update)
+      supply_changes = supply.changes
+      supply.save
+
       supply.tap do |s|
-        s.name          = name
-        s.due_date      = due_date
-        s.description   = description
-
-        s.working_group = working_group
-        s.circle        = circle
-
-        s.location      = Location.location_from(location)
-        s.project       = project
-        s.save
-
         s.roles.send('supply.organizer').destroy_all
 
         organizer = User.find_by(id: organizer_id)
@@ -56,9 +49,27 @@ class Supply::BaseForm < ::Form
           Ability.new(volunteer).cannot?(:read, s)
         end
         s.roles.where(user: volunteers_to_remove).delete_all if volunteers_to_remove.present?
-
         s.save
       end
+
+      OpenStruct.new(supply: supply, changes: supply_changes)
     end
+
+    def attributes_for_supply_update
+      # quick and dirty way to break up the huge #execute method
+      attrs = OpenStruct.new
+
+      attrs.name            = name
+      attrs.due_date        = due_date
+      attrs.description     = description
+
+      attrs.circle          = circle
+      attrs.working_group   = working_group
+      attrs.project         = project
+      attrs.location        = Location.location_from(location)
+
+      attrs.to_h
+    end
+
   end
 end
