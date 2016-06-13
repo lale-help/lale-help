@@ -267,6 +267,10 @@
     :clone: Copie %{model}
     :block: Bloquer
     :unblock: Débloquer
+    :deactivate: Désactiver
+    :delete: Effacer
+    :edit_no_model: Editer
+    :reactivate: Réactiver
   :unauthorized:
     :manage:
       :all: Vous n'êtes pas autorisé à %{action} %{subject}.
@@ -434,6 +438,9 @@
         :time: Heure
         :start_time: Heure de début
         :project: Projet
+        :project_id: Projet
+        :organizer: Organisateur
+        :location: Adresse
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -530,6 +537,8 @@
         :actions: Actions
         :description: Description
         :type: Type d'Accès
+        :organizer: Organisateur
+        :organizer_id: Organisateur
       :project:
         :description: Description
         :organizer:
@@ -653,6 +662,9 @@
       de dévelopement.
     :file:
       :nils: Fichier est nécessaire.
+    :organizer_id:
+      :empty: Merci de choisir un organisateur
+      :at_least_one_required: Le groupe de travail doit avoir au moins un organisateur.
   :flash:
     :created: "%{name} a été créé avec succès."
     :updated: "%{name} a été mis à jour avec succès."
@@ -755,6 +767,8 @@
         :create_working_group: Nouveau Groupe
         :edit: Modifier
         :delete: Supprimer
+        :disable: Désactiver
+        :reactivate: Réactiver
       :inactive_members_list:
         :activate: Activer
       :files:
@@ -795,6 +809,9 @@
         :organizer_info_title: Cet utilisateur ne peut être bloqué car il/elle est
           toujours responsable des éléments suivants. Merci de mettre à jour ces éléments
           avant de ré-essayer.
+      :nav:
+        :organizers: Organisateurs
+        :all-helpers: Tous les volontaires
     :supplies:
       :index:
         :header: Besoins Matériels
@@ -840,6 +857,7 @@
         :date_format: "%d.%m.%Y"
         :placeholder_optional: "(optionel)"
         :project_blank: "(ne fait pas parti d'un projet)"
+        :update_and_notify: Mettre à jour et notifier
       :new:
         :back: Retour aux Tâches
       :edit:
@@ -907,6 +925,8 @@
         :header: Projets pour %{name}
       :nav:
         :documents: Documents
+      :form:
+        :organizer_blank: "(merci de selectionner)"
     :invite_flow:
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
@@ -945,6 +965,16 @@
         :new-file: Uploader un Fichier
         :circle-documents: Documents du Cercle
         :working-group-documents: Documents du Groupe
+    :taskables:
+      :organizer:
+        :supplies-header: Besoins Matériels
+        :tasks-header: Tâches
+      :volunteer:
+        :supplies-header: Besoins Matériels
+        :tasks-header: Tâches
+      :nav:
+        :volunteering: Est Volontaire
+        :organizing: Organise
   :circles:
     :new:
       :create: Créer un Cercle
@@ -979,6 +1009,8 @@
       :back: Retour
     :form:
       :country_select: Sélectionner un Pays.
+    :nav:
+      :documents: Documents
   :layouts:
     :public:
       :header:
@@ -987,6 +1019,8 @@
         :account: Compte
         :sign-up: S’inscrire
         :dont-have-account: Vous n'avez pas de compte utilisateur ?
+        :contact_us_for_new_circle: Contactez nous pour que créions un nouveau cercle
+          pour vous.
     :internal:
       :sidebar:
         :my-tasks: Mes Tâches
@@ -1250,6 +1284,8 @@
       :volunteered: Merci de vous êtes inscrit !
       :reopened: La fourniture a été ré-ouverte
       :reopening_failed: Il y a eu un problème lors de la ré-ouverture de cette fourniture
+    :auto_comment:
+      :updated: "%{user} a changé %{changed_fields}."
   :working_group:
     :types:
       :private: Privé
@@ -1276,3 +1312,9 @@
       :header: Ajouter le fichier à %{name}
     :list:
       :confirm_delete_file: Etes-vous sure de vouloir effacer ce fichier ?
+  :cells:
+    :working_groups:
+      :table:
+        :confirm_delete: Etes-vous sure ?
+        :title_active: Groupes actifs
+        :title_deactivated: Groupes inactifs
