@@ -868,7 +868,8 @@
       :copied: This task was copied from task %{original_task} on %{date}.
       :completed: "%{user} completed this task on %{date}."
       :user_volunteered: "%{user} signed up for this task on %{date}."
-      :user_unassigned: "%{user} unassigned himself from this task on %{date}."
+      :user_unassigned_self: "%{user} unassigned himself from this task on %{date}."
+      :users_unassigned: "%{user} was unassigned from this task on %{date}."
       :reopened: "%{user} re-opened this task on %{date}."
       :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
       :updated: "%{user} changed %{changed_fields}."
