@@ -952,6 +952,9 @@
         :last_help_provided: Last helped
       :public:
         :public_members: Helper list
+      :nav:
+        :all-helpers: All Helpers
+        :organizers: Organizers
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
