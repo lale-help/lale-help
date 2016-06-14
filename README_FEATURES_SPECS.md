@@ -7,31 +7,35 @@
 
 ### rspec 
 
-(BDD framework) for structuring tests, assertions, etc.
+BDD framework for structuring tests, assertions, etc.
   it's the most common Ruby testing framework, useful for all kinds of tests (from unit to integration)
   http://www.relishapp.com/rspec/
 
 ### Capybara
 
-is a DSL and abstraction layer for writing browser-based tests
+Is a DSL and abstraction layer for writing browser-based tests
 http://jnicklas.github.io/capybara/ 
 In our case we have configured it to execute with the Selenium driver.
 
 ### FactoryGirl
 
-lets you define factories for test data
+Lets you define factories for test data
 http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
 
-All of there are standard Rails gems (libraries) and can be found on GitHub.
+All of these are standard Ruby/Rails gems (libraries) and can be found on GitHub.
 
 ## Example feature specs (uploading a file)
 
-- uploading a file https://goo.gl/7xVCwL. Example for filling forms
-- testing the top level add menu: https://goo.gl/Qx4vsZ. Example for test setup, finding dom elements and clicking them.
+- uploading a file: https://goo.gl/7xVCwL. Has an example for filling forms.
+- testing the top level add menu: https://goo.gl/Qx4vsZ. Example for test setup, finding and clicking DOM elements.
 
-run it with
+## Executing the tests
 
-`rake spec:features SPEC=spec/features/files/circle_files_spec.rb`
+- run all feature specs with `rake spec:features`
+- run a subset of test files with `rake spec:features SPEC={file_name_pattern}`. file_name_pattern can be:
+  - a regular filename, example: `spec/features/files/circle_files_spec.rb`
+  - a filename with line number (runs only the test that covers that line): `spec/features/files/circle_files_spec.rb:42`
+  - a glob pattern: `spec/features/files/*`
 
 ## Using the rails console to test/debug factories (sometimes useful)
 
@@ -53,15 +57,16 @@ $ rails console
 
 ## Translations / i18n
 
-- all translations are in files in the config/locales subdirectory.
 - we use Rails' default mechanism, documented here: http://guides.rubyonrails.org/i18n.html
-
+- a call to `t('some.translation.key')` returns a translated string.
+- the tests run in the English locale (lale's default).
+- all translations are in YAML files in the directory `config/locales` .
 
 ## General structure of a feature spec
 
-1) set up a known state application (create data in DB, navigate to page)
-2) execute the feature that you want to test
-3) verify expected behaviour
+1. set up a known state application (create data in DB, navigate to page)
+1. execute the feature that you want to test
+1. verify expected behaviour
 
 
 ## Q: is any state kept between tests? 
@@ -71,13 +76,11 @@ No. Database content, cookies, last visited page, are all reset between tests
 
 ## Some Capybara debugging helpers
 
-- show! 
-short form for save_and_open_screenshot => opens a PNG screenshot
-
-- there's also save_and_open_page => opens the HTML page
+- `#show!`, a short form for `#save_and_open_screenshot` opens a PNG screenshot at the current step of test execution.
+- `#save_and_open_page` opens the HTML page
 
 
-## some pointers on Sublime Text configuration
+## Some useful Sublime Text packages
 
 - YAML Nav - YAML navigation package for sublime text
   https://packagecontrol.io/packages/YAML%20Nav
