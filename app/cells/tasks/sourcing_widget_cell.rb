@@ -50,20 +50,18 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   end
 
   def working_group_invitees_count
-    wg_count          = current_user_corrected_count(working_group.active_users)
-    volunteers_count  = current_user_corrected_count(volunteers)
-    ensure_non_negative_number(wg_count - volunteers_count)
+    all_users_count               = working_group.active_users.size
+    volunteers_from_working_group = volunteers.select { |user| working_group.active_users.include?(user) } 
+    ignored_users_count           = [volunteers_from_working_group, working_group.admins, current_user].flatten.uniq.size
+    invitees_count                = all_users_count - ignored_users_count
+    ensure_non_negative_number(invitees_count)
   end
 
   def circle_invitees_count
-    circle_count      = current_user_corrected_count(circle.users.active)
-    volunteers_count  = current_user_corrected_count(volunteers)
-    ensure_non_negative_number(circle_count - volunteers_count)
-  end
-
-  # the current user is never invited, so subtract him/her from all numbers
-  def current_user_corrected_count(users)
-    users.include?(current_user) ? users.count - 1 : users.count
+    all_users_count     = circle.users.active.size
+    ignored_users_count = [volunteers, circle.admins, working_group.admins, current_user].flatten.uniq.size
+    invitees_count      = all_users_count - ignored_users_count
+    ensure_non_negative_number(invitees_count)
   end
 
   # since a task can be overassigned with helpers (more volunteers than required)
