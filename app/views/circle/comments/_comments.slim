@@ -1,11 +1,13 @@
+- if can? :create, Comment.new, item, circle
+  = render partial: 'circle/comments/new', locals: { item: item, circle: circle }
+
 .comment-container
 
-  - if item.comments.count > max_display
-    - comments = item.comments.limit(max_display).reverse
-    .show_all_comments
-      a href='javascript:void(0);' = t('.show_all_comments')
-  - else
-    - comments = item.comments.reorder('created_at asc')
+  - comments       = item.comments.reorder(created_at: :desc)
+  - limit_comments = comments.count > max_display
+
+  - if limit_comments
+    - comments = comments.limit(max_display)
 
   - comments.each do |comment|
     .comment class="#{comment.commenter == current_user ? 'right' : 'left' } #{comment.commenter.lale_bot? ? 'lale-bot' : ''}"
@@ -26,5 +28,6 @@
             .name=comment.commenter.name
           .time=comment.comment_date_time
 
-- if can? :create, Comment.new, item, circle
-  = render partial: 'circle/comments/new', locals: { item: item, circle: circle }
+  - if limit_comments
+    .show_all_comments
+      a href='javascript:void(0);' = t('.show_all_comments')
