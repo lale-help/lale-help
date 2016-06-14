@@ -40,10 +40,8 @@
       form.assign-helpers action=links.assign_volunteer method="put" 
         = assignable_volunteers_select
         br
-        button.button.button-secondary
-          = t('helpers.assign', model: User)
+        button.button.button-secondary = t('helpers.assign', model: User)
     
-
     - if can?(:invite_to, task)
       .invite-helpers data-method="post"
         h3 = t('.modal.title_invite')
@@ -53,8 +51,4 @@
         = radio_button_tag('invite', 'circle', false, disabled: task.working_group.is_private?, 'data-url': links.invite_circle)
         = label_tag('invite_circle', t('.modal.invite_all', count: circle_invitees_count))
         br
-        / FIXME WIP; also grey out invite circle when group is private
-        / = radio_button_tag('invite', 'by_name')
-        / = label_tag('invite_by_name', t('.modal.invite_by_name'))
-        / br
         button.button.button-secondary = t('helpers.invite', model: User)
