@@ -96,6 +96,13 @@ section > .task {
         @include lale-icon(" ");
         background: $blue-light-2;
         @include border-top-radius($border-radius);
+
+        h2 {
+          padding: 0;
+          margin: 0;
+          font-weight: normal;
+          font-size: 1.5rem;
+        }
       }
 
       .task-badge {
