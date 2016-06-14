@@ -44,7 +44,7 @@ class Circle::SuppliesController < ApplicationController
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, outcome.result), notice: t('flash.created', name: Supply.model_name.human)
+      redirect_to circle_supply_path(current_circle, outcome.result.supply), notice: t('flash.created', name: Supply.model_name.human)
 
     else
       errors.add outcome.errors
