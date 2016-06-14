@@ -104,7 +104,7 @@ section > .task {
         left: 8px;
       }
       // FIXME partially unused
-      .icons {
+      .user-badges {
         @include display(flex);
         @include flex-direction(row);
         @include flex-wrap(wrap);
@@ -113,20 +113,13 @@ section > .task {
 
         > * {
           margin: 0.25rem;
+          margin-left: 0;
         }
 
-        .task-action-button .user-icon:hover {
-          background: $red-100;
-          .text {
-            content: " ";
-          }
-        }
       }
 
       .helper-stats {
-        display: inline-block;
         float: right;
-        position: right;
       }
     }
 

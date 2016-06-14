@@ -5,14 +5,13 @@
   border: 1px solid #666;
   border-radius: 7px;
   padding: 4px 6px;
-  width: 130px;
+  width: 136px;
   // center user badge content vertically
   display: flex;
   align-items: center;
 
-  .user-name {
+  .user-name-shortened {
     padding-top: 1px;
-    width: 80px;
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
