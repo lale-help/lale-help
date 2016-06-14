@@ -70,7 +70,7 @@ class Circle::WorkingGroupsController < ApplicationController
   def remove_user
     authorize! :update, current_working_group
 
-    outcome = WorkingGroup::RemoveUser.run(working_group: current_working_group, user_id: params[:user_id])
+    outcome = WorkingGroup::RemoveUser.run(params.slice(:user_id, :role_type), working_group: current_working_group)
     if outcome.success?
       redirect_to :back
     else
