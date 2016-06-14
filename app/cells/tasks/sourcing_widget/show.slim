@@ -18,7 +18,7 @@
   - if can?(:volunteer, task)
     = form_tag(links.accept, method: :put, class: 'task-action-button') do
       button.button-primary = t('.accept')
-  - else # decline
+  - elsif can?(:decline, task)
     = form_tag(links.decline, method: :put, class: 'task-action-button') do
       button.button-primary = t('.decline')
 
