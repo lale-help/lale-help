@@ -3,5 +3,5 @@
 
   h1= t('.header', name: current_working_group.name)
 
-  = render partial: 'user_list', locals: { users: @organizers }
+  = render partial: 'user_list', locals: { users: @organizers, role_to_remove: :admin }
   = render partial: 'add_user_form', locals: { form: @form }
