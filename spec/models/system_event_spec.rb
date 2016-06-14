@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe SystemEvent do
-  it { should have_many(:notifications).class_name(SystemEvent::Notification) }
-  it { should belong_to(:user).class_name(User) }
-  it { should belong_to(:for) }
+  it { is_expected.to have_many(:notifications).class_name(SystemEvent::Notification) }
+  it { is_expected.to belong_to(:user).class_name(User) }
+  it { is_expected.to belong_to(:for) }
 end
