@@ -73,11 +73,15 @@ section > .task {
     margin-left: 3rem;
     @include flex(0 0 30rem);
 
-    .volunteers{
+    .volunteers {
       @include border-top-radius($border-radius);
       @include border-bottom-radius($border-radius);
       border: thin solid $border-color;
       margin-bottom: 3rem;
+
+      .task-action-button {
+        padding: 0.5em 0;
+      }
 
       > * {
         border-top: thin solid $border-color;
@@ -92,9 +96,22 @@ section > .task {
         @include lale-icon(" ");
         background: $blue-light-2;
         @include border-top-radius($border-radius);
+
+        h2 {
+          padding: 0;
+          margin: 0;
+          font-weight: normal;
+          font-size: 1.5rem;
+        }
       }
 
-      .icons {
+      .task-badge {
+        position: relative;
+        top: -7px;
+        left: 8px;
+      }
+      // FIXME partially unused
+      .user-badges {
         @include display(flex);
         @include flex-direction(row);
         @include flex-wrap(wrap);
@@ -103,14 +120,13 @@ section > .task {
 
         > * {
           margin: 0.25rem;
+          margin-left: 0;
         }
 
-        .task-action-button .user-icon:hover {
-          background: $red-100;
-          .text {
-            content: " ";
-          }
-        }
+      }
+
+      .helper-stats {
+        float: right;
       }
     }
 

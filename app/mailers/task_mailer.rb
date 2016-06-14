@@ -34,7 +34,7 @@ class TaskMailer < BaseMandrillMailer
   def task_change(task, user, changes)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
-        "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_path(task.circle, task)),
+        "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task)),
         "TASK_CHANGES"    => changes.keys.map { |key| Task.human_attribute_name(key) }.to_sentence(locale: user.language)
       )
     end
@@ -44,12 +44,29 @@ class TaskMailer < BaseMandrillMailer
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
         "TASK_COMMENT"    => comment.body,
-        "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_path(task.circle, task)),
+        "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task)),
         "COMMENT_AUTHOR"  => comment.commenter.name
       )
     end
   end
 
+  def task_assigned(task, user)
+    build_message(user.language, user.email, task.organizer.try(:email)) do
+      merge_vars(user, task).merge(
+        "WORKGROUP"       => task.working_group.name,
+        "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task))
+      )
+    end
+  end
+
+  def task_unassigned(task, user)
+    build_message(user.language, user.email, task.organizer.try(:email)) do
+      merge_vars(user, task).merge(
+        "WORKGROUP"       => task.working_group.name,
+        "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task))
+      )
+    end
+  end
 
   private
 
@@ -62,7 +79,7 @@ class TaskMailer < BaseMandrillMailer
       "TASK_DUE_DATE"         => task.scheduling_sentence,
       "TASK_TIME_REQUIRED"    => task.duration_text,
       "TASK_HELPERS_REQUIRED" => task.volunteer_count_required,
-      "TASK_URL_MAIN"         => handle_token_url(user.login_token.code, redirect: circle_task_path(task.circle, task)),
+      "TASK_URL_MAIN"         => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task)),
       "CIRCLE_NAME"           => task.circle.name,
       "TASK_ORGANIZER"        => task.organizer.try(:name)
     }

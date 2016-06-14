@@ -1,0 +1,8 @@
+/* remodal sets these to 9999 and 10000, which puts them above the select 2 dropdown */
+.remodal-overlay {
+  z-index: 999;
+}
+
+.remodal-wrapper {
+  z-index: 1000;
+}

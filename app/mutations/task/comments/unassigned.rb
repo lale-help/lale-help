@@ -1,0 +1,20 @@
+class Task::Comments::Unassigned < Task::Comments::Base
+
+  required do
+    model :task
+    array :unassignees
+    string :message, default: nil
+  end
+
+  def message
+    :users_unassigned
+  end
+
+  def message_params 
+    { 
+      count: unassignees.size,
+      unassignees: unassignees.map(&:name).sort.to_sentence,
+      unassigner: user.name
+    }
+  end
+end

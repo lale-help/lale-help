@@ -1,10 +1,5 @@
-@import "bourbon";
-@import "neat";
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
-@import "octicons/octicons/sprockets-octicons";
-@import "jquery.datetimepicker";
+// require all 3rd party stuff in vendor.
+@import "vendor";
 
 @import "settings/**/*";
 @import "helpers/**/*";

@@ -37,6 +37,9 @@ describe "User abilities" do
     it { is_expected.to     be_able_to(:destroy, task) }
     it { is_expected.to     be_able_to(:volunteer, task) }
     it { is_expected.to     be_able_to(:complete, task) }
+    it { is_expected.to     be_able_to(:invite_to, task) }
+    it { is_expected.to     be_able_to(:assign, task) }
+    it { is_expected.to     be_able_to(:unassign, task) }
 
     it { is_expected.to     be_able_to(:read, project) }
     it { is_expected.to     be_able_to(:update, project) }
@@ -75,6 +78,9 @@ describe "User abilities" do
     it { is_expected.not_to be_able_to(:destroy, task) }
     it { is_expected.to     be_able_to(:volunteer, task) }
     it { is_expected.not_to be_able_to(:complete, task) }
+    it { is_expected.not_to be_able_to(:invite_to, task) }
+    it { is_expected.not_to be_able_to(:assign, task) }
+    it { is_expected.not_to be_able_to(:unassign, task) }
 
     it { is_expected.to     be_able_to(:read, project) }
     it { is_expected.not_to be_able_to(:update, project) }
@@ -93,6 +99,9 @@ describe "User abilities" do
 
     it { is_expected.to     be_able_to(:read, project) }
     it { is_expected.to     be_able_to(:manage, project) }
+    it { is_expected.to     be_able_to(:invite_to, task) }
+    it { is_expected.to     be_able_to(:assign, task) }
+    it { is_expected.to     be_able_to(:unassign, task) }
 
     context 'private working group' do
 
@@ -127,9 +136,10 @@ describe "User abilities" do
       @project = create(:project, working_group: working_group)
     end
 
-    # FIXME fails
-    # it { should     be_able_to(:read, @project) }
     it { is_expected.not_to be_able_to(:manage, @project) }
+    it { is_expected.not_to be_able_to(:invite_to, task) }
+    it { is_expected.not_to be_able_to(:assign, task) }
+    it { is_expected.not_to be_able_to(:unassign, task) }
 
     context 'private working group' do
 

@@ -1,0 +1,54 @@
+.title
+  span.helper-stats
+    .task-badge.task-badge--users
+      i 
+      = helper_stats
+  h2 = t('.title')
+
+.user-badges
+
+  - if volunteers.empty?
+    = t('.no_volunteers_yet')
+  - else
+    - volunteers.each do |volunteer|
+      == cell('tasks/user_badge', volunteer, task: task, current_user: current_user)
+
+.actions
+  
+  - if can?(:volunteer, task)
+    = form_tag(links.accept, method: :put, class: 'task-action-button') do
+      button.button-primary = t('.accept')
+  - elsif can?(:decline, task)
+    = form_tag(links.decline, method: :put, class: 'task-action-button') do
+      button.button-primary = t('.decline')
+
+  - if can?(:assign, task) || can?(:invite_to, task)
+    a.button.button-secondary id="button-open-find-helpers" = t('.find_helpers')
+  
+
+/ start of modal window with sourcing options
+.modal-find-helpers data-remodal-id="find-helpers"
+
+  .modal-header
+    button.remodal-close data-remodal-action="close"
+    h2 = t('.modal.title_main')
+
+  .modal-content
+
+    - if can?(:assign, task)
+      h3.first = t('.modal.title_assign')
+      form.assign-helpers action=links.assign_volunteer method="put" 
+        = assignable_volunteers_select
+        br
+        button.button.button-secondary = t('helpers.assign', model: User)
+    
+    - if can?(:invite_to, task)
+      .invite-helpers data-method="post"
+        h3 = t('.modal.title_invite')
+        = radio_button_tag('invite', 'working_group', true, 'data-url': links.invite_wg)
+        = label_tag('invite_working_group', t('.modal.invite_working_group', count: working_group_invitees_count))
+        br
+        = radio_button_tag('invite', 'circle', false, disabled: task.working_group.is_private?, 'data-url': links.invite_circle)
+        = label_tag('invite_circle', t('.modal.invite_all', count: circle_invitees_count))
+        br
+        button.button.button-secondary = t('helpers.invite', model: User)

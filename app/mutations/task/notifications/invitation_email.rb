@@ -6,17 +6,23 @@ class Task::Notifications::InvitationEmail < Mutations::Command
   end
 
   def execute
-    invitees.each do |user|
-      token = Token.task_invitation.create! context: { user_id: user.id, task_id: task.id }
-      TaskMailer.task_invitation(task, user, token).deliver_now
-    end
 
-    Task::Comments::Invited.run(task: task, user: current_user, invite_count: invitees.count)
+    invite_users
+    if invitees.count > 0
+      Task::Comments::Invited.run(task: task, user: current_user, invite_count: invitees.count)
+    end
 
     OpenStruct.new(volunteers: invitees)
   end
 
   private
+
+  def invite_users
+    invitees.each do |user|
+      token = Token.task_invitation.create! context: { user_id: user.id, task_id: task.id }
+      TaskMailer.task_invitation(task, user, token).deliver_now
+    end
+  end
 
   def invitees
     @invitees ||= begin

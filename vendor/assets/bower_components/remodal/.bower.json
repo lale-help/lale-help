@@ -1,0 +1,61 @@
+{
+  "name": "remodal",
+  "homepage": "http://vodkabears.github.io/remodal/",
+  "authors": [
+    "Ilya Makarov <dfrost.00@gmail.com>"
+  ],
+  "description": "Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with hash tracking.",
+  "main": [
+    "dist/remodal.js",
+    "dist/remodal.css",
+    "dist/remodal-default-theme.css"
+  ],
+  "ignore": [
+    "**/.*",
+    "examples/",
+    "libs/",
+    "src/",
+    "test/",
+    "*.md",
+    "Gruntfile.js",
+    "package.json"
+  ],
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "flat",
+    "responsive",
+    "modal",
+    "popup",
+    "window",
+    "dialog",
+    "popin",
+    "lightbox",
+    "ui",
+    "zepto",
+    "synchronized",
+    "animations"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "*"
+  },
+  "devDependencies": {
+    "qunit": "^1.19.0",
+    "jquery": "jquery#^1.11.3",
+    "jquery2": "jquery#^2.1.4",
+    "zepto": "^1.1.6"
+  },
+  "version": "1.0.7",
+  "_release": "1.0.7",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.7",
+    "commit": "9dd9ec82ddda5441a733b1be53f11ed58a9de1d7"
+  },
+  "_source": "https://github.com/VodkaBears/Remodal.git",
+  "_target": "^1.0.7",
+  "_originalSource": "remodal",
+  "_direct": true
+}

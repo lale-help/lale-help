@@ -370,8 +370,8 @@
         :state_province: Etat / Région
         :street_address: Rue
         :projects: Projets
-        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
-          Administrateur
+        :must_activate_users: Les nouveaux membres auront besoin de l'approbation
+          d'un Administrateur
       :location:
         :address: Adresse
         :circles: Cercle
@@ -398,7 +398,7 @@
         :completed_tasks: Tâches Complétées
         :pending_tasks: Tâches en Attente
         :description: Description de la tâche
-        :due_date: Date d'échéance
+        :due_date: Echéance
         :location_assignments: Allocation d'emplacements
         :locations: Emplacements
         :name: Mon de la tâche
@@ -444,7 +444,7 @@
       :supply:
         :completed_at: Terminé le
         :description: Description
-        :due_date: Date d'échéance
+        :due_date: Echéance
         :location_assignments: Allocation d'emplacements
         :locations: Emplacements
         :name: Nom de l'objet
@@ -514,7 +514,7 @@
         :street_address: Rue
         :city: Ville
         :country: Pays
-        :about_me: A propose de moi
+        :about_me: A propos de moi
         :postal_code: Code Postal
         :state_province: Etat / Région
         :address: Adresse
@@ -745,8 +745,8 @@
         :pending_members_explanation: Les utilisateurs suivants ont demandé à rejoindre
           votre cercle. Merci de les approuver pour qu'ils puissent commencer à aider.
         :pending_members_headline: Membres en attente.
-        :must_activate_users: De nouveaux membres ont besoin de l'approbation d'un
-          Administrateur
+        :must_activate_users: Les nouveaux membres auront besoin de l'approbation
+          d'un Administrateur
         :blocked_members_explanation: Les membres suivants ont été désactivés par
           un admin.
         :blocked_members_headline: Membres désactivés
@@ -885,7 +885,7 @@
         :header: Tâches ouvertes
     :working_groups:
       :show:
-        :settings: Paramètres
+        :settings: 'Gérer le Groupe '
         :join: Rejoindre
         :leave: Quitter
         :admin-title:
@@ -991,7 +991,7 @@
           :other: "%{count} tâches"
         :volunteer-needed:
           :one: A besoin d'un volontaire
-          :other: A besoin de %{count} volontaires
+          :other: "%{count} volontaires sont nécessaires"
         :volunteer-filled: Remplie
         :volunteer: Je peux le faire !
         :complete: Compléter la tâche
@@ -1121,7 +1121,7 @@
         :password_confirmation: Confirmez Votre Mot de Passe
       :show:
         :edit_profile: Editer mon Profil
-        :title: Ton Profil
+        :title: Mon Profil
         :reset_password: Ré-initialiser le Mot de Passe
         :view_public_profile: Voir votre page de profile
     :identities:
@@ -1329,6 +1329,18 @@
     :list:
       :confirm_delete_file: Etes-vous sure de vouloir effacer ce fichier ?
   :cells:
+    :tasks:
+      :sourcing_widget:
+        :title: Volontaires
+        :volunteer-count-required:
+          :one: "%{count} volontaire est nécessaire"
+          :other: "%{count} volontaires sont nécessaires"
+        :volunteer-count-missing:
+          :one: "(%{count} manquant)"
+          :other: "(%{count} manquants)"
+        :volunteer-count:
+          :one: "%{count} volontaire y participe"
+          :other: "%{count} volontaires y participent"
     :working_groups:
       :table:
         :confirm_delete: Etes-vous sure ?

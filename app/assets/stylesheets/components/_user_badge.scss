@@ -1,0 +1,45 @@
+.user-badge {
+
+  // required for absolute positioning of unassign-user-icon
+  position: relative;
+  border: 1px solid #666;
+  border-radius: 7px;
+  padding: 4px 6px;
+  width: 136px;
+  // center user badge content vertically
+  display: flex;
+  align-items: center;
+
+  .user-name-shortened {
+    padding-top: 1px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+  }
+
+  .unassign-user-icon { 
+    display: none;
+    position: absolute;
+    cursor: pointer;
+    right: -8px;
+    top: -7px;
+    background-color: $white;
+    font-size: 18px;
+    padding-left: 3px;
+    padding-bottom: 1px;
+    @include fa-icon(times-circle);
+    &:before {
+      color: $black;
+    }
+  }
+  
+  &.unassignable:hover .unassign-user-icon {
+    display: block;
+  }
+
+  .user-icon-container {
+    display: inline-block;
+    margin-right: 6px;  
+  }
+}
