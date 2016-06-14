@@ -18,7 +18,7 @@ showComments = ->
 
 bindEditEvents = ->
   $('.edit_comment_link').on 'click', editCommentModeOn
-  $('.cancel_edit_comment').on 'click', editCommentModeOff
+  $('.cancel_edit_comment').on 'click', resetEditComment
   $('.edit-comment form').on 'submit', editCommentSubmit
 
 editCommentModeOn = (e) ->
@@ -51,6 +51,11 @@ editCommentSubmit = (e) ->
   )
   e.preventDefault()
   return false
+
+resetEditComment = (e) ->
+  main = $(e.currentTarget).parents('.comment-main')
+  main.find('#comment_body').val(main.find('.body .comment-text').text())
+  editCommentModeOff(e)
 
 $(document).on 'ready', ready
 $(document).on 'page:load', ready
