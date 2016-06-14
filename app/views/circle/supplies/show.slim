@@ -52,7 +52,7 @@
           .details == t(".organized-by", name: link_to_user(current_supply.organizer))
 
     .task-comments data-url="#{circle_supply_comments_path(current_circle, current_supply)}"
-      = render partial: 'circle/comments/comments', locals: { item: current_supply, circle: current_circle, max_display: 3 }
+      = render partial: 'circle/comments/comments', locals: { item: current_supply, circle: current_circle, max_display: 5 }
 
   aside
 
