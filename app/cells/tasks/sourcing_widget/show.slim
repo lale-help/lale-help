@@ -22,7 +22,7 @@
     = form_tag(links.decline, method: :put, class: 'task-action-button') do
       button.button-primary = t('.decline')
 
-  - if can?(:manage, task)
+  - if can?(:assign, task) || can?(:invite_to, task)
     a.button.button-secondary id="button-open-find-helpers" = t('.find_helpers')
   
 
@@ -35,13 +35,13 @@
 
   .modal-content
 
-    / FIXME cancan  
-    h3.first = t('.modal.title_assign')
-    form.assign-helpers action=links.assign_volunteer method="put" 
-      = assignable_volunteers_select
-      br
-      button.button.button-secondary
-        = t('helpers.assign', model: User)
+    - if can?(:assign, task)
+      h3.first = t('.modal.title_assign')
+      form.assign-helpers action=links.assign_volunteer method="put" 
+        = assignable_volunteers_select
+        br
+        button.button.button-secondary
+          = t('helpers.assign', model: User)
     
 
     - if can?(:invite_to, task)

@@ -4,10 +4,7 @@
 # - :manage represents ANY action on the object, not just crud.
 #   https://github.com/CanCanCommunity/cancancan/wiki/defining-abilities
 #
-# - The ability rules further down in a file will override a previous one.
-#   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
-#
-# - Adding can rules do not override prior rules, but instead are logically or'ed.
+# - Adding can rules do not override prior rules, but instead they are logically or'ed.
 #   Therefore, it is best to place the more generic rules near the top.
 #   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
 #
@@ -174,9 +171,8 @@ class Ability
     end
 
     can :assign_volunteers, Task do |task, assignees|
-      assignees.each do |assignee|
-        can_read = Ability.new(assignee).can?(:read, task)
-        can(:manage, task) && can_read
+      can(:manage, task) && assignees.all? do |assignee|
+        Ability.new(assignee).can?(:read, task)
       end
     end
     cannot :assign_volunteers, Task do |task, assignees|
@@ -190,13 +186,12 @@ class Ability
       task.complete?
     end
 
-    can :invite_to, Task do |task|
+    can [:invite_to, :assign, :unassign], Task do |task|
       can?(:manage, task)
     end
-    cannot :invite_to, Task do |task|
-      task.complete?
+    cannot [:invite_to, :assign, :unassign], Task do |task|
+      cannot?(:manage, task)
     end
-
 
     can :complete, Task do |task|
       task.due_date < Time.now and (
@@ -340,7 +335,6 @@ class Ability
     cannot :read, Project do |project|
       cannot?(:read, project.working_group)
     end
-
 
   end
 
