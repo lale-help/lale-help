@@ -18,7 +18,7 @@ module Taskable
     scope :for_circle, ->(circle) { joins(:working_group).where(working_groups: { circle_id: circle.id } ) }
     scope :for_project, ->(project) { where(project_id: project.id) }
 
-    scope :with_role, ->(role) { where(task_roles: {role_type: klass::Role.role_types[role]}) }
+    scope :with_role, ->(role) { where("#{klass.to_s.downcase}_roles" => {role_type: klass::Role.role_types[role]}) }
 
     scope :volunteered, -> { with_role("#{klass.to_s.downcase}.volunteer") }
     scope :organized,   -> { with_role("#{klass.to_s.downcase}.organizer") }

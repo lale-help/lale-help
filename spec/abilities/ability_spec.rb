@@ -10,47 +10,47 @@ describe "User abilities" do
 
   context "as a guest" do
     let(:user){ nil }
-    it { should_not be_able_to(:read, circle) }
-    it { should     be_able_to(:create, Circle.new) }
-    it { should_not be_able_to(:update, circle) }
-    it { should_not be_able_to(:destroy, circle) }
-    it { should_not be_able_to(:complete, task) }
+    it { is_expected.not_to be_able_to(:read, circle) }
+    it { is_expected.to     be_able_to(:create, Circle.new) }
+    it { is_expected.not_to be_able_to(:update, circle) }
+    it { is_expected.not_to be_able_to(:destroy, circle) }
+    it { is_expected.not_to be_able_to(:complete, task) }
   end
 
   context "as circle admin" do
     let(:user){ create(:circle_admin) }
     let(:circle) { user.circles.first }
 
-    it { should     be_able_to(:read, circle) }
-    it { should     be_able_to(:create, Circle.new) }
-    it { should     be_able_to(:update, circle) }
-    it { should     be_able_to(:destroy, circle) }
+    it { is_expected.to     be_able_to(:read, circle) }
+    it { is_expected.to     be_able_to(:create, Circle.new) }
+    it { is_expected.to     be_able_to(:update, circle) }
+    it { is_expected.to     be_able_to(:destroy, circle) }
 
-    it { should     be_able_to(:read, working_group) }
-    it { should     be_able_to(:create, WorkingGroup.new(circle: circle)) }
-    it { should     be_able_to(:update, working_group) }
-    it { should     be_able_to(:destroy, working_group) }
+    it { is_expected.to     be_able_to(:read, working_group) }
+    it { is_expected.to     be_able_to(:create, WorkingGroup.new(circle: circle)) }
+    it { is_expected.to     be_able_to(:update, working_group) }
+    it { is_expected.to     be_able_to(:destroy, working_group) }
 
-    it { should     be_able_to(:read, task) }
-    it { should     be_able_to(:create, Task.new(working_group: working_group)) }
-    it { should     be_able_to(:update, task) }
-    it { should     be_able_to(:destroy, task) }
-    it { should     be_able_to(:volunteer, task) }
-    it { should     be_able_to(:complete, task) }
+    it { is_expected.to     be_able_to(:read, task) }
+    it { is_expected.to     be_able_to(:create, Task.new(working_group: working_group)) }
+    it { is_expected.to     be_able_to(:update, task) }
+    it { is_expected.to     be_able_to(:destroy, task) }
+    it { is_expected.to     be_able_to(:volunteer, task) }
+    it { is_expected.to     be_able_to(:complete, task) }
 
-    it { should     be_able_to(:read, project) }
-    it { should     be_able_to(:update, project) }
-    it { should     be_able_to(:delete, project) }
+    it { is_expected.to     be_able_to(:read, project) }
+    it { is_expected.to     be_able_to(:update, project) }
+    it { is_expected.to     be_able_to(:delete, project) }
 
-    it { should     be_able_to(:manage, working_group) }
-    it { should     be_able_to(:create_project, working_group.circle) }
+    it { is_expected.to     be_able_to(:manage, working_group) }
+    it { is_expected.to     be_able_to(:create_project, working_group.circle) }
 
     context "project in private working group" do
       let(:working_group) { create(:private_working_group, circle: circle) }
       let(:project) { create(:project, working_group: working_group) }
-      it { should be_able_to(:read, project) }
-      it { should be_able_to(:update, project) }
-      it { should be_able_to(:delete, project) }
+      it { is_expected.to be_able_to(:read, project) }
+      it { is_expected.to be_able_to(:update, project) }
+      it { is_expected.to be_able_to(:delete, project) }
     end
 
   end
@@ -59,26 +59,26 @@ describe "User abilities" do
     let(:user) { create(:circle_volunteer) }
     let(:circle) { user.circles.first }
 
-    it { should     be_able_to(:read, circle) }
-    it { should     be_able_to(:create, Circle.new) }
-    it { should_not be_able_to(:update, circle) }
-    it { should_not be_able_to(:destroy, circle) }
+    it { is_expected.to     be_able_to(:read, circle) }
+    it { is_expected.to     be_able_to(:create, Circle.new) }
+    it { is_expected.not_to be_able_to(:update, circle) }
+    it { is_expected.not_to be_able_to(:destroy, circle) }
 
-    it { should     be_able_to(:read, working_group) }
-    it { should_not be_able_to(:create, WorkingGroup.new(circle: circle)) }
-    it { should_not be_able_to(:update, working_group) }
-    it { should_not be_able_to(:destroy, working_group) }
+    it { is_expected.to     be_able_to(:read, working_group) }
+    it { is_expected.not_to be_able_to(:create, WorkingGroup.new(circle: circle)) }
+    it { is_expected.not_to be_able_to(:update, working_group) }
+    it { is_expected.not_to be_able_to(:destroy, working_group) }
 
-    it { should     be_able_to(:read, task) }
-    it { should_not be_able_to(:create, Task.new(working_group: working_group)) }
-    it { should_not be_able_to(:update, task) }
-    it { should_not be_able_to(:destroy, task) }
-    it { should     be_able_to(:volunteer, task) }
-    it { should_not be_able_to(:complete, task) }
+    it { is_expected.to     be_able_to(:read, task) }
+    it { is_expected.not_to be_able_to(:create, Task.new(working_group: working_group)) }
+    it { is_expected.not_to be_able_to(:update, task) }
+    it { is_expected.not_to be_able_to(:destroy, task) }
+    it { is_expected.to     be_able_to(:volunteer, task) }
+    it { is_expected.not_to be_able_to(:complete, task) }
 
-    it { should     be_able_to(:read, project) }
-    it { should_not be_able_to(:update, project) }
-    it { should_not be_able_to(:delete, project) }
+    it { is_expected.to     be_able_to(:read, project) }
+    it { is_expected.not_to be_able_to(:update, project) }
+    it { is_expected.not_to be_able_to(:delete, project) }
   end
 
   context "as admin of working group" do
@@ -91,8 +91,8 @@ describe "User abilities" do
       create(:circle_role_volunteer, circle: working_group.circle, user: user)
     end
 
-    it { should     be_able_to(:read, project) }
-    it { should     be_able_to(:manage, project) }
+    it { is_expected.to     be_able_to(:read, project) }
+    it { is_expected.to     be_able_to(:manage, project) }
 
     context 'private working group' do
 
@@ -102,16 +102,16 @@ describe "User abilities" do
       end
 
       context "own" do
-        it { should be_able_to(:read, @project) }
-        it { should be_able_to(:update, @project) }
-        it { should be_able_to(:delete, @project) }
+        it { is_expected.to be_able_to(:read, @project) }
+        it { is_expected.to be_able_to(:update, @project) }
+        it { is_expected.to be_able_to(:delete, @project) }
       end
 
       context "someone else's" do
         before { user.working_group_roles.destroy_all }
-        it { should_not be_able_to(:read, @project) }
-        it { should_not be_able_to(:update, @project) }
-        it { should_not be_able_to(:delete, @project) }
+        it { is_expected.not_to be_able_to(:read, @project) }
+        it { is_expected.not_to be_able_to(:update, @project) }
+        it { is_expected.not_to be_able_to(:delete, @project) }
       end
     end
   end
@@ -129,7 +129,7 @@ describe "User abilities" do
 
     # FIXME fails
     # it { should     be_able_to(:read, @project) }
-    it { should_not be_able_to(:manage, @project) }
+    it { is_expected.not_to be_able_to(:manage, @project) }
 
     context 'private working group' do
 
@@ -138,16 +138,16 @@ describe "User abilities" do
       end
 
       context "own" do
-        it { should be_able_to(:read, @project) }
-        it { should_not be_able_to(:update, @project) }
-        it { should_not be_able_to(:delete, @project) }
+        it { is_expected.to be_able_to(:read, @project) }
+        it { is_expected.not_to be_able_to(:update, @project) }
+        it { is_expected.not_to be_able_to(:delete, @project) }
       end
 
       context "someone else's" do
         before { user.working_group_roles.destroy_all }
-        it { should_not be_able_to(:read, @project) }
-        it { should_not be_able_to(:update, @project) }
-        it { should_not be_able_to(:delete, @project) }
+        it { is_expected.not_to be_able_to(:read, @project) }
+        it { is_expected.not_to be_able_to(:update, @project) }
+        it { is_expected.not_to be_able_to(:delete, @project) }
       end
     end
   end

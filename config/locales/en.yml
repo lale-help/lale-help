@@ -442,6 +442,9 @@
         :file_size_bytes: File Size
         :uploadable: Uploaded To
         :working_group: Working Group
+        :is_public: visible to everyone
+        :file: file
+        :name: name
       :file_upload/permission_is_public:
         :false: Private
         :true: Public
@@ -971,6 +974,8 @@
         :edit: Edit
       :comments:
         :show_all_comments: Show All Comments
+      :edit: Save
+      :edit_cancel: Cancel
     :members:
       :index:
         :directory: Helper list
@@ -994,6 +999,9 @@
         :last_help_provided: Last helped
       :public:
         :public_members: Helper list
+      :nav:
+        :all-helpers: All Helpers
+        :organizers: Organizers
     :invite_flow:
       :join:
         :start_helping: Start helping with %{circle} today!
@@ -1094,7 +1102,7 @@
         :placeholder_optional: "(optional)"
         :date_format: "%m/%d/%Y"
         :project_blank: "(not part of a project)"
-        :update_and_notify: Update Task and notify
+        :update_and_notify: Save and notify
     :working_groups:
       :form:
         :organizer_blank: "(please select)"
@@ -1111,6 +1119,10 @@
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
         :new-file: Upload File
+        :show_completed_tasks: Show completed tasks...
+        :show_open_tasks: Show open tasks...
+        :show_completed_supplies: Show completed supplies...
+        :show_open_supplies: Show open supplies...
       :index:
         :all-working-groups-dashboard: All Working Groups Dashboard
       :new:
@@ -1147,6 +1159,16 @@
         :circle-documents: Circle Documents
         :working-group-documents: Working Group Documents
         :new-file: Upload File
+    :taskables:
+      :nav:
+        :volunteering: Volunteering
+        :organizing: Organizing
+      :organizer:
+        :tasks-header: Tasks
+        :supplies-header: Supplies
+      :volunteer:
+        :tasks-header: Tasks
+        :supplies-header: Supplies
   :circles:
     :new:
       :create: Create Circle
@@ -1175,12 +1197,18 @@
       :contact_circle_admin: Contact Circle Admin
       :open_tasks: Open Tasks
       :files: Circle Documents
+      :show_completed_tasks: Show completed tasks...
+      :show_open_tasks: Show open tasks...
+      :show_completed_supplies: Show completed supplies...
+      :show_open_supplies: Show open supplies...
     :edit:
       :header: Edit Circle
       :show: Show
       :back: Back
     :form:
       :country_select: Select Country
+    :nav:
+      :documents: Documents
   :layouts:
     :public:
       :header:
@@ -1207,6 +1235,9 @@
         :working_groups: Working Groups
         :public_members: Helper list
         :documents: Documents
+        :home-page: Home Page
+        :my-calendar: My activities
+        :overviews: Overviews
       :header:
         :settings: Your profile
         :find-circles: Find Circles
@@ -1326,6 +1357,13 @@
       :invite_failed: Unable to invite members to this supply. Please try again later.
       :reopened: Supply has been re-opened
       :reopening_failed: There was a problem re-opening this supply
+    :auto_comment:
+      :user_assigned: "%{user} signed up for this supply on %{date}."
+      :completed: "%{user} completed this supply on %{date}."
+      :invited: "%{user} invited %{invite_count} helpers to this supply on %{date}"
+      :reopened: "%{user} re-opened this supply on %{date}."
+      :updated: "%{user} changed %{changed_fields}."
+      :user_unassigned: "%{user} unassigned this supplies on %{date}."
   :sidebar:
     :circle_add_menu:
       :add: Add

@@ -12,7 +12,8 @@ class Task::Comments::Updated < Task::Comments::Base
   private
 
   def message_params
-    { changed_fields: changed_fields.map { |key| Task.human_attribute_name(key) }.to_sentence }
+    klass = task.is_a?(Supply) ? Supply : Task
+    { changed_fields: changed_fields.map { |key| klass.human_attribute_name(key) }.to_sentence }
   end
 
   def message

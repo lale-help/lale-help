@@ -17,14 +17,14 @@ Rails.application.routes.draw do
         get :public, on: :collection
         put :activate, on: :member
         put :block, on: :member
-        resources :comments, only: [:create, :index]
+        resources :comments, only: [:create, :index, :destroy, :update]
       end
 
       resources :roles, :organizers
 
       resources :supplies do
         put :complete, :volunteer, :decline, :reopen
-        resources :comments, only: [:create, :index]
+        resources :comments, only: [:create, :index, :destroy, :update]
 
         post :invite
       end
@@ -38,6 +38,14 @@ Rails.application.routes.draw do
 
         patch :join, :leave, :activate, :disable
       end
+
+      resources :taskables do
+        collection do
+          get :volunteer
+          get :organizer
+        end
+      end
+
 
       resources :tasks do
         collection do

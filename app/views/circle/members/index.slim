@@ -1,8 +1,14 @@
 .members_list
 
-  .showing= t('.total_members', total: @total_members, showing: @members.length)
+  = render 'nav'
 
-  h2 = t('.directory')
+  .tab.helpers
+    .showing= t('.total_members', total: @total_members, showing: @members.length)
+    = render partial: 'list', locals: { members: @members }
 
-  = render partial: 'list', locals: { members: @members }
+  .tab.organizers
+    = render partial: 'list', locals: { members: @organizers }
+
+
+
 

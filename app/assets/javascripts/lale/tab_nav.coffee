@@ -1,3 +1,10 @@
+#
+# This class implements a tabbed navigation bar. When one item in the navigation is clicked
+# it displays the tab that corresponds to that 
+#
+# Example usage:
+# new new Lale.TabNav('.tab-nav', '.tab')
+#
 class Lale.TabNav
   constructor: (nav_selector, tabs_selector) ->
     this.navLinks  = $(nav_selector).find('a')

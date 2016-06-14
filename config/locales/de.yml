@@ -853,6 +853,8 @@
         :edit: Bearbeiten
       :comments:
         :show_all_comments: Alle Kommentare zeigen
+      :edit: Speichern
+      :edit_cancel: Abbrechen
     :members:
       :index:
         :directory: Helferliste
@@ -876,6 +878,9 @@
         :organizer_info_title: Dieser Helfer kann nicht gesperrt werden, da sie /
           er noch für die folgenden Dinge zuständig ist. Bitte finde andere Helfer
           für diese Tätigkeiten und versuche es erneut.
+      :nav:
+        :organizers: Organisatoren
+        :all-helpers: Alle Helfer
     :supplies:
       :index:
         :header: Sachspenden
@@ -911,8 +916,8 @@
         :header: Alle Aufgaben
       :my:
         :header: Meine Aufgaben
-        :volunteer-header: Was ich erledige
-        :organizer-header: Was ich organisiere
+        :volunteer-header: Ich erledige
+        :organizer-header: Ich organisiere
       :task_list:
         :no-tasks: Keine Aufgaben gefunden.
       :task_list_item:
@@ -961,6 +966,10 @@
         :new-file: Datei hochladen
         :leave_group_confirmation: Möchtest Du Deine Mitarbeit in dieser Arbeitsgruppe
           wirklich beenden?
+        :show_completed_supplies: Erledigte Sachspenden anzeigen...
+        :show_open_supplies: Offene Sachspenden anzeigen...
+        :show_open_tasks: Offene Aufgaben anzeigen...
+        :show_completed_tasks: Erledigte Aufgaben anzeigen...
       :index:
         :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
       :new:
@@ -1029,6 +1038,16 @@
         :new-file: Datei hochladen
         :working-group-documents: Dokumente der Arbeitsgruppen
         :circle-documents: Dokumente des Helferkreises
+    :taskables:
+      :organizer:
+        :supplies-header: Sachspenden
+        :tasks-header: Aufgaben
+      :volunteer:
+        :supplies-header: Sachspenden
+        :tasks-header: Aufgaben
+      :nav:
+        :volunteering: Ich erledige
+        :organizing: Ich organisiere
   :circles:
     :new:
       :create: Helferkreis anlegen
@@ -1057,12 +1076,18 @@
       :circle_leaders: Leitung
       :working_group_organizers: Organisatoren
       :files: Dokumente des Helferkreises
+      :show_completed_supplies: Erledigte Sachspenden anzeigen...
+      :show_open_supplies: Offene Sachspenden anzeigen...
+      :show_open_tasks: Offene Aufgaben anzeigen...
+      :show_completed_tasks: Erledigte Aufgaben anzeigen...
     :edit:
       :header: Helferkreis bearbeiten
       :show: Anzeigen
       :back: Zurück
     :form:
       :country_select: Bitte Land auswählen
+    :nav:
+      :documents: Dokumente
   :layouts:
     :public:
       :header:
@@ -1089,6 +1114,9 @@
         :public_members: Helferliste
         :projects: Projekte
         :documents: Dokumente
+        :my-calendar: Meine Aktivitäten
+        :overviews: "Übersichten"
+        :home-page: Startseite
       :header:
         :settings: Dein Profil
         :find-circles: Helferkreise finden
@@ -1317,6 +1345,14 @@
       :volunteered: Vielen Dank für Deine Hilfe!
       :reopened: Sachspende wurde wieder geöffnet
       :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
+    :auto_comment:
+      :completed: "%{user} hat diese Sachspende am %{date} erledigt."
+      :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Sachspende
+        eingeladen."
+      :reopened: "%{user} hat diese Sachspende am %{date} wieder geöffnet."
+      :updated: "%{user} hat %{changed_fields} geändert."
+      :user_assigned: "%{user} hat sich für diese Sachspende am %{date} eingetragen."
+      :user_unassigned: "%{user} hat sich für diese Sachspende am %{date} ausgetragen."
   :working_group:
     :types:
       :public: Offen

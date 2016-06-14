@@ -1,6 +1,6 @@
 class Task::Comments::Base < Mutations::Command
   required do
-    model :task
+    model :task, class: Taskable
     model :user
     string :message, default: nil
   end
@@ -34,7 +34,8 @@ class Task::Comments::Base < Mutations::Command
   end
 
   def build_message
-    I18n.t("tasks.auto_comment.#{message}", common_message_params.merge(message_params))
+    type_of = task.is_a?(Supply) ? 'supplies' : 'tasks'
+    I18n.t("#{type_of}.auto_comment.#{message}", common_message_params.merge(message_params))
   end
 
   def self.commenter

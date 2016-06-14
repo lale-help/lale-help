@@ -30,9 +30,31 @@ class Circle::CommentsController < ApplicationController
     end
   end
 
-  def destroy
-    # TODO: Implement comment destroy method
+  def update
+    authorize! :update, Comment, current_item, current_circle
 
+    @form = Comment::Update.new(params[:comment], commenter: current_user, item: current_item, comment: @comment)
+
+    outcome = @form.submit
+
+    respond_to do |format|
+      if outcome.success?
+        format.html { redirect_to circle_commentable_path(current_circle, current_item) }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to circle_commentable_path(current_circle, current_item) }
+        format.json { render json: outcome.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    authorize! :update, Comment, current_item, current_circle
+
+    @comment.destroy
+
+    redirect_to circle_commentable_path(current_circle, current_item),
+                notice: t('flash.destroy', name: Comment.model_name.human)
   end
 
   helper_method def current_item

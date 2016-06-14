@@ -10,13 +10,32 @@
 
   .details
     main
-      .tasks
-        h3= Task.model_name.human(:count => @open_tasks.count)
-        = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: @open_tasks }
 
-      .tasks
-        h3= Supply.model_name.human(:count => @open_supplies.count)
-        = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: @open_supplies }
+      = render 'nav'
+
+      .tab.tasks
+        .task_section.open_tasks data-tab='open_tasks'
+          a.task_status data-tab='completed_tasks' =t(".show_completed_tasks")
+          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: @open_tasks }
+        .task_section.completed_tasks data-tab='completed_tasks'
+          a.task_status data-tab='open_tasks' =t(".show_open_tasks")
+          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: @completed_tasks }
+
+      .tab.supplies
+        .task_section.open_supplies data-tab='open_supplies'
+          a.task_status data-tab='completed_supplies' =t(".show_completed_supplies")
+          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: @open_supplies }
+        .task_section.completed_supplies data-tab='completed_supplies'
+          a.task_status data-tab='open_supplies' =t(".show_open_supplies")
+          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: @completed_supplies }
+
+      - if can?(:manage, current_circle) && current_circle.projects.present?
+        .tab.projects
+          = render partial: 'circle/working_groups/projects', locals: { projects: current_circle.projects.order(:name).select { |project| can?(:read, project) } }
+
+      - if feature_enabled?(:files)
+        .tab.documents
+          = render partial: 'files/list', locals: { files: current_circle.files.select{ |f| can?(:read, f) }, show_actions: can?(:manage, current_circle), show_uploadable: false }
 
     aside
       .members.circle-leaders
