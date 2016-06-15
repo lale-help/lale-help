@@ -778,11 +778,6 @@
       :year: An
   :delete: Supprimer
   :edit: Editer
-  :en:
-    :roles:
-      :name:
-        :task:
-          :volunteer: Volontaire
   :error_correction: Merci de corriger les erreurs ci-dessous.
   :errors:
     :about_me:
@@ -923,11 +918,8 @@
         :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
           les erreurs et de ré-essayer.
         :saved: Vos paramètres ont été enregistré.
-  :forms:
-    :correct-errors: Merci de corriger les erreurs ci-dessous.
   :formtastic:
     :update: Mettre à jour %{model}
-  :hello: Salut !
   :helpers:
     :block: Bloquer
     :clone: Copie %{model}

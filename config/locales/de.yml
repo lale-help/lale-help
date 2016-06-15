@@ -811,11 +811,6 @@
       :year: Jahr
   :delete: Löschen
   :edit: Bearbeiten
-  :en:
-    :roles:
-      :name:
-        :task:
-          :volunteer: Helfer
   :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
   :errors:
     :about_me:
@@ -951,8 +946,6 @@
         :save-failed: Einstellungen konnten nicht gespeichert werden. Bitte Fehler
           beheben und erneut versuchen.
         :saved: Einstellungen wurden gespeichert.
-  :forms:
-    :correct-errors: Bitte ändere die untenstehenden Fehler.
   :formtastic:
     :cancel: Abbrechen
     :create: "%{model} anlegen"
@@ -962,7 +955,6 @@
     :submit: Abschicken
     :update: "%{model} aktualisieren"
     :yes: Ja
-  :hello: Hallo Welt
   :helpers:
     :assign: Helfer eintragen
     :block: Sperren
