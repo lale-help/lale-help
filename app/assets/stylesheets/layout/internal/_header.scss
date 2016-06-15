@@ -48,35 +48,6 @@ body.internal {
           margin-right: 0.5em;
         }
       }
-
-      .circle-add-menu {
-        display: inline-block;
-
-        label {
-          @include display(flex);
-          @include align-items(center);
-          @include justify-content(middle);
-
-          .button {
-            font-size: 16px;
-            padding: 0.5rem 1rem;
-            margin: auto;
-            i {
-              @include fa-icon(plus-circle);
-              padding-left: 0.5rem;
-              &:before {
-                color: $white;
-              }
-            }
-          }
-        }
-
-        [type="checkbox"]:checked {
-          & ~ label .button {
-            background-color: tint($orange, 20%);
-          }
-        }
-      }
     }
 
     .header-right {
