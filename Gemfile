@@ -46,7 +46,6 @@ gem 'geocoder'
 gem 'timezone'
 gem 'terminal-table'
 gem 'country_select'
-gem 'faker' # also used for seed data
  
 group :development do
   gem "letter_opener_web"
@@ -76,6 +75,7 @@ end
 group :test do
   gem 'shoulda'
   gem 'factory_girl'
+  gem 'faker'
   gem 'vcr'
   gem 'webmock'
   gem 'action_mailer_cache_delivery'
