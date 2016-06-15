@@ -46,7 +46,7 @@ class TranslationManager
   def save
     yamls = Hash.new
     SUPPORTED_LANGS.each do |lang|
-      yamls[lang] = { lang => deep_compact(translations_for(lang)) }.to_yaml
+      yamls[lang] = { lang => deep_sort(deep_compact(translations_for(lang))) }.to_yaml
     end
 
     yamls.each do |lang, yaml|
@@ -136,4 +136,13 @@ class TranslationManager
       new_hash
     end
   end
+
+  def deep_sort(object)
+    return object unless object.is_a?(Hash)
+    hash = Hash.new
+    object.each { |k, v| hash[k] = deep_sort(v) }
+    sorted = hash.sort { |a, b| a[0].to_s <=> b[0].to_s }
+    hash.class[sorted]
+  end
+
 end
