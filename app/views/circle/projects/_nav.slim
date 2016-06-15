@@ -4,5 +4,7 @@
     = t('.info')
   a.tasks data-tab='tasks'
     = Task.model_name.human(count: 2)
+    span.badge = project.tasks.count
   a.supplies data-tab='supplies'
     = Supply.model_name.human(count: 2)
+    span.badge = project.supplies.count
