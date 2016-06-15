@@ -977,6 +977,8 @@
         :back: Back to All Supplies
       :edit:
         :back: Back to Supply
+      :edit_actions:
+        edit_button_dropdown: "Edit Supply"
       :show:
         :back: Back to All Supplies
         :task-complete: 'Done: '
