@@ -1,3 +1,3 @@
-.tab-nav
+.tab-nav.tab-nav-no-js
   = link_to t('.volunteering'), volunteer_circle_taskables_path(current_circle), class: "#{current == 'volunteer' ? 'selected' : nil}"
   = link_to t('.organizing'),   organizer_circle_taskables_path(current_circle), class: "#{current == 'organizer' ? 'selected' : nil}"

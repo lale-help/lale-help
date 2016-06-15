@@ -5,7 +5,7 @@
 ready = ->
   # tabbed horizontal navigation that we use on the collection pages 
   # (circle, working group and project dashboards)
-  new Lale.TabNav('.tab-nav', '.tab')
+  new Lale.TabNav('.tab-nav:not(.tab-nav-no-js)', '.tab')
 
   # show/hide completed tasks & supplies
   new Lale.StatusLink('.tab.tasks a.task_status', '.tab.tasks .task_section')
