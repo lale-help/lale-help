@@ -53,5 +53,5 @@ $(document)
   .on('click', '#button-open-find-helpers', openSourcingOptionsModal)
   .on('click', '.assign-helpers .button', assignVolunteer)    
   .on('click', '.invite-helpers .button', inviteHelpers)    
-  .on('click', '.volunteers .unassign-user-icon', unassignVolunteer)    
+  .on('click', '.users-box .unassign-user-icon', unassignVolunteer)    
   
