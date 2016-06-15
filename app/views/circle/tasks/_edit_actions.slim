@@ -7,9 +7,9 @@
 
   label for='task-edit-selector'
     .button.button-super
-      i
+      i.fi-chevron-bottom
       = t('helpers.edit', model: current_task.model_name.human)
-      
+
   .menu.menu-left
     - if can? :edit, current_task
       = link_to(edit_circle_task_path(current_circle, current_task)) do

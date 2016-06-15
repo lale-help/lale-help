@@ -108,15 +108,14 @@ section > .task {
 
     .button-super {
       position: relative;
-      i {
+      i.fi-chevron-bottom {
         padding: 8px;
-        padding-top: 5px;
         position: absolute;
         top: 0;
         right: 0;
         height: 100%;
         border-left: 1px solid $white;
-        @include fa-icon(arrow-circle-down);
+        font-size: 1.25rem;
       }
     }
 
@@ -124,7 +123,6 @@ section > .task {
       @include border-top-radius($border-radius);
       @include border-bottom-radius($border-radius);
       border: thin solid $border-color;
-      margin-bottom: 3rem;
 
       .task-action-button {
         padding: 0.5em 0;
@@ -178,10 +176,7 @@ section > .task {
     }
 
     .actions {
-      form {
-        margin: 0;
-        padding: 0.5rem;
-      }
+      margin-bottom: 1.5rem;
 
       .button, .button-primary {
         width: 100%;

@@ -75,7 +75,7 @@
     :unblock: Entsperren
     :deactivate: Deaktivieren
     :reactivate: Reaktivieren
-    :delete: Löschen
+    :delete: "%{model} löschen"
     :assign: Helfer eintragen
   :unauthorized:
     :manage:

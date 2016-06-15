@@ -69,7 +69,7 @@
     :block: Bloquer
     :unblock: Débloquer
     :deactivate: Désactiver
-    :delete: Effacer
+    :delete: Effacer %{model}
     :edit_no_model: Editer
     :reactivate: Réactiver
   :unauthorized:
