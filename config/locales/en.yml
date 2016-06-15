@@ -1009,6 +1009,8 @@
         :back: Back to All Tasks
       :edit:
         :back: Back to Task
+      :edit_actions:
+        edit_button_dropdown: "Edit Task"
       :show:
         :back: Back to All Tasks
         :task-complete: 'Done: '

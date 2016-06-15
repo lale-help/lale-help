@@ -8,7 +8,7 @@
   label for='task-edit-selector'
     .button.button-super
       i.fi-chevron-bottom
-      = t('helpers.edit', model: current_task.model_name.human)
+      = t('.edit_button_dropdown', model: current_task.model_name.human)
 
   .menu.menu-left
     - if can? :edit, current_task
