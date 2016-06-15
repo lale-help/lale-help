@@ -1,7 +1,7 @@
 class TranslationManager
   SUPPORTED_LANGS = I18n.available_locales.map(&:to_sym)
   IGNORED_KEYS = [
-    /\A(active_admin|formtastic|faker)/
+    /\A(active_admin|formtastic|faker)\./
   ]
 
   Translation = Struct.new(:key, :languages) do
@@ -108,11 +108,11 @@ class TranslationManager
   def deep_hash key, val
     hash = {}
     parts = key.split('.')
-    parts.each_with_index.reduce(hash) do |memo, (key, idx)|
+    parts.each_with_index.reduce(hash) do |memo, (_key, idx)|
       if idx == parts.length - 1
-        memo[key] = val
+        memo[_key] = val
       else
-        memo[key] = {}
+        memo[_key] = {}
       end
     end
     hash
