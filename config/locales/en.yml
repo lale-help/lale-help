@@ -521,7 +521,7 @@
     :unblock: Unblock
     :deactivate: Deactivate
     :reactivate: Reactivate
-    :delete: Delete
+    :delete: Delete %{model}
     :header:
       :add: Create a new %{name}
       :edit: Editing %{name}

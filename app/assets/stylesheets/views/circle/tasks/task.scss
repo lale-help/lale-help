@@ -82,8 +82,40 @@ section > .task {
     margin-left: 3rem;
     @include flex(0 0 30rem);
 
+    .dropdown {
+      $label-height: 26px;
+      z-index: 3000;
+
+      label {
+        height: $label-height;
+      }
+
+      .menu {
+        top: $label-height;
+        left: 10px;
+        right: auto;
+        min-width: auto;
+        width: 280px;
+        border: 1px solid $orange;
+        border-top: 2px solid $orange;
+        font-size: 1.25rem;
+
+        a {
+          padding: 0.75rem;
+        }
+      }
+    }
+
     .button-super {
+      position: relative;
       i {
+        padding: 8px;
+        padding-top: 5px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        border-left: 1px solid $white;
         @include fa-icon(arrow-circle-down);
       }
     }
@@ -154,90 +186,6 @@ section > .task {
       .button, .button-primary {
         width: 100%;
       }
-    }
-  }
-}
-
-section > .task.urgency--complete {
-  .task-header {
-    .date {
-       .month {
-         background-color: $green;
-       }
-
-       .day {
-         background-color: $green-100;
-         border-color: $green-500;
-         color: $green;
-       }
-
-    }
-    .done {
-      color: $green;
-    }
-
-    .title {
-      background-color: $green-500;
-      color: $green-50;
-    }
-
-    .description {
-      background-color: $green-50;
-      color: $green-500;
-    }
-  }
-}
-
-section > .task.urgency--urgent {
-  .task-header {
-    .date {
-      .month {
-        background-color: $red;
-        color: $blue-light-1;
-      }
-
-      .day {
-        background-color: $red-100;
-        border-color: $red;
-        color: $red;
-      }
-
-    }
-    .title {
-      background-color: $red-100;
-      color: $red;
-    }
-
-    .description {
-      background-color: $red-50;
-      color: $blue-dark-1;
-    }
-  }
-}
-
-section > .task.urgency--on_track {
-  .task-header {
-    .date {
-      .month {
-        background-color: $blue-dark-1;
-        color: $blue-light-1;
-      }
-
-      .day {
-        background-color: $blue-light-1;
-        border-color: $blue-dark-1;
-        color: $blue-dark-1;
-      }
-
-    }
-    .title {
-      background-color: $blue-light-1;
-      color: $blue-dark-2;
-    }
-
-    .description {
-      background-color: $blue-light-2;
-      color: $blue-dark-1;
     }
   }
 }
