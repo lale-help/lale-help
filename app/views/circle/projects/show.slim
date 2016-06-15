@@ -1,6 +1,6 @@
 - project = ProjectPresenter.new(current_project)
 
-.project-page
+.collection-dashboard
   .header
     .left
       .title
@@ -14,7 +14,7 @@
         = link_to(edit_circle_project_path(current_circle, project), class: 'button button-super') do
           = t('helpers.edit', model: project.model_name.human)
 
-  .project-details
+  .details
     main
 
       = render partial: 'nav', locals: { project: project }
@@ -75,7 +75,7 @@
 
     aside
 
-      .actions
+      .aside-section.actions
 
         - if can? :invite_to, current_project
           = form_tag circle_project_invite_path(current_circle, project, type: :working_group), method: :post do

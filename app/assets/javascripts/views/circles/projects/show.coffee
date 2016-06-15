@@ -1,7 +1,8 @@
 ready = ->
 
   init = ->
-    new Lale.TabNav('.project-page .tab-nav', '.project-page .tab')
+    # FIXME init TabNav globally
+    new Lale.TabNav('.tab-nav', '.tab')
 
   init()
 

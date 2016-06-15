@@ -1,4 +1,4 @@
-.working-group
+.collection-dashboard
   .header
     .left
       .title
@@ -47,7 +47,7 @@
 
     aside
 
-      .users-box
+      .aside-section.users-box
         .title
           h2 = t('.admin-title', count: current_working_group.active_admins.count )
 
@@ -59,7 +59,7 @@
             - users.each do |user|
               == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
 
-      .users-box
+      .aside-section.users-box
         .title
           h2 = t('.member-title', count: current_working_group.users.count )
 
