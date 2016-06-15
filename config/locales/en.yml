@@ -1,261 +1,179 @@
 ---
 :en:
-  :date:
-    :formats:
-      :default: "%Y-%m-%d"
-      :short: "%b %d"
-      :long: "%B %d, %Y"
-    :day_names:
-    - Sunday
-    - Monday
-    - Tuesday
-    - Wednesday
-    - Thursday
-    - Friday
-    - Saturday
-    :abbr_day_names:
-    - Sun
-    - Mon
-    - Tue
-    - Wed
-    - Thu
-    - Fri
-    - Sat
-    :month_names:
-    - 
-    - January
-    - February
-    - March
-    - April
-    - May
-    - June
-    - July
-    - August
-    - September
-    - October
-    - November
-    - December
-    :abbr_month_names:
-    - 
-    - Jan
-    - Feb
-    - Mar
-    - Apr
-    - May
-    - Jun
-    - Jul
-    - Aug
-    - Sep
-    - Oct
-    - Nov
-    - Dec
-    :order:
-    - year
-    - month
-    - day
-  :time:
-    :formats:
-      :default: "%a, %d %b %Y %H:%M:%S %z"
-      :short: "%d %b %H:%M"
-      :long: "%B %d, %Y %H:%M"
-    :am: am
-    :pm: pm
-  :support:
-    :array:
-      :words_connector: ", "
-      :two_words_connector: " and "
-      :last_word_connector: ", and "
-  :number:
-    :format:
-      :separator: "."
-      :delimiter: ","
-      :precision: '3'
-      :significant: false
-      :strip_insignificant_zeros: false
-    :currency:
-      :format:
-        :format: "%u%n"
-        :unit: "$"
-        :separator: "."
-        :delimiter: ","
-        :precision: '2'
-        :significant: false
-        :strip_insignificant_zeros: false
-    :percentage:
-      :format:
-        :format: "%n%"
-    :human:
-      :format:
-        :precision: '3'
-        :significant: 'true'
-        :strip_insignificant_zeros: 'true'
-      :storage_units:
-        :format: "%n %u"
-        :units:
-          :byte:
-            :one: Byte
-            :other: Bytes
-          :kb: KB
-          :mb: MB
-          :gb: GB
-          :tb: TB
-      :decimal_units:
-        :format: "%n %u"
-        :units:
-          :thousand: Thousand
-          :million: Million
-          :billion: Billion
-          :trillion: Trillion
-          :quadrillion: Quadrillion
-  :errors:
-    :format: "%{attribute} %{message}"
-    :messages:
-      :inclusion: is not included in the list
-      :exclusion: is reserved
-      :invalid: is invalid
-      :confirmation: doesn't match %{attribute}
-      :accepted: must be accepted
-      :empty: can't be empty
-      :blank: can't be blank
-      :present: must be blank
-      :too_long:
-        :one: is too long (maximum is 1 character)
-        :other: is too long (maximum is %{count} characters)
-      :too_short:
-        :one: is too short (minimum is 1 character)
-        :other: is too short (minimum is %{count} characters)
-      :wrong_length:
-        :one: is the wrong length (should be 1 character)
-        :other: is the wrong length (should be %{count} characters)
-      :not_a_number: is not a number
-      :not_an_integer: must be an integer
-      :greater_than: must be greater than %{count}
-      :greater_than_or_equal_to: must be greater than or equal to %{count}
-      :equal_to: must be equal to %{count}
-      :less_than: must be less than %{count}
-      :less_than_or_equal_to: must be less than or equal to %{count}
-      :other_than: must be other than %{count}
-      :odd: must be odd
-      :even: must be even
-      :taken: has already been taken
-    :due_time:
-      :format: Please enter the due time in the format 00:00.
-    :organizer_id:
-      :empty: Please choose an organizer
-      :at_least_one_required: Working group must have at least one organizer.
-    :start_time:
-      :format: Please enter the start time in the format 00:00.
-    :start_date:
-      :empty: Start date can't be blank.
-    :password:
-      :no_lower: Your password must be at least 8 characters long and contain at least
-        one uppercase letter, one lowercase letter and one digit.
-      :too_short: Your password must be at least 8 characters long and contain at
-        least one uppercase letter, one lowercase letter and one digit.
-      :nils: Please provide a password.
-      :does_not_match: Your password did not match the password confirmation.
-      :empty: Password is required.
-      :no_upper: Your password must be at least 8 characters long and contain at least
-        one uppercase letter, one lowercase letter and one digit.
-      :no_numeric: Your password must be at least 8 characters long and contain at
-        least one uppercase letter, one lowercase letter and one digit.
-    :password_confirmation:
-      :did_not_match: Your password and password confirmation did not match.
-      :nils: Please confirm your password.
-      :empty: Password confirmation is required.
-    :accept_terms:
-      :false: You must accept the Terms and Conditions to sign up for Lale.
-    :email:
-      :nils: Please provide an email.
-      :taken: This email has already been taken. Did you already sign up for Lale?
-      :empty: Email is required
-      :matches: Email is incomplete or invalid
-    :file:
-      :nils: File is required.
-    :first_name:
-      :nils: Please provide your first name.
-      :empty: First name is required
-    :last_name:
-      :nils: Please provide your last name.
-      :empty: Last name is required
-    :about_me:
-      :too_long: maximum 300 characters
-    :country:
-      :empty: Please choose a valid country
-    :city:
-      :empty: Please enter a city
-    :postal_code:
-      :empty: Please enter a postal code
-    :description:
-      :too_short: Description is too short
-      :empty: Description can't be empty.
-    :name:
-      :empty: Name can't be empty
-      :not_unique: This Working Group name is already been used. Please choose a different
-        name.
-    :primary_location:
-      :empty: Location can't be empty
-    :unavailable_session: |
-      Session %{id} is is no longer available in memory.
-
-      If you happen to run on a multi-process server (like Unicorn or Puma) the process
-      this request hit doesn't store %{id} in memory. Consider turning the number of
-      processes/workers to one (1) or using a different server in development.
-    :unacceptable_request: |
-      A supported version is expected in the Accept header.
-    :connection_refused: |
-      Oops! Failed to connect to the Web Console middleware.
-      Please make sure a rails development server is running.
+  :active_admin:
+    :access_denied:
+      :message: You are not authorized to perform this action.
+    :any: Any
+    :batch_actions:
+      :action_label: "%{title} Selected"
+      :button_label: Batch Actions
+      :default_confirmation: Are you sure you want to do this?
+      :delete_confirmation: Are you sure you want to delete these %{plural_model}?
+      :labels:
+        :destroy: Delete
+      :link: Create one
+      :selection_toggle_explanation: "(Toggle Selection)"
+      :succesfully_destroyed:
+        :one: Successfully destroyed 1 %{model}
+        :other: Successfully destroyed %{count} %{plural_model}
+    :blank_slate:
+      :content: There are no %{resource_name} yet.
+      :link: Create one
+    :cancel: Cancel
+    :comments:
+      :add: Add Comment
+      :author: Author
+      :author_missing: Anonymous
+      :author_type: Author Type
+      :body: Body
+      :created_at: Created
+      :delete: Delete Comment
+      :delete_confirmation: Are you sure you want to delete these comment?
+      :errors:
+        :empty_text: Comment wasn't saved, text was empty.
+      :no_comments_yet: No comments yet.
+      :resource: Resource
+      :resource_type: Resource Type
+      :title: Comment
+      :title_content: Comments (%{count})
+    :dashboard: Dashboard
+    :dashboard_welcome:
+      :call_to_action: To add dashboard sections, checkout 'app/admin/dashboard.rb'
+      :welcome: Welcome to Active Admin. This is the default dashboard page.
+    :delete: Delete
+    :delete_confirmation: Are you sure you want to delete this?
+    :delete_model: Delete %{model}
+    :details: "%{model} Details"
+    :devise:
+      :change_password:
+        :submit: Change my password
+        :title: Change your password
+      :email:
+        :title: Email
+      :links:
+        :forgot_your_password: Forgot your password?
+        :resend_confirmation_instructions: Resend confirmation instructions
+        :resend_unlock_instructions: Resend unlock instructions
+        :sign_in: Sign in
+        :sign_in_with_omniauth_provider: Sign in with %{provider}
+        :sign_up: Sign up
+      :login:
+        :remember_me: Remember me
+        :submit: Login
+        :title: Login
+      :password:
+        :title: Password
+      :resend_confirmation_instructions:
+        :submit: Resend confirmation instructions
+        :title: Resend confirmation instructions
+      :reset_password:
+        :submit: Reset My Password
+        :title: Forgot your password?
+      :sign_up:
+        :submit: Sign up
+        :title: Sign up
+      :subdomain:
+        :title: Subdomain
+      :unlock:
+        :submit: Resend unlock instructions
+        :title: Resend unlock instructions
+      :username:
+        :title: Username
+    :download: 'Download:'
+    :dropdown_actions:
+      :button_label: Actions
+    :edit: Edit
+    :edit_model: Edit %{model}
+    :empty: Empty
+    :filters:
+      :buttons:
+        :clear: Clear Filters
+        :filter: Filter
+      :predicates:
+        :contains: Contains
+        :ends_with: Ends with
+        :equals: Equals
+        :greater_than: Greater than
+        :less_than: Less than
+        :starts_with: Starts with
+    :has_many_delete: Delete
+    :has_many_new: Add New %{model}
+    :has_many_remove: Remove
+    :index_list:
+      :block: List
+      :blog: Blog
+      :grid: Grid
+      :table: Table
+    :logout: Logout
+    :main_content: Please implement %{model}#main_content to display content.
+    :new_model: New %{model}
+    :next: Next
+    :pagination:
+      :empty: No %{model} found
+      :entry:
+        :one: entry
+        :other: entries
+      :multiple: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{total}</b>
+        in total
+      :multiple_without_total: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>
+      :one: Displaying <b>1</b> %{model}
+      :one_page: Displaying <b>all %{n}</b> %{model}
+    :powered_by: Powered by %{active_admin} %{version}
+    :previous: Previous
+    :search_status:
+      :current_filters: 'Current filters:'
+      :headline: 'Scope:'
+      :no_current_filters: None
+    :sidebars:
+      :filters: Filters
+      :search_status: Search Status
+    :status_tag:
+      :no: 'No'
+      :yes: 'Yes'
+    :unsupported_browser:
+      :headline: Please note that ActiveAdmin no longer supports Internet Explorer
+        versions 8 or less.
+      :recommendation: We recommend upgrading to the latest <a href="http://windows.microsoft.com/ie">Internet
+        Explorer</a>, <a href="https://chrome.google.com/">Google Chrome</a>, or <a
+        href="https://mozilla.org/firefox/">Firefox</a>.
+      :turn_off_compatibility_view: If you are using IE 9 or later, make sure you
+        <a href="http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer">turn
+        off "Compatibility View"</a>.
+    :view: View
   :activerecord:
-    :errors:
-      :messages:
-        :record_invalid: 'Validation failed: %{errors}'
-        :restrict_dependent_destroy:
-          :one: Cannot delete record because a dependent %{record} exists
-          :many: Cannot delete record because dependent %{record} exist
-    :models:
-      :circle: Circle
-      :location: Location
-      :project:
-        :one: Project
-        :other: Projects
-      :system_event: System event
-      :system_event/notification: System event/notification
-      :system_event/notification/delivery: System event/notification/delivery
-      :task:
-        :one: Task
-        :other: Tasks
-      :task/location_assignment: Task/location assignment
-      :task/skill: Task/skill
-      :task/skill_assignment: Task/skill assignment
-      :task/volunteer_assignment: Task/volunteer assignment
-      :user/feedback: Volunteer/feedback
-      :user/identity: Volunteer/identity
-      :user:
-        :one: Helper
-        :other: Helpers
-      :working_group: Working Group
-      :supply:
-        :one: Supply
-        :other: Supplies
-      :file_upload: File
     :attributes:
       :circle:
         :admin: Admin
-        :location: :activerecord.models.location
-        :name: Circle name
-        :tasks: Tasks
-        :projects: Projects
-        :volunteers: Volunteers
-        :working_groups: Working groups
-        :roles: Roles
-        :language: Language
         :city: City
         :country: Country
+        :language: Language
+        :location: :activerecord.models.location
+        :must_activate_users: New members require admin approval
+        :name: Circle name
         :postal_code: Postal Code
+        :projects: Projects
+        :roles: Roles
         :state_province: State / Province
         :street_address: Street
-        :must_activate_users: New members require admin approval
+        :tasks: Tasks
+        :volunteers: Volunteers
+        :working_groups: Working groups
+      :file_upload:
+        :created_at: Uploaded At
+        :file: file
+        :file_size_bytes: File Size
+        :is_public: visible to all helpers
+        :name: name
+        :permission_is_public:
+          :false: Private
+          :true: Public
+        :updated_at: Last modified
+        :uploadable: Uploaded To
+        :uploader: Uploaded By
+        :working_group: Working Group
+      :file_upload/permission_is_public:
+        :false: Private
+        :true: Public
       :location:
         :address: Address
         :circles: Circles
@@ -264,14 +182,44 @@
         :name: Name
         :users: Users
       :project:
+        :description: Description
         :name: Project name
-        :working_group_id: Working group
-        :working_group: Working group
-        :organizer_id: Organizer
         :organizer:
           :one: Organizer
           :other: Organizers
+        :organizer_id: Organizer
+        :working_group: Working group
+        :working_group_id: Working group
+      :role:
+        :actions: Actions
+      :supply:
+        :completed_at: Completed at
         :description: Description
+        :due_date: Due Date
+        :duration: Duration
+        :duration-text:
+          :all_day: All day
+          :half_day: Half day
+          :hours_1: 1 Hour
+          :hours_2: 2 Hours
+          :hours_3: 3 Hours
+        :location: Location
+        :location_assignments: Location assignments
+        :locations: Locations
+        :name: Name of supply
+        :organizer: Organizer
+        :organizer_assignments: Organizer assignments
+        :organizer_id: Organizer
+        :primary_location: Location for supply
+        :project_id: Project
+        :scheduled_time_start: Start
+        :scheduling_type: Scheduled time
+        :skill_assignments: Skill assignments
+        :skills: Skills
+        :volunteer: Helper
+        :volunteer_count_required: Number of helpers required
+        :working_group: Working Group
+        :working_group_id: Working Group
       :system_event:
         :action: Action
         :for: for
@@ -289,51 +237,51 @@
       :task:
         :completed_at: Completed at
         :completed_tasks: Last Completed Task
-        :pending_tasks: Pending Tasks
+        :date: Date
+        :datetime1_between: From
+        :datetime1_default: Date
+        :datetime2: To
         :description: Description of the Task
         :due_date: End date
-        :datetime1_default: Date
-        :datetime1_between: From
-        :datetime2: To
-        :location_assignments: Location assignments
-        :locations: Locations
-        :location: Location
-        :name: Name of the Task
-        :working_group_id: Working Group
-        :organizer_assignments: Organizer assignments
-        :organizer_id: Organizer
-        :organizer: Organizer
-        :skill_assignments: Skill assignments
-        :skills: Skills
-        :volunteer_assignments: Volunteer assignments
-        :volunteers: Volunteers
-        :volunteer_count_required: Required number of volunteers
-        :primary_location: Place of task
-        :duration: Time Commitment
-        :scheduling_type: Due
-        :date: Date
-        :time: Time
-        :start_date: Start date
-        :start_time: Start time
         :due_time: End time
-        :scheduling_sentence:
-          :at: on %{due}
-          :by: by %{due}
-          :between: between %{start} and %{due}
+        :duration: Time Commitment
         :duration-text:
+          :all_day: All day
+          :half_day: Half a day
           :hours_1: 1 Hour
           :hours_2: 2 Hours
           :hours_3: 3 Hours
-          :half_day: Half a day
-          :all_day: All day
-        :working_group: Working group
-        :scheduling_type_options:
-          :at: at
-          :by: by
-          :between: between
-        :scheduled_time_start: Start
+        :location: Location
+        :location_assignments: Location assignments
+        :locations: Locations
+        :name: Name of the Task
+        :organizer: Organizer
+        :organizer_assignments: Organizer assignments
+        :organizer_id: Organizer
+        :pending_tasks: Pending Tasks
+        :primary_location: Place of task
         :project: Project
         :project_id: Project
+        :scheduled_time_start: Start
+        :scheduling_sentence:
+          :at: on %{due}
+          :between: between %{start} and %{due}
+          :by: by %{due}
+        :scheduling_type: Due
+        :scheduling_type_options:
+          :at: at
+          :between: between
+          :by: by
+        :skill_assignments: Skill assignments
+        :skills: Skills
+        :start_date: Start date
+        :start_time: Start time
+        :time: Time
+        :volunteer_assignments: Volunteer assignments
+        :volunteer_count_required: Required number of volunteers
+        :volunteers: Volunteers
+        :working_group: Working group
+        :working_group_id: Working Group
       :task/location_assignment:
         :location: :activerecord.models.location
         :primary: Primary
@@ -350,39 +298,37 @@
         :organizer: Organizer
         :task: :activerecord.models.task
         :volunteer: Helper
-      :role:
-        :actions: Actions
       :user:
+        :about_me: About Me
+        :accept_terms: Accept Terms and Conditions
+        :active_since: Active since
+        :address: Address
         :circle: :activerecord.models.circle
-        :working_groups: Working Groups
+        :city: City
+        :country: Country
         :email: Email
         :feedback: Feedback
-        :name: Name
         :first_name: First name
+        :home_phone: Home Phone
         :identities: Identities
+        :language: Language
+        :last_login: Last Login
         :last_name: Last name
         :location: :activerecord.models.location
-        :language: Language
-        :primary_circle_id: Primary Circle
+        :mobile_phone: Mobile Phone
+        :name: Name
         :notifications: Notifications
+        :phone: Phone Number
+        :postal_code: Postal Code
+        :primary_circle_id: Primary Circle
+        :public_profile: Show my profile to all circle members
+        :role: Role
+        :state_province: State / Province
+        :street_address: Street Address
         :task_volunteer_assignments: Task volunteer assignments
         :tasks: Tasks
         :triggered_system_events: Triggered system events
-        :role: Role
-        :accept_terms: Accept Terms and Conditions
-        :last_login: Last Login
-        :phone: Phone Number
-        :mobile_phone: Mobile Phone
-        :home_phone: Home Phone
-        :public_profile: Show my profile to all circle members
-        :active_since: Active since
-        :street_address: Street Address
-        :city: City
-        :state_province: State / Province
-        :postal_code: Postal Code
-        :country: Country
-        :about_me: About Me
-        :address: Address
+        :working_groups: Working Groups
       :user/feedback:
         :comment: Comment
         :rating: Rating
@@ -393,517 +339,132 @@
         :password_digest: Password digest
         :volunteer: Helper
       :working_group:
-        :circle: :activerecord.models.circle
-        :name: Name
-        :tasks: Tasks
-        :volunteers: Volunteers
         :actions: Actions
-        :description: Description
-        :organizer: Organizer
-        :organizer_id: Organizer
-        :type: Access Type
         :admin: Organizer
         :admin_ids: Organizers
-      :supply:
-        :duration-text:
-          :hours_3: 3 Hours
-          :all_day: All day
-          :half_day: Half day
-          :hours_1: 1 Hour
-          :hours_2: 2 Hours
-        :completed_at: Completed at
+        :circle: :activerecord.models.circle
         :description: Description
-        :due_date: Due Date
-        :duration: Duration
-        :working_group: Working Group
-        :location_assignments: Location assignments
-        :locations: Locations
-        :name: Name of supply
+        :name: Name
         :organizer: Organizer
-        :organizer_assignments: Organizer assignments
-        :primary_location: Location for supply
-        :scheduled_time_start: Start
-        :scheduling_type: Scheduled time
-        :skill_assignments: Skill assignments
-        :skills: Skills
-        :volunteer: Helper
-        :volunteer_count_required: Number of helpers required
-        :location: Location
-        :working_group_id: Working Group
         :organizer_id: Organizer
-        :project_id: Project
-      :file_upload:
-        :permission_is_public:
-          :true: Public
-          :false: Private
-        :uploader: Uploaded By
-        :created_at: Uploaded At
-        :updated_at: Last modified
-        :file_size_bytes: File Size
-        :uploadable: Uploaded To
-        :working_group: Working Group
-        :is_public: visible to all helpers
-        :file: file
-        :name: name
-      :file_upload/permission_is_public:
-        :false: Private
-        :true: Public
-  :datetime:
-    :distance_in_words:
-      :half_a_minute: half a minute
-      :less_than_x_seconds:
-        :one: less than 1 second
-        :other: less than %{count} seconds
-      :x_seconds:
-        :one: 1 second
-        :other: "%{count} seconds"
-      :less_than_x_minutes:
-        :one: less than a minute
-        :other: less than %{count} minutes
-      :x_minutes:
-        :one: 1 minute
-        :other: "%{count} minutes"
-      :about_x_hours:
-        :one: about 1 hour
-        :other: about %{count} hours
-      :x_days:
-        :one: 1 day
-        :other: "%{count} days"
-      :about_x_months:
-        :one: about 1 month
-        :other: about %{count} months
-      :x_months:
-        :one: 1 month
-        :other: "%{count} months"
-      :about_x_years:
-        :one: about 1 year
-        :other: about %{count} years
-      :over_x_years:
-        :one: over 1 year
-        :other: over %{count} years
-      :almost_x_years:
-        :one: almost 1 year
-        :other: almost %{count} years
-    :prompts:
-      :year: Year
-      :month: Month
-      :day: Day
-      :hour: Hour
-      :minute: Minute
-      :second: Seconds
-  :helpers:
-    :select:
-      :prompt: Please select
-    :submit:
-      :create: Create %{model}
-      :update: Update %{model}
-      :submit: Save %{model}
-    :page_entries_info:
-      :one_page:
-        :display_entries:
-          :zero: No %{entry_name} found
-          :one: Displaying <b>1</b> %{entry_name}
-          :other: Displaying <b>all %{count}</b> %{entry_name}
-      :more_pages:
-        :display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
-          of <b>%{total}</b> in total
-    :new: New %{model}
-    :edit: Edit %{model}
-    :edit_no_model: Edit
-    :complete: Complete %{model}
-    :reopen: Reopen %{model}
-    :clone: Copy %{model}
-    :volunteer: I have this %{model}
-    :decline: I don't have this %{model}
-    :invite_working_group: Invite working group
-    :invite_user: Invite user
-    :invite_circle: Invite circle
-    :assign: Assign helpers
-    :block: Block
-    :unblock: Unblock
-    :deactivate: Deactivate
-    :reactivate: Reactivate
-    :delete: Delete %{model}
-    :header:
-      :add: Create a new %{name}
-      :edit: Editing %{name}
-    :confirm:
-      :task:
-        :delete: Are you sure you want to delete this task?
+        :tasks: Tasks
+        :type: Access Type
+        :volunteers: Volunteers
+    :errors:
+      :messages:
+        :record_invalid: 'Validation failed: %{errors}'
+        :restrict_dependent_destroy:
+          :many: Cannot delete record because dependent %{record} exist
+          :one: Cannot delete record because a dependent %{record} exists
+    :models:
+      :circle: Circle
+      :file_upload: File
+      :location: Location
+      :project:
+        :one: Project
+        :other: Projects
       :supply:
-        :delete: Are you sure you want to delete this supply?
-      :project:
-        :delete: Really delete this project and all it's tasks?
-    :placeholder:
+        :one: Supply
+        :other: Supplies
+      :system_event: System event
+      :system_event/notification: System event/notification
+      :system_event/notification/delivery: System event/notification/delivery
       :task:
-        :name: E.g. Take Riad to School Orientation
-      :project:
-        :name: e.g. Organize Move to new Location
-  :flash:
-    :actions:
-      :create:
-        :notice: "%{resource_name} was successfully created."
-      :update:
-        :notice: "%{resource_name} was successfully updated."
-      :destroy:
-        :notice: "%{resource_name} was successfully removed."
-        :alert: "%{resource_name} could not be removed."
-      :invited:
-        :one: Invited %{count} volunteer to this %{model}.
-        :other: Invited %{count} volunteers to this %{model}.
-        :zero: There aren't any members to invite to this %{model}.
-    :created: "%{name} was successfully created."
-    :updated: "%{name} was successfully updated."
-    :destroyed: "%{name} was successfully destroyed."
-    :failed:
-      :create: An error occured while creating the %{name}.
-      :update: An error occurred while updating the %{name}.
-    :user:
-      :account:
-        :saved: Your settings have been saved.
-        :save-failed: We could not save your settings. Please fix any errors and try
-          again.
-        :circle_invalid: Not authorized to view this circle
-    :file_uploads:
-      :updated: File Updated
-      :created: File successfully uploaded
-  :views:
-    :pagination:
-      :first: "&laquo; First"
-      :last: Last &raquo;
-      :previous: "&lsaquo; Prev"
-      :next: Next &rsaquo;
-      :truncate: "&hellip;"
-  :active_admin:
-    :dashboard: Dashboard
-    :dashboard_welcome:
-      :welcome: Welcome to Active Admin. This is the default dashboard page.
-      :call_to_action: To add dashboard sections, checkout 'app/admin/dashboard.rb'
-    :view: View
-    :edit: Edit
-    :delete: Delete
-    :delete_confirmation: Are you sure you want to delete this?
-    :new_model: New %{model}
-    :edit_model: Edit %{model}
-    :delete_model: Delete %{model}
-    :details: "%{model} Details"
-    :cancel: Cancel
-    :empty: Empty
-    :previous: Previous
-    :next: Next
-    :download: 'Download:'
-    :has_many_new: Add New %{model}
-    :has_many_delete: Delete
-    :has_many_remove: Remove
-    :filters:
-      :buttons:
-        :filter: Filter
-        :clear: Clear Filters
-      :predicates:
-        :contains: Contains
-        :equals: Equals
-        :starts_with: Starts with
-        :ends_with: Ends with
-        :greater_than: Greater than
-        :less_than: Less than
-    :search_status:
-      :headline: 'Scope:'
-      :current_filters: 'Current filters:'
-      :no_current_filters: None
-    :status_tag:
-      :yes: 'Yes'
-      :no: 'No'
-    :main_content: Please implement %{model}#main_content to display content.
-    :logout: Logout
-    :powered_by: Powered by %{active_admin} %{version}
-    :sidebars:
-      :filters: Filters
-      :search_status: Search Status
-    :pagination:
-      :empty: No %{model} found
-      :one: Displaying <b>1</b> %{model}
-      :one_page: Displaying <b>all %{n}</b> %{model}
-      :multiple: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b> of <b>%{total}</b>
-        in total
-      :multiple_without_total: Displaying %{model} <b>%{from}&nbsp;-&nbsp;%{to}</b>
-      :entry:
-        :one: entry
-        :other: entries
-    :any: Any
-    :blank_slate:
-      :content: There are no %{resource_name} yet.
-      :link: Create one
-    :dropdown_actions:
-      :button_label: Actions
-    :batch_actions:
-      :button_label: Batch Actions
-      :default_confirmation: Are you sure you want to do this?
-      :delete_confirmation: Are you sure you want to delete these %{plural_model}?
-      :succesfully_destroyed:
-        :one: Successfully destroyed 1 %{model}
-        :other: Successfully destroyed %{count} %{plural_model}
-      :selection_toggle_explanation: "(Toggle Selection)"
-      :link: Create one
-      :action_label: "%{title} Selected"
-      :labels:
-        :destroy: Delete
-    :comments:
-      :created_at: Created
-      :resource_type: Resource Type
-      :author_type: Author Type
-      :body: Body
-      :author: Author
-      :title: Comment
-      :add: Add Comment
-      :delete: Delete Comment
-      :delete_confirmation: Are you sure you want to delete these comment?
-      :resource: Resource
-      :no_comments_yet: No comments yet.
-      :author_missing: Anonymous
-      :title_content: Comments (%{count})
-      :errors:
-        :empty_text: Comment wasn't saved, text was empty.
-    :devise:
-      :username:
-        :title: Username
-      :email:
-        :title: Email
-      :subdomain:
-        :title: Subdomain
-      :password:
-        :title: Password
-      :sign_up:
-        :title: Sign up
-        :submit: Sign up
-      :login:
-        :title: Login
-        :remember_me: Remember me
-        :submit: Login
-      :reset_password:
-        :title: Forgot your password?
-        :submit: Reset My Password
-      :change_password:
-        :title: Change your password
-        :submit: Change my password
-      :unlock:
-        :title: Resend unlock instructions
-        :submit: Resend unlock instructions
-      :resend_confirmation_instructions:
-        :title: Resend confirmation instructions
-        :submit: Resend confirmation instructions
-      :links:
-        :sign_up: Sign up
-        :sign_in: Sign in
-        :forgot_your_password: Forgot your password?
-        :sign_in_with_omniauth_provider: Sign in with %{provider}
-        :resend_unlock_instructions: Resend unlock instructions
-        :resend_confirmation_instructions: Resend confirmation instructions
-    :unsupported_browser:
-      :headline: Please note that ActiveAdmin no longer supports Internet Explorer
-        versions 8 or less.
-      :recommendation: We recommend upgrading to the latest <a href="http://windows.microsoft.com/ie">Internet
-        Explorer</a>, <a href="https://chrome.google.com/">Google Chrome</a>, or <a
-        href="https://mozilla.org/firefox/">Firefox</a>.
-      :turn_off_compatibility_view: If you are using IE 9 or later, make sure you
-        <a href="http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer">turn
-        off "Compatibility View"</a>.
-    :access_denied:
-      :message: You are not authorized to perform this action.
-    :index_list:
-      :table: Table
-      :block: List
-      :grid: Grid
-      :blog: Blog
+        :one: Task
+        :other: Tasks
+      :task/location_assignment: Task/location assignment
+      :task/skill: Task/skill
+      :task/skill_assignment: Task/skill assignment
+      :task/volunteer_assignment: Task/volunteer assignment
+      :user:
+        :one: Helper
+        :other: Helpers
+      :user/feedback: Volunteer/feedback
+      :user/identity: Volunteer/identity
+      :working_group: Working Group
   :cells:
     :tasks:
-      :volunteer_select_tag:
-        :placeholder: Please select...
-        :in_working_group: In this working group
-        :all_helpers: All helpers
       :sourcing_widget:
-        :no_volunteers_yet: No one signed up yet.
-        :modal:
-          :title_main: Find helpers
-          :title_assign: Assign to helper
-          :title_invite: Invite by email
-          :invite_working_group: All helpers in the working group (%{count})
-          :invite_all: All helpers in the circle (%{count})
-          :invite_by_name: Invite specific helpers
-        :title: Helpers
-        :find_helpers: Find helpers &hellip;
         :accept: I'll help
         :decline: I can't help anymore
+        :find_helpers: Find helpers &hellip;
+        :modal:
+          :invite_all: All helpers in the circle (%{count})
+          :invite_by_name: Invite specific helpers
+          :invite_working_group: All helpers in the working group (%{count})
+          :title_assign: Assign to helper
+          :title_invite: Invite by email
+          :title_main: Find helpers
+        :no_volunteers_yet: No one signed up yet.
+        :title: Helpers
         :volunteer-count:
           :one: "%{count} volunteer has signed up"
           :other: "%{count} volunteers have signed up"
-        :volunteer-count-required:
-          :one: Requires %{count} volunteer
-          :other: Requires %{count} volunteers
         :volunteer-count-missing:
           :one: " (%{count} missing)"
           :other: " (%{count} missing)"
+        :volunteer-count-required:
+          :one: Requires %{count} volunteer
+          :other: Requires %{count} volunteers
+      :volunteer_select_tag:
+        :all_helpers: All helpers
+        :in_working_group: In this working group
+        :placeholder: Please select...
     :working_groups:
       :table:
-        :title_active: Active working groups
-        :title_deactivated: Inactive working groups
-        :confirm_delete: Are you sure?
-        :no_groups: No groups to show right now.
         :cant_deactivate_group_with_items: The group still contains incomplete tasks
           or supplies. Please complete them first, then try again.
+        :confirm_delete: Are you sure?
         :create_working_group: Create a Working Group
-  :datepicker:
-    :day_of_week_start: '0'
-    :date_format: m/d/Y
-    :time_format: H:i
-  :lale: Lale.help
-  :hello: Hello world
-  :edit: EDIT
-  :delete: Delete
-  :supported-by: Supported by
-  :workflow:
-    :save: Save
-    :continue: Continue
-    :cancel: Cancel
-    :join: Join
-    :copied: Copied!
-    :read_terms: View Terms and Conditions.
-    :activation_success: User successfully activated.
-    :activation_error: Failed to activate user.
-  :language:
-    :en: English
-    :de: German
-    :fr: French
-  :forms:
-    :correct-errors: Please correct the errors below.
-  :fields:
-    :name: Name
-    :location: Location
-    :email: Email address
-    :email-placeholder: Enter your email
-    :password: Password
-    :password-placeholder: Enter your password
-  :unauthorized:
-    :manage:
-      :all: Not authorized to %{action} %{subject}.
-  :task:
-    :presenter:
-      :messages:
-        :more_volunteers_needed: More volunteers needed
-        :recent_activity: Recent activity
-  :tasks:
-    :flash:
-      :declined: Successfully declined from %{name}.
-      :decline_failed: Failed to decline from %{name}.
-      :volunteered: Thanks for volunteering for %{name}!
-      :completed: Thanks for completing %{name}!
-      :reopening_failed: There was a problem re-opening this task
-      :reopened: Task has been re-opened
-    :auto_comment:
-      :users_assigned:
-        :one: "%{assignees} was assigned to this task by %{assigner} on %{date}."
-        :other: "%{assignees} were assigned to this task by %{assigner} on %{date}."
-      :users_unassigned:
-        :one: "%{unassignees} was unassigned from this task by %{unassigner} on %{date}."
-        :other: "%{unassignees} were unassigned from this task by %{unassigner} on
-          %{date}."
-      :copied: This task was copied from task %{original_task} on %{date}.
-      :completed: "%{user} completed this task on %{date}."
-      :user_volunteered: "%{user} signed up for this task on %{date}."
-      :user_unassigned_self: "%{user} unassigned from this task on %{date}."
-      :reopened: "%{user} re-opened this task on %{date}."
-      :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
-      :updated: "%{user} changed %{changed_fields}."
-      :user_unassigned: "%{user} was unassigned from this task on %{date}."
-      :user_assigned: "%{user} was assigned to this task on %{date}."
-  :users:
-    :flash:
-      :password_reset_success: Your password was successfully updated
-  :mailers:
-    :subject:
-      :user_mailer:
-        :forgot_password: Did you forget something?
-        :account_activation: A new member wants to join your circle
-        :account_activated: Your circle membership was activated.
-      :task_mailer:
-        :task_assigned: A task was assigned to you.
-        :task_unassigned: A task was un-assigned from you.
-        :task_change: Something has changed about your task.
-        :task_completion_reminder: Thanks for helping!
-        :task_invitation: Lale needs your help with a new task.
-        :task_reminder: All clear for your upcoming task?
-        :task_suggestion: We would like to suggest a task for you.
-        :task_comment: A comment was made on your task.
-      :supply_mailer:
-        :supply_completion_reminder: Thanks for helping!
-        :supply_invitation: Lale needs your help with a new supply.
-      :project_mailer:
-        :project_invitation: Lale needs your help with a new project.
-  :roles:
-    :name:
-      :circle:
-        :admin: Admin
-        :volunteer: Volunteer
-        :official: Official
-        :custom: Custom
-        :helpee: Helpee
-      :task:
-        :assignee: Volunteer
-        :volunteer: Volunteer
-        :organizer: Organizer
-      :admin: Admin
-      :member: Member
-      :supply:
-        :organizer: Organizer
-        :volunteer: Volunteer
+        :no_groups: No groups to show right now.
+        :title_active: Active working groups
+        :title_deactivated: Inactive working groups
   :circle:
     :admins:
-      :show:
-        :settings: Settings
-        :promote_user: Promote user to role
-        :confirm_delete_circle: Are you sure?
-        :confirm_delete_working_group: Are you sure?
+      :files:
+        :confirm_delete_file: Are you sure you want to delete this file?
+        :new-file: Upload File
+      :inactive_members_list:
+        :activate: Activate
+      :invite:
+        :blocked_members_explanation: The following members were blocked (i.e. disabled)
+          by an admin.
+        :blocked_members_headline: Blocked members
+        :invite_headline: Invite new members
+        :invite_members: Invite members to %{circle}
+        :invite_members_explaination: To invite new members to this circle, just share
+          the following link with people that are interested.
+        :must_activate_users: New members require admin approval
+        :no_blocked_members_message: There aren't any blocked members right now.
+        :no_pending_members_message: There aren't any new members waiting for approval
+          right now.
+        :pending_members_explanation: The following members are waiting for approval,
+          please activate them so they can start contributing.
+        :pending_members_headline: Pending members
+        :require_approval_headline: Invitation Settings
+      :nav:
+        :basic-settings: Circle Profile
+        :files: Documents
+        :invite-volunteers: Manage Volunteers
+        :roles: Roles
+        :working-groups: Working Groups
       :roles:
         :confirm_delete_circle: Are you sure?
         :promote_user: Promote User
         :save: Save
+      :show:
+        :confirm_delete_circle: Are you sure?
+        :confirm_delete_working_group: Are you sure?
+        :promote_user: Promote user to role
+        :settings: Settings
       :working_groups:
+        :confirm_delete_working_group: Are you sure?
         :create_working_group: New Working Group
-        :edit: Edit
         :delete: Delete
         :disable: Deactivate
+        :edit: Edit
         :reactivate: Reactivate
-        :confirm_delete_working_group: Are you sure?
-      :invite:
-        :invite_members: Invite members to %{circle}
-        :invite_members_explaination: To invite new members to this circle, just share
-          the following link with people that are interested.
-        :invite_headline: Invite new members
-        :pending_members_headline: Pending members
-        :pending_members_explanation: The following members are waiting for approval,
-          please activate them so they can start contributing.
-        :no_pending_members_message: There aren't any new members waiting for approval
-          right now.
-        :blocked_members_headline: Blocked members
-        :blocked_members_explanation: The following members were blocked (i.e. disabled)
-          by an admin.
-        :no_blocked_members_message: There aren't any blocked members right now.
-        :require_approval_headline: Invitation Settings
-        :must_activate_users: New members require admin approval
-      :nav:
-        :basic-settings: Circle Profile
-        :roles: Roles
-        :working-groups: Working Groups
-        :invite-volunteers: Manage Volunteers
-        :files: Documents
-      :inactive_members_list:
-        :activate: Activate
-      :files:
-        :new-file: Upload File
-        :confirm_delete_file: Are you sure you want to delete this file?
     :comments:
-      :placeholder: What do you want to say?
-      :post: Post
-      :reply: Add a comment
       :actions:
         :delete: Delete
         :delete_confirm: Are you sure you want to delete this comment?
@@ -912,418 +473,926 @@
         :show_all_comments: Show All Comments
       :edit: Save
       :edit_cancel: Cancel
+      :placeholder: What do you want to say?
+      :post: Post
+      :reply: Add a comment
+    :documents:
+      :index:
+        :circle-documents: Circle Documents
+        :new-file: Upload File
+        :working-group-documents: Working Group Documents
+    :invite_flow:
+      :join:
+        :start_helping: Start helping with %{circle} today!
     :members:
       :index:
         :directory: Helper list
         :total_members: shows %{showing} of %{total} helpers
+      :list:
+        :help_provided: Help Provided
+        :last_help_provided: Last helped
+      :nav:
+        :all-helpers: All Helpers
+        :organizers: Organizers
+      :public:
+        :public_members: Helper list
       :show:
-        :back: Back to Helper List
-        :contact: Contact
         :address: Address
+        :back: Back to Helper List
         :circles: Circles
-        :roles: Roles
-        :member_since: Member Since
-        :tasks_supplies_completed: Help provided
+        :contact: Contact
         :edit_profile: Edit Profile
+        :member_since: Member Since
+        :roles: Roles
+        :tasks_supplies_completed: Help provided
         :working_groups: Working Groups
       :show_actions:
         :organizer_info_title: This user can't be blocked because he/she is still
           responsible for the following items. Please update the responsibilities
           there, reload this page, and try again.
-      :list:
-        :help_provided: Help Provided
-        :last_help_provided: Last helped
-      :public:
-        :public_members: Helper list
-      :nav:
-        :all-helpers: All Helpers
+    :organizers:
+      :index:
         :organizers: Organizers
-    :invite_flow:
-      :join:
-        :start_helping: Start helping with %{circle} today!
     :projects:
-      :nav:
-        :info: Info
       :clone:
         :new_task_name: "%{base_name} - copy"
         :new_task_name_regexp: copy( (\d+))?$
-      :status_labels:
-        :open: open
-        :urgent: urgent
-        :done: done
-        :signed_up: signed up
-        :needed: needed
-      :show:
-        :date_range: Period
-        :date_range_sentence: from %{start_date} to %{due_date}
-        :organized-by: Organized by %{name}
-        :admin-title:
-          :one: "%{count} organizer"
-          :other: "%{count} organizers"
-        :member-title:
-          :one: "%{count} volunteer"
-          :other: "%{count} volunteers"
-        :settings: Settings
       :edit:
         :back: Back to project
       :index:
         :title: Projects
+      :nav:
+        :info: Info
+      :show:
+        :admin-title:
+          :one: "%{count} organizer"
+          :other: "%{count} organizers"
+        :date_range: Period
+        :date_range_sentence: from %{start_date} to %{due_date}
+        :member-title:
+          :one: "%{count} volunteer"
+          :other: "%{count} volunteers"
+        :organized-by: Organized by %{name}
+        :settings: Settings
+      :status_labels:
+        :done: done
+        :needed: needed
+        :open: open
+        :signed_up: signed up
+        :urgent: urgent
     :supplies:
+      :edit:
+        :back: Back to Supply
+      :edit_actions:
+        :edit_button_dropdown: Edit Supply
       :index:
         :header: Supplies
+      :new:
+        :back: Back to All Supplies
+      :show:
+        :back: Back to All Supplies
+        :complete-task-button: Supply has been donated
+        :decline-task-button: I don't have this supply
+        :edit-task-button: Edit Supply
+        :invite-button: Invite %{group} members
+        :organized-by: Organized by %{name}
+        :reopen-task-button: Re-open Supply
+        :task-complete: 'Done: '
+        :users_box_title: Is supplied by
+        :volunteer-count:
+          :one: "%{count} volunteer has signed up"
+          :other: "%{count} volunteers have signed up"
+        :volunteer-count-missing:
+          :one: " (%{count} missing)"
+          :other: "(%{count} missing)"
+        :volunteer-count-required:
+          :one: Requires %{count} volunteer
+          :other: Requires %{count} volunteers
+        :volunteer-task-button: I have this supply
       :supply_list:
         :no-supplies: No supplies are needed at this time.
       :supply_list_item:
         :stats-here: Stats Here
-      :new:
-        :back: Back to All Supplies
-      :edit:
-        :back: Back to Supply
-      :edit_actions:
-        edit_button_dropdown: "Edit Supply"
-      :show:
-        :users_box_title: Is supplied by
-        :back: Back to All Supplies
-        :task-complete: 'Done: '
-        :organized-by: Organized by %{name}
-        :volunteer-task-button: I have this supply
-        :decline-task-button: I don't have this supply
-        :complete-task-button: Supply has been donated
-        :edit-task-button: Edit Supply
-        :invite-button: Invite %{group} members
-        :reopen-task-button: Re-open Supply
-        :volunteer-count-required:
-          :one: Requires %{count} volunteer
-          :other: Requires %{count} volunteers
-        :volunteer-count-missing:
-          :one: " (%{count} missing)"
-          :other: "(%{count} missing)"
-        :volunteer-count:
-          :one: "%{count} volunteer has signed up"
-          :other: "%{count} volunteers have signed up"
+    :taskables:
+      :nav:
+        :organizing: Organizing
+        :volunteering: Volunteering
+      :organizer:
+        :supplies-header: Supplies
+        :tasks-header: Tasks
+      :volunteer:
+        :supplies-header: Supplies
+        :tasks-header: Tasks
     :tasks:
+      :completed:
+        :header: All Completed Tasks
+      :edit:
+        :back: Back to Task
+      :edit_actions:
+        :edit_button_dropdown: Edit Task
+      :form:
+        :date_format: "%m/%d/%Y"
+        :placeholder_optional: "(optional)"
+        :project_blank: "(not part of a project)"
+        :update_and_notify: Save and notify
       :index:
         :header: All Tasks
       :my:
         :header: My Tasks
-        :volunteer-header: Volunteering
         :organizer-header: Organizing
-      :task_list:
-        :no-tasks: No tasks found.
+        :volunteer-header: Volunteering
       :new:
         :back: Back to All Tasks
-      :edit:
-        :back: Back to Task
-      :edit_actions:
-        edit_button_dropdown: "Edit Task"
+      :open:
+        :header: Open Tasks
       :show:
         :back: Back to All Tasks
+        :complete-task-button: Complete Task
+        :edit-task-button: Edit Task
+        :invite-button: Invite %{class}
+        :organized-by: Organized by %{name}
+        :reopen-task-button: Re-open Task
         :task-complete: 'Done: '
         :volunteer-count:
           :one: "%{count} volunteer is going"
           :other: "%{count} volunteers are going"
-        :volunteer-count-required:
-          :one: Requires %{count} volunteer
-          :other: Requires %{count} volunteers
         :volunteer-count-missing:
           :one: " (%{count} missing)"
           :other: " (%{count} missing)"
-        :organized-by: Organized by %{name}
-        :complete-task-button: Complete Task
-        :edit-task-button: Edit Task
-        :invite-button: Invite %{class}
-        :reopen-task-button: Re-open Task
-      :completed:
-        :header: All Completed Tasks
-      :open:
-        :header: Open Tasks
+        :volunteer-count-required:
+          :one: Requires %{count} volunteer
+          :other: Requires %{count} volunteers
+      :task_list:
+        :no-tasks: No tasks found.
       :task_list_item:
         :stats-here: Stats
-      :form:
-        :placeholder_optional: "(optional)"
-        :date_format: "%m/%d/%Y"
-        :project_blank: "(not part of a project)"
-        :update_and_notify: Save and notify
     :working_groups:
+      :add_user_form:
+        :add: Add
+      :admin_nav:
+        :members: Volunteers
+        :organizers: Organizers
+        :projects: Projects
+        :settings: Basic Settings
+      :edit:
+        :header: Working Group Settings
+      :edit_members:
+        :header: Volunteers for %{name}
+      :edit_organizers:
+        :header: Organizers for %{name}
+      :edit_projects:
+        :actions: Actions
+        :confirm_delete: Do you really want to delete the project and all it's tasks
+          and supplies?
+        :header: Projects for %{name}
       :form:
         :organizer_blank: "(please select)"
+      :index:
+        :all-working-groups-dashboard: All Working Groups Dashboard
+      :nav:
+        :documents: Documents
+      :new:
+        :new-working-group: New Working Group
       :show:
-        :leave_group_confirmation: Do you really want to end your membership in this
-          group?
-        :settings: Manage group
-        :join: Join
-        :leave: Leave
         :admin-title:
           :one: "%{count} organizer"
           :other: "%{count} organizers"
+        :join: Join
+        :leave: Leave
+        :leave_group_confirmation: Do you really want to end your membership in this
+          group?
         :member-title:
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
         :new-file: Upload File
-        :show_completed_tasks: Show completed tasks...
-        :show_open_tasks: Show open tasks...
+        :settings: Manage group
         :show_completed_supplies: Show completed supplies...
+        :show_completed_tasks: Show completed tasks...
         :show_open_supplies: Show open supplies...
-      :index:
-        :all-working-groups-dashboard: All Working Groups Dashboard
-      :new:
-        :new-working-group: New Working Group
-      :edit:
-        :header: Working Group Settings
-      :edit_organizers:
-        :header: Organizers for %{name}
-      :edit_members:
-        :header: Volunteers for %{name}
-      :edit_projects:
-        :header: Projects for %{name}
-        :actions: Actions
-        :confirm_delete: Do you really want to delete the project and all it's tasks
-          and supplies?
-      :add_user_form:
-        :add: Add
-      :admin_nav:
-        :settings: Basic Settings
-        :organizers: Organizers
-        :members: Volunteers
-        :projects: Projects
+        :show_open_tasks: Show open tasks...
       :user_list:
         :actions: Actions
-        :remove: Remove
         :no-volunteers: No Volunteers
-      :nav:
-        :documents: Documents
-    :organizers:
-      :index:
-        :organizers: Organizers
-    :documents:
-      :index:
-        :circle-documents: Circle Documents
-        :working-group-documents: Working Group Documents
-        :new-file: Upload File
-    :taskables:
-      :nav:
-        :volunteering: Volunteering
-        :organizing: Organizing
-      :organizer:
-        :tasks-header: Tasks
-        :supplies-header: Supplies
-      :volunteer:
-        :tasks-header: Tasks
-        :supplies-header: Supplies
+        :remove: Remove
   :circles:
-    :new:
-      :create: Create Circle
-    :show:
-      :task:
-        :new: Add a New Task
-        :mine-only: Show my tasks only
-        :count:
-          :one: 1 task
-          :other: "%{count} tasks"
-        :volunteer-needed:
-          :one: Need one helper
-          :other: Requires %{count} volunteers
-        :volunteer-filled: Filled
-        :volunteer: I can do this!
-        :complete: Complete Task
-      :circle-dashboard: Circle Dashboard
-      :working-group:
-        :new: Add a New Work Group
-        :filter: Filter Working Groups
-      :view-burnup-chart: View Burn Up Chart
-      :dashboard_title: Dashboard for %{name}
-      :working_group_organizers: Working Group Organizers
-      :circle_leaders: Circle Leaders
-      :need_help: Need help?
-      :contact_circle_admin: Contact Circle Admin
-      :open_tasks: Open Tasks
-      :files: Circle Documents
-      :show_completed_tasks: Show completed tasks...
-      :show_open_tasks: Show open tasks...
-      :show_completed_supplies: Show completed supplies...
-      :show_open_supplies: Show open supplies...
     :edit:
+      :back: Back
       :header: Edit Circle
       :show: Show
-      :back: Back
     :form:
       :country_select: Select Country
     :nav:
       :documents: Documents
-  :layouts:
-    :public:
-      :header:
-        :signed-in-as: Signed in as %{user}
-        :sign-out: Sign out
-        :account: Account
-        :sign-up: Sign up
-        :dont-have-account: Don't have an account?
-        :contact_us_for_new_circle: Contact us to create a new circle for you.
-    :internal:
-      :sidebar:
-        :projects: Projects
-        :my-tasks: My Tasks
-        :all-tasks: Open Tasks
-        :supplies: Supplies
-        :directory: Helper list
-        :discussions: Discussions
-        :admin: Administration
-        :my-working-groups: My Working Groups
-        :all-working-groups: All Working Groups
-        :organizers: Organizers
-        :completed-tasks: Completed Tasks
-        :all-open-tasks: All Open Tasks
-        :working_groups: Working Groups
-        :public_members: Helper list
-        :documents: Documents
-        :home-page: Home Page
-        :my-calendar: My activities
-        :overviews: Overviews
-      :header:
-        :settings: Your profile
-        :find-circles: Find Circles
-        :sign-out: Sign Out
-        :admin: Lale Admin
-        :switch_to_circle: Switch to "%{circle_name}"
-  :public:
-    :circles:
-      :index:
-        :title: Circles in your area
-        :create-circle-phrase: If you don't want to join this circle, you can
-        :create-circle-button: Create a new Circle
-      :new:
-        :title: Start your circle of volunteers
-        :details: It's a tremendous opportunity to help your community help each other
-          and make the world a better place
-      :membership_inactive:
-        :pending:
-          :title: Welcome to Lale! Your circle membership is being activated.
-          :description: 'The circle admins have been notified and should activate
-            your account soon. If they don''t or if you have questions, please contact
-            them by email: %{admins_list}.'
-          :active_circle_links: 'You can still switch to one of your other circles:
-            %{links}.'
-        :blocked:
-          :title: Your circle membership was blocked.
-          :description: 'Please contact a circle admin if you feel this happened by
-            mistake: %{admins_list}.'
-          :active_circle_links: 'You can still switch to one of your other circles:
-            %{links}.'
-    :reset_password_flow:
-      :reset_password:
-        :reset-password-phrase: Reset your password
-        :reset-password: Reset password
-        :sign-in: Sign in
-      :confirmation:
-        :title: Check your email!
-        :details: You will soon receive an email with a link to reset your password.
-  :sessions:
     :new:
-      :sign-in-phrase: Sign in to your circle
-      :reset-password: Reset my password
-      :sign-in: Sign in
-      :login_error_message_title: 'We couldn''t log you in. Please check:'
-      :login_error_common_reasons:
-        :one: did you use the right email address for Lale?
-        :two: did you change your password recently?
-        :three: is the CAPS LOCK key activated?
-    :destroy:
-      :signed_out: Signed out!
-    :create:
-      :login_error_flash: Login failed, please verify your email and password.
-      :login_error: Login failed, please verify your email and password.
-  :user:
-    :account:
-      :edit:
-        :title: Your profile
-        :reset_password: Reset your Password
-        :error_correction: Please correct the errors below.
-        :update_settings: Update Settings
-        :country_select: Select Country
-      :reset_password:
-        :reset_password: Reset your Password
-        :update: Update your Password
-        :password: Password
-        :password_confirmation: Password Confirmation
-      :show:
-        :title: Your Profile
-        :view_public_profile: View your public profile
-        :edit_profile: Edit Profile
-        :reset_password: Reset Password
-    :identities:
-      :new:
-        :header: Start helping now
-        :first_name: First Name
-        :last_name: Last Name
-        :email: Email
-        :mobile_phone: Mobile Phone
-        :home_phone: Home Phone
-        :street_address: Street Address
-        :city: City
-        :state_province: State / Province
-        :postal_code: Postal Code
-        :country: Country
-        :country_select: Select Country
-        :language: Language
-        :password: Password
-        :password_confirmation: Password Confirmation
-        :public_profile: Show my profile to all circle members
-        :accept_terms: Accept Terms and Conditions
+      :create: Create Circle
+    :show:
+      :circle-dashboard: Circle Dashboard
+      :circle_leaders: Circle Leaders
+      :contact_circle_admin: Contact Circle Admin
+      :dashboard_title: Dashboard for %{name}
+      :files: Circle Documents
+      :need_help: Need help?
+      :open_tasks: Open Tasks
+      :show_completed_supplies: Show completed supplies...
+      :show_completed_tasks: Show completed tasks...
+      :show_open_supplies: Show open supplies...
+      :show_open_tasks: Show open tasks...
+      :task:
+        :complete: Complete Task
+        :count:
+          :one: 1 task
+          :other: "%{count} tasks"
+        :mine-only: Show my tasks only
+        :new: Add a New Task
+        :volunteer: I can do this!
+        :volunteer-filled: Filled
+        :volunteer-needed:
+          :one: Need one helper
+          :other: Requires %{count} volunteers
+      :view-burnup-chart: View Burn Up Chart
+      :working-group:
+        :filter: Filter Working Groups
+        :new: Add a New Work Group
+      :working_group_organizers: Working Group Organizers
+  :date:
+    :abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    :abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    :day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    :formats:
+      :default: "%Y-%m-%d"
+      :long: "%B %d, %Y"
+      :short: "%b %d"
+    :month_names:
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    :order:
+    - year
+    - month
+    - day
+  :datepicker:
+    :date_format: m/d/Y
+    :day_of_week_start: '0'
+    :time_format: H:i
+  :datetime:
+    :distance_in_words:
+      :about_x_hours:
+        :one: about 1 hour
+        :other: about %{count} hours
+      :about_x_months:
+        :one: about 1 month
+        :other: about %{count} months
+      :about_x_years:
+        :one: about 1 year
+        :other: about %{count} years
+      :almost_x_years:
+        :one: almost 1 year
+        :other: almost %{count} years
+      :half_a_minute: half a minute
+      :less_than_x_minutes:
+        :one: less than a minute
+        :other: less than %{count} minutes
+      :less_than_x_seconds:
+        :one: less than 1 second
+        :other: less than %{count} seconds
+      :over_x_years:
+        :one: over 1 year
+        :other: over %{count} years
+      :x_days:
+        :one: 1 day
+        :other: "%{count} days"
+      :x_minutes:
+        :one: 1 minute
+        :other: "%{count} minutes"
+      :x_months:
+        :one: 1 month
+        :other: "%{count} months"
+      :x_seconds:
+        :one: 1 second
+        :other: "%{count} seconds"
+    :prompts:
+      :day: Day
+      :hour: Hour
+      :minute: Minute
+      :month: Month
+      :second: Seconds
+      :year: Year
+  :delete: Delete
+  :edit: EDIT
   :en:
     :roles:
       :name:
         :task:
           :volunteer: Volunteer
-  :url:
-    :terms_of_service: http://lale.help/terms#terms
-  :supply:
-    :presenter:
-      :messages:
-        :volunteer_needed: Volunteer needed
-        :recent_activity: Recent activity
   :error_correction: Please correct the errors below.
-  :formtastic:
-    :required: Required field
-    :update: Update %{model}
-  :supplies:
-    :flash:
-      :completed: Thanks for the supply!
-      :complete_failed: Unable to mark supply as donated. Please try again.
-      :volunteered: Thanks for signing up!
-      :volunteer_failed: Unable to sign up for this supply. Please try again later.
-      :already_taken: This supply has already been claimed by someone else
-      :declined: Thanks for your honesty! We will find someone else.
-      :decline_failed: Unable to decline this supply. Please try again later.
-      :invited: Invited members of %{name} to this supply
-      :invite_failed: Unable to invite members to this supply. Please try again later.
-      :reopened: Supply has been re-opened
-      :reopening_failed: There was a problem re-opening this supply
-    :auto_comment:
-      :user_assigned: "%{user} signed up for this supply on %{date}."
-      :completed: "%{user} completed this supply on %{date}."
-      :invited: "%{user} invited %{invite_count} helpers to this supply on %{date}"
-      :reopened: "%{user} re-opened this supply on %{date}."
-      :updated: "%{user} changed %{changed_fields}."
-      :user_unassigned: "%{user} unassigned this supplies on %{date}."
-  :sidebar:
-    :circle_add_menu:
-      :add: Add
-  :working_group:
-    :types:
-      :public: Public
-      :private: Private
-  :task_edit:
-    :cancel: Cancel
-  :project_edit:
-    :cancel: Cancel
-  :supply_edit:
-    :cancel: Cancel
+  :errors:
+    :about_me:
+      :too_long: maximum 300 characters
+    :accept_terms:
+      :false: You must accept the Terms and Conditions to sign up for Lale.
+    :city:
+      :empty: Please enter a city
+    :connection_refused: |
+      Oops! Failed to connect to the Web Console middleware.
+      Please make sure a rails development server is running.
+    :country:
+      :empty: Please choose a valid country
+    :description:
+      :empty: Description can't be empty.
+      :too_short: Description is too short
+    :due_time:
+      :format: Please enter the due time in the format 00:00.
+    :email:
+      :empty: Email is required
+      :matches: Email is incomplete or invalid
+      :nils: Please provide an email.
+      :taken: This email has already been taken. Did you already sign up for Lale?
+    :file:
+      :nils: File is required.
+    :first_name:
+      :empty: First name is required
+      :nils: Please provide your first name.
+    :format: "%{attribute} %{message}"
+    :last_name:
+      :empty: Last name is required
+      :nils: Please provide your last name.
+    :messages:
+      :accepted: must be accepted
+      :blank: can't be blank
+      :confirmation: doesn't match %{attribute}
+      :empty: can't be empty
+      :equal_to: must be equal to %{count}
+      :even: must be even
+      :exclusion: is reserved
+      :greater_than: must be greater than %{count}
+      :greater_than_or_equal_to: must be greater than or equal to %{count}
+      :inclusion: is not included in the list
+      :invalid: is invalid
+      :less_than: must be less than %{count}
+      :less_than_or_equal_to: must be less than or equal to %{count}
+      :not_a_number: is not a number
+      :not_an_integer: must be an integer
+      :odd: must be odd
+      :other_than: must be other than %{count}
+      :present: must be blank
+      :taken: has already been taken
+      :too_long:
+        :one: is too long (maximum is 1 character)
+        :other: is too long (maximum is %{count} characters)
+      :too_short:
+        :one: is too short (minimum is 1 character)
+        :other: is too short (minimum is %{count} characters)
+      :wrong_length:
+        :one: is the wrong length (should be 1 character)
+        :other: is the wrong length (should be %{count} characters)
+    :name:
+      :empty: Name can't be empty
+      :not_unique: This Working Group name is already been used. Please choose a different
+        name.
+    :organizer_id:
+      :at_least_one_required: Working group must have at least one organizer.
+      :empty: Please choose an organizer
+    :password:
+      :does_not_match: Your password did not match the password confirmation.
+      :empty: Password is required.
+      :nils: Please provide a password.
+      :no_lower: Your password must be at least 8 characters long and contain at least
+        one uppercase letter, one lowercase letter and one digit.
+      :no_numeric: Your password must be at least 8 characters long and contain at
+        least one uppercase letter, one lowercase letter and one digit.
+      :no_upper: Your password must be at least 8 characters long and contain at least
+        one uppercase letter, one lowercase letter and one digit.
+      :too_short: Your password must be at least 8 characters long and contain at
+        least one uppercase letter, one lowercase letter and one digit.
+    :password_confirmation:
+      :did_not_match: Your password and password confirmation did not match.
+      :empty: Password confirmation is required.
+      :nils: Please confirm your password.
+    :postal_code:
+      :empty: Please enter a postal code
+    :primary_location:
+      :empty: Location can't be empty
+    :start_date:
+      :empty: Start date can't be blank.
+    :start_time:
+      :format: Please enter the start time in the format 00:00.
+    :unacceptable_request: |
+      A supported version is expected in the Accept header.
+    :unavailable_session: |
+      Session %{id} is is no longer available in memory.
+
+      If you happen to run on a multi-process server (like Unicorn or Puma) the process
+      this request hit doesn't store %{id} in memory. Consider turning the number of
+      processes/workers to one (1) or using a different server in development.
+  :fields:
+    :email: Email address
+    :email-placeholder: Enter your email
+    :location: Location
+    :name: Name
+    :password: Password
+    :password-placeholder: Enter your password
   :files:
-    :new:
-      :header: Add file to %{name}
     :edit:
       :header: Edit File
     :list:
       :confirm_delete_file: Are you sure you want to delete this file?
+    :new:
+      :header: Add file to %{name}
+  :flash:
+    :actions:
+      :create:
+        :notice: "%{resource_name} was successfully created."
+      :destroy:
+        :alert: "%{resource_name} could not be removed."
+        :notice: "%{resource_name} was successfully removed."
+      :invited:
+        :one: Invited %{count} volunteer to this %{model}.
+        :other: Invited %{count} volunteers to this %{model}.
+        :zero: There aren't any members to invite to this %{model}.
+      :update:
+        :notice: "%{resource_name} was successfully updated."
+    :created: "%{name} was successfully created."
+    :destroyed: "%{name} was successfully destroyed."
+    :failed:
+      :create: An error occured while creating the %{name}.
+      :update: An error occurred while updating the %{name}.
+    :file_uploads:
+      :created: File successfully uploaded
+      :updated: File Updated
+    :updated: "%{name} was successfully updated."
+    :user:
+      :account:
+        :circle_invalid: Not authorized to view this circle
+        :save-failed: We could not save your settings. Please fix any errors and try
+          again.
+        :saved: Your settings have been saved.
+  :forms:
+    :correct-errors: Please correct the errors below.
+  :formtastic:
+    :required: Required field
+    :update: Update %{model}
+  :hello: Hello world
+  :helpers:
+    :assign: Assign helpers
+    :block: Block
+    :clone: Copy %{model}
+    :complete: Complete %{model}
+    :confirm:
+      :project:
+        :delete: Really delete this project and all it's tasks?
+      :supply:
+        :delete: Are you sure you want to delete this supply?
+      :task:
+        :delete: Are you sure you want to delete this task?
+    :deactivate: Deactivate
+    :decline: I don't have this %{model}
+    :delete: Delete %{model}
+    :edit: Edit %{model}
+    :edit_no_model: Edit
+    :header:
+      :add: Create a new %{name}
+      :edit: Editing %{name}
+    :invite_circle: Invite circle
+    :invite_user: Invite user
+    :invite_working_group: Invite working group
+    :new: New %{model}
+    :page_entries_info:
+      :more_pages:
+        :display_entries: Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
+          of <b>%{total}</b> in total
+      :one_page:
+        :display_entries:
+          :one: Displaying <b>1</b> %{entry_name}
+          :other: Displaying <b>all %{count}</b> %{entry_name}
+          :zero: No %{entry_name} found
+    :placeholder:
+      :project:
+        :name: e.g. Organize Move to new Location
+      :task:
+        :name: E.g. Take Riad to School Orientation
+    :reactivate: Reactivate
+    :reopen: Reopen %{model}
+    :select:
+      :prompt: Please select
+    :submit:
+      :create: Create %{model}
+      :submit: Save %{model}
+      :update: Update %{model}
+    :unblock: Unblock
+    :volunteer: I have this %{model}
+  :lale: Lale.help
+  :language:
+    :de: German
+    :en: English
+    :fr: French
+  :layouts:
+    :internal:
+      :header:
+        :admin: Lale Admin
+        :find-circles: Find Circles
+        :settings: Your profile
+        :sign-out: Sign Out
+        :switch_to_circle: Switch to "%{circle_name}"
+      :sidebar:
+        :admin: Administration
+        :all-open-tasks: All Open Tasks
+        :all-tasks: Open Tasks
+        :all-working-groups: All Working Groups
+        :completed-tasks: Completed Tasks
+        :directory: Helper list
+        :discussions: Discussions
+        :documents: Documents
+        :home-page: Home Page
+        :my-calendar: My activities
+        :my-tasks: My Tasks
+        :my-working-groups: My Working Groups
+        :organizers: Organizers
+        :overviews: Overviews
+        :projects: Projects
+        :public_members: Helper list
+        :supplies: Supplies
+        :working_groups: Working Groups
+    :public:
+      :header:
+        :account: Account
+        :contact_us_for_new_circle: Contact us to create a new circle for you.
+        :dont-have-account: Don't have an account?
+        :sign-out: Sign out
+        :sign-up: Sign up
+        :signed-in-as: Signed in as %{user}
+  :mailers:
+    :subject:
+      :project_mailer:
+        :project_invitation: Lale needs your help with a new project.
+      :supply_mailer:
+        :supply_completion_reminder: Thanks for helping!
+        :supply_invitation: Lale needs your help with a new supply.
+      :task_mailer:
+        :task_assigned: A task was assigned to you.
+        :task_change: Something has changed about your task.
+        :task_comment: A comment was made on your task.
+        :task_completion_reminder: Thanks for helping!
+        :task_invitation: Lale needs your help with a new task.
+        :task_reminder: All clear for your upcoming task?
+        :task_suggestion: We would like to suggest a task for you.
+        :task_unassigned: A task was un-assigned from you.
+      :user_mailer:
+        :account_activated: Your circle membership was activated.
+        :account_activation: A new member wants to join your circle
+        :forgot_password: Did you forget something?
+  :number:
+    :currency:
+      :format:
+        :delimiter: ","
+        :format: "%u%n"
+        :precision: '2'
+        :separator: "."
+        :significant: false
+        :strip_insignificant_zeros: false
+        :unit: "$"
+    :format:
+      :delimiter: ","
+      :precision: '3'
+      :separator: "."
+      :significant: false
+      :strip_insignificant_zeros: false
+    :human:
+      :decimal_units:
+        :format: "%n %u"
+        :units:
+          :billion: Billion
+          :million: Million
+          :quadrillion: Quadrillion
+          :thousand: Thousand
+          :trillion: Trillion
+      :format:
+        :precision: '3'
+        :significant: 'true'
+        :strip_insignificant_zeros: 'true'
+      :storage_units:
+        :format: "%n %u"
+        :units:
+          :byte:
+            :one: Byte
+            :other: Bytes
+          :gb: GB
+          :kb: KB
+          :mb: MB
+          :tb: TB
+    :percentage:
+      :format:
+        :format: "%n%"
+  :project_edit:
+    :cancel: Cancel
+  :public:
+    :circles:
+      :index:
+        :create-circle-button: Create a new Circle
+        :create-circle-phrase: If you don't want to join this circle, you can
+        :title: Circles in your area
+      :membership_inactive:
+        :blocked:
+          :active_circle_links: 'You can still switch to one of your other circles:
+            %{links}.'
+          :description: 'Please contact a circle admin if you feel this happened by
+            mistake: %{admins_list}.'
+          :title: Your circle membership was blocked.
+        :pending:
+          :active_circle_links: 'You can still switch to one of your other circles:
+            %{links}.'
+          :description: 'The circle admins have been notified and should activate
+            your account soon. If they don''t or if you have questions, please contact
+            them by email: %{admins_list}.'
+          :title: Welcome to Lale! Your circle membership is being activated.
+      :new:
+        :details: It's a tremendous opportunity to help your community help each other
+          and make the world a better place
+        :title: Start your circle of volunteers
+    :reset_password_flow:
+      :confirmation:
+        :details: You will soon receive an email with a link to reset your password.
+        :title: Check your email!
+      :reset_password:
+        :reset-password: Reset password
+        :reset-password-phrase: Reset your password
+        :sign-in: Sign in
+  :ransack:
+    :all: all
+    :and: and
+    :any: any
+    :asc: ascending
+    :attribute: attribute
+    :combinator: combinator
+    :condition: condition
+    :desc: descending
+    :or: or
+    :predicate: predicate
+    :predicates:
+      :blank: is blank
+      :cont: contains
+      :cont_all: contains all
+      :cont_any: contains any
+      :does_not_match: doesn't match
+      :does_not_match_all: doesn't match all
+      :does_not_match_any: doesn't match any
+      :end: ends with
+      :end_all: ends with all
+      :end_any: ends with any
+      :eq: equals
+      :eq_all: equals all
+      :eq_any: equals any
+      :false: is false
+      :gt: greater than
+      :gt_all: greater than all
+      :gt_any: greater than any
+      :gteq: greater than or equal to
+      :gteq_all: greater than or equal to all
+      :gteq_any: greater than or equal to any
+      :in: in
+      :in_all: in all
+      :in_any: in any
+      :lt: less than
+      :lt_all: less than all
+      :lt_any: less than any
+      :lteq: less than or equal to
+      :lteq_all: less than or equal to all
+      :lteq_any: less than or equal to any
+      :matches: matches
+      :matches_all: matches all
+      :matches_any: matches any
+      :not_cont: doesn't contain
+      :not_cont_all: doesn't contain all
+      :not_cont_any: doesn't contain any
+      :not_end: doesn't end with
+      :not_end_all: doesn't end with all
+      :not_end_any: doesn't end with any
+      :not_eq: not equal to
+      :not_eq_all: not equal to all
+      :not_eq_any: not equal to any
+      :not_in: not in
+      :not_in_all: not in all
+      :not_in_any: not in any
+      :not_null: is not null
+      :not_start: doesn't start with
+      :not_start_all: doesn't start with all
+      :not_start_any: doesn't start with any
+      :null: is null
+      :present: is present
+      :start: starts with
+      :start_all: starts with all
+      :start_any: starts with any
+      :true: is true
+    :search: search
+    :sort: sort
+    :value: value
+  :roles:
+    :name:
+      :admin: Admin
+      :circle:
+        :admin: Admin
+        :custom: Custom
+        :helpee: Helpee
+        :official: Official
+        :volunteer: Volunteer
+      :member: Member
+      :supply:
+        :organizer: Organizer
+        :volunteer: Volunteer
+      :task:
+        :assignee: Volunteer
+        :organizer: Organizer
+        :volunteer: Volunteer
+  :sessions:
+    :create:
+      :login_error: Login failed, please verify your email and password.
+      :login_error_flash: Login failed, please verify your email and password.
+    :destroy:
+      :signed_out: Signed out!
+    :new:
+      :login_error_common_reasons:
+        :one: did you use the right email address for Lale?
+        :three: is the CAPS LOCK key activated?
+        :two: did you change your password recently?
+      :login_error_message_title: 'We couldn''t log you in. Please check:'
+      :reset-password: Reset my password
+      :sign-in: Sign in
+      :sign-in-phrase: Sign in to your circle
+  :sidebar:
+    :circle_add_menu:
+      :add: Add
+  :supplies:
+    :auto_comment:
+      :completed: "%{user} completed this supply on %{date}."
+      :invited: "%{user} invited %{invite_count} helpers to this supply on %{date}"
+      :reopened: "%{user} re-opened this supply on %{date}."
+      :updated: "%{user} changed %{changed_fields}."
+      :user_assigned: "%{user} signed up for this supply on %{date}."
+      :user_unassigned: "%{user} unassigned this supplies on %{date}."
+    :flash:
+      :already_taken: This supply has already been claimed by someone else
+      :complete_failed: Unable to mark supply as donated. Please try again.
+      :completed: Thanks for the supply!
+      :decline_failed: Unable to decline this supply. Please try again later.
+      :declined: Thanks for your honesty! We will find someone else.
+      :invite_failed: Unable to invite members to this supply. Please try again later.
+      :invited: Invited members of %{name} to this supply
+      :reopened: Supply has been re-opened
+      :reopening_failed: There was a problem re-opening this supply
+      :volunteer_failed: Unable to sign up for this supply. Please try again later.
+      :volunteered: Thanks for signing up!
+  :supply:
+    :presenter:
+      :messages:
+        :recent_activity: Recent activity
+        :volunteer_needed: Volunteer needed
+  :supply_edit:
+    :cancel: Cancel
+  :support:
+    :array:
+      :last_word_connector: ", and "
+      :two_words_connector: " and "
+      :words_connector: ", "
+  :supported-by: Supported by
+  :task:
+    :presenter:
+      :messages:
+        :more_volunteers_needed: More volunteers needed
+        :recent_activity: Recent activity
+  :task_edit:
+    :cancel: Cancel
+  :tasks:
+    :auto_comment:
+      :completed: "%{user} completed this task on %{date}."
+      :copied: This task was copied from task %{original_task} on %{date}.
+      :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
+      :reopened: "%{user} re-opened this task on %{date}."
+      :updated: "%{user} changed %{changed_fields}."
+      :user_assigned: "%{user} was assigned to this task on %{date}."
+      :user_unassigned: "%{user} was unassigned from this task on %{date}."
+      :user_unassigned_self: "%{user} unassigned from this task on %{date}."
+      :user_volunteered: "%{user} signed up for this task on %{date}."
+      :users_assigned:
+        :one: "%{assignees} was assigned to this task by %{assigner} on %{date}."
+        :other: "%{assignees} were assigned to this task by %{assigner} on %{date}."
+      :users_unassigned:
+        :one: "%{unassignees} was unassigned from this task by %{unassigner} on %{date}."
+        :other: "%{unassignees} were unassigned from this task by %{unassigner} on
+          %{date}."
+    :flash:
+      :completed: Thanks for completing %{name}!
+      :decline_failed: Failed to decline from %{name}.
+      :declined: Successfully declined from %{name}.
+      :reopened: Task has been re-opened
+      :reopening_failed: There was a problem re-opening this task
+      :volunteered: Thanks for volunteering for %{name}!
+  :time:
+    :am: am
+    :formats:
+      :default: "%a, %d %b %Y %H:%M:%S %z"
+      :long: "%B %d, %Y %H:%M"
+      :short: "%d %b %H:%M"
+    :pm: pm
+  :unauthorized:
+    :manage:
+      :all: Not authorized to %{action} %{subject}.
+  :url:
+    :terms_of_service: http://lale.help/terms#terms
+  :user:
+    :account:
+      :edit:
+        :country_select: Select Country
+        :error_correction: Please correct the errors below.
+        :reset_password: Reset your Password
+        :title: Your profile
+        :update_settings: Update Settings
+      :reset_password:
+        :password: Password
+        :password_confirmation: Password Confirmation
+        :reset_password: Reset your Password
+        :update: Update your Password
+      :show:
+        :edit_profile: Edit Profile
+        :reset_password: Reset Password
+        :title: Your Profile
+        :view_public_profile: View your public profile
+    :identities:
+      :new:
+        :accept_terms: Accept Terms and Conditions
+        :city: City
+        :country: Country
+        :country_select: Select Country
+        :email: Email
+        :first_name: First Name
+        :header: Start helping now
+        :home_phone: Home Phone
+        :language: Language
+        :last_name: Last Name
+        :mobile_phone: Mobile Phone
+        :password: Password
+        :password_confirmation: Password Confirmation
+        :postal_code: Postal Code
+        :public_profile: Show my profile to all circle members
+        :state_province: State / Province
+        :street_address: Street Address
+  :users:
+    :flash:
+      :password_reset_success: Your password was successfully updated
   :users_box:
     :no_users_yet: No users yet.
+  :views:
+    :pagination:
+      :first: "&laquo; First"
+      :last: Last &raquo;
+      :next: Next &rsaquo;
+      :previous: "&lsaquo; Prev"
+      :truncate: "&hellip;"
+  :workflow:
+    :activation_error: Failed to activate user.
+    :activation_success: User successfully activated.
+    :cancel: Cancel
+    :continue: Continue
+    :copied: Copied!
+    :join: Join
+    :read_terms: View Terms and Conditions.
+    :save: Save
+  :working_group:
+    :types:
+      :private: Private
+      :public: Public
