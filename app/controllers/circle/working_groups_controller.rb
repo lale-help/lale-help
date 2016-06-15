@@ -119,7 +119,7 @@ class Circle::WorkingGroupsController < ApplicationController
 
   def leave
     authorize! :leave, current_working_group
-    outcome = WorkingGroup::RemoveUser.run(working_group: current_working_group, user_id: current_user.id)
+    outcome = WorkingGroup::RemoveUser.run(working_group: current_working_group, user_id: current_user.id, role_type: :all)
     redirect_to circle_working_group_path(current_circle, current_working_group), alert: outcome.errors.try(:message_list)
   end
 

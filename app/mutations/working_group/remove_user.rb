@@ -1,4 +1,4 @@
-class WorkingGroup::RemoveUser  < Mutations::Command
+class WorkingGroup::RemoveUser < Mutations::Command
 
   required do
     model :working_group
@@ -11,7 +11,7 @@ class WorkingGroup::RemoveUser  < Mutations::Command
     if user_is_last_admin?
       add_error(:organizer_id, :at_least_one_required) 
     end
-    unless %i(member admin).include?(role_type.to_sym)
+    unless %i(member admin all).include?(role_type.to_sym)
       add_error(:role_type, :at_least_one_required) 
     end
   end
