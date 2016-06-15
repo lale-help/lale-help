@@ -22,7 +22,8 @@ module SidebarHelper
   end
 
   def working_group_counter(working_group)
-    working_group.tasks.not_completed.count + working_group.supplies.not_completed.count
+    # FIXME DRY up scopes by making methods on task, creating finder mutations/objects, etc.
+    working_group.tasks.not_completed.not_in_project.count + working_group.supplies.not_completed.not_in_project.count
   end
 
   def current_users_working_groups

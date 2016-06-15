@@ -15,16 +15,18 @@ module Taskable
     has_many :organizers,  ->{ klass::Role.send("#{klass.to_s.downcase}.organizer") }, through: :roles, source: :user
 
     # Scopes
-    scope :for_circle, ->(circle) { joins(:working_group).where(working_groups: { circle_id: circle.id } ) }
-    scope :for_project, ->(project) { where(project_id: project.id) }
+    scope :for_circle,      -> (circle) { joins(:working_group).where(working_groups: { circle_id: circle.id } ) }
+    scope :for_project,     -> (project) { where(project_id: project.id) }
+    scope :in_project,      -> { where.not(project_id: nil) }
+    scope :not_in_project,  -> { where(project_id: nil) }
 
-    scope :with_role, ->(role) { where("#{klass.to_s.downcase}_roles" => {role_type: klass::Role.role_types[role]}) }
+    scope :with_role,       -> (role) { where("#{klass.to_s.downcase}_roles" => {role_type: klass::Role.role_types[role]}) }
 
-    scope :volunteered, -> { with_role("#{klass.to_s.downcase}.volunteer") }
-    scope :organized,   -> { with_role("#{klass.to_s.downcase}.organizer") }
-    scope :unassigned,  -> { joins("LEFT JOIN task_roles on tasks.id = task_roles.task_id AND task_roles.role_type = #{klass::Role.role_types['task.volunteer']}").group('tasks.id', 'working_groups.name').having('count(task_roles.id) < volunteer_count_required') }
-    scope :complete,    -> { where.not(completed_at: nil) }
-    scope :incomplete,  -> { where(completed_at: nil) }
+    scope :volunteered,     -> { with_role("#{klass.to_s.downcase}.volunteer") }
+    scope :organized,       -> { with_role("#{klass.to_s.downcase}.organizer") }
+    scope :unassigned,      -> { joins("LEFT JOIN task_roles on tasks.id = task_roles.task_id AND task_roles.role_type = #{klass::Role.role_types['task.volunteer']}").group('tasks.id', 'working_groups.name').having('count(task_roles.id) < volunteer_count_required') }
+    scope :complete,        -> { where.not(completed_at: nil) }
+    scope :incomplete,      -> { where(completed_at: nil) }
 
     scope :ordered_by_date, -> { reorder(due_date: 'asc')}
 

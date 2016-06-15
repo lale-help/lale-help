@@ -32,7 +32,16 @@ class Circle::WorkingGroupsController < ApplicationController
 
   def show
     authorize! :read, current_working_group
-    @files = current_working_group.files.select { |f| can?(:read, f)}
+
+    @files              = current_working_group.files.select { |f| can?(:read, f) }
+    
+    tasks               = current_working_group.tasks.not_in_project.ordered_by_date
+    @open_tasks         = tasks.not_completed.select { |f| can?(:read, f) }
+    @completed_tasks    = tasks.completed.select { |f| can?(:read, f) }
+    
+    supplies            = current_working_group.supplies.not_in_project.ordered_by_date
+    @open_supplies      = supplies.not_completed.select { |f| can?(:read, f) }
+    @completed_supplies = supplies.completed.select { |f| can?(:read, f) }
   end
 
   def edit

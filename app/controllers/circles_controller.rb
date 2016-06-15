@@ -8,20 +8,14 @@ class CirclesController < ApplicationController
 
   include HasCircle
 
-
   def show
-    @open_tasks = current_circle.tasks.not_completed.ordered_by_date.select do |task|
-      can? :read, task
-    end
-    @completed_tasks = current_circle.tasks.completed.ordered_by_date.select do |task|
-      can? :read, task
-    end
-    @open_supplies = current_circle.supplies.not_completed.ordered_by_date.select do |supply|
-      can? :read, supply
-    end
-    @completed_supplies = current_circle.supplies.completed.ordered_by_date.select do |supply|
-      can? :read, supply
-    end
+    tasks               = current_circle.tasks.not_in_project.ordered_by_date
+    @open_tasks         = tasks.not_completed.select { |task| can?(:read, task) }
+    @completed_tasks    = tasks.completed.select { |task| can?(:read, task) }
+
+    supplies            = current_circle.supplies.not_in_project.ordered_by_date
+    @open_supplies      = supplies.not_completed.select { |supply| can?(:read, supply) }
+    @completed_supplies = supplies.completed.select { |supply| can?(:read, supply) }
   end
 
   def update
