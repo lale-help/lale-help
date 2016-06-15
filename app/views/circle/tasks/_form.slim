@@ -105,5 +105,3 @@
     - if @form.task.persisted?
       = submit_tag(t('.update_and_notify'), name: 'send_notifications')
     = link_to(t('task_edit.cancel'), :back)
-    - if locals[:delete]
-      = link_to t('delete'), [current_circle, current_task], class: 'button secondary-action', data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete

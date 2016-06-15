@@ -62,19 +62,35 @@
       = render partial: 'circle/comments/comments', locals: { item: current_task, circle: current_circle, max_display: 5 }
 
   aside
+
+    .actions
+
+      - if can? :manage, current_task
+
+        .dropdown.task-edit-menu
+          input id='task-edit-selector' type='checkbox' class='menu-selector'
+          label for='task-edit-selector'
+            .button.button-super
+              = t('helpers.edit', model: current_task.model_name.human)
+              i
+          .menu.menu-left
+            - if can? :edit, current_task
+              = link_to(edit_circle_task_path(current_circle, current_task)) do
+                = t('helpers.edit', model: current_task.model_name.human)
+            - if can? :complete, current_task
+              = link_to(circle_task_complete_path(current_circle, current_task), method: :put) do
+                = t('helpers.complete', model: current_task.model_name.human)
+            - if can? :reopen, current_task
+              = link_to(circle_task_reopen_path(current_circle, current_task), method: :put) do
+                = t('helpers.reopen', model: current_task.model_name.human)
+            - if can? :clone, current_task
+              = link_to(circle_task_clone_path(current_circle, current_task), method: :put) do
+                = t('helpers.clone', model: current_task.model_name.human)
+            - if can? :delete, current_task
+              - options = {data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete}
+              = link_to(circle_task_path(current_circle, current_task), options) do
+                = t('helpers.delete', model: current_task.model_name.human)
+
     .volunteers
       == cell 'tasks/sourcing_widget', current_task, current_user: current_user
 
-    .actions
-      - if can? :complete, current_task
-        = form_tag circle_task_complete_path(current_circle, current_task), method: :put do
-          button.button-primary= t('helpers.complete', model: current_task.model_name.human)
-      - if can? :reopen, current_task
-        = form_tag circle_task_reopen_path(current_circle, current_task), method: :put do
-          button.button-primary= t('helpers.reopen', model: current_task.model_name.human)
-      - if can? :clone, current_task
-        = form_tag circle_task_clone_path(current_circle, current_task), method: :put do
-          button.button= t('helpers.clone', model: current_task.model_name.human)
-      - if can? :edit, current_task
-        = form_tag edit_circle_task_path(current_circle, current_task), method: :get do
-          button.button= t('helpers.edit', model: current_task.model_name.human)

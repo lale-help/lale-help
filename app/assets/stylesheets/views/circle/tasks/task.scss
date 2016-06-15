@@ -82,6 +82,12 @@ section > .task {
     margin-left: 3rem;
     @include flex(0 0 30rem);
 
+    .button-super {
+      i {
+        @include fa-icon(arrow-circle-down);
+      }
+    }
+
     .volunteers {
       @include border-top-radius($border-radius);
       @include border-bottom-radius($border-radius);
