@@ -1,7 +1,7 @@
 class TranslationManager
   SUPPORTED_LANGS = I18n.available_locales.map(&:to_sym)
   IGNORED_KEYS = [
-    /\A(active_admin|formtastic|faker)\./
+    /\A(active_admin|formtastic|faker|ransack)\./
   ]
 
   Translation = Struct.new(:key, :languages) do
