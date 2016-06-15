@@ -5227,10 +5227,10 @@
     :tasks:
       :sourcing_widget:
         :modal:
-          :invite_all: Alle Helfer im Helferkreis
+          :invite_all: Alle Helfer im Helferkreis (%{count})
           :invite_by_name: Einzelne Helfer ansprechen
-          :invite_working_group: Alle Helfer in dieser Arbeitsgruppe
-          :title_assign: Helfer festlegen
+          :invite_working_group: Alle Helfer in dieser Arbeitsgruppe (%{count})
+          :title_assign: Direkt festlegen
           :title_invite: Mit Email einladen
           :title_main: Helfer finden
         :find_helpers: Helfer finden &hellip;
@@ -5250,7 +5250,7 @@
       :volunteer_select_tag:
         :all_helpers: Alle Helfer
         :in_working_group: In dieser Arbeitsgruppe
-        :placeholder: Helfer auswählen...
+        :placeholder: Bitte auswählen...
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
