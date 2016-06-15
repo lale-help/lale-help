@@ -749,6 +749,7 @@
         :no_groups: No groups to show right now.
         :cant_deactivate_group_with_items: The group still contains incomplete tasks
           or supplies. Please complete them first, then try again.
+        :create_working_group: Create a Working Group
   :datepicker:
     :day_of_week_start: '0'
     :date_format: m/d/Y
@@ -858,7 +859,6 @@
       :show:
         :settings: Settings
         :promote_user: Promote user to role
-        :create_working_group: Create a Working Group
         :confirm_delete_circle: Are you sure?
         :confirm_delete_working_group: Are you sure?
       :roles:

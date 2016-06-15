@@ -8,7 +8,3 @@ section.circle-admin
   
   == cell('working_groups/table', current_circle.working_groups.disabled.asc_order, status: :deactivated)
 
-section.circle-admin
-  - if can? :manage, current_circle
-    = link_to new_circle_working_group_path(current_circle) do
-      button.button-primary = t('.create_working_group')

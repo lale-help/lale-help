@@ -537,7 +537,6 @@
         :settings: Paramètres
         :confirm_delete_circle: Etes-vous sure ?
         :confirm_delete_working_group: Etes-vous sure ?
-        :create_working_group: Créer un Groupe
         :promote_user: Promouvoir cet utilisateur au role
       :invite:
         :invite_members: Inviter des membres à joindre le cerle %{circle}
@@ -1153,3 +1152,4 @@
         :cant_deactivate_group_with_items: Le groupe contient encore des tâches or
           fournitures incomplètes. Merci de les complèter et de ré-essayer.
         :no_groups: Pas de groupes à montrer en ce moment.
+        :create_working_group: Créer un Groupe

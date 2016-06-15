@@ -33,6 +33,10 @@ class WorkingGroups::TableCell < ::ViewModel
     t('.no_groups')
   end
 
+  def create_working_group_path
+    new_circle_working_group_path(working_groups.first.circle)
+  end
+
   def links_for(group)
     if showing_active?
       [link_to_edit(group), link_to_deactivate(group)]

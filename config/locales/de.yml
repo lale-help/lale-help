@@ -479,6 +479,7 @@
         :cant_deactivate_group_with_items: Die Arbeitsgruppe enthält noch offene Aufgaben
           und/oder Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen
           es dann noch einmal.
+        :create_working_group: Neue Arbeitsgruppe anlegen
     :tasks:
       :sourcing_widget:
         :modal:
@@ -608,7 +609,6 @@
         :confirm_delete_circle: Bist Du sicher?
         :confirm_delete_working_group: Bist Du sicher?
         :promote_user: Rolle vergeben
-        :create_working_group: Neue Arbeitsgruppe anlegen
       :roles:
         :confirm_delete_circle: Bist Du sicher?
         :promote_user: Rolle vergeben

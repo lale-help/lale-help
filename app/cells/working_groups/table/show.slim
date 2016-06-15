@@ -1,5 +1,9 @@
 h2 = title
 
+- if showing_active?
+  = link_to create_working_group_path do
+    button.button = t('.create_working_group')
+
 - if groups.empty?
 
   p = no_groups_message
