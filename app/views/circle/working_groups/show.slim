@@ -6,8 +6,10 @@
 
       .description
         = current_working_group.description
-
-
+    
+    .right
+      - if can? :manage, current_working_group
+        a.button.button-super href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
 
   .details
     main
@@ -45,10 +47,6 @@
 
     aside
 
-      .actions
-        - if can? :manage, current_working_group
-          a.button.button-super href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
-
       .users-box
         .title
           h2 = t('.admin-title', count: current_working_group.active_admins.count )
@@ -73,14 +71,17 @@
             - users.each do |user|
               == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
 
-        - if can?(:join, current_working_group) and !current_working_group.is_private?
-          = button_to circle_working_group_join_path(current_circle, current_working_group), method: :patch do
-            = t('.join')
+        .actions
+          - if can?(:join, current_working_group) and !current_working_group.is_private?
+            - options = { class: 'button button-primary', method: :patch}
+            = link_to(circle_working_group_join_path(current_circle, current_working_group), options) do
+              = t('.join')
 
-        - if can? :leave, current_working_group
-          - options = { method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
-          = button_to circle_working_group_leave_path(current_circle, current_working_group), options do
-            = t('.leave')
+
+          - if can? :leave, current_working_group
+            - options = { class: 'button button-primary', method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
+            = link_to(circle_working_group_leave_path(current_circle, current_working_group), options) do
+              = t('.leave')
 
 
 

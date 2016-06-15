@@ -2,12 +2,14 @@ body.internal .working-group {
 
   .header {
     @include display(flex);
-    @include justify-content(space-between);
+    @include flex-direction(row);
     @include align-items(top);
+    @include flex-wrap(wrap);
+    margin-bottom: 20px;
 
     .left {
-      @include flex(1 1);
-      padding-right: 3rem;
+      max-width: 650px;
+      @include flex(3 0 50rem);
       .title {
         font-size: 26px;
       }
@@ -18,24 +20,26 @@ body.internal .working-group {
       }
     }
 
-    .actions {
-      padding: 1rem 0;
+    .right {
+      margin-left: 3rem;
+      @include flex(0 0 30rem);
+      padding: 0 10px;
+      .button-super {
+        width: 100%;
+      }
     }
-  }
 
-  .tab-nav {
-   margin-top: 22px;
   }
 
   .details {
     @include display(flex);
     @include flex-direction(row);
     @include align-items(top);
-    @include justify-content(space-between);
     @include flex-wrap(wrap);
 
     main {
-      @include flex(11 1);
+      max-width: 650px;
+      @include flex(3 0 50rem);
     }
 
     .tab  {
@@ -51,7 +55,22 @@ body.internal .working-group {
     }
 
     aside {
+      margin-left: 3rem;
       @include flex(0 0 30rem);
+
+      .users-box {
+        margin-bottom: 2rem;
+
+        .actions {
+          margin-bottom: 1.5rem;
+
+          .button, .button-primary {
+            width: 100%;
+            margin: 0.5rem 0;
+          }
+        }
+
+      }
     }
   }
 

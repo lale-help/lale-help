@@ -3,10 +3,6 @@
   @include border-bottom-radius($border-radius);
   border: thin solid $border-color;
 
-  .task-action-button {
-    padding: 0.5em 0;
-  }
-
   > * {
     border-top: thin solid $border-color;
     padding: 1.5rem 1rem;
@@ -38,10 +34,7 @@
   // FIXME partially unused
   .user-badges {
     @include display(flex);
-    @include flex-direction(row);
     @include flex-wrap(wrap);
-    @include align-items(center);
-    @include justify-content(flex-start);
 
     > * {
       margin: 0.25rem;
