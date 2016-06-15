@@ -1,223 +1,5 @@
 ---
 :de:
-  :ransack:
-    :search: suchen
-    :predicate: Eigenschaft
-    :and: und
-    :or: oder
-    :any: beliebige
-    :all: alle
-    :combinator: Kombinator
-    :attribute: Attribut
-    :value: Wert
-    :condition: Bedingung
-    :sort: sortieren
-    :asc: aufsteigend
-    :desc: absteigend
-    :predicates:
-      :eq: gleicht
-      :eq_any: gleicht beliebigen
-      :eq_all: gleicht allen
-      :not_eq: ungleich
-      :not_eq_any: ungleich beliebigen
-      :not_eq_all: ungleich allen
-      :matches: entspricht
-      :matches_any: stimmt überein mit einem beliebigen
-      :matches_all: stimmt mit allen überein
-      :does_not_match: stimmt nicht überein
-      :does_not_match_any: erfüllt ein beliebiger/s nicht
-      :does_not_match_all: stimmt nicht mit allen überein
-      :lt: kleiner als
-      :lt_any: kleiner als ein beliebiger/s
-      :lt_all: kleiner als alle als alle
-      :lteq: kleiner oder gleich
-      :lteq_any: kleiner oder gleich beliebige
-      :lteq_all: kleiner oder gleich allen
-      :gt: größer als
-      :gt_any: größer als ein beliebiger/s
-      :gt_all: größer als alle
-      :gteq: größer oder gleich
-      :gteq_any: größer oder gleich als ein beliebiger/s
-      :gteq_all: größer oder gleich alle
-      :in: in
-      :in_any: ist nicht in einem beliebigen
-      :in_all: in allen
-      :not_in: nicht in
-      :not_in_any: nicht in beliebige
-      :not_in_all: nicht in allen
-      :cont: enthält
-      :cont_any: enthält beliebige
-      :cont_all: enthält alle
-      :not_cont: enthält nicht
-      :not_cont_any: enthält ein beliebiger/s nicht
-      :not_cont_all: enthält keine/s
-      :start: beginnt mit
-      :start_any: beginnt mit beliebigen
-      :start_all: beginnt mit allen
-      :not_start: beginnt nicht mit
-      :not_start_any: beginnt nicht mit beliebigen
-      :not_start_all: beginnt nicht mit allen
-      :end: endet mit
-      :end_any: endet mit beliebigen
-      :end_all: endet mit allen
-      :not_end: endet nicht mit
-      :not_end_any: endet nicht mit beliebigen
-      :not_end_all: endet nicht mit allen
-      :true: ist wahr
-      :false: ist falsch
-      :present: ist vorhanden
-      :blank: ist leer
-      :null: ist null
-      :not_null: ist nicht null
-  :formtastic:
-    :yes: Ja
-    :no: Nein
-    :create: "%{model} anlegen"
-    :update: "%{model} speichern"
-    :submit: Abschicken
-    :cancel: Abbrechen
-    :reset: "%{model} zurücksetzen"
-    :required: Pflichtfeld
-  :active_admin:
-    :dashboard: "Übersicht"
-    :dashboard_welcome:
-      :welcome: Willkommen in Active Admin. Dies ist die Standard-Übersichtsseite.
-      :call_to_action: Siehe 'app/admin/dashboard.rb', um Übersichts-Bereiche hinzuzufügen.
-    :view: Anzeigen
-    :edit: Bearbeiten
-    :delete: Löschen
-    :delete_confirmation: Wollen Sie dieses Element wirklich löschen?
-    :new_model: "%{model} erstellen"
-    :edit_model: "%{model} bearbeiten"
-    :delete_model: "%{model} löschen"
-    :details: "%{model} Details"
-    :cancel: Abbrechen
-    :empty: Leer
-    :previous: Zurück
-    :next: Weiter
-    :download: 'Herunterladen:'
-    :has_many_new: "%{model} hinzufügen"
-    :has_many_delete: Löschen
-    :has_many_remove: Entfernen
-    :filters:
-      :buttons:
-        :filter: Filtern
-        :clear: Filter entfernen
-      :predicates:
-        :contains: Enthält
-        :equals: Gleich
-        :starts_with: Beginnt mit
-        :ends_with: Endet mit
-        :greater_than: Größer als
-        :less_than: Kleiner als
-    :search_status:
-      :headline: 'Anwendungsbereich:'
-      :current_filters: 'Aktuelle Filter:'
-      :no_current_filters: Keine
-    :status_tag:
-      :yes: Ja
-      :no: Nein
-    :main_content: Bitte implementieren Sie %{model}#main_content, um Inhalte anzuzeigen.
-    :logout: Abmelden
-    :powered_by: Powered by %{active_admin} %{version}
-    :sidebars:
-      :filters: Filter
-      :search_status: Suchstatus
-    :pagination:
-      :empty: Keine %{model} gefunden
-      :one: Zeige <b>1</b> %{model}
-      :one_page: Zeige <b>alle %{n}</b> %{model}
-      :multiple: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b> von <b>%{total}</b>
-      :multiple_without_total: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b>
-      :entry:
-        :one: Eintrag
-        :other: Einträge
-    :any: Alle
-    :blank_slate:
-      :content: Es gibt noch keine %{resource_name}.
-      :link: Erstellen
-    :dropdown_actions:
-      :button_label: Aktionen
-    :batch_actions:
-      :button_label: Stapelverarbeitung
-      :default_confirmation: Bist du sicher, dass Sie dies tun wollen?
-      :delete_confirmation: Sind Sie sicher dass sie diese %{plural_model} löschen
-        wollen?
-      :succesfully_destroyed:
-        :one: Erfolgreich 1 %{model} gelöscht
-        :other: Erfolgreich %{count} %{plural_model} gelöscht
-      :selection_toggle_explanation: "(Auswahl umschalten)"
-      :link: erstellen
-      :action_label: "%{title} ausgewählte"
-      :labels:
-        :destroy: Löschen
-    :comments:
-      :resource_type: Res­sour­cen-Typ
-      :author_type: Autor-Typ
-      :body: Inhalt
-      :author: Autor
-      :title: Kommentar
-      :add: Kommentar hinzufügen
-      :delete: Löschen
-      :delete_confirmation: Sind Sie sicher dass sie diesen Kommentar löschen wollen?
-      :resource: Res­sour­ce
-      :no_comments_yet: Es gibt noch keine Kommentare.
-      :author_missing: Unbekannt
-      :title_content: Kommentare (%{count})
-      :errors:
-        :empty_text: Der Kommentar wurde nicht gespeichert, da der Text fehlt.
-      :created_at: Erstellt
-    :devise:
-      :username:
-        :title: Benutzername
-      :email:
-        :title: E-Mail-Adresse
-      :subdomain:
-        :title: Subdomain
-      :password:
-        :title: Passwort
-      :sign_up:
-        :title: Registrieren
-        :submit: Registrieren
-      :login:
-        :title: Login
-        :remember_me: Angemeldet bleiben
-        :submit: Login
-      :reset_password:
-        :title: Passwort vergessen?
-        :submit: Mein Passwort zurücksetzen
-      :change_password:
-        :title: "Ändern Sie Ihr Passwort"
-        :submit: Mein Passwort ändern
-      :unlock:
-        :title: Entsperrungsanweisung erneut senden
-        :submit: Entsperrungsanweisung erneut senden
-      :resend_confirmation_instructions:
-        :title: Anleitung zur Bestätigung noch mal schicken
-        :submit: Anleitung zur Bestätigung noch mal schicken
-      :links:
-        :sign_up: Registrieren
-        :sign_in: Anmeldung
-        :forgot_your_password: Passwort vergessen?
-        :sign_in_with_omniauth_provider: Anmeldung mit %{provider}
-        :resend_unlock_instructions: Entsperrungsanweisung erneut senden
-        :resend_confirmation_instructions: Bestätigungsanweisung erneut senden
-    :unsupported_browser:
-      :headline: ActiveAdmin unterstützt nicht länger den Internet Explorer in Version
-        8 oder niedriger.
-      :recommendation: Wir empfehlen die Nutzung von <a href="http://windows.microsoft.com/ie">Internet
-        Explorer</a>, <a href="https://chrome.google.com/">Google Chrome</a>, oder
-        <a href="https://mozilla.org/firefox/">Firefox</a>.
-      :turn_off_compatibility_view: Wenn sie IE 9 oder neuer benutzen, stellen sie
-        sicher das sie den <a href="http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer">"Kompatibilitätsansicht"
-        ausgeschaltet</a> haben.
-    :access_denied:
-      :message: Sie haben nicht die Berechtigung um diese Aktion auszuführen.
-    :index_list:
-      :table: Tabelle
-      :block: Liste
-      :grid: Gitter
-      :blog: Blog
   :datepicker:
     :day_of_week_start: '1'
     :date_format: d.m.Y
@@ -282,7 +64,7 @@
       :prompt: Bitte auswählen
     :edit: "%{model} bearbeiten"
     :edit_no_model: Bearbeiten
-    :invite: "%{model} einladen"
+    :invite: Helfer einladen
     :new: "%{model} erstellen"
     :complete: "%{model} abschliessen"
     :reopen: "%{model} wieder öffnen"
@@ -294,7 +76,7 @@
     :deactivate: Deaktivieren
     :reactivate: Reaktivieren
     :delete: Löschen
-    :assign: "%{model} eintragen"
+    :assign: Helfer eintragen
   :unauthorized:
     :manage:
       :all: Keine Berechtigung %{subject} zu %{action}.
@@ -581,6 +363,9 @@
         :uploadable: Hochgeladen für
         :file_size_bytes: Dateigrösse
         :updated_at: Zuletzt geändert
+        :is_public: für alle Helfer sichtbar
+        :name: Name
+        :file: Datei
       :file_upload/permission_is_public:
         :false: Privat
         :true: "Öffentlich"
@@ -696,11 +481,12 @@
     :tasks:
       :sourcing_widget:
         :modal:
-          :invite_all: Alle Helfer im Helferkreis
+          :invite_all: Alle Helfer im Helferkreis (%{count})
           :invite_by_name: Einzelne Helfer ansprechen
-          :invite_working_group: Alle Helfer in dieser Arbeitsgruppe
-          :title_assign: Helfer festlegen
+          :invite_working_group: Alle Helfer in dieser Arbeitsgruppe (%{count})
+          :title_assign: Direkt festlegen
           :title_invite: Mit Email einladen
+          :title_main: Helfer finden
         :find_helpers: Helfer finden &hellip;
         :decline: Ich kann leider nicht helfen
         :accept: Ich übernehme das
@@ -714,9 +500,11 @@
         :volunteer-count:
           :one: "%{count} Helfer hat sich eingetragen"
           :other: "%{count} Helfer haben sich eingetragen"
+        :no_volunteers_yet: Noch keine Helfer
       :volunteer_select_tag:
         :all_helpers: Alle Helfer
         :in_working_group: In dieser Arbeitsgruppe
+        :placeholder: Bitte auswählen...
   :flash:
     :created: "%{name} wurde erfolgreich erstellt."
     :updated: "%{name} wurde erfolgreich aktualisiert."
@@ -751,6 +539,8 @@
       :completed: Danke für die Hilfe bei %{name}!
       :reopened: Aufgabe wurde wieder geöffnet
       :reopening_failed: Beim Öffnen der Aufgabe trat ein Problem auf
+      :decline_failed: Fehler beim Ablehnen von %{name}.
+      :declined: "%{name} wurde erfolgreich abgelehnt."
     :auto_comment:
       :completed: "%{user} hat diese Aufgabe am %{date} erledigt."
       :copied: Diese Aufgabe wurde von Aufgabe %{original_task} am %{date} kopiert.
@@ -759,6 +549,17 @@
       :user_assigned: "%{user} hat sich für diese Aufgabe am %{date} angemeldet."
       :user_unassigned: "%{user} hat sich für diese Aufgabe am %{date} abgemeldet."
       :updated: "%{user} hat %{changed_fields} geändert."
+      :users_assigned:
+        :one: "%{assignees} wurde von %{assigner} für diese Aufgabe am %{date} eingetragen."
+        :other: "%{assignees} wurden von %{assigner} für diese Aufgabe am %{date}
+          eingetragen."
+      :user_unassigned_self: "%{user} hat sich für diese Aufgabe am %{date} ausgetragen."
+      :user_volunteered: "%{user} hat sich für diese Aufgabe am %{date} eingetragen."
+      :users_unassigned:
+        :one: "%{unassignees} wurde von %{unassigner} für diese Aufgabe am %{date}
+          ausgetragen."
+        :other: "%{unassignees} wurden von %{unassigner} für diese Aufgabe am %{date}
+          ausgetragen."
   :users:
     :flash:
       :password_reset_success: Das Passwort wurde erfolgreich geändert.
@@ -775,7 +576,8 @@
         :task_reminder: Passt noch alles?
         :task_suggestion: Lale möchte Dir eine Aufgabe vorschlagen
         :task_comment: Deine Aufgabe hat einen neuen Kommentar.
-        :task_assigned: Eine Aufgabe wurde zugeteilt.
+        :task_assigned: Du wurdest für eine Aufgabe eingetragen.
+        :task_unassigned: Du wurdest für eine Aufgabe wieder ausgetragen.
       :supply_mailer:
         :supply_completion_reminder: Vielen Dank für Deine Hilfe!
         :supply_invitation: Lale braucht Deine Hilfe für eine neue Sachspende.

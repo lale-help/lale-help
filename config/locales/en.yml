@@ -442,7 +442,7 @@
         :file_size_bytes: File Size
         :uploadable: Uploaded To
         :working_group: Working Group
-        :is_public: visible to everyone
+        :is_public: visible to all helpers
         :file: file
         :name: name
       :file_upload/permission_is_public:
@@ -515,8 +515,8 @@
     :clone: Copy %{model}
     :volunteer: I have this %{model}
     :decline: I don't have this %{model}
-    :invite: Invite %{model}
-    :assign: Assign %{model}
+    :invite: Invite helpers
+    :assign: Assign helpers
     :block: Block
     :unblock: Unblock
     :deactivate: Deactivate
@@ -537,111 +537,6 @@
         :name: E.g. Take Riad to School Orientation
       :project:
         :name: e.g. Organize Move to new Location
-  :ransack:
-    :search: search
-    :predicate: predicate
-    :and: and
-    :or: or
-    :any: any
-    :all: all
-    :combinator: combinator
-    :attribute: attribute
-    :value: value
-    :condition: condition
-    :sort: sort
-    :asc: ascending
-    :desc: descending
-    :predicates:
-      :eq: equals
-      :eq_any: equals any
-      :eq_all: equals all
-      :not_eq: not equal to
-      :not_eq_any: not equal to any
-      :not_eq_all: not equal to all
-      :matches: matches
-      :matches_any: matches any
-      :matches_all: matches all
-      :does_not_match: doesn't match
-      :does_not_match_any: doesn't match any
-      :does_not_match_all: doesn't match all
-      :lt: less than
-      :lt_any: less than any
-      :lt_all: less than all
-      :lteq: less than or equal to
-      :lteq_any: less than or equal to any
-      :lteq_all: less than or equal to all
-      :gt: greater than
-      :gt_any: greater than any
-      :gt_all: greater than all
-      :gteq: greater than or equal to
-      :gteq_any: greater than or equal to any
-      :gteq_all: greater than or equal to all
-      :in: in
-      :in_any: in any
-      :in_all: in all
-      :not_in: not in
-      :not_in_any: not in any
-      :not_in_all: not in all
-      :cont: contains
-      :cont_any: contains any
-      :cont_all: contains all
-      :not_cont: doesn't contain
-      :not_cont_any: doesn't contain any
-      :not_cont_all: doesn't contain all
-      :start: starts with
-      :start_any: starts with any
-      :start_all: starts with all
-      :not_start: doesn't start with
-      :not_start_any: doesn't start with any
-      :not_start_all: doesn't start with all
-      :end: ends with
-      :end_any: ends with any
-      :end_all: ends with all
-      :not_end: doesn't end with
-      :not_end_any: doesn't end with any
-      :not_end_all: doesn't end with all
-      :true: is true
-      :false: is false
-      :present: is present
-      :blank: is blank
-      :null: is null
-      :not_null: is not null
-  :cells:
-    :tasks:
-      :volunteer_select_tag:
-        :placeholder: by name
-        :in_working_group: In this working group
-        :all_helpers: All helpers
-      :sourcing_widget:
-        :no_volunteers_yet: No one signed up yet.
-        :modal:
-          :title_main: Find helpers
-          :title_assign: Assign to helper
-          :title_invite: Invite by email
-          :invite_working_group: All helpers in the working group (%{count})
-          :invite_all: All helpers in the circle (%{count})
-          :invite_by_name: Invite specific helpers
-        :title: Helpers
-        :find_helpers: Find helpers &hellip;
-        :accept: I'll help
-        :decline: I can't help anymore
-        :volunteer-count:
-          :one: "%{count} volunteer has signed up"
-          :other: "%{count} volunteers have signed up"
-        :volunteer-count-required:
-          :one: Requires %{count} volunteer
-          :other: Requires %{count} volunteers
-        :volunteer-count-missing:
-          :one: " (%{count} missing)"
-          :other: " (%{count} missing)"
-    :working_groups:
-      :table:
-        :title_active: Active working groups
-        :title_deactivated: Inactive working groups
-        :confirm_delete: Are you sure?
-        :no_groups: No groups to show right now.
-        :cant_deactivate_group_with_items: The group still contains incomplete tasks
-          or supplies. Please complete them first, then try again.
   :flash:
     :actions:
       :create:
@@ -817,6 +712,42 @@
       :block: List
       :grid: Grid
       :blog: Blog
+  :cells:
+    :tasks:
+      :volunteer_select_tag:
+        :placeholder: Please select...
+        :in_working_group: In this working group
+        :all_helpers: All helpers
+      :sourcing_widget:
+        :no_volunteers_yet: No one signed up yet.
+        :modal:
+          :title_main: Find helpers
+          :title_assign: Assign to helper
+          :title_invite: Invite by email
+          :invite_working_group: All helpers in the working group (%{count})
+          :invite_all: All helpers in the circle (%{count})
+          :invite_by_name: Invite specific helpers
+        :title: Helpers
+        :find_helpers: Find helpers &hellip;
+        :accept: I'll help
+        :decline: I can't help anymore
+        :volunteer-count:
+          :one: "%{count} volunteer has signed up"
+          :other: "%{count} volunteers have signed up"
+        :volunteer-count-required:
+          :one: Requires %{count} volunteer
+          :other: Requires %{count} volunteers
+        :volunteer-count-missing:
+          :one: " (%{count} missing)"
+          :other: " (%{count} missing)"
+    :working_groups:
+      :table:
+        :title_active: Active working groups
+        :title_deactivated: Inactive working groups
+        :confirm_delete: Are you sure?
+        :no_groups: No groups to show right now.
+        :cant_deactivate_group_with_items: The group still contains incomplete tasks
+          or supplies. Please complete them first, then try again.
   :datepicker:
     :day_of_week_start: '0'
     :date_format: m/d/Y
@@ -865,19 +796,22 @@
       :reopening_failed: There was a problem re-opening this task
       :reopened: Task has been re-opened
     :auto_comment:
-      :users_assigned: 
-        one: "%{assignees} was assigned to this task by %{assigner} on %{date}."
-        other: "%{assignees} were assigned to this task by %{assigner} on %{date}."
-      :users_unassigned: 
-        one: "%{unassignees} was unassigned from this task by %{unassigner} on %{date}."
-        other: "%{unassignees} were unassigned from this task by %{unassigner} on %{date}."
+      :users_assigned:
+        :one: "%{assignees} was assigned to this task by %{assigner} on %{date}."
+        :other: "%{assignees} were assigned to this task by %{assigner} on %{date}."
+      :users_unassigned:
+        :one: "%{unassignees} was unassigned from this task by %{unassigner} on %{date}."
+        :other: "%{unassignees} were unassigned from this task by %{unassigner} on
+          %{date}."
       :copied: This task was copied from task %{original_task} on %{date}.
       :completed: "%{user} completed this task on %{date}."
       :user_volunteered: "%{user} signed up for this task on %{date}."
-      :user_unassigned_self: "%{user} unassigned himself from this task on %{date}."
+      :user_unassigned_self: "%{user} unassigned from this task on %{date}."
       :reopened: "%{user} re-opened this task on %{date}."
       :invited: "%{user} invited %{invite_count} helpers to this task on %{date}."
       :updated: "%{user} changed %{changed_fields}."
+      :user_unassigned: "%{user} was unassigned from this task on %{date}."
+      :user_assigned: "%{user} was assigned to this task on %{date}."
   :users:
     :flash:
       :password_reset_success: Your password was successfully updated
@@ -889,7 +823,7 @@
         :account_activated: Your circle membership was activated.
       :task_mailer:
         :task_assigned: A task was assigned to you.
-        :task_unassigned: You were unassigned from a task.
+        :task_unassigned: A task was un-assigned from you.
         :task_change: Something has changed about your task.
         :task_completion_reminder: Thanks for helping!
         :task_invitation: Lale needs your help with a new task.
