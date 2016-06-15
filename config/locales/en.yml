@@ -10191,7 +10191,7 @@
   :cells:
     :tasks:
       :volunteer_select_tag:
-        :placeholder: Select helpers...
+        :placeholder: Please select...
         :in_working_group: In this working group
         :all_helpers: All helpers
       :sourcing_widget:
