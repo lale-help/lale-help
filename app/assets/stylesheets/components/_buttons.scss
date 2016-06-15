@@ -28,6 +28,33 @@
   }
 }
 
+// super means even more top level than primary, used for the "Add" menu and the 
+// central button on tasks, supplies, working groups and projects.
+// Feel free to come up with a better name!
+.button.button-super, .button-super {
+
+  @extend %button-base;
+  background:  $orange;
+  color: $white;
+  border: thin solid $orange;
+  text-shadow: none;
+
+  i {
+    padding-left: 0.5rem;
+    &:before {
+      color: $white;
+    }
+  }
+
+  &:visited {
+    color: $white;
+  }
+
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  margin: auto;
+}
+
 .button.button-primary, .button-primary {
   @extend %button-base;
   background:  $orange;
