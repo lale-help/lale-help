@@ -982,6 +982,7 @@
       :edit_actions:
         edit_button_dropdown: "Edit Supply"
       :show:
+        :users_box_title: Is supplied by
         :back: Back to All Supplies
         :task-complete: 'Done: '
         :organized-by: Organized by %{name}
@@ -1324,3 +1325,5 @@
       :header: Edit File
     :list:
       :confirm_delete_file: Are you sure you want to delete this file?
+  :users_box:
+    :no_users_yet: No users yet.

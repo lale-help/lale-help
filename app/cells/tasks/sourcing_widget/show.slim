@@ -8,7 +8,7 @@
 .user-badges
 
   - if volunteers.empty?
-    = t('.no_volunteers_yet')
+    = t('users-box.no_users_yet')
   - else
     - volunteers.each do |volunteer|
       == cell('tasks/user_badge', volunteer, task: task, current_user: current_user, current_circle: current_circle)
@@ -51,4 +51,4 @@
         = radio_button_tag('invite', 'circle', false, disabled: task.working_group.is_private?, 'data-url': links.invite_circle)
         = label_tag('invite_circle', t('.modal.invite_all', count: circle_invitees_count))
         br
-        button.button.button-secondary = t('helpers.invite_user)
+        button.button.button-secondary = t('helpers.invite_user')

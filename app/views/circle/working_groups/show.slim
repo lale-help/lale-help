@@ -54,7 +54,7 @@
         .user-badges
           - users = current_working_group.active_admins
           - if users.empty?
-            = t('.no_admins_yet')
+            = t('users_box.no_users_yet')
           - else
             - users.each do |user|
               == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
@@ -66,7 +66,7 @@
         .user-badges
           - users = current_working_group.users
           - if users.empty?
-            = t('.no_users_yet')
+            = t('users_box.no_users_yet')
           - else
             - users.each do |user|
               == cell('user_badge', user, current_user: current_user, current_circle: current_circle)

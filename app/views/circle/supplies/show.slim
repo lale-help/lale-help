@@ -60,18 +60,31 @@
       - if can? :manage, current_supply
         = render partial: 'edit_actions', locals: { circle: current_circle, item: current_supply }
 
-    .actions
-      - if can? :invite_to, current_supply
-        = form_tag circle_supply_invite_path(current_circle, current_supply, type: :working_group), method: :post do
-          button.button.button-secondary= t('helpers.invite_working_group')
-      - unless current_supply.working_group.is_private?
-        = form_tag circle_supply_invite_path(current_circle, current_supply, type: :circle), method: :post do
-          button.button.button-secondary= t('helpers.invite_circle')
+    .users-box
+      .title
+        h2 = t('.users_box_title')
 
-      - if can? :volunteer, current_supply
-        = form_tag circle_supply_volunteer_path(current_circle, current_supply), method: :put do
-          button.button-primary= t('helpers.volunteer', model: current_supply.model_name.human)
+      .user-badges
+        - users = supply.volunteers
+        - if users.empty?
+          = t('users_box.no_users_yet')
+        - else
+          - users.each do |user|
+            == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
 
-      - if can? :decline, current_supply
-        = form_tag circle_supply_decline_path(current_circle, current_supply), method: :put do
-          button.button-primary= t('helpers.decline', model: current_supply.model_name.human)
+      .actions
+
+        - if can? :volunteer, current_supply
+          = form_tag circle_supply_volunteer_path(current_circle, current_supply), method: :put do
+            button.button-primary= t('helpers.volunteer', model: current_supply.model_name.human)
+
+        - if can? :decline, current_supply
+          = form_tag circle_supply_decline_path(current_circle, current_supply), method: :put do
+            button.button-primary= t('helpers.decline', model: current_supply.model_name.human)
+
+        - if can? :invite_to, current_supply
+          = form_tag circle_supply_invite_path(current_circle, current_supply, type: :working_group), method: :post do
+            button.button.button-secondary= t('helpers.invite_working_group')
+        - unless current_supply.working_group.is_private?
+          = form_tag circle_supply_invite_path(current_circle, current_supply, type: :circle), method: :post do
+            button.button.button-secondary= t('helpers.invite_circle')
