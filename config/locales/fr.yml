@@ -59,7 +59,8 @@
     :select:
       :prompt: Merci de selectionner
     :edit: Editer %{model}
-    :invite: Inviter volontaires
+    :invite_working_group: Inviter groupe
+    :invite_circle: Inviter cercle
     :new: Créer %{model}
     :complete: Terminer %{model}
     :reopen: Re-Ouvir %{model}

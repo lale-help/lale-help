@@ -64,7 +64,8 @@
       :prompt: Bitte auswählen
     :edit: "%{model} bearbeiten"
     :edit_no_model: Bearbeiten
-    :invite: Helfer einladen
+    :invite_working_group: Arbeitsgruppe einladen
+    :invite_circle: Helferkreis einladen
     :new: "%{model} erstellen"
     :complete: "%{model} abschliessen"
     :reopen: "%{model} wieder öffnen"

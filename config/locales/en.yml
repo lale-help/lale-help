@@ -515,7 +515,8 @@
     :clone: Copy %{model}
     :volunteer: I have this %{model}
     :decline: I don't have this %{model}
-    :invite: Invite helpers
+    :invite_working_group: Invite working group
+    :invite_circle: Invite circle
     :assign: Assign helpers
     :block: Block
     :unblock: Unblock
