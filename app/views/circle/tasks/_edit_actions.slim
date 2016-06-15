@@ -1,0 +1,28 @@
+.dropdown.task-edit-menu
+  
+  / showing/hiding the dropdown menu is implemented with CSS only. 
+  / the checked state of this checkbox controls which CSS rules are applied to the 
+  / menu, thus toggling it's visiblity.
+  input id='task-edit-selector' type='checkbox' class='menu-selector'
+
+  label for='task-edit-selector'
+    .button.button-super
+      = t('helpers.edit', model: current_task.model_name.human)
+      i
+  .menu.menu-left
+    - if can? :edit, current_task
+      = link_to(edit_circle_task_path(current_circle, current_task)) do
+        = t('helpers.edit', model: current_task.model_name.human)
+    - if can? :complete, current_task
+      = link_to(circle_task_complete_path(current_circle, current_task), method: :put) do
+        = t('helpers.complete', model: current_task.model_name.human)
+    - if can? :reopen, current_task
+      = link_to(circle_task_reopen_path(current_circle, current_task), method: :put) do
+        = t('helpers.reopen', model: current_task.model_name.human)
+    - if can? :clone, current_task
+      = link_to(circle_task_clone_path(current_circle, current_task), method: :put) do
+        = t('helpers.clone', model: current_task.model_name.human)
+    - if can? :delete, current_task
+      - options = {data: {:confirm => t('helpers.confirm.task.delete')}, :method => :delete}
+      = link_to(circle_task_path(current_circle, current_task), options) do
+        = t('helpers.delete', model: current_task.model_name.human)
