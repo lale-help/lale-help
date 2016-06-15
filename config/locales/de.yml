@@ -1,5 +1,144 @@
 ---
 :de:
+  :active_admin:
+    :access_denied:
+      :message: Sie haben nicht die Berechtigung um diese Aktion auszuführen.
+    :any: Alle
+    :batch_actions:
+      :action_label: "%{title} ausgewählte"
+      :button_label: Stapelverarbeitung
+      :default_confirmation: Bist du sicher, dass Sie dies tun wollen?
+      :delete_confirmation: Sind Sie sicher dass sie diese %{plural_model} löschen
+        wollen?
+      :labels:
+        :destroy: Lösche
+      :link: erstellen
+      :selection_toggle_explanation: "(Auswahl umschalten)"
+      :succesfully_destroyed:
+        :one: Erfolgreich 1 %{model} gelöscht
+        :other: Erfolgreich %{count} %{plural_model} gelöscht
+    :blank_slate:
+      :content: Es gibt noch keine %{resource_name}.
+      :link: Erstellen
+    :cancel: Abbrechen
+    :comments:
+      :add: Kommentar hinzufügen
+      :author: Autor
+      :author_missing: Unbekannt
+      :author_type: Autor-Typ
+      :body: Inhalt
+      :delete: Löschen
+      :delete_confirmation: Sind Sie sicher dass sie diesen Kommentar löschen wollen?
+      :errors:
+        :empty_text: Der Kommentar wurde nicht gespeichert, da der Text fehlt.
+      :no_comments_yet: Es gibt noch keine Kommentare.
+      :resource: Res­sour­ce
+      :resource_type: Res­sour­cen-Typ
+      :title: Kommentar
+      :title_content: Kommentare (%{count})
+    :dashboard: "Übersicht"
+    :dashboard_welcome:
+      :call_to_action: Siehe 'app/admin/dashboard.rb', um Übersichts-Bereiche hinzuzufügen.
+      :welcome: Willkommen in Active Admin. Dies ist die Standard-Übersichtsseite.
+    :delete: Löschen
+    :delete_confirmation: Wollen Sie dieses Element wirklich löschen?
+    :delete_model: "%{model} löschen"
+    :details: "%{model} Details"
+    :devise:
+      :change_password:
+        :submit: Mein Passwort ändern
+        :title: "Ändern Sie Ihr Passwort"
+      :email:
+        :title: E-Mail-Adresse
+      :links:
+        :forgot_your_password: Passwort vergessen?
+        :resend_confirmation_instructions: Bestätigungsanweisung erneut senden
+        :resend_unlock_instructions: Entsperrungsanweisung erneut senden
+        :sign_in: Anmeldung
+        :sign_in_with_omniauth_provider: Anmeldung mit %{provider}
+        :sign_up: Registrieren
+      :login:
+        :remember_me: Angemeldet bleiben
+        :submit: Login
+        :title: Login
+      :password:
+        :title: Passwort
+      :resend_confirmation_instructions:
+        :submit: Anleitung zur Bestätigung noch mal schicken
+        :title: Anleitung zur Bestätigung noch mal schicken
+      :reset_password:
+        :submit: Mein Passwort zurücksetzen
+        :title: Passwort vergessen?
+      :sign_up:
+        :submit: Registrieren
+        :title: Registrieren
+      :subdomain:
+        :title: Subdomain
+      :unlock:
+        :submit: Entsperrungsanweisung erneut senden
+        :title: Entsperrungsanweisung erneut senden
+      :username:
+        :title: Benutzername
+    :download: 'Herunterladen:'
+    :dropdown_actions:
+      :button_label: Aktionen
+    :edit: Bearbeiten
+    :edit_model: "%{model} bearbeiten"
+    :empty: Leer
+    :filters:
+      :buttons:
+        :clear: Filter entfernen
+        :filter: Filtern
+      :predicates:
+        :contains: Enthält
+        :ends_with: Endet mit
+        :equals: Gleich
+        :greater_than: Größer als
+        :less_than: Kleiner als
+        :starts_with: Beginnt mit
+    :has_many_delete: Löschen
+    :has_many_new: "%{model} hinzufügen"
+    :has_many_remove: Entfernen
+    :index_list:
+      :block: Liste
+      :blog: Blog
+      :grid: Gitter
+      :table: Tabelle
+    :logout: Abmelden
+    :main_content: Bitte implementieren Sie %{model}#main_content, um Inhalte anzuzeigen.
+    :new_model: "%{model} erstellen"
+    :next: Weiter
+    :pagination:
+      :empty: Keine %{model} gefunden
+      :entry:
+        :one: Eintrag
+        :other: Einträge
+      :multiple: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b> von <b>%{total}</b>
+      :multiple_without_total: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b>
+      :one: Zeige <b>1</b> %{model}
+      :one_page: Zeige <b>alle %{n}</b> %{model}
+    :powered_by: Powered by %{active_admin} %{version}
+    :previous: Zurück
+    :search_status:
+      :current_filters: 'Aktuelle Filter:'
+      :headline: 'Anwendungsbereich:'
+      :no_current_filters: Keine
+    :sidebars:
+      :filters: Filter
+      :search_status: Suchstatus
+    :status_tag:
+      :no: Nein
+      :yes: Ja
+    :unsupported_browser:
+      :headline: ActiveAdmin unterstützt nicht länger den Internet Explorer in Version
+        8 oder niedriger.
+      :recommendation: Wir empfehlen die Nutzung von <a href="http://windows.microsoft.com/ie">Internet
+        Explorer</a>, <a href="https://chrome.google.com/">Google Chrome</a>, oder
+        <a href="https://mozilla.org/firefox/">Firefox</a>.
+      :turn_off_compatibility_view: Wenn sie IE 9 oder neuer benutzen, stellen sie
+        sicher das sie den <a href="http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer">"Kompatibilitätsansicht"
+        ausgeschaltet</a> haben.
+    :view: Anzeigen
   :activerecord:
     :attributes:
       :circle:
