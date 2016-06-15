@@ -455,6 +455,7 @@
       :show:
         :confirm_delete_circle: Bist Du sicher?
         :confirm_delete_working_group: Bist Du sicher?
+        :create_working_group: Neue Arbeitsgruppe anlegen
         :promote_user: Rolle vergeben
         :settings: Einstellungen
       :working_groups:
@@ -541,6 +542,8 @@
         :signed_up: angemeldet
         :urgent: dringend
     :supplies:
+      :edit_actions:
+        :edit_button_dropdown: Sachspende bearbeiten
       :edit:
         :back: Zurück zur Sachspende
       :index:
@@ -548,6 +551,7 @@
       :new:
         :back: Zurück zu den Sachspenden
       :show:
+        :users_box_title: Wird geliefert von
         :back: Zurück zu den Sachspenden
         :complete-task-button: Sachspende wurde abgegeben
         :decline-task-button: Ich habe das doch nicht.
@@ -581,6 +585,8 @@
         :supplies-header: Sachspenden
         :tasks-header: Aufgaben
     :tasks:
+      :edit_actions:
+        :edit_button_dropdown: Aufgabe bearbeiten
       :completed:
         :header: Alle erledigten Aufgaben
       :edit:
@@ -811,11 +817,6 @@
       :year: Jahr
   :delete: Löschen
   :edit: Bearbeiten
-  :en:
-    :roles:
-      :name:
-        :task:
-          :volunteer: Helfer
   :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
   :errors:
     :about_me:
@@ -951,8 +952,6 @@
         :save-failed: Einstellungen konnten nicht gespeichert werden. Bitte Fehler
           beheben und erneut versuchen.
         :saved: Einstellungen wurden gespeichert.
-  :forms:
-    :correct-errors: Bitte ändere die untenstehenden Fehler.
   :formtastic:
     :cancel: Abbrechen
     :create: "%{model} anlegen"
@@ -962,7 +961,6 @@
     :submit: Abschicken
     :update: "%{model} aktualisieren"
     :yes: Ja
-  :hello: Hallo Welt
   :helpers:
     :assign: Helfer eintragen
     :block: Sperren
@@ -1302,6 +1300,52 @@
       :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Aufgabe eingeladen."
       :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
       :updated: "%{user} hat %{changed_fields} geändert."
+      :user_assigned: "%{user} hat sich für diese Sachspende am %{date} eingetragen."
+      :user_unassigned: "%{user} hat sich für diese Sachspende am %{date} ausgetragen."
+    :flash:
+      :already_taken: Die Sachspende wird bereits von jemand übernommen.
+      :complete_failed: Problem bei der Fertigstellung dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :completed: Danke für die Sachspende!
+      :decline_failed: Problem bei der Ablehnung dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :declined: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
+        Helfer suchen...
+      :invite_failed: Problem bei der Einladung zu dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
+      :reopened: Sachspende wurde wieder geöffnet
+      :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
+      :volunteer_failed: Problem bei der Übernahme dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :volunteered: Vielen Dank für Deine Hilfe!
+  :supply:
+    :presenter:
+      :messages:
+        :recent_activity: Kürzlich bearbeitet
+        :volunteer_needed: Helfer gesucht
+  :supply_edit:
+    :cancel: Abbrechen
+  :support:
+    :array:
+      :last_word_connector: ", und "
+      :two_words_connector: " und "
+      :words_connector: ", "
+  :supported-by: Unterstützt durch
+  :task:
+    :presenter:
+      :messages:
+        :more_volunteers_needed: Noch Helfer gesucht
+        :recent_activity: Kürzlich bearbeitet
+  :task_edit:
+    :cancel: Abbrechen
+  :tasks:
+    :auto_comment:
+      :completed: "%{user} hat diese Aufgabe am %{date} erledigt."
+      :copied: Diese Aufgabe wurde von Aufgabe %{original_task} am %{date} kopiert.
+      :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Aufgabe eingeladen."
+      :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
+      :updated: "%{user} hat %{changed_fields} geändert."
       :user_assigned: "%{user} hat sich für diese Aufgabe am %{date} angemeldet."
       :user_unassigned: "%{user} hat sich für diese Aufgabe am %{date} abgemeldet."
       :user_unassigned_self: "%{user} hat sich für diese Aufgabe am %{date} ausgetragen."
@@ -1394,3 +1438,5 @@
     :types:
       :private: Geschlossen
       :public: Offen
+  :users_box:
+    :no_users_yet: Noch keine Helfer.

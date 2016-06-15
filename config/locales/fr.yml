@@ -422,6 +422,7 @@
       :show:
         :confirm_delete_circle: Etes-vous sure ?
         :confirm_delete_working_group: Etes-vous sure ?
+        :create_working_group: Créer un Groupe
         :promote_user: Promouvoir cet utilisateur au role
         :settings: Paramètres
       :working_groups:
@@ -778,11 +779,6 @@
       :year: An
   :delete: Supprimer
   :edit: Editer
-  :en:
-    :roles:
-      :name:
-        :task:
-          :volunteer: Volontaire
   :error_correction: Merci de corriger les erreurs ci-dessous.
   :errors:
     :about_me:
@@ -923,11 +919,6 @@
         :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
           les erreurs et de ré-essayer.
         :saved: Vos paramètres ont été enregistré.
-  :forms:
-    :correct-errors: Merci de corriger les erreurs ci-dessous.
-  :formtastic:
-    :update: Mettre à jour %{model}
-  :hello: Salut !
   :helpers:
     :block: Bloquer
     :clone: Copie %{model}

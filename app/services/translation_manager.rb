@@ -1,7 +1,10 @@
 class TranslationManager
   SUPPORTED_LANGS = I18n.available_locales.map(&:to_sym)
+
+  # FIXME unfortunately this only works for displaying missing keys;
+  # it should reject these keys when writing the i18n files, as well.
   IGNORED_KEYS = [
-    /\A(active_admin|formtastic|faker|ransack)\./
+    /\A(active_admin|formtastic|ransack)\./
   ]
 
   Translation = Struct.new(:key, :languages) do
@@ -42,14 +45,9 @@ class TranslationManager
     save
   end
 
-
   def save
-    yamls = Hash.new
     SUPPORTED_LANGS.each do |lang|
-      yamls[lang] = { lang => deep_sort(deep_compact(translations_for(lang))) }.to_yaml
-    end
-
-    yamls.each do |lang, yaml|
+      yaml = { lang => deep_sort(deep_compact(translations_for(lang))) }.to_yaml
       path = Rails.root.to_s+"/config/locales/#{lang}.yml"
       log "Saving: #{path}"
       File.open(path, 'w') { |f| f.puts(yaml) }

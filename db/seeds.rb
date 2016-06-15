@@ -1,5 +1,3 @@
-require 'faker'
-
 unless Rails.env.development? || Rails.env.pull_request?
   raise "This file creates an **admin** user and dummy data. It should never be run on a staging or production environment."
 end
@@ -8,8 +6,17 @@ def default_working_group
   WorkingGroup.find_by(name: 'Default WG')
 end
 
+# taken from https://github.com/stympy/faker/blob/master/lib/faker/star_wars.rb
+# I'm not including faker here because it would require translating a lot of it's data
+STAR_WARS_CHARACTERS = [
+  'Padme Amidala', 'Jar Jar Binks', 'Borvo the Hutt', 'Darth Caedus', 'Boba Fett', 'Jabba the Hutt',
+  'Obi-Wan Kenobi', 'Darth Maul', 'Leia Organa', 'Sheev Palpatine', 'Kylo Ren', 'Anakin Skywalker',
+  'Luke Skywalker', 'Han Solo', 'Darth Vader', 'Watto', 'Mace Windu', 'Yoda', 'Count Dooku''Sebulba',
+  'Qui-Gon Jinn', 'Chewbacca', 'Jango Fett', 'Lando Calrissian'
+]
+
 def fake_user(number)
-  first, last = Faker::StarWars.character.split(" ", 2)
+  first, last = STAR_WARS_CHARACTERS.sample.split(" ", 2)
   last  = last || "of Nil"
   email = "user#{number}@lale.help"
   OpenStruct.new(first: first, last: last, email: email)

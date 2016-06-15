@@ -455,6 +455,7 @@
       :show:
         :confirm_delete_circle: Are you sure?
         :confirm_delete_working_group: Are you sure?
+        :create_working_group: Create a Working Group
         :promote_user: Promote user to role
         :settings: Settings
       :working_groups:
@@ -816,11 +817,6 @@
       :year: Year
   :delete: Delete
   :edit: EDIT
-  :en:
-    :roles:
-      :name:
-        :task:
-          :volunteer: Volunteer
   :error_correction: Please correct the errors below.
   :errors:
     :about_me:
@@ -963,12 +959,6 @@
         :save-failed: We could not save your settings. Please fix any errors and try
           again.
         :saved: Your settings have been saved.
-  :forms:
-    :correct-errors: Please correct the errors below.
-  :formtastic:
-    :required: Required field
-    :update: Update %{model}
-  :hello: Hello world
   :helpers:
     :assign: Assign helpers
     :block: Block
