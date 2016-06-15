@@ -2,12 +2,14 @@ body.internal .project-page {
 
   .header {
     @include display(flex);
-    @include justify-content(space-between);
+    @include flex-direction(row);
     @include align-items(top);
+    @include flex-wrap(wrap);
+    margin-bottom: 20px;
 
     .left {
-      @include flex(1 1);
-      padding-right: 3rem;
+      max-width: 650px;
+      @include flex(3 0 50rem);
       .title {
         font-size: 26px;
       }
@@ -15,6 +17,15 @@ body.internal .project-page {
       .description {
         color: darken($blue-light-1, 20%);
         font-size: 1.6rem;
+      }
+    }
+
+    .right {
+      margin-left: 3rem;
+      @include flex(0 0 30rem);
+      padding: 0 10px;
+      .button-super {
+        width: 100%;
       }
     }
 
@@ -32,12 +43,11 @@ body.internal .project-page {
     @include display(flex);
     @include flex-direction(row);
     @include align-items(top);
-    @include justify-content(space-between);
     @include flex-wrap(wrap);
 
     main {
-      margin-top: 3rem;
-      @include flex(11 1);
+      max-width: 650px;
+      @include flex(3 0 50rem);
 
       .button {
         margin-top: 2rem;
@@ -45,9 +55,8 @@ body.internal .project-page {
     }
 
     aside {
-      margin-top: 3rem;
       margin-left: 3rem;
-      @include flex(1 0 20rem);
+      @include flex(0 0 30rem);
 
       .actions {
         form {
