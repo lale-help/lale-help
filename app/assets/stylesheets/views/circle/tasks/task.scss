@@ -83,8 +83,8 @@ section > .task {
     @include flex(0 0 30rem);
 
     .dropdown {
-      $label-height: 26px;
-      z-index: 3000;
+      $label-height: 31px;
+      z-index: 99;
 
       label {
         height: $label-height;

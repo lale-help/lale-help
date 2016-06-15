@@ -16,11 +16,11 @@
 .actions
   
   - if can?(:volunteer, task)
-    = form_tag(links.accept, method: :put, class: 'task-action-button') do
-      button.button-primary = t('.accept')
+    = link_to(links.accept, method: :put, class: 'button button-primary task-action-button') do
+      = t('.accept')
   - elsif can?(:decline, task)
-    = form_tag(links.decline, method: :put, class: 'task-action-button') do
-      button.button-primary = t('.decline')
+    = link_to(links.decline, method: :put, class: 'button button-primary task-action-button') do
+      = t('.decline')
 
   - if can?(:assign, task) || can?(:invite_to, task)
     a.button.button-secondary id="button-open-find-helpers" = t('.find_helpers')
