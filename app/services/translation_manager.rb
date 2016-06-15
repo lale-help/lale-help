@@ -42,14 +42,9 @@ class TranslationManager
     save
   end
 
-
   def save
-    yamls = Hash.new
     SUPPORTED_LANGS.each do |lang|
-      yamls[lang] = { lang => deep_sort(deep_compact(translations_for(lang))) }.to_yaml
-    end
-
-    yamls.each do |lang, yaml|
+      yaml = { lang => deep_reject(deep_sort(deep_compact(translations_for(lang)))) }.to_yaml
       path = Rails.root.to_s+"/config/locales/#{lang}.yml"
       log "Saving: #{path}"
       File.open(path, 'w') { |f| f.puts(yaml) }
