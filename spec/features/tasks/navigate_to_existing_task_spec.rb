@@ -7,7 +7,7 @@ describe 'Navigating to a task', js: true do
     let(:admin) { circle.admin }
     let!(:working_group) { create(:working_group, circle: circle) }
     let!(:role) { create(:working_group_admin_role, user: admin, working_group: working_group) }
-    let!(:task) { create(:task_with_organizer, organizer: admin, working_group: working_group) }
+    let!(:task) { create(:urgent_task, organizer: admin, working_group: working_group) }
 
     it 'is successful' do
       # when things aren't working as expected you may want to verify your setup, like this for example:
@@ -20,11 +20,12 @@ describe 'Navigating to a task', js: true do
 
       # expect the title of the next page to be there.
       # this will also wait until the next page has loaded
-      expect(page).to have_css("div.title", text: task.name)
+      selector = "body[data-controller='circle/tasks'] .task.urgency--urgent"
+      expect(page).to have_css(selector)
 
       # click it
-      find("div.title", text: task.name).click
-      
+      find(selector).click
+
       show!
     end
   end
