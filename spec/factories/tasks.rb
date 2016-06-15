@@ -12,17 +12,19 @@ FactoryGirl.define do
     # use it like this to create a task with an organizer: 
     # create(:task_with_organizer, organizer: a_user_instance)
     # 
-    factory :task_with_organizer do
+    transient do
+      organizer nil
+    end
 
-      # these can be passed in when using the factory but aren't real attributes
-      transient do
-        organizer { create(:user) }
-      end
-
-      # using the transient attribute to assign an organizer
-      after(:create) do |task, evaluator|
+    # using the transient attribute to assign an organizer
+    after(:create) do |task, evaluator|
+      if evaluator.organizer
         create(:task_organizer_role, user: evaluator.organizer, task: task)
       end
+    end
+
+    factory :urgent_task do
+      due_date { Date.today + 1.day }
     end
 
     factory :task_with_location do
