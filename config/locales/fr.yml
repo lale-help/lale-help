@@ -61,6 +61,7 @@
     :edit: Editer %{model}
     :invite_working_group: Inviter groupe
     :invite_circle: Inviter cercle
+    :invite_user: Inviter volontaire
     :new: Créer %{model}
     :complete: Terminer %{model}
     :reopen: Re-Ouvir %{model}

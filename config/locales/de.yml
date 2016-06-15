@@ -66,6 +66,7 @@
     :edit_no_model: Bearbeiten
     :invite_working_group: Arbeitsgruppe einladen
     :invite_circle: Helferkreis einladen
+    :invite_user: Helfer einladen
     :new: "%{model} erstellen"
     :complete: "%{model} abschliessen"
     :reopen: "%{model} wieder öffnen"

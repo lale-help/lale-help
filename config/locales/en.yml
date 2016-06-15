@@ -516,6 +516,7 @@
     :volunteer: I have this %{model}
     :decline: I don't have this %{model}
     :invite_working_group: Invite working group
+    :invite_user: Invite user
     :invite_circle: Invite circle
     :assign: Assign helpers
     :block: Block

@@ -74,12 +74,12 @@
 
         - if can? :invite_to, current_project
           = form_tag circle_project_invite_path(current_circle, project, type: :working_group), method: :post do
-            button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)
+            button.button.button-secondary= t('helpers.invite_working_group')
 
         - unless project.working_group.is_private?
           - if can? :manage, current_project.circle
             = form_tag circle_project_invite_path(current_circle, project, type: :circle), method: :post do
-              button.button.button-secondary= t('helpers.invite', model: Circle.model_name.human)
+              button.button.button-secondary= t('helpers.invite_circle')
 
         - if can? :edit, current_project
           = form_tag edit_circle_project_path(current_circle, project), method: :get do
