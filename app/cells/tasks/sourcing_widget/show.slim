@@ -11,15 +11,15 @@
     = t('.no_volunteers_yet')
   - else
     - volunteers.each do |volunteer|
-      == cell('tasks/user_badge', volunteer, task: task, current_user: current_user)
+      == cell('tasks/user_badge', volunteer, task: task, current_user: current_user, current_circle: current_circle)
 
 .actions
   
   - if can?(:volunteer, task)
-    = link_to(links.accept, method: :put, class: 'button button-primary task-action-button') do
+    = link_to(links.accept, method: :put, class: 'button button-primary') do
       = t('.accept')
   - elsif can?(:decline, task)
-    = link_to(links.decline, method: :put, class: 'button button-primary task-action-button') do
+    = link_to(links.decline, method: :put, class: 'button button-primary') do
       = t('.decline')
 
   - if can?(:assign, task) || can?(:invite_to, task)

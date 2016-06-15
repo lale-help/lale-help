@@ -51,36 +51,8 @@ body.internal .working-group {
     }
 
     aside {
-      @include flex(1 0 20rem);
+      @include flex(0 0 30rem);
     }
   }
 
-  .members {
-    $radius: 10px;
-    border: thin solid $border-color;
-    margin: 2rem;
-
-    @include border-bottom-radius($radius);
-    @include border-top-radius($radius);
-
-    > * {
-      padding: 1rem;
-    }
-
-    > *:not(:first-child) {
-      border-top: thin solid $border-color;
-    }
-
-    .icons {
-      @include display(flex);
-      @include flex-direction(row);
-      @include align-items(top);
-      @include flex-wrap(wrap);
-
-      > * {
-        margin-right: 1rem;
-        margin-bottom: 1rem;
-      }
-    }
-  }
 }

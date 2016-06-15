@@ -7,19 +7,6 @@
       .description
         = current_working_group.description
 
-    .right
-      .actions
-        - if can?(:join, current_working_group) and !current_working_group.is_private?
-          = button_to circle_working_group_join_path(current_circle, current_working_group), method: :patch do
-            = t('.join')
-
-        - if can? :leave, current_working_group
-          - options = { method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
-          = button_to circle_working_group_leave_path(current_circle, current_working_group), options do
-            = t('.leave')
-
-        - if can? :manage, current_working_group
-          a.button href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
 
 
   .details
@@ -57,20 +44,44 @@
 
 
     aside
-      .members
-        .title= t('.admin-title', count: current_working_group.active_admins.count )
-        .icons
-          - current_working_group.active_admins.each do |user|
-            .blah
-              = render partial: 'user/user_icon', locals: {user: user, link: true}
 
+      .actions
+        - if can? :manage, current_working_group
+          a.button.button-super href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
 
-      .members
-        .title= t('.member-title', count: current_working_group.users.count )
-        .icons
-          - current_working_group.users.each do |user|
-            .blah
-              = render partial: 'user/user_icon', locals: {user: user, link: true}
+      .users-box
+        .title
+          h2 = t('.admin-title', count: current_working_group.active_admins.count )
+
+        .user-badges
+          - users = current_working_group.active_admins
+          - if users.empty?
+            = t('.no_admins_yet')
+          - else
+            - users.each do |user|
+              == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
+
+      .users-box
+        .title
+          h2 = t('.member-title', count: current_working_group.users.count )
+
+        .user-badges
+          - users = current_working_group.users
+          - if users.empty?
+            = t('.no_users_yet')
+          - else
+            - users.each do |user|
+              == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
+
+        - if can?(:join, current_working_group) and !current_working_group.is_private?
+          = button_to circle_working_group_join_path(current_circle, current_working_group), method: :patch do
+            = t('.join')
+
+        - if can? :leave, current_working_group
+          - options = { method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
+          = button_to circle_working_group_leave_path(current_circle, current_working_group), options do
+            = t('.leave')
+
 
 
 

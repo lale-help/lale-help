@@ -66,6 +66,6 @@
       - if can? :manage, current_task
         = render partial: 'edit_actions', locals: { circle: current_circle, item: current_task }
         
-    .volunteers
+    .users-box
       == cell 'tasks/sourcing_widget', current_task, current_user: current_user
 
