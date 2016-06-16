@@ -22,6 +22,9 @@
     = link_to(links.decline, method: :put, class: 'button button-primary') do
       = t('.decline')
 
+  / HACK
+  br
+
   - if can?(:assign, task) || can?(:invite_to, task)
     a.button.button-secondary id="button-open-find-helpers" = t('.find_helpers')
   
