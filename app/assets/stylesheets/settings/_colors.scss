@@ -6,7 +6,7 @@ $red           : #D0021B;
 $cream         : #FFF9ED;
 $grey          : #9B9B9B;
 $light-grey    : #eceff1;
-$orange        : #FF8F5A;
+$orange        : #ff7043;
 $orange-dark   : #C15B31;
 
 $white         : #FFFFFF;
@@ -19,6 +19,8 @@ $blue-dark-1   : #546E7A;
 $blue-dark-2   : #263238;
 $blue-light-1  : #CFD8DC;
 $blue-light-2  : #ECEFF1;
+// sorry ...
+$blue-new      : #458ccf;
 
 $orange        : #FF7043;
 $yellow        : yellow;
@@ -36,11 +38,12 @@ $body-text        : $blue-dark-1;
 $body-link        : $blue;
 $body-bg          : $white;
 
-
 $border-color  : $blue-light-1;
 
 
-
+$button-super     : $blue-new;
+$button-primary   : $orange;
+$button-secondary : $blue-dark-1;
 
 /*******************
 ********************

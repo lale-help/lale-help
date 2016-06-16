@@ -13,16 +13,17 @@
   margin                 : 0 1rem 0 0;
   text-align             : center;
   text-decoration        : none;
+  text-shadow: none;
   user-select            : none;
   vertical-align         : middle;
   white-space            : nowrap;
   // transition             : opacity .5s;
-  padding                : .5rem 3rem;
-
+  padding                : .75rem 3rem;
 
   &:visited {
     color                  : $white;
   }
+
   &:focus {
     outline : none;
   }
@@ -34,10 +35,8 @@
 .button.button-super, .button-super {
 
   @extend %button-base;
-  background:  $orange;
-  color: $white;
-  border: thin solid $orange;
-  text-shadow: none;
+  background:  $button-super;
+  border: thin solid $button-super;
   position: relative;
 
   i {
@@ -56,153 +55,41 @@
     }
   }
 
-  &:visited {
-    color: $white;
-  }
-
   font-size: 16px;
   padding: 0.75rem 1rem;
   margin: auto;
 }
 
 .button.button-primary, .button-primary {
-  @extend %button-base;
-  background:  $orange;
-  color: $white;
-  border: thin solid $orange;
-  text-shadow: none;
 
+  // FIXME this should be inherited from button-base but isnt???
   &:visited {
-    color: $white;
+    color                  : $white;
   }
+
+  @extend %button-base;
+  background: $button-primary;
+  border: thin solid $button-primary;
+}
+
+.button.button-primary-inverse, .button-primary-inverse {
+
+  @extend %button-base;
+  background: $white;
+  color: $button-primary;
+  border: thin solid $button-primary;
+
 }
 
 .button.button-secondary, .button-secondary {
-  @extend %button-base;
-  background-color: $blue;
-  color: $white;
-  border: thin solid $blue;
-  text-shadow: none;
 
-  &:visited {
-    color: $white;
-  }
+  @extend %button-base;
+  background-color: $button-secondary;
+  border: thin solid $button-secondary;
+
 }
 
 .button {
-  $color: lighten($blue-dark-1, 10%);
-
   @extend %button-base;
-  background: white;
-  color: $color;
-  border: thin solid $blue-light-1;
-  text-shadow   : none;
-
-  &:visited {
-    color: $color;
-  }
+  background: $white;
 }
-
-
-.button--large {
-  @extend %button-base;
-  box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10), inset 0px -3px 0px 0px rgba(0, 0, 0, 0.10);
-  font-weight   : $weight-semibold;
-  font-size     : 1.8rem;
-  color         : $white;
-  line-height   : 3;
-  text-align    : center;
-}
-
-.button--medium {
-  @extend %button-base;
-}
-
-@mixin button ($size : large, $color : $orange, $disabled : false) {
-  -webkit-font-smoothing : subpixel-antialiased;
-  appearance             : none;
-  background             : $color;
-  border-radius          : 3px;
-  color                  : $white;
-  cursor                 : pointer;
-  display                : inline-block;
-  flex-shrink            : 0;
-  font-size              : 1.6rem;
-  font-weight            : $weight-normal;
-  line-height            : 1;
-  margin                 : 0 1rem 0 0;
-  text-align             : center;
-  text-decoration        : none;
-  user-select            : none;
-  vertical-align         : middle;
-  white-space            : nowrap;
-  // transition             : opacity .5s;
-  &:focus {
-    outline : none;
-  }
-
-  @if $size == large {
-    box-shadow    : 0px 2px 10px 0px rgba(0, 0, 0, 0.10), inset 0px -3px 0px 0px rgba(0, 0, 0, 0.10);
-    font-weight   : $weight-semibold;
-    font-size     : 1.8rem;
-    line-height   : 3;
-
-  } @else if $size == medium {
-    padding : 1rem 2rem;
-  }
-
-  @if $disabled {
-    background : transparent;
-    border     : 1px solid $color;
-    color      : $color;
-    cursor     : not-allowed;
-  }
-
-
-}
-
-%normal-hover {
-  &:hover, &:active {
-    color      : $white;  //Just in case it's a link
-    opacity    : .85;
-    cursor     : pointer;
-  }
-}
-
-%disabled-hover {
-  &:hover, &:active {
-    opacity    : 1;
-  }
-}
-
-/*doc
----
-title: Buttons
-name: Buttons
-category: Forms
----
-The primary button is green, but button colors can be assigned on the fly.
-All flavors are available in all medium(default), compact, and large sizes. You should be able to apply styles to button, a, or div, etc. and get same look.
-
-```html_example
-<button class="button--primary--pill">Primary (pill)</button>
-<button class="button--primary--compact">Primary (compact)</button>
-<button class="button--primary--medium">Primary Button</button>
-<button class="button--primary--large">Primary Button (large)</button>
-<button class="button--secondary--pill">Secondary (compact)</button>
-<button class="button--secondary--compact">Secondary (compact)</button>
-<button class="button--secondary--medium">Secondary Button</button>
-<button class="button--secondary--large">Secondary Button (large)</button>
-<button class="button--alternate--pill">Alternate (compact)</button>
-<button class="button--alternate--compact">Alternate (compact)</button>
-<button class="button--alternate--medium">Alternate Button</button>
-<button class="button--alternate--large">Alternate Button (large)</button>
-<button class="button--pill--disabled">Disabled (compact)</button>
-<button class="button--compact--disabled">Disabled (compact)</button>
-<button class="button--medium--disabled">Disabled Button</button>
-<button class="button--large--disabled">Disabled Button (large)</button>
-<a class="button--primary--medium">an anchor can be a button</a>
-<div class="button--primary--medium">a div can be a button</div>
-
-```
-*/
