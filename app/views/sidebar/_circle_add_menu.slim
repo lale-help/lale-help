@@ -4,8 +4,9 @@
     label for='add-item-selector'
       .button.button-super
         = t('.add')
-        i
-    .menu.menu-left
+        i.fi-chevron-right
+
+    .menu
       - if can? :create_task, circle
         a href=new_circle_task_path(circle) = Task.model_name.human
 

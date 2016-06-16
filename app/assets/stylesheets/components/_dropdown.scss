@@ -26,6 +26,12 @@
       cursor       : pointer;
   }
 
+  [type="checkbox"]:checked {
+    & ~ label .button {
+      background-color: tint($orange, 20%);
+      border-color: tint($orange, 20%);
+    }
+  }
   label {
     padding: 0 1rem;
     margin: 0;
@@ -39,17 +45,21 @@
   }
 
   .menu {
-    font-size: 1.5rem;
+    // we want 13px; 1.25rem leads to 12.5px
+    font-size: 1.3rem;
+    @include text-color($header-bg, $header-bg);
     background: $white;
-    border: thin solid $light-grey;
+    border: thin solid $orange;
 
-    -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-    -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-    box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 7px 7px 3px -3px rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:    7px 7px 3px -3px rgba(0, 0, 0, 0.1);
+    box-shadow:         7px 7px 3px -3px rgba(0, 0, 0, 0.1);
 
-    min-width: 100%;
+    // required?
+    // min-width: 100%;
 
     position: absolute;
+    // careful not be above the modals
     z-index: 100;
     top: $label-height;
     left: auto;
@@ -65,7 +75,7 @@
     a {
       display: block;
       width: 100%;
-      padding: 1.5rem 2rem;
+      padding: 1rem 1.5rem;
       border-bottom: thin solid $light-grey;
     }
 
@@ -82,8 +92,4 @@
     }
   }
 
-  .menu.menu-left {
-    right: auto;
-    left: 0;
-  }
 }

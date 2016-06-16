@@ -38,9 +38,19 @@
   color: $white;
   border: thin solid $orange;
   text-shadow: none;
+  position: relative;
 
   i {
-    padding-left: 0.5rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+
+    padding: 8px;
+
+    font-size: 1.25rem;
+    border-left: 1px solid $white;
+
     &:before {
       color: $white;
     }

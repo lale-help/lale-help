@@ -91,31 +91,11 @@ section > .task {
       }
 
       .menu {
-        top: $label-height;
+        top: $label-height + 4px;
         left: 10px;
         right: auto;
         min-width: auto;
         width: 280px;
-        border: 1px solid $orange;
-        border-top: 2px solid $orange;
-        font-size: 1.25rem;
-
-        a {
-          padding: 0.75rem;
-        }
-      }
-    }
-
-    .button-super {
-      position: relative;
-      i.fi-chevron-bottom {
-        padding: 8px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: 100%;
-        border-left: 1px solid $white;
-        font-size: 1.25rem;
       }
     }
 

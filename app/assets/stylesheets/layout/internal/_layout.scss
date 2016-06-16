@@ -33,115 +33,13 @@ body.internal {
       }
 
       .circle-add-menu {
-        margin: 0;
-        padding: 0 0 2rem 0;
-        label {
-          .button {
-            font-size: 16px;
-            padding: 0.5rem 1rem;
-            margin: auto;
-            width: 100%;
-            i {
-              @include fa-icon(caret-right);
-              padding-left: 0.5rem;
-              &:before {
-                color: $white;
-              }
-            }
-          }
-        }
-
-        [type="checkbox"]:checked {
-          & ~ label .button {
-            background-color: tint($orange, 20%);
-          }
+        .button-super {
+          padding-right: 40px;
+          margin-left: 2rem;
         }
       }
-      [type="checkbox"]:checked {
-        & ~ .menu {
-          display : block;
-        }
-      }
-
-      [type="checkbox"]:not(:checked),
-      [type="checkbox"]:checked {
-        position : absolute;
-        left     : -9999px;
-      }
-
-      [type="checkbox"]:not(:checked) + label,
-      [type="checkbox"]:checked + label {
-        position     : relative;
-        cursor       : pointer;
-      }
-      .dropdown {
-        @include display(flex);
-        @include align-items(center);
-        @include justify-content(center);
-
-        position: relative;
-
-
-        label {
-          padding: 0 13rem 0 3rem;
-          margin: 0;
-          height: 3rem;
-          width:  100%;
-          user-select: none;
-        }
-
-        &:hover, label:hover {
-          cursor: pointer;
-        }
-
-        .menu {
-          font-size: 1.5rem;
-          background: $white;
-          border: thin solid $orange;
-
-          -webkit-box-shadow: 7px 7px 3px -3px rgba(0,0,0,0.1);
-          -moz-box-shadow:    7px 7px 3px -3px rgba(0,0,0,0.1);
-          box-shadow:         7px 7px 3px -3px rgba(0,0,0,0.1);
-
-          position: absolute;
-          z-index: 3001;
-          right: 0;
-          display: none;
-
-          line-height: normal;
-          -webkit-border-radius: 0 0 2px 2px;
-          -moz-border-radius: 0 0 2px 2px;
-          border-radius: 0 0 2px 2px;
-          white-space: nowrap;
-
-          a {
-            display: block;
-            width: 100%;
-            padding: 1.5rem 2rem;
-            border-bottom: thin solid $light-grey;
-          }
-
-          a:last-child {
-            border-bottom: 0;
-          }
-
-          a:hover{
-            background: rgba(0,0,0,0.05);
-          }
-
-          hr {
-            margin: 0;
-          }
-        }
-
-        .menu.menu-left {
-          left: 15rem;
-          margin-left: 0.25rem;
-        }
-      }
-
-
-      h2, h3, h4{
+      
+      h2, h3, h4 {
         padding: 1rem 0 0.5rem 1.5rem;
         text-transform: uppercase;
         font-size: 12px;
