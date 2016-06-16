@@ -976,6 +976,7 @@
     :deactivate: Deaktivieren
     :decline: Ich habe diese %{model} nicht
     :delete: "%{model} löschen"
+    :delete_no_model: "Löschen"
     :edit: "%{model} bearbeiten"
     :edit_no_model: Bearbeiten
     :header:

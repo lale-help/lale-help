@@ -974,6 +974,7 @@
     :deactivate: Deactivate
     :decline: I don't have this %{model}
     :delete: Delete %{model}
+    :delete_no_model: Delete
     :edit: Edit %{model}
     :edit_no_model: Edit
     :header:

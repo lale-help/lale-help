@@ -63,7 +63,7 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def link_to_delete(group)
     options = { class: 'button', method: 'delete', data: { confirm: t('.confirm_delete') } }
-    link_to t('helpers.delete'), circle_working_group_path(group.circle, group), options
+    link_to t('helpers.delete_no_model'), circle_working_group_path(group.circle, group), options
   end
 
   def link_to_reactivate(group)

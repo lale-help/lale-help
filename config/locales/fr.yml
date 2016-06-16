@@ -933,6 +933,7 @@
     :deactivate: Désactiver
     :decline: Je n'ai pas ce %{model}
     :delete: Effacer %{model}
+    :delete_no_model: Effacer
     :edit: Editer %{model}
     :edit_no_model: Editer
     :header:
