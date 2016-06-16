@@ -1,0 +1,9 @@
+.working-group-dashboard {
+  .header {
+    .title {
+      i {
+        @include lale-icon($lale-icon-circle, 2em);
+      }
+    }
+  }
+}

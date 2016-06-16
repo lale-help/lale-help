@@ -16,6 +16,15 @@
       @include flex(3 0 50rem);
       .title {
         font-size: 26px;
+
+        i {
+          @include lale-icon($lale-icon-circle, 2em);
+          display: inline-block;
+          margin-right: 0.75rem;
+          font-size: 1.5rem;
+          position: relative;
+          top: 2px;
+        }
       }
 
       .description {
