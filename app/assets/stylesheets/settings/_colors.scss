@@ -1,5 +1,3 @@
-
-
 $black         : #2c4c5e;
 $green         : #009e11;
 $red           : #d0021b;
@@ -46,8 +44,8 @@ $border-color  : $blue-light-1;
 // button colors
 // hover states are about 10% darker. darken() didn't have the desired effect, though.
 //
-$button                 : $grey;
-$button-hover           : darken($grey, 10);
+$button                 : #698998;
+$button-hover           : darken(#698998, 10);
 $button-super           : $blue2;
 $button-super-hover     : $blue2-darker;
 $button-primary         : $orange;

@@ -5,4 +5,5 @@
       .field.required
         = f.text_area :body, placeholder: t('circle.comments.placeholder')
     .submit-row
-      = f.submit t("circle.comments.#{item.comments.empty? ? 'post' : 'reply'}")
+      button.button-primary-inverse
+        = t("circle.comments.#{item.comments.empty? ? 'post' : 'reply'}")

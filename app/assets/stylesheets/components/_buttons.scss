@@ -43,6 +43,7 @@
   margin: auto;
 
   &:hover {
+    color: $white;
     background: $button-super-hover;
   }
   // FIXME this should be inherited from button-base but isnt???
@@ -80,6 +81,7 @@
   }
 
   &:hover {
+    color: $white;
     background: $button-primary-hover;
   }
 }
@@ -103,6 +105,7 @@
   background-color: $button-secondary;
   border: thin solid $button-secondary;
   &:hover {
+    color: $white;
     background: $button-secondary-hover;
   }
 }

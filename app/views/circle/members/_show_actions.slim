@@ -1,7 +1,7 @@
 - if can?(:block, member, circle)
   - member = MemberPresenter.new(member, circle)
   - if member.has_organizer_roles?
-      button#show-organizer-info.button.button-primary = t('helpers.block')
+      button#show-organizer-info.button.button-secondary = t('helpers.block')
       .organizer-info
         h3 = t('.organizer_info_title')
         ul
@@ -9,8 +9,8 @@
             li == role_text
   - else
     = form_tag block_circle_member_path(circle, member), method: :put do
-      button.button.button-primary = t('helpers.block')
+      button.button.button-secondary = t('helpers.block')
 
 - if can?(:unblock, member, circle)
   = form_tag activate_circle_member_path(circle, member), method: :put do
-    button.button-primary = t('helpers.unblock')
+    button.button-secondary = t('helpers.unblock')
