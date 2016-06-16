@@ -9,6 +9,10 @@ body.internal .circle-dashboard{
       .title {
         font-size: 2em;
       }
+      .description {
+        color: darken($blue-light-1, 20%);
+        font-size: 1.6rem;
+      }
     }
 
     .right {

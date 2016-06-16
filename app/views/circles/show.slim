@@ -2,6 +2,7 @@
   .header
     .left
       .title =t('.dashboard_title', name: current_circle.name)
+      .description =current_circle.description
     .right
       span.hint =t('.need_help')
       a.button href="mailto:#{current_circle.admins.active.first.email}" = t('.contact_circle_admin')
