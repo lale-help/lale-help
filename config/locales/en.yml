@@ -1365,7 +1365,7 @@
     :flash:
       :password_reset_success: Your password was successfully updated
   :users_box:
-    :no_users_yet: No users yet.
+    :no_users_yet: No helpers yet.
   :views:
     :pagination:
       :first: "&laquo; First"

@@ -8,7 +8,7 @@
 .user-badges
 
   - if volunteers.empty?
-    = t('users-box.no_users_yet')
+    = t('users_box.no_users_yet')
   - else
     - volunteers.each do |volunteer|
       == cell('tasks/user_badge', volunteer, task: task, current_user: current_user, current_circle: current_circle)
