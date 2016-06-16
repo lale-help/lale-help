@@ -1,8 +1,8 @@
-.working-group-dashboard {
+.circle-dashboard {
   .header {
     .title {
       i {
-        @include lale-icon($lale-icon-circle, 2em);
+        @include lale-icon($lale-icon-circle, 1.25em);
       }
     }
   }
