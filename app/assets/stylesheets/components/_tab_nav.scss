@@ -5,9 +5,11 @@
   margin-bottom: 15px;
 
   a {
+    // hack to get even spacing withough changing top/bottom padding
+    border-top: thick solid transparent;
     cursor: pointer;
     display: inline-block;
-    padding: 1rem 2rem;
+    padding: 0.75rem 2rem;
   }
 
 
@@ -25,7 +27,9 @@
   }
   .badge {
     margin-left: 0.5em;
-    background: #BBBBBB;
+    background: transparent;
+    border: 1px solid #bbb;
+    font-weight: normal;
   }
 }
 
