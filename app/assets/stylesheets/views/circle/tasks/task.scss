@@ -101,9 +101,12 @@ section > .task {
 
     .actions {
       margin-bottom: 1.5rem;
-
-      .button, .button-primary {
+      text-align: center;
+      .button-super {
         width: 100%;
+      }
+      
+      .button, .button-primary {
         margin: 0.5rem 0;
       }
     }
