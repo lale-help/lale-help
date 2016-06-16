@@ -3,9 +3,6 @@
     .left
       .title =t('.dashboard_title', name: current_circle.name)
       .description =current_circle.description
-    .right
-      span.hint =t('.need_help')
-      a.button href="mailto:#{current_circle.admins.active.first.email}" = t('.contact_circle_admin')
 
   hr
 
@@ -54,3 +51,8 @@
     /      - current_circle.active_organizers.each do |user|
     /        .blah
     /          = render partial: 'user/user_icon', locals: {user: user, link: true}
+  footer
+    .right
+      span.hint =t('.need_help')
+      a.button href="mailto:#{current_circle.admins.active.first.email}" = t('.contact_circle_admin')
+
