@@ -26,6 +26,11 @@ body.internal {
         @include text-color($nav-bg-active, $nav-bg-active);
       }
     }
+
+    .dropdown .menu {
+      background: $body-bg;
+      @include text-color($header-bg, $header-bg);
+    }
   }
 
   .tab-nav {

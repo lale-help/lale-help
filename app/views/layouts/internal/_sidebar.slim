@@ -1,4 +1,8 @@
 nav
+
+  .sidebar-section.add_menu
+    = render partial: 'sidebar/circle_add_menu', locals: { circle: current_circle }
+
   .sidebar-section
     = sidebar_link(t('.home-page'), circle_path(current_circle))
     = sidebar_link(t('.my-calendar'),  volunteer_circle_taskables_path(current_circle))

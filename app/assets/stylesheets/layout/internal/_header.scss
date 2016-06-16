@@ -50,27 +50,28 @@ body.internal {
         }
       }
 
-      .circle-add-menu {
-        display: inline-block;
+      // moved to internal/_layout.scss by kristy
+      // .circle-add-menu {
+      //   display: inline-block;
 
-        label {
-          @include display(flex);
-          @include align-items(center);
-          @include justify-content(middle);
+      //   label {
+      //     @include display(flex);
+      //     @include align-items(center);
+      //     @include justify-content(middle);
 
-          .button-super {
-            i {
-              @include fa-icon(plus-circle);
-            }
-          }
-        }
+      //     .button-super {
+      //       i {
+      //         @include fa-icon(plus-circle);
+      //       }
+      //     }
+      //   }
 
-        [type="checkbox"]:checked {
-          & ~ label .button {
-            background-color: tint($orange, 20%);
-          }
-        }
-      }
+      //   [type="checkbox"]:checked {
+      //     & ~ label .button {
+      //       background-color: tint($orange, 20%);
+      //     }
+      //   }
+      // }
     }
 
     .header-right {

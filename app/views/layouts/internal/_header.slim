@@ -3,11 +3,7 @@ header
     = render partial: 'sidebar/circle_title', locals: { circle: current_circle }
 
   .header-middle
-    - if content_for(:header_middle).nil?
-      = render partial: 'sidebar/circle_add_menu', locals: { circle: current_circle }
-    - else
-      = content_for :header_middle
-
+    = content_for :header_middle
 
   .header-right
     .user-inbox
