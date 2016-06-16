@@ -13,15 +13,15 @@ $white         : #ffffff;
 $offwhite      : #eeeeee;
 
 
-$blue-darkish  : #4a90e2;
 $blue          : #00b8d4;
 $blue-dark-1   : #546e7a;
+// FIXME consolidate colors
 $blue-dark-1-darker: #3b5561;
-
 $blue-dark-2   : #263238;
 $blue-light-1  : #cfd8dc;
 $blue-light-2  : #eceff1;
 $blue2         : #458ccf;
+$blue-darkish  : #4a90e2;
 $blue2-darker  : #2c73b6;
 
 $orange        : #ff7043;
@@ -46,6 +46,8 @@ $border-color  : $blue-light-1;
 // button colors
 // hover states are about 10% darker. darken() didn't have the desired effect, though.
 //
+$button                 : $grey;
+$button-hover           : darken($grey, 10);
 $button-super           : $blue2;
 $button-super-hover     : $blue2-darker;
 $button-primary         : $orange;

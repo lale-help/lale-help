@@ -45,6 +45,10 @@
   &:hover {
     background: $button-super-hover;
   }
+  // FIXME this should be inherited from button-base but isnt???
+  &:visited {
+    color: $white;
+  }
 
   i {
     position: absolute;
@@ -106,5 +110,17 @@
 .button {
   @extend %button-base;
   background: $white;
-  border: thin solid $grey;
+  border: thin solid $button;
+  // FIXME this should be inherited from button-base but isnt???
+  color: $button;
+  
+  &:visited {
+    color: $button;
+  }
+
+  &:hover {
+    color: $button-hover;
+    border-color: thin solid darken($button-hover, 10);
+  }
+
 }
