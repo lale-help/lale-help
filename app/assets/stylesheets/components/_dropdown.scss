@@ -74,7 +74,6 @@
 
     a {
       display: block;
-      width: 100%;
       padding: 1rem 1.5rem;
       border-bottom: thin solid $light-grey;
     }
@@ -83,8 +82,8 @@
       border-bottom: 0;
     }
 
-    a:hover{
-      background: rgba(0,0,0,0.05);
+    a:hover {
+      background: rgba(0, 0, 0, 0.05);
     }
 
     hr {
