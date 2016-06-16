@@ -35,9 +35,16 @@
 .button.button-super, .button-super {
 
   @extend %button-base;
-  background:  $button-super;
+  background: $button-super;
   border: thin solid $button-super;
   position: relative;
+  font-size: 16px;
+  padding: 0.75rem 1rem;
+  margin: auto;
+
+  &:hover {
+    background: $button-super-hover;
+  }
 
   i {
     position: absolute;
@@ -55,30 +62,35 @@
     }
   }
 
-  font-size: 16px;
-  padding: 0.75rem 1rem;
-  margin: auto;
 }
 
 .button.button-primary, .button-primary {
 
-  // FIXME this should be inherited from button-base but isnt???
-  &:visited {
-    color                  : $white;
-  }
-
   @extend %button-base;
   background: $button-primary;
   border: thin solid $button-primary;
+
+  // FIXME this should be inherited from button-base but isnt???
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background: $button-primary-hover;
+  }
 }
 
 .button.button-primary-inverse, .button-primary-inverse {
 
   @extend %button-base;
   background: $white;
-  color: $button-primary;
+  color: $button-primary !important;
   border: thin solid $button-primary;
 
+  &:hover {
+    color: $button-primary-hover;    
+    border: thin solid $button-primary-hover;
+  }
 }
 
 .button.button-secondary, .button-secondary {
@@ -86,10 +98,13 @@
   @extend %button-base;
   background-color: $button-secondary;
   border: thin solid $button-secondary;
-
+  &:hover {
+    background: $button-secondary-hover;
+  }
 }
 
 .button {
   @extend %button-base;
   background: $white;
+  border: thin solid $grey;
 }
