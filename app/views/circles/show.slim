@@ -40,17 +40,17 @@
         .tab.documents
           = render partial: 'files/list', locals: { files: current_circle.files.select{ |f| can?(:read, f) }, show_actions: can?(:manage, current_circle), show_uploadable: false }
 
-    aside
-      .members.circle-leaders
-        .title= t('.circle_leaders')
-        .icons
-          - current_circle.admins.active.each do |user|
-            .blah
-              = render partial: 'user/user_icon', locals: {user: user, link: true}
-
-      .members.working-group-organizers
-        .title= t('.working_group_organizers')
-        .icons
-          - current_circle.active_organizers.each do |user|
-            .blah
-              = render partial: 'user/user_icon', locals: {user: user, link: true}
+    /aside
+    /  .members.circle-leaders
+    /    .title= t('.circle_leaders')
+    /    .icons
+    /      - current_circle.admins.active.each do |user|
+    /        .blah
+    /          = render partial: 'user/user_icon', locals: {user: user, link: true}
+    /
+    /  .members.working-group-organizers
+    /    .title= t('.working_group_organizers')
+    /    .icons
+    /      - current_circle.active_organizers.each do |user|
+    /        .blah
+    /          = render partial: 'user/user_icon', locals: {user: user, link: true}
