@@ -34,7 +34,7 @@ body.internal {
 
       .circle-add-menu {
         margin: 0;
-        padding: 0;
+        padding: 0 0 2rem 0;
         label {
           .button {
             font-size: 16px;
@@ -42,7 +42,7 @@ body.internal {
             margin: auto;
             width: 100%;
             i {
-              @include fa-icon(plus-circle);
+              @include fa-icon(caret-right);
               padding-left: 0.5rem;
               &:before {
                 color: $white;
@@ -97,11 +97,11 @@ body.internal {
         .menu {
           font-size: 1.5rem;
           background: $white;
-          border: thin solid $light-grey;
+          border: thin solid $orange;
 
-          -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-          -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-          box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+          -webkit-box-shadow: 7px 7px 3px -3px rgba(0,0,0,0.1);
+          -moz-box-shadow:    7px 7px 3px -3px rgba(0,0,0,0.1);
+          box-shadow:         7px 7px 3px -3px rgba(0,0,0,0.1);
 
           position: absolute;
           z-index: 3001;
@@ -136,6 +136,7 @@ body.internal {
 
         .menu.menu-left {
           left: 15rem;
+          margin-left: 0.25rem;
         }
       }
 
