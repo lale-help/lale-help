@@ -74,6 +74,7 @@
       }
 
       .actions {
+        text-align: center;
         form {
           margin: 0;
           padding: 0.5rem;
@@ -81,10 +82,6 @@
           &:first-child {
             padding-top: 0;
           }
-        }
-
-        .button, .button-primary {
-          width: 100%;
         }
       }
     }

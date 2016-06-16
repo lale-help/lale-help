@@ -80,7 +80,7 @@
 
 
           - if can? :leave, current_working_group
-            - options = { class: 'button button-primary', method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
+            - options = { class: 'button button-primary-inverse', method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
             = link_to(circle_working_group_leave_path(current_circle, current_working_group), options) do
               = t('.leave')
 
