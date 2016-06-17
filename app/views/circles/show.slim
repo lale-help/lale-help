@@ -3,12 +3,12 @@
     .left
       .title 
         i
-        =t('.dashboard_title', name: current_circle.name)
-    .right
-      span.hint = t('.need_help')
-      | &nbsp;
-      a.button href="mailto:#{current_circle.admins.active.first.email}" = t('.contact_circle_admin')
-
+        = t('.dashboard_title', name: current_circle.name)
+      .description =current_circle.description
+    - if can?(:manage, current_circle)
+      .right 
+        = link_to(circle_admin_path(current_circle), class: "button button-super") do
+          = t('helpers.edit', model: Circle.model_name)
   hr
 
   .details
