@@ -25,9 +25,7 @@ class UserBadgeCell < ::ViewModel
   end
 
   def user_badge_attributes
-    {
-      class: 'red'
-    }
+    {}
   end
 
   def ability

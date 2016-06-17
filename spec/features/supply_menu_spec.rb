@@ -23,7 +23,7 @@ describe 'The Add menu' do
       # to work around this, you can use the swiss army knife of DOM exploration, #find, and call
       # click on the node it returns. It's documented here and takes the same options as #find_all: 
       # http://www.rubydoc.info/github/jnicklas/capybara/Capybara/Node/Finders
-      find('.button-super', text: /Add/).click
+      find('.button-primary', text: /Add/).click
       # once the dropdown menu has been displayed by clicking on it, the following works as expected.
       # keep in mind Capybara tries to behave like a user, so it won't "see" hidden HTML elements.
       click_on("Supply")
