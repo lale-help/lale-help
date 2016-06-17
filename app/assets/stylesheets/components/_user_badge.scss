@@ -1,6 +1,5 @@
 .user-badge {
 
-
   // required for absolute positioning of unassign-user-icon
   position: relative;
   border: 1px solid #666;
@@ -43,9 +42,4 @@
     display: inline-block;
     margin-right: 6px;  
   }
-}
-
-// tmp debugging
-.user-badge.red {
-  background-color: #d00 !important;
 }

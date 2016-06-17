@@ -20,26 +20,12 @@ class UserBadgeCell < ::ViewModel
     @options[:current_circle]
   end
 
-  def user_name
-    can_see_user? ? link_to_user(user) : user.name
-  end
-
-  def can_see_user?
-    # FIXME use cancan rules here. the following lets an admin see the user, despite him having a private profile
-    # can?(:read, user, current_circle) ? link_to_user(user) : user.name
-    user.public_profile? 
-  end
-
-  def user_icon_locals
-    locals = { user: user }
-    locals[:link] = true if can_see_user?
-    locals
+  def user_link
+    link_to_user(user)
   end
 
   def user_badge_attributes
-    {
-      class: 'red'
-    }
+    {}
   end
 
   def ability
