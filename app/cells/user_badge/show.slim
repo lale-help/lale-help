@@ -1,4 +1,4 @@
 .user-badge *user_badge_attributes
   i.unassign-user-icon
-  = render partial: 'user/user_icon', locals: { user: user, link: true }
-  .user-name-shortened = user_link
+  = render partial: 'user/user_icon', locals: user_icon_locals
+  .user-name-shortened = user_name
