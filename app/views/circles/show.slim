@@ -8,7 +8,7 @@
     - if can?(:manage, current_circle)
       .right 
         = link_to(circle_admin_path(current_circle), class: "button button-super") do
-          = t('helpers.edit', model: Circle.model_name)
+          = t('helpers.edit', model: Circle.model_name.human)
   hr
 
   .details
