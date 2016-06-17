@@ -16,8 +16,6 @@ header
         .user-name= current_user.name
         .fi-chevron-bottom:before
 
-
-
       .menu.user-dropdown
         = link_to(t('.settings'), account_path)
         - current_user.active_circles.each do |circle|
@@ -27,4 +25,5 @@ header
         - if can?(:manage_site, nil)
           a href=admin_root_path =t('.admin')
 
+        = mail_to(current_circle.admins.active.first.email, t('.help'), subject: t('.help_email_subject'))
         a href=logout_path =t('.sign-out')

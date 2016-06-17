@@ -79,14 +79,14 @@ body.internal {
       @include align-items(center);
       @include justify-content(flex-end);
 
-      .user-dropdown-menu {
+      .dropdown {
         label {
           @include display(flex);
           @include align-items(center);
           @include justify-content(middle);
         }
 
-        .user-name{
+        .user-name {
             margin-right: 1rem;
         }
 
@@ -98,6 +98,19 @@ body.internal {
             height: 30px;
             width: 30px;
           }
+        }
+
+        .menu {
+          a {
+            font-size: 1.5rem;
+            padding: 1.5rem 2rem;
+          }
+          right: 0;
+          margin-right: 0;
+          border-color: $light-grey;
+          -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+          -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+          box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
         }
       }
     }

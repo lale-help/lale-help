@@ -1019,6 +1019,8 @@
     :internal:
       :header:
         :admin: Lale Admin
+        :help: Hilfe
+        :help_email_subject: Ich brauche Hilfe bei lale 
         :find-circles: Helferkreise finden
         :settings: Dein Profil
         :sign-out: Ausloggen

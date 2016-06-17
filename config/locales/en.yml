@@ -1017,6 +1017,8 @@
     :internal:
       :header:
         :admin: Lale Admin
+        :help_email_subject: I need help with lale
+        :help: Help
         :find-circles: Find Circles
         :settings: Your profile
         :sign-out: Sign Out

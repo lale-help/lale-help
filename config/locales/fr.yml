@@ -975,6 +975,8 @@
   :layouts:
     :internal:
       :header:
+        :help: Aide
+        :help_email_subject: "J'ai besoin d'aide avec lale" 
         :admin: Lale Admin
         :find-circles: Trouver des Cercles
         :settings: Paramètres
