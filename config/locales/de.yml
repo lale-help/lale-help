@@ -542,16 +542,15 @@
         :signed_up: angemeldet
         :urgent: dringend
     :supplies:
-      :edit_actions:
-        :edit_button_dropdown: Sachspende bearbeiten
       :edit:
         :back: Zurück zur Sachspende
+      :edit_actions:
+        :edit_button_dropdown: Sachspende bearbeiten
       :index:
         :header: Sachspenden
       :new:
         :back: Zurück zu den Sachspenden
       :show:
-        :users_box_title: Wird geliefert von
         :back: Zurück zu den Sachspenden
         :complete-task-button: Sachspende wurde abgegeben
         :decline-task-button: Ich habe das doch nicht.
@@ -560,6 +559,7 @@
         :organized-by: Organisiert von %{name}
         :reopen-task-button: Sachspende wieder öffnen
         :task-complete: 'Erledigt: '
+        :users_box_title: Wird geliefert von
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"
           :other: "%{count} Helfer sind eingetragen"
@@ -585,12 +585,12 @@
         :supplies-header: Sachspenden
         :tasks-header: Aufgaben
     :tasks:
-      :edit_actions:
-        :edit_button_dropdown: Aufgabe bearbeiten
       :completed:
         :header: Alle erledigten Aufgaben
       :edit:
         :back: Zurück zur Aufgabe
+      :edit_actions:
+        :edit_button_dropdown: Aufgabe bearbeiten
       :form:
         :date_format: "%d.%m.%Y"
         :placeholder_optional: "(optional)"
@@ -975,7 +975,7 @@
     :deactivate: Deaktivieren
     :decline: Ich habe diese %{model} nicht
     :delete: "%{model} löschen"
-    :delete_no_model: "Löschen"
+    :delete_no_model: Löschen
     :edit: "%{model} bearbeiten"
     :edit_no_model: Bearbeiten
     :header:
@@ -1018,9 +1018,9 @@
     :internal:
       :header:
         :admin: Lale Admin
-        :help: Brauchen Sie Hilfe mit lale?
-        :help_email_subject: Ich brauche Hilfe bei lale 
         :find-circles: Helferkreise finden
+        :help: Brauchen Sie Hilfe mit lale?
+        :help_email_subject: Ich brauche Hilfe bei lale
         :settings: Dein Profil
         :sign-out: Ausloggen
         :switch_to_circle: Wechseln zu "%{circle_name}"
@@ -1302,52 +1302,6 @@
       :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Aufgabe eingeladen."
       :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
       :updated: "%{user} hat %{changed_fields} geändert."
-      :user_assigned: "%{user} hat sich für diese Sachspende am %{date} eingetragen."
-      :user_unassigned: "%{user} hat sich für diese Sachspende am %{date} ausgetragen."
-    :flash:
-      :already_taken: Die Sachspende wird bereits von jemand übernommen.
-      :complete_failed: Problem bei der Fertigstellung dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :completed: Danke für die Sachspende!
-      :decline_failed: Problem bei der Ablehnung dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :declined: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
-        Helfer suchen...
-      :invite_failed: Problem bei der Einladung zu dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
-      :reopened: Sachspende wurde wieder geöffnet
-      :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
-      :volunteer_failed: Problem bei der Übernahme dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :volunteered: Vielen Dank für Deine Hilfe!
-  :supply:
-    :presenter:
-      :messages:
-        :recent_activity: Kürzlich bearbeitet
-        :volunteer_needed: Helfer gesucht
-  :supply_edit:
-    :cancel: Abbrechen
-  :support:
-    :array:
-      :last_word_connector: ", und "
-      :two_words_connector: " und "
-      :words_connector: ", "
-  :supported-by: Unterstützt durch
-  :task:
-    :presenter:
-      :messages:
-        :more_volunteers_needed: Noch Helfer gesucht
-        :recent_activity: Kürzlich bearbeitet
-  :task_edit:
-    :cancel: Abbrechen
-  :tasks:
-    :auto_comment:
-      :completed: "%{user} hat diese Aufgabe am %{date} erledigt."
-      :copied: Diese Aufgabe wurde von Aufgabe %{original_task} am %{date} kopiert.
-      :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Aufgabe eingeladen."
-      :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
-      :updated: "%{user} hat %{changed_fields} geändert."
       :user_assigned: "%{user} hat sich für diese Aufgabe am %{date} angemeldet."
       :user_unassigned: "%{user} hat sich für diese Aufgabe am %{date} abgemeldet."
       :user_unassigned_self: "%{user} hat sich für diese Aufgabe am %{date} ausgetragen."
@@ -1420,6 +1374,8 @@
   :users:
     :flash:
       :password_reset_success: Das Passwort wurde erfolgreich geändert.
+  :users_box:
+    :no_users_yet: Noch keine Helfer.
   :views:
     :pagination:
       :first: "&laquo; Erste"
@@ -1440,5 +1396,3 @@
     :types:
       :private: Geschlossen
       :public: Offen
-  :users_box:
-    :no_users_yet: Noch keine Helfer.

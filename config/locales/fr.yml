@@ -143,6 +143,7 @@
         :created_at: Uploadé à
         :file: Fichier
         :file_size_bytes: Taille du Fichier
+        :is_public: visible à tous les volontaires
         :name: nom
         :permission_is_public:
           :false: Privé
@@ -366,6 +367,17 @@
   :cells:
     :tasks:
       :sourcing_widget:
+        :accept: Je peux aider
+        :decline: Je ne peux plus aider
+        :find_helpers: Trouver des volontaires &hellip;
+        :modal:
+          :invite_all: Tous les volontaires (%{count})
+          :invite_by_name: Inviter des volontaires spécifiques
+          :invite_working_group: Volontaires dans cet groupe (%{count})
+          :title_assign: Attribuer à volontaire
+          :title_invite: Inviter par email
+          :title_main: Trouver des volontaires
+        :no_volunteers_yet: Personne enregistré encore
         :title: Volontaires
         :volunteer-count:
           :one: "%{count} volontaire y participe"
@@ -376,6 +388,10 @@
         :volunteer-count-required:
           :one: "%{count} volontaire est nécessaire"
           :other: "%{count} volontaires sont nécessaires"
+      :volunteer_select_tag:
+        :all_helpers: Tous les volontaires
+        :in_working_group: Dans cet groupe
+        :placeholder: S'il vous plaît sélectionnez...
     :working_groups:
       :table:
         :cant_deactivate_group_with_items: Le groupe contient encore des tâches or
@@ -511,6 +527,8 @@
     :supplies:
       :edit:
         :back: Retour aux Besoins
+      :edit_actions:
+        :edit_button_dropdown: Editer besoin
       :index:
         :header: Besoins Matériels
       :new:
@@ -524,6 +542,7 @@
         :organized-by: Organisé par %{name}
         :reopen-task-button: Re-ouvrir la Fourniture
         :task-complete: 'Fait : '
+        :users_box_title: Est fournie par
         :volunteer-count:
           :one: "%{count} volontaire y participe"
           :other: "%{count} volontaires y participent"
@@ -553,6 +572,8 @@
         :header: Toutes les Tâches Complétées
       :edit:
         :back: Retour à la tâche
+      :edit_actions:
+        :edit_button_dropdown: Editer tâche
       :form:
         :date_format: "%d.%m.%Y"
         :placeholder_optional: "(optionel)"
@@ -919,6 +940,7 @@
           les erreurs et de ré-essayer.
         :saved: Vos paramètres ont été enregistré.
   :helpers:
+    :assign: Attribuer des volontaires
     :block: Bloquer
     :clone: Copie %{model}
     :complete: Terminer %{model}
@@ -974,10 +996,10 @@
   :layouts:
     :internal:
       :header:
-        :help: Besoin d'aide avec lale?
-        :help_email_subject: "J'ai besoin d'aide avec lale" 
         :admin: Lale Admin
         :find-circles: Trouver des Cercles
+        :help: Besoin d'aide avec lale?
+        :help_email_subject: J'ai besoin d'aide avec lale
         :settings: Paramètres
         :sign-out: Se Déconnecter
         :switch_to_circle: Basculer sur "%{circle_name}"
@@ -1017,12 +1039,14 @@
         :supply_completion_reminder: Merci pour votre aide !
         :supply_invitation: Lale a besoin de votre aide pour un ravitaillement.
       :task_mailer:
+        :task_assigned: Cette tâche vous a été assigné.
         :task_change: Quelque chose a changé dans votre tâche.
         :task_comment: Un commentaire a été fait sur votre tâche.
         :task_completion_reminder: Merci pour votre aide !
         :task_invitation: Lale a besoin de votre aide pour une tâche.
         :task_reminder: Pas de questions ?
         :task_suggestion: Nous aimerions vous suggérer une tâche.
+        :task_unassigned: Vous n’êtes plus assigné à cette tâche.
       :user_mailer:
         :account_activated: Votre compte a été activé !
         :account_activation: Un nouveau membre veut rejoindre votre cercle.
@@ -1210,7 +1234,8 @@
   :supplies:
     :auto_comment:
       :completed: "%{user} a complété cette fourniture le %{date}"
-      :invited: "%{user} a invité %{invite_count} aides pour cette fourniture le %{date}"
+      :invited: "%{user} a invité %{invite_count} volontaires pour cette fourniture
+        le %{date}"
       :reopened: "%{user} a ré-ouvert cette fourniture le %{date}"
       :updated: "%{user} a changé %{changed_fields}."
       :user_assigned: "%{user} c'est enregistré pour cette fourniture le %{date}"
@@ -1254,13 +1279,26 @@
     :auto_comment:
       :completed: "%{user} a complété cette tâche le %{date}."
       :copied: Cette tâche a été copié de la tâche %{original_task} le %{date}.
-      :invited: "%{user} a invité %{invite_count} aides pour cette tâche le %{date}."
+      :invited: "%{user} a invité %{invite_count} volontaires pour cette tâche le
+        %{date}."
       :reopened: "%{user} a re-ouvert cette tâche le %{date}."
       :updated: "%{user} a changé %{changed_fields}."
       :user_assigned: "%{user} s'est enregistré pour cette tâche le %{date}."
       :user_unassigned: "%{user} s'est désisté de cette tâche le %{date}."
+      :user_unassigned_self: "%{user} s'est désisté de cette tâche le %{date}."
+      :user_volunteered: "%{user} s'est enregistré pour cette tâche le %{date}."
+      :users_assigned:
+        :one: "%{assignees} a été affecté à cette tâche par %{assigner} le %{date}."
+        :other: "%{assignees} a été affecté à cette tâche par %{assigner} le %{date}."
+      :users_unassigned:
+        :one: "%{unassignees} était non attribué cette tâche par %{unassigner} le
+          %{date}."
+        :other: "%{unassignees} était non attribué cette tâche par %{unassigner} le
+          %{date}."
     :flash:
       :completed: Merci d'avoir complété %{name} !
+      :decline_failed: "%{name} diminué avec succès ."
+      :declined: Une erreur c'est produite.
       :reopened: La tâche a été ré-ouverte
       :reopening_failed: Il y a eu un problème lors de la ré-ouverture de cette tâche
       :volunteered: Merci de vous être porté volontaire pour %{name} !
@@ -1316,6 +1354,8 @@
   :users:
     :flash:
       :password_reset_success: Votre mot de passe a été mis à jour avec succès.
+  :users_box:
+    :no_users_yet: Personne enregistré encore.
   :views:
     :pagination:
       :first: "&laquo; Premier"

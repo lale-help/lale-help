@@ -1016,9 +1016,9 @@
     :internal:
       :header:
         :admin: Lale Admin
-        :help_email_subject: I need help with lale
-        :help: Need help with lale?
         :find-circles: Find Circles
+        :help: Need help with lale?
+        :help_email_subject: I need help with lale
         :settings: Your profile
         :sign-out: Sign Out
         :switch_to_circle: Switch to "%{circle_name}"
