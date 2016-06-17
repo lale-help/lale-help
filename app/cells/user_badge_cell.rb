@@ -1,6 +1,7 @@
 class UserBadgeCell < ::ViewModel
   
-  delegate :can?, to: :ability
+  # delegate :can?, to: :ability
+  delegates :controller, :can?
 
   include LinksHelper
 
@@ -40,8 +41,8 @@ class UserBadgeCell < ::ViewModel
     {}  
   end
 
-  def ability
-    @ability ||= Ability.new(current_user)
-  end
+  # def ability
+  #   @ability ||= Ability.new(current_user)
+  # end
 
 end
