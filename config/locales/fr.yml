@@ -654,7 +654,6 @@
       :contact_circle_admin: Contacter l'Administrateur du Cercle
       :dashboard_title: Tableau de Bord pour %{name}
       :files: Documents de cercle
-      :need_help: Besoin d'aide ?
       :open_tasks: Tâches Ouvertes
       :show_completed_supplies: Voir les fournitures reçues...
       :show_completed_tasks: Voir les tâches complétées...
@@ -975,7 +974,7 @@
   :layouts:
     :internal:
       :header:
-        :help: Aide
+        :help: Besoin d'aide avec lale?
         :help_email_subject: "J'ai besoin d'aide avec lale" 
         :admin: Lale Admin
         :find-circles: Trouver des Cercles

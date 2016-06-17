@@ -692,7 +692,6 @@
       :contact_circle_admin: Contact Circle Admin
       :dashboard_title: Dashboard for %{name}
       :files: Circle Documents
-      :need_help: Need help?
       :open_tasks: Open Tasks
       :show_completed_supplies: Show completed supplies...
       :show_completed_tasks: Show completed tasks...
@@ -1018,7 +1017,7 @@
       :header:
         :admin: Lale Admin
         :help_email_subject: I need help with lale
-        :help: Help
+        :help: Need help with lale?
         :find-circles: Find Circles
         :settings: Your profile
         :sign-out: Sign Out

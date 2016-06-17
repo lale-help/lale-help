@@ -692,7 +692,6 @@
       :contact_circle_admin: Email an den Administrator
       :dashboard_title: "Übersicht für %{name}"
       :files: Dokumente des Helferkreises
-      :need_help: Brauchst Du Hilfe?
       :open_tasks: Offene Aufgaben
       :show_completed_supplies: Erledigte Sachspenden anzeigen...
       :show_completed_tasks: Erledigte Aufgaben anzeigen...
@@ -1019,7 +1018,7 @@
     :internal:
       :header:
         :admin: Lale Admin
-        :help: Hilfe
+        :help: Brauchen Sie Hilfe mit lale?
         :help_email_subject: Ich brauche Hilfe bei lale 
         :find-circles: Helferkreise finden
         :settings: Dein Profil
