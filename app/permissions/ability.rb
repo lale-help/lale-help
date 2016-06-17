@@ -190,7 +190,7 @@ class Ability
       can?(:manage, task)
     end
     cannot [:invite_to, :assign, :unassign], Task do |task|
-      cannot?(:manage, task)
+      cannot?(:manage, task) || task.complete?
     end
 
     can :complete, Task do |task|
