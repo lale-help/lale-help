@@ -43,27 +43,9 @@
           = render partial: 'files/list', locals: { files: current_circle.files.select{ |f| can?(:read, f) }, show_actions: can?(:manage, current_circle), show_uploadable: false }
 
     aside
+      / nothing to see here right now ...
 
-      .aside-section.users-box
-        .title
-          h2 = t('.circle_leaders')
-
-        .user-badges
-          - users = current_circle.admins.active
-          - if users.empty?
-            = t('users_box.no_users_yet')
-          - else
-            - users.each do |user|
-              == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
-
-      .aside-section.users-box
-        .title
-          h2 = t('.working_group_organizers')
-
-        .user-badges
-          - users = current_circle.active_organizers
-          - if users.empty?
-            = t('users_box.no_users_yet')
-          - else
-            - users.each do |user|
-              == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
+  footer
+    .right
+      span.hint =t('.need_help')
+      a.button href="mailto:#{current_circle.admins.active.first.email}" = t('.contact_circle_admin')

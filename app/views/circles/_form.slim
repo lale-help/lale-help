@@ -9,13 +9,17 @@
       = f.label :name
       = errors.formatted_message_for(:name)
       = f.text_field :name, placeholder: true
-
-  .field-row
     .field.required class=errors.css(:language)
       = f.label :language
       = errors.formatted_message_for(:language)
       = f.select :language do
         = options_for_select(form.language_options, form.language)
+
+  .field-row
+    .field
+      = f.label :description
+      = errors.formatted_message_for(:description)
+      = f.text_area :description, {maxlength: 200}
 
 
   hr
