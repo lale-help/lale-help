@@ -1,8 +1,3 @@
-#  FIXME There’s a nasty bug when rendering the Tasks::UserBadgeCell: _sometimes_ it wouldn’t 
-#  set the class „unassignable“ correctly. I *assume* this happens because the wrong
-#  class is loaded/used, i.e. ::UserBadgeCell instead of Tasks::::UserBadgeCell. 
-#  Since I can’t thoroughly debug, I’m renaming the class for now, hoping this will fix the bug.
-#  
 class Tasks::TaskUserBadgeCell < ::UserBadgeCell
 
   def task
