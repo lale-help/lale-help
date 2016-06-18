@@ -27,6 +27,10 @@
   &:focus {
     outline : none;
   }
+
+  &[disabled=disabled] {
+    cursor: progress;
+  }
 }
 
 // super means even more top level than primary, used for the "Add" menu and the 
@@ -84,6 +88,7 @@
     color: $white;
     background: $button-primary-hover;
   }
+
 }
 
 .button.button-primary-inverse, .button-primary-inverse {
@@ -107,6 +112,9 @@
   &:hover {
     color: $white;
     background: $button-secondary-hover;
+  }
+  &[disabled=disabled] {
+    background: lighten($button-secondary, 20);
   }
 }
 
