@@ -7,9 +7,9 @@ class Task::Assign < Mutations::Command
   end
 
   def validate
-    add_error(:user, :empty) if users.empty?
+    add_error(:users, :empty) if users.empty?
     users.each do |user|
-      add_error(:user, :already_volunteered) if volunteer_role.exists?(task: task, user: user)
+      add_error(:users, :already_volunteered) if volunteer_role.exists?(task: task, user: user)
     end
   end
 

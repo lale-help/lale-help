@@ -43,7 +43,8 @@
       form.assign-helpers action=links.assign_volunteer method="put" 
         = assignable_volunteers_select
         br
-        button.button.button-secondary = t('helpers.assign', model: User)
+        = button_tag(type: 'button', class: 'button button-secondary', data: { disable_with: 'Assigning &hellip;' })
+          = t('helpers.assign', model: User)
     
     - if can?(:invite_to, task)
       .invite-helpers data-method="post"

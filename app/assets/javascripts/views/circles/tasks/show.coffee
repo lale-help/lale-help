@@ -45,6 +45,13 @@ inviteHelpers = (event)->
     method:  container.data('method'),
     success: closeModalAndReloadPage
 
+# rails_ujs.js would do this out of the box, but we haven't included it yet it seems.
+# doing this by hand rather than checking verifying if all our JS also works with rails_ujs.
+disableButton = ()->
+  button = $(this)
+  button.attr('disabled', 'disabled')
+  button.html(button.data('disable-with'))
+
 sourcingOptionsModalSelector = "[data-remodal-id=find-helpers]"
 
 # listening on document so we don't need to init everything on DOM ready
@@ -54,4 +61,5 @@ $(document)
   .on('click', '.assign-helpers .button', assignVolunteer)    
   .on('click', '.invite-helpers .button', inviteHelpers)    
   .on('click', '.users-box .unassign-user-icon', unassignVolunteer)    
+  .on('click', 'button[data-disable-with]', disableButton)
   
