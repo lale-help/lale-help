@@ -962,6 +962,7 @@
     :yes: Ja
   :helpers:
     :assign: Helfer eintragen
+    :assigning: Eintragen &hellip;
     :block: Sperren
     :clone: "%{model} kopieren"
     :complete: "%{model} abschliessen"

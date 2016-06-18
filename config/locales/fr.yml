@@ -941,6 +941,7 @@
         :saved: Vos paramètres ont été enregistré.
   :helpers:
     :assign: Attribuer des volontaires
+    :assigning: Attribuer hellip;
     :block: Bloquer
     :clone: Copie %{model}
     :complete: Terminer %{model}
