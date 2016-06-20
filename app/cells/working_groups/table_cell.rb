@@ -1,7 +1,7 @@
 class WorkingGroups::TableCell < ::ViewModel
 
   # the first argument to the #cell call is "model" in here
-  alias :working_groups :model
+  alias :circle :model
   
   def groups
     working_groups.map do |group|
@@ -34,7 +34,7 @@ class WorkingGroups::TableCell < ::ViewModel
   end
 
   def create_working_group_path
-    new_circle_working_group_path(working_groups.first.circle)
+    new_circle_working_group_path(circle)
   end
 
   def links_for(group)
@@ -73,6 +73,10 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def group_admins(group)
     group.active_admins.map { |u| u.name }
+  end
+
+  def working_groups
+    @options[:working_groups]
   end
 
 end
