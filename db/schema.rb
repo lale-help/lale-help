@@ -205,8 +205,8 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.string   "scheduling_type"
     t.string   "start_time"
     t.string   "due_time"
-    t.integer  "project_id"
     t.date     "start_date"
+    t.integer  "project_id"
   end
 
   create_table "tokens", force: :cascade do |t|

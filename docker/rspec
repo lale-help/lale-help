@@ -1,4 +1,4 @@
 #!/bin/sh
 
-exec ./docker/exec bin/rspec
+exec ./docker/exec bin/rspec $1
 
