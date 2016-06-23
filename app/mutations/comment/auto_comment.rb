@@ -1,13 +1,13 @@
-class Task::Comments::Base < Mutations::Command
+class Comment::AutoComment < Mutations::Command
   required do
-    model :task, class: Taskable
+    model :item, class: Commentable
     model :user
     string :message, default: nil
   end
 
   def execute
-    with_locale(task.circle.language) do
-      attrs = { item: task, commenter: Task::Comments::Base.commenter, body: build_message }
+    with_locale(item.circle.language) do
+      attrs = { item: item, commenter: Comment::AutoComment.commenter, body: build_message }
       Comment.create(attrs)
     end
   end
@@ -24,8 +24,8 @@ class Task::Comments::Base < Mutations::Command
 
   def common_message_params
     {
-      date: I18n.l(Date.today, format: :long),
-      user: user.name
+        date: I18n.l(Date.today, format: :long),
+        user: user.name
     }
   end
 
@@ -34,7 +34,7 @@ class Task::Comments::Base < Mutations::Command
   end
 
   def build_message
-    type_of = task.is_a?(Supply) ? 'supplies' : 'tasks'
+    type_of = item.class.name.pluralize.downcase
     I18n.t("#{type_of}.auto_comment.#{message}", common_message_params.merge(message_params))
   end
 

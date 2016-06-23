@@ -45,7 +45,7 @@ class Task::Unassign < Mutations::Command
   end
 
   def create_task_comment
-    Task::Comments::Unassigned.run!(task: task, unassignees: users, user: current_user)
+    Task::Comments::Unassigned.run!(item: task, unassignees: users, user: current_user)
   end
 
   def existing_volunteers

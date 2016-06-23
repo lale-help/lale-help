@@ -8,7 +8,7 @@ class Task::Reopen < Mutations::Command
     task.completed_at = nil
 
     if task.save
-      Task::Comments::Base.run(task: task, message: 'reopened', user: user)
+      Comment::AutoComment.run(item: task, message: 'reopened', user: user)
     else
       add_error :task, :reopening_failed
     end

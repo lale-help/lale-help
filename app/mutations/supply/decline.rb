@@ -10,7 +10,7 @@ class Supply::Decline < Mutations::Command
     return unless assignment.present?
 
     assignment.destroy
-    Task::Comments::Base.run(task: supply, message: 'user_unassigned', user: user)
+    Comment::AutoComment.run(item: supply, message: 'user_unassigned', user: user)
 
     assignment
   end

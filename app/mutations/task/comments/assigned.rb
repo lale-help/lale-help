@@ -1,7 +1,6 @@
-class Task::Comments::Assigned < Task::Comments::Base
+class Task::Comments::Assigned < Comment::AutoComment
 
   required do
-    model :task
     array :assignees
     string :message, default: nil
   end

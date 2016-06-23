@@ -9,7 +9,7 @@ class Task::Notifications::InvitationEmail < Mutations::Command
 
     invite_users
     if invitees.count > 0
-      Task::Comments::Invited.run(task: task, user: current_user, invite_count: invitees.count)
+      Task::Comments::Invited.run(item: task, user: current_user, invite_count: invitees.count)
     end
 
     OpenStruct.new(volunteers: invitees)

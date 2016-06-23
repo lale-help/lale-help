@@ -9,7 +9,7 @@ class Supply::Update < Supply::BaseForm
     private
 
     def create_updates_comment(changes)
-      Task::Comments::Updated.run!(task: supply, user: user, changes: changes)
+      Task::Comments::Updated.run!(item: supply, user: user, changes: changes)
     end
 
   end

@@ -18,7 +18,7 @@ class Task::Update < Task::BaseForm
     end
 
     def create_task_comment
-      Task::Comments::Updated.run!(task: task, user: user, changes: task_changes)
+      Task::Comments::Updated.run!(item: task, user: user, changes: task_changes)
     end
 
     def users_to_notify

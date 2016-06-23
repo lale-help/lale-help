@@ -1,7 +1,6 @@
-class Task::Comments::Unassigned < Task::Comments::Base
+class Task::Comments::Unassigned < Comment::AutoComment
 
   required do
-    model :task
     array :unassignees
     string :message, default: nil
   end

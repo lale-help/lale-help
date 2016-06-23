@@ -8,7 +8,7 @@ class Task::Complete < Mutations::Command
     task.complete = true
 
     if task.save
-      Task::Comments::Base.run(task: task, message: 'completed', user: user)
+      Comment::AutoComment.run(item: task, message: 'completed', user: user)
     else
       add_error :task, :completion_failed
     end

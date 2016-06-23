@@ -31,7 +31,7 @@ class Task::Volunteer < Mutations::Command
   end
 
   def create_task_comment
-    Task::Comments::Volunteered.run(task: task, user: user)
+    Task::Comments::Volunteered.run(item: task, user: user)
   end
 
   def existing_volunteers

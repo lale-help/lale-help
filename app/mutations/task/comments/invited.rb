@@ -1,4 +1,4 @@
-class Task::Comments::Invited < Task::Comments::Base
+class Task::Comments::Invited < Comment::AutoComment
   required do
     integer :invite_count
   end
