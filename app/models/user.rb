@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   belongs_to :location #DEPRECATED
   belongs_to :address, dependent: :destroy
   belongs_to :primary_circle, class_name: 'Circle'
+  alias_method :circle, :primary_circle
 
   has_many :task_roles, class_name: 'Task::Role', dependent: :destroy
   has_many :tasks, ->{ distinct }, through: :task_roles

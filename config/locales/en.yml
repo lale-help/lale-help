@@ -1365,6 +1365,10 @@
         :state_province: State / Province
         :street_address: Street Address
   :users:
+    :auto_comment:
+      :status_change_activated: "%{member} activated on %{date} by %{user}."
+      :status_change_blocked: "%{member} blocked on %{date} by %{user}."
+      :status_change_unblocked: "%{member} unblocked on %{date} by %{user}."
     :flash:
       :password_reset_success: Your password was successfully updated
   :users_box:

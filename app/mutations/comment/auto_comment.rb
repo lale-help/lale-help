@@ -6,7 +6,7 @@ class Comment::AutoComment < Mutations::Command
   end
 
   def execute
-    with_locale(item.circle.language) do
+    with_locale(circle_language) do
       attrs = { item: item, commenter: Comment::AutoComment.commenter, body: build_message }
       Comment.create(attrs)
     end
@@ -18,6 +18,10 @@ class Comment::AutoComment < Mutations::Command
     result = yield
     I18n.locale = original_locale
     result
+  end
+
+  def circle_language
+    item.circle.language
   end
 
   private
