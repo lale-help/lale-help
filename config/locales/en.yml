@@ -818,6 +818,10 @@
   :edit: EDIT
   :error_correction: Please correct the errors below.
   :errors:
+    :due_date:
+      :empty: Please enter a due date
+    :location:
+      :empty: Please enter a location
     :about_me:
       :too_long: maximum 300 characters
     :accept_terms:
@@ -830,7 +834,7 @@
     :country:
       :empty: Please choose a valid country
     :description:
-      :empty: Description can't be empty.
+      :empty: Please enter a description
       :too_short: Description is too short
     :due_time:
       :format: Please enter the due time in the format 00:00.
