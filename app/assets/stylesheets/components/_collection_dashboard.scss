@@ -1,0 +1,106 @@
+//
+// common layout for projects and working group dashboard
+// (both are "collections" of tasks and supplies)
+// 
+.collection-dashboard {
+
+  .header {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(top);
+    @include flex-wrap(wrap);
+    margin-bottom: 20px;
+
+    .left {
+      max-width: 650px;
+      @include flex(3 0 50rem);
+      .title {
+        font-size: 26px;
+        margin-bottom: 0.25rem;
+        i {
+          display: inline-block;
+          margin-right: 0.75rem;
+          position: relative;
+          top: 3px;
+        }
+      }
+
+      .description {
+        color: darken($blue-light-1, 20%);
+        font-size: 1.6rem;
+      }
+    }
+
+    .right {
+      margin-left: 3rem;
+      @include flex(0 0 30rem);
+      padding: 0 10px;
+      .button-super {
+        width: 100%;
+      }
+    }
+
+  }
+
+  .tab-nav {
+    margin-top: 1px; // align with buttons
+  }
+
+  .tab.info {
+    margin-top: 2rem;
+  }
+
+  .details {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(top);
+    @include flex-wrap(wrap);
+
+    main {
+      max-width: 650px;
+      @include flex(3 0 50rem);
+
+      .button {
+        margin-top: 2rem;
+      }
+    }
+
+    aside {
+      margin-left: 3rem;
+      @include flex(0 0 30rem);
+
+      .aside-section {
+        margin-bottom: 2rem;
+      }
+
+      .actions {
+        text-align: center;
+        form {
+          margin: 0;
+          padding: 0.5rem;
+
+          &:first-child {
+            padding-top: 0;
+          }
+        }
+      }
+    }
+    .stats-box li {
+      font-size: 2rem;
+      text-align: center;
+      display: inline-block;
+      min-width: 50px;
+      border-right: 1px solid $light-grey;
+      padding: 0 4px;
+      &:last-child {
+        border-right: none;
+      }
+      .label {
+        display: block;
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+}

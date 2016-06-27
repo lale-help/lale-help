@@ -1,4 +1,5 @@
 body.internal {
+
   $header-height : 5rem;
 
   header {
@@ -49,34 +50,28 @@ body.internal {
         }
       }
 
-      .circle-add-menu {
-        display: inline-block;
+      // moved to internal/_layout.scss by kristy
+      // .circle-add-menu {
+      //   display: inline-block;
 
-        label {
-          @include display(flex);
-          @include align-items(center);
-          @include justify-content(middle);
+      //   label {
+      //     @include display(flex);
+      //     @include align-items(center);
+      //     @include justify-content(middle);
 
-          .button {
-            font-size: 16px;
-            padding: 0.5rem 1rem;
-            margin: auto;
-            i {
-              @include fa-icon(plus-circle);
-              padding-left: 0.5rem;
-              &:before {
-                color: $white;
-              }
-            }
-          }
-        }
+      //     .button-super {
+      //       i {
+      //         @include fa-icon(plus-circle);
+      //       }
+      //     }
+      //   }
 
-        [type="checkbox"]:checked {
-          & ~ label .button {
-            background-color: tint($orange, 20%);
-          }
-        }
-      }
+      //   [type="checkbox"]:checked {
+      //     & ~ label .button {
+      //       background-color: tint($orange, 20%);
+      //     }
+      //   }
+      // }
     }
 
     .header-right {
@@ -84,14 +79,14 @@ body.internal {
       @include align-items(center);
       @include justify-content(flex-end);
 
-      .user-dropdown-menu {
+      .dropdown {
         label {
           @include display(flex);
           @include align-items(center);
           @include justify-content(middle);
         }
 
-        .user-name{
+        .user-name {
             margin-right: 1rem;
         }
 
@@ -104,6 +99,19 @@ body.internal {
             width: 30px;
           }
         }
+
+        .menu {
+          a {
+            font-size: 1.5rem;
+            padding: 1.5rem 2rem;
+          }
+          right: 0;
+          margin-right: 0;
+          border-color: $light-grey;
+          -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+          -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+          box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
+        }
       }
     }
 
@@ -111,92 +119,5 @@ body.internal {
       font-size: 2rem;
     }
 
-    [type="checkbox"]:checked {
-      & ~ .menu {
-        display : block;
-      }
-    }
-
-    [type="checkbox"]:not(:checked),
-      [type="checkbox"]:checked {
-        position : absolute;
-        left     : -9999px;
-    }
-
-    [type="checkbox"]:not(:checked) + label,
-      [type="checkbox"]:checked + label {
-        position     : relative;
-        cursor       : pointer;
-    }
-
-    .dropdown {
-      @include display(flex);
-      @include align-items(center);
-      @include justify-content(center);
-
-      position: relative;
-
-
-      label {
-        padding: 0 1rem;
-        margin: 0;
-        height: $header-height;
-        width:  100%;
-        user-select: none;
-      }
-
-      &:hover, label:hover {
-        cursor: pointer;
-      }
-
-      .menu {
-        font-size: 1.5rem;
-        background: $white;
-        border: thin solid $light-grey;
-
-        -webkit-box-shadow: 3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-        -moz-box-shadow:    3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-        box-shadow:         3px 3px 3px -3px rgba(0,0,0,0.1), -3px 3px 3px -3px rgba(0,0,0,0.1);
-
-        min-width: 100%;
-
-        position: absolute;
-        z-index: 3001;
-        top: $header-height;
-        left: auto;
-        right: 0;
-        display: none;
-
-        line-height: normal;
-        -webkit-border-radius: 0 0 2px 2px;
-        -moz-border-radius: 0 0 2px 2px;
-        border-radius: 0 0 2px 2px;
-        white-space: nowrap;
-
-        a {
-          display: block;
-          width: 100%;
-          padding: 1.5rem 2rem;
-          border-bottom: thin solid $light-grey;
-        }
-
-        a:last-child {
-          border-bottom: 0;
-        }
-
-        a:hover{
-          background: rgba(0,0,0,0.05);
-        }
-
-        hr {
-          margin: 0;
-        }
-      }
-
-      .menu.menu-left {
-        right: auto;
-        left: 0;
-      }
-    }
   }
 }

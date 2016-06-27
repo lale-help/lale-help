@@ -1,0 +1,11 @@
+.working-group-dashboard {  
+  .header {
+    .left {
+      .title {
+        i {
+          @include lale-icon($lale-icon-archive, 1.25em);
+        }
+      }
+    }
+  }
+}

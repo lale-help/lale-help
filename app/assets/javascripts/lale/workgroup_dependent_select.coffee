@@ -1,10 +1,9 @@
 #
-# The available projects and organizers of some entities (a task, supply or project) depend
-# on the working group it is in. This class updates the available options when the working
-# group changes.
+# In some of our forms, select fields deplend on each other, i.e. the available options for one
+# select field have to change when another, select field changes. This class handles those changes.
 #
-# Example: when the workgroup is changed in the task form, the available organizers need
-# to change to all organizers of the new workgroup.
+# An example for the task form: when the working group is changed, the available organizers need
+# to be updated to show all organizers of that working group.
 #
 # In order to work, the class needs an optgroup HTML structure generated with
 # #grouped_collection_select in the dependent field.

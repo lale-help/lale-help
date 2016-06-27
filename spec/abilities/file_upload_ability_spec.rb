@@ -15,15 +15,15 @@ describe "FileUpload abilities" do
       context "when the file is public" do
         let(:is_public) { true }
 
-        it { should_not be_able_to(:read, file_upload) }
-        it { should_not be_able_to(:manage, file_upload) }
+        it { is_expected.not_to be_able_to(:read, file_upload) }
+        it { is_expected.not_to be_able_to(:manage, file_upload) }
       end
 
       context "when the file is private" do
         let(:is_public) { false }
 
-        it { should_not be_able_to(:read, file_upload) }
-        it { should_not be_able_to(:manage, file_upload) }
+        it { is_expected.not_to be_able_to(:read, file_upload) }
+        it { is_expected.not_to be_able_to(:manage, file_upload) }
       end
     end
 
@@ -33,15 +33,15 @@ describe "FileUpload abilities" do
       context "when the file is public" do
         let(:is_public) { true }
 
-        it { should be_able_to(:read, file_upload) }
-        it { should be_able_to(:manage, file_upload) }
+        it { is_expected.to be_able_to(:read, file_upload) }
+        it { is_expected.to be_able_to(:manage, file_upload) }
       end
 
       context "when the file is private" do
         let(:is_public) { false }
 
-        it { should be_able_to(:read, file_upload) }
-        it { should be_able_to(:manage, file_upload) }
+        it { is_expected.to be_able_to(:read, file_upload) }
+        it { is_expected.to be_able_to(:manage, file_upload) }
       end
     end
 
@@ -54,15 +54,15 @@ describe "FileUpload abilities" do
       context "when the file is public" do
         let(:is_public) { true }
 
-        it { should     be_able_to(:read, file_upload) }
-        it { should_not be_able_to(:manage, file_upload) }
+        it { is_expected.to     be_able_to(:read, file_upload) }
+        it { is_expected.not_to be_able_to(:manage, file_upload) }
       end
 
       context "when the file is private" do
         let(:is_public) { false }
 
-        it { should_not be_able_to(:read, file_upload) }
-        it { should_not be_able_to(:manage, file_upload) }
+        it { is_expected.not_to be_able_to(:read, file_upload) }
+        it { is_expected.not_to be_able_to(:manage, file_upload) }
       end
     end
   end

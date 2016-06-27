@@ -1,0 +1,35 @@
+= lale_form @form do |f|
+  - if errors.present?
+    .form-introduction.error
+      p= t('error_correction')
+
+  .field-row
+    .field.required class=errors.css(:name)
+      = f.label :name
+      = errors.formatted_message_for(:name)
+      = f.text_field :name
+
+  .field-row
+    .field
+      = f.label :description
+      = errors.formatted_message_for(:description)
+      = f.text_area :description, {maxlength: 200}
+
+  .field-row
+    .field
+      = f.label :type
+      = errors.formatted_message_for(:type)
+      = f.select :type, options_for_select(@form.type_options, @form.type)
+
+  - if @form.organizer_assignable?
+    .field-row
+      .field
+        = f.label :organizer_id
+        = errors.formatted_message_for(:organizer_id)
+        = f.select :organizer_id, options_for_select(@form.organizer_options, @form.organizer_id), include_blank: t('.organizer_blank')
+
+  .submit-row
+    = f.submit
+
+    - cancel_path = current_working_group.persisted? ? circle_working_group_path(current_circle, current_working_group) : circle_admin_path(current_circle)
+    = link_to t('workflow.cancel'), cancel_path

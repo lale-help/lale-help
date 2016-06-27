@@ -2,16 +2,16 @@
   .dropdown.circle-add-menu
     input id='add-item-selector' type='checkbox' class='menu-selector'
     label for='add-item-selector'
-      .button.button-primary
+      .button.button-super
         = t('.add')
-        i
-    .menu.menu-left
+        i.fi-chevron-right
+
+    .menu
       - if can? :create_task, circle
         a href=new_circle_task_path(circle) = Task.model_name.human
 
       - if can? :create_supply, circle
         a href=new_circle_supply_path(circle) = Supply.model_name.human
 
-      - if feature_enabled?(:projects)
-        - if can? :create_project, circle
-          a href=new_circle_project_path(circle) = Project.model_name.human
+      - if can? :create_project, circle
+        a href=new_circle_project_path(circle) = Project.model_name.human

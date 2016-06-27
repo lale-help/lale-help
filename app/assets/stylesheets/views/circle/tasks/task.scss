@@ -46,8 +46,6 @@ section > .task {
             font-size: 1.25rem;
           }
         }
-
-
       }
 
       .title {
@@ -67,146 +65,50 @@ section > .task {
       }
     }
 
+    .item-details-table {
+      margin-bottom: 2rem;
+    }
+
+    .new-comment {
+      .field-row {
+        margin-top: 0;
+      }
+      margin-bottom: 2rem;
+    }
+
   }
 
   aside {
     margin-left: 3rem;
     @include flex(0 0 30rem);
 
-    .volunteers{
-      @include border-top-radius($border-radius);
-      @include border-bottom-radius($border-radius);
-      border: thin solid $border-color;
-      margin-bottom: 3rem;
+    .dropdown {
+      $label-height: 31px;
+      z-index: 99;
 
-      > * {
-        border-top: thin solid $border-color;
-        padding: 1.5rem 1rem;
-
-        &:first-child {
-          border: none;
-        }
+      label {
+        height: $label-height;
       }
 
-      .title {
-        @include lale-icon(" ");
-        background: $blue-light-2;
-        @include border-top-radius($border-radius);
-      }
-
-      .icons {
-        @include display(flex);
-        @include flex-direction(row);
-        @include flex-wrap(wrap);
-        @include align-items(center);
-        @include justify-content(flex-start);
-
-        > * {
-          margin: 0.25rem;
-        }
-
-        .task-action-button .user-icon:hover {
-          background: $red-100;
-          .text {
-            content: " ";
-          }
-        }
+      .menu {
+        top: $label-height + 9px;
+        left: 10px;
+        right: auto;
+        min-width: auto;
+        width: 280px;
       }
     }
 
     .actions {
-      form {
-        margin: 0;
-        padding: 0.5rem;
-      }
-
-      .button, .button-primary {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      .button-super {
         width: 100%;
       }
-    }
-  }
-}
-
-section > .task.urgency--complete {
-  .task-header {
-    .date {
-       .month {
-         background-color: $green;
-       }
-
-       .day {
-         background-color: $green-100;
-         border-color: $green-500;
-         color: $green;
-       }
-
-    }
-    .done {
-      color: $green;
-    }
-
-    .title {
-      background-color: $green-500;
-      color: $green-50;
-    }
-
-    .description {
-      background-color: $green-50;
-      color: $green-500;
-    }
-  }
-}
-
-section > .task.urgency--urgent {
-  .task-header {
-    .date {
-      .month {
-        background-color: $red;
-        color: $blue-light-1;
+      
+      .button, .button-primary {
+        margin: 0.5rem 0;
       }
-
-      .day {
-        background-color: $red-100;
-        border-color: $red;
-        color: $red;
-      }
-
-    }
-    .title {
-      background-color: $red-100;
-      color: $red;
-    }
-
-    .description {
-      background-color: $red-50;
-      color: $blue-dark-1;
-    }
-  }
-}
-
-section > .task.urgency--on_track {
-  .task-header {
-    .date {
-      .month {
-        background-color: $blue-dark-1;
-        color: $blue-light-1;
-      }
-
-      .day {
-        background-color: $blue-light-1;
-        border-color: $blue-dark-1;
-        color: $blue-dark-1;
-      }
-
-    }
-    .title {
-      background-color: $blue-light-1;
-      color: $blue-dark-2;
-    }
-
-    .description {
-      background-color: $blue-light-2;
-      color: $blue-dark-1;
     }
   }
 }

@@ -1,31 +1,33 @@
+- if can? :create, Comment.new, item, circle
+  = render partial: 'circle/comments/new', locals: { item: item, circle: circle }
+
 .comment-container
-  - if task.comments.count > max_display
-    - tasks = task.comments.limit(max_display).reverse
-    .show_all_comments
-      a href='javascript:void(0);' = t('.show_all_comments')
-  - else
-    - tasks = task.comments.reorder('created_at asc')
-  - tasks.each do |comment|
-    .comment class="#{comment.commenter == current_user ? 'right' : 'left' }"
+
+  - comments       = item.comments.reorder(created_at: :desc)
+  - limit_comments = comments.count > max_display
+
+  - if limit_comments
+    - comments = comments.limit(max_display)
+
+  - comments.each do |comment|
+    .comment class="#{comment.commenter == current_user ? 'right' : 'left' } #{comment.commenter.lale_bot? ? 'lale-bot' : ''}"
+
       .user-avatar
         = render partial: 'user/user_icon', locals: { user: comment.commenter, link: true }
       .comment-main
-        .body=comment.body
+        .body
+          .comment-text=comment.body
+          = render partial: 'circle/comments/edit', locals: { comment: comment, item: item, circle: circle }
         .commenter
-          / .actions
-          /     = link_to t('circle.comments.actions.delete'),
-          /         circle_task_comment_path(circle.id, task.id, comment.id), remote: true,  method: :delete
-          /
-          /     = link_to t('circle.comments.actions.edit'), '#', {data: {"edit-comment" => comment.id}}
-
-          .name=comment.commenter.name
+          - if comment.commenter == current_user
+            .actions
+              - edit_url = item.is_a?(User) ? circle_member_comment_path(circle, item, comment) : circle_task_comment_path(circle, item, comment)
+              = link_to t('circle.comments.actions.edit'), '#', { data: { comment: comment.id }, class: 'edit_comment_link' }
+              = link_to t('circle.comments.actions.delete'), edit_url, method: :delete, data: { confirm: t('circle.comments.actions.delete_confirm') }
+          - else
+            .name=comment.commenter.name
           .time=comment.comment_date_time
 
-- if can? :create, Comment, task
-  .new-comment
-    = form_for [circle, task, @form] do |f|
-      .field-row.single
-        .field.required
-          = f.text_area :body, placeholder: t('circle.comments.placeholder')
-      .submit-row
-        = f.submit t("circle.comments.#{task.comments.empty? ? 'post' : 'reply'}")
+  - if limit_comments
+    .show_all_comments
+      a href='javascript:void(0);' = t('.show_all_comments')

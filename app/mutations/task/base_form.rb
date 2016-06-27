@@ -5,7 +5,7 @@ class Task::BaseForm < ::Form
   attribute :name,             :string
   attribute :description,      :string
 
-  attribute :primary_location, :string, default: proc{ (task.primary_location || circle.address.location).try :address }
+  attribute :primary_location, :string, default: proc { (task.primary_location || circle.address.location).try(:address) }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
@@ -27,10 +27,10 @@ class Task::BaseForm < ::Form
   attribute :ability, :model
   attribute :circle, :model
 
+  attribute :original_task_id,  :string, required: false, default: proc { nil }
+  attribute :send_notifications, :boolean, default: proc { false }
+
   include TaskableForm
-
-
-
 
   def start_date_string=(string)
     self.start_date = parse_date(string) if string.present?
@@ -76,47 +76,98 @@ class Task::BaseForm < ::Form
     end
 
     def execute
+      task.assign_attributes(attributes_for_task_update)
+      track_task_changes(task.changes)
+      task.save
+
       task.tap do |t|
-        t.name          = name
-        t.description   = description
-
-        t.circle        = circle
-        t.working_group = working_group
-        t.project       = project
-
-        t.duration      = duration
-
-        t.scheduling_type = scheduling_type
-        t.start_date      = (scheduling_type == 'between') ? start_date : nil
-        t.start_time      = (scheduling_type == 'between' && start_time.present?) ? start_time : nil
-
-        t.due_date        = due_date
-        t.due_time        = due_time.present? ? due_time : nil
-
-        t.volunteer_count_required = volunteer_count_required
-
+        update_organizer(t)
+        update_volunteers(t)
+        update_location(t)
         t.save
+      end
 
-        t.roles.send('task.organizer').destroy_all
+      if original_task_id.present?
+        Task::Comments::Cloned.run(task: task, user: user, task_cloned: Task.find(original_task_id))
+      end
 
-        organizer = User.find_by(id: organizer_id)
-        organizer_ability = Ability.new(organizer)
+      OpenStruct.new(task: task, changes: task_changes)
+    end
 
-        if organizer_ability.can?(:read, t)
-          t.roles.send('task.organizer').create user_id: organizer_id
-        else
-          t.roles.send('task.organizer').create user_id: user.id
-        end
+    private 
 
-        volunteers_to_remove = t.volunteers.select do |volunteer|
-          Ability.new(volunteer).cannot? :read, t
-        end
-        t.roles.where(user: volunteers_to_remove).delete_all if volunteers_to_remove.present?
+    def attributes_for_task_update
+      # quick and dirty way to break up the huge #execute method
+      attrs = OpenStruct.new
 
-        t.location_assignments.destroy_all
-        t.location_assignments.create primary: true, location: Location.location_from(primary_location)
+      attrs.name            = name
+      attrs.description     = description
 
-        t.save
+      attrs.circle          = circle
+      attrs.working_group   = working_group
+      attrs.project         = project
+
+      attrs.duration        = duration
+
+      attrs.scheduling_type = scheduling_type
+      attrs.start_date      = (scheduling_type == 'between') ? start_date : nil
+      attrs.start_time      = (scheduling_type == 'between' && start_time.present?) ? start_time : nil
+
+      attrs.due_date        = due_date
+      attrs.due_time        = due_time.present? ? due_time : nil
+
+      attrs.volunteer_count_required = volunteer_count_required
+      attrs.to_h
+    end
+
+    def track_task_changes(hash)
+      @task_changes ||= {}
+      @task_changes.merge!(hash)
+    end
+    attr_reader :task_changes
+
+    def update_organizer(task)
+      old_organizers = task.organizer_ids.to_set
+      
+      task.roles.send('task.organizer').destroy_all
+
+      organizer = User.find_by(id: organizer_id)
+      ability = Ability.new(organizer)
+
+      if ability.can?(:read, task)
+        task.roles.send('task.organizer').create(user_id: organizer_id)
+      else
+        task.roles.send('task.organizer').create(user_id: user.id)
+      end
+
+      if task.organizer_ids.to_set != old_organizers
+        track_task_changes(organizer: true)
+      end
+    end
+
+    def update_volunteers(task)
+      old_volunteers = task.volunteer_ids.to_set
+
+      volunteers_to_remove = task.volunteers.select do |volunteer|
+        Ability.new(volunteer).cannot?(:read, task)
+      end
+      if volunteers_to_remove.present?
+        task.roles.where(user: volunteers_to_remove).delete_all 
+      end
+
+      if task.volunteer_ids.to_set != old_volunteers
+        track_task_changes(volunteers: true)
+      end
+    end
+
+    def update_location(task)
+      old_location = task.primary_location.try(:geocode_query)
+      
+      task.location_assignments.destroy_all
+      task.primary_location = Location.location_from(primary_location)
+
+      if task.primary_location.geocode_query != old_location
+        track_task_changes(location: true)
       end
     end
   end

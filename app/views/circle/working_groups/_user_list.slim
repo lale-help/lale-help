@@ -6,7 +6,7 @@ table.default-table
         = member.name
 
       td
-        = link_to t('.remove'), circle_working_group_remove_user_path(user_id: member), method: :delete
+        = link_to t('.remove'), circle_working_group_remove_user_path(user_id: member, role_type: role_to_remove), method: :delete
 
   - unless users.present?
     tr

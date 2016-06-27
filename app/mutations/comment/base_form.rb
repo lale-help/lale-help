@@ -1,7 +1,7 @@
 class Comment::BaseForm < ::Form
   attribute :comment, :model, primary: true, new_records: true
   attribute :commenter, :model, class: User
-  attribute :task, :model, class: Taskable
+  attribute :item, :model, class: Commentable
 
   attribute :body,             :string
 
@@ -14,7 +14,7 @@ class Comment::BaseForm < ::Form
       comment.tap do |c|
         c.body          = body
         c.commenter     = commenter
-        c.task          = task
+        c.item          = item
         c.save
       end
     end

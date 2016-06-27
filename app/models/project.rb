@@ -31,4 +31,10 @@ class Project < ActiveRecord::Base
     (tasks.map(&:users) + supplies.map(&:users)).flatten.uniq
   end
 
+  # active admins are: project admins whose role in the **circle** is active. 
+  # project roles have no status.
+  def active_admins
+    admins.select {|admin| circle.has_active_user?(admin) }
+  end
+
 end

@@ -10,7 +10,6 @@ You can run Lale on your development machine using one of two methods:
   1) as a standard Rails project
   2) using [Docker](https://www.docker.com/) *(recommended for Rails beginners)*
 
-
 ### Standard Rails Project
 
 
@@ -32,21 +31,34 @@ You can run Lale on your development machine using one of two methods:
   To view the rails logs, you can use `./docker/logs`
 
 #### Docker Scripts
-| Script Description                         | How to run               |
-|--------------------------------------------|--------------------------|
-| Start Rails (and other services)           | `./docker/start`         |
-| Open a Rails console                       | `./docker/rails-console` |
-| Run Tests                                  | `./docker/rspec`         |
-| Migrate the DB                             | `./docker/db-migrate`    |
-| Run a one off command in the web container | `./docker/exec COMMAND`  |
-| Run bash on the web container              | `./docker/shell`         |
-| Inspect the DB with psql                   | `./docker/psql`          |
-| View the logs from every service           | `./docker/logs`          |
-| Stop all services                          | `./docker/stop`          |
-| Rebuild the web container                  | `./docker/build`         |
-| Reset your Docker environment              | `./docker/reset`         |
+| Script Description                         | How to run                            |
+|--------------------------------------------|---------------------------------------|
+| Start Rails (and other services)           | `./docker/start`                      |
+| Open a Rails console                       | `./docker/rails-console`              |
+| Run Tests                                  | `./docker/rspec [/path/to/spec]`      |
+| Migrate the DB                             | `./docker/db-migrate`                 |
+| Run a one off command in the web container | `./docker/exec COMMAND`               |
+| Run bash on the web container              | `./docker/shell`                      |
+| Inspect the DB with psql                   | `./docker/psql`                       |
+| View the logs from every service           | `./docker/logs`                       |
+| Stop all services                          | `./docker/stop`                       |
+| Rebuild the web container                  | `./docker/build`                      |
+| Reset your Docker environment              | `./docker/reset`                      |
+
+### Adding JavaScript packages / dependencies
+
+We use [bower](https://bower.io) to manage complex JS dependencies. Do the following to add a new JS dependency:
+
+```
+cd vendor/assets
+bower install package_name --save
+```
+
+Then use the package documentation to understand which JS and CSS files you need to require, find them in `vendor/assets/bower_components/package_name` and require them in `app/assets/javascripts/application.js` or `app/assets/stylesheets/application.css`.
 
 #### Known issues
+
+
   * If you are using Windows the Run tests command above does not work.
 
 #### FAQs
@@ -63,6 +75,8 @@ You can run Lale on your development machine using one of two methods:
   * Things were working yesterday but all of a sudden everything is broken. What do I do?
     * First try run and run `./docker/reset`
     * if that fails file a GitHub issue
+  * How do I open the local UI?
+    * go to http://\<DockerIP\>:5000/
   * How do I look at email sent by the app?
     * go to http://\<DockerIP\>:5000/letter_opener
 
@@ -84,7 +98,7 @@ To ensure that Lale can be accessible to anybody regardless of language, we are 
 internationalization framework. Please review the [documentation](http://guides.rubyonrails.org/i18n.html) for I18n
 when working on Lale.
 
-All strings and translastions used in the application should be stored in locale files stored in `config/locales` and should
+All strings and translations used in the application should be stored in locale files stored in `config/locales` and should
 try to use I18n's lazy loading for translation keys in templates/partials.
 
 ## Restoring Database from Snapshot

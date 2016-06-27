@@ -1,7 +1,7 @@
 class Circle::Join < ::Form
   attribute :user,      :model,   primary: true
   attribute :circle_id, :integer
-  attribute :location,  :string, default: proc{ user.address.full_address }, required: false
+  attribute :location,  :string, default: proc { user.address.full_address }, required: false
 
   class Submit < ::Form::Submit
 
@@ -19,10 +19,9 @@ class Circle::Join < ::Form
 
     def add_to_circle(user)
       unless role.where(user: user, circle: circle).exists?
-        role.create(user: user, circle: circle)
+        status = circle.must_activate_users? ? :pending : :active
+        role.create(user: user, circle: circle, status: status)
       end
-      status = circle.must_activate_users? ? :pending : :active
-      user.status = status
       user.primary_circle = circle unless user.primary_circle_id.present?
       user.save!
     end

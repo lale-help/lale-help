@@ -1,43 +1,37 @@
 class Task::Clone < Mutations::Command
+
   required do
-    model :user
     model :task
   end
 
-  # TODO validate & handle error
+  # returns an *unsaved* clone of task
   def execute
-    cloned_task = Task.new(new_task_attributes)
-    cloned_task
+    new_task = Task.new(new_task_attributes)
+    assign_location(new_task)
+    new_task
   end
 
   private
 
-  # TODO: what about task roles?
   def new_task_attributes
     attrs = task.attributes.reject do |key, value|
       %w(id created_at updated_at completed_at).include?(key) || value.nil?
     end
-    attrs['name'] = new_task_name(attrs['name'])
+    attrs[:organizers] = task.organizers
     attrs
   end
 
-  def new_task_name(old_name)
-    regexp    = Regexp.new(I18n.t('circle.projects.clone.new_task_name_regexp'))
-    matches   = regexp.match(old_name).to_a
-    base_name = old_name.gsub(regexp, '')
-
-    if matches.empty?
-      # task hasn't been cloned yet. return "Some task name copy"
-      I18n.t('circle.projects.clone.new_task_name', base_name: base_name)
-    elsif matches[1]
-      # task already has a number. return "Some task name copy 2", or 3, 4, 5..
-      new_number = matches[1].strip.to_i + 1
-      I18n.t('circle.projects.clone.new_task_name', base_name: base_name) + " #{new_number}"
-    else
-      # last case is that it's a copy but no number is given
-      new_number = 2
-      I18n.t('circle.projects.clone.new_task_name', base_name: base_name) + " #{new_number}"
-    end
+  def assign_location(new_task)
+    new_location = Location.location_from(task.primary_location.address)
+    #
+    # Warning: Here be dragons!
+    # 
+    # I'm defining a method :primary_location on this *instance* of Task, overwriting
+    # the method defined in the Task class. I'm doing this since there doesn't seem to be 
+    # an easy way to assign the primary_location correctly on an *unsaved* task instance.
+    # primary_location on this instance wouldn't be saved correctly, so I prevent saving.
+    new_task.define_singleton_method(:primary_location) { new_location }
+    new_task.readonly!  
   end
 
 end

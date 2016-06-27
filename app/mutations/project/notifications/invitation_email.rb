@@ -18,8 +18,8 @@ class Project::Notifications::InvitationEmail < Mutations::Command
 
   def volunteers
     @volunteers ||= begin
-      volunteers = (type == "circle" ? project.circle.volunteers : project.working_group.users)
-      volunteers.active.to_a.reject { |u| u == current_user }
+      volunteers = (type == "circle" ? project.circle.volunteers.active : project.working_group.users)
+      volunteers.to_a.reject { |u| u == current_user }
     end
   end
 end

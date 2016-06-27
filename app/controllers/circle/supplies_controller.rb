@@ -15,7 +15,7 @@ class Circle::SuppliesController < ApplicationController
 
   def show
     authorize! :read, current_supply
-    if can? :create, Comment, current_supply
+    if can? :create, Comment.new, current_supply, current_circle
       @form = Comment::Create.new(commenter: current_user, task: current_supply, comment: Comment.new)
     end
   end
@@ -44,7 +44,7 @@ class Circle::SuppliesController < ApplicationController
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, outcome.result), notice: t('flash.created', name: Supply.model_name.human)
+      redirect_to circle_supply_path(current_circle, outcome.result.supply), notice: t('flash.created', name: Supply.model_name.human)
 
     else
       errors.add outcome.errors

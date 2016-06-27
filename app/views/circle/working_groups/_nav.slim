@@ -2,7 +2,13 @@
 
   a.tasks data-tab='tasks'
     = Task.model_name.human(count: 2)
+    span.badge = @open_tasks.count
   a.supplies data-tab='supplies'
     = Supply.model_name.human(count: 2)
+    span.badge = @open_supplies.count
   a.projects data-tab='projects'
     = Project.model_name.human(count: 2)
+  - if feature_enabled? :working_group_files
+    a.documents data-tab='documents'
+      = t('.documents')
+

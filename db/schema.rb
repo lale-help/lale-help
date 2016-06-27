@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417005737) do
+ActiveRecord::Schema.define(version: 20160616174327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.string   "name"
+    t.integer  "status"
   end
 
   create_table "circles", id: :bigserial, force: :cascade do |t|
@@ -62,18 +63,22 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.integer  "language",            default: 0,     null: false
     t.integer  "address_id"
     t.boolean  "must_activate_users", default: false
+    t.string   "description"
   end
 
   create_table "comments", id: :bigserial, force: :cascade do |t|
     t.integer  "commenter_id", limit: 8, null: false
-    t.integer  "task_id",      limit: 8, null: false
-    t.string   "task_type",              null: false
+    t.integer  "task_id",      limit: 8
+    t.string   "task_type"
     t.text     "body"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "item_id"
+    t.string   "item_type"
   end
 
   add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
+  add_index "comments", ["item_type", "item_id"], name: "index_comments_on_item_type_and_item_id", using: :btree
   add_index "comments", ["task_type", "task_id"], name: "index_comments_on_task_type_and_task_id", using: :btree
 
   create_table "file_uploads", id: :uuid, default: "uuid_generate_v4()", force: :cascade do |t|
@@ -90,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.string   "file_encryption_details"
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
+    t.integer  "file_size_bytes"
   end
 
   create_table "locations", id: :bigserial, force: :cascade do |t|
@@ -193,18 +199,18 @@ ActiveRecord::Schema.define(version: 20160417005737) do
   end
 
   create_table "tasks", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "name",                                           null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.string   "name",                                                null: false
     t.string   "description"
-    t.integer  "working_group_id",         limit: 8,             null: false
+    t.integer  "working_group_id",         limit: 8,                  null: false
     t.datetime "completed_at"
     t.date     "due_date"
     t.integer  "volunteer_count_required"
     t.integer  "duration",                           default: 1
     t.string   "scheduling_type"
-    t.string   "start_time"
-    t.string   "due_time"
+    t.string   "start_time",                         default: "0:00"
+    t.string   "due_time",                           default: "0:00"
     t.integer  "project_id"
     t.date     "start_date"
   end
@@ -235,14 +241,13 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
+    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
-    t.boolean  "accept_terms"
     t.string   "about_me"
     t.integer  "address_id"
-    t.integer  "status"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree
@@ -262,6 +267,7 @@ ActiveRecord::Schema.define(version: 20160417005737) do
     t.string   "name",                                  null: false
     t.string   "description"
     t.boolean  "is_private",            default: false
+    t.integer  "status",                default: 0
   end
 
 end

@@ -172,31 +172,6 @@
       }
     }
 
-    .task-badge {
-      color: $medium-gray;
-      border: 1px solid $medium-gray;
-      padding: 5px 10px;
-
-      border-radius: 3px;
-      font-size: 1.2em;
-      text-align: center;
-      font-family: $fontstack-monospace;
-      margin-right: 10px;
-      display: inline-block;
-
-      i {
-        margin-right: 1rem;
-      }
-
-      &--users i{
-        @include lale-icon($lale-icon-user, 1.0em);
-      }
-
-      &--comments i {
-        @include octicon-icon(comment);
-      }
-    }
-
     .subtitle {
       .bullet {
         padding-left: 5px;

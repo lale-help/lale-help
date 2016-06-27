@@ -19,7 +19,7 @@ describe 'New User On-boarding', type: :feature, js: true do
     context 'with circle nearby' do
       let!(:circle) { submit_form(:circle_create_form).result }
 
-      it 'works', :ci_ignore do
+      it 'works' do
         visit root_path
         click_on t('layouts.public.header.sign-up')
         fill_in_form

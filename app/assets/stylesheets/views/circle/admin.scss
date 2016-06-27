@@ -25,14 +25,52 @@ table {
 
 }
 
-section.admin-invite, 
-section.admin-pending-members {
+section.circle-admin {
+
+  margin: 0;
+  padding: 0;
+
+  h2 {
+    padding: 0;
+    margin: 1em 0;
+  }
 
   p {
-    margin: 2rem 0;
+    margin: 2em 0;
   }
 
   .invite-link {
     max-width: 50rem;
   }
+
+  .wg-table {
+    margin-bottom: 0;
+    width: auto;
+    .name {
+      min-width: 250px;
+      max-width: 250px;
+      padding-right: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .admins {
+      li {
+        min-width: 175px;
+        max-width: 175px;
+        padding-right: 10px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;        
+      }
+    }
+    .action-buttons {
+      a {
+        margin: 6px;
+        margin-left: 0px;
+      }
+    }
+
+  }
+
 }

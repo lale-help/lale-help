@@ -10,6 +10,8 @@ class Circle::Role < ActiveRecord::Base
     circle.helpee
   ]
 
+  enum status: %i(pending active blocked)
+  
   LEADERSHIP_TYPES = %w(circle.admin circle.official circle.custom)
   ORGANIZER_TYPES  = %w(circle.admin)
   ORGANIZER_TYPE_IDS  = ORGANIZER_TYPES.map {|id| Circle::Role.role_types[id] }
@@ -18,6 +20,8 @@ class Circle::Role < ActiveRecord::Base
   scope :for_circle, ->(circle) { where(circle: circle ) }
 
   validates :user_id, uniqueness: { scope: [:role_type, :circle_id] }
+  validates :user_id, presence: true
+  validates :circle_id, presence: true
 
   def self.role_types_with_names
     self.role_types.keys.map do |role_type|

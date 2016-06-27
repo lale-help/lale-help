@@ -52,9 +52,11 @@ input {
 }
 
 .field input[type="checkbox"] ~ label {
+  float: none;
   display: inline;
-  padding-left: .25rem;
-  font-size: 1.25rem;
+  position: relative;
+  top: 1px;
+  padding-left: .5rem;
 }
 
 //Dumb that you can't put these together, but you can't.

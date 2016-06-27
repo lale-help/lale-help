@@ -23,6 +23,9 @@
     background-color: $light-grey;
     color: $grey;
   }
+  &.lale-bot {
+    border: none;
+  }
 }
 
 .user-icon:hover + .user-preview, .user-icon + .user-preview:hover{
@@ -81,6 +84,12 @@
 
 .user-avatar {
   pointer-events: none;
+}
+
+.lale-bot-avatar {
+  @include lale-logo-grey-bg(contain, #FFFFFF);
+  width: 3rem;
+  height: 3rem;
 }
 
 .volunteer-icon {

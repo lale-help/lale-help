@@ -1,8 +1,10 @@
 class TranslationManager
   SUPPORTED_LANGS = I18n.available_locales.map(&:to_sym)
+
+  # FIXME unfortunately this only works for displaying missing keys;
+  # it should reject these keys when writing the i18n files, as well.
   IGNORED_KEYS = [
-    /\Aactive_admin\./,
-    /\Aformtastic\./
+    /\A(active_admin|formtastic|ransack)\./
   ]
 
   Translation = Struct.new(:key, :languages) do
@@ -43,14 +45,9 @@ class TranslationManager
     save
   end
 
-
   def save
-    yamls = Hash.new
     SUPPORTED_LANGS.each do |lang|
-      yamls[lang] = { lang => deep_compact(translations_for(lang)) }.to_yaml
-    end
-
-    yamls.each do |lang, yaml|
+      yaml = { lang => deep_sort(deep_compact(translations_for(lang))) }.to_yaml
       path = Rails.root.to_s+"/config/locales/#{lang}.yml"
       log "Saving: #{path}"
       File.open(path, 'w') { |f| f.puts(yaml) }
@@ -109,11 +106,11 @@ class TranslationManager
   def deep_hash key, val
     hash = {}
     parts = key.split('.')
-    parts.each_with_index.reduce(hash) do |memo, (key, idx)|
+    parts.each_with_index.reduce(hash) do |memo, (_key, idx)|
       if idx == parts.length - 1
-        memo[key] = val
+        memo[_key] = val
       else
-        memo[key] = {}
+        memo[_key] = {}
       end
     end
     hash
@@ -137,4 +134,13 @@ class TranslationManager
       new_hash
     end
   end
+
+  def deep_sort(object)
+    return object unless object.is_a?(Hash)
+    hash = Hash.new
+    object.each { |k, v| hash[k] = deep_sort(v) }
+    sorted = hash.sort { |a, b| a[0].to_s <=> b[0].to_s }
+    hash.class[sorted]
+  end
+
 end

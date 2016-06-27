@@ -1,0 +1,7 @@
+.edit-working-group
+  = render partial: 'admin_nav'
+
+  h1= t('.header', name: current_working_group.name)
+
+  = render partial: 'user_list', locals: { users: @members, role_to_remove: :member }
+  = render partial: 'add_user_form', locals: { form: @form }

@@ -1,0 +1,88 @@
+- project = ProjectPresenter.new(current_project)
+
+.collection-dashboard.project-dashboard
+  .header
+    .left
+      .title
+        i
+        = project.name
+
+      .description
+        = project.description
+
+    .right
+      - if can? :edit, current_project
+        = link_to(edit_circle_project_path(current_circle, project), class: 'button button-super') do
+          = t('helpers.edit', model: project.model_name.human)
+
+  .details
+    main
+
+      = render partial: 'nav', locals: { project: project }
+
+      .tab.info
+
+        .item-details-table
+
+          - if project.tasks.present?
+            .row.task
+              .icon
+              .title= Task.model_name.human(count: 2)
+              .details
+                = render partial: 'stats', object: project.stats.tasks
+
+          - if project.supplies.present?
+            .row.supply
+              .icon
+              .title= Supply.model_name.human(count: 2)
+              .details
+                = render partial: 'stats', object: project.stats.supplies
+
+          - if project.tasks.present?
+            .row.user
+              .icon
+              .title= User.model_name.human(count: 2)
+              .details
+                = render partial: 'stats', object: project.stats.users
+
+          - if project.has_date_range?
+            .row.date-range
+              .icon
+              .title = t('.date_range')
+              .details
+                = project.date_range_sentence
+
+          .row.work-group
+            .icon
+            .title= Task.human_attribute_name(:working_group)
+            .details
+              = link_to_working_group(project.working_group)
+
+          .row.organizer
+            .details== t(".organized-by", name: link_to_user(project.admin).html_safe)
+
+      .tab.tasks
+        - if can? :manage, current_project
+          a.button href=new_circle_task_path(current_circle, project_id: project.id)
+            = t('helpers.new', model: Task.model_name.human)
+        = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: project.tasks }
+
+      .tab.supplies
+        - if can? :manage, current_project
+          a.button href=new_circle_supply_path(current_circle, project_id: project.id)
+            = t('helpers.new', model: Supply.model_name.human)
+        = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: project.supplies }
+
+
+    aside
+
+      .aside-section.actions
+
+        - if can? :invite_to, current_project
+          = form_tag circle_project_invite_path(current_circle, project, type: :working_group), method: :post do
+            button.button.button-secondary= t('helpers.invite_working_group')
+
+        - unless project.working_group.is_private?
+          - if can? :manage, current_project.circle
+            = form_tag circle_project_invite_path(current_circle, project, type: :circle), method: :post do
+              button.button.button-secondary= t('helpers.invite_circle')

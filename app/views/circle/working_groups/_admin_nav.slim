@@ -1,4 +1,4 @@
-.tab-nav
+.tab-nav.tab-nav-no-js
   a class=tab_class('edit') href=edit_circle_working_group_path(current_circle, current_working_group)
     = t('.settings')
 
@@ -8,7 +8,6 @@
   a class=tab_class('edit_members') href=circle_working_group_edit_members_path(current_circle, current_working_group)
     = t('.members')
 
-  - if feature_enabled?(:projects)
-    a class=tab_class('edit_projects') href=circle_working_group_edit_projects_path(current_circle, current_working_group)
-      = t('.projects')
+  a class=tab_class('edit_projects') href=circle_working_group_edit_projects_path(current_circle, current_working_group)
+    = t('.projects')
 

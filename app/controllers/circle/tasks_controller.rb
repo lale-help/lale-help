@@ -42,7 +42,7 @@ class Circle::TasksController < ApplicationController
   def show
     authorize! :read, current_task
 
-    if can? :create, Comment, current_task
+    if can? :create, Comment.new, current_task, current_circle
       @form = Comment::Create.new(commenter: current_user, task: current_task, comment: Comment.new)
     end
   end
@@ -83,7 +83,8 @@ class Circle::TasksController < ApplicationController
   def update
     authorize! :update,      current_task
 
-    @form = Task::Update.new(params[:task], user: current_user, task: current_task, circle: current_circle, ability: current_ability)
+    model_params = {user: current_user, task: current_task, circle: current_circle, ability: current_ability}
+    @form = Task::Update.new(params[:task], model_params, send_notifications: !!params[:send_notifications])
 
     outcome = @form.submit
 
@@ -118,15 +119,33 @@ class Circle::TasksController < ApplicationController
     end
   end
 
+  def assign_volunteer
+    new_volunteers = User.where(id: params['new_volunteer_ids']).to_a
+    authorize!(:assign_volunteers, current_task, new_volunteers)
+
+    outcome = Task::Assign.run(users: new_volunteers, task: current_task, current_user: current_user)
+
+    outcome.success? ? head(:ok) : head(:unprocessable_entity)
+  end
+
+  def unassign_volunteer
+    user = User.find(params['user_id'])
+    authorize!(:unassign_volunteers, current_task, user)
+
+    outcome = Task::Unassign.run(users: [user], task: current_task, current_user: current_user)
+
+    outcome.success? ? head(:ok) : head(:unprocessable_entity)
+  end
+
   def decline
     authorize! :decline, current_task
 
     outcome = Task::Decline.run(user: current_user, task: current_task)
 
     if outcome.success?
-      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.volunteered', name: current_task.name)
+      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.declined', name: current_task.name)
     else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.volunteer_failed', name: current_task.name)
+      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.decline_failed', name: current_task.name)
     end
   end
 
@@ -174,11 +193,12 @@ class Circle::TasksController < ApplicationController
   def clone
     authorize! :clone, current_task
 
-    outcome = Task::Clone.run(user: current_user, task: current_task)
+    original_task_id = current_task.id
+    outcome = Task::Clone.run(task: current_task)
 
     if outcome.success?
       @task = outcome.result
-      @form = Task::Update.new(current_task, user: current_user, task: @task, circle: current_circle, ability: current_ability)
+      @form = Task::Update.new(current_task, user: current_user, task: @task, circle: current_circle, ability: current_ability, original_task_id: original_task_id)
       render :new
 
     else
@@ -190,14 +210,4 @@ class Circle::TasksController < ApplicationController
     @task ||= Task.find(params[:id] || params[:task_id])
   end
 
-  helper_method def page
-    t = current_task
-    @page ||= begin
-      OpenStruct.new(
-        is_missing_volunteers: t.is_missing_volunteers?,
-        missing_volunteer_count: t.missing_volunteer_count,
-        adjusted_missing_volunteer_count: can?(:volunteer, t) ? t.missing_volunteer_count - 1 : t.missing_volunteer_count
-      )
-    end
-  end
 end

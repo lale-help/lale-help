@@ -1,8 +1,0 @@
-- content_for :header_middle do
-  = link_to_back
-
-main.form
-  section
-    h2 = t('helpers.header.add', name: Supply.model_name.human)
-
-    == render 'form', locals: {delete: false}
