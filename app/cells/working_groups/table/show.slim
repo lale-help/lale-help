@@ -1,0 +1,29 @@
+h2 = title
+
+- if showing_active?
+  = link_to create_working_group_path do
+    button.button = t('.create_working_group')
+
+- if groups.empty?
+
+  p = no_groups_message
+
+- else
+
+  table.default-table.wg-table
+    tr
+      th.name = WorkingGroup.human_attribute_name("name")
+      th.admins = WorkingGroup.human_attribute_name("admin")
+      th.action-buttons = WorkingGroup.human_attribute_name("actions")
+
+    - groups.each do |group|
+      tr
+        td.name = group.link_with_name
+        td.admins
+          ul
+            - group.admins.each do |name|
+              li = name
+
+        td.action-buttons
+          - group.actions.each do |link|
+            = link

@@ -1,0 +1,9 @@
+.project-dashboard {
+  .header {
+    .title {
+      i {
+        @include lale-icon($lale-icon-document, 1.25em);
+      }
+    }
+  }
+}

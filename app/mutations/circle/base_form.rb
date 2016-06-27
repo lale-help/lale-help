@@ -2,7 +2,8 @@ class Circle::BaseForm < ::Form
   attribute :circle, :model, primary: true, default: proc{ Circle.new }, new_records: true
   attribute :user,   :model
 
-  attribute :name,      :string
+  attribute :name,             :string
+  attribute :description,      :string, required: false
 
   attribute :street_address_1,    :string, default: proc { circle.address.try(:street_address_1) }, required: false
   attribute :city,                :string, default: proc { circle.address.try(:city) }
@@ -22,7 +23,7 @@ class Circle::BaseForm < ::Form
 
   class Submit < ::Form::Submit  
     def execute
-      circle.assign_attributes inputs.slice(:name, :must_activate_users)
+      circle.assign_attributes inputs.slice(:name, :must_activate_users, :description)
       circle.language = Circle.languages[language]
       circle.address.assign_attributes inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country)
 

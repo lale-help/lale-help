@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   before_action :possibly_expire_session, if: :current_user
   before_action EnsureActiveUser
 
+
   rescue_from ::CanCan::AccessDenied do |exception|
     logger.error "access denied due to #{exception.inspect}"
     redirect_to root_path, :alert => exception.message

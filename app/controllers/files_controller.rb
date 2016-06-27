@@ -1,5 +1,4 @@
 class FilesController < ApplicationController
-  layout 'internal'
   include HasCircle
 
   before_action :ensure_logged_in, except: :show
@@ -13,7 +12,7 @@ class FilesController < ApplicationController
     if stale? file
       expires_in(1.hour, public: false)
       filename = file.name + file.file_extension
-      disposition = params.has_key?(:inline) ? 'inline' : 'attachment'
+      disposition = params.has_key?(:download) ? 'attachment' : 'inline'
       send_data file.read, disposition: disposition, filename: filename, type: file.file_content_type
     end
 
@@ -35,6 +34,7 @@ class FilesController < ApplicationController
       redirect_to @form.redirect_path, notice: t('flash.file_uploads.created')
 
     else
+      errors.add outcome.errors
       render :new
     end
   end

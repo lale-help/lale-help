@@ -34,10 +34,7 @@ class SessionsController < ApplicationController
   private
   def user_redirect_path
     if session[:login_redirect].present?
-      path = session[:login_redirect]
       session.delete(:login_redirect)
-      path
-
     elsif current_user.primary_circle.present?
       current_circle = session[:circle_id] || current_user.primary_circle
       circle_path(current_circle)

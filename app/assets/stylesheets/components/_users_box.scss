@@ -1,0 +1,49 @@
+.users-box {
+  @include border-top-radius($border-radius);
+  @include border-bottom-radius($border-radius);
+  border: thin solid $border-color;
+
+  > * {
+    border-top: thin solid $border-color;
+    padding: 1.5rem 1rem;
+
+    &:first-child {
+      border: none;
+    }
+  }
+
+  .title {
+    @include lale-icon(" ");
+    background: $blue-light-2;
+    @include border-top-radius($border-radius);
+
+    h2 {
+      padding: 0;
+      margin: 0;
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
+  }
+
+  .task-badge {
+    position: relative;
+    top: -7px;
+    left: 8px;
+  }
+  
+  // FIXME partially unused
+  .user-badges {
+    @include display(flex);
+    @include flex-wrap(wrap);
+
+    > * {
+      margin: 0.25rem;
+      margin-left: 0;
+    }
+
+  }
+
+  .helper-stats {
+    float: right;
+  }
+}

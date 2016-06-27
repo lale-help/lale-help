@@ -59,52 +59,13 @@
           .details == t(".organized-by", name: link_to_user(current_task.organizer))
 
     .task-comments data-url="#{circle_task_comments_path(current_circle, current_task)}"
-      = render partial: 'circle/comments/comments', locals: { task: current_task, circle: current_circle, max_display: 3 }
+      = render partial: 'circle/comments/comments', locals: { item: current_task, circle: current_circle, max_display: 5 }
 
   aside
-    .volunteers
-      .title
-        p
-          = t(".volunteer-count-required", count: current_task.volunteer_count_required)
-          - if page.is_missing_volunteers
-            = t(".volunteer-count-missing", count: page.missing_volunteer_count)
-
-      .icons
-        - current_task.volunteers.each do |v|
-          - if current_user == v && can?(:decline, current_task)
-            = button_to circle_task_decline_path(current_circle, current_task), method: :put, class: 'task-action-button' do
-              = render partial: 'user/user_icon', locals: { user: v }
-          - else
-            = render partial: 'user/user_icon', locals: { user: v, link: true }
-
-        - if can? :volunteer, current_task
-          = button_to circle_task_volunteer_path(current_circle, current_task), method: :put, class: 'task-action-button' do
-            .volunteer-icon
-
-        - if page.is_missing_volunteers
-          - page.adjusted_missing_volunteer_count.times do
-            .user-icon.user-needed
-
-
-      .actions
-        - if can? :invite_to, current_task
-          = form_tag circle_task_invite_path(current_circle, current_task, type: 'working_group'), method: :post do
-            button.button.button-secondary= t('helpers.invite', model: WorkingGroup.model_name.human)
-          - unless current_task.working_group.is_private?
-            = form_tag circle_task_invite_path(current_circle, current_task, type: 'circle'), method: :post do
-              button.button.button-secondary= t('helpers.invite', model: Circle.model_name.human)
-
-
     .actions
-      - if can? :complete, current_task
-        = form_tag circle_task_complete_path(current_circle, current_task), method: :put do
-          button.button-primary= t('helpers.complete', model: current_task.model_name.human)
-      - if can? :reopen, current_task
-        = form_tag circle_task_reopen_path(current_circle, current_task), method: :put do
-          button.button-primary= t('helpers.reopen', model: current_task.model_name.human)
-      - if can? :clone, current_task
-        = form_tag circle_task_clone_path(current_circle, current_task), method: :put do
-          button.button= t('helpers.clone', model: current_task.model_name.human)
-      - if can? :edit, current_task
-        = form_tag edit_circle_task_path(current_circle, current_task), method: :get do
-          button.button= t('helpers.edit', model: current_task.model_name.human)
+      - if can? :manage, current_task
+        = render partial: 'edit_actions', locals: { circle: current_circle, item: current_task }
+        
+    .users-box
+      == cell 'tasks/sourcing_widget', current_task, current_user: current_user
+

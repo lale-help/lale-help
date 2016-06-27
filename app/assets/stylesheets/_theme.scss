@@ -26,6 +26,11 @@ body.internal {
         @include text-color($nav-bg-active, $nav-bg-active);
       }
     }
+
+    .dropdown .menu {
+      background: $body-bg;
+      @include text-color($header-bg, $header-bg);
+    }
   }
 
   .tab-nav {
@@ -35,17 +40,6 @@ body.internal {
   header{
     background:  $header-bg;
     @include text-color($header-text, $header-text);
-
-    .circle-add-menu {
-      .icon {
-        width: 28px;
-        height: 28px;
-      }
-
-      :before {
-        @include text-color($header-bg, $header-bg);
-      }
-    }
 
     [type="checkbox"]:checked {
       & ~ label {

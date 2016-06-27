@@ -2,15 +2,15 @@ class Circle < ActiveRecord::Base
   attr_accessor :location_text
 
   has_many :roles
-  has_many :users,      ->{ distinct }, through: :roles
-
-  has_many :admins,     ->{ Circle::Role.send('circle.admin')     }, through: :roles, source: :user
-  has_many :officials,  ->{ Circle::Role.send('circle.official')  }, through: :roles, source: :user
-  has_many :volunteers, ->{ Circle::Role.send('circle.volunteer') }, through: :roles, source: :user
-  has_many :leadership, ->{ Circle::Role.leadership }, through: :roles, source: :user
+  has_many :users,      -> { distinct.extending(UserAssociationExtension)                      }, through: :roles
+  has_many :admins,     -> { Role.send('circle.admin').extending(UserAssociationExtension)     }, through: :roles, source: :user
+  has_many :officials,  -> { Role.send('circle.official').extending(UserAssociationExtension)  }, through: :roles, source: :user
+  has_many :volunteers, -> { Role.send('circle.volunteer').extending(UserAssociationExtension) }, through: :roles, source: :user
+  has_many :leadership, -> { Role.leadership.extending(UserAssociationExtension)               }, through: :roles, source: :user
+  
+  has_many :organizers, -> { distinct }, through: :working_groups, source: :admins
 
   has_many :working_groups
-  has_many :organizers,   -> { distinct }, through: :working_groups, source: :admins
 
   has_many :tasks, through: :working_groups
   has_many :supplies, through: :working_groups
@@ -31,6 +31,10 @@ class Circle < ActiveRecord::Base
 
   enum language: [:en, :de, :fr]
 
+  def active_organizers
+    organizers.joins(:circle_roles).where(circle_roles: { status: Circle::Role.statuses[:active] })
+  end
+
   def admin
     admins.first
   end
@@ -39,27 +43,16 @@ class Circle < ActiveRecord::Base
     users.count
   end
 
+  def has_active_user?(user)
+    roles.active.exists?(user: user)
+  end
+
+  def has_blocked_user?(user)
+    roles.blocked.exists?(user: user)
+  end
+
   def open_task_count
     tasks.count
-  end
-
-  def comment_average
-    @comment_average  ||= begin
-      recent_tasks = tasks.where("tasks.updated_at > ?", 1.month.ago)
-
-      recent_task_count    = recent_tasks.count
-      recent_comment_count = recent_tasks.joins(:comments).count
-
-      if recent_task_count > 0
-        recent_comment_count / recent_task_count
-      else
-        0
-      end
-    end
-  end
-
-  def pending_members
-    users.pending.order('created_at DESC')
   end
 
   private
@@ -67,4 +60,5 @@ class Circle < ActiveRecord::Base
   def build_association_defaults
     build_address unless address.present?
   end
+
 end

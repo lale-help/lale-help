@@ -7,7 +7,7 @@ class WorkingGroup::AddUserForm < ::Form
   def available_users
     current_members = type == :member ? working_group.users : working_group.admins
 
-    working_group.circle.users.where.not(users: { id:  current_members })
+    working_group.circle.users.active.where.not(users: { id:  current_members })
   end
 
   class Submit < ::Form::Submit

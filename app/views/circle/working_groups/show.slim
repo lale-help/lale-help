@@ -1,0 +1,90 @@
+.collection-dashboard.working-group-dashboard
+  .header
+    .left
+      .title
+        i
+        = current_working_group.name
+
+      .description
+        = current_working_group.description
+    
+    .right
+      - if can? :manage, current_working_group
+        a.button.button-super href=edit_circle_working_group_path(current_circle, current_working_group) = t('.settings')
+
+  .details
+    main
+
+      = render 'nav'
+
+      .tab.tasks
+        .task_section.open_tasks data-tab='open_tasks'
+          - if @completed_tasks.present?
+            a.task_status data-tab='completed_tasks' = t(".show_completed_tasks")
+          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @open_tasks }
+        .task_section.completed_tasks data-tab='completed_tasks'
+          a.task_status data-tab='open_tasks' =t(".show_open_tasks")
+          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @completed_tasks }
+
+      .tab.supplies
+        .task_section.open_supplies data-tab='open_supplies'
+          - if @completed_supplies.present?
+            a.task_status data-tab='completed_supplies' = t(".show_completed_supplies")
+          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: @open_supplies }
+        .task_section.completed_supplies data-tab='completed_supplies'
+          a.task_status data-tab='open_supplies' =t(".show_open_supplies")
+          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: @completed_supplies }
+
+      .tab.projects
+        = render partial: 'projects', locals: { projects: current_working_group.projects.order(:name).select { |project| can?(:read, project) } }
+
+      - if feature_enabled? :working_group_files
+        .tab.documents
+          = render partial: 'files/list', locals: { files: @files, show_actions: can?(:manage, current_working_group), show_uploadable: false }
+          - if can? :add_file?, current_working_group
+            = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_working_group)), class: 'button button-primary'
+
+
+
+    aside
+
+      .aside-section.users-box
+        .title
+          h2 = t('.admin-title', count: current_working_group.active_admins.count )
+
+        .user-badges
+          - users = current_working_group.active_admins
+          - if users.empty?
+            = t('users_box.no_users_yet')
+          - else
+            - users.each do |user|
+              == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
+
+      .aside-section.users-box
+        .title
+          h2 = t('.member-title', count: current_working_group.users.count )
+
+        .user-badges
+          - users = current_working_group.users
+          - if users.empty?
+            = t('users_box.no_users_yet')
+          - else
+            - users.each do |user|
+              == cell('user_badge', user, current_user: current_user, current_circle: current_circle)
+
+        .actions
+          - if can?(:join, current_working_group) and !current_working_group.is_private?
+            - options = { class: 'button button-primary', method: :patch}
+            = link_to(circle_working_group_join_path(current_circle, current_working_group), options) do
+              = t('.join')
+
+
+          - if can? :leave, current_working_group
+            - options = { class: 'button button-primary-inverse', method: :patch, 'data-confirm' => t('.leave_group_confirmation') }
+            = link_to(circle_working_group_leave_path(current_circle, current_working_group), options) do
+              = t('.leave')
+
+
+
+
+

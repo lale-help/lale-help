@@ -53,3 +53,10 @@
         .icon
         .title= t('.tasks_supplies_completed')
         .details= current_member.tasks.for_circle(current_circle).completed.count
+
+    .actions
+      = render partial: 'show_actions', locals: { circle: current_circle, member: current_member }
+    
+    - if can? :read, Comment.new, User, current_circle
+      .task-comments data-url="#{circle_member_comments_path(current_circle, current_member)}"
+        = render partial: 'circle/comments/comments', locals: { item: current_member, circle: current_circle, max_display: 5 }

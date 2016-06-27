@@ -5,7 +5,7 @@ ready = ->
   #
 
   init = ->
-    new Lale.WorkgroupDependentSelect('#supply_working_group_id', '#supply_project_id')
+    new Lale.WorkgroupDependentSelect('#supply_working_group_id', '#supply_project_id', {hideOnEmpty: true})
     new Lale.WorkgroupDependentSelect('#supply_working_group_id', '#supply_organizer_id')
 
   #

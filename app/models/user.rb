@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Commentable
+
   # has_many :feedback
 
   has_many :triggered_system_events, class_name: '::SystemEvent'
@@ -22,10 +24,12 @@ class User < ActiveRecord::Base
   has_many :working_group_roles, class_name: 'WorkingGroup::Role', dependent: :destroy
   has_many :working_groups, ->{ distinct }, through: :working_group_roles
 
-  has_many :comments, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
+  has_many :project_roles, class_name: 'Project::Role', dependent: :destroy
+  has_many :projects, ->{ distinct }, through: :project_roles
+
+  has_many :comments_made, class_name: Comment, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
 
   enum language: [:en, :de, :fr]
-  enum status: [:pending, :active]
 
   alias_attribute :active_since, :created_at
 
@@ -48,8 +52,6 @@ class User < ActiveRecord::Base
     identity.try :email
   end
 
-
-
   def tasks_for_circle circle
     task_assignments.where(circle: circle).tasks
   end
@@ -66,6 +68,14 @@ class User < ActiveRecord::Base
     identity.try :public_profile
   end
 
+  def active_in_circle?(circle)
+    circle.has_active_user?(self)
+  end
+
+  def active_circles
+    circles.select { |circle| circle.has_active_user?(self) }
+  end
+
   def has_circles?
     !circles.empty?
   end
@@ -73,4 +83,13 @@ class User < ActiveRecord::Base
   def has_multiple_circles?
     circles.count > 1
   end
+
+  def role_for_circle(circle)
+    circle_roles.find_by(circle: circle)
+  end
+
+  def lale_bot?
+    self.id == Task::Comments::Base.commenter.id
+  end
+
 end

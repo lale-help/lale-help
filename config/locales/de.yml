@@ -1,207 +1,134 @@
 ---
 :de:
-  :ransack:
-    :search: suchen
-    :predicate: Eigenschaft
-    :and: und
-    :or: oder
-    :any: beliebige
-    :all: alle
-    :combinator: Kombinator
-    :attribute: Attribut
-    :value: Wert
-    :condition: Bedingung
-    :sort: sortieren
-    :asc: aufsteigend
-    :desc: absteigend
-    :predicates:
-      :eq: gleicht
-      :eq_any: gleicht beliebigen
-      :eq_all: gleicht allen
-      :not_eq: ungleich
-      :not_eq_any: ungleich beliebigen
-      :not_eq_all: ungleich allen
-      :matches: entspricht
-      :matches_any: stimmt überein mit einem beliebigen
-      :matches_all: stimmt mit allen überein
-      :does_not_match: stimmt nicht überein
-      :does_not_match_any: erfüllt ein beliebiger/s nicht
-      :does_not_match_all: stimmt nicht mit allen überein
-      :lt: kleiner als
-      :lt_any: kleiner als ein beliebiger/s
-      :lt_all: kleiner als alle als alle
-      :lteq: kleiner oder gleich
-      :lteq_any: kleiner oder gleich beliebige
-      :lteq_all: kleiner oder gleich allen
-      :gt: größer als
-      :gt_any: größer als ein beliebiger/s
-      :gt_all: größer als alle
-      :gteq: größer oder gleich
-      :gteq_any: größer oder gleich als ein beliebiger/s
-      :gteq_all: größer oder gleich alle
-      :in: in
-      :in_any: ist nicht in einem beliebigen
-      :in_all: in allen
-      :not_in: nicht in
-      :not_in_any: nicht in beliebige
-      :not_in_all: nicht in allen
-      :cont: enthält
-      :cont_any: enthält beliebige
-      :cont_all: enthält alle
-      :not_cont: enthält nicht
-      :not_cont_any: enthält ein beliebiger/s nicht
-      :not_cont_all: enthält keine/s
-      :start: beginnt mit
-      :start_any: beginnt mit beliebigen
-      :start_all: beginnt mit allen
-      :not_start: beginnt nicht mit
-      :not_start_any: beginnt nicht mit beliebigen
-      :not_start_all: beginnt nicht mit allen
-      :end: endet mit
-      :end_any: endet mit beliebigen
-      :end_all: endet mit allen
-      :not_end: endet nicht mit
-      :not_end_any: endet nicht mit beliebigen
-      :not_end_all: endet nicht mit allen
-      :true: ist wahr
-      :false: ist falsch
-      :present: ist vorhanden
-      :blank: ist leer
-      :null: ist null
-      :not_null: ist nicht null
-  :formtastic:
-    :yes: Ja
-    :no: Nein
-    :create: "%{model} anlegen"
-    :update: "%{model} speichern"
-    :submit: Abschicken
-    :cancel: Abbrechen
-    :reset: "%{model} zurücksetzen"
-    :required: Pflichtfeld
   :active_admin:
-    :dashboard: "Übersicht"
-    :dashboard_welcome:
-      :welcome: Willkommen in Active Admin. Dies ist die Standard-Übersichtsseite.
-      :call_to_action: Siehe 'app/admin/dashboard.rb', um Übersichts-Bereiche hinzuzufügen.
-    :view: Anzeigen
-    :edit: Bearbeiten
-    :delete: Löschen
-    :delete_confirmation: Wollen Sie dieses Element wirklich löschen?
-    :new_model: "%{model} erstellen"
-    :edit_model: "%{model} bearbeiten"
-    :delete_model: "%{model} löschen"
-    :details: "%{model} Details"
-    :cancel: Abbrechen
-    :empty: Leer
-    :previous: Zurück
-    :next: Weiter
-    :download: 'Herunterladen:'
-    :has_many_new: "%{model} hinzufügen"
-    :has_many_delete: Löschen
-    :has_many_remove: Entfernen
-    :filters:
-      :buttons:
-        :filter: Filtern
-        :clear: Filter entfernen
-      :predicates:
-        :contains: Enthält
-        :equals: Gleich
-        :starts_with: Beginnt mit
-        :ends_with: Endet mit
-        :greater_than: Größer als
-        :less_than: Kleiner als
-    :search_status:
-      :headline: 'Anwendungsbereich:'
-      :current_filters: 'Aktuelle Filter:'
-      :no_current_filters: Keine
-    :status_tag:
-      :yes: Ja
-      :no: Nein
-    :main_content: Bitte implementieren Sie %{model}#main_content, um Inhalte anzuzeigen.
-    :logout: Abmelden
-    :powered_by: Powered by %{active_admin} %{version}
-    :sidebars:
-      :filters: Filter
-      :search_status: Suchstatus
-    :pagination:
-      :empty: Keine %{model} gefunden
-      :one: Zeige <b>1</b> %{model}
-      :one_page: Zeige <b>alle %{n}</b> %{model}
-      :multiple: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b> von <b>%{total}</b>
-      :multiple_without_total: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b>
-      :entry:
-        :one: Eintrag
-        :other: Einträge
+    :access_denied:
+      :message: Sie haben nicht die Berechtigung um diese Aktion auszuführen.
     :any: Alle
-    :blank_slate:
-      :content: Es gibt noch keine %{resource_name}.
-      :link: Erstellen
-    :dropdown_actions:
-      :button_label: Aktionen
     :batch_actions:
+      :action_label: "%{title} ausgewählte"
       :button_label: Stapelverarbeitung
       :default_confirmation: Bist du sicher, dass Sie dies tun wollen?
       :delete_confirmation: Sind Sie sicher dass sie diese %{plural_model} löschen
         wollen?
+      :labels:
+        :destroy: Lösche
+      :link: erstellen
+      :selection_toggle_explanation: "(Auswahl umschalten)"
       :succesfully_destroyed:
         :one: Erfolgreich 1 %{model} gelöscht
         :other: Erfolgreich %{count} %{plural_model} gelöscht
-      :selection_toggle_explanation: "(Auswahl umschalten)"
-      :link: erstellen
-      :action_label: "%{title} ausgewählte"
-      :labels:
-        :destroy: Löschen
+    :blank_slate:
+      :content: Es gibt noch keine %{resource_name}.
+      :link: Erstellen
+    :cancel: Abbrechen
     :comments:
-      :resource_type: Res­sour­cen-Typ
+      :add: Kommentar hinzufügen
+      :author: Autor
+      :author_missing: Unbekannt
       :author_type: Autor-Typ
       :body: Inhalt
-      :author: Autor
-      :title: Kommentar
-      :add: Kommentar hinzufügen
       :delete: Löschen
       :delete_confirmation: Sind Sie sicher dass sie diesen Kommentar löschen wollen?
-      :resource: Res­sour­ce
-      :no_comments_yet: Es gibt noch keine Kommentare.
-      :author_missing: Unbekannt
-      :title_content: Kommentare (%{count})
       :errors:
         :empty_text: Der Kommentar wurde nicht gespeichert, da der Text fehlt.
-      :created_at: Erstellt
+      :no_comments_yet: Es gibt noch keine Kommentare.
+      :resource: Res­sour­ce
+      :resource_type: Res­sour­cen-Typ
+      :title: Kommentar
+      :title_content: Kommentare (%{count})
+    :dashboard: "Übersicht"
+    :dashboard_welcome:
+      :call_to_action: Siehe 'app/admin/dashboard.rb', um Übersichts-Bereiche hinzuzufügen.
+      :welcome: Willkommen in Active Admin. Dies ist die Standard-Übersichtsseite.
+    :delete: Löschen
+    :delete_confirmation: Wollen Sie dieses Element wirklich löschen?
+    :delete_model: "%{model} löschen"
+    :details: "%{model} Details"
     :devise:
-      :username:
-        :title: Benutzername
+      :change_password:
+        :submit: Mein Passwort ändern
+        :title: "Ändern Sie Ihr Passwort"
       :email:
         :title: E-Mail-Adresse
-      :subdomain:
-        :title: Subdomain
-      :password:
-        :title: Passwort
-      :sign_up:
-        :title: Registrieren
-        :submit: Registrieren
+      :links:
+        :forgot_your_password: Passwort vergessen?
+        :resend_confirmation_instructions: Bestätigungsanweisung erneut senden
+        :resend_unlock_instructions: Entsperrungsanweisung erneut senden
+        :sign_in: Anmeldung
+        :sign_in_with_omniauth_provider: Anmeldung mit %{provider}
+        :sign_up: Registrieren
       :login:
-        :title: Login
         :remember_me: Angemeldet bleiben
         :submit: Login
-      :reset_password:
-        :title: Passwort vergessen?
-        :submit: Mein Passwort zurücksetzen
-      :change_password:
-        :title: "Ändern Sie Ihr Passwort"
-        :submit: Mein Passwort ändern
-      :unlock:
-        :title: Entsperrungsanweisung erneut senden
-        :submit: Entsperrungsanweisung erneut senden
+        :title: Login
+      :password:
+        :title: Passwort
       :resend_confirmation_instructions:
-        :title: Anleitung zur Bestätigung noch mal schicken
         :submit: Anleitung zur Bestätigung noch mal schicken
-      :links:
-        :sign_up: Registrieren
-        :sign_in: Anmeldung
-        :forgot_your_password: Passwort vergessen?
-        :sign_in_with_omniauth_provider: Anmeldung mit %{provider}
-        :resend_unlock_instructions: Entsperrungsanweisung erneut senden
-        :resend_confirmation_instructions: Bestätigungsanweisung erneut senden
+        :title: Anleitung zur Bestätigung noch mal schicken
+      :reset_password:
+        :submit: Mein Passwort zurücksetzen
+        :title: Passwort vergessen?
+      :sign_up:
+        :submit: Registrieren
+        :title: Registrieren
+      :subdomain:
+        :title: Subdomain
+      :unlock:
+        :submit: Entsperrungsanweisung erneut senden
+        :title: Entsperrungsanweisung erneut senden
+      :username:
+        :title: Benutzername
+    :download: 'Herunterladen:'
+    :dropdown_actions:
+      :button_label: Aktionen
+    :edit: Bearbeiten
+    :edit_model: "%{model} bearbeiten"
+    :empty: Leer
+    :filters:
+      :buttons:
+        :clear: Filter entfernen
+        :filter: Filtern
+      :predicates:
+        :contains: Enthält
+        :ends_with: Endet mit
+        :equals: Gleich
+        :greater_than: Größer als
+        :less_than: Kleiner als
+        :starts_with: Beginnt mit
+    :has_many_delete: Löschen
+    :has_many_new: "%{model} hinzufügen"
+    :has_many_remove: Entfernen
+    :index_list:
+      :block: Liste
+      :blog: Blog
+      :grid: Gitter
+      :table: Tabelle
+    :logout: Abmelden
+    :main_content: Bitte implementieren Sie %{model}#main_content, um Inhalte anzuzeigen.
+    :new_model: "%{model} erstellen"
+    :next: Weiter
+    :pagination:
+      :empty: Keine %{model} gefunden
+      :entry:
+        :one: Eintrag
+        :other: Einträge
+      :multiple: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b> von <b>%{total}</b>
+      :multiple_without_total: Zeige %{model} <b>%{from}&nbsp;–&nbsp;%{to}</b>
+      :one: Zeige <b>1</b> %{model}
+      :one_page: Zeige <b>alle %{n}</b> %{model}
+    :powered_by: Powered by %{active_admin} %{version}
+    :previous: Zurück
+    :search_status:
+      :current_filters: 'Aktuelle Filter:'
+      :headline: 'Anwendungsbereich:'
+      :no_current_filters: Keine
+    :sidebars:
+      :filters: Filter
+      :search_status: Suchstatus
+    :status_tag:
+      :no: Nein
+      :yes: Ja
     :unsupported_browser:
       :headline: ActiveAdmin unterstützt nicht länger den Internet Explorer in Version
         8 oder niedriger.
@@ -211,86 +138,582 @@
       :turn_off_compatibility_view: Wenn sie IE 9 oder neuer benutzen, stellen sie
         sicher das sie den <a href="http://windows.microsoft.com/en-US/windows7/webpages-look-incorrect-in-Internet-Explorer">"Kompatibilitätsansicht"
         ausgeschaltet</a> haben.
-    :access_denied:
-      :message: Sie haben nicht die Berechtigung um diese Aktion auszuführen.
-    :index_list:
-      :table: Tabelle
-      :block: Liste
-      :grid: Gitter
-      :blog: Blog
-  :datepicker:
-    :day_of_week_start: '1'
-    :date_format: d.m.Y
-    :time_format: H:i
-  :lale: Lale
-  :hello: Hallo Welt
-  :edit: Bearbeiten
-  :delete: Löschen
-  :supported-by: Unterstützt durch
-  :workflow:
-    :continue: Weiter
-    :cancel: Abbrechen
-    :join: Beitreten
-    :copied: Kopiert!
-    :read_terms: Bitte Nutzungsbedingungen lesen.
-    :activation_error: Fehler beim Aktivieren des neuen Helfers.
-    :activation_success: Neuer Helfer erfolgreich aktiviert!
-    :save: Speichern
-  :language:
-    :en: Englisch
-    :de: Deutsch
-    :fr: Französich
-  :forms:
-    :correct-errors: Bitte ändere die untenstehenden Fehler.
-  :fields:
-    :name: Name
-    :location: Standort
-    :email: E-Mail-Adresse
-    :email-placeholder: Tragen Sie Ihre E-Mail-Adresse ein
-    :password: Passwort
-    :password-placeholder: Tragen Sie Ihr Passwort ein
-  :helpers:
-    :header:
-      :add: "%{name} erstellen"
-      :edit: "%{name} bearbeiten"
-    :confirm:
-      :task:
-        :delete: Bist Du sicher, dass diese Aufgabe gelöscht werden soll?
+    :view: Anzeigen
+  :activerecord:
+    :attributes:
+      :circle:
+        :admin: Administrator
+        :city: Stadt
+        :country: Land
+        :language: Sprache
+        :location: :activerecord.models.location
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
+        :name: Name des Helferkreises
+        :postal_code: Postleitzahl
+        :projects: Projekte
+        :roles: Rollen
+        :state_province: Bundesland
+        :street_address: Straße
+        :tasks: Aufgaben
+        :volunteers: Helfer
+        :working_groups: Arbeitsgruppen
+      :file_upload:
+        :created_at: Hochgeladen um
+        :file: Datei
+        :file_size_bytes: Dateigrösse
+        :is_public: für alle Helfer sichtbar
+        :name: Name
+        :permission_is_public:
+          :false: Privat
+          :true: "Öffentlich"
+        :updated_at: Zuletzt geändert
+        :uploadable: Hochgeladen für
+        :uploader: Hochgeladen von
+        :working_group: Arbeitsgruppe
+      :file_upload/permission_is_public:
+        :false: Privat
+        :true: "Öffentlich"
+      :location:
+        :address: Anschrift
+        :circles: Helferkreise
+        :latitude: Breitengrad
+        :longitude: Längengrad
+        :name: Name
+        :users: Benutzer
+      :project:
+        :description: Beschreibung
+        :name: Projektname
+        :organizer:
+          :one: Organisator
+          :other: Organisatoren
+        :organizer_id: Organisator
+        :working_group: Arbeitsgruppe
+        :working_group_id: Arbeitsgruppe
+      :role:
+        :actions: Aktionen
       :supply:
-        :delete: Bist Du sicher, dass diese Sachspende gelöscht werden soll?
-      :project:
-        :delete: Willst Du dieses Projekt wirklich löschen?
-    :placeholder:
+        :completed_at: Erledigt um
+        :description: Beschreibung
+        :due_date: Fälligkeit
+        :duration: Zeitaufwand
+        :duration-text:
+          :all_day: ganzer Tag
+          :half_day: halber Tag
+          :hours_1: 1 Stunde
+          :hours_2: 2 Stunden
+          :hours_3: 3 Stunden
+        :location: Standort
+        :location_assignments: Standortzuordnung
+        :locations: Standorte
+        :name: Name der Sachspende
+        :organizer: Organisator
+        :organizer_assignments: Organisatorzuordnung
+        :organizer_id: Organisator
+        :primary_location: Abgabeort der Sachspende
+        :project_id: Projekt
+        :scheduled_time_start: Beginn
+        :scheduling_type: Zeitpunkt
+        :skill_assignments: Fähigkeitszuordnungen
+        :skills: Fähigkeiten
+        :volunteer: Helfer
+        :volunteer_count_required: Anzahl der benötigten Helfer
+        :working_group: Arbeitsgruppe
+        :working_group_id: Arbeitsgruppe
+      :system_event:
+        :action: Aktion
+        :for: für
+        :for_type: Für Typ
+        :notifications: Benachrichtigungen
+        :volunteer: Helfer
+      :system_event/notification:
+        :deliveries: Zustellungen
+        :system_event: :activerecord.models.system_event
+        :volunteer: Helfer
+      :system_event/notification/delivery:
+        :content: Inhalt
+        :method: Methode
+        :notification: Benachrichtigung
       :task:
-        :name: z.B. Begleitung für Riad zur Schuleinschreibung
+        :completed_at: Erledigt um
+        :completed_tasks: Erledigte Aufgaben
+        :date: Datum
+        :datetime1_between: von
+        :datetime1_default: Datum/Zeit
+        :datetime2: bis
+        :description: Beschreibung
+        :due_date: Termin
+        :due_time: Endzeit
+        :duration: Zeitaufwand
+        :duration-text:
+          :all_day: ganzer Tag
+          :half_day: halber Tag
+          :hours_1: 1 Stunde
+          :hours_2: 2 Stunden
+          :hours_3: 3 Stunden
+        :location: Standort
+        :location_assignments: Standortzuordnung
+        :locations: Standorte
+        :name: Name der Aufgabe
+        :organizer: Organisator
+        :organizer_assignments: Organisatorzuordnung
+        :organizer_id: Organisator
+        :pending_tasks: Offene Aufgaben
+        :primary_location: Ort der Aufgabe
+        :project: Projekt
+        :project_id: Projekt
+        :scheduled_time_start: Beginn
+        :scheduling_sentence:
+          :at: am %{due}
+          :between: zwischen %{start}<br />und %{due}
+          :by: bis %{due}
+        :scheduling_type: Zeitpunkt
+        :scheduling_type_options:
+          :at: Am
+          :between: von/bis
+          :by: Bis
+        :skill_assignments: Fähigkeitszuordnungen
+        :skills: Fähigkeiten
+        :start_date: Anfangsdatum
+        :start_time: Anfangszeit
+        :time: Zeit
+        :volunteer_assignments: Helferzuordnungen
+        :volunteer_count_required: Anzahl der benötigten Helfer
+        :volunteers: Helfer
+        :working_group: Arbeitsgruppe
+        :working_group_id: Arbeitsgruppe
+      :task/location_assignment:
+        :location: :activerecord.models.location
+        :primary: Primär
+        :task: :activerecord.models.task
+      :task/skill:
+        :name: Name
+        :task_skill_assignments: Aufgabe Fähigkeitszuordnung
+        :tasks: Aufgaben
+      :task/skill_assignment:
+        :required: Erforderlich
+        :skill: Fähigkeit
+        :task: :activerecord.models.task
+      :task/volunteer_assignment:
+        :organizer: Organisator
+        :task: :activerecord.models.task
+        :volunteer: Helfer
+      :user:
+        :about_me: "Über mich"
+        :accept_terms: Nutzungsbedingungen akzeptieren
+        :active_since: Aktiv seit
+        :address: Anschrift
+        :circle: :activerecord.models.circle
+        :city: Ort
+        :country: Land
+        :email: E-Mail-Adresse
+        :feedback: Feedback
+        :first_name: Vorname
+        :home_phone: Festnetz
+        :identities: Identitäten
+        :language: Sprache
+        :last_login: Letzte Anmeldung
+        :last_name: Nachname
+        :location: :activerecord.models.location
+        :mobile_phone: Mobiltelefon
+        :name: Name
+        :notifications: Benachrichtigungen
+        :phone: Telefon
+        :postal_code: Postleitzahl
+        :primary_circle_id: Haupthelferkreis
+        :public_profile: Andere Helfer können mein Profil sehen
+        :role: Rolle
+        :state_province: Bundesland
+        :street_address: Strasse
+        :task_volunteer_assignments: Aufgabe Helferzuordnungen
+        :tasks: Aufgaben
+        :triggered_system_events: Ausgelöste System-Events
+        :working_groups: Arbeitsgruppen
+      :user/feedback:
+        :comment: Kommentar
+        :rating: Bewertung
+        :volunteer: Helfer
+      :user/identity:
+        :circle: :activerecord.models.circle
+        :email: E-Mail-Adresse
+        :password_digest: Passwort Digest
+        :volunteer: Helfer
+      :working_group:
+        :actions: Aktionen
+        :admin: Organisator
+        :admin_ids: Organisatoren
+        :circle: :activerecord.models.circle
+        :description: Beschreibung
+        :name: Name
+        :organizer: Organisator
+        :organizer_id: Organisator
+        :tasks: Aufgaben
+        :type: Zugriffsrecht
+        :volunteers: Helfer
+    :errors:
+      :messages:
+        :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
+        :restrict_dependent_destroy:
+          :many: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record}
+            besteht
+          :one: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record} besteht
+    :models:
+      :circle: Helferkreis
+      :file_upload: Datei
+      :location: Standort
       :project:
-        :name: z.B. Umzug in neue Unterkunft organisieren
-    :submit:
-      :create: "%{model} erstellen"
-      :submit: "%{model} speichern"
-      :update: "%{model} speichern"
-    :page_entries_info:
-      :more_pages:
-        :display_entries: Anzeige von %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
-          von <b>%{total}</b> gesamt
-      :one_page:
-        :display_entries:
-          :one: Anzeige von <b>1</b> %{entry_name}
-          :other: Anzeige von <b>allen %{count}</b> %{entry_name}
-          :zero: Kein %{entry_name} gefunden
-    :select:
-      :prompt: Bitte auswählen
-    :edit: "%{model} bearbeiten"
-    :invite: "%{model} einladen"
-    :new: "%{model} erstellen"
-    :complete: "%{model} abschliessen"
-    :reopen: "%{model} wieder öffnen"
-    :clone: "%{model} kopieren"
-    :volunteer: Ich habe diese %{model}
-    :decline: Ich habe diese %{model} nicht
-  :unauthorized:
-    :manage:
-      :all: Keine Berechtigung %{subject} zu %{action}.
+        :one: Projekt
+        :other: Projekte
+      :supply:
+        :one: Sachspende
+        :other: Sachspenden
+      :system_event: System-Event
+      :system_event/notification: System event/notification
+      :system_event/notification/delivery: System event/notification/delivery
+      :task:
+        :one: Aufgabe
+        :other: Aufgaben
+      :task/location_assignment: Aufgabe/Standortzuordnung
+      :task/skill: Aufgabe/Fähigkeit
+      :task/skill_assignment: Aufgabe/Fähigkeitszuordnung
+      :task/volunteer_assignment: Aufgabe/Helferzuordnung
+      :user:
+        :one: Helfer
+        :other: Helfer
+      :user/feedback: Helfer/Feedbackeedback
+      :user/identity: Helfer/Identität
+      :working_group: Arbeitsgruppe
+  :cells:
+    :tasks:
+      :sourcing_widget:
+        :accept: Ich übernehme das
+        :decline: Ich kann leider nicht helfen
+        :find_helpers: Helfer finden &hellip;
+        :modal:
+          :invite_all: Alle Helfer im Helferkreis (%{count})
+          :invite_by_name: Einzelne Helfer ansprechen
+          :invite_working_group: Alle Helfer in dieser Arbeitsgruppe (%{count})
+          :title_assign: Direkt festlegen
+          :title_invite: Mit Email einladen
+          :title_main: Helfer finden
+        :no_volunteers_yet: Noch keine Helfer
+        :title: Helfer
+        :volunteer-count:
+          :one: "%{count} Helfer hat sich eingetragen"
+          :other: "%{count} Helfer haben sich eingetragen"
+        :volunteer-count-missing:
+          :one: " (%{count} fehlt)"
+          :other: " (%{count} fehlen)"
+        :volunteer-count-required:
+          :one: Benötigt %{count} Helfer
+          :other: Benötigt %{count} Helfer
+      :volunteer_select_tag:
+        :all_helpers: Alle Helfer
+        :in_working_group: In dieser Arbeitsgruppe
+        :placeholder: Bitte auswählen...
+    :working_groups:
+      :table:
+        :cant_deactivate_group_with_items: Die Arbeitsgruppe enthält noch offene Aufgaben
+          und/oder Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen
+          es dann noch einmal.
+        :confirm_delete: Sind Sie sicher?
+        :create_working_group: Neue Arbeitsgruppe anlegen
+        :no_groups: Aktuell keine Gruppen.
+        :title_active: Aktive Arbeitsgruppen
+        :title_deactivated: Inaktive Arbeitsgruppen
+  :circle:
+    :admins:
+      :files:
+        :confirm_delete_file: Willst Du diese Datei wirklich löschen?
+        :new-file: Datei hochladen
+      :inactive_members_list:
+        :activate: Aktivieren
+      :invite:
+        :blocked_members_explanation: Die folgenden Helfer wurden vom Administrator
+          gesperrt.
+        :blocked_members_headline: Gesperrte Helfer
+        :invite_headline: Neue Helfer einladen
+        :invite_members: Neue Mitglieder zu %{circle} einladen
+        :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
+          schicke einfach diesen Link an alle Interessierten.
+        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
+        :no_blocked_members_message: Es gibt derzeit keine gesperrten Helfer.
+        :no_pending_members_message: Momentan keine ausstehenden Beitrittsanfragen.
+        :pending_members_explanation: Folgende Helfer möchten gerne dem Helferkreis
+          beitreten. Bitte bestätige die Anfragen, damit sie mithelfen können.
+        :pending_members_headline: Offene Beitrittsanfragen
+        :require_approval_headline: Einstellungen
+      :nav:
+        :basic-settings: Helferkreisprofil
+        :files: Dokumente
+        :invite-volunteers: Helfer verwalten
+        :roles: Rollen
+        :working-groups: Arbeitsgruppen
+      :roles:
+        :confirm_delete_circle: Bist Du sicher?
+        :promote_user: Rolle vergeben
+        :save: Speichern
+      :show:
+        :confirm_delete_circle: Bist Du sicher?
+        :confirm_delete_working_group: Bist Du sicher?
+        :create_working_group: Neue Arbeitsgruppe anlegen
+        :promote_user: Rolle vergeben
+        :settings: Einstellungen
+      :working_groups:
+        :confirm_delete_working_group: Bist Du sicher?
+        :create_working_group: Neue Arbeitsgruppe
+        :delete: Löschen
+        :disable: Deaktivieren
+        :edit: Bearbeiten
+        :reactivate: Reaktivieren
+    :comments:
+      :actions:
+        :delete: Löschen
+        :delete_confirm: Diesen Kommentar wirklich löschen?
+        :edit: Bearbeiten
+      :comments:
+        :show_all_comments: Alle Kommentare zeigen
+      :edit: Speichern
+      :edit_cancel: Abbrechen
+      :placeholder: Was möchtest du sagen?
+      :post: Kommentieren
+      :reply: Kommentar hinzufügen
+    :documents:
+      :index:
+        :circle-documents: Dokumente des Helferkreises
+        :new-file: Datei hochladen
+        :working-group-documents: Dokumente der Arbeitsgruppen
+    :invite_flow:
+      :join:
+        :start_helping: Mach heute gleich mit bei %{circle}!
+    :members:
+      :index:
+        :directory: Helferliste
+        :total_members: zeigt %{showing} von %{total} Helfern
+      :list:
+        :help_provided: Bereits geholfen
+        :last_help_provided: Zuletzt geholfen
+      :nav:
+        :all-helpers: Alle Helfer
+        :organizers: Organisatoren
+      :public:
+        :public_members: Helferliste
+      :show:
+        :address: Anschrift
+        :back: Zurück zur Helferliste
+        :circles: Helferkreise
+        :contact: Kontakt
+        :edit_profile: Dein Profil ändern
+        :member_since: Mitglied seit
+        :roles: Rollen
+        :tasks_supplies_completed: Geleistete Hilfe
+        :working_groups: Arbeitsgruppen
+      :show_actions:
+        :organizer_info_title: Dieser Helfer kann nicht gesperrt werden, da sie /
+          er noch für die folgenden Dinge zuständig ist. Bitte finde andere Helfer
+          für diese Tätigkeiten und versuche es erneut.
+    :organizers:
+      :index:
+        :organizers: Organisatoren
+    :projects:
+      :clone:
+        :new_task_name: "%{base_name} - Kopie"
+        :new_task_name_regexp: Kopie( (\d+))?$
+      :edit:
+        :back: Zurück zu Projekt
+      :index:
+        :title: Projekte
+      :nav:
+        :info: Info
+      :show:
+        :admin-title:
+          :one: "%{count} Organisator"
+          :other: "%{count} Organisatoren"
+        :date_range: Zeitraum
+        :date_range_sentence: von %{start_date} bis %{due_date}
+        :member-title:
+          :one: "%{count} Helfer"
+          :other: "%{count} Helfer"
+        :organized-by: Organisiert von %{name}
+        :settings: Einstellungen
+      :status_labels:
+        :done: erledigt
+        :needed: benötigt
+        :open: offen
+        :signed_up: angemeldet
+        :urgent: dringend
+    :supplies:
+      :edit:
+        :back: Zurück zur Sachspende
+      :edit_actions:
+        :edit_button_dropdown: Sachspende bearbeiten
+      :index:
+        :header: Sachspenden
+      :new:
+        :back: Zurück zu den Sachspenden
+      :show:
+        :back: Zurück zu den Sachspenden
+        :complete-task-button: Sachspende wurde abgegeben
+        :decline-task-button: Ich habe das doch nicht.
+        :edit-task-button: Sachspende bearbeiten
+        :invite-button: Mitglieder von %{group} einladen
+        :organized-by: Organisiert von %{name}
+        :reopen-task-button: Sachspende wieder öffnen
+        :task-complete: 'Erledigt: '
+        :users_box_title: Wird geliefert von
+        :volunteer-count:
+          :one: "%{count} Helfer ist eingetragen"
+          :other: "%{count} Helfer sind eingetragen"
+        :volunteer-count-missing:
+          :one: " (%{count} fehlt)"
+          :other: " (%{count} fehlt)"
+        :volunteer-count-required:
+          :one: Benötigt %{count} Helfer
+          :other: Benötigt %{count} Helfer
+        :volunteer-task-button: Ich habe das!
+      :supply_list:
+        :no-supplies: Derzeit keine Sachspenden benötigt.
+      :supply_list_item:
+        :stats-here: Statistik
+    :taskables:
+      :nav:
+        :organizing: Ich organisiere
+        :volunteering: Ich erledige
+      :organizer:
+        :supplies-header: Sachspenden
+        :tasks-header: Aufgaben
+      :volunteer:
+        :supplies-header: Sachspenden
+        :tasks-header: Aufgaben
+    :tasks:
+      :completed:
+        :header: Alle erledigten Aufgaben
+      :edit:
+        :back: Zurück zur Aufgabe
+      :edit_actions:
+        :edit_button_dropdown: Aufgabe bearbeiten
+      :form:
+        :date_format: "%d.%m.%Y"
+        :placeholder_optional: "(optional)"
+        :project_blank: "(nicht in einem Projekt)"
+        :update_and_notify: Speichern und benachrichtigen
+      :index:
+        :header: Alle Aufgaben
+      :my:
+        :header: Meine Aufgaben
+        :organizer-header: Ich organisiere
+        :volunteer-header: Ich erledige
+      :new:
+        :back: Zurück zu den Aufgaben
+      :open:
+        :header: Offene Aufgaben
+      :show:
+        :back: Zurück zu den Aufgaben
+        :complete-task-button: Aufgabe abschliessen
+        :edit-task-button: Aufgabe bearbeiten
+        :invite-button: "%{class} einladen"
+        :organized-by: Organisiert von %{name}
+        :reopen-task-button: Aufgabe wieder öffnen
+        :task-complete: 'Erledigt: '
+        :volunteer-count:
+          :one: "%{count} Helfer ist eingetragen"
+          :other: "%{count} Helfer sind eingetragen"
+        :volunteer-count-missing:
+          :one: " (%{count} fehlt)"
+          :other: " (%{count} fehlt)"
+        :volunteer-count-required:
+          :one: Benötigt %{count} Helfer
+          :other: Benötigt %{count} Helfer
+      :task_list:
+        :no-tasks: Keine Aufgaben gefunden.
+      :task_list_item:
+        :stats-here: Statistik
+    :working_groups:
+      :add_user_form:
+        :add: Hinzufügen
+      :admin_nav:
+        :members: Helfer
+        :organizers: Organisatoren
+        :projects: Projekte
+        :settings: Grundeinstellungen
+      :edit:
+        :header: Arbeitsgruppe
+      :edit_members:
+        :header: Helfer für %{name}
+      :edit_organizers:
+        :header: Organisatoren für %{name}
+      :edit_projects:
+        :actions: Aktionen
+        :confirm_delete: Willst du wirklich das Projekt und alle seine Aufgabe und
+          Sachspenden löschen?
+        :header: Projekte für %{name}
+      :form:
+        :organizer_blank: "(bitte auswählen)"
+      :index:
+        :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
+      :nav:
+        :documents: Dokumente
+      :new:
+        :new-working-group: Neue Arbeitsgruppe
+      :show:
+        :admin-title:
+          :one: "%{count} Organisator"
+          :other: "%{count} Organisatoren"
+        :join: Beitreten
+        :leave: Austreten
+        :leave_group_confirmation: Möchtest Du Deine Mitarbeit in dieser Arbeitsgruppe
+          wirklich beenden?
+        :member-title:
+          :one: "%{count} Helfer"
+          :other: "%{count} Helfer"
+        :new-file: Datei hochladen
+        :settings: Gruppe verwalten
+        :show_completed_supplies: Erledigte Sachspenden anzeigen...
+        :show_completed_tasks: Erledigte Aufgaben anzeigen...
+        :show_open_supplies: Offene Sachspenden anzeigen...
+        :show_open_tasks: Offene Aufgaben anzeigen...
+      :user_list:
+        :actions: Aktionen
+        :no-volunteers: Keine Helfer
+        :remove: Entfernen
+  :circles:
+    :edit:
+      :back: Zurück
+      :header: Helferkreis bearbeiten
+      :show: Anzeigen
+    :form:
+      :country_select: Bitte Land auswählen
+    :nav:
+      :documents: Dokumente
+    :new:
+      :create: Helferkreis anlegen
+    :show:
+      :circle-dashboard: Helferkreis Übersicht
+      :circle_leaders: Leitung
+      :contact_circle_admin: Email an den Administrator
+      :dashboard_title: "Übersicht für %{name}"
+      :files: Dokumente des Helferkreises
+      :open_tasks: Offene Aufgaben
+      :show_completed_supplies: Erledigte Sachspenden anzeigen...
+      :show_completed_tasks: Erledigte Aufgaben anzeigen...
+      :show_open_supplies: Offene Sachspenden anzeigen...
+      :show_open_tasks: Offene Aufgaben anzeigen...
+      :task:
+        :complete: Aufgabe erledigt
+        :count:
+          :one: 1 Aufgabe
+          :other: "%{count} Aufgaben"
+        :mine-only: Nur meine Aufgaben anzeigen
+        :new: Neue Aufgabe erstellen
+        :volunteer: Ich übernehme das!
+        :volunteer-filled: Vergeben
+        :volunteer-needed:
+          :one: Benötigt einen Helfer
+          :other: Benötigt %{count} Helfer
+      :view-burnup-chart: Burn Up Chart anzeigen
+      :working-group:
+        :filter: Arbeitsgruppen filtern
+        :new: Neue Arbeitsgruppe anlegen
+      :working_group_organizers: Organisatoren
   :date:
     :abbr_day_names:
     - So
@@ -344,799 +767,12 @@
     - :day
     - :month
     - :year
-  :activerecord:
-    :models:
-      :circle: Helferkreis
-      :location: Standort
-      :project:
-        :one: Projekt
-        :other: Projekte
-      :system_event: System-Event
-      :task:
-        :one: Aufgabe
-        :other: Aufgaben
-      :task/location_assignment: Aufgabe/Standortzuordnung
-      :task/skill: Aufgabe/Fähigkeit
-      :task/skill_assignment: Aufgabe/Fähigkeitszuordnung
-      :task/volunteer_assignment: Aufgabe/Helferzuordnung
-      :user: Helfer
-      :user/feedback: Helfer/Feedbackeedback
-      :user/identity: Helfer/Identität
-      :working_group: Arbeitsgruppe
-      :supply:
-        :one: Sachspende
-        :other: Sachspenden
-      :system_event/notification: System event/notification
-      :system_event/notification/delivery: System event/notification/delivery
-      :file_upload: Datei
-    :attributes:
-      :circle:
-        :admin: Administrator
-        :location: :activerecord.models.location
-        :name: Name des Helferkreises
-        :tasks: Aufgaben
-        :volunteers: Helfer
-        :working_groups: Arbeitsgruppen
-        :roles: Rollen
-        :language: Sprache
-        :street_address: Straße
-        :city: Stadt
-        :postal_code: Postleitzahl
-        :state_province: Bundesland
-        :country: Land
-        :projects: Projekte
-      :location:
-        :address: Anschrift
-        :circles: Helferkreise
-        :latitude: Breitengrad
-        :longitude: Längengrad
-        :name: Name
-        :users: Benutzer
-      :system_event:
-        :action: Aktion
-        :for: für
-        :for_type: Für Typ
-        :notifications: Benachrichtigungen
-        :volunteer: Helfer
-      :system_event/notification:
-        :deliveries: Zustellungen
-        :system_event: :activerecord.models.system_event
-        :volunteer: Helfer
-      :system_event/notification/delivery:
-        :content: Inhalt
-        :method: Methode
-        :notification: Benachrichtigung
-      :task:
-        :completed_at: Erledigt um
-        :completed_tasks: Erledigte Aufgaben
-        :pending_tasks: Offene Aufgaben
-        :description: Beschreibung
-        :due_date: Termin
-        :datetime1_default: Datum/Zeit
-        :datetime1_between: von
-        :datetime2: bis
-        :location_assignments: Standortzuordnung
-        :locations: Standorte
-        :name: Name der Aufgabe
-        :working_group_id: Arbeitsgruppe
-        :organizer_assignments: Organisatorzuordnung
-        :organizer_id: Organisator
-        :skill_assignments: Fähigkeitszuordnungen
-        :skills: Fähigkeiten
-        :volunteer_assignments: Helferzuordnungen
-        :volunteers: Helfer
-        :working_group: Arbeitsgruppe
-        :volunteer_count_required: Anzahl der benötigten Helfer
-        :primary_location: Ort der Aufgabe
-        :duration: Zeitaufwand
-        :scheduling_type: Zeitpunkt
-        :scheduled_time_start: Beginn
-        :scheduling_sentence:
-          :at: am %{due}
-          :by: bis %{due}
-          :between: zwischen %{start}<br />und %{due}
-        :duration-text:
-          :hours_1: 1 Stunde
-          :hours_2: 2 Stunden
-          :hours_3: 3 Stunden
-          :half_day: halber Tag
-          :all_day: ganzer Tag
-        :scheduling_type_options:
-          :at: Am
-          :by: Bis
-          :between: von/bis
-        :date: Datum
-        :start_date: Anfangsdatum
-        :start_time: Anfangszeit
-        :due_time: Endzeit
-        :time: Zeit
-        :project: Projekt
-      :supply:
-        :completed_at: Erledigt um
-        :description: Beschreibung
-        :due_date: Fälligkeit
-        :location_assignments: Standortzuordnung
-        :locations: Standorte
-        :name: Name der Sachspende
-        :organizer_assignments: Organisatorzuordnung
-        :organizer: Organisator
-        :skill_assignments: Fähigkeitszuordnungen
-        :skills: Fähigkeiten
-        :volunteer: Helfer
-        :working_group: Arbeitsgruppe
-        :volunteer_count_required: Anzahl der benötigten Helfer
-        :primary_location: Abgabeort der Sachspende
-        :duration: Zeitaufwand
-        :scheduling_type: Zeitpunkt
-        :scheduled_time_start: Beginn
-        :duration-text:
-          :hours_1: 1 Stunde
-          :hours_2: 2 Stunden
-          :hours_3: 3 Stunden
-          :half_day: halber Tag
-          :all_day: ganzer Tag
-        :working_group_id: Arbeitsgruppe
-        :organizer_id: Organisator
-        :project_id: Projekt
-        :location: Standort
-      :task/location_assignment:
-        :location: :activerecord.models.location
-        :primary: Primär
-        :task: :activerecord.models.task
-      :task/skill:
-        :name: Name
-        :task_skill_assignments: Aufgabe Fähigkeitszuordnung
-        :tasks: Aufgaben
-      :task/skill_assignment:
-        :required: Erforderlich
-        :skill: Fähigkeit
-        :task: :activerecord.models.task
-      :task/volunteer_assignment:
-        :organizer: Organisator
-        :task: :activerecord.models.task
-        :volunteer: Helfer
-      :role:
-        :actions: Aktionen
-      :user:
-        :circle: :activerecord.models.circle
-        :working_groups: Arbeitsgruppen
-        :email: E-Mail-Adresse
-        :feedback: Feedback
-        :name: Name
-        :first_name: Vorname
-        :identities: Identitäten
-        :last_name: Nachname
-        :language: Sprache
-        :primary_circle_id: Haupthelferkreis
-        :location: :activerecord.models.location
-        :notifications: Benachrichtigungen
-        :task_volunteer_assignments: Aufgabe Helferzuordnungen
-        :tasks: Aufgaben
-        :triggered_system_events: Ausgelöste System-Events
-        :role: Rolle
-        :accept_terms: Nutzungsbedingungen akzeptieren
-        :last_login: Letzte Anmeldung
-        :phone: Telefon
-        :mobile_phone: Mobiltelefon
-        :home_phone: Festnetz
-        :public_profile: Andere Helfer können mein Profil sehen
-        :active_since: Aktiv seit
-        :about_me: "Über mich"
-        :city: Ort
-        :country: Land
-        :postal_code: Postleitzahl
-        :state_province: Bundesland
-        :street_address: Strasse
-        :address: Anschrift
-      :user/feedback:
-        :comment: Kommentar
-        :rating: Bewertung
-        :volunteer: Helfer
-      :user/identity:
-        :circle: :activerecord.models.circle
-        :email: E-Mail-Adresse
-        :password_digest: Passwort Digest
-        :volunteer: Helfer
-      :working_group:
-        :circle: :activerecord.models.circle
-        :name: Name
-        :tasks: Aufgaben
-        :volunteers: Helfer
-        :actions: Aktionen
-        :admin: Organisator
-        :admin_ids: Organisatoren
-        :description: Beschreibung
-        :type: Zugriffsrecht
-      :project:
-        :description: Beschreibung
-        :organizer:
-          :one: Organisator
-          :other: Organisatoren
-        :organizer_id: Organisator
-        :working_group_id: Arbeitsgruppe
-        :working_group: Arbeitsgruppe
-        :name: Projektname
-      :file_upload:
-        :created_at: Hochgeladen um
-        :permission_is_public:
-          :false: Privat
-          :true: "Öffentlich"
-        :uploader: Hochgeladen von
-      :file_upload/permission_is_public:
-        :false: Privat
-        :true: "Öffentlich"
-    :errors:
-      :messages:
-        :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
-        :restrict_dependent_destroy:
-          :many: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record}
-            besteht
-          :one: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record} besteht
-  :errors:
-    :password:
-      :too_short: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
-        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
-      :nils: Bitte ein Passwort festlegen.
-      :does_not_match: Das Passwort stimmt nicht mit der Bestätigung überein.
-      :empty: Passwort ist erforderlich.
-      :no_lower: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
-        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
-      :no_upper: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
-        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
-      :no_numeric: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
-        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
-    :password_confirmation:
-      :did_not_match: Passwort und Passwortwiederholung waren nicht gleich.
-      :nils: Bitte das Passwort bestätigen.
-      :empty: Bestätigung des Passworts ist erforderlich.
-    :accept_terms:
-      :false: Um Lale zu nutzen, musst Du die Nutzungsbedingungen zuerst akzeptieren.
-    :email:
-      :nils: Bitte gib Deine Email an.
-      :taken: Diese Email wurde bereits verwendet. Bist du bereits bei Lale registriert?
-      :empty: E-Mail-Adresse ist erforderlich.
-      :matches: E-Mail-Adresse ist unvollständig oder ungültig
-    :first_name:
-      :nils: Bitte gib deinen Vornamen an.
-      :empty: Vorname ist erforderlich.
-    :last_name:
-      :nils: Bitte gib deinen Nachnamen an.
-      :empty: Nachname ist erforderlich.
-    :format: "%{attribute} %{message}"
-    :messages:
-      :accepted: muss akzeptiert werden
-      :blank: kann nicht leer sein
-      :confirmation: stimmt nicht mit %{attribute} überein
-      :empty: kann nicht leer sein
-      :equal_to: muss gleich %{count} sein
-      :even: muss gerade sein
-      :exclusion: ist reserviert
-      :taken: ist bereits vergeben
-      :greater_than: muss grösser als %{count} sein
-      :greater_than_or_equal_to: muss gleich oder grösser als %{count} sein
-      :less_than_or_equal_to: muss kleiner oder gleich %{count} sein
-      :less_than: muss kleiner als %{count} sein
-      :invalid: ist ungültig
-      :inclusion: ist nicht Teil der Liste
-      :not_a_number: ist keine Zahl
-      :not_an_integer: muss eine ganze Zahl sein
-      :odd: muss ungerade sein
-      :other_than: muss anders als %{count} sein
-      :present: muss leer sein
-      :too_long:
-        :one: ist zu lang (maximal 1 Zeichen)
-        :other: ist zu lang (maxmial %{count} Zeichen)
-      :too_short:
-        :one: ist zu kurz (mindestens 1 Zeichen)
-        :other: ist zu kurz (mindestens %{count} Zeichen)
-      :wrong_length:
-        :one: ungültige Länge (maximal 1 Zeichen)
-        :other: ungültige Länge (maximal %{count} Zeichen)
-    :about_me:
-      :too_long: Maximal 300 Zeichen
-    :name:
-      :empty: Name kann nicht leer sein
-      :not_unique: Der Name der Arbeitsgruppe ist bereits vergeben. Bitte wähle einen
-        anderen Namen.
-    :description:
-      :too_short: Beschreibung ist zu kurz
-      :empty: Beschreibung kann nicht leer sein.
-    :primary_location:
-      :empty: Standort kann nicht leer sein
-    :city:
-      :empty: Bitte eine Stadt angeben
-    :country:
-      :empty: Bitte ein gültiges Land angeben
-    :postal_code:
-      :empty: Bitte eine Postleitzahl angeben
-    :due_time:
-      :format: Bitte die Zeit im Format 00:00 eingeben.
-    :start_time:
-      :format: Bitte die Anfangszeit im Format 00:00 eingeben.
-    :start_date:
-      :empty: Beginndatum kann nicht leer sein.
-    :unavailable_session: 'Sitzung %{id} ist nicht mehr verfügbar. '
-    :unacceptable_request: Eine unterstütze Version wird im Accept header erwartet.
-    :connection_refused: Hoppla! Wir konnten uns nicht mit der Web-Konsole verbinden.
-      Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
-  :flash:
-    :created: "%{name} wurde erfolgreich erstellt."
-    :updated: "%{name} wurde erfolgreich aktualisiert."
-    :destroyed: "%{name} wurde erfolgreich gelöscht."
-    :actions:
-      :destroy:
-        :alert: "%{resource_name} konnte nicht gelöscht werden."
-        :notice: "%{resource_name} wurde erfolgreich gelöscht."
-      :invited:
-        :one: "%{count} Helfer wurden zu %{model} eingeladen."
-        :other: "%{count} Helfer wurden zu %{model} eingeladen."
-        :zero: Zu diesem %{model} konnten keine Helfer eingeladen werden.
-      :create:
-        :notice: "%{resource_name} wurde erfolgreich erstellt."
-      :update:
-        :notice: "%{resource_name} wurde erfolgreich aktualisiert."
-    :user:
-      :account:
-        :saved: Einstellungen wurden gespeichert.
-        :save-failed: Einstellungen konnten nicht gespeichert werden. Bitte Fehler
-          beheben und erneut versuchen.
-        :circle_invalid: Keine Berechtigung diesen Helferkreis zu sehen
-    :failed:
-      :create: Ein Fehler ist bei Erstellung von %{name} aufgetreten.
-      :update: Bei Änderung von %{name} ist ein Fehler aufgetreten.
-    :file_uploads:
-      :updated: Datei aktualisiert
-      :created: Datei erfolgreich hochgeladen
-  :tasks:
-    :flash:
-      :volunteered: Danke für die Hilfe bei %{name}!
-      :completed: Danke für die Hilfe bei %{name}!
-      :reopened: Aufgabe wurde wieder geöffnet
-      :reopening_failed: Beim Öffnen der Aufgabe trat ein Problem auf
-  :users:
-    :flash:
-      :password_reset_success: Das Passwort wurde erfolgreich geändert.
-  :mailers:
-    :subject:
-      :user_mailer:
-        :forgot_password: Passwort vergessen?
-        :account_activated: Dein Konto wurde aktiviert!
-        :account_activation: Ein neuer Helfer möchte Deinem Helferkreis beitreten.
-      :task_mailer:
-        :task_change: Es gibt etwas Neues bei Deiner Aufgabe.
-        :task_completion_reminder: Vielen Dank für Deine Hilfe!
-        :task_invitation: Lale braucht Deine Hilfe für eine neue Aufgabe.
-        :task_reminder: Passt noch alles?
-        :task_suggestion: Lale möchte Dir eine Aufgabe vorschlagen
-        :task_comment: Deine Aufgabe hat einen neuen Kommentar.
-      :supply_mailer:
-        :supply_completion_reminder: Vielen Dank für Deine Hilfe!
-        :supply_invitation: Lale braucht Deine Hilfe für eine neue Sachspende.
-      :project_mailer:
-        :project_invitation: Lale braucht Deine Hilfe für ein neues Projekt.
-  :roles:
-    :name:
-      :circle:
-        :admin: Administrator
-        :volunteer: Helfer
-        :official: Amtsperson
-        :custom: Benutzerdefiniert
-        :helpee: Hilfsempfänger
-      :task:
-        :assignee: Helfer
-        :volunteer: Helfer
-        :organizer: Organisator
-      :admin: Administrator
-      :member: Mitglied
-      :supply:
-        :organizer: Organisator
-        :volunteer: Helfer
-  :circle:
-    :admins:
-      :show:
-        :settings: Einstellungen
-        :confirm_delete_circle: Bist Du sicher?
-        :confirm_delete_working_group: Bist Du sicher?
-        :promote_user: Rolle vergeben
-        :create_working_group: Neue Arbeitsgruppe anlegen
-      :roles:
-        :confirm_delete_circle: Bist Du sicher?
-        :promote_user: Rolle vergeben
-        :save: Speichern
-      :working_groups:
-        :confirm_delete_working_group: Bist Du sicher?
-        :create_working_group: Neue Arbeitsgruppe
-        :edit: Bearbeiten
-        :delete: Lösche
-      :invite:
-        :invite_members: Neue Mitglieder zu %{circle} einladen
-        :invite_members_explaination: Um neue Mitglieder in diesen Helferkreis einzuladen,
-          schicke einfach diesen Link an alle Interessierten.
-        :invite_headline: Neue Helfer einladen
-        :no_pending_members_message: Momentan keine ausstehenden Beitrittsanfragen.
-        :pending_members_explanation: Folgende Helfer möchten gerne dem Helferkreis
-          beitreten. Bitte bestätige die Anfragen, damit sie mithelfen können.
-        :pending_members_headline: Offene Beitrittsanfragen
-      :nav:
-        :basic-settings: Helferkreisprofil
-        :roles: Rollen
-        :working-groups: Arbeitsgruppen
-        :invite-volunteers: Helfer einladen
-        :extended-settings: Weitere Einstellungen
-        :files: Dokumente
-      :extended_settings:
-        :headline: Weitere Einstellungen
-        :must_activate_users: Neue Beitrittsanfragen erst überprüfen
-      :pending_members_list:
-        :activate: Aktivieren
-      :files:
-        :confirm_delete_file: Willst Du diese Datei wirklich löschen?
-        :new-file: Datei hochladen
-    :comments:
-      :placeholder: Was möchtest du sagen?
-      :post: Kommentieren
-      :reply: Antworten
-      :actions:
-        :delete: Löschen
-        :delete_confirm: Diesen Kommentar wirklich löschen?
-        :edit: Bearbeiten
-      :comments:
-        :show_all_comments: Alle Kommentare zeigen
-    :members:
-      :index:
-        :directory: Helferliste
-        :total_members: zeigt %{showing} von %{total} Helfern
-      :show:
-        :address: Anschrift
-        :back: Zurück zur Helferliste
-        :circles: Helferkreise
-        :contact: Kontakt
-        :member_since: Mitglied seit
-        :roles: Rollen
-        :tasks_supplies_completed: Geleistete Hilfe
-        :edit_profile: Dein Profil ändern
-        :working_groups: Arbeitsgruppen
-      :list:
-        :last_help_provided: Zuletzt geholfen
-        :help_provided: Bereits geholfen
-      :public:
-        :public_members: Helferliste
-    :supplies:
-      :index:
-        :header: Sachspenden
-      :supply_list:
-        :no-supplies: Derzeit keine Sachspenden benötigt.
-      :supply_list_item:
-        :stats-here: Statistik
-      :new:
-        :back: Zurück zu den Sachspenden
-      :edit:
-        :back: Zurück zur Sachspende
-      :show:
-        :back: Zurück zu den Sachspenden
-        :task-complete: 'Erledigt: '
-        :volunteer-count:
-          :one: "%{count} Helfer ist eingetragen"
-          :other: "%{count} Helfer sind eingetragen"
-        :volunteer-count-required:
-          :one: Benötigt %{count} Helfer
-          :other: Benötigt %{count} Helfer
-        :volunteer-count-missing:
-          :one: " (%{count} fehlt)"
-          :other: " (%{count} fehlt)"
-        :organized-by: Organisiert von %{name}
-        :volunteer-task-button: Ich habe das!
-        :decline-task-button: Ich habe das doch nicht.
-        :complete-task-button: Sachspende wurde abgegeben
-        :edit-task-button: Sachspende bearbeiten
-        :invite-button: Mitglieder von %{group} einladen
-        :reopen-task-button: Sachspende wieder öffnen
-    :tasks:
-      :index:
-        :header: Alle Aufgaben
-      :my:
-        :header: Meine Aufgaben
-        :volunteer-header: Was ich erledige
-        :organizer-header: Was ich organisiere
-      :task_list:
-        :no-tasks: Keine Aufgaben gefunden.
-      :task_list_item:
-        :stats-here: Statistik
-      :form:
-        :placeholder_optional: "(optional)"
-        :date_format: "%d.%m.%Y"
-        :project_blank: "(nicht in einem Projekt)"
-      :new:
-        :back: Zurück zu den Aufgaben
-      :edit:
-        :back: Zurück zur Aufgabe
-      :show:
-        :back: Zurück zu den Aufgaben
-        :task-complete: 'Erledigt: '
-        :volunteer-count:
-          :one: "%{count} Helfer ist eingetragen"
-          :other: "%{count} Helfer sind eingetragen"
-        :volunteer-count-required:
-          :one: Benötigt %{count} Helfer
-          :other: Benötigt %{count} Helfer
-        :volunteer-count-missing:
-          :one: " (%{count} fehlt)"
-          :other: " (%{count} fehlt)"
-        :organized-by: Organisiert von %{name}
-        :complete-task-button: Aufgabe abschliessen
-        :edit-task-button: Aufgabe bearbeiten
-        :invite-button: "%{class} einladen"
-        :reopen-task-button: Aufgabe wieder öffnen
-      :completed:
-        :header: Alle erledigten Aufgaben
-      :open:
-        :header: Offene Aufgaben
-    :working_groups:
-      :show:
-        :settings: Einstellungen
-        :join: Beitreten
-        :leave: Verlassen
-        :admin-title:
-          :one: "%{count} Organisator"
-          :other: "%{count} Organisatoren"
-        :member-title:
-          :one: "%{count} Helfer"
-          :other: "%{count} Helfer"
-      :index:
-        :all-working-groups-dashboard: "Übersicht aller Arbeitsgruppen"
-      :new:
-        :new-working-group: Neue Arbeitsgruppe
-      :edit:
-        :header: Arbeitsgruppe
-      :admin_nav:
-        :settings: Grundeinstellungen
-        :organizers: Organisatoren
-        :members: Helfer
-        :projects: Projekte
-      :user_list:
-        :actions: Aktionen
-        :remove: Entfernen
-        :no-volunteers: Keine Helfer
-      :add_user_form:
-        :add: Hinzufügen
-      :edit_organizers:
-        :header: Organisatoren für %{name}
-      :edit_members:
-        :header: Helfer für %{name}
-      :edit_projects:
-        :header: Projekte für %{name}
-        :actions: Aktionen
-        :confirm_delete: Willst du wirklich das Projekt und alle seine Aufgabe und
-          Sachspenden löschen?
-    :invite_flow:
-      :join:
-        :start_helping: Mach heute gleich mit bei %{circle}!
-    :organizers:
-      :index:
-        :organizers: Organisatoren
-    :projects:
-      :show:
-        :admin-title:
-          :one: "%{count} Organisator"
-          :other: "%{count} Organisatoren"
-        :member-title:
-          :other: "%{count} Helfer"
-          :one: "%{count} Helfer"
-        :settings: Einstellungen
-        :date_range: Zeitraum
-        :organized-by: Organisiert von %{name}
-        :date_range_sentence: von %{start_date} bis %{due_date}
-      :index:
-        :title: Projekte
-      :edit:
-        :back: Zurück zu Projekt
-      :nav:
-        :info: Info
-      :clone:
-        :new_task_name_regexp: Kopie( (\d+))?$
-        :new_task_name: "%{base_name} - Kopie"
-      :status_labels:
-        :open: offen
-        :urgent: dringend
-        :done: erledigt
-        :signed_up: angemeldet
-        :needed: benötigt
-  :circles:
-    :new:
-      :create: Helferkreis anlegen
-    :show:
-      :task:
-        :new: Neue Aufgabe erstellen
-        :mine-only: Nur meine Aufgaben anzeigen
-        :count:
-          :one: 1 Aufgabe
-          :other: "%{count} Aufgaben"
-        :volunteer-needed:
-          :one: Benötigt einen Helfer
-          :other: Benötigt %{count} Helfer
-        :volunteer-filled: Vergeben
-        :volunteer: Ich übernehme das!
-        :complete: Aufgabe erledigt
-      :circle-dashboard: Helferkreis Übersicht
-      :working-group:
-        :new: Neue Arbeitsgruppe anlegen
-        :filter: Arbeitsgruppen filtern
-      :view-burnup-chart: Burn Up Chart anzeigen
-      :need_help: Brauchst Du Hilfe?
-      :contact_circle_admin: Email an den Administrator
-      :open_tasks: Offene Aufgaben
-      :dashboard_title: "Übersicht für %{name}"
-      :circle_leaders: Leitung
-      :working_group_organizers: Organisatoren
-      :files: Dokumente des Helferkreises
-    :edit:
-      :header: Helferkreis bearbeiten
-      :show: Anzeigen
-      :back: Zurück
-    :form:
-      :country_select: Bitte Land auswählen
-  :layouts:
-    :public:
-      :header:
-        :signed-in-as: Angemeldet als %{user}
-        :sign-out: Abmelden
-        :sign-up: Registrieren
-        :dont-have-account: Noch kein Konto?
-        :account: Konto
-    :internal:
-      :sidebar:
-        :my-tasks: Meine Aufgaben
-        :all-tasks: Offene Aufgaben
-        :supplies: Sachspenden
-        :directory: Helferliste
-        :discussions: Diskussionen
-        :admin: Verwaltung
-        :my-working-groups: Meine Arbeitsgruppen
-        :all-working-groups: Alle Arbeitsgruppen
-        :organizers: Organisatoren
-        :completed-tasks: Erledigte Aufgaben
-        :working_groups: Arbeitsgruppen
-        :all-open-tasks: Offene Aufgaben
-        :public_members: Helferliste
-        :projects: Projekte
-      :header:
-        :settings: Dein Profil
-        :find-circles: Helferkreise finden
-        :sign-out: Ausloggen
-        :admin: Lale Admin
-        :switch_to_circle: Wechseln zu "%{circle_name}"
-  :public:
-    :circles:
-      :index:
-        :title: Helferkreise in der Nähe
-        :create-circle-phrase: Wenn Du diesem Kreis nicht beitreten möchtest, kannst
-          Du
-        :create-circle-button: Neuen Helferkreis anlegen
-      :new:
-        :title: Lege einen neuen Helferkreis an
-        :details: Dies ist eine wunderbare Möglichkeit, in Deiner Gemeinschaft mitzuhelfen
-          und die Welt ein wenig besser zu machen!
-      :membership_pending:
-        :subtitle: Dein Konto wurde eingerichtet und wird gerade überprüft!
-        :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
-          und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
-          sie per Email: %{admins_list}.'
-        :title: Willkommen bei Lale!
-    :reset_password_flow:
-      :reset_password:
-        :reset-password-phrase: Passwort erneuern
-        :reset-password: Jetzt erneuern
-        :sign-in: Einloggen
-      :confirmation:
-        :title: Bitte überprüfen Sie Ihre Email!
-        :details: Sie werden gleich eine Email erhalten, um Ihr Passwort zu erneuern.
-  :sessions:
-    :new:
-      :sign-in-phrase: In den Helferkreis einloggen
-      :reset-password: Passwort zurücksetzen
-      :sign-in: Einloggen
-      :login_error_message_title: Ihr Login ist leider fehlgeschlagen.
-      :login_error_common_reasons:
-        :one: haben Sie die richtige E-Mail-Adresse für Lale verwendet?
-        :two: haben Sie Ihr Passwort in letzter Zeit geändert?
-        :three: ist die Feststelltaste (CAPS LOCK) aktiviert?
-    :destroy:
-      :signed_out: Erfolgreich ausgeloggt!
-    :create:
-      :login_error_flash: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
-      :login_error: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
-  :user:
-    :account:
-      :edit:
-        :title: Dein Profil
-        :reset_password: Passwort zurücksetzen
-        :update_settings: "Änderungen speichern"
-        :error_correction: Bitte die untenstehenden Fehler berichtigen.
-        :country_select: Bitte Land auswählen
-      :reset_password:
-        :reset_password: Passwort zurücksetzen
-        :update: Passwort ändern
-        :password: Passwort
-        :password_confirmation: Passwort Bestätigung
-      :show:
-        :edit_profile: Dein Profil ändern
-        :view_public_profile: "Öffentliches Profil ansehen"
-        :reset_password: Passwort zurücksetzen
-        :title: Dein Profil
-    :identities:
-      :new:
-        :mobile_phone: Mobiltelefon
-        :email: Email
-        :header: Gleich mithelfen
-        :country: Land
-        :first_name: Vorname
-        :password: Passwort
-        :street_address: Strasse
-        :language: Sprache
-        :home_phone: Festnetz
-        :city: Ort
-        :postal_code: Postleitzahl
-        :last_name: Nachname
-        :public_profile: Andere Helfer können mein Profil sehen
-        :state_province: Bundesland
-        :country_select: Bitte Land auswählen
-        :accept_terms: Nutzungsbedingungen akzeptieren
-        :password_confirmation: Passwort Bestätigung
-  :en:
-    :roles:
-      :name:
-        :task:
-          :volunteer: Helfer
-  :number:
-    :currency:
-      :format:
-        :delimiter: "."
-        :precision: '2'
-        :separator: ","
-        :unit: "€"
-        :format: "%u%n"
-    :human:
-      :decimal_units:
-        :units:
-          :thousand: Tausend
-          :million: Million
-          :billion: Milliarde
-          :trillion: Billion
-          :quadrillion: Billiarde
-        :format: "%n %u"
-      :storage_units:
-        :units:
-          :gb: GB
-          :kb: KB
-          :mb: MB
-          :tb: TB
-          :byte:
-            :one: Byte
-            :other: Bytes
-        :format: "%n %u"
-      :format:
-        :precision: '3'
-        :significant: 'true'
-        :strip_insignificant_zeros: 'true'
-    :format:
-      :delimiter: "."
-      :separator: ","
-      :precision: '3'
-    :percentage:
-      :format:
-        :format: "%n%"
+  :datepicker:
+    :date_format: d.m.Y
+    :day_of_week_start: '1'
+    :time_format: H:i
   :datetime:
-    :prompts:
-      :day: Tag
-      :hour: Stunde
-      :minute: Minute
-      :month: Monat
-      :second: Sekunden
-      :year: Jahr
     :distance_in_words:
-      :x_days:
-        :one: 1 Tag
-        :other: "%{count} Tage"
       :about_x_hours:
         :one: ca. 1 Stunde
         :other: ca. %{count} Stunden
@@ -1159,6 +795,9 @@
       :over_x_years:
         :one: "über 1 Jahr"
         :other: "über %{count} Jahre"
+      :x_days:
+        :one: 1 Tag
+        :other: "%{count} Tage"
       :x_minutes:
         :one: 1 Minute
         :other: "%{count} Minuten"
@@ -1168,71 +807,593 @@
       :x_seconds:
         :one: 1 Sekunde
         :other: "%{count} Sekunden"
-  :url:
-    :terms_of_service: http://lale.help/de/agb#terms
-  :time:
-    :formats:
-      :long: '"%A, %d. %B %Y, %H:%M Uhr"'
-      :short: "%d %b %H:%M"
-      :default: "%a, %d %b %Y %H:%M:%S %z"
-    :pm: pm
-    :am: am
+    :prompts:
+      :day: Tag
+      :hour: Stunde
+      :minute: Minute
+      :month: Monat
+      :second: Sekunden
+      :year: Jahr
+  :delete: Löschen
+  :edit: Bearbeiten
+  :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
+  :errors:
+    :about_me:
+      :too_long: Maximal 300 Zeichen
+    :accept_terms:
+      :false: Um Lale zu nutzen, musst Du die Nutzungsbedingungen zuerst akzeptieren.
+    :city:
+      :empty: Bitte eine Stadt angeben
+    :connection_refused: Hoppla! Wir konnten uns nicht mit der Web-Konsole verbinden.
+      Bitte stelle sicher, dass der Rails Entwicklungsserver läuft.
+    :country:
+      :empty: Bitte ein gültiges Land angeben
+    :description:
+      :empty: Beschreibung kann nicht leer sein.
+      :too_short: Beschreibung ist zu kurz
+    :due_time:
+      :format: Bitte die Zeit im Format 00:00 eingeben.
+    :email:
+      :empty: E-Mail-Adresse ist erforderlich.
+      :matches: E-Mail-Adresse ist unvollständig oder ungültig
+      :nils: Bitte gib Deine Email an.
+      :taken: Diese Email wurde bereits verwendet. Bist du bereits bei Lale registriert?
+    :file:
+      :nils: Datei ist erforderlich.
+    :first_name:
+      :empty: Vorname ist erforderlich.
+      :nils: Bitte gib deinen Vornamen an.
+    :format: "%{attribute} %{message}"
+    :last_name:
+      :empty: Nachname ist erforderlich.
+      :nils: Bitte gib deinen Nachnamen an.
+    :messages:
+      :accepted: muss akzeptiert werden
+      :blank: kann nicht leer sein
+      :confirmation: stimmt nicht mit %{attribute} überein
+      :empty: kann nicht leer sein
+      :equal_to: muss gleich %{count} sein
+      :even: muss gerade sein
+      :exclusion: ist reserviert
+      :greater_than: muss grösser als %{count} sein
+      :greater_than_or_equal_to: muss gleich oder grösser als %{count} sein
+      :inclusion: ist nicht Teil der Liste
+      :invalid: ist ungültig
+      :less_than: muss kleiner als %{count} sein
+      :less_than_or_equal_to: muss kleiner oder gleich %{count} sein
+      :not_a_number: ist keine Zahl
+      :not_an_integer: muss eine ganze Zahl sein
+      :odd: muss ungerade sein
+      :other_than: muss anders als %{count} sein
+      :present: muss leer sein
+      :taken: ist bereits vergeben
+      :too_long:
+        :one: ist zu lang (maximal 1 Zeichen)
+        :other: ist zu lang (maxmial %{count} Zeichen)
+      :too_short:
+        :one: ist zu kurz (mindestens 1 Zeichen)
+        :other: ist zu kurz (mindestens %{count} Zeichen)
+      :wrong_length:
+        :one: ungültige Länge (maximal 1 Zeichen)
+        :other: ungültige Länge (maximal %{count} Zeichen)
+    :name:
+      :empty: Name kann nicht leer sein
+      :not_unique: Der Name der Arbeitsgruppe ist bereits vergeben. Bitte wähle einen
+        anderen Namen.
+    :organizer_id:
+      :at_least_one_required: Mindestens ein Organisator must festgelegt sein.
+      :empty: Bitte einen Organisator festlegen
+    :password:
+      :does_not_match: Das Passwort stimmt nicht mit der Bestätigung überein.
+      :empty: Passwort ist erforderlich.
+      :nils: Bitte ein Passwort festlegen.
+      :no_lower: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
+        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
+      :no_numeric: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
+        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
+      :no_upper: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
+        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
+      :too_short: Das Passwort muss mindestens 8 Zeichen lang sein und muss mindestens
+        einen Grossbuchstaben, einen Kleinbuchstaben und eine Zahl enthalten.
+    :password_confirmation:
+      :did_not_match: Passwort und Passwortwiederholung waren nicht gleich.
+      :empty: Bestätigung des Passworts ist erforderlich.
+      :nils: Bitte das Passwort bestätigen.
+    :postal_code:
+      :empty: Bitte eine Postleitzahl angeben
+    :primary_location:
+      :empty: Standort kann nicht leer sein
+    :start_date:
+      :empty: Beginndatum kann nicht leer sein.
+    :start_time:
+      :format: Bitte die Anfangszeit im Format 00:00 eingeben.
+    :unacceptable_request: Eine unterstütze Version wird im Accept header erwartet.
+    :unavailable_session: 'Sitzung %{id} ist nicht mehr verfügbar. '
+  :fields:
+    :email: E-Mail-Adresse
+    :email-placeholder: Tragen Sie Ihre E-Mail-Adresse ein
+    :location: Standort
+    :name: Name
+    :password: Passwort
+    :password-placeholder: Tragen Sie Ihr Passwort ein
+  :files:
+    :edit:
+      :header: Datei bearbeiten
+    :list:
+      :confirm_delete_file: Willst Du diese Datei wirklich löschen?
+    :new:
+      :header: Datei zu %{name} hinzufügen
+  :flash:
+    :actions:
+      :create:
+        :notice: "%{resource_name} wurde erfolgreich erstellt."
+      :destroy:
+        :alert: "%{resource_name} konnte nicht gelöscht werden."
+        :notice: "%{resource_name} wurde erfolgreich gelöscht."
+      :invited:
+        :one: "%{count} Helfer wurden zu %{model} eingeladen."
+        :other: "%{count} Helfer wurden zu %{model} eingeladen."
+        :zero: Zu diesem %{model} konnten keine Helfer eingeladen werden.
+      :update:
+        :notice: "%{resource_name} wurde erfolgreich aktualisiert."
+    :created: "%{name} wurde erfolgreich erstellt."
+    :destroyed: "%{name} wurde erfolgreich gelöscht."
+    :failed:
+      :create: Ein Fehler ist bei Erstellung von %{name} aufgetreten.
+      :update: Bei Änderung von %{name} ist ein Fehler aufgetreten.
+    :file_uploads:
+      :created: Datei erfolgreich hochgeladen
+      :updated: Datei aktualisiert
+    :updated: "%{name} wurde erfolgreich aktualisiert."
+    :user:
+      :account:
+        :circle_invalid: Keine Berechtigung diesen Helferkreis zu sehen
+        :save-failed: Einstellungen konnten nicht gespeichert werden. Bitte Fehler
+          beheben und erneut versuchen.
+        :saved: Einstellungen wurden gespeichert.
+  :formtastic:
+    :cancel: Abbrechen
+    :create: "%{model} anlegen"
+    :no: Nein
+    :required: Pflichtfeld
+    :reset: "%{model} zurücksetzen"
+    :submit: Abschicken
+    :update: "%{model} aktualisieren"
+    :yes: Ja
+  :helpers:
+    :assign: Helfer eintragen
+    :assigning: Eintragen &hellip;
+    :block: Sperren
+    :clone: "%{model} kopieren"
+    :complete: "%{model} abschliessen"
+    :confirm:
+      :project:
+        :delete: Willst Du dieses Projekt wirklich löschen?
+      :supply:
+        :delete: Bist Du sicher, dass diese Sachspende gelöscht werden soll?
+      :task:
+        :delete: Bist Du sicher, dass diese Aufgabe gelöscht werden soll?
+    :deactivate: Deaktivieren
+    :decline: Ich habe diese %{model} nicht
+    :delete: "%{model} löschen"
+    :delete_no_model: Löschen
+    :edit: "%{model} bearbeiten"
+    :edit_no_model: Bearbeiten
+    :header:
+      :add: "%{name} erstellen"
+      :edit: "%{name} bearbeiten"
+    :invite_circle: Helferkreis einladen
+    :invite_user: Helfer einladen
+    :invite_working_group: Arbeitsgruppe einladen
+    :new: "%{model} erstellen"
+    :page_entries_info:
+      :more_pages:
+        :display_entries: Anzeige von %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b>
+          von <b>%{total}</b> gesamt
+      :one_page:
+        :display_entries:
+          :one: Anzeige von <b>1</b> %{entry_name}
+          :other: Anzeige von <b>allen %{count}</b> %{entry_name}
+          :zero: Kein %{entry_name} gefunden
+    :placeholder:
+      :project:
+        :name: z.B. Umzug in neue Unterkunft organisieren
+      :task:
+        :name: z.B. Begleitung für Riad zur Schuleinschreibung
+    :reactivate: Reaktivieren
+    :reopen: "%{model} wieder öffnen"
+    :select:
+      :prompt: Bitte auswählen
+    :submit:
+      :create: "%{model} erstellen"
+      :submit: "%{model} speichern"
+      :update: "%{model} speichern"
+    :unblock: Entsperren
+    :volunteer: Ich habe diese %{model}
+  :lale: Lale
+  :language:
+    :de: Deutsch
+    :en: Englisch
+    :fr: Französich
+  :layouts:
+    :internal:
+      :header:
+        :admin: Lale Admin
+        :find-circles: Helferkreise finden
+        :help: Brauchen Sie Hilfe mit lale?
+        :help_email_subject: Ich brauche Hilfe bei lale
+        :settings: Dein Profil
+        :sign-out: Ausloggen
+        :switch_to_circle: Wechseln zu "%{circle_name}"
+      :sidebar:
+        :admin: Verwaltung
+        :all-open-tasks: Offene Aufgaben
+        :all-tasks: Offene Aufgaben
+        :all-working-groups: Alle Arbeitsgruppen
+        :completed-tasks: Erledigte Aufgaben
+        :directory: Helferliste
+        :discussions: Diskussionen
+        :documents: Dokumente
+        :home-page: Startseite
+        :my-calendar: Meine Aktivitäten
+        :my-tasks: Meine Aufgaben
+        :my-working-groups: Meine Arbeitsgruppen
+        :organizers: Organisatoren
+        :overviews: "Übersichten"
+        :projects: Projekte
+        :public_members: Helferliste
+        :supplies: Sachspenden
+        :working_groups: Arbeitsgruppen
+    :public:
+      :header:
+        :account: Konto
+        :contact_us_for_new_circle: Kontaktiere uns, um einen neuen Helferkreis anzulegen.
+        :dont-have-account: Noch kein Konto?
+        :sign-out: Abmelden
+        :sign-up: Registrieren
+        :signed-in-as: Angemeldet als %{user}
+  :mailers:
+    :subject:
+      :project_mailer:
+        :project_invitation: Lale braucht Deine Hilfe für ein neues Projekt.
+      :supply_mailer:
+        :supply_completion_reminder: Vielen Dank für Deine Hilfe!
+        :supply_invitation: Lale braucht Deine Hilfe für eine neue Sachspende.
+      :task_mailer:
+        :task_assigned: Du wurdest für eine Aufgabe eingetragen.
+        :task_change: Es gibt etwas Neues bei Deiner Aufgabe.
+        :task_comment: Deine Aufgabe hat einen neuen Kommentar.
+        :task_completion_reminder: Vielen Dank für Deine Hilfe!
+        :task_invitation: Lale braucht Deine Hilfe für eine neue Aufgabe.
+        :task_reminder: Passt noch alles?
+        :task_suggestion: Lale möchte Dir eine Aufgabe vorschlagen
+        :task_unassigned: Du wurdest für eine Aufgabe wieder ausgetragen.
+      :user_mailer:
+        :account_activated: Dein Konto wurde aktiviert!
+        :account_activation: Ein neuer Helfer möchte Deinem Helferkreis beitreten.
+        :forgot_password: Passwort vergessen?
+  :number:
+    :currency:
+      :format:
+        :delimiter: "."
+        :format: "%u%n"
+        :precision: '2'
+        :separator: ","
+        :unit: "€"
+    :format:
+      :delimiter: "."
+      :precision: '3'
+      :separator: ","
+    :human:
+      :decimal_units:
+        :format: "%n %u"
+        :units:
+          :billion: Milliarde
+          :million: Million
+          :quadrillion: Billiarde
+          :thousand: Tausend
+          :trillion: Billion
+      :format:
+        :precision: '3'
+        :significant: 'true'
+        :strip_insignificant_zeros: 'true'
+      :storage_units:
+        :format: "%n %u"
+        :units:
+          :byte:
+            :one: Byte
+            :other: Bytes
+          :gb: GB
+          :kb: KB
+          :mb: MB
+          :tb: TB
+    :percentage:
+      :format:
+        :format: "%n%"
+  :project_edit:
+    :cancel: Abbrechen
+  :public:
+    :circles:
+      :index:
+        :create-circle-button: Neuen Helferkreis anlegen
+        :create-circle-phrase: Wenn Du diesem Kreis nicht beitreten möchtest, kannst
+          Du
+        :title: Helferkreise in der Nähe
+      :membership_inactive:
+        :blocked:
+          :active_circle_links: 'Du kannst jederzeit zu einem deiner anderen Helferkreise
+            wechseln: %{links}.'
+          :description: 'Bitte kontaktiere deinen Administrator, falls dies zu Unrecht
+            geschehen ist: %{admins_list}.'
+          :title: Deine Mitgliedschaft im Helferkreis wurde gesperrt.
+        :pending:
+          :active_circle_links: 'Du kannst jederzeit zu einem deiner anderen Helferkreise
+            wechseln: %{links}.'
+          :description: 'Die Administratoren des Helferkreises wurden benachrichtigt
+            und werden dein Konto bald freischalten. Falls es Fragen gibt, bitte kontaktiere
+            sie per Email: %{admins_list}.'
+          :title: Willkommen bei Lale! Dein Konto wurde eingerichtet und wird gerade
+            überprüft!
+      :new:
+        :details: Dies ist eine wunderbare Möglichkeit, in Deiner Gemeinschaft mitzuhelfen
+          und die Welt ein wenig besser zu machen!
+        :title: Lege einen neuen Helferkreis an
+    :reset_password_flow:
+      :confirmation:
+        :details: Sie werden gleich eine Email erhalten, um Ihr Passwort zu erneuern.
+        :title: Bitte überprüfen Sie Ihre Email!
+      :reset_password:
+        :reset-password: Jetzt erneuern
+        :reset-password-phrase: Passwort erneuern
+        :sign-in: Einloggen
+  :ransack:
+    :all: alle
+    :and: und
+    :any: beliebige
+    :asc: aufsteigend
+    :attribute: Attribut
+    :combinator: Kombinator
+    :condition: Bedingung
+    :desc: absteigend
+    :or: oder
+    :predicate: Eigenschaft
+    :predicates:
+      :blank: ist leer
+      :cont: enthält
+      :cont_all: enthält alle
+      :cont_any: enthält beliebige
+      :does_not_match: stimmt nicht überein
+      :does_not_match_all: stimmt nicht mit allen überein
+      :does_not_match_any: erfüllt ein beliebiger/s nicht
+      :end: endet mit
+      :end_all: endet mit allen
+      :end_any: endet mit beliebigen
+      :eq: gleicht
+      :eq_all: gleicht allen
+      :eq_any: gleicht beliebigen
+      :false: ist falsch
+      :gt: größer als
+      :gt_all: größer als alle
+      :gt_any: größer als ein beliebiger/s
+      :gteq: größer oder gleich
+      :gteq_all: größer oder gleich alle
+      :gteq_any: größer oder gleich als ein beliebiger/s
+      :in: in
+      :in_all: in allen
+      :in_any: ist nicht in einem beliebigen
+      :lt: kleiner als
+      :lt_all: kleiner als alle als alle
+      :lt_any: kleiner als ein beliebiger/s
+      :lteq: kleiner oder gleich
+      :lteq_all: kleiner oder gleich allen
+      :lteq_any: kleiner oder gleich beliebige
+      :matches: entspricht
+      :matches_all: stimmt mit allen überein
+      :matches_any: stimmt überein mit einem beliebigen
+      :not_cont: enthält nicht
+      :not_cont_all: enthält keine/s
+      :not_cont_any: enthält ein beliebiger/s nicht
+      :not_end: endet nicht mit
+      :not_end_all: endet nicht mit allen
+      :not_end_any: endet nicht mit beliebigen
+      :not_eq: ungleich
+      :not_eq_all: ungleich allen
+      :not_eq_any: ungleich beliebigen
+      :not_in: nicht in
+      :not_in_all: nicht in allen
+      :not_in_any: nicht in beliebige
+      :not_null: ist nicht null
+      :not_start: beginnt nicht mit
+      :not_start_all: beginnt nicht mit allen
+      :not_start_any: beginnt nicht mit beliebigen
+      :null: ist null
+      :present: ist vorhanden
+      :start: beginnt mit
+      :start_all: beginnt mit allen
+      :start_any: beginnt mit beliebigen
+      :true: ist wahr
+    :search: suchen
+    :sort: sortieren
+    :value: Wert
+  :roles:
+    :name:
+      :admin: Administrator
+      :circle:
+        :admin: Administrator
+        :custom: Benutzerdefiniert
+        :helpee: Hilfsempfänger
+        :official: Amtsperson
+        :volunteer: Helfer
+      :member: Mitglied
+      :supply:
+        :organizer: Organisator
+        :volunteer: Helfer
+      :task:
+        :assignee: Helfer
+        :organizer: Organisator
+        :volunteer: Helfer
+  :sessions:
+    :create:
+      :login_error: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
+      :login_error_flash: Login fehlgeschlagen. Bitte prüfen Sie Ihre Zugangsdaten.
+    :destroy:
+      :signed_out: Erfolgreich ausgeloggt!
+    :new:
+      :login_error_common_reasons:
+        :one: haben Sie die richtige E-Mail-Adresse für Lale verwendet?
+        :three: ist die Feststelltaste (CAPS LOCK) aktiviert?
+        :two: haben Sie Ihr Passwort in letzter Zeit geändert?
+      :login_error_message_title: Ihr Login ist leider fehlgeschlagen.
+      :reset-password: Passwort zurücksetzen
+      :sign-in: Einloggen
+      :sign-in-phrase: In den Helferkreis einloggen
+  :sidebar:
+    :circle_add_menu:
+      :add: Hinzufügen
+  :supplies:
+    :auto_comment:
+      :completed: "%{user} hat diese Sachspende am %{date} erledigt."
+      :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Sachspende
+        eingeladen."
+      :reopened: "%{user} hat diese Sachspende am %{date} wieder geöffnet."
+      :updated: "%{user} hat %{changed_fields} geändert."
+      :user_assigned: "%{user} hat sich für diese Sachspende am %{date} eingetragen."
+      :user_unassigned: "%{user} hat sich für diese Sachspende am %{date} ausgetragen."
+    :flash:
+      :already_taken: Die Sachspende wird bereits von jemand übernommen.
+      :complete_failed: Problem bei der Fertigstellung dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :completed: Danke für die Sachspende!
+      :decline_failed: Problem bei der Ablehnung dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :declined: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
+        Helfer suchen...
+      :invite_failed: Problem bei der Einladung zu dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
+      :reopened: Sachspende wurde wieder geöffnet
+      :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
+      :volunteer_failed: Problem bei der Übernahme dieser Sachspende. Bitte probier
+        es später noch einmal.
+      :volunteered: Vielen Dank für Deine Hilfe!
   :supply:
     :presenter:
       :messages:
-        :volunteer_needed: Helfer gesucht
         :recent_activity: Kürzlich bearbeitet
+        :volunteer_needed: Helfer gesucht
+  :supply_edit:
+    :cancel: Abbrechen
+  :support:
+    :array:
+      :last_word_connector: ", und "
+      :two_words_connector: " und "
+      :words_connector: ", "
+  :supported-by: Unterstützt durch
   :task:
     :presenter:
       :messages:
         :more_volunteers_needed: Noch Helfer gesucht
         :recent_activity: Kürzlich bearbeitet
-  :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
+  :task_edit:
+    :cancel: Abbrechen
+  :tasks:
+    :auto_comment:
+      :completed: "%{user} hat diese Aufgabe am %{date} erledigt."
+      :copied: Diese Aufgabe wurde von Aufgabe %{original_task} am %{date} kopiert.
+      :invited: "%{user} hat %{invite_count} Helfer am %{date} zu dieser Aufgabe eingeladen."
+      :reopened: "%{user} hat diese Aufgabe am %{date} wieder geöffnet."
+      :updated: "%{user} hat %{changed_fields} geändert."
+      :user_assigned: "%{user} hat sich für diese Aufgabe am %{date} angemeldet."
+      :user_unassigned: "%{user} hat sich für diese Aufgabe am %{date} abgemeldet."
+      :user_unassigned_self: "%{user} hat sich für diese Aufgabe am %{date} ausgetragen."
+      :user_volunteered: "%{user} hat sich für diese Aufgabe am %{date} eingetragen."
+      :users_assigned:
+        :one: "%{assignees} wurde von %{assigner} für diese Aufgabe am %{date} eingetragen."
+        :other: "%{assignees} wurden von %{assigner} für diese Aufgabe am %{date}
+          eingetragen."
+      :users_unassigned:
+        :one: "%{unassignees} wurde von %{unassigner} für diese Aufgabe am %{date}
+          ausgetragen."
+        :other: "%{unassignees} wurden von %{unassigner} für diese Aufgabe am %{date}
+          ausgetragen."
+    :flash:
+      :completed: Danke für die Hilfe bei %{name}!
+      :decline_failed: Fehler beim Ablehnen von %{name}.
+      :declined: "%{name} wurde erfolgreich abgelehnt."
+      :reopened: Aufgabe wurde wieder geöffnet
+      :reopening_failed: Beim Öffnen der Aufgabe trat ein Problem auf
+      :volunteered: Danke für die Hilfe bei %{name}!
+  :time:
+    :am: am
+    :formats:
+      :default: "%a, %d %b %Y %H:%M:%S %z"
+      :long: '"%A, %d. %B %Y, %H:%M Uhr"'
+      :short: "%d %b %H:%M"
+    :pm: pm
+  :unauthorized:
+    :manage:
+      :all: Keine Berechtigung %{subject} zu %{action}.
+  :url:
+    :terms_of_service: http://lale.help/de/agb#terms
+  :user:
+    :account:
+      :edit:
+        :country_select: Bitte Land auswählen
+        :error_correction: Bitte die untenstehenden Fehler berichtigen.
+        :reset_password: Passwort zurücksetzen
+        :title: Dein Profil
+        :update_settings: "Änderungen speichern"
+      :reset_password:
+        :password: Passwort
+        :password_confirmation: Passwort Bestätigung
+        :reset_password: Passwort zurücksetzen
+        :update: Passwort ändern
+      :show:
+        :edit_profile: Dein Profil ändern
+        :reset_password: Passwort zurücksetzen
+        :title: Dein Profil
+        :view_public_profile: "Öffentliches Profil ansehen"
+    :identities:
+      :new:
+        :accept_terms: Nutzungsbedingungen akzeptieren
+        :city: Ort
+        :country: Land
+        :country_select: Bitte Land auswählen
+        :email: Email
+        :first_name: Vorname
+        :header: Gleich mithelfen
+        :home_phone: Festnetz
+        :language: Sprache
+        :last_name: Nachname
+        :mobile_phone: Mobiltelefon
+        :password: Passwort
+        :password_confirmation: Passwort Bestätigung
+        :postal_code: Postleitzahl
+        :public_profile: Andere Helfer können mein Profil sehen
+        :state_province: Bundesland
+        :street_address: Strasse
+  :users:
+    :flash:
+      :password_reset_success: Das Passwort wurde erfolgreich geändert.
+  :users_box:
+    :no_users_yet: Noch keine Helfer.
   :views:
     :pagination:
-      :truncate: "&hellip;"
-      :previous: "&lsaquo; Vor"
       :first: "&laquo; Erste"
       :last: Letzte &raquo;
       :next: Nächste &rsaquo;
-  :support:
-    :array:
-      :words_connector: ", "
-      :two_words_connector: " und "
-      :last_word_connector: ", und "
-  :supplies:
-    :flash:
-      :volunteer_failed: Problem bei der Übernahme dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :already_taken: Die Sachspende wird bereits von jemand übernommen.
-      :invite_failed: Problem bei der Einladung zu dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :declined: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
-        Helfer suchen...
-      :completed: Danke für die Sachspende!
-      :complete_failed: Problem bei der Fertigstellung dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :decline_failed: Problem bei der Ablehnung dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
-      :volunteered: Vielen Dank für Deine Hilfe!
-      :reopened: Sachspende wurde wieder geöffnet
-      :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
+      :previous: "&lsaquo; Vor"
+      :truncate: "&hellip;"
+  :workflow:
+    :activation_error: Fehler beim Aktivieren des neuen Helfers.
+    :activation_success: Neuer Helfer erfolgreich aktiviert!
+    :cancel: Abbrechen
+    :continue: Weiter
+    :copied: Kopiert!
+    :join: Beitreten
+    :read_terms: Bitte Nutzungsbedingungen lesen.
+    :save: Speichern
   :working_group:
     :types:
-      :public: Offen
       :private: Geschlossen
-  :sidebar:
-    :circle_add_menu:
-      :add: Hinzufügen
-  :task_edit:
-    :cancel: Abbrechen
-  :project_edit:
-    :cancel: Abbrechen
-  :supply_edit:
-    :cancel: Abbrechen
-  :files:
-    :new:
-      :header: Datei %{name} hinzufügen
-    :edit:
-      :header: Datei bearbeiten
+      :public: Offen

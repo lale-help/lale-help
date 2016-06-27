@@ -8,22 +8,23 @@ Rails.application.routes.draw do
     scope module: 'circle' do
       resource :admin do
         get :roles
-        get :files
         get :working_groups
         get :invite
-        get :extended_settings
         post :activate_member
       end
 
       resources :members do
         get :public, on: :collection
+        put :activate, on: :member
+        put :block, on: :member
+        resources :comments, only: [:create, :index, :destroy, :update]
       end
 
       resources :roles, :organizers
 
       resources :supplies do
         put :complete, :volunteer, :decline, :reopen
-        resources :comments, only: [:create, :index]
+        resources :comments, only: [:create, :index, :destroy, :update]
 
         post :invite
       end
@@ -35,10 +36,16 @@ Rails.application.routes.draw do
         patch :add_user
         delete :remove_user
 
-        patch :join
-        patch :leave
-
+        patch :join, :leave, :activate, :disable
       end
+
+      resources :taskables do
+        collection do
+          get :volunteer
+          get :organizer
+        end
+      end
+
 
       resources :tasks do
         collection do
@@ -48,16 +55,9 @@ Rails.application.routes.draw do
         end
         resources :comments, only: [:create, :destroy, :update, :index]
 
-        put :volunteer
-        patch :volunteer
-        put :decline
-        patch :decline
-        put :complete
-        patch :complete
-        put :reopen
-        patch :reopen
-        put :clone
-        patch :clone
+        # FIXME task roles need a controller of their own!
+        put   :volunteer, :assign_volunteer, :unassign_volunteer, :decline, :complete, :reopen, :clone
+        patch :volunteer, :assign_volunteer, :unassign_volunteer, :decline, :complete, :reopen, :clone
 
         post :invite
       end
@@ -66,11 +66,14 @@ Rails.application.routes.draw do
         post :invite
       end
 
+      resources :documents, only: :index
     end
+
+    resources :files, only: [:create, :edit, :destroy]
+    resources :files, path: '/files/:uploadable', only: [:new]
   end
 
-  resources :files, only: [:show, :create, :edit, :update, :destroy]
-  resources :files, path: '/files/:uploadable', only: [:new]
+  resources :files, only: [:show, :update]
 
   get '/ping', to: 'website#ping'
 
@@ -111,7 +114,7 @@ Rails.application.routes.draw do
   namespace :public do
     resources :circles, only: [:index, :new, :create] do
       post :join, on: :collection
-      get :membership_pending, on: :member
+      get "membership_inactive/:status", action: :membership_inactive, as: :inactive_circle_membership
     end
   end
 

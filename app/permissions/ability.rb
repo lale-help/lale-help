@@ -4,10 +4,7 @@
 # - :manage represents ANY action on the object, not just crud.
 #   https://github.com/CanCanCommunity/cancancan/wiki/defining-abilities
 #
-# - The ability rules further down in a file will override a previous one.
-#   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
-#
-# - Adding can rules do not override prior rules, but instead are logically or'ed.
+# - Adding can rules do not override prior rules, but instead they are logically or'ed.
 #   Therefore, it is best to place the more generic rules near the top.
 #   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
 #
@@ -35,11 +32,11 @@ class Ability
 
     can :create, Circle
     can :read,   Circle do |circle|
-      circle.users.active.include? user
+      circle.has_active_user?(user)
     end
 
     can :manage, Circle do |circle|
-      circle.admins.active.include? user
+      circle.has_active_user?(user) && circle.admins.include?(user)
     end
 
     can :create_task, Circle do |circle|
@@ -80,12 +77,12 @@ class Ability
     #
 
     can :delete, Circle::Role do |role|
-      can?(:manage, role.circle)
+      circle = role.circle
+      can?(:manage, circle)
       if role.role_type == 'circle.admin'
-        can?(:manage, role.circle) &&
-        role.circle.admins.active.count > 1
+        can?(:manage, circle) && circle.admins.active.count > 1
       else
-        can?(:manage, role.circle)
+        can?(:manage, circle)
       end
     end
 
@@ -104,13 +101,22 @@ class Ability
           member.public_profile?))
     end
 
+    can :block, User do |member, circle|
+      can?(:manage, circle) && circle.has_active_user?(member)
+    end
+    can :unblock, User do |member, circle|
+      can?(:manage, circle) && circle.has_blocked_user?(member)
+    end
+    cannot [:block, :unblock], User do |member, circle|
+      member == user
+    end
+
     #
     # Working Groups
     #
 
     can :manage, WorkingGroup do |wg|
-      can?(:manage, wg.circle) ||
-      wg.admins.active.include?(user)
+      can?(:manage, wg.circle) || wg.active_admins.include?(user)
     end
 
     can :read, WorkingGroup do |wg|
@@ -164,6 +170,15 @@ class Ability
       task.complete? or task.volunteers.include?(user)
     end
 
+    can :assign_volunteers, Task do |task, assignees|
+      can(:manage, task) && assignees.all? do |assignee|
+        Ability.new(assignee).can?(:read, task)
+      end
+    end
+    cannot :assign_volunteers, Task do |task, assignees|
+      task.complete? or assignees.any? { |assignee| task.volunteers.include?(assignee) }
+    end
+
     can :decline, Task do |task|
       task.volunteers.include?(user)
     end
@@ -171,13 +186,12 @@ class Ability
       task.complete?
     end
 
-    can :invite_to, Task do |task|
+    can [:invite_to, :assign, :unassign], Task do |task|
       can?(:manage, task)
     end
-    cannot :invite_to, Task do |task|
-      task.complete?
+    cannot [:invite_to, :assign, :unassign], Task do |task|
+      cannot?(:manage, task) || task.complete?
     end
-
 
     can :complete, Task do |task|
       task.due_date < Time.now and (
@@ -285,10 +299,25 @@ class Ability
     # Comments
     #
 
-    can :create, Comment do |comment|
-      user.circles.include?(comment.task.circle)
+    can :create, Comment, Taskable do |comment, item, circle|
+      user.circles.include?(circle)
     end
 
+    can :create, Comment, User do |comment, member, circle|
+      can?(:manage, circle)
+    end
+
+    can :read, Comment, User do |comment, member, circle|
+      can?(:manage, circle)
+    end
+
+    can :update, Comment, Taskable do |comment, item, circle|
+      comment.commenter_id == user.id
+    end
+
+    can :update, Comment, User do |comment, member, circle|
+      comment.commenter_id == user.id
+    end
     #
     # Projects
     #
@@ -306,7 +335,6 @@ class Ability
     cannot :read, Project do |project|
       cannot?(:read, project.working_group)
     end
-
 
   end
 
