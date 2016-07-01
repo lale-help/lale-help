@@ -24,13 +24,13 @@ describe "supply", type: :feature, js: true do
 
   def visit_add_supply(user)
     visit(circle_path(circle, as: user))
-    find('.button-primary', text: /Add/).click
+    find('.button-super', text: /Add/).click
     click_on('Supply')
   end
 
   before do
-    circle.roles.send('circle.admin').create      user: user_1
-    circle.roles.send('circle.volunteer').create  user: user_2
+    create(:circle_role_admin, circle: circle, user: user_1) 
+    create(:circle_role_volunteer, circle: circle, user: user_2)
 
     public_group.roles.member.create              user: user_1
     public_group.roles.member.create              user: user_2
@@ -42,14 +42,14 @@ describe "supply", type: :feature, js: true do
     it 'visible to Admin' do
       visit(circle_path(circle, as: user_1))
       
-      expect(find('.button-primary', text: /Add/)).to_not eq(nil)
-      find('.button-primary', text: /Add/).click
+      expect(find('.button-super', text: /Add/)).to_not eq(nil)
+      find('.button-super', text: /Add/).click
       expect(page).to have_link('Supply')
     end
 
     it 'not visible to Volunteer' do
       visit(circle_path(circle, as: user_2))
-      expect(page).to_not have_selector('.button-primary', text: /Add/)
+      expect(page).to_not have_selector('.button-super', text: /Add/)
     end
   end
 
@@ -67,7 +67,8 @@ describe "supply", type: :feature, js: true do
       expect(page).to have_content("Supply was successfully created.")
       expect(page).to have_content(name)
       expect(page).to have_content(description)
-      expect(page).to have_content(due_date.strftime("%A %d %B %Y"))
+      puts "Formatted: #{due_date.strftime("%A %-d %B %Y")}"
+      expect(page).to have_content("Due Date #{due_date.strftime("%A %-d %B %Y")}")
       expect(page).to have_content(location)
     end
 
@@ -79,10 +80,11 @@ describe "supply", type: :feature, js: true do
 
       visit_add_supply(user_1)
       create_supply(name, description, due_date, location)
+      find('.button-super', text: /Edit Supply/).click
       click_on("Edit Supply")
-
       fill_in "Name of supply", with: "Edited #{name}"
-      click_button  "Update Supply"
+  
+      click_on  "Update Supply"
       expect(page).to have_content("Supply was successfully updated.")
       expect(page).to have_content("Edited #{name}")
     end
@@ -90,65 +92,15 @@ describe "supply", type: :feature, js: true do
 
   context 'add supply page' do
 
-    it 'requires a supply name' do
+    it 'requires a Name, Description, Due Date, and Location' do
       visit_add_supply(user_1)
 
-      name        = nil
-      description = "Test Description"
-      due_date    = Date.today
-      location    = "Oakland, CA 94607, USA"
-      create_supply(name, description, due_date, location)
+      create_supply(nil, nil, nil, nil)
 
-      expect(page).to have_content(t("Name can't be empty"))
-    end
-
-    it 'requires a description' do
-      visit_add_supply(user_1)
-
-      name        = "Test Supply"
-      description = nil
-      due_date    = Date.today
-      location    = "Oakland, CA 94607, USA"
-      create_supply(name, description, due_date, location)
-
-      expect(page).to have_content(t("Description can't be empty"))
-    end
-
-    it 'requires a due date' do
-      visit_add_supply(user_1)
-
-      name        = "Test Supply"
-      description = "Test Description"
-      due_date    = nil
-      location    = "Oakland, CA 94607, USA"
-      create_supply(name, description, due_date, location)
-
-      expect(page).to have_content(t("Due Date can't be empty"))
-    end
-
-    it 'requires a location' do
-      visit_add_supply(user_1)
-
-      name        = "Test Supply"
-      description = "Test Description"
-      due_date    = Date.today
-      location    = nil
-      create_supply(name, description, due_date, location)
-
-      expect(page).to have_content(t("Location can't be empty"))
-    end
-
-    it 'requires a due date ge today' do
-      visit_add_supply(user_1)
-
-      name        = "Test Supply"
-      description = "Test Description"
-      due_date    = (Date.today - 5)
-      location    = "Oakland, CA 94607, USA"
-      create_supply(name, description, due_date, location)
-      formatted_today = Date.today.strftime("%d/%m/%Y")
-
-      expect(page).to have_content(t("Value must be #{formatted_today} or later."))
+      expect(page).to have_content(t("errors.name.empty"))
+      expect(page).to have_content(t("errors.due_date.empty"))
+      expect(page).to have_content(t("errors.description.empty"))
+      expect(page).to have_content(t("errors.location.empty"))
     end
   end
 end
