@@ -10,6 +10,7 @@ class TokenHandler < Mutations::Command
 
   def execute
     ActiveRecord::Base.transaction do
+      current_user.touch # updates the user's last_login
       handle_token(token)
 
       token.update_attribute(:active, false) unless reusable?
