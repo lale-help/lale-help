@@ -2,7 +2,7 @@ html lang=I18n.locale
   head
     = render 'layouts/shared/head'
 
-  body.internal data-controller=controller_path data-action=action_name
+  body.internal *html_body_attributes
     = render 'layouts/internal/header'
     .content
       = render 'layouts/internal/sidebar'

@@ -26,4 +26,14 @@ module ApplicationHelper
     link_to t('.back'), back_path, class: 'back'
   end
 
+  def html_body_attributes
+    {
+      data: {
+        controller: controller_path,
+        action:     action_name,
+        'ga-id':    Rails.application.config.x.google_analytics_id
+      }
+    }
+  end
+
 end
