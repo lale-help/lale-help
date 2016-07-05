@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Task::Comments::Base do
+describe Comment::AutoComment do
   let(:user) { create(:user, first_name: 'Generic', last_name: 'User') }
 
   context 'for tasks' do
@@ -8,17 +8,17 @@ describe Task::Comments::Base do
 
     context '#execute' do
       it 'creates a comment' do
-        outcome = Task::Comments::Base.run(task: task, user: user, message: 'completed')
+        outcome = Comment::AutoComment.run(item: task, user: user, message: 'completed')
         expect(outcome).to be_success
       end
       it 'fills the comment body with an internationalized message' do
         Timecop.freeze(Time.parse("2016-01-01")) do
-          outcome = Task::Comments::Base.run(task: task, user: user, message: 'completed')
+          outcome = Comment::AutoComment.run(item: task, user: user, message: 'completed')
           expect(outcome.result.body).to eq('Generic User completed this task on January 01, 2016.')
         end
       end
       it 'creates a comment using the lale-bot user' do
-        outcome = Task::Comments::Base.run(task: task, user: user, message: 'completed')
+        outcome = Comment::AutoComment.run(item: task, user: user, message: 'completed')
         expect(outcome.result.commenter.name).to eq('Lale Bot')
       end
 
@@ -30,17 +30,17 @@ describe Task::Comments::Base do
 
     context '#execute' do
       it 'creates a comment' do
-        outcome = Task::Comments::Base.run(task: supply, user: user, message: 'completed')
+        outcome = Comment::AutoComment.run(item: supply, user: user, message: 'completed')
         expect(outcome).to be_success
       end
       it 'fills the comment body with an internationalized message' do
         Timecop.freeze(Time.parse("2016-01-01")) do
-          outcome = Task::Comments::Base.run(task: supply, user: user, message: 'completed')
+          outcome = Comment::AutoComment.run(item: supply, user: user, message: 'completed')
           expect(outcome.result.body).to eq('Generic User completed this supply on January 01, 2016.')
         end
       end
       it 'creates a comment using the lale-bot user' do
-        outcome = Task::Comments::Base.run(task: supply, user: user, message: 'completed')
+        outcome = Comment::AutoComment.run(item: supply, user: user, message: 'completed')
         expect(outcome.result.commenter.name).to eq('Lale Bot')
       end
 

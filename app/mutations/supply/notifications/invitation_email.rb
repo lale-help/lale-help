@@ -11,7 +11,7 @@ class Supply::Notifications::InvitationEmail < Mutations::Command
       SupplyMailer.supply_invitation(supply, user, token).deliver_now
     end
 
-    Task::Comments::Invited.run(task: supply, user: current_user, invite_count: invitees.count)
+    Task::Comments::Invited.run(item: supply, user: current_user, invite_count: invitees.count)
 
     OpenStruct.new(volunteers: invitees)
   end

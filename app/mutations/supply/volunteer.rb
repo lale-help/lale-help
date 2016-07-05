@@ -8,7 +8,7 @@ class Supply::Volunteer < Mutations::Command
     assignment = Supply::Role.send('supply.volunteer').create(supply: supply, user: user)
 
     if assignment.persisted?
-      Task::Comments::Base.run(task: supply, message: 'user_assigned', user: user)
+      Comment::AutoComment.run(item: supply, message: 'user_assigned', user: user)
     else
       add_error :assignment, :failed
     end

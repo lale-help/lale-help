@@ -29,7 +29,7 @@ class Circle::MembersController < ApplicationController
 
 
   def activate
-    outcome = Circle::Member::Activate.run(params)
+    outcome = Circle::Member::Activate.run(params.merge(admin: current_user))
     if request.xhr?
       head (outcome ? :ok : :unprocessable_entity)
     else
@@ -40,7 +40,14 @@ class Circle::MembersController < ApplicationController
 
   def block
     authorize! :block, current_member, current_circle
-    Circle::Member::Block.run(params)
+    Circle::Member::Block.run(params.merge(admin: current_user))
+    redirect_to circle_member_path(current_circle, current_member)
+  end
+
+
+  def unblock
+    authorize! :unblock, current_member, current_circle
+    Circle::Member::Unblock.run(params.merge(admin: current_user))
     redirect_to circle_member_path(current_circle, current_member)
   end
 

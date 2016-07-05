@@ -2,7 +2,7 @@ html lang=I18n.locale
   head
     = render 'layouts/shared/head'
 
-  body.public
+  body.public *html_body_attributes
     = render 'layouts/public/header'
     = yield
     = render 'layouts/shared/flash'

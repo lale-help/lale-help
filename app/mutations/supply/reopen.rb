@@ -9,7 +9,7 @@ class Supply::Reopen < Mutations::Command
 
 
     if supply.save
-      Task::Comments::Base.run(task: supply, message: 'reopened', user: user)
+      Comment::AutoComment.run(item: supply, message: 'reopened', user: user)
     else
       add_error :supply, :reopening_failed
     end

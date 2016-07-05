@@ -88,7 +88,7 @@ class Task::BaseForm < ::Form
       end
 
       if original_task_id.present?
-        Task::Comments::Cloned.run(task: task, user: user, task_cloned: Task.find(original_task_id))
+        Task::Comments::Cloned.run(item: task, user: user, task_cloned: Task.find(original_task_id))
       end
 
       OpenStruct.new(task: task, changes: task_changes)

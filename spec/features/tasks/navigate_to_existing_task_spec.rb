@@ -25,8 +25,6 @@ describe 'Navigating to a task', js: true do
 
       # click it
       find(selector).click
-
-      show!
     end
   end
 end
