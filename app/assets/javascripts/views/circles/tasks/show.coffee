@@ -21,12 +21,14 @@ closeModalAndReloadPage = ->
 
 assignVolunteer = (event)->
   event.preventDefault();
-  form = $(this).closest('form')
-  $.ajax
-    url:     form.attr('action'),
-    method:  form.attr('method'),
-    data:    form.serialize(),
-    success: closeModalAndReloadPage
+  if $('#new_volunteer_ids').val()
+    form = $(this).closest('form')
+    _disableButton(form.find('button'))
+    $.ajax
+      url:     form.attr('action'),
+      method:  form.attr('method'),
+      data:    form.serialize(),
+      success: closeModalAndReloadPage
 
 unassignVolunteer = (event)->
   event.preventDefault();
@@ -45,12 +47,9 @@ inviteHelpers = (event)->
     method:  container.data('method'),
     success: closeModalAndReloadPage
 
-# rails_ujs.js would do this out of the box, but we haven't included it yet it seems.
-# doing this by hand rather than checking verifying if all our JS also works with rails_ujs.
-disableButton = ()->
-  button = $(this)
+_disableButton = (button)->
   button.attr('disabled', 'disabled')
-  button.html(button.data('disable-with'))
+  button.html(button.data('disabled-text'))
 
 sourcingOptionsModalSelector = "[data-remodal-id=find-helpers]"
 
@@ -61,5 +60,4 @@ $(document)
   .on('click', '.assign-helpers .button', assignVolunteer)    
   .on('click', '.invite-helpers .button', inviteHelpers)    
   .on('click', '.users-box .unassign-user-icon', unassignVolunteer)    
-  .on('click', 'button[data-disable-with]', disableButton)
   
