@@ -10,5 +10,5 @@ Rails.application.configure do
   config.x.feature_toggles.working_group_files = true
 
   # FIXME add correct id
-  config.x.google_analytics_id = 'UA-STAGING'
+  config.x.google_analytics_id = 'UA-69286385-3'
 end
