@@ -36,6 +36,16 @@ nav
 
   .bottom
     = content_for :sidebar_bottom
+    
+    .sponsorships
+      - current_circle.sponsorships.current.each do |sponsorship|
+        .sponsorship
+          - link = sponsorship.sponsor.url || '#'
+          .sponsor-logo 
+            = link_to(link, target: '_blank') { image_tag(sponsorship.sponsor.logo_url, size: "190x190") }
+          .sponsor-name
+            = link_to(sponsorship.sponsor.name, link, target: '_blank')
+
     .powered-by
       = t('supported-by')
       .logo

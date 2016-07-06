@@ -1,0 +1,17 @@
+.sponsorships {
+
+  position: relative;
+
+  // FIXME adapt
+  height: 220px;
+  bottom: 50px; 
+
+  .sponsorship {
+    position: absolute;
+    display: none;
+    &:first-child {
+      display: block;
+    }
+  }
+
+}
