@@ -15,6 +15,7 @@ gem 'mandrill-api'
 gem 'activeadmin', github: 'activeadmin'
 gem 'migration_data'
 gem 'carmen'
+gem 'validate_url'
 
 gem 'fog-aws', require: 'fog/aws'
 gem 'fog-local', require: 'fog/local'
