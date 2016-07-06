@@ -39,7 +39,7 @@ nav
     
     - if current_circle.sponsorships.current.present?
       #sponsorships-container
-        - current_circle.sponsorships.current.order('RANDOM()').each do |sponsorship|
+        - current_circle.sponsorships.current.each do |sponsorship|
           .sponsorship
             - link = sponsorship.sponsor.url || '#'
             .sponsor-logo 
