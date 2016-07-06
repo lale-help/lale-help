@@ -58,10 +58,6 @@ class Circle < ActiveRecord::Base
     tasks.count
   end
 
-  def current_sponsors
-    sponsorships.current.includes(:sponsor).map(&:sponsor)
-  end
-
   private
 
   def build_association_defaults
