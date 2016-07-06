@@ -12,7 +12,7 @@ ActiveAdmin.register Circle do
     column "Active helpers" do |circle|
       circle.users.active.count
     end
-    column "Active sdmins" do |circle|
+    column "Active admins" do |circle|
       circle.admins.active.count
     end
     column "Current sponsorships" do |circle|
