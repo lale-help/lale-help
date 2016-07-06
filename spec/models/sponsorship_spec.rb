@@ -63,4 +63,27 @@ RSpec.describe Sponsorship, type: :model do
     end
 
   end
+
+  describe "#validations" do
+    describe "validate start date is smaller or equal to end date" do
+      context "when start and end date are equal" do
+        let(:sponsorship) { build(:sponsorship, starts_on: Date.today, ends_on: Date.today) }
+        it "record is valid" do
+          expect(sponsorship).to be_valid
+        end
+      end
+      context "when start date is before end date" do
+        let(:sponsorship) { build(:sponsorship, starts_on: Date.today - 1.day, ends_on: Date.today) }
+        it "record is valid" do
+          expect(sponsorship).to be_valid
+        end
+      end
+      context "when start date is after end date" do
+        let(:sponsorship) { build(:sponsorship, starts_on: Date.today + 1.day, ends_on: Date.today) }
+        it "record is invalid" do
+          expect(sponsorship).not_to be_valid
+        end
+      end
+      end
+  end
 end

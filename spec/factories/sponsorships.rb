@@ -4,6 +4,8 @@ FactoryGirl.define do
 
     circle
     sponsor
+    starts_on { Date.today }
+    ends_on { Date.today }
 
     factory :current_sponsorship do
       starts_on { Date.today - 6.months}
