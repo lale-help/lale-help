@@ -83,20 +83,30 @@ body.internal {
       }
 
       .bottom {
-        @include flex(1);
-        padding: 3rem 2rem;
 
-        @include display(flex);
-        @include flex-direction(column);
-        @include align-items(stretch);
-        @include justify-content(flex-end);
+        position: absolute;
+        bottom: 0;
+        width: 280px;
+        padding-top: 1rem;
+        
+        color: white;
+        background-color: #546E7A;
 
         .logo {
           display: inline-block;
-          @include lale-logo(contain, $nav-bg);
+          @include lale-logo(contain, #546E7A);
           width: 2rem;
           height: 2rem;
           margin: -0.5rem 0.5em;
+        }
+
+        .env-indicator {
+          color: #000;
+          padding: 4px;
+          margin: 0;
+          text-align: center;
+          background-color: $orange;
+          opacity: 0.8;
         }
       }
     }

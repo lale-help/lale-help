@@ -35,21 +35,4 @@ nav
           = sidebar_link(wg.name, circle_working_group_path(current_circle, wg), badge_text: working_group_counter(wg))
 
   .bottom
-    = content_for :sidebar_bottom
-    
-    - if current_circle.sponsorships.current.present?
-      #sponsorships-container
-        - current_circle.sponsorships.current.each do |sponsorship|
-          .sponsorship
-            - link = sponsorship.sponsor.url || '#'
-            .sponsor-logo 
-              = link_to(link, target: '_blank') { image_tag(sponsorship.sponsor.logo_url, size: "190x190") }
-            .sponsor-name
-              = link_to(sponsorship.sponsor.name, link, target: '_blank')
-
-    .powered-by
-      = t('supported-by')
-      .logo
-      = t('lale')
-      - unless Rails.env.production?
-        p.env-indicator = Rails.application.config.env_indicator
+    = render partial: 'layouts/internal/sidebar_bottom'

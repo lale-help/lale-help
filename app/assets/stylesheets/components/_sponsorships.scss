@@ -1,17 +1,12 @@
-#sponsorships-container {
+.sponsorship {
 
-  position: relative;
+  text-align: center;
+  margin-bottom: 1rem;
 
-  // FIXME adapt
-  height: 220px;
-  bottom: 50px; 
-
-  .sponsorship {
-    position: absolute;
-    display: none;
-    &:first-child {
-      display: block;
-    }
+  .sponsor-logo {
+    margin: 1.5rem;
   }
-
+  .sponsor-name {
+    display: none;
+  }
 }

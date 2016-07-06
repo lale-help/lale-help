@@ -1,0 +1,21 @@
+= content_for :sidebar_bottom
+
+.sponsorship
+
+  - if current_circle.sponsorships.current.present?
+    = t('supported-by')
+    / FIXME keep the random sponsorship throughout the user session
+    - sponsorship = current_circle.sponsorships.current.sample
+    - link = sponsorship.sponsor.url || '#'
+    .sponsor-logo 
+      = link_to(link, target: '_blank') { image_tag(sponsorship.sponsor.logo_url, size: "190x190") }
+    .sponsor-name
+      = link_to(sponsorship.sponsor.name, link, target: '_blank')
+
+  - else
+    = t('supported-by')
+    .logo
+    = t('lale')
+
+- unless Rails.env.production?
+  .env-indicator = Rails.application.config.env_indicator
