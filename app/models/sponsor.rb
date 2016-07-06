@@ -1,5 +1,3 @@
-require 'faker'
-
 class Sponsor < ActiveRecord::Base
   
   validates :name, presence: true
@@ -9,6 +7,6 @@ class Sponsor < ActiveRecord::Base
 
   # temp placeholder for the view
   def logo_url
-    Faker::Placeholdit.image("190x190", 'jpg', 'ffffff', '000', name)
+    "https://placeholdit.imgix.net/~text?txtsize=36&bg=ffffff&txtclr=000000&txt=#{name}&w=190&h=190&fm=jpg&txttrack=0"
   end
 end
