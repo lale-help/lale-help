@@ -11,4 +11,16 @@ ActiveAdmin.register Sponsorship do
     actions
   end
 
+  form do |f|
+    f.semantic_errors # shows errors on :base
+    inputs do
+      f.input :circle
+      f.input :sponsor
+      f.input :starts_on, as: :datepicker
+      f.input :ends_on,   as: :datepicker
+    end
+    f.actions # adds the 'Submit' and 'Cancel' buttons
+  end
+
+
 end
