@@ -8,7 +8,7 @@
     - sponsorship = current_circle.sponsorships.current.sample
     - link = sponsorship.sponsor.url || '#'
     .sponsor-logo 
-      = link_to(link, target: '_blank') { image_tag(sponsorship.sponsor.logo_url, size: "190x190") }
+      = link_to(link, target: '_blank') { image_tag(sponsorship.sponsor.logo_url, size: "125x125") }
     .sponsor-name
       = link_to(sponsorship.sponsor.name, link, target: '_blank')
 

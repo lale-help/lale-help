@@ -89,12 +89,11 @@ body.internal {
         width: 280px;
         padding-top: 1rem;
         
-        color: white;
-        background-color: #546E7A;
+        background-color: $light-grey;
 
         .logo {
           display: inline-block;
-          @include lale-logo(contain, #546E7A);
+          @include lale-logo(contain, $light-grey);
           width: 2rem;
           height: 2rem;
           margin: -0.5rem 0.5em;

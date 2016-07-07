@@ -7,6 +7,6 @@ class Sponsor < ActiveRecord::Base
 
   # temp placeholder for the view
   def logo_url
-    "https://placeholdit.imgix.net/~text?txtsize=36&bg=ffffff&txtclr=000000&txt=#{name}&w=190&h=190&fm=jpg&txttrack=0"
+    "https://placeholdit.imgix.net/~text?txtsize=36&bg=ffffff&txtclr=000000&txt=#{name}&w=125&h=125&fm=jpg&txttrack=0"
   end
 end
