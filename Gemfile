@@ -60,7 +60,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'hologram', github: 'trulia/hologram'
   gem 'guard-hologram', github: 'kmayer/guard-hologram', require: false
-
   gem 'i18n_generators'
 
   gem 'capybara'
@@ -71,6 +70,7 @@ group :development, :test do
   gem 'spring'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'awesome_print'
 end
 
 group :test do
