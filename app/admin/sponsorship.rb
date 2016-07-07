@@ -6,8 +6,8 @@ ActiveAdmin.register Sponsorship do
     column :circle
     column :starts_on
     column :ends_on
-    column "Approx. duration" do |s|
-      distance_of_time_in_words(s.starts_on, s.ends_on)
+    column "Duration (days)" do |s|
+      (s.ends_on - s.starts_on).to_i + 1
     end
     column :created_at
     actions
