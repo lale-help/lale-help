@@ -22,20 +22,45 @@ ActiveAdmin.register Circle do
     actions
   end
 
+  # FIXME DRY this up when improving the admin
   sidebar "Current Sponsorships", only: [:edit, :show] do
-    ul do
-      sponsorships = Sponsorship.current.where(circle: circle).order(ends_on: :asc)
-      sponsorships.each do |s|
-        sponsor_link = link_to(s.sponsor.name, admin_sponsor_path(s.sponsor))
-        li "#{sponsor_link} from #{s.starts_on} to #{s.ends_on}.".html_safe
+    sponsorships = Sponsorship.current.where(circle: circle).order(ends_on: :asc)
+    if sponsorships.empty?
+      i "This circle has no current sponsorships."
+    else
+      ul do
+        sponsorships.each do |s|
+          sponsor_link = link_to(s.sponsor.name, admin_sponsor_path(s.sponsor))
+          li "#{sponsor_link} from #{s.starts_on} to #{s.ends_on}.".html_safe
+        end
       end
     end
   end
 
+  # FIXME DRY this up when improving the admin
+  sidebar "Active Admins", only: [:edit, :show] do
+    users = circle.admins.active.order(:first_name)
+    if users.empty?
+      i "This circle has no active admins."
+    else
+      ul do
+        users.each do |user|
+          li link_to(user.name, admin_user_path(user))
+        end
+      end
+    end
+  end
+
+  # FIXME DRY this up when improving the admin
   sidebar "Active Helpers", only: [:edit, :show] do
-    ul do
-      circle.users.active.each do |user|
-        li user.name
+    users = circle.users.active.order(:first_name)
+    if users.empty?
+      i "This circle has no active users."
+    else
+      ul do
+        users.each do |user|
+          li link_to(user.name, admin_user_path(user))
+        end
       end
     end
   end
