@@ -818,6 +818,8 @@
   :edit: EDIT
   :error_correction: Please correct the errors below.
   :errors:
+    :image_file:
+      :required: Please provide an image file
     :due_date:
       :empty: Please enter a due date
     :location:
