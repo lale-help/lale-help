@@ -3,7 +3,7 @@ class Sponsor < ActiveRecord::Base
   validates :name, presence: true
   validates :url, url: { allow_blank: true }
 
-  has_many :sponsorships
+  has_many :sponsorships, dependent: :destroy
 
   # temp placeholder for the view
   def logo_url
