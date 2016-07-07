@@ -2,15 +2,13 @@
 
 .sponsorship
 
-  - if current_circle.sponsorships.current.present?
+  - if current_circle_sponsor.present?
     = t('supported-by')
-    / FIXME keep the random sponsorship throughout the user session
-    - sponsorship = current_circle.sponsorships.current.sample
-    - link = sponsorship.sponsor.url || '#'
+    - link = current_circle_sponsor.url || '#'
     .sponsor-logo 
-      = link_to(link, target: '_blank') { image_tag(sponsorship.sponsor.logo_url, size: "125x125") }
+      = link_to(link, target: '_blank') { image_tag(current_circle_sponsor.logo_url, size: "125x125") }
     .sponsor-name
-      = link_to(sponsorship.sponsor.name, link, target: '_blank')
+      = link_to(current_circle_sponsor.name, link, target: '_blank')
 
   - else
     = t('supported-by')
