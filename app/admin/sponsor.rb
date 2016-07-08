@@ -17,26 +17,45 @@ ActiveAdmin.register Sponsor do
     
     def create
       outcome = Sponsor::Create.run(params[:sponsor].merge(current_user: current_user))
-      handle_outcome(outcome, :new)
+      handle_outcome(outcome, :new, nil)
     end
     
     def update
       sponsor = Sponsor.find(params[:id])
       outcome = Sponsor::Update.run(params[:sponsor].merge(current_user: current_user, sponsor: sponsor))
-      handle_outcome(outcome, :edit)
+      handle_outcome(outcome, :edit, sponsor)
     end
 
     private
 
-    def handle_outcome(outcome, render_on_error)
+    def handle_outcome(outcome, error_page, sponsor)
       if outcome.success?
         redirect_to admin_sponsor_path(outcome.result)
       else
         # HACK build the structure and @sponsor instance that activeadmin expects
         params[:sponsor].delete(:image_file)
-        @sponsor = Sponsor.new(params[:sponsor])
+        @sponsor = if sponsor
+          sponsor.assign_attributes(params[:sponsor])
+          sponsor
+        else
+          Sponsor.new(params[:sponsor])
+        end
         outcome.errors.message.each { |k, v| @sponsor.errors.add(k, v) }
-        render render_on_error
+        render error_page
+      end
+    end
+  end
+
+  show do
+    attributes_table do
+      row :id
+      row :name
+      row :url
+      row :created_at
+      row :updated_at
+      row :description
+      row :image do
+        image_tag(file_path(sponsor.image.id), size: "125x125")
       end
     end
   end
