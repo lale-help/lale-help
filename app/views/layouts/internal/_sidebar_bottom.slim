@@ -4,12 +4,17 @@
 
   - if current_circle_sponsor.present?
     = t('supported-by')
-    - link = current_circle_sponsor.url || '#'
     .sponsor-logo 
       - file_path = file_path(current_circle_sponsor.image.id, circle_id: current_circle.id)
-      = link_to(link, target: '_blank') { image_tag(file_path, size: "125x125") }
+      - if current_circle_sponsor.url.present?
+        = link_to(current_circle_sponsor.url, target: '_blank') { image_tag(file_path, size: "125x125") }
+      - else
+        = image_tag(file_path, size: "125x125")
     .sponsor-name
-      = link_to(current_circle_sponsor.name, link, target: '_blank')
+      - if current_circle_sponsor.url.present?
+        = link_to(current_circle_sponsor.name, current_circle_sponsor.url, target: '_blank')
+      - else
+        = current_circle_sponsor.name
 
   - else
     = t('supported-by')
