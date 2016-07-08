@@ -22,7 +22,6 @@ class Sponsor::Create < Mutations::Command
 
   def execute
     sponsor = create_sponsor
-    ap sponsor
     create_file_upload(sponsor)
     sponsor
   end
