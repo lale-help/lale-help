@@ -5,7 +5,7 @@
   - if current_circle_sponsor.present?
     = t('supported-by')
     .sponsor-logo 
-      - file_path = file_path(current_circle_sponsor.image.id, circle_id: current_circle.id)
+      - file_path = file_path(current_circle_sponsor.image.id)
       - if current_circle_sponsor.url.present?
         = link_to(current_circle_sponsor.url, target: '_blank') { image_tag(file_path, size: "125x125") }
       - else

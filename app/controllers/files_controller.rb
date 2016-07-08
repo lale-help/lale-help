@@ -2,6 +2,7 @@ class FilesController < ApplicationController
   include HasCircle
 
   before_action :ensure_logged_in, except: :show
+  skip_before_action EnsureActiveUser, only: :show
 
   skip_authorization_check
 
