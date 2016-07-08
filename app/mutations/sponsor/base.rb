@@ -15,7 +15,7 @@ class Sponsor::Base < Mutations::Command
     FileUpload::Create.run(
       file: image_file,
       is_public: true,
-      upload_type: :sponsor_logo,
+      upload_type: :sponsor_image,
       uploader: current_user,
       uploadable: sponsor
     )
