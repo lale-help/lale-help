@@ -16,6 +16,7 @@ gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'migration_data'
 gem 'carmen'
 gem 'validate_url'
+gem 'mini_magick'
 
 gem 'fog-aws', require: 'fog/aws'
 gem 'fog-local', require: 'fog/local'
