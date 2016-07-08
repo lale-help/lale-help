@@ -12,7 +12,7 @@ nav
   .sidebar-section
     h4= t('.overviews')
     - unless can? :manage, current_circle
-      = sidebar_link(t('.public_members'), circle_members_path(current_circle))
+      = sidebar_link(t('.public_members'), public_circle_members_path(current_circle))
     - if can? :manage, current_circle
       = sidebar_link(t('.directory'), circle_members_path(current_circle))
     - if feature_enabled?(:files)
