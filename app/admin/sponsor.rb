@@ -14,8 +14,21 @@ ActiveAdmin.register Sponsor do
 
   # patching the default controller action
   controller do
+    
     def create
       outcome = Sponsor::Create.run(params[:sponsor].merge(current_user: current_user))
+      handle_outcome(outcome, :new)
+    end
+    
+    def update
+      sponsor = Sponsor.find(params[:id])
+      outcome = Sponsor::Update.run(params[:sponsor].merge(current_user: current_user, sponsor: sponsor))
+      handle_outcome(outcome, :edit)
+    end
+
+    private
+
+    def handle_outcome(outcome, render_on_error)
       if outcome.success?
         redirect_to admin_sponsor_path(outcome.result)
       else
@@ -23,7 +36,7 @@ ActiveAdmin.register Sponsor do
         params[:sponsor].delete(:image_file)
         @sponsor = Sponsor.new(params[:sponsor])
         outcome.errors.message.each { |k, v| @sponsor.errors.add(k, v) }
-        render :new
+        render render_on_error
       end
     end
   end
