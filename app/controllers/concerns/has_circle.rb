@@ -36,6 +36,7 @@ module HasCircle
       end
     end
     # cache the sponsor instance for one http request
+    # do this with a "soft" find_by(id: ) so we don't get an exception if the sponsor has been deleted.
     @current_circle_sponsor ||= Sponsor.find_by(id: session[key])
   end
   
