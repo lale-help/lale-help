@@ -488,15 +488,13 @@
     :members:
       :index:
         :directory: Helper list
-        :total_members: shows %{showing} of %{total} helpers
+        :total_members: Shows %{showing} of %{total} helpers.
       :list:
         :help_provided: Help Provided
         :last_help_provided: Last helped
       :nav:
         :all-helpers: All Helpers
         :organizers: Organizers
-      :public:
-        :public_members: Helper list
       :show:
         :address: Address
         :back: Back to Helper List
@@ -1043,7 +1041,6 @@
         :organizers: Organizers
         :overviews: Overviews
         :projects: Projects
-        :public_members: Helper list
         :supplies: Supplies
         :working_groups: Working Groups
     :public:

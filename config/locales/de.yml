@@ -488,15 +488,13 @@
     :members:
       :index:
         :directory: Helferliste
-        :total_members: zeigt %{showing} von %{total} Helfern
+        :total_members: Zeige %{showing} von %{total} Helfern.
       :list:
         :help_provided: Bereits geholfen
         :last_help_provided: Zuletzt geholfen
       :nav:
         :all-helpers: Alle Helfer
         :organizers: Organisatoren
-      :public:
-        :public_members: Helferliste
       :show:
         :address: Anschrift
         :back: Zurück zur Helferliste
@@ -1041,7 +1039,6 @@
         :organizers: Organisatoren
         :overviews: "Übersichten"
         :projects: Projekte
-        :public_members: Helferliste
         :supplies: Sachspenden
         :working_groups: Arbeitsgruppen
     :public:

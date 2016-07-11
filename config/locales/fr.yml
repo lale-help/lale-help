@@ -471,15 +471,13 @@
     :members:
       :index:
         :directory: " Liste de Volontaires"
-        :total_members: montre %{showing} des %{total} volontaires
+        :total_members: Montre %{showing} des %{total} volontaires.
       :list:
         :help_provided: Aide fournie
         :last_help_provided: Dernière contribution
       :nav:
         :all-helpers: Tous les volontaires
         :organizers: Organisateurs
-      :public:
-        :public_members: " Liste de Volontaires"
       :show:
         :address: Adresse
         :back: Retour à la liste de Volontaires
@@ -1020,7 +1018,6 @@
         :organizers: Organisateurs
         :overviews: Vue d'ensemble
         :projects: Projets
-        :public_members: Liste de Volontaires
         :supplies: Besoins Matériels
         :working_groups: Groupes
     :public:
