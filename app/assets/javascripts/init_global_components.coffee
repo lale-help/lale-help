@@ -12,5 +12,10 @@ ready = ->
   new Lale.StatusLink('.tab.tasks a.task_status', '.tab.tasks .task_section')
   new Lale.StatusLink('.tab.supplies a.task_status', '.tab.supplies .task_section')
 
+  $(document, '.nav-toggle').on('click', ->
+    $('.nav-toggle').toggleClass('clicked')
+    $('nav#sidebar').toggleClass('visible')
+  )
+
 $(document).on 'ready', ready
 $(document).on 'page:load', ready

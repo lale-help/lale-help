@@ -3,6 +3,27 @@ body.internal {
   @include flex-direction(column);
   @include align-items(stretch);
 
+  .nav-toggle {
+    opacity: 1;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    @include transition(opacity, 0.3s);
+    i {
+      @include fa-icon(bars);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav-toggle {
+      margin: 0;
+      padding: 0;
+      width: 0;
+      opacity: 0;
+    }
+  }  
+
   .content {
     @include flex(1);
     @include display(flex);
@@ -17,14 +38,26 @@ body.internal {
       display: none;
     }
 
+    nav.visible {
+      display: block;
+      @include flex(0 0 28rem);
+    }
+
     @media (min-width: 768px) {
 
       nav {
+
+        height: 100%;
         @include flex(0 0 28rem);
 
         @include display(flex);
         @include flex-direction(column);
-        padding: 3rem 0 0 0 ;
+        justify-content: space-between;
+
+        .top {
+          overflow: auto;
+          padding-top: 3rem;
+        }
 
         .sidebar-section {
           padding: 0 0 2rem 0;
@@ -89,8 +122,8 @@ body.internal {
 
         .bottom {
 
-          position: absolute;
-          bottom: 0;
+          // position: absolute;
+          // bottom: 0;
           // width: 280px;
           padding-top: 1rem;
           
