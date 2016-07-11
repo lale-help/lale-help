@@ -55,7 +55,7 @@ ActiveAdmin.register Sponsor do
       row :updated_at
       row :description
       row :image do
-        image_tag(file_path(sponsor.image.id), size: "125x125")
+        image_tag(file_path(sponsor.image.id))
       end
     end
   end

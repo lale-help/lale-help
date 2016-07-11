@@ -7,9 +7,9 @@
     .sponsor-logo 
       - file_path = file_path(current_circle_sponsor.image.id)
       - if current_circle_sponsor.url.present?
-        = link_to(current_circle_sponsor.url, target: '_blank') { image_tag(file_path, size: "125x125") }
+        = link_to(current_circle_sponsor.url, target: '_blank') { image_tag(file_path) }
       - else
-        = image_tag(file_path, size: "125x125")
+        = image_tag(file_path)
     .sponsor-name
       - if current_circle_sponsor.url.present?
         = link_to(current_circle_sponsor.name, current_circle_sponsor.url, target: '_blank')
