@@ -47,7 +47,6 @@ body.internal {
 
       nav {
 
-        height: 100%;
         @include flex(0 0 28rem);
 
         @include display(flex);
@@ -121,12 +120,6 @@ body.internal {
         }
 
         .bottom {
-
-          // position: absolute;
-          // bottom: 0;
-          // width: 280px;
-          padding-top: 1rem;
-          
           background-color: $light-grey;
 
           .logo {
