@@ -16,6 +16,9 @@ class Circle < ActiveRecord::Base
   has_many :supplies, through: :working_groups
   has_many :projects, through: :working_groups
 
+  has_many :sponsorships
+  has_many :sponsors, through: :sponsorships
+
   has_many :files, class_name: FileUpload, as: :uploadable
 
   belongs_to :address, autosave: true

@@ -55,7 +55,7 @@ module SidebarHelper
       current_circle.projects.any? { |project| can?(:read, project) }
     end
   end
-  
+
   private
 
   def working_groups_per_user(check_method)

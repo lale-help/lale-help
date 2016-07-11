@@ -8,6 +8,8 @@ describe Circle do
   it { is_expected.to have_many(:projects).class_name(Project) }
   it { is_expected.to have_many(:organizers).class_name(User) }
   it { is_expected.to have_many(:working_groups).class_name(WorkingGroup) }
+  it { is_expected.to have_many(:sponsors).class_name(Sponsor) }
+  it { is_expected.to have_many(:sponsorships).class_name(Sponsorship) }
 
   it { is_expected.to belong_to(:address).class_name(Address) }
 
@@ -20,4 +22,5 @@ describe Circle do
       end
     end
   end
+
 end
