@@ -14,7 +14,6 @@ Rails.application.routes.draw do
       end
 
       resources :members do
-        get :public, on: :collection
         put :activate, on: :member
         put :block, on: :member
         put :unblock, on: :member
