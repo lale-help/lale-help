@@ -363,6 +363,12 @@
       :project:
         :one: Projekt
         :other: Projekte
+      :sponsor:
+        :one: Sponsor
+        :other: Sponsoren
+      :sponsorship:
+        :one: Sponsoring
+        :other: Sponsorings
       :supply:
         :one: Sachspende
         :other: Sachspenden

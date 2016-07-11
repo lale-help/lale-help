@@ -3,6 +3,27 @@ body.internal {
   @include flex-direction(column);
   @include align-items(stretch);
 
+  .nav-toggle {
+    opacity: 1;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    @include transition(opacity, 0.3s);
+    i {
+      @include fa-icon(bars);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav-toggle {
+      margin: 0;
+      padding: 0;
+      width: 0;
+      opacity: 0;
+    }
+  }  
+
   .content {
     @include flex(1);
     @include display(flex);
@@ -14,89 +35,109 @@ body.internal {
     }
 
     nav {
+      display: none;
+    }
+
+    nav.visible {
+      display: block;
       @include flex(0 0 28rem);
+    }
 
-      @include display(flex);
-      @include flex-direction(column);
+    @media (min-width: 768px) {
 
-      padding: 3rem 0 0 0 ;
+      nav {
 
-      .sidebar-section {
-        padding: 0 0 2rem 0;
-        hr {
-          margin: 1rem 1.5rem 1rem 3rem;
-        }
-        &.add_menu {
-          margin: 0;
-          padding: 0;
-        }
-      }
-
-      .circle-add-menu {
-        .button-super {
-          padding-right: 30px;
-          margin-left: 2rem;
-          width: 150px;
-        }
-        .menu {
-          top: 0;
-          left: 182px;
-        }
-      }
-      
-      h2, h3, h4 {
-        padding: 1rem 0 0.5rem 1.5rem;
-        text-transform: uppercase;
-        font-size: 12px;
-        a {
-          font-size: 9px;
-        }
-      }
-
-      .sidebar-item {
-        @include display(flex);
-        @include flex-direction(row);
-        @include align-items(center);
-        @include justify-content(space-between);
-
-        font-size: 16px;
-        padding: 4px 15px;
-
-        .text {
-          padding-left: 1.5rem;
-          @include flex(1 0 0);
-          &:hover {
-           text-decoration: underline;
-          }
-
-          .after-icon {
-            padding-left: 0.5rem;
-            opacity: 0.4;
-            font-size: 14px;
-          }
-        }
-
-        .badge {
-          @include flex(0 0 1);
-          font-size: 1rem;
-        }
-      }
-
-      .bottom {
-        @include flex(1);
-        padding: 3rem 2rem;
+        @include flex(0 0 28rem);
 
         @include display(flex);
         @include flex-direction(column);
-        @include align-items(stretch);
-        @include justify-content(flex-end);
+        justify-content: space-between;
 
-        .logo {
-          display: inline-block;
-          @include lale-logo(contain, $nav-bg);
-          width: 2rem;
-          height: 2rem;
-          margin: -0.5rem 0.5em;
+        .top {
+          overflow: auto;
+          padding-top: 3rem;
+        }
+
+        .sidebar-section {
+          padding: 0 0 2rem 0;
+          hr {
+            margin: 1rem 1.5rem 1rem 3rem;
+          }
+          &.add_menu {
+            margin: 0;
+            padding: 0;
+          }
+        }
+
+        .circle-add-menu {
+          .button-super {
+            padding-right: 30px;
+            margin-left: 2rem;
+            width: 150px;
+          }
+          .menu {
+            top: 0;
+            left: 182px;
+          }
+        }
+        
+        h2, h3, h4 {
+          padding: 1rem 0 0.5rem 1.5rem;
+          text-transform: uppercase;
+          font-size: 12px;
+          a {
+            font-size: 9px;
+          }
+        }
+
+        .sidebar-item {
+          @include display(flex);
+          @include flex-direction(row);
+          @include align-items(center);
+          @include justify-content(space-between);
+
+          font-size: 16px;
+          padding: 4px 15px;
+
+          .text {
+            padding-left: 1.5rem;
+            @include flex(1 0 0);
+            &:hover {
+             text-decoration: underline;
+            }
+
+            .after-icon {
+              padding-left: 0.5rem;
+              opacity: 0.4;
+              font-size: 14px;
+            }
+          }
+
+          .badge {
+            @include flex(0 0 1);
+            font-size: 1rem;
+          }
+        }
+
+        .bottom {
+          background-color: $light-grey;
+
+          .logo {
+            display: inline-block;
+            @include lale-logo(contain, $light-grey);
+            width: 2rem;
+            height: 2rem;
+            margin: -0.5rem 0.5em;
+          }
+
+          .env-indicator {
+            color: #000;
+            padding: 4px;
+            margin: 0;
+            text-align: center;
+            background-color: $orange;
+            opacity: 0.8;
+          }
         }
       }
     }
