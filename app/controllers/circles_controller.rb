@@ -16,6 +16,7 @@ class CirclesController < ApplicationController
     supplies            = current_circle.supplies.not_in_project.ordered_by_date
     @open_supplies      = supplies.not_completed.select { |supply| can?(:read, supply) }
     @completed_supplies = supplies.completed.select { |supply| can?(:read, supply) }
+    @files              = current_circle.files.select { |f| can?(:read, f) }
   end
 
   def update

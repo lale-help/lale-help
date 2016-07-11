@@ -14,3 +14,5 @@
   - if feature_enabled?(:files)
     a.documents data-tab='documents'
       = t('.documents')
+      - if @files.present?
+        span.badge=@files.count
