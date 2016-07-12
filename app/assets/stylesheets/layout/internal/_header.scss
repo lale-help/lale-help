@@ -21,6 +21,27 @@ body.internal {
       font-size: 2rem;
       max-width: 28rem;
 
+      .nav-toggle {
+        opacity: 1;
+        padding: 5px;
+        margin-right: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        @include transition(opacity, 0.3s);
+        i {
+          @include fa-icon(bars);
+        }
+      }
+
+      @media (min-width: 768px) {
+        .nav-toggle {
+          margin: 0;
+          padding: 0;
+          width: 0;
+          opacity: 0;
+        }
+      }  
+
       .circle-name {
         @include flex(1);
 
