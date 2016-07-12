@@ -111,6 +111,7 @@
     :previous: Précédent
     :search_status:
       :current_filters: 'Filtres actuels :'
+      :current_scope: 'Etendu du filtre :'
       :headline: 'Etendu du filtre :'
       :no_current_filters: Aucun filtres
     :sidebars:
@@ -480,7 +481,7 @@
         :organizers: Organisateurs
       :show:
         :address: Adresse
-        :back: Retour à la liste de Volontaires
+        :back: Retour
         :circles: Cercles
         :contact: Contacter
         :edit_profile: Editer mon Profil
@@ -937,6 +938,15 @@
         :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
           les erreurs et de ré-essayer.
         :saved: Vos paramètres ont été enregistré.
+  :formtastic:
+    :cancel: Annuler
+    :create: Créer un(e) %{model}
+    :no: Non
+    :required: requis(e)
+    :reset: Réinitialiser ce(tte) %{model}
+    :submit: Enregistrer ce(tte) %{model}
+    :update: Modifier ce(tte) %{model}
+    :yes: Oui
   :helpers:
     :assign: Attribuer des volontaires
     :assigning: Attribuer hellip;
@@ -999,7 +1009,7 @@
         :find-circles: Trouver des Cercles
         :help: Besoin d'aide avec lale?
         :help_email_subject: J'ai besoin d'aide avec lale
-        :settings: Paramètres
+        :settings: Mon Profil
         :sign-out: Se Déconnecter
         :switch_to_circle: Basculer sur "%{circle_name}"
       :sidebar:
@@ -1318,7 +1328,7 @@
         :country_select: Sélectionner un Pays.
         :error_correction: Merci de corriger les erreurs ci-dessous.
         :reset_password: Réinitialiser votre mot de passe
-        :title: Paramètres Personnels
+        :title: Mon Profil
         :update_settings: Mettre à jour les Paramètres
       :reset_password:
         :password: Mot de passe
@@ -1329,7 +1339,7 @@
         :edit_profile: Editer mon Profil
         :reset_password: Ré-initialiser le Mot de Passe
         :title: Mon Profil
-        :view_public_profile: Voir votre page de profile
+        :view_public_profile: Voir mon page de profile
     :identities:
       :new:
         :accept_terms: Accepter les Termes et Conditions
