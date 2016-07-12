@@ -1,3 +1,4 @@
+# Encapsulates methods for handling Supplies via the appropriate pages
 class SupplyPage < Struct.new(:supply)
   include Capybara::DSL
 
