@@ -1,6 +1,9 @@
 header
   .header-left
-    = render partial: 'sidebar/circle_title', locals: { circle: current_circle }
+    .nav-toggle
+      i
+    a.circle-name href=circle_path(current_circle) 
+      = current_circle.name
 
   .header-middle
     = content_for :header_middle

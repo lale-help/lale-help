@@ -3,12 +3,11 @@
   = render 'nav'
 
   .tab.helpers
-    .showing= t('.total_members', total: @total_members, showing: @members.length)
     = render partial: 'list', locals: { members: @members }
+    .showing
+      = t('.total_members', total: @totals[:members], showing: @members.length)
 
   .tab.organizers
     = render partial: 'list', locals: { members: @organizers }
-
-
-
-
+    .showing
+      = t('.total_members', total: @totals[:organizers], showing: @organizers.length)

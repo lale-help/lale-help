@@ -15,18 +15,16 @@ ActiveAdmin.register_page "Dashboard" do
         end
         column do
             panel "Users" do
-                div p "Total No.: #{User.count}"
-                div p "Average User in Circle: TODO"
-                div p "Average Workgroup in Circle: TODO"
+                div "Total No.: #{User.count}"
             end
         end
         column do
             panel "Statistics" do
-                div p "Number of Tasks: #{Task.count}"
+                div "Number of Tasks: #{Task.count}"
 
-                div p "Number of Circles: #{Circle.count}"
+                div "Number of Circles: #{Circle.count}"
 
-                div p "Number of Workgroups: #{WorkingGroup.count}"
+                div "Number of Workgroups: #{WorkingGroup.count}"
             end
         end
     end

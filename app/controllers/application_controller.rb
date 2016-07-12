@@ -65,6 +65,12 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless (current_user and current_user.is_admin?)
   end
 
+  # quick fix for production until we clarify which sponsor should be shown
+  def current_circle_sponsor
+    nil
+  end
+  helper_method :current_circle_sponsor
+
   helper_method def filter_present?
     params.has_key? :working_group
   end

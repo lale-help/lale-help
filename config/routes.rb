@@ -7,14 +7,11 @@ Rails.application.routes.draw do
   resources :circles do
     scope module: 'circle' do
       resource :admin do
-        get :roles
-        get :working_groups
-        get :invite
+        get :roles, :working_groups, :invite, :sponsors
         post :activate_member
       end
 
       resources :members do
-        get :public, on: :collection
         put :activate, on: :member
         put :block, on: :member
         put :unblock, on: :member

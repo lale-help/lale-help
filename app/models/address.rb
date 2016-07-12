@@ -25,4 +25,8 @@ class Address < ActiveRecord::Base
       self.country = normalized if normalized.present?
     end
   end
+
+  def to_s
+    full_address
+  end
 end

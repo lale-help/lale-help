@@ -111,6 +111,7 @@
     :previous: Précédent
     :search_status:
       :current_filters: 'Filtres actuels :'
+      :current_scope: 'Etendu du filtre :'
       :headline: 'Etendu du filtre :'
       :no_current_filters: Aucun filtres
     :sidebars:
@@ -345,6 +346,12 @@
       :project:
         :one: Projet
         :other: Projets
+      :sponsor:
+        :one: Sponsor
+        :other: Sponsors
+      :sponsorship:
+        :one: Sponsorship
+        :other: Sponsorships
       :supply:
         :one: Besoin
         :other: Besoins
@@ -471,18 +478,16 @@
     :members:
       :index:
         :directory: " Liste de Volontaires"
-        :total_members: montre %{showing} des %{total} volontaires
+        :total_members: Montre %{showing} des %{total} volontaires.
       :list:
         :help_provided: Aide fournie
         :last_help_provided: Dernière contribution
       :nav:
         :all-helpers: Tous les volontaires
         :organizers: Organisateurs
-      :public:
-        :public_members: " Liste de Volontaires"
       :show:
         :address: Adresse
-        :back: Retour à la liste de Volontaires
+        :back: Retour
         :circles: Cercles
         :contact: Contacter
         :edit_profile: Editer mon Profil
@@ -815,6 +820,8 @@
     :description:
       :empty: La description ne peut être vide.
       :too_short: La description est trop court
+    :due_date:
+      :empty: Merci de saisir une date butoir
     :due_time:
       :format: Merci d'entrer une date de fin dans le format 00:00
     :email:
@@ -828,9 +835,13 @@
       :empty: Prénom est nécessaire
       :nils: Merci de saisir votre prénom.
     :format: "%{attribute} %{message}"
+    :image_file:
+      :required: Merci de fournir un fichier image
     :last_name:
       :empty: Nom de famille est nécessaire
       :nils: Merci de saisir votre nom.
+    :location:
+      :empty: Merci d'entrer un emplacement
     :messages:
       :accepted: doit être accepté
       :blank: ne peut être blanc
@@ -857,6 +868,7 @@
       :too_short:
         :one: est trop court (le minimum est d'1 charactère)
         :other: est trop court (le minimum est de %{count} charactères)
+      :url: n'est pas une URL valide (merci d'ajouter http://)
       :wrong_length:
         :one: est de la mauvaise longueure (doit être 1 charactère)
         :other: est de la mauvaise longueure (doit être %{count} charactères)
@@ -939,6 +951,15 @@
         :save-failed: Nous n'avons pu enregistrer vos paramètres. Merci de corriger
           les erreurs et de ré-essayer.
         :saved: Vos paramètres ont été enregistré.
+  :formtastic:
+    :cancel: Annuler
+    :create: Créer un(e) %{model}
+    :no: Non
+    :required: requis(e)
+    :reset: Réinitialiser ce(tte) %{model}
+    :submit: Enregistrer ce(tte) %{model}
+    :update: Modifier ce(tte) %{model}
+    :yes: Oui
   :helpers:
     :assign: Attribuer des volontaires
     :assigning: Attribuer hellip;
@@ -1001,7 +1022,7 @@
         :find-circles: Trouver des Cercles
         :help: Besoin d'aide avec lale?
         :help_email_subject: J'ai besoin d'aide avec lale
-        :settings: Paramètres
+        :settings: Mon Profil
         :sign-out: Se Déconnecter
         :switch_to_circle: Basculer sur "%{circle_name}"
       :sidebar:
@@ -1020,7 +1041,6 @@
         :organizers: Organisateurs
         :overviews: Vue d'ensemble
         :projects: Projets
-        :public_members: Liste de Volontaires
         :supplies: Besoins Matériels
         :working_groups: Groupes
     :public:
@@ -1321,7 +1341,7 @@
         :country_select: Sélectionner un Pays.
         :error_correction: Merci de corriger les erreurs ci-dessous.
         :reset_password: Réinitialiser votre mot de passe
-        :title: Paramètres Personnels
+        :title: Mon Profil
         :update_settings: Mettre à jour les Paramètres
       :reset_password:
         :password: Mot de passe
@@ -1332,7 +1352,7 @@
         :edit_profile: Editer mon Profil
         :reset_password: Ré-initialiser le Mot de Passe
         :title: Mon Profil
-        :view_public_profile: Voir votre page de profile
+        :view_public_profile: Voir mon page de profile
     :identities:
       :new:
         :accept_terms: Accepter les Termes et Conditions
@@ -1353,6 +1373,10 @@
         :state_province: Etat / Région
         :street_address: Rue
   :users:
+    :auto_comment:
+      :status_change_activated: "%{member} a été activé le %{date} par %{user}."
+      :status_change_blocked: "%{member} a été bloqué le %{date} par %{user}."
+      :status_change_unblocked: "%{member} a été débloqué le %{date} par %{user}."
     :flash:
       :password_reset_success: Votre mot de passe a été mis à jour avec succès.
   :users_box:

@@ -122,6 +122,7 @@
     :previous: Previous
     :search_status:
       :current_filters: 'Current filters:'
+      :current_scope: 'Scope:'
       :headline: 'Scope:'
       :no_current_filters: None
     :sidebars:
@@ -190,6 +191,9 @@
         :organizer_id: Organizer
         :working_group: Working group
         :working_group_id: Working group
+      :sponsorship:
+        :starts_on: Starts on
+        :ends_on: Ends on
       :role:
         :actions: Actions
       :supply:
@@ -363,6 +367,12 @@
       :project:
         :one: Project
         :other: Projects
+      :sponsor:
+        :one: sponsor
+        :other: sponsors
+      :sponsorship:
+        :one: sponsorship
+        :other: sponsorships
       :supply:
         :one: Supply
         :other: Supplies
@@ -488,21 +498,19 @@
     :members:
       :index:
         :directory: Helper list
-        :total_members: shows %{showing} of %{total} helpers
+        :total_members: Shows %{showing} of %{total} helpers.
       :list:
         :help_provided: Help Provided
         :last_help_provided: Last helped
       :nav:
         :all-helpers: All Helpers
         :organizers: Organizers
-      :public:
-        :public_members: Helper list
       :show:
         :address: Address
-        :back: Back to Helper List
+        :back: Back
         :circles: Circles
         :contact: Contact
-        :edit_profile: Edit Profile
+        :edit_profile: Edit my profile
         :member_since: Member Since
         :roles: Roles
         :tasks_supplies_completed: Help provided
@@ -818,10 +826,6 @@
   :edit: EDIT
   :error_correction: Please correct the errors below.
   :errors:
-    :due_date:
-      :empty: Please enter a due date
-    :location:
-      :empty: Please enter a location
     :about_me:
       :too_long: maximum 300 characters
     :accept_terms:
@@ -836,6 +840,8 @@
     :description:
       :empty: Please enter a description
       :too_short: Description is too short
+    :due_date:
+      :empty: Please enter a due date
     :due_time:
       :format: Please enter the due time in the format 00:00.
     :email:
@@ -849,9 +855,13 @@
       :empty: First name is required
       :nils: Please provide your first name.
     :format: "%{attribute} %{message}"
+    :image_file:
+      :required: Please provide an image file
     :last_name:
       :empty: Last name is required
       :nils: Please provide your last name.
+    :location:
+      :empty: Please enter a location
     :messages:
       :accepted: must be accepted
       :blank: can't be blank
@@ -878,6 +888,7 @@
       :too_short:
         :one: is too short (minimum is 1 character)
         :other: is too short (minimum is %{count} characters)
+      :url: is not a valid URL (please add http://)
       :wrong_length:
         :one: is the wrong length (should be 1 character)
         :other: is the wrong length (should be %{count} characters)
@@ -962,6 +973,8 @@
         :save-failed: We could not save your settings. Please fix any errors and try
           again.
         :saved: Your settings have been saved.
+  :formtastic:
+    :reset: Reset %{model}
   :helpers:
     :assign: Assign helpers
     :assigning: Assigning &hellip;
@@ -1024,7 +1037,7 @@
         :find-circles: Find Circles
         :help: Need help with lale?
         :help_email_subject: I need help with lale
-        :settings: Your profile
+        :settings: My profile
         :sign-out: Sign Out
         :switch_to_circle: Switch to "%{circle_name}"
       :sidebar:
@@ -1043,7 +1056,6 @@
         :organizers: Organizers
         :overviews: Overviews
         :projects: Projects
-        :public_members: Helper list
         :supplies: Supplies
         :working_groups: Working Groups
     :public:
@@ -1337,7 +1349,7 @@
         :country_select: Select Country
         :error_correction: Please correct the errors below.
         :reset_password: Reset your Password
-        :title: Your profile
+        :title: My profile
         :update_settings: Update Settings
       :reset_password:
         :password: Password
@@ -1345,9 +1357,9 @@
         :reset_password: Reset your Password
         :update: Update your Password
       :show:
-        :edit_profile: Edit Profile
+        :edit_profile: Edit my profile
         :reset_password: Reset Password
-        :title: Your Profile
+        :title: My Profile
         :view_public_profile: View your public profile
     :identities:
       :new:

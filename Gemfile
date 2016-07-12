@@ -12,9 +12,10 @@ gem 'omniauth'
 gem 'omniauth-identity'
 gem 'cancancan'
 gem 'mandrill-api'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'migration_data'
 gem 'carmen'
+gem 'validate_url'
 
 gem 'fog-aws', require: 'fog/aws'
 gem 'fog-local', require: 'fog/local'
@@ -59,7 +60,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'hologram', github: 'trulia/hologram'
   gem 'guard-hologram', github: 'kmayer/guard-hologram', require: false
-
   gem 'i18n_generators'
 
   gem 'capybara'
@@ -70,6 +70,7 @@ group :development, :test do
   gem 'spring'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'awesome_print'
 end
 
 group :test do
