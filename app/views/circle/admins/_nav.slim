@@ -10,4 +10,6 @@
     - if pending_admin_actions?
       i.before-icon class="fa fa-circle"
     = t('.invite-volunteers')
-
+  - if current_circle.sponsorships.current.present?
+    a class=tab_class('sponsors') href=sponsors_circle_admin_path(current_circle)
+      = t('.sponsors')

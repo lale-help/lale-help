@@ -190,6 +190,9 @@
         :organizer_id: Organizer
         :working_group: Working group
         :working_group_id: Working group
+      :sponsorship:
+        :starts_on: Starts on
+        :ends_on: Ends on
       :role:
         :actions: Actions
       :supply:

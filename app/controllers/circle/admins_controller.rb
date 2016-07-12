@@ -19,6 +19,9 @@ class Circle::AdminsController < ApplicationController
   def invite
   end
 
+  def sponsors
+  end
+
   helper_method def tab_class key
     (action_name == key) ? "#{key} selected" : key
   end

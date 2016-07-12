@@ -219,6 +219,9 @@
         :volunteer_count_required: Anzahl der benötigten Helfer
         :working_group: Arbeitsgruppe
         :working_group_id: Arbeitsgruppe
+      :sponsorship:
+        :starts_on: Beginnt am
+        :ends_on: Endet am
       :system_event:
         :action: Aktion
         :for: für
