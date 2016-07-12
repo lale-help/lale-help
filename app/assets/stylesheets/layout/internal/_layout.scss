@@ -25,10 +25,8 @@ body.internal {
   }  
 
   .content {
-    @include flex(1);
     @include display(flex);
-    @include flex-direction(row);
-    @include align-items(stretch);
+    @include flex(1);
 
     > section {
       overflow-y: auto;
