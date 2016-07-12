@@ -1,6 +1,8 @@
 test:
   override:
-    - bin/rspec -f doc -r rspec_junit_formatter -f RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
+    # leftover build artifacts can cause marshalling errors
+    - "rm -Rf tmp"
+    - "bin/rspec -f doc -r rspec_junit_formatter -f RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml"
 
 general:
   artifacts:
