@@ -346,6 +346,12 @@
       :project:
         :one: Projet
         :other: Projets
+      :sponsor:
+        :one: Sponsor
+        :other: Sponsors
+      :sponsorship:
+        :one: Sponsorship
+        :other: Sponsorships
       :supply:
         :one: Besoin
         :other: Besoins
@@ -814,6 +820,8 @@
     :description:
       :empty: La description ne peut être vide.
       :too_short: La description est trop court
+    :due_date:
+      :empty: Merci de saisir une date butoir
     :due_time:
       :format: Merci d'entrer une date de fin dans le format 00:00
     :email:
@@ -827,9 +835,13 @@
       :empty: Prénom est nécessaire
       :nils: Merci de saisir votre prénom.
     :format: "%{attribute} %{message}"
+    :image_file:
+      :required: Merci de fournir un fichier image
     :last_name:
       :empty: Nom de famille est nécessaire
       :nils: Merci de saisir votre nom.
+    :location:
+      :empty: Merci d'entrer un emplacement
     :messages:
       :accepted: doit être accepté
       :blank: ne peut être blanc
@@ -856,6 +868,7 @@
       :too_short:
         :one: est trop court (le minimum est d'1 charactère)
         :other: est trop court (le minimum est de %{count} charactères)
+      :url: n'est pas une URL valide (merci d'ajouter http://)
       :wrong_length:
         :one: est de la mauvaise longueure (doit être 1 charactère)
         :other: est de la mauvaise longueure (doit être %{count} charactères)
@@ -1360,6 +1373,10 @@
         :state_province: Etat / Région
         :street_address: Rue
   :users:
+    :auto_comment:
+      :status_change_activated: "%{member} a été activé le %{date} par %{user}."
+      :status_change_blocked: "%{member} a été bloqué le %{date} par %{user}."
+      :status_change_unblocked: "%{member} a été débloqué le %{date} par %{user}."
     :flash:
       :password_reset_success: Votre mot de passe a été mis à jour avec succès.
   :users_box:
