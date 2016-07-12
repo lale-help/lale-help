@@ -8,7 +8,6 @@ nav {
 
   @include display(flex);
   @include flex-direction(column);
-  justify-content: space-between;
 
   h2, h3, h4 {
     padding: 1rem 0 0.5rem 1.5rem;
@@ -22,6 +21,7 @@ nav {
   .top {
     overflow: auto;
     margin-top: 2rem;
+    @include flex(1);
   }
 
   .add-menu {
