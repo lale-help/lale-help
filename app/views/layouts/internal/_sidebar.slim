@@ -1,8 +1,10 @@
 nav#sidebar
 
-  .top
-    .sidebar-section.add_menu
+  - if can? :create_item, current_circle
+    .add-menu
       = render partial: 'sidebar/circle_add_menu', locals: { circle: current_circle }
+
+  .top
 
     .sidebar-section
       = sidebar_link(t('.home-page'), circle_path(current_circle))

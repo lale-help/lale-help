@@ -21,20 +21,27 @@ nav {
 
   .top {
     overflow: auto;
-    padding-top: 3rem;
+    margin-top: 2rem;
   }
 
+  .add-menu {
+    margin: 0;
+    padding: 0;
+  }
   .sidebar-section {
     padding: 0 0 2rem 0;
     hr {
       margin: 1rem 1.5rem 1rem 3rem;
     }
-    &.add_menu {
-      margin: 0;
-      padding: 0;
+  }
+  .add-menu {
+    margin: 0;
+    margin-top: 2rem;
+    // reset inherited style to fix margin
+    .dropdown label {
+      height: auto;
     }
   }
-
   .circle-add-menu {
     .button-super {
       padding-right: 30px;
