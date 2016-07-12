@@ -9,11 +9,9 @@ body.internal {
 
     > section {
       overflow-y: auto;
-    }
-
-    section {
-      @include flex(1);
       padding: 2rem;
+      padding-left: 30rem;
+      flex: 1;
     }
   }
 }

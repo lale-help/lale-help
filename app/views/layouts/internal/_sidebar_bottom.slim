@@ -10,15 +10,10 @@
         = link_to(current_circle_sponsor.url, target: '_blank') { image_tag(file_path) }
       - else
         = image_tag(file_path)
-    .sponsor-name
-      - if current_circle_sponsor.url.present?
-        = link_to(current_circle_sponsor.name, current_circle_sponsor.url, target: '_blank')
-      - else
-        = current_circle_sponsor.name
 
   - else
     = t('supported-by')
-    .logo
+    .lale-logo
     = t('lale')
 
 - unless Rails.env.production?
