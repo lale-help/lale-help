@@ -1,17 +1,9 @@
 class Circle::TasksController < ApplicationController
   layout "internal"
   before_action :ensure_logged_in
-  before_action :set_back_path, only: [:index, :my, :open, :completed]
+  before_action :set_back_path, only: [:my, :open, :completed]
 
   include HasCircle
-
-  def index
-    authorize! :read, current_circle
-    @tasks = current_circle.tasks.not_completed.ordered_by_date.select do |task|
-      can? :read, task
-    end
-  end
-
 
   def completed
     authorize! :read, current_circle

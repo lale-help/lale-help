@@ -1,17 +1,8 @@
 class Circle::SuppliesController < ApplicationController
   layout "internal"
   before_action :ensure_logged_in
-  before_action :set_back_path, only: [:index]
 
   include HasCircle
-
-  def index
-    authorize! :read, current_circle
-
-    @supplies = current_circle.supplies.not_completed.ordered_by_date.select do |supply|
-      can? :read, supply
-    end
-  end
 
   def show
     authorize! :read, current_supply
