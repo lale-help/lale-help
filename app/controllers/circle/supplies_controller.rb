@@ -76,7 +76,7 @@ class Circle::SuppliesController < ApplicationController
 
     Supply::Destroy.run(supply: current_supply, user: current_user)
 
-    redirect_to circle_supplies_path(current_circle), notice: t('flash.destroyed', name: Supply.model_name.human)
+    redirect_to circle_path(current_circle), notice: t('flash.destroyed', name: Supply.model_name.human)
   end
 
 
