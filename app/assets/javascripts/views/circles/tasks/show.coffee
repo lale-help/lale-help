@@ -23,7 +23,6 @@ assignVolunteer = (event)->
   event.preventDefault();
   if $('#new_volunteer_ids').val()
     form = $(this).closest('form')
-    _disableButton(form.find('button'))
     $.ajax
       url:     form.attr('action'),
       method:  form.attr('method'),
@@ -46,10 +45,6 @@ inviteHelpers = (event)->
     url:     radioButton.data('url'),
     method:  container.data('method'),
     success: closeModalAndReloadPage
-
-_disableButton = (button)->
-  button.attr('disabled', 'disabled')
-  button.html(button.data('disabled-text'))
 
 sourcingOptionsModalSelector = "[data-remodal-id=find-helpers]"
 
