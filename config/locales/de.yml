@@ -1130,8 +1130,7 @@
     :circles:
       :index:
         :create-circle-button: Neuen Helferkreis anlegen
-        :create-circle-phrase: Wenn Du diesem Kreis nicht beitreten möchtest, kannst
-          Du
+        :create-circle-phrase: "Falls Du Deinen Helferkreis nicht findest, kannst Du hier:"
         :title: Helferkreise in der Nähe
       :membership_inactive:
         :blocked:
