@@ -2,6 +2,7 @@ ActiveAdmin.register Task do
 
   index do
     selectable_column
+    column :id
     column :name
     column :working_group
     column :circle do |taskable|
@@ -12,10 +13,13 @@ ActiveAdmin.register Task do
         "No circle!"
       end
     end
+    column :volunteers do |taskable|
+      taskable.volunteers.count
+    end
     column :project
-    column :completed_at
     column :created_at
     column :updated_at
+    column :completed_at
     actions
   end
 

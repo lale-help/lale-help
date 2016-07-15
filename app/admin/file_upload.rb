@@ -13,6 +13,8 @@ ActiveAdmin.register FileUpload, as: 'File' do
         ""
       end
     end
+    column :file_content_type
+    column :is_public
     column :created_at
     actions
   end

@@ -4,29 +4,24 @@ ActiveAdmin.register_page "Dashboard" do
 
   content do
     columns do
-        column do
-            panel "Circles" do
-                Circle.order("updated_at DESC").last(5).each do |circle|
-                    div do
-
-                    end
-                end
+      column do
+        panel "Newest circles" do
+          Circle.order(created_at: :desc).last(10).each do |circle|
+            ul do
+              li link_to(circle.name, admin_circle_path(circle))
             end
+          end
         end
-        column do
-            panel "Users" do
-                div "Total No.: #{User.count}"
-            end
+      end
+      column do
+        panel "Statistics" do
+          div "Number of Tasks: #{Task.count}"
+          div "Number of Circles: #{Circle.count}"
+          div "Number of Workgroups: #{WorkingGroup.count}"
+          div "Number of Users: #{User.count}"
+          div "Number of Files: #{FileUpload.count}"
         end
-        column do
-            panel "Statistics" do
-                div "Number of Tasks: #{Task.count}"
-
-                div "Number of Circles: #{Circle.count}"
-
-                div "Number of Workgroups: #{WorkingGroup.count}"
-            end
-        end
+      end
     end
   end
 end

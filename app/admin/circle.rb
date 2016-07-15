@@ -2,6 +2,7 @@ ActiveAdmin.register Circle do
 
   index do
     selectable_column
+    column :id
     column :name
     column "City, Country" do |circle|
       s = []
