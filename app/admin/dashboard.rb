@@ -8,7 +8,8 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Newest circles" do
           Circle.order(created_at: :desc).last(10).each do |circle|
             ul do
-              li link_to(circle.name, admin_circle_path(circle))
+              text = "#{circle.name} (created #{distance_of_time_in_words_to_now(circle.created_at)} ago)"
+              li link_to(text, admin_circle_path(circle))
             end
           end
         end
