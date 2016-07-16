@@ -1,0 +1,20 @@
+.skill-badge {
+  
+  $pill-blue: #00B8D4;
+  
+  display: flex;
+  align-items: center;
+  width: 120px;
+  border: 1px solid $pill-blue;
+  border-radius: 15px;
+  overflow: hidden;
+  .label {
+    padding: 3px 6px;
+    color: #fff;
+    background-color: $pill-blue;
+  }
+  .value {
+    color: $pill-blue;
+    padding: 3px 6px;
+  }
+}
