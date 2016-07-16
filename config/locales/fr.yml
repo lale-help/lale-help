@@ -270,7 +270,7 @@
         :task: :activerecord.models.task
       :task/skill:
         :name: Nom
-        :task_skill_assignments: Allocation de compétences
+        :task_skills: Allocation de compétences
         :tasks: Tâches
       :task/skill_assignment:
         :required: Requis

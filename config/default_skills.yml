@@ -1,0 +1,31 @@
+language: 
+  - de
+  - en
+  - es
+  - fr
+  - it
+  - el
+  - nl
+  - ar
+  - fa
+  - ur
+  - ps
+  # Dari
+  - prs
+qualification: 
+  - drivers_license
+  - car
+  - criminal_record_cert
+  - camp_access_card
+  - truck
+  - first_aid
+capability:
+  - child_care
+  - elderly_care
+  - assemble_repair
+  - teach
+  - music
+  - cook
+  - sports
+  - paper_work
+  - medical

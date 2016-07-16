@@ -2,6 +2,7 @@ class Task < ActiveRecord::Base
   include Taskable
   include Completable
   include Commentable
+  include Skillable
 
   # Associations
   has_many :location_assignments

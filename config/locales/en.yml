@@ -292,7 +292,7 @@
         :task: :activerecord.models.task
       :task/skill:
         :name: Name
-        :task_skill_assignments: Task skill assignments
+        :task_skills: Task skill assignments
         :tasks: Tasks
       :task/skill_assignment:
         :required: Required

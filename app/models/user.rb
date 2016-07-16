@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
   include Commentable
+  include Skillable
 
   # has_many :feedback
 
   has_many :triggered_system_events, class_name: '::SystemEvent'
   has_many :notifications, class_name: '::SystemEvent::Notification'
-
+  
   has_one :identity, dependent: :destroy
 
   belongs_to :location #DEPRECATED

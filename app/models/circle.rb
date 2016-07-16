@@ -1,6 +1,8 @@
 class Circle < ActiveRecord::Base
   attr_accessor :location_text
 
+  include Skillable
+  
   has_many :roles, dependent: :destroy
   has_many :users,      -> { distinct.extending(UserAssociationExtension)                      }, through: :roles
   has_many :admins,     -> { Role.send('circle.admin').extending(UserAssociationExtension)     }, through: :roles, source: :user

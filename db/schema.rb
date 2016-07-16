@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714093313) do
+ActiveRecord::Schema.define(version: 20160716173211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,16 @@ ActiveRecord::Schema.define(version: 20160714093313) do
 
   add_index "projects", ["name", "working_group_id"], name: "index_projects_on_name_and_working_group_id", unique: true, using: :btree
 
+  create_table "skill_assignments", force: :cascade do |t|
+    t.string  "skill_key"
+    t.integer "skillable_id"
+    t.string  "skillable_type"
+  end
+
+  add_index "skill_assignments", ["skill_key", "skillable_id", "skillable_type"], name: "index_unique_skill_skillable", unique: true, using: :btree
+  add_index "skill_assignments", ["skill_key"], name: "index_skill_assignments_on_skill_key", using: :btree
+  add_index "skill_assignments", ["skillable_id", "skillable_type"], name: "index_skill_assignments_on_skillable_id_and_skillable_type", using: :btree
+
   create_table "sponsors", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
@@ -215,20 +225,6 @@ ActiveRecord::Schema.define(version: 20160714093313) do
   end
 
   add_index "task_roles", ["user_id", "role_type", "task_id"], name: "index_task_roles_on_user_id_and_role_type_and_task_id", unique: true, using: :btree
-
-  create_table "task_skill_assignments", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "task_id",    limit: 8,                 null: false
-    t.integer  "skill_id",   limit: 8,                 null: false
-    t.boolean  "required",             default: false, null: false
-  end
-
-  create_table "task_skills", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-  end
 
   create_table "tasks", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                                          null: false

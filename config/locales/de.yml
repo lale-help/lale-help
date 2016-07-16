@@ -291,7 +291,7 @@
         :task: :activerecord.models.task
       :task/skill:
         :name: Name
-        :task_skill_assignments: Aufgabe Fähigkeitszuordnung
+        :task_skills: Aufgabe Fähigkeitszuordnung
         :tasks: Aufgaben
       :task/skill_assignment:
         :required: Erforderlich
