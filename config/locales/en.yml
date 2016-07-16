@@ -1,5 +1,37 @@
 ---
 :en:
+  :skills:
+    :languages:
+      :de: German
+      :en: English
+      :fr: French
+      :it: Italian
+      :es: Spanish
+      :el: Greek
+      :nl: Dutch
+      :ar: Arabic
+      :fa: Farsi
+      :ur: Urdu
+      :ps: Pashtun
+      :prs: Dari
+    :qualification:
+      :drivers_license: Driver's license
+      :car: Has Car
+      :criminal_record_cert: Criminal record certificate
+      :camp_access_card: Camp access card
+      :truck: Has truck
+      :first_aid: First aid
+    :capability:
+      :child_care: Take care of children
+      :elderly_care: Take care of elderly
+      :assemble_repair: Assemble & repair
+      :teach: Teach
+      :music: Music
+      :cook: Cook
+      :sports: Sports
+      :paper_work: Paper work
+      :medical: Medical
+
   :active_admin:
     :access_denied:
       :message: You are not authorized to perform this action.

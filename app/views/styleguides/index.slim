@@ -1,12 +1,17 @@
+- label_lookup = {language: 'Spricht', qualification: 'Hat', capability: 'Kann'}
+
 .foo style="padding: 50px"
   
   h1 Skills
 
-  - label_lookup = {language: 'Spricht', qualification: 'Hat', capability: 'Kann'}
+
   - Skill.defaults.each do |category, skills| 
     
-    h2 = category.capitalize
-    - skills.each do |skill|
-      .skill-badge style="margin:10px;"
-        .label = label_lookup[skill.category.to_sym]
-        .value = skill.key.titleize
+    h2 style="margin: 15px 0"
+      = category.capitalize
+
+    .badges.clearfix
+      - skills.each do |skill|
+        .skill-badge style="float: left; margin:5px;"
+          .label = label_lookup[skill.category.to_sym]
+          .value = skill.name

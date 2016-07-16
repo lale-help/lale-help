@@ -1,5 +1,36 @@
 ---
 :de:
+  :skills:
+    :language:
+      :de: Deutsch
+      :en: Englisch
+      :fr: Französich
+      :it: Italienisch
+      :es: Spanisch
+      :el: Griechisch
+      :nl: Niederländisch
+      :ar: Arabisch
+      :fa: Farsi
+      :ur: Urdu
+      :ps: Pashtu
+      :prs: Dari
+    :qualification:
+      :drivers_license: Führerschein
+      :car: Auto
+      :criminal_record_cert: Polizeiliches Führungszeugnis
+      :camp_access_card: Zugangskarte
+      :truck: Transporter
+      :first_aid: Erste Hilfe
+    :capability:
+      :child_care: Kinderbetreuung
+      :elderly_care: Altenbetreuung
+      :assemble_repair: Aufbauen & reparieren
+      :teach: Lehren
+      :music: Musik
+      :cook: Kochen
+      :sports: Sport
+      :paper_work: Verwaltung
+      :medical: Med. Kenntnisse 
   :active_admin:
     :access_denied:
       :message: Sie haben nicht die Berechtigung um diese Aktion auszuführen.

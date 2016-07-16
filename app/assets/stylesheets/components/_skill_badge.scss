@@ -1,10 +1,9 @@
 .skill-badge {
   
   $pill-blue: #00B8D4;
-  
+
   display: flex;
   align-items: center;
-  width: 120px;
   border: 1px solid $pill-blue;
   border-radius: 15px;
   overflow: hidden;
@@ -17,4 +16,12 @@
     color: $pill-blue;
     padding: 3px 6px;
   }
+}
+
+.clearfix:after {
+    content: ".";
+    clear: both;
+    display: block;
+    visibility: hidden;
+    height: 0px;
 }
