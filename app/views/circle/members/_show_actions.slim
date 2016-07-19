@@ -1,7 +1,8 @@
 - if can?(:block, member, circle)
   - member = MemberPresenter.new(member, circle)
   - if member.has_organizer_roles?
-      button#show-organizer-info.button.button-secondary = t('helpers.block')
+      button#show-organizer-info.button.button-secondary data-disable-with=t('helpers.block')
+        = t('helpers.block')
       .organizer-info
         h3 = t('.organizer_info_title')
         ul

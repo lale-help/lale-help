@@ -22,9 +22,10 @@ body.internal {
       max-width: 28rem;
 
       .nav-toggle {
-        opacity: 1;
-        padding: 4px 5px;
-        margin-right: 5px;
+        margin: 0;
+        padding: 0;
+        width: 0;
+        opacity: 0;
         border-radius: 5px;
         cursor: pointer;
         @include transition(opacity, 200ms);
@@ -38,12 +39,12 @@ body.internal {
         }
       }
 
-      @media (min-width: 768px) {
+      @media (max-width: 800px) {
         .nav-toggle {
-          margin: 0;
-          padding: 0;
-          width: 0;
-          opacity: 0;
+          width: auto;
+          opacity: 1;
+          padding: 4px 5px;
+          margin-right: 5px;
         }
       }  
 

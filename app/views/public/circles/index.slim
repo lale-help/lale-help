@@ -8,12 +8,13 @@ section
     = f.hidden_field :circle_id
     = f.text_field :location
 
-section.wide#map-container
-
 section
   = t('.create-circle-phrase')
   a.button.create-circle-button href=new_public_circle_path
     = t('.create-circle-button')
+
+section
+  #map-container
 
 javascript:
   (new CirclesMap($("#join_circle"), $("#map-container"))).render()

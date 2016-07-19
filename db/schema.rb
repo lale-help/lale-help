@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160707090402) do
+ActiveRecord::Schema.define(version: 20160714093313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.string   "name"
     t.integer  "status"
   end
+
+  add_index "circle_roles", ["user_id", "role_type", "circle_id"], name: "index_circle_roles_on_user_id_and_role_type_and_circle_id", unique: true, using: :btree
 
   create_table "circles", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -116,6 +118,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.datetime "updated_at",           null: false
   end
 
+  add_index "project_roles", ["user_id", "role_type", "project_id"], name: "index_project_roles_on_user_id_and_role_type_and_project_id", unique: true, using: :btree
+
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
@@ -124,6 +128,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.datetime "updated_at",       null: false
   end
 
+  add_index "projects", ["name", "working_group_id"], name: "index_projects_on_name_and_working_group_id", unique: true, using: :btree
+
   create_table "sponsors", force: :cascade do |t|
     t.string   "name"
     t.string   "url"
@@ -131,6 +137,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.datetime "updated_at",  null: false
     t.text     "description"
   end
+
+  add_index "sponsors", ["name"], name: "index_sponsors_on_name", unique: true, using: :btree
 
   create_table "sponsorships", force: :cascade do |t|
     t.integer  "circle_id"
@@ -163,6 +171,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "supply_roles", ["user_id", "role_type", "supply_id"], name: "index_supply_roles_on_user_id_and_role_type_and_supply_id", unique: true, using: :btree
 
   create_table "system_event_notification_deliveries", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                            null: false
@@ -203,6 +213,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
+
+  add_index "task_roles", ["user_id", "role_type", "task_id"], name: "index_task_roles_on_user_id_and_role_type_and_task_id", unique: true, using: :btree
 
   create_table "task_skill_assignments", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                           null: false
@@ -252,6 +264,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.string   "password_digest"
   end
 
+  add_index "user_identities", ["email"], name: "index_user_identities_on_email", unique: true, using: :btree
+
   create_table "users", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
@@ -280,6 +294,8 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.datetime "updated_at",                 null: false
   end
 
+  add_index "working_group_roles", ["user_id", "role_type", "working_group_id"], name: "index_user_id_and_role_type_and_working_group_id", unique: true, using: :btree
+
   create_table "working_groups", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
@@ -289,5 +305,7 @@ ActiveRecord::Schema.define(version: 20160707090402) do
     t.boolean  "is_private",            default: false
     t.integer  "status",                default: 0
   end
+
+  add_index "working_groups", ["name", "circle_id"], name: "index_working_groups_on_name_and_circle_id", unique: true, using: :btree
 
 end

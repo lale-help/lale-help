@@ -12,4 +12,4 @@
     = t('.invite-volunteers')
   - if current_circle.sponsorships.current.present?
     a class=tab_class('sponsors') href=sponsors_circle_admin_path(current_circle)
-      = t('.sponsors')
+      = Sponsor.model_name.human.pluralize.capitalize

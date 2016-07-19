@@ -1134,7 +1134,7 @@
     :circles:
       :index:
         :create-circle-button: Create a new Circle
-        :create-circle-phrase: If you don't want to join this circle, you can
+        :create-circle-phrase: If you can't find your circle, you can
         :title: Circles in your area
       :membership_inactive:
         :blocked:

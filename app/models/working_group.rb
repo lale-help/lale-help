@@ -15,14 +15,13 @@ class WorkingGroup < ActiveRecord::Base
   has_many :admins,  ->{ Role.admin }, through: :roles, source: :user
   has_many :members, ->{ Role.member }, through: :roles, source: :user
 
-  has_many :files, class_name: FileUpload, as: :uploadable
+  has_many :files, class_name: FileUpload, as: :uploadable, dependent: :destroy
 
   scope :asc_order, -> { order('lower(working_groups.name) ASC') }
   scope :for_circle, ->(circle) { where(circle: circle ) }
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :circle, presence: true
-  validates_uniqueness_of :name, scope: :circle
 
   # active admins are: working group admins whose role in the **circle** is active. 
   # working group roles have no status.

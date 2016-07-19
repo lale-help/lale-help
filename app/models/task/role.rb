@@ -8,8 +8,9 @@ class Task::Role < ActiveRecord::Base
     task.suggestee
   ]
 
-  scope :with_role, ->(role_name) { where(role_type: role_types[role_name]) }
+  validates :user_id, uniqueness: { scope: [:role_type, :task_id] }
 
+  scope :with_role, ->(role_name) { where(role_type: role_types[role_name]) }
 
   def name
     self[:name] || I18n.t!("roles.name.#{self.role_type}")

@@ -1,4 +1,4 @@
-ActiveAdmin.register Task do
+ActiveAdmin.register Supply do
 
   index do
     selectable_column
