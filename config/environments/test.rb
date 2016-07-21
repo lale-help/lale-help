@@ -31,6 +31,7 @@ Rails.application.configure do
   # ActionMailer::Base.deliveries array.
   config.action_mailer.delivery_method = :test
   config.action_mailer.smtp_settings = {}
+  config.action_mailer.default_url_options = { host: 'lale-help.test' }
   config.mandrill_templates = false
 
   # Randomize the order test cases are executed.
