@@ -12,11 +12,6 @@ class UserMailer < BaseMandrillMailer
 
   # sent to circle admins when new users want to join
   def account_activation(circle, user, token) 
-    puts "RAILS_ENV ------------------------------------"
-    puts Rails.env.inspect
-    ap Rails.configuration.action_mailer.default_url_options
-    ap Rails.configuration.action_controller.default_url_options
-    puts "------------------------------------"
     build_message(user.language, user.email) do
       {
         "FIRST_NAME"          => user.first_name,
