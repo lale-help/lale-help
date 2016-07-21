@@ -17,19 +17,17 @@ module LaleHelp
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.mandrill_templates = !Rails.env.test?
+    config.mandrill_templates = true
 
-    unless Rails.env.test?
-      config.action_mailer.smtp_settings = {
-        address: ENV.fetch("SMTP_ADDRESS"),
-        authentication: :plain,
-        domain: ENV.fetch("SMTP_DOMAIN"),
-        enable_starttls_auto: true,
-        password: ENV.fetch("SMTP_PASSWORD"),
-        port: "587",
-        user_name: ENV.fetch("SMTP_USERNAME")
-      }
-    end
+    config.action_mailer.smtp_settings = {
+      authentication:       :plain,
+      enable_starttls_auto: true,
+      port:                 587,
+      address:              ENV["SMTP_ADDRESS"],
+      domain:               ENV["SMTP_DOMAIN"],
+      password:             ENV["SMTP_PASSWORD"],
+      user_name:            ENV["SMTP_USERNAME"]
+    }
     config.action_mailer.default_url_options = { host: ENV["SMTP_DOMAIN"] }
 
     config.session_expiration = 30.minutes
