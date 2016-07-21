@@ -8,16 +8,21 @@ describe "Supply", type: :feature, js: true do
 
   let(:user_1) { create(:user, primary_circle: circle) } #Admin
   let(:user_2) { create(:user, primary_circle: circle) } #Volunteer
+  let(:user_3) { create(:user, primary_circle: circle) } #Volunteer
+  let(:user_4) { create(:user, primary_circle: circle) } #Volunteer
 
   let(:public_group)  { create(:working_group, is_private: false, circle: circle) }
   let(:private_group) { create(:working_group, is_private: true , circle: circle) }
 
   before do
-    create(:circle_role_admin, circle: circle, user: user_1) 
+    create(:circle_role_admin,     circle: circle, user: user_1) 
     create(:circle_role_volunteer, circle: circle, user: user_2)
+    create(:circle_role_volunteer, circle: circle, user: user_3)
+    create(:circle_role_volunteer, circle: circle, user: user_4)
 
     public_group.roles.member.create              user: user_1
     public_group.roles.member.create              user: user_2
+    public_group.roles.member.create              user: user_3
 
     private_group.roles.member.create             user: user_1
   end
@@ -29,13 +34,13 @@ describe "Supply", type: :feature, js: true do
     it 'is visible to Admin' do
       visit(circle_path(circle, as: user_1))
       
-      expect(sp.visible?).to eq(true)
+      expect(sp.addable?).to eq(true)
       expect(sp.create).to_not eq(nil)
     end
 
     it 'not visible to Volunteer' do
       visit(circle_path(circle, as: user_2))
-      expect(sp.visible?).to eq(false)
+      expect(sp.addable?).to eq(false)
     end
 
     it 'requires a Name, Description, Due Date, and Location' do
@@ -97,5 +102,58 @@ describe "Supply", type: :feature, js: true do
       
       expect(page).to have_content "#{user_1.name} completed this supply on #{I18n.l(Date.today, format: :long)}"
     end
-  end    
+
+    it "invites circle to a supply" do
+      s  = FactoryGirl.create(:supply)
+      sp = SupplyPage.new(s)
+      visit(circle_path(circle, as: user_1))
+      sp.create
+
+      expect(sp.invite_circle_visible?).to eq(true)
+      sp.invite_circle
+      count = circle.users.size - 2 # Not sure why size = 5
+      expect(page).to have_content "#{user_1.name} invited #{count} helpers to this supply on #{I18n.l(Date.today, format: :long)}"
+    end
+
+    it "invites working group to a supply" do
+      s  = FactoryGirl.create(:supply)
+      sp = SupplyPage.new(s)
+      visit(circle_path(circle, as: user_1))
+      sp.create
+
+      expect(sp.invite_wg_visible?).to eq(true)
+      sp.invite_wg
+      count = public_group.users.size - 1
+      expect(page).to have_content "#{user_1.name} invited #{count} helpers to this supply on #{I18n.l(Date.today, format: :long)}"
+    end
+  end
+
+  context 'a volunteer' do
+    let(:supply) { FactoryGirl.create(:supply) }
+    let(:sp)     { sp = SupplyPage.new(supply) }
+
+    it 'cannot edit a supply' do
+      visit(circle_path(circle, as: user_1))
+      sp.create
+
+      visit(circle_supply_path(circle, supply, as: user_2))
+      expect(sp.editable?).to eq(false)
+    end
+
+    it 'cannot invite circle' do
+      visit(circle_path(circle, as: user_1))
+      sp.create
+
+      visit(circle_supply_path(circle, supply, as: user_2))
+      expect(sp.invite_circle_visible?).to eq(false)
+    end
+
+    it 'cannot invite working group' do
+      visit(circle_path(circle, as: user_1))
+      sp.create
+
+      visit(circle_supply_path(circle, supply, as: user_2))
+      expect(sp.invite_wg_visible?).to eq(false)
+    end
+  end
 end

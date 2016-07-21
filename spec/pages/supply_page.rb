@@ -3,7 +3,7 @@ class SupplyPage < Struct.new(:supply)
   include Capybara::DSL
 
   def create(overrides = {})
-    if(self.visible?)
+    if(self.addable?)
       add_super_button.click
       click_on "Supply"
       fill_supply_page(overrides)     
@@ -20,7 +20,15 @@ class SupplyPage < Struct.new(:supply)
     click_button "Update Supply"
   end
 
-  def visible?
+  def invite_wg
+    invite_wg_button.click
+  end
+
+  def invite_circle
+    invite_circle_button.click
+  end
+
+  def addable?
     begin
         add_super_button
         true
@@ -33,6 +41,24 @@ class SupplyPage < Struct.new(:supply)
     begin
         edit_super_button
         true
+    rescue Capybara::ElementNotFound
+        false
+    end
+  end
+
+  def invite_wg_visible?
+    begin
+      invite_wg_button
+      true
+    rescue Capybara::ElementNotFound
+        false
+    end
+  end
+
+  def invite_circle_visible?
+    begin
+      invite_circle_button
+      true
     rescue Capybara::ElementNotFound
         false
     end
@@ -51,6 +77,14 @@ class SupplyPage < Struct.new(:supply)
 
   def add_super_button
     find '.button-super', text: /Add/
+  end
+
+  def invite_wg_button
+    find '.button-secondary', text: /Invite working group/
+  end
+
+  def invite_circle_button
+    find '.button-secondary', text: /Invite circle/
   end
 
   def edit_super_button
