@@ -20,7 +20,7 @@ class WorkingGroup < ActiveRecord::Base
   scope :asc_order, -> { order('lower(working_groups.name) ASC') }
   scope :for_circle, ->(circle) { where(circle: circle ) }
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: { scope: :circle }
   validates :circle, presence: true
 
   # active admins are: working group admins whose role in the **circle** is active. 
