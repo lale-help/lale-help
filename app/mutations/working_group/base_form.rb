@@ -41,7 +41,7 @@ class WorkingGroup::BaseForm < ::Form
         description: description,
         is_private:  (type == :private)
       }
-      working_group.update_attributes(attrs)
+      working_group.update_attributes!(attrs)
     end
 
     def assign_organizer
