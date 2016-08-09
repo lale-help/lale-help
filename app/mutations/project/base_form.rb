@@ -27,8 +27,10 @@ class Project::BaseForm < ::Form
   class Submit < ::Form::Submit
 
     def execute
-      project.assign_attributes(project_attributes)
-      project.save!
+      unless project.update_attributes(project_attributes)
+        merge_errors!(project.errors)
+        return false
+      end
       # multiple admins may be added some time in the future
       project.roles = [ project.roles.create(role_type: 'admin', user: organizer) ]
       project
@@ -46,6 +48,13 @@ class Project::BaseForm < ::Form
 
     def project_attributes
       inputs.slice(:name, :description).merge(working_group: working_group)
+    end
+
+    # simulate ActiveInteraction::Base#errors.merge! API so upgrading will be easier later
+    def merge_errors!(active_model_errors)
+      active_model_errors.messages.each do |key, messages| 
+        add_error(key, :invalid, messages.join('; '))
+      end
     end
 
   end

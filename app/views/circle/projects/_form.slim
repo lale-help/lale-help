@@ -1,11 +1,8 @@
 = form_for [current_circle, @form] do |f|
-  - if @form.project.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@form.project.errors.count, "error")} prohibited this circle_project from being saved:"
-      ul
-        - @form.project.errors.full_messages.each do |message|
-          li = message
 
+  - if errors.present?
+    .form-introduction.error
+      p = t('error_correction')
   
   .field-row.single
     .field.required class=errors.css(:name)
