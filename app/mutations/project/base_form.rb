@@ -31,8 +31,7 @@ class Project::BaseForm < ::Form
         merge_errors!(project.errors)
         return false
       end
-      # multiple admins may be added some time in the future
-      project.roles = [ project.roles.create(role_type: 'admin', user: organizer) ]
+      project.roles.find_or_create_by!(role_type: 'admin', user: organizer)
       project
     end
 
