@@ -1,6 +1,6 @@
 class ProjectOnPage < PageObject::Base
 
-  attr_accessor :name, :description, :due_date, :location
+  attr_accessor :name, :description, :working_group_name, :organizer_name
 
   def create
     add_button.click
@@ -10,7 +10,12 @@ class ProjectOnPage < PageObject::Base
   end
 
   def created?
+    # check project name
     find('.project-dashboard .title', text: name)
+    # check correct organizer
+    find(".item-details-table .details", text: "Organized by #{organizer_name}")
+    # check correct working group
+    find(".item-details-table .details", text: working_group_name)
   end
 
   def invalid?
@@ -36,6 +41,12 @@ class ProjectOnPage < PageObject::Base
   end
 
   def fill_form
-    fill_in "Project name",  with: name
+    fill_in "Project name", with: name
+    if working_group_name
+      find("#project_working_group_id").select(working_group_name)
+    end
+    if organizer_name
+      find("#project_organizer_id").select(organizer_name)
+    end
   end
 end

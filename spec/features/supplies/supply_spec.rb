@@ -49,6 +49,7 @@ describe "Supply", type: :feature, js: true do
         let(:supply_attributes) { {} }
         it "shows all error messages" do
           supply_on_page.create
+          expect(supply_on_page).to be_invalid
           expect(supply_on_page).to have_validation_error("Name can't be empty")
           expect(supply_on_page).to have_validation_error("Please enter a due date")
           expect(supply_on_page).to have_validation_error("Please enter a description")
