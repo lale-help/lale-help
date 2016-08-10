@@ -1,3 +1,4 @@
+# ::Form doesn't inherit from anything
 class Project::BaseForm < ::Form
 
   attribute :project, :model, primary: true, new_records: true, default: proc { circle.projects.build }
@@ -24,6 +25,7 @@ class Project::BaseForm < ::Form
     !project.new_record?
   end
 
+  # ::Form::Submit inherits from Mutations::Command
   class Submit < ::Form::Submit
 
     def execute
