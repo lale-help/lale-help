@@ -1,4 +1,4 @@
-if (false)
+if (true)
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
 else

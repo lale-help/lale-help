@@ -15,7 +15,7 @@ class ProjectOnPage < PageObject::Base
     # check correct organizer
     find(".item-details-table .details", text: "Organized by #{organizer_name}")
     # check correct working group
-    find(".item-details-table .details", text: working_group_name)
+    find(".item-details-table .work-group .details", text: working_group_name)
   end
 
   def invalid?
