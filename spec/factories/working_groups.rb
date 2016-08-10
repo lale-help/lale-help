@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :working_group do
+  factory :working_group, aliases: [:public_working_group] do
     sequence(:name) {|n| "Group #{n}" }
     circle
 
