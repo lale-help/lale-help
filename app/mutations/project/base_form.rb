@@ -5,7 +5,7 @@ class Project::BaseForm < ::Form
 
   attribute :name, :string
   attribute :description, :string, required: false
-  attribute :organizer_id, :integer, default: proc { project.admin.try(:id) || user.id }
+  attribute :organizer_id, :integer#, default: proc { project.admin.try(:id) || user.id }
   attribute :working_group_id, :string
 
   attribute :circle, :model
