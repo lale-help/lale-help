@@ -1,4 +1,4 @@
-if (true)
+unless (ENV['CI']) # poltergeist doesn't work on CircleCI, yet
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
 else
