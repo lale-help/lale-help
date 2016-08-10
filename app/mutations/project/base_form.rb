@@ -5,11 +5,10 @@ class Project::BaseForm < ::Form
 
   attribute :name, :string
   attribute :description, :string, required: false
-  attribute :organizer_id, :integer#, default: proc { project.admin.try(:id) || user.id }
+  attribute :organizer_id, :integer, default: proc { project.admin.try(:id) }
   attribute :working_group_id, :string
 
   attribute :circle, :model
-  attribute :user, :model
   attribute :ability, :model
 
   def available_working_groups
@@ -29,11 +28,13 @@ class Project::BaseForm < ::Form
   class Submit < ::Form::Submit
 
     def execute
-      unless project.update_attributes(project_attributes)
+      if project.update_attributes(project_attributes)
+        project.roles.destroy_all
+        project.roles.create!(role_type: 'admin', user: organizer)
+      else
         merge_errors!(project.errors)
         return false
       end
-      project.roles.find_or_create_by!(role_type: 'admin', user: organizer)
       project
     end
 

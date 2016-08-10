@@ -60,8 +60,8 @@ describe Project::BaseForm do
           end
 
           context "project has no admin" do
-            it "uses the passed in user" do
-              expect(form.organizer_id).to eq(user.id)
+            it "organizer_id is nil" do
+              expect(form.organizer_id).to be(nil)
             end
           end
         end

@@ -898,6 +898,7 @@
     :organizer_id:
       :at_least_one_required: Mindestens ein Organisator must festgelegt sein.
       :empty: Bitte einen Organisator festlegen
+      :nils: Bitte einen Organisator festlegen
     :password:
       :does_not_match: Das Passwort stimmt nicht mit der Bestätigung überein.
       :empty: Passwort ist erforderlich.

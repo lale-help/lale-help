@@ -16,12 +16,12 @@ class Circle::ProjectsController < ApplicationController
 
   def new
     authorize! :create_project, current_circle
-    @form = Project::Create.new(user: current_user, circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(circle: current_circle, ability: current_ability)
   end
 
   def create
     authorize! :create_project, current_circle
-    @form = Project::Create.new(params[:project], user: current_user, circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(params[:project], circle: current_circle, ability: current_ability)
 
     outcome = @form.submit
 
@@ -35,12 +35,12 @@ class Circle::ProjectsController < ApplicationController
 
   def edit
     authorize! :update, current_project
-    @form = Project::Update.new(user: current_user, project: current_project, circle: current_circle, ability: current_ability)
+    @form = Project::Update.new(project: current_project, circle: current_circle, ability: current_ability)
   end
 
   def update
     authorize! :update, current_project
-    @form = Project::Update.new(params[:project], user: current_user, project: current_project, circle: current_circle, ability: current_ability)
+    @form = Project::Update.new(params[:project], project: current_project, circle: current_circle, ability: current_ability)
     outcome = @form.submit
     if outcome.success?
       redirect_to circle_project_path(current_circle, current_project), notice: t('flash.updated', name: Project.model_name.human)
