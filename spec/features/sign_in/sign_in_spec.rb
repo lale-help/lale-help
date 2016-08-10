@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Login and logout', type: :feature, js: true do
+describe 'Sign in and sign out', type: :feature, js: true do
 
   def fill_in_form
     fill_in "Email address", with: user.email
@@ -9,7 +9,7 @@ describe 'Login and logout', type: :feature, js: true do
 
   let!(:circle) { submit_form(:circle_create_form).result }
   
-  context 'Login with correct data' do
+  context 'Sign in with correct data' do
 
     let!(:user) { create(:circle_role_volunteer, circle: circle, status: :active).user }
 
@@ -28,7 +28,7 @@ describe 'Login and logout', type: :feature, js: true do
   end
 
 
-  context 'Login with incorrect data' do
+  context 'Sign in with incorrect data' do
 
     let!(:user) do 
       user = create(:circle_role_volunteer, circle: circle, status: :active).user
@@ -45,7 +45,7 @@ describe 'Login and logout', type: :feature, js: true do
     end
   end
 
-  context 'Pending user logs in' do
+  context 'Pending user signs in' do
 
     let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
     let!(:user) { create(:circle_role_volunteer, circle: circle, status: :pending).user }
