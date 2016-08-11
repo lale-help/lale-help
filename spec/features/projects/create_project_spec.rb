@@ -41,7 +41,7 @@ describe "Create project", type: :feature, js: true do
     
     before { visit new_circle_project_path(circle_id: circle, as: admin) }
 
-    let(:project_form) { ProjectForm.new(type: :create) }
+    let(:project_form) { PageObject::ProjectForm.new(type: :create) }
 
     context "when all mandatory fields are filled" do
       let(:project_attributes) { attributes_for(:project).merge(organizer_name: volunteer.name, working_group_name: working_group_2.name) }

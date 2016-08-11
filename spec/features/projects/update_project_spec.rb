@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Update project", type: :feature, js: true do
-  
+
   let(:circle) { create(:circle) }
 
   # create an admin in the circle
@@ -37,9 +37,11 @@ describe "Update project", type: :feature, js: true do
     
   context "when on edit project page" do
     
+    # include PageObject
+
     before { visit edit_circle_project_path(id: project, circle_id: circle, as: admin) }
 
-    let(:project_form) { ProjectForm.new(type: :update) }
+    let(:project_form) { PageObject::ProjectForm.new(type: :update) }
 
     context "when all mandatory fields are filled" do
       let(:project_attributes) { {name: "New working group name"} }

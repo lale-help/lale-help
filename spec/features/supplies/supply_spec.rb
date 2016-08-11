@@ -35,7 +35,7 @@ describe "Supply", type: :feature, js: true do
       
       before { visit circle_path(circle, as: admin) }
 
-      let(:supply_on_page) { SupplyOnPage.new(supply_attributes) }
+      let(:supply_on_page) { PageObject::SupplyOnPage.new(supply_attributes) }
 
       context "when all mandatory fields are filled" do
         let(:supply_attributes) { attributes_for(:supply).merge(location: 'Munich') }
