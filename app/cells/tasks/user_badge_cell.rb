@@ -10,8 +10,7 @@ class Tasks::UserBadgeCell < ::UserBadgeCell
         'unassign-action': unassign_user_path, 
         'unassign-method': 'PUT'
       },
-      # class: can?(:unassign, task) ? 'unassignable' : ''
-      class: 'unassignable'
+      class: can?(:unassign, task) ? 'unassignable' : ''
     }
   end
 
