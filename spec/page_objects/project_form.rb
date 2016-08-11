@@ -1,12 +1,13 @@
 class ProjectForm < PageObject::Base
 
-  attr_accessor :name, :description, :working_group_name, :organizer_name
+  def initialize(options)
+    @type = options[:type]
+  end
 
-  # FIXME remove duplication with ProjectOnPage
   def submit_with(attributes)
-    self.attributes = attributes
-    fill_form
+    fill_form(attributes)
     submit_button.click
+    ProjectPage.new # on success, return the next page object
   end
 
   def invalid?
@@ -19,18 +20,19 @@ class ProjectForm < PageObject::Base
 
   private
 
-  def fill_form
-    fill_in "Project name", with: name
-    if working_group_name
-      find("#project_working_group_id").select(working_group_name)
+  def fill_form(attributes)
+    fill_in "Project name", with: attributes[:name]
+    if attributes[:working_group_name]
+      find("#project_working_group_id").select(attributes[:working_group_name])
     end
-    if organizer_name
-      find("#project_organizer_id").select(organizer_name)
+    if attributes[:organizer_name]
+      find("#project_organizer_id").select(attributes[:organizer_name])
     end
   end
 
   def submit_button
-    find('input[type=submit][value="Update Project"]')
+    button_label = "#{@type.to_s.capitalize} Project"
+    find("input[type=submit][value='#{button_label}']")
   end
 
 end

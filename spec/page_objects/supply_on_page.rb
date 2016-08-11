@@ -1,3 +1,4 @@
+# FIXME split to SupplyForm and SupplyPage
 class SupplyOnPage < PageObject::Base
 
   attr_accessor :name, :description, :due_date, :location

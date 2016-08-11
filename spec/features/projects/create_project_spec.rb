@@ -37,26 +37,28 @@ describe "Create project", type: :feature, js: true do
     expect(working_group_2.active_users).to match_array([admin, volunteer])
   end
     
-  context "when logged in as admin" do
+  context "when on new project page" do
     
-    before { visit circle_path(circle, as: admin) }
+    before { visit new_circle_project_path(circle_id: circle, as: admin) }
 
-    let(:project_on_page) { ProjectOnPage.new(project_attributes) }
+    let(:project_form) { ProjectForm.new(type: :create) }
 
     context "when all mandatory fields are filled" do
       let(:project_attributes) { attributes_for(:project).merge(organizer_name: volunteer.name, working_group_name: working_group_2.name) }
       it "creates the project" do
-        project_on_page.create
-        expect(project_on_page).to be_created
+        project_page = project_form.submit_with(project_attributes)
+        expect(project_page).to have_name(project_attributes[:name])
+        expect(project_page).to have_organizer(project_attributes[:organizer_name])
+        expect(project_page).to have_working_group(project_attributes[:working_group_name])
       end
     end
 
     context "when no mandatory field is filled" do
       let(:project_attributes) { {} }
       it "shows all error messages" do
-        project_on_page.create
-        expect(project_on_page).to be_invalid
-        expect(project_on_page).to have_validation_error("Name can't be empty")
+        project_form.submit_with(project_attributes)
+        expect(project_form).to be_invalid
+        expect(project_form).to have_validation_error("Name can't be empty")
       end
     end
   end

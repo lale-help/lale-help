@@ -35,18 +35,17 @@ describe "Update project", type: :feature, js: true do
     expect(project.admin).to eq(admin)
   end
     
-  context "when logged in as admin" do
+  context "when on edit project page" do
     
     before { visit edit_circle_project_path(id: project, circle_id: circle, as: admin) }
 
-    let(:project_form) { ProjectForm.new }
-    let(:project_page) { ProjectPage.new }
+    let(:project_form) { ProjectForm.new(type: :update) }
 
     context "when all mandatory fields are filled" do
       let(:project_attributes) { {name: "New working group name"} }
       it "updates the project" do
-        project_form.submit_with(project_attributes)
-        expect(project_page).to have_values(project_attributes)
+        project_page = project_form.submit_with(project_attributes)
+        expect(project_page).to have_name(project_attributes[:name])
       end
     end
 
