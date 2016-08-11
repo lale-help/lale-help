@@ -8,7 +8,7 @@ module PageObject
 
     def has_organizer?(organizer_name)
       # check correct organizer
-      find(".item-details-table .details", text: "Organized by #{organizer_name}")
+      find(".item-details-table .organizer .details", text: "Organized by #{organizer_name}")
     end
 
     def has_working_group?(working_group_name)

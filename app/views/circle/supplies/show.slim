@@ -22,6 +22,7 @@
         .icon
         .title= Supply.human_attribute_name(:due_date)
         .details
+          / FIXME use a named date format here, put it in the yml file.
           = l(current_supply.due_date, format: "%A %-d %B %Y")
 
       -if current_supply.location.present?

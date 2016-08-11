@@ -1,5 +1,5 @@
 module PageObject
-  class ProjectForm < PageObject::Base
+  class SupplyForm < PageObject::Base
 
     def initialize(options)
       @action = options[:action]
@@ -8,7 +8,7 @@ module PageObject
     def submit_with(attributes)
       fill_form(attributes)
       submit_button.click
-      ProjectPage.new # on success, return the next page object
+      SupplyPage.new # on success, return the next page object
     end
 
     def invalid?
@@ -22,17 +22,14 @@ module PageObject
     private
 
     def fill_form(attributes)
-      fill_in "Project name", with: attributes[:name]
-      if attributes[:working_group_name]
-        find("#project_working_group_id").select(attributes[:working_group_name])
-      end
-      if attributes[:organizer_name]
-        find("#project_organizer_id").select(attributes[:organizer_name])
-      end
+      fill_in "Name of supply",  with: attributes[:name]
+      fill_in "Description",     with: attributes[:description]
+      fill_in "Due Date",        with: attributes[:due_date]
+      fill_in "Location",        with: attributes[:location]
     end
 
     def submit_button
-      button_label = "#{@action.to_s.capitalize} Project"
+      button_label = "#{@action.to_s.capitalize} Supply"
       find("input[type=submit][value='#{button_label}']")
     end
 
