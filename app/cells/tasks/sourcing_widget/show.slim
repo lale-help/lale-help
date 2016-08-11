@@ -11,7 +11,8 @@
     = t('users_box.no_users_yet')
   - else
     - volunteers.each do |volunteer|
-      == cell('tasks/user_badge', volunteer, task: task, current_user: current_user, current_circle: current_circle)
+      / WARNING use the constant name here; using 'tasks/user_badge' loaded the wrong class
+      == cell(Tasks::UserBadgeCell, volunteer, task: task, current_user: current_user, current_circle: current_circle)
 
 .actions
   

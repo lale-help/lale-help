@@ -1,4 +1,4 @@
-class Tasks::TaskUserBadgeCell < ::UserBadgeCell
+class Tasks::UserBadgeCell < ::UserBadgeCell
 
   def task
     @options[:task]
@@ -10,7 +10,8 @@ class Tasks::TaskUserBadgeCell < ::UserBadgeCell
         'unassign-action': unassign_user_path, 
         'unassign-method': 'PUT'
       },
-      class: can?(:unassign, task) ? 'unassignable' : ''
+      # class: can?(:unassign, task) ? 'unassignable' : ''
+      class: 'unassignable'
     }
   end
 
