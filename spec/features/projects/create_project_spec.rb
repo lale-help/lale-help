@@ -36,23 +36,23 @@ describe "Create project", type: :feature, js: true do
     expect(working_group_2.active_admins).to eq([admin])
     expect(working_group_2.active_users).to match_array([admin, volunteer])
   end
-    
+
   context "when on new project page" do
     
-    before { visit new_circle_project_path(circle_id: circle, as: admin) }
+    let(:project_form) { SPProjectForm.new }
 
-    let(:project_form) { PageObject::ProjectForm.new(action: :create) }
+    before { project_form.load(circle_id: circle.id, as_id: admin.id) }
 
     context "when all mandatory fields are filled" do
       let(:project_attributes) { attributes_for(:project).merge(organizer_name: volunteer.name, working_group_name: working_group_2.name) }
       it "creates the project" do
         project_page = project_form.submit_with(project_attributes)
-        expect(project_page).to have_name(project_attributes[:name])
-        expect(project_page).to have_organizer(project_attributes[:organizer_name])
-        expect(project_page).to have_working_group(project_attributes[:working_group_name])
+        expect(project_page.project_name).to eq(project_attributes[:name])
+        expect(project_page.organizer_name).to eq("Organized by #{project_attributes[:organizer_name]}")
+        expect(project_page.working_group_name).to eq(project_attributes[:working_group_name])
       end
     end
-
+    
     context "when no mandatory field is filled" do
       let(:project_attributes) { {} }
       it "shows all error messages" do

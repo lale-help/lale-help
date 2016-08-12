@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :project do
-    sequence(:name) {|n| "Group #{n}" }
+    sequence(:name) {|n| "Project #{n}" }
     working_group
   end
 
