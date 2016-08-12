@@ -21,16 +21,12 @@ FactoryGirl.define do
 
     after(:create) do |circle, evaluator|
       # assign admins
-      if (evaluator.admin || evaluator.admins.present?)
-        Array(evaluator.admin || evaluator.admins).each do |user|
-          create(:circle_role_admin, circle: circle, user: user)
-        end
+      Array(evaluator.admin || evaluator.admins).each do |user|
+        create(:circle_role_admin, circle: circle, user: user)
       end
       # assign volunteers
-      if (evaluator.volunteer || evaluator.volunteers.present?)
-        Array(evaluator.volunteer || evaluator.volunteers).each do |user|
-          create(:circle_role_volunteer, circle: circle, user: user)
-        end
+      Array(evaluator.volunteer || evaluator.volunteers).each do |user|
+        create(:circle_role_volunteer, circle: circle, user: user)
       end
     end
 

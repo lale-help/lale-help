@@ -12,23 +12,19 @@ FactoryGirl.define do
 
     after(:create) do |wg, evaluator|
       # assign admins
-      if (evaluator.admin || evaluator.admins.present?)
-        Array(evaluator.admin || evaluator.admins).each do |user|
-          create(:working_group_admin_role, working_group: wg, user: user)
-          # a user needs an (active!) circle role in order to be fully functional in the app.
-          unless evaluator.circle.roles.exists?(user: user)
-            create(:circle_role_volunteer, circle: evaluator.circle, user: user)
-          end
+      Array(evaluator.admin || evaluator.admins).each do |user|
+        create(:working_group_admin_role, working_group: wg, user: user)
+        # a user needs an (active!) circle role in order to be fully functional in the app.
+        unless evaluator.circle.roles.exists?(user: user)
+          create(:circle_role_volunteer, circle: evaluator.circle, user: user)
         end
       end
       # assign members
-      if (evaluator.member || evaluator.members.present?)
-        Array(evaluator.member || evaluator.members).each do |user|
-          create(:working_group_member_role, working_group: wg, user: user)
-          # a user needs an (active!) circle role in order to be fully functional in the app.
-          unless evaluator.circle.roles.exists?(user: user)
-            create(:circle_role_volunteer, circle: evaluator.circle, user: user)
-          end
+      Array(evaluator.member || evaluator.members).each do |user|
+        create(:working_group_member_role, working_group: wg, user: user)
+        # a user needs an (active!) circle role in order to be fully functional in the app.
+        unless evaluator.circle.roles.exists?(user: user)
+          create(:circle_role_volunteer, circle: evaluator.circle, user: user)
         end
       end
     end
