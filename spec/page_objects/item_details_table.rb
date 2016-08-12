@@ -1,3 +1,4 @@
+# FIXME consider moving this to a sections/components subdirectory.
 class ItemDetailsTable < SitePrism::Section
 
   element :organizer, '.organizer .details'

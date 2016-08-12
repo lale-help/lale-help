@@ -1,10 +1,9 @@
 # generic form class to be inherited from
 module PageObject
-  class Form < Base
+  module Form
 
-    def initialize(options)
-      @action = options[:action]
-    end
+    include Capybara::DSL
+    extend ActiveSupport::Concern
 
     def submit_with(attributes)
       fill_form(attributes)

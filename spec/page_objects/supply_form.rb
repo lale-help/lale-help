@@ -1,5 +1,7 @@
 module PageObject
-  class SupplyForm < Form
+  class SupplyForm
+
+    include PageObject::Form
 
     def next_page_object
       SupplyPage.new
@@ -15,8 +17,7 @@ module PageObject
     end
 
     def submit_button
-      button_label = "#{@action.to_s.capitalize} Supply"
-      find("input[type=submit][value='#{button_label}']")
+      find(".submit-row input[type=submit]")
     end
 
   end
