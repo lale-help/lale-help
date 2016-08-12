@@ -953,12 +953,14 @@
       :destroy:
         :alert: "%{resource_name} could not be removed."
         :notice: "%{resource_name} was successfully removed."
-      :invited:
-        :one: Invited %{count} volunteer to this %{model}.
-        :other: Invited %{count} volunteers to this %{model}.
-        :zero: There aren't any members to invite to this %{model}.
       :update:
         :notice: "%{resource_name} was successfully updated."
+      :invite:
+        :notice:
+          :one: "Invited %{count} member."
+          :other: "Invited %{count} members."
+          :zero: "There aren't any members to invite."
+        :alert: "Unable to invite members. Please try again later."
     :created: "%{name} was successfully created."
     :destroyed: "%{name} was successfully destroyed."
     :failed:
@@ -1326,12 +1328,43 @@
         :other: "%{unassignees} were unassigned from this task by %{unassigner} on
           %{date}."
     :flash:
-      :completed: Thanks for completing %{name}!
-      :decline_failed: Failed to decline from %{name}.
-      :declined: Successfully declined from %{name}.
-      :reopened: Task has been re-opened
-      :reopening_failed: There was a problem re-opening this task
-      :volunteered: Thanks for volunteering for %{name}!
+      :create:
+        :success: Successfully created task.
+        :error: Failed to create task.
+      :update:
+        :success: Successfully updated task.
+        :error: Failed to update task.
+      :destroy:
+        :success: Successfully deleted task.
+        :error: Failed to delete task.
+      :invite:
+        :success:
+          :one: Invited %{count} member.
+          :other: Invited %{count} members.
+          :zero: There aren't any members to invite.
+        :error: Unable to invite members. Please try again later.
+      :assign_volunteer: 
+        :success: "Sucessfully assigned volunteers."
+        :error: "Failed to assign volunteers."
+      :unassign_volunteer: 
+        :success: "Sucessfully unassigned volunteer."
+        :error: "Failed to unassign volunteer."
+      :complete: 
+        :success: Thanks for completing this task!
+        :error: "Couldn't complete this task!"
+      :decline: 
+        :success: Successfully declined.
+        :error: Failed to decline.
+      :reopen: 
+        :success: Task has been re-opened.
+        :error: There was a problem re-opening this task
+      :volunteer: 
+        :success: Thanks for volunteering!
+        :error: Failed to volunteer!
+      :clone:
+        :success: Successfully copied task.
+        :error: Failed to clone task.
+
   :time:
     :am: am
     :formats:

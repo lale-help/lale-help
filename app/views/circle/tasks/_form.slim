@@ -103,5 +103,5 @@
   .submit-row
     = f.submit
     - if @form.task.persisted?
-      = submit_tag(t('.update_and_notify'), name: 'send_notifications')
+      = submit_tag(t('.update_and_notify'), name: 'send_notifications', class: 'button-primary', data: {disable_with: t('.update_and_notify') })
     = link_to(t('task_edit.cancel'), :back)

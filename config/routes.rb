@@ -75,7 +75,7 @@ Rails.application.routes.draw do
 
   get '/ping', to: 'website#ping'
 
-  get '/styles/:id', to: 'styleguides#show'
+  get '/styles', to: 'styleguide#show'
 
   namespace :user do
     resources :identities

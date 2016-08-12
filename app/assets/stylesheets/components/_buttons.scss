@@ -25,11 +25,11 @@
   }
 
   &:focus {
-    outline : none;
+    outline: none;
   }
 
-  &[disabled=disabled] {
-    cursor: progress;
+  &[disabled] {
+    cursor: not-allowed;
   }
 }
 
@@ -71,6 +71,11 @@
     }
   }
 
+  &[disabled] {
+    border-color: lighten($button-super, 20);
+    background: lighten($button-super, 20);
+  }
+
 }
 
 .button.button-primary, .button-primary {
@@ -89,6 +94,11 @@
     background: $button-primary-hover;
   }
 
+  &[disabled] {
+    border-color: lighten($button-primary, 20);
+    background: lighten($button-primary, 20);
+  }
+
 }
 
 .button.button-primary-inverse, .button-primary-inverse {
@@ -99,9 +109,15 @@
   border: thin solid $button-primary;
 
   &:hover {
-    color: $button-primary-hover;    
+    color: $button-primary-hover !important;
     border: thin solid $button-primary-hover;
   }
+
+  &[disabled] {
+    color: lighten($button-primary, 20) !important;
+    border-color: lighten($button-primary, 20);
+  }
+
 }
 
 .button.button-secondary, .button-secondary {
@@ -113,8 +129,9 @@
     color: $white;
     background: $button-secondary-hover;
   }
-  &[disabled=disabled] {
-    background: lighten($button-secondary, 20);
+  &[disabled] {
+    border-color: lighten($button-secondary, 25);
+    background: lighten($button-secondary, 25);
   }
 }
 

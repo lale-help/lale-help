@@ -65,10 +65,10 @@ class Circle::ProjectsController < ApplicationController
     outcome = Project::Notifications::InvitationEmail.run(current_user: current_user, project: current_project, type: params[:type])
 
     if outcome.success?
-      flash[:notice] = t('flash.actions.invited',
+      flash[:notice] = t('flash.actions.invite.notice',
         name: current_project.name, count: outcome.result.volunteers.size, model: Project.model_name.human.downcase)
     else
-      flash[:error] = t('tasks.flash.invite_failed', name: current_project.name)
+      flash[:error] = t('flash.actions.invite.alert', name: current_project.name)
     end
     redirect_to circle_project_path(current_circle, current_project)
   end

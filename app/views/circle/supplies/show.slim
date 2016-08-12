@@ -77,15 +77,25 @@
 
         - if can? :volunteer, current_supply
           = form_tag circle_supply_volunteer_path(current_circle, current_supply), method: :put do
-            button.button-primary= t('helpers.volunteer', model: current_supply.model_name.human)
+            - label = t('helpers.volunteer', model: current_supply.model_name.human)
+            button.button-primary data-disable-with=label
+              = label
 
         - if can? :decline, current_supply
           = form_tag circle_supply_decline_path(current_circle, current_supply), method: :put do
-            button.button-primary= t('helpers.decline', model: current_supply.model_name.human)
+            - label = t('helpers.decline', model: current_supply.model_name.human)
+            button.button-primary data-disable-with=label
+              = label
 
         - if can? :invite_to, current_supply
           = form_tag circle_supply_invite_path(current_circle, current_supply, type: :working_group), method: :post do
-            button.button.button-secondary= t('helpers.invite_working_group')
+            - label = t('helpers.invite_working_group')
+            button.button.button-secondary data-disable-with=label
+              = label
+
         - unless current_supply.working_group.is_private?
-          = form_tag circle_supply_invite_path(current_circle, current_supply, type: :circle), method: :post do
-            button.button.button-secondary= t('helpers.invite_circle')
+          - if can? :invite_to, current_supply
+            = form_tag circle_supply_invite_path(current_circle, current_supply, type: :circle), method: :post do
+              - label = t('helpers.invite_circle')
+              button.button.button-secondary data-disable-with=label
+                = label
