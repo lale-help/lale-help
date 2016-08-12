@@ -11,6 +11,41 @@ FactoryGirl.define do
 
   factory :circle do
     sequence(:name) {|n| "Circle #{n}" }
+
+    transient do
+      admin nil
+      admins []
+      volunteer nil
+      volunteers []
+    end
+
+    after(:create) do |circle, evaluator|
+      # assign admins
+      if (evaluator.admin || evaluator.admins.present?)
+        Array(evaluator.admin || evaluator.admins).each do |user|
+          create(:circle_role_admin, circle: circle, user: user)
+        end
+      end
+      # assign volunteers
+      if (evaluator.volunteer || evaluator.volunteers.present?)
+        Array(evaluator.volunteer || evaluator.volunteers).each do |user|
+          create(:circle_role_volunteer, circle: circle, user: user)
+        end
+      end
+    end
+
+    trait :with_admin do
+      after(:create) do |circle, evaluator|
+        create(:circle_role_admin, circle: circle, user: create(:user))
+      end
+    end
+
+    trait :with_volunteer do
+      after(:create) do |circle, evaluator|
+        create(:circle_role_volunteer, circle: circle, user: create(:user))
+      end
+    end
+
   end
 
   factory :circle_role, class: Circle::Role do
