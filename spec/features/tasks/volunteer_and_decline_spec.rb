@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Task volunteer and decline spec", type: :feature, js: true do
+describe "Task volunteer and decline spec", js: true do
 
   let(:circle)    { create(:circle, :with_admin) }
   let(:admin)     { circle.admin }

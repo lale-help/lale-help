@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Sign in and sign out', type: :feature, js: true do
+describe 'Sign in and sign out', js: true do
 
   def fill_in_form
     fill_in "Email address", with: user.email

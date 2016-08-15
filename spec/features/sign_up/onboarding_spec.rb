@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'New User On-boarding', type: :feature, js: true do
+describe 'New User On-boarding', js: true do
 
   def fill_in_form
     fill_in "First Name",            with: "Phil"

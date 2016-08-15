@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Create project", type: :feature, js: true do
+describe "Create project", js: true do
   
   let(:circle)    { create(:circle, :with_admin, :with_volunteer) }
   let(:admin)     { circle.admin }

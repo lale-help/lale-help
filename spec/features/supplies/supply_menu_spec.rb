@@ -27,7 +27,6 @@ describe 'The Add menu' do
       # once the dropdown menu has been displayed by clicking on it, the following works as expected.
       # keep in mind Capybara tries to behave like a user, so it won't "see" hidden HTML elements.
       click_on("Supply")
-      # show!
       expect(page).to have_content("Create a new Supply")
     end
   end

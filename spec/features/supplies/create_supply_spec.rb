@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Create supply", type: :feature, js: true do
+describe "Create supply", js: true do
   
   let(:circle) { create(:circle) }
 
