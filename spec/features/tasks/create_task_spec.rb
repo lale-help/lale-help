@@ -15,9 +15,8 @@ describe "Create task", js: true do
     # FIXME factor out location to separate test
     let(:inputs) { attributes_for(:task).merge(location: 'Munich') }
     it "creates the task" do
-      show!
       task_page = task_form.submit_with(inputs)
-      expect(task_page.name.text).to eq(inputs[:name])
+      expect(task_page.headline.text).to eq(inputs[:name])
       expect(task_page.description.text).to eq(inputs[:description])
       expect(task_page.location.text).to include(inputs[:location])
       expect(task_page.due_date).to eq(inputs[:due_date])

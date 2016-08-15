@@ -6,7 +6,8 @@ module PageObject
 
     def submit_with(attributes)
       fill_form(attributes)
-      submit_button.click
+      # "submit_button.click" fails when the button is not inside the viewport.
+      submit_button.trigger(:click)
       next_page_object # on success, return the next page object
     end
 

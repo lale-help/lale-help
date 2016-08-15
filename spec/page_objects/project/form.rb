@@ -11,8 +11,10 @@ module PageObject
       element :organizer, "#project_organizer_id"
       element :submit_button, ".submit-row input[type=submit]"
 
+      private
+      
       def next_page_object
-        PageObject::Project::Page.new
+        Page.new
       end
 
       def fill_form(attributes)

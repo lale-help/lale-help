@@ -6,11 +6,11 @@ module PageObject
 
       include PageObject::IsForm
 
+      private
+
       def next_page_object
         Page.new
-      end
-        
-      private
+      end        
 
       def fill_form(attributes)
         fill_in "Name of supply",  with: attributes[:name]

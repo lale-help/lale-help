@@ -14,7 +14,7 @@ describe "Create supply", js: true do
     let(:inputs) { attributes_for(:supply).merge(location: 'Munich') }
     it "creates the supply" do
       supply_page = supply_form.submit_with(inputs)
-      expect(supply_page.name.text).to eq(inputs[:name])
+      expect(supply_page.headline.text).to eq(inputs[:name])
       expect(supply_page.description.text).to eq(inputs[:description])
       expect(supply_page.location.text).to include(inputs[:location])
       expect(supply_page.due_date).to eq(inputs[:due_date])

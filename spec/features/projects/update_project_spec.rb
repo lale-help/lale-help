@@ -18,7 +18,7 @@ describe "Update project", js: true do
       let(:inputs) { {name: "New project name"} }
       it "updates the project" do
         project_page = project_form.submit_with(inputs)
-        expect(project_page).to have_name(inputs[:name])
+        expect(project_page.name.text).to eq(inputs[:name])
       end
     end
 

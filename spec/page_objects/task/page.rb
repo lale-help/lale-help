@@ -4,20 +4,24 @@ module PageObject
 
       set_url '/circles/{circle_id}/tasks/{task_id}?as={as}'
 
-      element :h1_title, '.task-header .title'
+      element :headline, '.task-header .title'
       element :description, '.task-header .description'
+
+      section :details, PageObject::Component::ItemDetailsTable, '.item-details-table'
+
       element :volunteer_button, '.button-primary', text: "I'll help"
       element :decline_button, '.button-primary', text: "I can't help anymore"
+      
       elements :helper_badges, '.users-box .user-badge'
 
-      # FIXME DRY up with supply page
-      def wait_for_page_title
-        wait_for_h1_title
+      # FIXME DRY up
+      def location
+        details.location
       end
 
-      # FIXME DRY up with supply page
-      def page_title
-        h1_title.text
+      # FIXME DRY up
+      def due_date
+        Date.parse(details.due_date.text)
       end
 
       # FIXME generalize

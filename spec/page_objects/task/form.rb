@@ -8,17 +8,22 @@ module PageObject
 
       include PageObject::IsForm
 
+      private
+
       def next_page_object
         Page.new
       end
         
-      private
-
       def fill_form(attributes)
-        fill_in "Name of the Task",  with: attributes[:name]
+        fill_in "Name of the Task", with: attributes[:name]
         fill_in "Description of the Task", with: attributes[:description]
-        # fill_in "Due Date",        with: attributes[:due_date]
-        # fill_in "Location",        with: attributes[:location]
+        fill_in "Place of task", with: attributes[:location]
+        fill_date('#task_due_date_string', attributes[:due_date])
+      end
+
+      def fill_date(selector, date)
+        formatted = date.strftime(I18n.t('circle.tasks.form.date_format'))
+        find(selector).set(formatted)
       end
 
       def submit_button

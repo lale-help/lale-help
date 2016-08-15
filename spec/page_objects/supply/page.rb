@@ -2,24 +2,20 @@ module PageObject
   module Supply
     class Page < PageObject::Page
 
-      element :h1_title, '.task-header .title'
+      element :headline, '.task-header .title'
       element :name, '.task-header .title'
       element :description, '.task-header .description'
-      element :location, '.item-details-table .location .details'
-      element :_due_date, '.item-details-table .due-date .details'
 
-      # FIXME DRY up with task page
-      def wait_for_page_title
-        wait_for_h1_title
+      section :details, PageObject::Component::ItemDetailsTable, '.item-details-table'
+
+      # FIXME DRY up
+      def location
+        details.location
       end
 
-      # FIXME DRY up with task page
-      def page_title
-        h1_title.text
-      end
-
+      # FIXME DRY up
       def due_date
-        Date.parse(_due_date.text)
+        Date.parse(details.due_date.text)
       end
 
     end
