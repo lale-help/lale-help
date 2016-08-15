@@ -15,7 +15,7 @@ window.CirclesMap = class CirclesMap
 
 
   render: () =>
-    console.log("render")
+    # console.log("render")
 
     if (@input.val() == "")
       @joinButton.addClass "hidden"
@@ -53,7 +53,7 @@ window.CirclesMap = class CirclesMap
           zoom: 14
 
   _recenter: (center)=>
-    console.log("recenter")
+    # console.log("recenter")
     return unless center
 
     @get_map().getView().setCenter(@point(center.longitude, center.latitude))
@@ -63,7 +63,7 @@ window.CirclesMap = class CirclesMap
         @clear_circle()
 
     @get_map().on "moveend", (evt)->
-      console.log("map moved", evt)
+      # console.log("map moved", evt)
 
 
   fetch_data: (query, handler) ->
@@ -120,7 +120,7 @@ window.CirclesMap = class CirclesMap
 
 
   clear_circle: =>
-    console.log "clearing"
+    # console.log "clearing"
     @circleField.val ""
 
     $(".circle-marker").removeClass('open')
@@ -128,7 +128,7 @@ window.CirclesMap = class CirclesMap
 
   select_circle: (circle) =>
     @clear_circle()
-    console.log "selected ", circle
+    # console.log "selected ", circle
     @circleField.val circle.id
 
     $("#circle-marker-#{circle.id}").addClass('open')
