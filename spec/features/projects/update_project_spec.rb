@@ -14,7 +14,7 @@ describe "Update project", js: true do
 
     let(:project_form) { PageObject::Project::Form.new }
 
-    context "when all mandatory fields are filled" do
+    context "when only required fields are filled" do
       let(:inputs) { {name: "New project name"} }
       it "updates the project" do
         project_page = project_form.submit_with(inputs)

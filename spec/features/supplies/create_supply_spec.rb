@@ -10,7 +10,7 @@ describe "Create supply", js: true do
 
   let(:supply_form) { PageObject::Supply::Form.new }
 
-  context "with minimal attributes" do
+  context "when only required attributes are filled" do
     let(:inputs) { attributes_for(:supply).merge(location: 'Munich') }
     it "creates the supply" do
       supply_page = supply_form.submit_with(inputs)

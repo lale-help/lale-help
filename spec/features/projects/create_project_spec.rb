@@ -18,7 +18,7 @@ describe "Create project", js: true do
 
     before { project_form.load(circle_id: circle.id, as: admin.id) }
 
-    context "when all mandatory fields are filled" do
+    context "when only required fields are filled" do
       let(:inputs) { attributes_for(:project).merge(organizer_name: volunteer.name, working_group_name: working_group_2.name) }
       it "creates the project" do
         project_page = project_form.submit_with(inputs)
