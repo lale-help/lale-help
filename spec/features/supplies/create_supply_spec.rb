@@ -33,7 +33,7 @@ describe "Create supply", type: :feature, js: true do
     
     before { visit new_circle_supply_path(circle, as: admin) }
 
-    let(:supply_form) { PageObject::SupplyForm.new }
+    let(:supply_form) { PageObject::Supply::Form.new }
 
     context "when all mandatory fields are filled" do
       let(:supply_attributes) { attributes_for(:supply).merge(location: 'Munich') }

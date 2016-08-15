@@ -14,7 +14,7 @@ describe "Create project", type: :feature, js: true do
 
   context "when on new project page" do
 
-    let(:project_form) { SPProjectForm.new }
+    let(:project_form) { PageObject::Project::Form.new }
 
     before { project_form.load(circle_id: circle.id, as_id: admin.id) }
 

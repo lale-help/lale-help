@@ -8,13 +8,13 @@ describe "Task volunteer and decline spec", type: :feature, js: true do
   let(:working_group) { create(:working_group, circle: circle, member: admin) }
   let!(:task) { create(:task, working_group: working_group) }
 
-  let(:task_page) { SPTaskPage.new }
+  let(:task_page) { PageObject::Task::Page.new }
 
   # FIXME move this spec to a different file
   describe "navigating to task page" do
     context "when on the circle dashboard" do
 
-      let(:circle_dashboard) { SPCircleDashboard.new }
+      let(:circle_dashboard) { PageObject::Circle::Dashboard.new }
 
       before { circle_dashboard.load(circle_id: circle.id, as_id: admin.id) }
 

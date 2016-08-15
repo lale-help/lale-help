@@ -12,7 +12,7 @@ describe "Update project", type: :feature, js: true do
     
     before { visit edit_circle_project_path(id: project, circle_id: circle, as: admin) }
 
-    let(:project_form) { PageObject::ProjectForm.new }
+    let(:project_form) { PageObject::Project::Form.new }
 
     context "when all mandatory fields are filled" do
       let(:project_attributes) { {name: "New project name"} }
