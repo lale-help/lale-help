@@ -15,9 +15,7 @@ module PageObject
       elements :helper_badges, '.users-box .user-badge'
 
       # FIXME DRY up
-      def location
-        details.location
-      end
+      delegate :location, to: :details
 
       # FIXME DRY up
       def due_date

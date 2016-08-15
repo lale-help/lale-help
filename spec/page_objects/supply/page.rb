@@ -9,9 +9,7 @@ module PageObject
       section :details, PageObject::Component::ItemDetailsTable, '.item-details-table'
 
       # FIXME DRY up
-      def location
-        details.location
-      end
+      delegate :location, to: :details
 
       # FIXME DRY up
       def due_date

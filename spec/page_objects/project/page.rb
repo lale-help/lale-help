@@ -6,17 +6,7 @@ module PageObject
       section :details, PageObject::Component::ItemDetailsTable, '.item-details-table'
       private :details # please don't access from outside as the page structure may change.
 
-      def project_name
-        name.text
-      end
-
-      def organizer_name
-        details.organizer.text
-      end
-
-      def working_group_name
-        details.working_group.text
-      end
+      delegate :organizer, :working_group, to: :details
 
     end
   end

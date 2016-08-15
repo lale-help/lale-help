@@ -22,9 +22,9 @@ describe "Create project", js: true do
       let(:inputs) { attributes_for(:project).merge(organizer_name: volunteer.name, working_group_name: working_group_2.name) }
       it "creates the project" do
         project_page = project_form.submit_with(inputs)
-        expect(project_page.project_name).to eq(inputs[:name])
-        expect(project_page.organizer_name).to eq("Organized by #{inputs[:organizer_name]}")
-        expect(project_page.working_group_name).to eq(inputs[:working_group_name])
+        expect(project_page.name.text).to eq(inputs[:name])
+        expect(project_page.organizer.text).to eq("Organized by #{inputs[:organizer_name]}")
+        expect(project_page.working_group.text).to eq(inputs[:working_group_name])
       end
     end
     
