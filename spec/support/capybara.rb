@@ -1,7 +1,8 @@
-if (ENV['POLTERGEIST'])
+unless (ENV['SELENIUM'])
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
 else
+  # leave selenium in for now as it is sometimes useful to follow the tests clicking through the page
   Capybara.current_driver = :selenium
 end
 
