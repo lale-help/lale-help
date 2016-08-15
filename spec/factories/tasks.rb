@@ -33,5 +33,20 @@ FactoryGirl.define do
         task.location_assignments.create(primary: true, location: location)
       end
     end
+
+    # a task with all attributes set / set to non-default values
+    factory :full_task do
+      # some of these only work with attributes_for since the values are not valid for a model,
+      # but required as they are for the form
+      due "between"
+      due_date { Date.parse("2030-01-31") }
+      due_time "14:00"
+      duration "All day"
+      location "Munich"
+      start_date { Date.parse("2030-01-30") }
+      start_time "12:00"
+      volunteer_count_required 3
+
+    end
   end
 end

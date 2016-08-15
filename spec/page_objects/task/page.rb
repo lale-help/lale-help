@@ -24,6 +24,10 @@ module PageObject
         Date.parse(details.due_date.text)
       end
 
+      def due_date_sentence
+        details.due_date.text
+      end
+
       def num_required_volunteers
         ((/\/(\d+)/).match(text))[1].to_i
       end
