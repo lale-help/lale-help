@@ -50,19 +50,20 @@ describe "Create task", js: true do
     end
   end
 
-  # context "when no mandatory field is filled" do
-  # 
-  #   let(:inputs) { {} }
-  #   before { task_form.load(circle_id: circle.id, as: admin.id) }
-  #   
-  #   it "shows all error messages" do
-  #     task_form.submit_with(inputs)
-  #     expect(task_form).to be_invalid
-  #     expect(task_form).to have_validation_error("Name can't be empty")
-  #     expect(task_form).to have_validation_error("Please enter a due date")
-  #     expect(task_form).to have_validation_error("Please enter a description")
-  #     expect(task_form).to have_validation_error("Please enter a location")
-  #   end
-  # end
+  context "when form is submitted empty" do
+  
+    let(:inputs) { {} }
+    before { task_form.load(circle_id: circle.id, as: admin.id) }
+    
+    it "shows all error messages" do
+      task_form.submit_with(inputs)
+      expect(task_form).to be_invalid
+      # FIXME validation messages in task & supply are inconsistent; fix em
+      # expect(task_form).to have_validation_error("Name can't be empty")
+      # expect(task_form).to have_validation_error("Please enter a due date")
+      # expect(task_form).to have_validation_error("Please enter a description")
+      # expect(task_form).to have_validation_error("Please enter a location")
+    end
+  end
 
 end
