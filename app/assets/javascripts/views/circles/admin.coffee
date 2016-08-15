@@ -22,7 +22,7 @@ $(document).on 'page:load ready', ->
 
   $('.activate_pending_user').closest('form')
     .on 'ajax:success', (event)->
-      $(event.target.closest('tr')).fadeOut 'duration': 1000, complete: ->
+      $(event.target).closest('tr').fadeOut 'duration': 1000, complete: ->
         badge = $('#admin_link').children('span.badge')
         task_count = parseInt(badge.text())        
         if (task_count == 1)
