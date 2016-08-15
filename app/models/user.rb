@@ -34,6 +34,17 @@ class User < ActiveRecord::Base
 
   alias_attribute :active_since, :created_at
 
+  class << self
+
+    def find_or_create_lale_bot!
+      user_identity = User::Identity.find_or_create_by!(email: 'lale-bot@lale.help') do |identity|
+        identity.password = SecureRandom.uuid
+        identity.user = User.new(first_name: 'Lale', last_name: 'Bot')
+      end
+      user_identity.user
+    end
+  end
+
   def login_token
     @login_token ||= begin
       previous = Token.login.active.for_user_id(self.id).first
