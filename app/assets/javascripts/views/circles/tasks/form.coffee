@@ -1,16 +1,19 @@
 class Lale.DateTime
   constructor: (date_field, time_field)->
     # after init, the input element is still empty, 
-    # but the datepicker getValue call already returns a valid date object
+    # but the datepicker getValue call can already return a valid date object
     @dateFilled = date_field.val() != ''
     @value = this.buildDate(date_field, time_field)
 
   buildDate: (date_field, time_field)->
     date = this.parseDate(date_field)
-    time = this.parseTime(time_field)
-    date.setHours(time['hours'])
-    date.setMinutes(time['minutes'])
-    date
+    if date
+      time = this.parseTime(time_field)
+      date.setHours(time['hours'])
+      date.setMinutes(time['minutes'])
+      date
+    else
+      null
 
   valid:->
     @dateFilled && (@value instanceof Date)
