@@ -10,14 +10,17 @@ module PageObject
       element :decline_button, '.button-primary', text: "I can't help anymore"
       elements :helper_badges, '.users-box .user-badge'
 
+      # FIXME DRY up with supply page
       def wait_for_page_title
         wait_for_h1_title
       end
 
+      # FIXME DRY up with supply page
       def page_title
         h1_title.text
       end
 
+      # FIXME generalize
       def load_for(task, as:)
         load(circle_id: task.circle.id, task_id: task.id, as_id: as.id)
       end

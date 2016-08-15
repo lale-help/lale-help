@@ -2,6 +2,8 @@ module PageObject
   module Supply
     class Form < PageObject::Page
 
+      element :title, 'main.form h2'
+
       include PageObject::IsForm
 
       def next_page_object
