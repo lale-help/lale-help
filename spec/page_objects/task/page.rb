@@ -12,14 +12,20 @@ module PageObject
       element :volunteer_button, '.button-primary', text: "I'll help"
       element :decline_button, '.button-primary', text: "I can't help anymore"
       
+      element :task_badge, '.users-box .task-badge'
       elements :helper_badges, '.users-box .user-badge'
 
       # FIXME DRY up
-      delegate :location, to: :details
+      delegate :location, :time_commitment, :working_group, :organizer, :project, :has_project?,
+        to: :details
 
       # FIXME DRY up
       def due_date
         Date.parse(details.due_date.text)
+      end
+
+      def num_required_volunteers
+        ((/\/(\d+)/).match(text))[1].to_i
       end
 
       # FIXME generalize
