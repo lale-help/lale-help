@@ -42,6 +42,13 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_admin_and_working_group do
+      with_admin
+      after(:create) do |circle, evaluator|
+        create(:working_group, circle: circle, member: circle.admin)
+      end
+    end
+
   end
 
   factory :circle_role, class: Circle::Role do

@@ -2,11 +2,9 @@ require 'rails_helper'
 
 describe 'Navigate to a supply', js: true do
 
-  # FIXME simplify with new factories
-  let!(:circle) { submit_form(:circle_create_form).result }
-  let(:admin) { circle.admin }
-  let!(:working_group) { create(:working_group, circle: circle) }
-  let!(:role) { create(:working_group_admin_role, user: admin, working_group: working_group) }
+  let(:circle)        { create(:circle, :with_admin_and_working_group) }
+  let(:admin)         { circle.admin }
+  let(:working_group) { circle.working_groups.first }
 
   let(:circle_dashboard) { PageObject::Circle::Dashboard.new }
 

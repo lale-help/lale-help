@@ -84,4 +84,23 @@ describe "Circle factory" do
 
   end
 
+  describe "the :with_admin_and_working_group trait" do
+    it "assigns a new user as admin" do
+      circle = create(:circle, :with_admin_and_working_group)
+      expect(circle.admins.size).to eq(1)
+      expect(circle.admins.first).to be_a(User)
+    end
+    it "creates a working group" do
+      circle = create(:circle, :with_admin_and_working_group)
+      expect(circle.working_groups.size).to eq(1)
+    end
+    it "makes the circle admin member of the working group" do
+      circle = create(:circle, :with_admin_and_working_group)
+      wg = circle.working_groups.first
+      expect(wg.members).to eq([circle.admin])
+    end
+  end
+
+
+
 end

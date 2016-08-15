@@ -2,11 +2,9 @@ require 'rails_helper'
 
 describe "Navigating to tasks", js: true do
 
-  # FIXME simplify with new factories
-  let(:circle)    { create(:circle, :with_admin) }
-  let(:admin)     { circle.admin }
-  let(:working_group) { create(:working_group, circle: circle, member: admin) }
-  let!(:task) { create(:task, working_group: working_group) }
+  let(:circle)        { create(:circle, :with_admin_and_working_group) }
+  let(:admin)         { circle.admin }
+  let(:working_group) { circle.working_groups.first }
 
   let(:circle_dashboard) { PageObject::Circle::Dashboard.new }
 
@@ -31,9 +29,11 @@ describe "Navigating to tasks", js: true do
 
   describe "existing task" do
 
+    let!(:task)     { create(:task, working_group: working_group) }
     let(:task_page) { PageObject::Task::Page.new }
 
     context "when on the circle dashboard" do
+
 
       before { circle_dashboard.load(circle_id: circle.id, as_id: admin.id) }
 
