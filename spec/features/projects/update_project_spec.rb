@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe "Update project", js: true do
 
-  let(:circle)    { create(:circle, :with_admin) }
-  let(:admin)     { circle.admin }
+  let(:circle)        { create(:circle, :with_admin_and_working_group) }
+  let(:admin)         { circle.admin }
+  let(:working_group) { circle.working_groups.first }
 
-  let(:working_group) { create(:public_working_group, circle: circle, admin: admin) }
   let(:project) { create(:project, working_group: working_group) }
 
   context "when on edit project page" do

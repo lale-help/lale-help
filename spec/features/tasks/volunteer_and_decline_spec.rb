@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe "Task volunteer and decline spec", js: true do
 
-  let(:circle)    { create(:circle, :with_admin) }
-  let(:admin)     { circle.admin }
+  let(:circle)        { create(:circle, :with_admin_and_working_group) }
+  let(:admin)         { circle.admin }
+  let(:working_group) { circle.working_groups.first }
 
-  let(:working_group) { create(:working_group, circle: circle, member: admin) }
   let!(:task) { create(:task, working_group: working_group) }
 
   let(:task_page) { PageObject::Task::Page.new }
