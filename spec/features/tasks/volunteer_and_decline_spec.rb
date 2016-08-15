@@ -10,24 +10,6 @@ describe "Task volunteer and decline spec", js: true do
 
   let(:task_page) { PageObject::Task::Page.new }
 
-  # FIXME move this spec to a different file
-  describe "navigating to task page" do
-    context "when on the circle dashboard" do
-
-      let(:circle_dashboard) { PageObject::Circle::Dashboard.new }
-
-      before { circle_dashboard.load(circle_id: circle.id, as_id: admin.id) }
-
-      it "works" do
-        circle_dashboard.tasks.first.click
-        task_page.wait_for_page_title
-        expect(task_page.page_title).to eq(task.name)
-        expect(task_page.description.text).to eq(task.description)
-      end
-
-    end
-  end
-
   describe "volunteering for a task" do
     context "when on the task page" do
       before { task_page.load_for(task, as: admin) }
