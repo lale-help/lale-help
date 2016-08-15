@@ -2,7 +2,7 @@ module PageObject
   module Circle
     class Dashboard < PageObject::Page
 
-      set_url '/circles/{circle_id}?as={as_id}'
+      set_url '/circles/{circle_id}?as={as}'
 
       # could be extracted to component
       element :add_button, '.button-super', text: /Add/

@@ -2,7 +2,7 @@ module PageObject
   module Task
     class Page < PageObject::Page
 
-      set_url '/circles/{circle_id}/tasks/{task_id}?as={as_id}'
+      set_url '/circles/{circle_id}/tasks/{task_id}?as={as}'
 
       element :h1_title, '.task-header .title'
       element :description, '.task-header .description'
@@ -22,7 +22,7 @@ module PageObject
 
       # FIXME generalize
       def load_for(task, as:)
-        load(circle_id: task.circle.id, task_id: task.id, as_id: as.id)
+        load(circle_id: task.circle.id, task_id: task.id, as: as.id)
       end
 
       def helper_names

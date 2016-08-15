@@ -12,12 +12,12 @@ describe 'Navigate to a supply', js: true do
 
     let(:supply_form) { PageObject::Supply::Form.new }
 
-    context 'when user is working group admin' do
+    # FIXME consider moving this spec to a circle dashboard spec
+    context "when on the circle dashboard" do
 
-      context "when on the circle dashboard" do
+      before { circle_dashboard.load(circle_id: circle.id, as: admin.id) }
 
-        before { circle_dashboard.load(circle_id: circle.id, as_id: admin.id) }
-
+      context 'when logged in as admin' do
         it 'can be reached' do
           circle_dashboard.add_button.click
           circle_dashboard.supply_button.click
@@ -25,6 +25,13 @@ describe 'Navigate to a supply', js: true do
         end
       end
     end
+
+    context "when logged in as volunteer" do
+      it "can't be reached" do
+        expect(circle_dashboard).not_to have_add_button
+      end
+    end
+
   end
 
   describe "existing supply" do
@@ -36,7 +43,7 @@ describe 'Navigate to a supply', js: true do
 
       context "when on the circle dashboard" do
 
-        before { circle_dashboard.load(circle_id: circle.id, as_id: admin.id) }
+        before { circle_dashboard.load(circle_id: circle.id, as: admin.id) }
 
         it "can be reached" do
           circle_dashboard.tab_nav.supplies.click

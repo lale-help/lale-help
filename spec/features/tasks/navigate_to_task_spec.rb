@@ -16,7 +16,7 @@ describe "Navigating to tasks", js: true do
 
       context "when on the circle dashboard" do
 
-        before { circle_dashboard.load(circle_id: circle.id, as_id: admin.id) }
+        before { circle_dashboard.load(circle_id: circle.id, as: admin.id) }
 
         it 'can be reached' do
           circle_dashboard.add_button.click
@@ -35,7 +35,7 @@ describe "Navigating to tasks", js: true do
     context "when on the circle dashboard" do
 
 
-      before { circle_dashboard.load(circle_id: circle.id, as_id: admin.id) }
+      before { circle_dashboard.load(circle_id: circle.id, as: admin.id) }
 
       it "works" do
         circle_dashboard.tasks.first.click

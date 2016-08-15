@@ -16,22 +16,22 @@ describe "Create project", js: true do
 
     let(:project_form) { PageObject::Project::Form.new }
 
-    before { project_form.load(circle_id: circle.id, as_id: admin.id) }
+    before { project_form.load(circle_id: circle.id, as: admin.id) }
 
     context "when all mandatory fields are filled" do
-      let(:project_attributes) { attributes_for(:project).merge(organizer_name: volunteer.name, working_group_name: working_group_2.name) }
+      let(:inputs) { attributes_for(:project).merge(organizer_name: volunteer.name, working_group_name: working_group_2.name) }
       it "creates the project" do
-        project_page = project_form.submit_with(project_attributes)
-        expect(project_page.project_name).to eq(project_attributes[:name])
-        expect(project_page.organizer_name).to eq("Organized by #{project_attributes[:organizer_name]}")
-        expect(project_page.working_group_name).to eq(project_attributes[:working_group_name])
+        project_page = project_form.submit_with(inputs)
+        expect(project_page.project_name).to eq(inputs[:name])
+        expect(project_page.organizer_name).to eq("Organized by #{inputs[:organizer_name]}")
+        expect(project_page.working_group_name).to eq(inputs[:working_group_name])
       end
     end
     
     context "when no mandatory field is filled" do
-      let(:project_attributes) { {} }
+      let(:inputs) { {} }
       it "shows all error messages" do
-        project_form.submit_with(project_attributes)
+        project_form.submit_with(inputs)
         expect(project_form).to be_invalid
         expect(project_form).to have_validation_error("Name can't be empty")
       end

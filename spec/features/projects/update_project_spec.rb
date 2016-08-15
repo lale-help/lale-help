@@ -15,17 +15,17 @@ describe "Update project", js: true do
     let(:project_form) { PageObject::Project::Form.new }
 
     context "when all mandatory fields are filled" do
-      let(:project_attributes) { {name: "New project name"} }
+      let(:inputs) { {name: "New project name"} }
       it "updates the project" do
-        project_page = project_form.submit_with(project_attributes)
-        expect(project_page).to have_name(project_attributes[:name])
+        project_page = project_form.submit_with(inputs)
+        expect(project_page).to have_name(inputs[:name])
       end
     end
 
     context "when name is empty" do
-      let(:project_attributes) { {name: ""} }
+      let(:inputs) { {name: ""} }
       it "shows an error message" do
-        project_form.submit_with(project_attributes)
+        project_form.submit_with(inputs)
         expect(project_form).to be_invalid
         expect(project_form).to have_validation_error("Name can't be empty")
       end
