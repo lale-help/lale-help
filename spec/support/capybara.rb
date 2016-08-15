@@ -5,6 +5,9 @@ else
   Capybara.current_driver = :selenium
 end
 
+require 'capybara-screenshot/rspec'
+Capybara::Screenshot.prune_strategy = :keep_last_run
+
 # defaults to 2
 Capybara.default_max_wait_time = 5
 

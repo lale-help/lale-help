@@ -61,6 +61,7 @@ group :development, :test do
   gem 'hologram', github: 'trulia/hologram'
 
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
