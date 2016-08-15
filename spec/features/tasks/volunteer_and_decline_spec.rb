@@ -20,6 +20,7 @@ describe "Task volunteer and decline spec", type: :feature, js: true do
 
       it "works" do
         circle_dashboard.tasks.first.click
+        task_page.wait_for_page_title
         expect(task_page.page_title).to eq(task.name)
         expect(task_page.description.text).to eq(task.description)
       end

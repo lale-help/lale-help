@@ -8,6 +8,9 @@ class SPTaskPage < SitePrism::Page
   element :decline_button, '.button-primary', text: "I can't help anymore"
   elements :helper_badges, '.users-box .user-badge'
 
+  def wait_for_page_title
+    wait_for_h1_title
+  end
   def page_title
     h1_title.text
   end
