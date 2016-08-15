@@ -2,7 +2,7 @@ module PageObject
   module Project
     class Form < PageObject::Page
 
-      include PageObject::Form
+      include PageObject::IsForm
 
       set_url '/circles/{circle_id}/projects/new?as={as_id}'
 

@@ -1,9 +1,8 @@
-# generic form class to be inherited from
+#
+# generic form helper module to be included into specific forms
+# 
 module PageObject
-  module Form
-
-    include Capybara::DSL
-    extend ActiveSupport::Concern
+  module IsForm
 
     def submit_with(attributes)
       fill_form(attributes)

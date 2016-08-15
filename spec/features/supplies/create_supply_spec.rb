@@ -39,10 +39,10 @@ describe "Create supply", type: :feature, js: true do
       let(:supply_attributes) { attributes_for(:supply).merge(location: 'Munich') }
       it "creates the supply" do
         supply_page = supply_form.submit_with(supply_attributes)
-        expect(supply_page).to have_name(supply_attributes[:name])
-        expect(supply_page).to have_description(supply_attributes[:description])
-        expect(supply_page).to have_location(supply_attributes[:location])
-        expect(supply_page).to have_due_date(supply_attributes[:due_date])
+        expect(supply_page.name.text).to eq(supply_attributes[:name])
+        expect(supply_page.description.text).to eq(supply_attributes[:description])
+        expect(supply_page.location.text).to include(supply_attributes[:location])
+        expect(supply_page.due_date).to eq(supply_attributes[:due_date])
        end
     end
 

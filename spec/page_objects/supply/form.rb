@@ -1,8 +1,8 @@
 module PageObject
   module Supply
-    class Form
+    class Form < PageObject::Page
 
-      include PageObject::Form
+      include PageObject::IsForm
 
       def next_page_object
         Page.new
