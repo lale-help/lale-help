@@ -33,7 +33,7 @@ describe "Create project", js: true do
       it "shows all error messages" do
         project_form.submit_with(inputs)
         expect(project_form).to be_invalid
-        expect(project_form).to have_validation_error("Name can't be empty")
+        expect(project_form).to have_validation_error("Please enter a name")
       end
     end
   end

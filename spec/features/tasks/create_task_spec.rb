@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "Create task", js: true do
   
-  let(:circle)        { create(:circle, :with_admin_and_working_group) }
-  let(:admin)         { circle.admin }
+  let(:circle)         { create(:circle, :with_admin_and_working_group) }
+  let(:admin)          { circle.admin }
   let!(:working_group) { circle.working_groups.first }
 
   let(:task_form) { PageObject::Task::Form.new }
@@ -58,11 +58,9 @@ describe "Create task", js: true do
     it "shows all error messages" do
       task_form.submit_with(inputs)
       expect(task_form).to be_invalid
-      # FIXME validation messages in task & supply are inconsistent; fix em
-      # expect(task_form).to have_validation_error("Name can't be empty")
-      # expect(task_form).to have_validation_error("Please enter a due date")
-      # expect(task_form).to have_validation_error("Please enter a description")
-      # expect(task_form).to have_validation_error("Please enter a location")
+      expect(task_form).to have_validation_error("Please enter a name")
+      expect(task_form).to have_validation_error("Please enter a description")
+      expect(task_form).to have_validation_error("Please enter a location")
     end
   end
 

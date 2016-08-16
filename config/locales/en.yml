@@ -355,6 +355,9 @@
         :type: Access Type
         :volunteers: Volunteers
     :errors:
+      :attributes:
+        :location:
+          :blank: "LOCATION BLANK"
       :messages:
         :record_invalid: 'Validation failed: %{errors}'
         :restrict_dependent_destroy:
@@ -893,7 +896,7 @@
         :one: is the wrong length (should be 1 character)
         :other: is the wrong length (should be %{count} characters)
     :name:
-      :empty: Name can't be empty
+      :empty: Please enter a name
       :not_unique: This Working Group name is already been used. Please choose a different
         name.
     :organizer_id:
@@ -919,9 +922,9 @@
     :postal_code:
       :empty: Please enter a postal code
     :primary_location:
-      :empty: Location can't be empty
+      :empty: Please enter a location
     :start_date:
-      :empty: Start date can't be blank.
+      :empty: Start date can't be blank
     :start_time:
       :format: Please enter the start time in the format 00:00.
     :unacceptable_request: |

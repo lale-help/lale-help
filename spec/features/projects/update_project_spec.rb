@@ -27,7 +27,7 @@ describe "Update project", js: true do
       it "shows an error message" do
         project_form.submit_with(inputs)
         expect(project_form).to be_invalid
-        expect(project_form).to have_validation_error("Name can't be empty")
+        expect(project_form).to have_validation_error("Please enter a name")
       end
     end
   end
