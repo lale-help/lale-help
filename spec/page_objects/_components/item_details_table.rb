@@ -1,5 +1,3 @@
-require_relative '../component'
-
 module PageObject
   class Component
     class ItemDetailsTable < PageObject::Component
