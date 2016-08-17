@@ -21,5 +21,10 @@
 # 
 module PageObject
   class Page < SitePrism::Page
+
+    def has_flash?(message)
+      find('.flash-message', text: message)
+    end
+    
   end
 end

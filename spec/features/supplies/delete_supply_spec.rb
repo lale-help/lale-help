@@ -14,8 +14,8 @@ describe "Delete a supply", js: true do
 
   describe "delete a supply" do
     it "works" do
-      supply_page.edit_button.click
-      supply_page.delete_button.click
+      supply_page.edit_menu.open
+      supply_page.edit_menu.delete.click
       expect(supply_page).to have_flash("Supply was successfully destroyed.")
     end
   end

@@ -14,8 +14,8 @@ describe "Delete a task", js: true do
 
   describe "delete a task" do
     it "works" do
-      task_page.edit_button.click
-      task_page.delete_button.click
+      task_page.edit_menu.open
+      task_page.edit_menu.delete.click
       expect(task_page).to have_flash("Successfully deleted task.")
     end
   end

@@ -14,8 +14,8 @@ describe "Complete and reopen a supply", js: true do
 
   describe "completing a supply" do
     it "works" do
-      supply_page.edit_button.click
-      supply_page.complete_button.click
+      supply_page.edit_menu.open
+      supply_page.edit_menu.complete.click
       expect(supply_page).to be_completed
     end
   end
@@ -25,14 +25,14 @@ describe "Complete and reopen a supply", js: true do
     context "when supply is completed" do
 
       before do
-        supply_page.edit_button.click
-        supply_page.complete_button.click
+        supply_page.edit_menu.open
+        supply_page.edit_menu.complete.click
       end
 
       it "works" do
         expect(supply_page).to be_completed
-        supply_page.edit_button.click
-        supply_page.reopen_button.click
+        supply_page.edit_menu.open
+        supply_page.edit_menu.reopen.click
         expect(supply_page).to be_new
       end
     end

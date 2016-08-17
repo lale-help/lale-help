@@ -9,11 +9,7 @@ module PageObject
       element :headline, '.task-header .title'
       element :description, '.task-header .description'
 
-      # FIXME factor out
-      element :edit_button, 'aside .button-super'
-      element :complete_button, 'aside .menu a', text: /^Complete/
-      element :reopen_button, 'aside .menu a', text: /^Reopen/
-      element :delete_button, 'aside .menu a', text: /^Delete/
+      section :edit_menu, PageObject::Component::EditMenu, 'aside'
 
       # FIXME factor out
       def load_for(supply, as:)
@@ -28,11 +24,6 @@ module PageObject
       # FIXME factor out
       def new?
         find('.task.urgency--new')
-      end
-
-      # FIXME factor out
-      def has_flash?(message)
-        find('.flash-message', text: message)
       end
 
     end

@@ -14,8 +14,8 @@ describe "Complete and reopen a task", js: true do
 
   describe "completing a task" do
     it "works" do
-      task_page.edit_button.click
-      task_page.complete_button.click
+      task_page.edit_menu.open
+      task_page.edit_menu.complete.click
       expect(task_page).to be_completed
     end
   end
@@ -25,14 +25,14 @@ describe "Complete and reopen a task", js: true do
     context "when task is completed" do
 
       before do
-        task_page.edit_button.click
-        task_page.complete_button.click
+        task_page.edit_menu.open
+        task_page.edit_menu.complete.click
       end
 
       it "works" do
         expect(task_page).to be_completed
-        task_page.edit_button.click
-        task_page.reopen_button.click
+        task_page.edit_menu.open
+        task_page.edit_menu.reopen.click
         expect(task_page).to be_new
       end
     end
