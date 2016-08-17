@@ -11,9 +11,19 @@ module PageObject
 
       section :edit_menu, PageObject::Component::EditMenu, 'aside'
 
+      element :volunteer_button, '.button-primary', text: "I have this Supply"
+      element :decline_button, '.button-primary', text: "I don't have this Supply"
+      
+      elements :helper_badges, '.users-box .user-badge'
+
       # FIXME factor out
       def load_for(supply, as:)
         load(circle_id: supply.circle.id, supply_id: supply.id, as: as.id)
+      end
+
+      # FIXME factor out
+      def helper_names
+        helper_badges.map { |badge| badge.find('.user-name-shortened').text }
       end
 
       # FIXME factor out
