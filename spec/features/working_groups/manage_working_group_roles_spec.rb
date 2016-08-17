@@ -33,7 +33,7 @@ describe "Manage working group roles", js: true do
 
   describe "Volunteers" do
 
-    describe "add", js: false do
+    describe "add" do
     
       context "circle has a member that's not in the working group yet" do
         let!(:circle_member) { create(:circle_role_volunteer, circle: circle).user }
@@ -41,8 +41,8 @@ describe "Manage working group roles", js: true do
         before { roles_page.load_for(:members) }
         it "can be added" do
           expect do 
-            roles_page.add_button.click 
             roles_page.user_select.select(circle_member.name)
+            roles_page.add_button.click 
           end.to change { roles_page.volunteers.count }.by(1)
         end
       end
