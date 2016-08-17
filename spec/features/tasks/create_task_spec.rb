@@ -37,7 +37,7 @@ describe "Create task", js: true do
     before { task_form.load(circle_id: circle.id, as: admin.id) }
 
     it "creates the task" do
-      task_page = task_form.submit_with(inputs, show: true)
+      task_page = task_form.submit_with(inputs)
       expect(task_page.headline.text).to eq(inputs[:name])
       expect(task_page.description.text).to eq(inputs[:description])
       expect(task_page.num_required_volunteers).to eq(3)
