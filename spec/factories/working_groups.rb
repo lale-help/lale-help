@@ -35,13 +35,13 @@ FactoryGirl.define do
 
   end
 
-  factory :working_group_admin_role, class: WorkingGroup::Role do
+  factory :working_group_admin_role, aliases: [:working_group_organizer_role], class: WorkingGroup::Role do
     role_type { "admin" }
     user
     working_group
   end
 
-  factory :working_group_member_role, class: WorkingGroup::Role do
+  factory :working_group_member_role, aliases: [:working_group_volunteer_role], class: WorkingGroup::Role do
     role_type { "member" }
     user
     working_group
