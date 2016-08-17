@@ -32,20 +32,19 @@ describe "Create task", js: true do
 
     let!(:member_2) { create(:user) }
     let!(:working_group_2) { create(:working_group, circle: circle, members: [admin, member_2]) }
-    # FIXME receive the merge values from the factory. consider a custom build strategy.
-    let!(:inputs) { attributes_for(:full_task).merge(working_group: working_group_2.name, organizer: member_2.name) }
+    let!(:inputs) { attributes_for(:nondefault_task, working_group_name: working_group_2.name, organizer_name: member_2.name) }
 
     before { task_form.load(circle_id: circle.id, as: admin.id) }
 
     it "creates the task" do
-      task_page = task_form.submit_with(inputs)
+      task_page = task_form.submit_with(inputs, show: true)
       expect(task_page.headline.text).to eq(inputs[:name])
       expect(task_page.description.text).to eq(inputs[:description])
       expect(task_page.num_required_volunteers).to eq(3)
       expect(task_page.time_commitment.text).to eq("All day")
       expect(task_page.due_date_sentence).to eq("between Wednesday 30 January 2030 12:00 and Thursday 31 January 2030 14:00")
       expect(task_page.location.text).to include(inputs[:location])
-      expect(task_page.working_group.text).to eq(working_group_2.name)
+      expect(task_page.working_group.text).to eq(inputs[:working_group_name])
       expect(task_page.organizer.text).to eq("Organized by #{member_2.name}")
     end
   end

@@ -35,7 +35,7 @@ FactoryGirl.define do
     end
 
     # a task with all attributes set / set to non-default values
-    factory :full_task do
+    factory :nondefault_task do
       # some of these only work with attributes_for since the values are not valid for a model,
       # but required as they are for the form
       due "between"
@@ -46,7 +46,6 @@ FactoryGirl.define do
       start_date { Date.parse("2030-01-30") }
       start_time "12:00"
       volunteer_count_required 3
-
     end
   end
 end
