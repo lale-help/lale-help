@@ -2,11 +2,10 @@ module PageObject
   module Project
     class Page < PageObject::Page
 
-      element :name, '.project-dashboard .header .title'
-      section :details, PageObject::Component::ItemDetailsTable, '.item-details-table'
-      private :details # please don't access from outside as the page structure may change.
+      include HasItemDetailsTable
 
-      delegate :organizer, :working_group, to: :details
+      element :name, '.project-dashboard .header .title'
+      element :description, '.project-dashboard .header .description'
 
     end
   end

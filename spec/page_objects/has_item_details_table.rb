@@ -11,6 +11,8 @@ module HasItemDetailsTable
 
   included do
     section :details, PageObject::Component::ItemDetailsTable, '.item-details-table'
+    # to prevent strong coupling, item details should not be accessed from outside the page object
+    private :details  
     delegate :location, :time_commitment, :working_group, :organizer, :project, :has_project?, to: :details
   end
 
