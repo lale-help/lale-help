@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Task volunteer and decline spec", js: true do
+describe "Complete and reopen a task", js: true do
 
   let(:circle)        { create(:circle, :with_admin_and_working_group) }
   let(:admin)         { circle.admin }

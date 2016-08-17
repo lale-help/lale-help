@@ -16,6 +16,7 @@ module PageObject
       element :edit_button, 'aside .button-super'
       element :complete_button, 'aside .menu a', text: /^Complete/
       element :reopen_button, 'aside .menu a', text: /^Reopen/
+      element :delete_button, 'aside .menu a', text: /^Delete/
 
       element :task_badge, '.users-box .task-badge'
       elements :helper_badges, '.users-box .user-badge'
@@ -29,17 +30,26 @@ module PageObject
         load(circle_id: task.circle.id, task_id: task.id, as: as.id)
       end
 
+      # FIXME factor out
       def helper_names
         helper_badges.map { |badge| badge.find('.user-name-shortened').text }
       end
 
+      # FIXME factor out
       def completed?
         find('.task.urgency--complete')
       end
 
+      # FIXME factor out
       def new?
         find('.task.urgency--new')
       end
+      
+      # FIXME factor out
+      def has_flash?(message)
+        find('.flash-message', text: message)
+      end
+
 
     end
   end

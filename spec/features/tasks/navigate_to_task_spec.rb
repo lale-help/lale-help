@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Navigating to tasks", js: true do
+describe "Navigating to a task", js: true do
 
   let(:circle)        { create(:circle, :with_admin_and_working_group) }
   let(:admin)         { circle.admin }

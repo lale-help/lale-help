@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Create task", js: true do
+describe "Create a task", js: true do
   
   let(:circle)         { create(:circle, :with_admin_and_working_group) }
   let(:admin)          { circle.admin }
