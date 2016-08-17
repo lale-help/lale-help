@@ -32,6 +32,7 @@ FactoryGirl.define do
     factory :private_working_group do
       is_private true
     end
+
   end
 
   factory :working_group_admin_role, class: WorkingGroup::Role do

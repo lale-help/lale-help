@@ -4,8 +4,8 @@ module PageObject
 
       include HasItemDetailsTable
 
-      element :name, '.project-dashboard .header .title'
-      element :description, '.project-dashboard .header .description'
+      element :name, '.collection-dashboard .header .title'
+      element :description, '.collection-dashboard .header .description'
 
     end
   end
