@@ -3,7 +3,7 @@ require 'rails_helper'
 
 describe Task::Clone do
 
-  let(:task) { create(:task_with_location) }
+  let(:task) { create(:task, :with_location) }
 
   def cloned_task
     Task::Clone.run(task: task).result
