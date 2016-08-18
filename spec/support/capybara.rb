@@ -1,6 +1,13 @@
+Capybara.register_driver :poltergeist_debug do |app|
+  Capybara::Poltergeist::Driver.new(app, inspector: true)
+end
+
 unless (ENV['SELENIUM'])
   require 'capybara/poltergeist'
   Capybara.javascript_driver = :poltergeist
+  # Switch to this driver when you want to inspect the page under test with the 
+  # webkit console. Insert page.driver.debug into your test & the inspector will open.
+  # Capybara.javascript_driver = :poltergeist_debug
 else
   # leave selenium in for now as it is sometimes useful to follow the tests clicking through the page
   Capybara.current_driver = :selenium
@@ -31,6 +38,7 @@ end
 RSpec.configure do |config|
   module ScreenshotHelpers
     def show!
+      sleep 2
       save_and_open_screenshot
     end
   end
