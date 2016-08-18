@@ -13,6 +13,15 @@ module PageObject
 
       element :volunteer_button, '.button-primary', text: "I'll help"
       element :decline_button, '.button-primary', text: "I can't help anymore"
+
+      element :find_helpers_button, '#button-open-find-helpers'
+      
+      # this could be extracted to a FindHelpersModal component
+      section :invite_users_form, '.invite-helpers' do
+        element :invite_working_group, 'label[for=invite_working_group]'
+        element :invite_circle, 'label[for=invite_circle]'
+        element :submit_button, '.button-secondary'
+      end
       
       element :task_badge, '.users-box .task-badge'
       elements :helper_badges, '.users-box .user-badge'
