@@ -15,12 +15,19 @@ describe "Add and remove working group volunteers", js: true do
       let!(:circle_member) { create(:circle_role_volunteer, circle: circle).user }
 
       before { roles_page.load_for(:members) }
+      before { expect(roles_page.volunteers).to eq([admin.name]) }
       
       it "can be added" do
-        expect do 
-          roles_page.user_select.select(circle_member.name)
-          roles_page.add_button.click 
-        end.to change { roles_page.volunteers.count }.by(1)
+        roles_page.user_dropdown.select(circle_member.name)
+        # For a reason I wasn't able to debug in half a day, the div.field-row which contains the button 
+        # has a "display:none", but only in the test. So a regular .click can't access the button since
+        # it is not visible.
+        roles_page.add_button.trigger(:click)
+        # wait for the page to update. normally I would use
+        # roles_page.wait_for_users but since we're still on the same page after the reload,
+        # that would immediately trigger true and continue.
+        sleep 1 
+        expect(roles_page.volunteers).to eq([admin.name, circle_member.name])
       end
     end
   end
@@ -34,7 +41,7 @@ describe "Add and remove working group volunteers", js: true do
 
       before { roles_page.load_for(:members) }
 
-      it "one volunteer can be removed" do
+      it "volunteer can be removed" do
         expect(roles_page.volunteers).to eq([admin.name, volunteer.name])
         roles_page.users.first.remove_button.click
         expect(roles_page.volunteers).to eq([volunteer.name])

@@ -9,7 +9,9 @@ module PageObject
         element :remove_button, 'a', text: 'Remove'
       end
 
-      element :user_select, '#working_group_user_id'
+      element :no_users, 'td.empty'
+      
+      element :user_dropdown, '#working_group_user_id'
       element :add_button, 'input[type=submit][value=Add]'
 
       def initialize(circle, working_group, admin)
