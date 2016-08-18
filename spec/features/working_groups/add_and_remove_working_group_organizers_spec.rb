@@ -21,7 +21,7 @@ describe "Add and remove working group organizers", js: true do
         roles_page.user_dropdown.select(circle_member.name)
         # For a reason I wasn't able to debug in half a day, the div.field-row which contains the button 
         # has a "display:none", but only in the test. So a regular .click can't access the button since
-        # it is not visible.
+        # it is not visible. This will not work with selenium, though
         roles_page.add_button.trigger(:click)
         # wait for the page to update. normally I would use
         # roles_page.wait_for_users but since we're still on the same page after the reload,
