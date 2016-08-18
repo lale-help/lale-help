@@ -2,7 +2,7 @@ module PageObject
   module Supply
     class Page < PageObject::Page
 
-      set_url '/circles/{circle_id}/supplies/{supply_id}?as={as}'
+      set_url '/circles/{circle_id}/supplies/{supply_id}{?as}'
 
       include HasItemDetailsTable
 

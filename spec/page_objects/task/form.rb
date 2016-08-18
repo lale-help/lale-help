@@ -2,7 +2,7 @@ module PageObject
   module Task
     class Form < PageObject::Page
 
-      set_url '/circles/{circle_id}/tasks/new?as={as}'
+      set_url '/circles/{circle_id}/tasks/new{?as}'
 
       element :title, 'main.form h2'
 

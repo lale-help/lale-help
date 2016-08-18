@@ -2,7 +2,7 @@ module PageObject
   module Circle
     class MyActivities < PageObject::Page
 
-      set_url '/circles/{circle_id}/taskables/volunteer?as={as}'
+      set_url '/circles/{circle_id}/taskables/volunteer{?as}'
 
       section :tab_nav, '.tab-nav' do
         element :organizing, 'a', text: /Organizing/

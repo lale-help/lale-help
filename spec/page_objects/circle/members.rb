@@ -2,7 +2,7 @@ module PageObject
   module Circle
     class Members < PageObject::Page
 
-      set_url '/circles/{circle_id}/members?as={as}'
+      set_url '/circles/{circle_id}/members{?as}'
 
       section :tab_nav, '.tab-nav' do
         element :organizers, 'a', text: /Organizers/

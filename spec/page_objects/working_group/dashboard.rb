@@ -5,7 +5,7 @@
 #   module WorkingGroup
 #     class Dashboard < PageObject::Page
 
-#       set_url '/circles/{circle_id}/working_groups/{wg_id}?as={as}'
+#       set_url '/circles/{circle_id}/working_groups/{wg_id}{?as}'
 
 #       element :name, '.collection-dashboard .header .title'
 #       element :description, '.collection-dashboard .header .description'

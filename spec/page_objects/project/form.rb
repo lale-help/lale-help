@@ -4,7 +4,7 @@ module PageObject
 
       include PageObject::IsForm
 
-      set_url '/circles/{circle_id}/projects/new?as={as}'
+      set_url '/circles/{circle_id}/projects/new{?as}'
 
       element :name, "#project_name"
       element :description, "#project_description"

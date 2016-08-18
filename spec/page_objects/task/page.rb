@@ -2,7 +2,7 @@ module PageObject
   module Task
     class Page < PageObject::Page
 
-      set_url '/circles/{circle_id}/tasks/{task_id}?as={as}'
+      set_url '/circles/{circle_id}/tasks/{task_id}{?as}'
 
       include HasItemDetailsTable
 

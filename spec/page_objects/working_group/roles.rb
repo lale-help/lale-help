@@ -2,7 +2,7 @@ module PageObject
   module WorkingGroup
     class Roles < PageObject::Page
 
-      set_url '/circles/{circle_id}/working_groups/{wg_id}/edit/{role_type}?as={as}'
+      set_url '/circles/{circle_id}/working_groups/{wg_id}/edit/{role_type}{?as}'
 
       sections :users, '.default-table tr' do
         element :name, 'td:nth-child(1)'
