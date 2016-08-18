@@ -38,5 +38,9 @@ FactoryGirl.define do
       end
     end
 
+    trait :completed do
+      completed_at { Date.today }
+    end
+
   end
 end
