@@ -18,8 +18,6 @@ describe "Show my activities", js: true do
 
   describe "Volunteered tasks and supplies" do
 
-    before { activities_page.load(circle_id: circle.id, as: admin.id) }
-
     it "shows only volunteered resources" do
       expect(activities_page).to have_task(task_where_admin_is_volunteer)
       expect(activities_page).to have_supply(supply_where_admin_is_volunteer)
