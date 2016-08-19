@@ -16,6 +16,10 @@ FactoryGirl.define do
 
     factory :circle_file_upload do
     end
+
+    factory :working_group_file_upload do
+        uploadable { create(:working_group) }
+    end
 end
 
   factory :file_upload_form, class: FileUpload::CreateForm do

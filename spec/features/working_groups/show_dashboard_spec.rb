@@ -11,9 +11,9 @@ describe "Show working group dashboard", js: true do
   let!(:task)   { create(:task, working_group: working_group) }
   let!(:supply) { create(:supply, working_group: working_group) }
   let!(:project) { create(:project, working_group: working_group) }
-  let!(:file) { create(:circle_file_upload, uploadable: circle) }
+  let!(:file) { create(:working_group_file_upload, uploadable: working_group) }
 
-  before { dashboard_page.load(circle_id: circle.id, as: admin.id) }
+  before { dashboard_page.load(circle_id: circle.id, wg_id: working_group.id, as: admin.id) }
 
   it "shows the working group's resources" do
     expect(dashboard_page).to have_task(task)
