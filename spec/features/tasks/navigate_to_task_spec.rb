@@ -37,7 +37,7 @@ describe "Navigating to a task", js: true do
       before { circle_dashboard.load(circle_id: circle.id, as: admin.id) }
 
       it "works" do
-        circle_dashboard.tasks.first.click
+        circle_dashboard.tasks.first.name.click
         task_page.wait_for_headline
         expect(task_page.headline.text).to eq(task.name)
         expect(task_page.description.text).to eq(task.description)

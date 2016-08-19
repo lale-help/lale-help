@@ -47,7 +47,7 @@ describe 'Navigate to a supply', js: true do
 
         it "can be reached" do
           circle_dashboard.tab_nav.supplies.click
-          circle_dashboard.supplies.first.click
+          circle_dashboard.supplies.first.name.click
           supply_page.wait_for_headline
           expect(supply_page.headline.text).to eq(supply.name)
           expect(supply_page.description.text).to eq(supply.description)
