@@ -4,11 +4,8 @@ module PageObject
 
       set_url '/circles/{circle_id}{?as}'
 
-      # FIXME review if it should be DRYed up
-      element :add_button, '.button-super', text: /Add/
-      element :supply_button, '.menu a', text: /Supply/
-      element :task_button, '.menu a', text: /Task/
-      
+      section :add_menu, PageObject::Component::AddMenu, '#sidebar'
+
       section :tab_nav, '.tab-nav' do
         element :supplies, 'a', text: /Supplies/
         element :projects, 'a', text: /Projects/

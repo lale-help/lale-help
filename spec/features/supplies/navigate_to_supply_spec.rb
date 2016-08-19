@@ -18,8 +18,8 @@ describe 'Navigate to a supply', js: true do
 
       context 'when logged in as admin' do
         it 'can be reached' do
-          circle_dashboard.add_button.click
-          circle_dashboard.supply_button.click
+          circle_dashboard.add_menu.open
+          circle_dashboard.add_menu.supply.click
           expect(supply_form.title.text).to eq("Create a new Supply")
         end
       end
@@ -27,7 +27,7 @@ describe 'Navigate to a supply', js: true do
 
     context "when logged in as volunteer" do
       it "can't be reached" do
-        expect(circle_dashboard).not_to have_add_button
+        expect(circle_dashboard).not_to have_add_menu
       end
     end
 
