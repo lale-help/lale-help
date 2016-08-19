@@ -45,7 +45,6 @@ module LaleHelp
     # 3.  every now and then, remove toggles for stable features from the application.
     #
     config.x.feature_toggles.files = false   # added 2016-04-25
-    config.x.feature_toggles.working_group_files = false   # added 2016-05-09
 
     config.autoload_paths += %W(
       #{config.root}/app/mutations/concerns

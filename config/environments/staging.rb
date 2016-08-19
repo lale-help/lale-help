@@ -7,7 +7,6 @@ Rails.application.configure do
   config.i18n.fallbacks = false
 
   config.x.feature_toggles.files = true
-  config.x.feature_toggles.working_group_files = true
 
   # FIXME add correct id
   config.x.google_analytics_id = 'UA-69286385-3'

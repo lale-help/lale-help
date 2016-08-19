@@ -44,6 +44,5 @@ Rails.application.configure do
 
   # see application.rb for feature_toggle documentation
   config.x.feature_toggles.files = true
-  config.x.feature_toggles.working_group_files = true
 
 end
