@@ -56,6 +56,15 @@ describe "Working group factory" do
       end
     end
 
+    describe "the :with_members trait" do
+      it "assigns the new users as volunteers" do
+        wg = create(:working_group, :with_members)
+        expect(wg.members.size).to eq(2)
+        expect(wg.members.first).to be_a(User)
+        expect(wg.members.second).to be_a(User)
+      end
+    end
+
   end
 
 end

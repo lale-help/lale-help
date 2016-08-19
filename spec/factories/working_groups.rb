@@ -29,6 +29,13 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_members do
+      after(:create) do |wg, evaluator|
+        create(:working_group_volunteer_role, working_group: wg, user: create(:user))
+        create(:working_group_volunteer_role, working_group: wg, user: create(:user))
+      end
+    end
+
     factory :private_working_group do
       is_private true
     end

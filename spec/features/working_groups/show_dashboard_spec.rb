@@ -2,9 +2,10 @@ require 'rails_helper'
 
 describe "Show working group dashboard", js: true do
 
-  let(:circle)        { create(:circle, :with_admin_and_working_group) }
+  let(:circle)        { create(:circle, :with_admin) }
   let(:admin)         { circle.admin }
-  let(:working_group) { circle.working_groups.first }
+  let(:working_group) { create(:working_group, :with_members, circle: circle, admin: admin) }
+  let(:volunteers)    { working_group.members }
 
   let(:dashboard_page) { PageObject::WorkingGroup::Dashboard.new }
 
@@ -30,7 +31,8 @@ describe "Show working group dashboard", js: true do
     expect(dashboard_page).to have_file(file)
   end
 
-  xit "shows organizers and volunteers" do
+  it "shows organizers and volunteers" do
+    show!
   end
 
 end
