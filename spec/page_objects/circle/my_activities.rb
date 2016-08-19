@@ -4,12 +4,7 @@ module PageObject
 
       set_url '/circles/{circle_id}/taskables/volunteer{?as}'
 
-      section :tab_nav, '.tab-nav' do
-        element :organizing, 'a', text: /Organizing/
-        # a little hack to be able to add a load validation 
-        # (this page object can be used for the volunteering and organizing tabs)
-        element :organizing_active, 'a.selected', text: /Organizing/
-      end
+      section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
 
       # FIXME review if it should be DRYed up
       sections :tasks, '#my-tasks-list' do

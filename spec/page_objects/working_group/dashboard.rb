@@ -1,16 +1,54 @@
+#
+# FIXME review Circle, WorkingGroup and Project Dashboard page
+# for refactorings/extractions.
+# 
+module PageObject
+  module WorkingGroup
+    class Dashboard < PageObject::Page
 
-# not used right now
+      set_url '/circles/{circle_id}/working_groups/{wg_id}{?as}'
 
-# module PageObject
-#   module WorkingGroup
-#     class Dashboard < PageObject::Page
+      section :add_menu, PageObject::Component::AddMenu, '#sidebar'
+      section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
 
-#       set_url '/circles/{circle_id}/working_groups/{wg_id}{?as}'
+      sections :tasks, ".open_tasks .task" do
+        element :name, '.task-title'
+      end
 
-#       element :name, '.collection-dashboard .header .title'
-#       element :description, '.collection-dashboard .header .description'
-#       elements :organizers, '.users-box .user-name-shortened a'
+      sections :supplies, ".open_supplies .task" do
+        element :name, '.task-title'
+      end
 
-#     end
-#   end
-# end
+      sections :projects, ".tab.projects tbody tr" do
+        element :name, 'td:nth-child(1) a'
+      end
+
+      sections :files, ".tab.documents tbody tr" do
+        element :name, 'td:nth-child(1) a'
+      end
+
+      element :page_title_element, '.circle-dashboard .header .title'
+
+      def page_title
+        page_title_element.text
+      end
+
+      def has_task?(task_to_find)
+        tasks.any? { |task| task.name.text == task_to_find.name }
+      end
+
+      def has_supply?(supply_to_find)
+        supplies.any? { |supply| supply.name.text == supply_to_find.name }
+      end
+
+      def has_project?(project_to_find)
+        projects.any? { |project| project.name.text == project_to_find.name }
+      end
+
+      def has_file?(file_to_find)
+        files.any? { |file| file.name.text == file_to_find.name }
+      end
+
+    end
+  end
+end

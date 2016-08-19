@@ -4,9 +4,7 @@ module PageObject
 
       set_url '/circles/{circle_id}/members{?as}'
 
-      section :tab_nav, '.tab-nav' do
-        element :organizers, 'a', text: /Organizers/
-      end
+      section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
 
       sections :users, '.member-list tbody tr' do
         element :name, '.name a'
