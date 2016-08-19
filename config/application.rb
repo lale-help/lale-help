@@ -44,7 +44,7 @@ module LaleHelp
     # 2.  when ready to go live, set toggle to true here, remove in all other environments
     # 3.  every now and then, remove toggles for stable features from the application.
     #
-    config.x.feature_toggles.files = false   # added 2016-04-25
+    config.x.feature_toggles.example = false   # added YYYY-MM-DD
 
     config.autoload_paths += %W(
       #{config.root}/app/mutations/concerns

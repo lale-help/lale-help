@@ -16,7 +16,6 @@ nav#sidebar
       h4= t('.overviews')
       - if can?(:read, current_circle)
         = sidebar_link(t('.directory'), circle_members_path(current_circle))
-      - if feature_enabled?(:files)
         = sidebar_link(t('.documents'), circle_documents_path(current_circle))
       - if visible_projects?
         = sidebar_link(t('.projects'), circle_projects_path(current_circle), badge_text: projects_count)

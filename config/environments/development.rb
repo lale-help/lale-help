@@ -43,6 +43,6 @@ Rails.application.configure do
   config.mandrill_templates = ENV.fetch("MANDRILL_TEMPLATES", "false") == "true"
 
   # see application.rb for feature_toggle documentation
-  config.x.feature_toggles.files = true
+  config.x.feature_toggles.example = false   # added YYYY-MM-DD
 
 end
