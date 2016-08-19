@@ -27,11 +27,7 @@ module PageObject
         element :name, 'td:nth-child(1) a'
       end
 
-      element :page_title_element, '.circle-dashboard .header .title'
-
-      def page_title
-        page_title_element.text
-      end
+      element :headline, '.collection-dashboard .header .title'
 
       def has_task?(task_to_find)
         tasks.any? { |task| task.name.text == task_to_find.name }

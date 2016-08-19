@@ -16,6 +16,8 @@ describe "Show working group dashboard", js: true do
   before { dashboard_page.load(circle_id: circle.id, wg_id: working_group.id, as: admin.id) }
 
   it "shows the working group's resources" do
+    expect(dashboard_page.headline.text).to eq(working_group.name)
+
     expect(dashboard_page).to have_task(task)
 
     dashboard_page.tab_nav.supplies.click

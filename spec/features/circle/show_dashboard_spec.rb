@@ -16,6 +16,8 @@ describe "Show circle dashboard", js: true do
   before { dashboard_page.load(circle_id: circle.id, as: admin.id) }
 
   it "shows the circle resources" do
+    expect(dashboard_page.headline.text).to eq("Dashboard for #{circle.name}")
+    
     expect(dashboard_page).to have_task(task)
 
     dashboard_page.tab_nav.supplies.click
