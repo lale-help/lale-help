@@ -12,7 +12,6 @@ describe 'Navigate to a supply', js: true do
 
     let(:supply_form) { PageObject::Supply::Form.new }
 
-    # FIXME consider moving this spec to a circle dashboard spec
     context "when on the circle dashboard" do
 
       before { circle_dashboard.load(circle_id: circle.id, as: admin.id) }
