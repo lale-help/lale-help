@@ -1,17 +1,9 @@
 class Circle::TasksController < ApplicationController
   layout "internal"
   before_action :ensure_logged_in
-  before_action :set_back_path, only: [:index, :my, :open, :completed]
+  before_action :set_back_path, only: [:my, :open, :completed]
 
   include HasCircle
-
-  def index
-    authorize! :read, current_circle
-    @tasks = current_circle.tasks.not_completed.ordered_by_date.select do |task|
-      can? :read, task
-    end
-  end
-
 
   def completed
     authorize! :read, current_circle
@@ -70,18 +62,18 @@ class Circle::TasksController < ApplicationController
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.created', name: Task.model_name.human)
-
+      set_flash(:success)
+      redirect_to circle_task_path(current_circle, outcome.result)
     else
+      set_flash_now(:error)
       errors.add outcome.errors
-
       render :new
     end
   end
 
 
   def update
-    authorize! :update,      current_task
+    authorize! :update, current_task
 
     model_params = {user: current_user, task: current_task, circle: current_circle, ability: current_ability}
     @form = Task::Update.new(params[:task], model_params, send_notifications: !!params[:send_notifications])
@@ -89,9 +81,10 @@ class Circle::TasksController < ApplicationController
     outcome = @form.submit
 
     if outcome.success?
-      redirect_to circle_task_path(current_circle, outcome.result), notice: t('flash.updated', name: Task.model_name.human)
-
+      set_flash(:success)
+      redirect_to circle_task_path(current_circle, outcome.result)
     else
+      set_flash_now(:error)
       errors.add outcome.errors
       render :edit
     end
@@ -100,53 +93,65 @@ class Circle::TasksController < ApplicationController
 
   def destroy
     authorize! :destroy, current_task
-
     Task::Destroy.run(task: current_task, user: current_user)
-
-    redirect_to circle_tasks_path(current_circle), notice: t('flash.destroyed', name: Task.model_name.human)
+    set_flash(:success)
+    redirect_to circle_working_group_path(current_task.working_group.circle, current_task.working_group)
   end
 
 
+  # TODO extract to a TaskRoles controller
   def volunteer
     authorize! :volunteer, current_task
 
     outcome = Task::Volunteer.run(user: current_user, task: current_task)
 
-    if outcome.success?
-      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.volunteered', name: current_task.name)
-    else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.volunteer_failed', name: current_task.name)
-    end
+    set_flash(outcome.success? ? :success : :error)
+    redirect_to circle_task_path(current_circle, current_task)
   end
 
+
+  # TODO extract to a TaskRoles controller
   def assign_volunteer
     new_volunteers = User.where(id: params['new_volunteer_ids']).to_a
     authorize!(:assign_volunteers, current_task, new_volunteers)
 
     outcome = Task::Assign.run(users: new_volunteers, task: current_task, current_user: current_user)
 
-    outcome.success? ? head(:ok) : head(:unprocessable_entity)
+    if outcome.success? 
+      set_flash(:success)
+      head(:ok)
+    else
+      set_flash(:error)
+      head(:unprocessable_entity)
+    end
   end
 
+
+  # TODO extract to a TaskRoles controller
   def unassign_volunteer
     user = User.find(params['user_id'])
     authorize!(:unassign_volunteers, current_task, user)
 
     outcome = Task::Unassign.run(users: [user], task: current_task, current_user: current_user)
 
-    outcome.success? ? head(:ok) : head(:unprocessable_entity)
+    if outcome.success? 
+      set_flash(:success)
+      head(:ok)
+    else
+      set_flash(:error)
+      head(:unprocessable_entity)
+    end
   end
 
+
+  # TODO extract to a TaskRoles controller
   def decline
     authorize! :decline, current_task
 
     outcome = Task::Decline.run(user: current_user, task: current_task)
 
-    if outcome.success?
-      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.declined', name: current_task.name)
-    else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.decline_failed', name: current_task.name)
-    end
+    set_flash(outcome.success? ? :success : :error)
+    redirect_to circle_task_path(current_circle, current_task)
   end
 
 
@@ -155,11 +160,8 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Complete.run(user: current_user, task: current_task)
 
-    if outcome.success?
-      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.completed', name: current_task.name)
-    else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.complete_failed', name: current_task.name)
-    end
+    set_flash(outcome.success? ? :success : :error)
+    redirect_to circle_task_path(current_circle, current_task)
   end
 
 
@@ -168,11 +170,8 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Reopen.run(user: current_user, task: current_task)
 
-    if outcome.success?
-      redirect_to circle_task_path(current_circle, current_task), notice: t('tasks.flash.reopened', name: current_task.name)
-    else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.reopening_failed', name: current_task.name)
-    end
+    set_flash(outcome.success? ? :success : :error)
+    redirect_to circle_task_path(current_circle, current_task)
   end
 
   # TODO extract to an InvitationsController (which can then also be used by the other resources that need invitations)
@@ -182,11 +181,11 @@ class Circle::TasksController < ApplicationController
     outcome = Task::Notifications::InvitationEmail.run(current_user: current_user, task: current_task, type: params[:type])
 
     if outcome.success?
-      flash[:notice] = t('flash.actions.invited', name: current_task.name, count: outcome.result.volunteers.size, model: Task.model_name.human.downcase )
-      redirect_to circle_task_path(current_circle, current_task)
+      set_flash(:success, count: outcome.result.volunteers.size)
+      head :ok
     else
-      flash[:error] = t('tasks.flash.invite_failed', name: current_task.name)
-      redirect_to circle_task_path(current_circle, current_task)
+      set_flash(:error)
+      head :unprocessable_entity
     end
   end
 
@@ -197,12 +196,13 @@ class Circle::TasksController < ApplicationController
     outcome = Task::Clone.run(task: current_task)
 
     if outcome.success?
+      set_flash(:success)
       @task = outcome.result
       @form = Task::Update.new(current_task, user: current_user, task: @task, circle: current_circle, ability: current_ability, original_task_id: original_task_id)
       render :new
-
     else
-      redirect_to circle_task_path(current_circle, current_task), alert: t('tasks.flash.cloning_failed', name: current_task.name)
+      set_flash(:error)
+      redirect_to circle_task_path(current_circle, current_task)
     end
   end
 
@@ -210,4 +210,18 @@ class Circle::TasksController < ApplicationController
     @task ||= Task.find(params[:id] || params[:task_id])
   end
 
+  private
+
+  def set_flash(type, options = {})
+    flash[type] = flash_msg_for(type, options)
+  end
+
+  def set_flash_now(type, options = {})
+    flash.now[type] = flash_msg_for(type, options)
+  end
+
+  def flash_msg_for(type, options)
+    msg_options = { scope: "tasks.flash.#{action_name}" }.merge(options)
+    t(type, msg_options)
+  end
 end

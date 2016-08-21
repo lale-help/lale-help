@@ -8,7 +8,7 @@ module Taskable
     belongs_to :project
     has_one :circle, through: :working_group
 
-    has_many :roles
+    has_many :roles, dependent: :destroy
 
     has_many :users,       ->{ distinct                    }, through: :roles
     has_many :volunteers,  ->{ klass::Role.send("#{klass.to_s.downcase}.volunteer") }, through: :roles, source: :user

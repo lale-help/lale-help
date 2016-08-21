@@ -80,9 +80,13 @@
 
         - if can? :invite_to, current_project
           = form_tag circle_project_invite_path(current_circle, project, type: :working_group), method: :post do
-            button.button.button-secondary= t('helpers.invite_working_group')
+            - label = t('helpers.invite_working_group')
+            button.button.button-secondary data-disable-with=label
+              = label
 
         - unless project.working_group.is_private?
           - if can? :manage, current_project.circle
             = form_tag circle_project_invite_path(current_circle, project, type: :circle), method: :post do
-              button.button.button-secondary= t('helpers.invite_circle')
+              - label = t('helpers.invite_circle')
+              button.button.button-secondary data-disable-with=label
+                = label

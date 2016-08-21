@@ -7,16 +7,14 @@ Rails.application.routes.draw do
   resources :circles do
     scope module: 'circle' do
       resource :admin do
-        get :roles
-        get :working_groups
-        get :invite
+        get :roles, :working_groups, :invite, :sponsors
         post :activate_member
       end
 
       resources :members do
-        get :public, on: :collection
         put :activate, on: :member
         put :block, on: :member
+        put :unblock, on: :member
         resources :comments, only: [:create, :index, :destroy, :update]
       end
 
@@ -77,7 +75,7 @@ Rails.application.routes.draw do
 
   get '/ping', to: 'website#ping'
 
-  get '/styles/:id', to: 'styleguides#show'
+  get '/styles', to: 'styleguide#show'
 
   namespace :user do
     resources :identities

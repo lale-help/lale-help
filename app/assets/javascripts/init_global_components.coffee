@@ -2,6 +2,7 @@
 # This file is intended to initialize JS components that we use on several pages.
 # No page-specific selectors should be used in here (thus, _components_).
 # 
+# 
 ready = ->
   # tabbed horizontal navigation that we use on the collection pages 
   # (circle, working group and project dashboards)

@@ -122,6 +122,7 @@
     :previous: Previous
     :search_status:
       :current_filters: 'Current filters:'
+      :current_scope: 'Scope:'
       :headline: 'Scope:'
       :no_current_filters: None
     :sidebars:
@@ -190,6 +191,9 @@
         :organizer_id: Organizer
         :working_group: Working group
         :working_group_id: Working group
+      :sponsorship:
+        :starts_on: Starts on
+        :ends_on: Ends on
       :role:
         :actions: Actions
       :supply:
@@ -351,6 +355,9 @@
         :type: Access Type
         :volunteers: Volunteers
     :errors:
+      :attributes:
+        :location:
+          :blank: "LOCATION BLANK"
       :messages:
         :record_invalid: 'Validation failed: %{errors}'
         :restrict_dependent_destroy:
@@ -363,6 +370,12 @@
       :project:
         :one: Project
         :other: Projects
+      :sponsor:
+        :one: sponsor
+        :other: sponsors
+      :sponsorship:
+        :one: sponsorship
+        :other: sponsorships
       :supply:
         :one: Supply
         :other: Supplies
@@ -488,21 +501,19 @@
     :members:
       :index:
         :directory: Helper list
-        :total_members: shows %{showing} of %{total} helpers
+        :total_members: Shows %{showing} of %{total} helpers.
       :list:
         :help_provided: Help Provided
         :last_help_provided: Last helped
       :nav:
         :all-helpers: All Helpers
         :organizers: Organizers
-      :public:
-        :public_members: Helper list
       :show:
         :address: Address
-        :back: Back to Helper List
+        :back: Back
         :circles: Circles
         :contact: Contact
-        :edit_profile: Edit Profile
+        :edit_profile: Edit my profile
         :member_since: Member Since
         :roles: Roles
         :tasks_supplies_completed: Help provided
@@ -818,10 +829,6 @@
   :edit: EDIT
   :error_correction: Please correct the errors below.
   :errors:
-    :due_date:
-      :empty: Please enter a due date
-    :location:
-      :empty: Please enter a location
     :about_me:
       :too_long: maximum 300 characters
     :accept_terms:
@@ -836,6 +843,8 @@
     :description:
       :empty: Please enter a description
       :too_short: Description is too short
+    :due_date:
+      :empty: Please enter a due date
     :due_time:
       :format: Please enter the due time in the format 00:00.
     :email:
@@ -849,9 +858,13 @@
       :empty: First name is required
       :nils: Please provide your first name.
     :format: "%{attribute} %{message}"
+    :image_file:
+      :required: Please provide an image file
     :last_name:
       :empty: Last name is required
       :nils: Please provide your last name.
+    :location:
+      :empty: Please enter a location
     :messages:
       :accepted: must be accepted
       :blank: can't be blank
@@ -878,16 +891,18 @@
       :too_short:
         :one: is too short (minimum is 1 character)
         :other: is too short (minimum is %{count} characters)
+      :url: is not a valid URL (please add http://)
       :wrong_length:
         :one: is the wrong length (should be 1 character)
         :other: is the wrong length (should be %{count} characters)
     :name:
-      :empty: Name can't be empty
+      :empty: Please enter a name
       :not_unique: This Working Group name is already been used. Please choose a different
         name.
     :organizer_id:
       :at_least_one_required: Working group must have at least one organizer.
       :empty: Please choose an organizer
+      :nils: Please choose an organizer
     :password:
       :does_not_match: Your password did not match the password confirmation.
       :empty: Password is required.
@@ -907,9 +922,9 @@
     :postal_code:
       :empty: Please enter a postal code
     :primary_location:
-      :empty: Location can't be empty
+      :empty: Please enter a location
     :start_date:
-      :empty: Start date can't be blank.
+      :empty: Start date can't be blank
     :start_time:
       :format: Please enter the start time in the format 00:00.
     :unacceptable_request: |
@@ -941,12 +956,14 @@
       :destroy:
         :alert: "%{resource_name} could not be removed."
         :notice: "%{resource_name} was successfully removed."
-      :invited:
-        :one: Invited %{count} volunteer to this %{model}.
-        :other: Invited %{count} volunteers to this %{model}.
-        :zero: There aren't any members to invite to this %{model}.
       :update:
         :notice: "%{resource_name} was successfully updated."
+      :invite:
+        :notice:
+          :one: "Invited %{count} member."
+          :other: "Invited %{count} members."
+          :zero: "There aren't any members to invite."
+        :alert: "Unable to invite members. Please try again later."
     :created: "%{name} was successfully created."
     :destroyed: "%{name} was successfully destroyed."
     :failed:
@@ -962,6 +979,8 @@
         :save-failed: We could not save your settings. Please fix any errors and try
           again.
         :saved: Your settings have been saved.
+  :formtastic:
+    :reset: Reset %{model}
   :helpers:
     :assign: Assign helpers
     :assigning: Assigning &hellip;
@@ -1024,7 +1043,7 @@
         :find-circles: Find Circles
         :help: Need help with lale?
         :help_email_subject: I need help with lale
-        :settings: Your profile
+        :settings: My profile
         :sign-out: Sign Out
         :switch_to_circle: Switch to "%{circle_name}"
       :sidebar:
@@ -1043,7 +1062,6 @@
         :organizers: Organizers
         :overviews: Overviews
         :projects: Projects
-        :public_members: Helper list
         :supplies: Supplies
         :working_groups: Working Groups
     :public:
@@ -1122,7 +1140,7 @@
     :circles:
       :index:
         :create-circle-button: Create a new Circle
-        :create-circle-phrase: If you don't want to join this circle, you can
+        :create-circle-phrase: If you can't find your circle, you can
         :title: Circles in your area
       :membership_inactive:
         :blocked:
@@ -1313,12 +1331,43 @@
         :other: "%{unassignees} were unassigned from this task by %{unassigner} on
           %{date}."
     :flash:
-      :completed: Thanks for completing %{name}!
-      :decline_failed: Failed to decline from %{name}.
-      :declined: Successfully declined from %{name}.
-      :reopened: Task has been re-opened
-      :reopening_failed: There was a problem re-opening this task
-      :volunteered: Thanks for volunteering for %{name}!
+      :create:
+        :success: Successfully created task.
+        :error: Failed to create task.
+      :update:
+        :success: Successfully updated task.
+        :error: Failed to update task.
+      :destroy:
+        :success: Successfully deleted task.
+        :error: Failed to delete task.
+      :invite:
+        :success:
+          :one: Invited %{count} member.
+          :other: Invited %{count} members.
+          :zero: There aren't any members to invite.
+        :error: Unable to invite members. Please try again later.
+      :assign_volunteer: 
+        :success: "Sucessfully assigned volunteers."
+        :error: "Failed to assign volunteers."
+      :unassign_volunteer: 
+        :success: "Sucessfully unassigned volunteer."
+        :error: "Failed to unassign volunteer."
+      :complete: 
+        :success: Thanks for completing this task!
+        :error: "Couldn't complete this task!"
+      :decline: 
+        :success: Successfully declined.
+        :error: Failed to decline.
+      :reopen: 
+        :success: Task has been re-opened.
+        :error: There was a problem re-opening this task
+      :volunteer: 
+        :success: Thanks for volunteering!
+        :error: Failed to volunteer!
+      :clone:
+        :success: Successfully copied task.
+        :error: Failed to clone task.
+
   :time:
     :am: am
     :formats:
@@ -1337,7 +1386,7 @@
         :country_select: Select Country
         :error_correction: Please correct the errors below.
         :reset_password: Reset your Password
-        :title: Your profile
+        :title: My profile
         :update_settings: Update Settings
       :reset_password:
         :password: Password
@@ -1345,9 +1394,9 @@
         :reset_password: Reset your Password
         :update: Update your Password
       :show:
-        :edit_profile: Edit Profile
+        :edit_profile: Edit my profile
         :reset_password: Reset Password
-        :title: Your Profile
+        :title: My Profile
         :view_public_profile: View your public profile
     :identities:
       :new:
@@ -1369,6 +1418,10 @@
         :state_province: State / Province
         :street_address: Street Address
   :users:
+    :auto_comment:
+      :status_change_activated: "%{member} was activated on %{date} by %{user}."
+      :status_change_blocked: "%{member} was blocked on %{date} by %{user}."
+      :status_change_unblocked: "%{member} was unblocked on %{date} by %{user}."
     :flash:
       :password_reset_success: Your password was successfully updated
   :users_box:

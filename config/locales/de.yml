@@ -121,6 +121,7 @@
     :previous: Zurück
     :search_status:
       :current_filters: 'Aktuelle Filter:'
+      :current_scope: 'Anwendungsbereich:'
       :headline: 'Anwendungsbereich:'
       :no_current_filters: Keine
     :sidebars:
@@ -219,6 +220,9 @@
         :volunteer_count_required: Anzahl der benötigten Helfer
         :working_group: Arbeitsgruppe
         :working_group_id: Arbeitsgruppe
+      :sponsorship:
+        :starts_on: Beginnt am
+        :ends_on: Endet am
       :system_event:
         :action: Aktion
         :for: für
@@ -363,6 +367,12 @@
       :project:
         :one: Projekt
         :other: Projekte
+      :sponsor:
+        :one: Sponsor
+        :other: Sponsoren
+      :sponsorship:
+        :one: Sponsorship
+        :other: Sponsorships
       :supply:
         :one: Sachspende
         :other: Sachspenden
@@ -488,21 +498,19 @@
     :members:
       :index:
         :directory: Helferliste
-        :total_members: zeigt %{showing} von %{total} Helfern
+        :total_members: Zeige %{showing} von %{total} Helfern.
       :list:
         :help_provided: Bereits geholfen
         :last_help_provided: Zuletzt geholfen
       :nav:
         :all-helpers: Alle Helfer
         :organizers: Organisatoren
-      :public:
-        :public_members: Helferliste
       :show:
         :address: Anschrift
-        :back: Zurück zur Helferliste
+        :back: Zurück
         :circles: Helferkreise
         :contact: Kontakt
-        :edit_profile: Dein Profil ändern
+        :edit_profile: Mein Profil ändern
         :member_since: Mitglied seit
         :roles: Rollen
         :tasks_supplies_completed: Geleistete Hilfe
@@ -831,6 +839,8 @@
     :description:
       :empty: Beschreibung kann nicht leer sein.
       :too_short: Beschreibung ist zu kurz
+    :due_date:
+      :empty: Bitte ein Fälligskeitsdatum eingeben
     :due_time:
       :format: Bitte die Zeit im Format 00:00 eingeben.
     :email:
@@ -844,9 +854,13 @@
       :empty: Vorname ist erforderlich.
       :nils: Bitte gib deinen Vornamen an.
     :format: "%{attribute} %{message}"
+    :image_file:
+      :required: Bitte eine Bilddatei hochladen
     :last_name:
       :empty: Nachname ist erforderlich.
       :nils: Bitte gib deinen Nachnamen an.
+    :location:
+      :empty: Bitte einen Standort eingeben
     :messages:
       :accepted: muss akzeptiert werden
       :blank: kann nicht leer sein
@@ -873,6 +887,7 @@
       :too_short:
         :one: ist zu kurz (mindestens 1 Zeichen)
         :other: ist zu kurz (mindestens %{count} Zeichen)
+      :url: Dies ist kein gültiger URL (bitte http:// auch angeben)
       :wrong_length:
         :one: ungültige Länge (maximal 1 Zeichen)
         :other: ungültige Länge (maximal %{count} Zeichen)
@@ -883,6 +898,7 @@
     :organizer_id:
       :at_least_one_required: Mindestens ein Organisator must festgelegt sein.
       :empty: Bitte einen Organisator festlegen
+      :nils: Bitte einen Organisator festlegen
     :password:
       :does_not_match: Das Passwort stimmt nicht mit der Bestätigung überein.
       :empty: Passwort ist erforderlich.
@@ -1022,7 +1038,7 @@
         :find-circles: Helferkreise finden
         :help: Brauchen Sie Hilfe mit lale?
         :help_email_subject: Ich brauche Hilfe bei lale
-        :settings: Dein Profil
+        :settings: Mein Profil
         :sign-out: Ausloggen
         :switch_to_circle: Wechseln zu "%{circle_name}"
       :sidebar:
@@ -1041,7 +1057,6 @@
         :organizers: Organisatoren
         :overviews: "Übersichten"
         :projects: Projekte
-        :public_members: Helferliste
         :supplies: Sachspenden
         :working_groups: Arbeitsgruppen
     :public:
@@ -1116,8 +1131,7 @@
     :circles:
       :index:
         :create-circle-button: Neuen Helferkreis anlegen
-        :create-circle-phrase: Wenn Du diesem Kreis nicht beitreten möchtest, kannst
-          Du
+        :create-circle-phrase: "Falls Du Deinen Helferkreis nicht findest, kannst Du hier:"
         :title: Helferkreise in der Nähe
       :membership_inactive:
         :blocked:
@@ -1341,7 +1355,7 @@
         :country_select: Bitte Land auswählen
         :error_correction: Bitte die untenstehenden Fehler berichtigen.
         :reset_password: Passwort zurücksetzen
-        :title: Dein Profil
+        :title: Mein Profil
         :update_settings: "Änderungen speichern"
       :reset_password:
         :password: Passwort
@@ -1349,9 +1363,9 @@
         :reset_password: Passwort zurücksetzen
         :update: Passwort ändern
       :show:
-        :edit_profile: Dein Profil ändern
+        :edit_profile: Mein Profil ändern
         :reset_password: Passwort zurücksetzen
-        :title: Dein Profil
+        :title: Mein Profil
         :view_public_profile: "Öffentliches Profil ansehen"
     :identities:
       :new:
@@ -1373,6 +1387,10 @@
         :state_province: Bundesland
         :street_address: Strasse
   :users:
+    :auto_comment:
+      :status_change_activated: "%{member} wurde am %{date} von %{user} aktiviert."
+      :status_change_blocked: "%{member} wurde am %{date} von %{user} gesperrt."
+      :status_change_unblocked: "%{member} wurde am %{date} von %{user} wieder freigegeben."
     :flash:
       :password_reset_success: Das Passwort wurde erfolgreich geändert.
   :users_box:

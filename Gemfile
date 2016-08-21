@@ -12,9 +12,10 @@ gem 'omniauth'
 gem 'omniauth-identity'
 gem 'cancancan'
 gem 'mandrill-api'
-gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin', '~> 1.0.0.pre4'
 gem 'migration_data'
 gem 'carmen'
+gem 'validate_url'
 
 gem 'fog-aws', require: 'fog/aws'
 gem 'fog-local', require: 'fog/local'
@@ -58,11 +59,9 @@ group :development, :test do
   gem 'foreman', require: false
   gem 'rspec-rails'
   gem 'hologram', github: 'trulia/hologram'
-  gem 'guard-hologram', github: 'kmayer/guard-hologram', require: false
-
-  gem 'i18n_generators'
 
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
@@ -70,9 +69,11 @@ group :development, :test do
   gem 'spring'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
+  gem 'awesome_print'
 end
 
 group :test do
+  gem 'site_prism'
   gem 'shoulda'
   gem 'factory_girl'
   gem 'faker'
@@ -81,4 +82,5 @@ group :test do
   gem 'action_mailer_cache_delivery'
   gem 'timecop'
   gem 'rspec_junit_formatter', '~> 0.2.0'
+  gem 'spring-commands-rspec'
 end

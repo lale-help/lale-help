@@ -8,7 +8,8 @@
     span.badge = @open_supplies.count
   a.projects data-tab='projects'
     = Project.model_name.human(count: 2)
-  - if feature_enabled? :working_group_files
-    a.documents data-tab='documents'
-      = t('.documents')
+    span.badge = @projects.count
+  a.documents data-tab='documents'
+    = t('.documents')
+    span.badge = @files.count
 

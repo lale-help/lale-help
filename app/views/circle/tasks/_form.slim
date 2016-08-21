@@ -8,20 +8,20 @@
     .field.required class=errors.css(:name)
       = f.label :name
       = f.text_field :name, placeholder: true
-      = errors.message_for(:name)
+      = errors.formatted_message_for(:name)
 
   .field-row.single
     .field.required class=errors.css(:description)
       = f.label :description
       = f.text_area :description
-      = errors.message_for(:description)
+      = errors.formatted_message_for(:description)
 
   .field-row
     .field.required class=errors.css(:volunteer_count_required)
       = f.label :volunteer_count_required
       = f.select :volunteer_count_required do
         = options_for_select(1..10, @form.volunteer_count_required)
-      = errors.message_for(:volunteer_count_required)
+      = errors.formatted_message_for(:volunteer_count_required)
 
     .field.required
       = f.label :duration
@@ -36,7 +36,7 @@
       = f.label :scheduling_type
       = f.select :scheduling_type do
         = options_for_select(@form.scheduling_type_options, @form.scheduling_type)
-      = errors.message_for(:scheduling_type)
+      = errors.formatted_message_for(:scheduling_type)
 
     / start date & time (hidden by default)
 
@@ -64,8 +64,8 @@
     .field-row.single
       .field
         - %i(start_date start_time due_date due_time).each do |field|
-          - if errors.message_for(field).present?
-            = errors.message_for(field)
+          - if errors.formatted_message_for(field).present?
+            = errors.formatted_message_for(field)
             br
 
   .field-row
@@ -73,7 +73,7 @@
     .field.required class=errors.css(:primary_location)
       = f.label :primary_location
       = f.text_field :primary_location
-      = errors.message_for(:primary_location)
+      = errors.formatted_message_for(:primary_location)
 
 
   .field-row
@@ -81,7 +81,7 @@
       = f.label :working_group_id
       - unless @form.working_group_disabled?
         = f.collection_select :working_group_id, @form.available_working_groups, :id, :name, {}
-        = errors.message_for(:working_group)
+        = errors.formatted_message_for(:working_group)
       - else
         = f.hidden_field :working_group_id
         = text_field_tag :disabled, @form.working_group.name, disabled: true
@@ -89,19 +89,19 @@
     .field.required class=errors.css(:organizer_id)
       = f.label :organizer_id
       = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
-      = errors.message_for(:organizer_id)
+      = errors.formatted_message_for(:organizer_id)
 
 
   .field-row
     .field
       = f.label :project
       = @form.project_select(f)
-      = errors.message_for(:project_id)
+      = errors.formatted_message_for(:project_id)
 
 
   = f.hidden_field(:original_task_id, value: @form.original_task_id)
   .submit-row
     = f.submit
     - if @form.task.persisted?
-      = submit_tag(t('.update_and_notify'), name: 'send_notifications')
+      = submit_tag(t('.update_and_notify'), name: 'send_notifications', class: 'button-primary', data: {disable_with: t('.update_and_notify') })
     = link_to(t('task_edit.cancel'), :back)

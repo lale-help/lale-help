@@ -5,7 +5,7 @@ FactoryGirl.define do
     user
     task
 
-    factory :task_organizer_role do
+    factory :task_organizer_role, aliases: [:task_admin_role] do
       role_type "task.organizer"
     end
 

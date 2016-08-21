@@ -38,9 +38,8 @@
         .tab.projects
           = render partial: 'circle/working_groups/projects', locals: { projects: current_circle.projects.order(:name).select { |project| can?(:read, project) } }
 
-      - if feature_enabled?(:files)
-        .tab.documents
-          = render partial: 'files/list', locals: { files: current_circle.files.select{ |f| can?(:read, f) }, show_actions: can?(:manage, current_circle), show_uploadable: false }
+      .tab.documents
+        = render partial: 'files/list', locals: { files: @files, show_actions: can?(:manage, current_circle), show_uploadable: false }
 
     aside
       / nothing to see here right now ...

@@ -1,6 +1,5 @@
 class TokenHandlers::SupplyInvitation < TokenHandler
   def handle_token(token)
-    puts "HERE"
     user   = User.find(token.context['user_id'])
     supply = Supply.find(token.context['supply_id'])
 

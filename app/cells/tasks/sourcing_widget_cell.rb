@@ -50,23 +50,26 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   end
 
   def working_group_invitees_count
-    all_users_count               = working_group.active_users.size
-    volunteers_from_working_group = volunteers.select { |user| working_group.active_users.include?(user) } 
-    ignored_users_count           = [volunteers_from_working_group, working_group.admins, current_user].flatten.uniq.size
-    invitees_count                = all_users_count - ignored_users_count
-    ensure_non_negative_number(invitees_count)
+    @_wg_invitees_count ||= begin
+      all_users_count               = working_group.active_users.size
+      volunteers_from_working_group = volunteers.select { |user| working_group.active_users.include?(user) } 
+      ignored_users_count           = [volunteers_from_working_group, working_group.admins, current_user].flatten.uniq.size
+      invitees_count                = all_users_count - ignored_users_count
+      ensure_non_negative_number(invitees_count)
+    end
   end
 
   def circle_invitees_count
-    all_users_count     = circle.users.active.size
-    ignored_users_count = [volunteers, circle.admins, working_group.admins, current_user].flatten.uniq.size
-    invitees_count      = all_users_count - ignored_users_count
-    ensure_non_negative_number(invitees_count)
+    @_circle_invitees_count ||= begin
+      all_users_count     = circle.users.active.size
+      ignored_users_count = [volunteers, circle.admins, working_group.admins, current_user].flatten.uniq.size
+      invitees_count      = all_users_count - ignored_users_count
+      ensure_non_negative_number(invitees_count)
+    end
   end
 
   # since a task can be overassigned with helpers (more volunteers than required)
   def ensure_non_negative_number(number)
     number > 0 ? number : 0
   end
-
 end

@@ -1,36 +1,33 @@
 = form_for [current_circle, @form] do |f|
-  - if @form.project.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@form.project.errors.count, "error")} prohibited this circle_project from being saved:"
-      ul
-        - @form.project.errors.full_messages.each do |message|
-          li = message
 
+  - if errors.present?
+    .form-introduction.error
+      p = t('error_correction')
   
   .field-row.single
     .field.required class=errors.css(:name)
       = f.label :name
-      = errors.formatted_message_for(:name)
       = f.text_field :name, placeholder: true
+      = errors.formatted_message_for(:name)
 
 
   .field-row.single
     .field class=errors.css(:description)
       = f.label :description
-      = errors.formatted_message_for(:description)
       = f.text_area :description
+      = errors.formatted_message_for(:description)
 
   .field-row
     .field.required class=errors.css(:working_group)
       = f.label :working_group_id
-      = errors.formatted_message_for(:working_group)
       = f.collection_select :working_group_id, @form.available_working_groups, :id, :name, {}, disabled: @form.available_working_groups_disabled?
+      = errors.formatted_message_for(:working_group)
 
+    / FIXME will need to be adapted; only active users should show up
     .field.required class=errors.css(:organizer_id)
       = f.label :organizer_id
-      = errors.formatted_message_for(:organizer_id)
-      / FIXME will need to be adapted; only active users should show up
       = f.grouped_collection_select(:organizer_id, @form.available_working_groups, :users, :name, :id, :name)
+      = errors.formatted_message_for(:organizer_id)
 
 
   .submit-row

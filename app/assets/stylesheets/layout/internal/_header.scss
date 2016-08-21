@@ -21,6 +21,33 @@ body.internal {
       font-size: 2rem;
       max-width: 28rem;
 
+      .nav-toggle {
+        margin: 0;
+        padding: 0;
+        width: 0;
+        opacity: 0;
+        border-radius: 5px;
+        cursor: pointer;
+        @include transition(opacity, 200ms);
+        i {
+          @include fa-icon(bars);
+        }
+        &.clicked {
+          // invert colors
+          color: $header-bg;
+          background-color: $header-text;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .nav-toggle {
+          width: auto;
+          opacity: 1;
+          padding: 4px 5px;
+          margin-right: 5px;
+        }
+      }  
+
       .circle-name {
         @include flex(1);
 
@@ -49,29 +76,6 @@ body.internal {
           margin-right: 0.5em;
         }
       }
-
-      // moved to internal/_layout.scss by kristy
-      // .circle-add-menu {
-      //   display: inline-block;
-
-      //   label {
-      //     @include display(flex);
-      //     @include align-items(center);
-      //     @include justify-content(middle);
-
-      //     .button-super {
-      //       i {
-      //         @include fa-icon(plus-circle);
-      //       }
-      //     }
-      //   }
-
-      //   [type="checkbox"]:checked {
-      //     & ~ label .button {
-      //       background-color: tint($orange, 20%);
-      //     }
-      //   }
-      // }
     }
 
     .header-right {

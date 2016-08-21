@@ -8,7 +8,12 @@ require 'spec_helper'
 require 'rspec/rails'
 require "cancan/matchers"
 
-Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/{support}/**/*.rb')].each { |f| require f }
+
+# load page objects
+require 'page_objects/component'
+require 'page_objects/page'
+Dir[Rails.root.join('spec/{page_objects}/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 

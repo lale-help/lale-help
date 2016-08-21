@@ -12,8 +12,25 @@ showComments = ->
 
 openSourcingOptionsModal = -> 
   $(sourcingOptionsModalSelector).remodal().open()
+  # init assign form
   el = $('#new_volunteer_ids')
   el.select2(placeholder: el.attr('placeholder'), language: I18n.locale)
+  # init assign button state
+  $('#new_volunteer_ids').trigger('change')
+  # init invite button state
+  $('.invite-helpers input[type=radio][checked=checked]').trigger('change')
+  
+# button should not be clickable when no volunteer selected
+updateAssignButtonState = ->
+  button   = $(this).closest('form').find('button')
+  disabled = !$('#new_volunteer_ids').val()
+  button.attr('disabled', disabled)
+
+# button should not be clickable when no one would be invited
+updateInviteButtonState = ->
+  button   = $(this).closest('.invite-helpers').find('button')
+  disabled = parseInt($(this).data('invitees-count')) == 0
+  button.attr('disabled', disabled)
 
 closeModalAndReloadPage = ->
   $(sourcingOptionsModalSelector).remodal().close()
@@ -21,12 +38,13 @@ closeModalAndReloadPage = ->
 
 assignVolunteer = (event)->
   event.preventDefault();
-  form = $(this).closest('form')
-  $.ajax
-    url:     form.attr('action'),
-    method:  form.attr('method'),
-    data:    form.serialize(),
-    success: closeModalAndReloadPage
+  if $('#new_volunteer_ids').val()
+    form = $(this).closest('form')
+    $.ajax
+      url:     form.attr('action'),
+      method:  form.attr('method'),
+      data:    form.serialize(),
+      success: closeModalAndReloadPage
 
 unassignVolunteer = (event)->
   event.preventDefault();
@@ -45,21 +63,15 @@ inviteHelpers = (event)->
     method:  container.data('method'),
     success: closeModalAndReloadPage
 
-# rails_ujs.js would do this out of the box, but we haven't included it yet it seems.
-# doing this by hand rather than checking verifying if all our JS also works with rails_ujs.
-disableButton = ()->
-  button = $(this)
-  button.attr('disabled', 'disabled')
-  button.html(button.data('disable-with'))
-
 sourcingOptionsModalSelector = "[data-remodal-id=find-helpers]"
 
 # listening on document so we don't need to init everything on DOM ready
 $(document)
   .on('click', '.show_all_comments', showComments)
   .on('click', '#button-open-find-helpers', openSourcingOptionsModal)
-  .on('click', '.assign-helpers .button', assignVolunteer)    
+  .on('click', '.assign-helpers .button', assignVolunteer)
+  .on('change', '#new_volunteer_ids', updateAssignButtonState)
+  .on('change', '.invite-helpers input[type=radio]', updateInviteButtonState)
   .on('click', '.invite-helpers .button', inviteHelpers)    
   .on('click', '.users-box .unassign-user-icon', unassignVolunteer)    
-  .on('click', 'button[data-disable-with]', disableButton)
   

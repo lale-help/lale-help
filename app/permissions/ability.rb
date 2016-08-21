@@ -336,6 +336,14 @@ class Ability
       cannot?(:read, project.working_group)
     end
 
+    #
+    # Sponsors and Sponsorships
+    #
+    can :read, Sponsor do
+      # required for the sponsor files to be shown
+      true
+    end
+
   end
 
   def add_permissions model_klass, user

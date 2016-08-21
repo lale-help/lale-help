@@ -3,7 +3,7 @@ class FileUpload::Create < Mutations::Command
     file    :file
     model   :uploadable, class: ActiveRecord::Base
     model   :uploader, class: User
-    symbol  :upload_type, default: :file, in: %i(file profile_picture)
+    symbol  :upload_type, default: :file, in: %i(file profile_picture sponsor_image)
     boolean :is_public
   end
 

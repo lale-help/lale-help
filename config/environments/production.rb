@@ -77,6 +77,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.x.feature_toggles.files = true   # added 2016-04-25
-  config.x.feature_toggles.working_group_files = true   # added 2016-05-09
+  config.x.google_analytics_id = 'UA-69286385-2'
 end

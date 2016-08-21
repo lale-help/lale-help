@@ -1,14 +1,14 @@
+# ::Form doesn't inherit from anything
 class Project::BaseForm < ::Form
 
   attribute :project, :model, primary: true, new_records: true, default: proc { circle.projects.build }
 
   attribute :name, :string
   attribute :description, :string, required: false
-  attribute :organizer_id, :integer, default: proc { project.admin.try(:id) || user.id }
+  attribute :organizer_id, :integer, default: proc { project.admin.try(:id) }
   attribute :working_group_id, :string
 
   attribute :circle, :model
-  attribute :user, :model
   attribute :ability, :model
 
   def available_working_groups
@@ -24,13 +24,17 @@ class Project::BaseForm < ::Form
     !project.new_record?
   end
 
+  # ::Form::Submit inherits from Mutations::Command
   class Submit < ::Form::Submit
 
     def execute
-      project.assign_attributes(project_attributes)
-      project.save!
-      # multiple admins may be added some time in the future
-      project.roles = [ project.roles.create(role_type: 'admin', user: organizer) ]
+      if project.update_attributes(project_attributes)
+        project.roles.destroy_all
+        project.roles.create!(role_type: 'admin', user: organizer)
+      else
+        merge_errors!(project.errors)
+        return false
+      end
       project
     end
 
@@ -46,6 +50,13 @@ class Project::BaseForm < ::Form
 
     def project_attributes
       inputs.slice(:name, :description).merge(working_group: working_group)
+    end
+
+    # simulate ActiveInteraction::Base#errors.merge! API so upgrading will be easier later
+    def merge_errors!(active_model_errors)
+      active_model_errors.messages.each do |key, messages| 
+        add_error(key, :invalid, messages.join('; '))
+      end
     end
 
   end

@@ -24,7 +24,7 @@ class WorkingGroup::BaseForm < ::Form
   end
 
   def organizer_options
-    working_group.circle.users.order(:first_name).map { |u| [u.name, u.id] }
+    working_group.circle.users.active.order(:first_name).map { |u| [u.name, u.id] }
   end
 
   def organizer_assignable?
@@ -41,7 +41,7 @@ class WorkingGroup::BaseForm < ::Form
         description: description,
         is_private:  (type == :private)
       }
-      working_group.update_attributes(attrs)
+      working_group.update_attributes!(attrs)
     end
 
     def assign_organizer

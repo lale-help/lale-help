@@ -14,32 +14,6 @@ GIT
       unicorn
 
 GIT
-  remote: git://github.com/activeadmin/activeadmin.git
-  revision: 30b4e2a15ea431e44cf0a94346922d9aeae077b3
-  specs:
-    activeadmin (1.0.0.pre2)
-      arbre (~> 1.0, >= 1.0.2)
-      bourbon
-      coffee-rails
-      formtastic (~> 3.1)
-      formtastic_i18n
-      inherited_resources (~> 1.6)
-      jquery-rails
-      jquery-ui-rails
-      kaminari (~> 0.15)
-      rails (>= 3.2, < 5.0)
-      ransack (~> 1.3)
-      sass-rails
-
-GIT
-  remote: git://github.com/kmayer/guard-hologram.git
-  revision: 976c32596c8acaca6394e9abb1c7bad50bcd2b04
-  specs:
-    guard-hologram (1.0.0)
-      guard (~> 2.0)
-      hologram
-
-GIT
   remote: git://github.com/trulia/hologram.git
   revision: 2175489b985e771356659e87dde1d692cc9c17dc
   specs:
@@ -73,6 +47,20 @@ GEM
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
     actionview-encoded_mail_to (1.0.7)
       rails
+    activeadmin (1.0.0.pre4)
+      arbre (~> 1.0, >= 1.0.2)
+      bourbon
+      coffee-rails
+      formtastic (~> 3.1)
+      formtastic_i18n
+      inherited_resources (~> 1.6)
+      jquery-rails
+      jquery-ui-rails
+      kaminari (~> 0.15)
+      rails (>= 3.2, < 5.1)
+      ransack (~> 1.3)
+      sass-rails
+      sprockets (< 4)
     activejob (4.2.4)
       activesupport (= 4.2.4)
       globalid (>= 0.3.0)
@@ -90,18 +78,19 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    arbre (1.0.3)
+    arbre (1.1.1)
       activesupport (>= 3.0.0)
     arel (6.0.3)
     autoprefixer-rails (6.0.3)
       execjs
       json
+    awesome_print (1.6.1)
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bourbon (4.2.5)
+    bourbon (4.2.7)
       sass (~> 3.4)
       thor (~> 0.19)
     builder (3.2.2)
@@ -114,6 +103,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-screenshot (1.0.13)
+      capybara (>= 1.0, < 3)
+      launchy
     carmen (1.0.2)
       activesupport (>= 3.0.0)
     cells (4.1.1)
@@ -129,13 +121,14 @@ GEM
       ffi (~> 1.0, >= 1.0.11)
     cliver (0.3.2)
     coderay (1.1.0)
-    coffee-rails (4.1.0)
+    coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
-      railties (>= 4.0.0, < 5.0)
+      railties (>= 4.0.0, < 5.1.x)
     coffee-script (2.4.1)
       coffee-script-source
       execjs
-    coffee-script-source (1.9.1.1)
+    coffee-script-source (1.10.0)
+    concurrent-ruby (1.0.2)
     countries (1.2.5)
       currencies (~> 0.4.2)
       i18n_data (~> 0.7.0)
@@ -148,12 +141,10 @@ GEM
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
-    domain_name (0.5.25)
-      unf (>= 0.0.5, < 1.0.0)
     dotenv (2.0.2)
     erubis (2.7.0)
     excon (0.45.4)
-    execjs (2.6.0)
+    execjs (2.7.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     faker (1.6.3)
@@ -181,41 +172,27 @@ GEM
     foreman (0.78.0)
       thor (~> 0.19.1)
     formatador (0.2.5)
-    formtastic (3.1.3)
+    formtastic (3.1.4)
       actionpack (>= 3.2.13)
-    formtastic_i18n (0.4.1)
+    formtastic_i18n (0.6.0)
     geocoder (1.2.11)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
-    guard (2.13.0)
-      formatador (>= 0.2.4)
-      listen (>= 2.7, <= 4.0)
-      lumberjack (~> 1.0)
-      nenv (~> 0.1)
-      notiffany (~> 0.0)
-      pry (>= 0.9.12)
-      shellany (~> 0.0)
-      thor (>= 0.18.1)
-    handlebars_assets (0.19.1)
-      execjs (>= 1.2.9)
-      multi_json
-      sprockets (>= 2.0.3)
-      tilt
+    handlebars_assets (0.23.0)
+      execjs (~> 2.0)
+      multi_json (~> 1.0)
+      sprockets (>= 2.0.0)
+      tilt (>= 1.2)
     has_scope (0.6.0)
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashdiff (0.2.2)
     hashie (3.4.2)
-    http-cookie (1.0.2)
-      domain_name (~> 0.5)
     http_accept_language (2.0.5)
     i18n (0.7.0)
     i18n-js (3.0.0.rc12)
       i18n (~> 0.6, >= 0.6.6)
     i18n_data (0.7.0)
-    i18n_generators (2.0.0)
-      mechanize
-      rails (>= 3.0.0)
     inherited_resources (1.6.0)
       actionpack (>= 3.2, < 5)
       has_scope (~> 0.6.0.rc)
@@ -225,8 +202,8 @@ GEM
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jquery-rails (4.0.5)
-      rails-dom-testing (~> 1.0)
+    jquery-rails (4.1.1)
+      rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (5.0.5)
@@ -235,7 +212,7 @@ GEM
       railties (>= 3.2)
       sprockets-rails
     json (1.8.3)
-    kaminari (0.16.3)
+    kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
     kgio (2.10.0)
@@ -247,52 +224,32 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
-    listen (3.0.3)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
     lograge (0.3.4)
       actionpack (>= 3)
       activesupport (>= 3)
       railties (>= 3)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.9)
-    mail (2.6.3)
-      mime-types (>= 1.16, < 3)
+    mail (2.6.4)
+      mime-types (>= 1.16, < 4)
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
-    mechanize (2.7.3)
-      domain_name (~> 0.5, >= 0.5.1)
-      http-cookie (~> 1.0)
-      mime-types (~> 2.0)
-      net-http-digest_auth (~> 1.1, >= 1.1.1)
-      net-http-persistent (~> 2.5, >= 2.5.2)
-      nokogiri (~> 1.4)
-      ntlm-http (~> 0.1, >= 0.1.1)
-      webrobots (>= 0.0.9, < 0.2)
     method_source (0.8.2)
     migration_data (0.2.1)
-    mime-types (2.6.2)
+    mime-types (2.99.2)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
-    multi_json (1.12.0)
+    multi_json (1.12.1)
     mutations (0.7.2)
       activesupport
     neat (1.7.2)
       bourbon (>= 4.0)
       sass (>= 3.3)
-    nenv (0.2.0)
-    net-http-digest_auth (1.4)
-    net-http-persistent (2.9.4)
     newrelic_rpm (3.13.1.300)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
-    notiffany (0.0.8)
-      nenv (~> 0.1)
-      shellany (~> 0.0)
-    ntlm-http (0.1.1)
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
@@ -306,7 +263,7 @@ GEM
       cliver (~> 0.3.1)
       multi_json (~> 1.0)
       websocket-driver (>= 0.2.0)
-    polyamorous (1.2.0)
+    polyamorous (1.3.0)
       activerecord (>= 3.0)
     pry (0.10.2)
       coderay (~> 1.1.0)
@@ -361,12 +318,9 @@ GEM
       activesupport (>= 3.0)
       i18n
       polyamorous (~> 1.2)
-    rb-fsevent (0.9.6)
-    rb-inotify (0.9.5)
-      ffi (>= 0.5.0)
     redcarpet (3.3.2)
-    responders (2.1.0)
-      railties (>= 4.2.0, < 5)
+    responders (2.2.0)
+      railties (>= 4.2.0, < 5.1)
     rollbar (2.11.3)
       multi_json
     rouge (1.10.1)
@@ -392,9 +346,9 @@ GEM
       rspec-core (>= 2, < 4, != 2.12.0)
     rubyzip (1.2.0)
     safe_yaml (1.0.4)
-    sass (3.4.18)
-    sass-rails (5.0.4)
-      railties (>= 4.0.0, < 5.0)
+    sass (3.4.22)
+    sass-rails (5.0.5)
+      railties (>= 4.0.0, < 6)
       sass (~> 3.1)
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
@@ -404,13 +358,15 @@ GEM
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    shellany (0.0.1)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
       shoulda-matchers (>= 1.4.1, < 3.0)
     shoulda-context (1.2.1)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
+    site_prism (2.9)
+      addressable (>= 2.3.3, < 3.0)
+      capybara (>= 2.1, < 3.0)
     slim (3.0.7)
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
@@ -424,12 +380,15 @@ GEM
     sort_alphabetical (1.0.2)
       unicode_utils (>= 1.2.2)
     spring (1.7.1)
-    sprockets (3.3.4)
-      rack (~> 1.0)
-    sprockets-rails (2.3.3)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      sprockets (>= 2.8, < 4.0)
+    spring-commands-rspec (1.0.4)
+      spring (>= 0.9.1)
+    sprockets (3.6.3)
+      concurrent-ruby (~> 1.0)
+      rack (> 1, < 3)
+    sprockets-rails (3.1.1)
+      actionpack (>= 4.0)
+      activesupport (>= 4.0)
+      sprockets (>= 3.0.0)
     temple (0.7.7)
     terminal-table (1.5.2)
     thor (0.19.1)
@@ -445,14 +404,14 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    unf (0.1.4)
-      unf_ext
-    unf_ext (0.0.7.1)
     unicode_utils (1.4.0)
     unicorn (4.9.0)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    validate_url (1.0.2)
+      activemodel (>= 3.0.0)
+      addressable
     vcr (2.9.3)
     web-console (2.3.0)
       activemodel (>= 4.0)
@@ -463,7 +422,6 @@ GEM
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
-    webrobots (0.1.1)
     websocket (1.2.2)
     websocket-driver (0.6.3)
       websocket-extensions (>= 0.1.0)
@@ -477,11 +435,13 @@ PLATFORMS
 DEPENDENCIES
   action_mailer_cache_delivery
   actionview-encoded_mail_to
-  activeadmin!
+  activeadmin (~> 1.0.0.pre4)
   autoprefixer-rails
+  awesome_print
   bourbon
   cancancan
   capybara
+  capybara-screenshot
   carmen
   cells-rails
   cells-slim
@@ -495,12 +455,10 @@ DEPENDENCIES
   font-awesome-sass
   foreman
   geocoder
-  guard-hologram!
   handlebars_assets
   hologram!
   http_accept_language
   i18n-js (>= 3.0.0.rc11)
-  i18n_generators
   jbuilder (~> 2.0)
   jquery-rails
   js-routes
@@ -524,17 +482,23 @@ DEPENDENCIES
   sass-rails (>= 3.2)
   selenium-webdriver
   shoulda
+  site_prism
   slim-rails
   spring
+  spring-commands-rspec
   terminal-table
   thor
   timecop
   timezone
   turbolinks
   uglifier (>= 1.3.0)
+  validate_url
   vcr
   web-console (~> 2.0)
   webmock
+
+RUBY VERSION
+   ruby 2.2.3p173
 
 BUNDLED WITH
    1.12.5

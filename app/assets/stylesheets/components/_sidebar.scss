@@ -1,0 +1,139 @@
+nav {
+
+  position: fixed;
+  top: 50px;
+  left: 0;
+  bottom: 0;
+  width: 28rem;
+
+  @include display(flex);
+  @include flex-direction(column);
+
+  h2, h3, h4 {
+    padding: 1rem 0 0.5rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 12px;
+    a {
+      font-size: 9px;
+    }
+  }
+
+  .top {
+    overflow: auto;
+    margin-top: 2rem;
+    @include flex(1);
+  }
+
+  .add-menu {
+    margin: 0;
+    padding: 0;
+  }
+  .sidebar-section {
+    padding: 0 0 2rem 0;
+    hr {
+      margin: 1rem 1.5rem 1rem 3rem;
+    }
+  }
+  .add-menu {
+    margin: 0;
+    margin-top: 2rem;
+    // reset inherited style to fix margin
+    .dropdown label {
+      height: auto;
+    }
+  }
+  .circle-add-menu {
+    .button-super {
+      padding-right: 30px;
+      margin-left: 2rem;
+      width: 150px;
+    }
+    .menu {
+      top: 0;
+      left: 182px;
+    }
+  }
+  
+  .sidebar-item {
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+    @include justify-content(space-between);
+
+    font-size: 16px;
+    padding: 4px 15px;
+
+    .text {
+      padding-left: 1.5rem;
+      @include flex(1 0 0);
+      &:hover {
+       text-decoration: underline;
+      }
+
+      .after-icon {
+        padding-left: 0.5rem;
+        opacity: 0.4;
+        font-size: 14px;
+      }
+    }
+
+    .badge {
+      @include flex(0 0 1);
+      font-size: 1rem;
+    }
+  }
+
+  .bottom {
+    background-color: $light-grey;
+    margin: 0;
+
+    text-align: center;
+
+    .lale-logo {
+      display: inline-block;
+      @include lale-logo(contain, $light-grey);
+      width: 2rem;
+      height: 2rem;
+      margin: -0.5rem 0.5em;
+    }
+
+    .sponsorship {
+      padding: 1rem 0;
+    }
+    
+    .sponsor-logo {
+      margin: 1.5rem;
+    }
+
+    .env-indicator {
+      color: #000;
+      padding: 4px;
+      text-align: center;
+      background-color: $orange;
+      opacity: 0.8;
+    }
+
+  }
+}
+
+@media (max-width: 800px) {
+
+  nav {
+    display: none;
+
+    &.full-width {
+      display: block;
+      z-index: 50;
+      position: absolute;
+      width: 100%;    
+      bottom: auto;
+    }
+  }
+
+  body.internal div.content {
+    > section {
+      padding-left: 2rem;
+    }
+  }
+}
+

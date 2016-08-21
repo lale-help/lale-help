@@ -1,0 +1,14 @@
+= render partial: 'nav'
+
+section.circle-admin
+  table.default-table
+    tr
+      th= Sponsor.model_name.human
+      th= Sponsorship.human_attribute_name(:starts_on)
+      th= Sponsorship.human_attribute_name(:ends_on)
+
+    - current_circle.sponsorships.current.order(ends_on: :asc).each do |sponsorship|
+      tr
+        td = sponsorship.sponsor.name
+        td = l(sponsorship.starts_on)
+        td = l(sponsorship.ends_on)

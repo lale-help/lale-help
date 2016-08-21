@@ -1,17 +1,26 @@
 ActiveAdmin.register Task do
 
-# See permitted parameters documentation:
-# https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-# permit_params :list, :of, :attributes, :on, :model
-#
-# or
-#
-# permit_params do
-#   permitted = [:permitted, :attributes]
-#   permitted << :other if resource.something?
-#   permitted
-# end
-
+  index do
+    selectable_column
+    column :id
+    column :name
+    column :working_group
+    column :circle do |taskable|
+      begin
+        c = taskable.working_group.circle
+        link_to(c.name, admin_circle_path(c))
+      rescue
+        "No circle!"
+      end
+    end
+    column :volunteers do |taskable|
+      taskable.volunteers.count
+    end
+    column :project
+    column :created_at
+    column :updated_at
+    column :completed_at
+    actions
+  end
 
 end

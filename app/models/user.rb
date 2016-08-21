@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   belongs_to :location #DEPRECATED
   belongs_to :address, dependent: :destroy
   belongs_to :primary_circle, class_name: 'Circle'
+  alias_method :circle, :primary_circle
 
   has_many :task_roles, class_name: 'Task::Role', dependent: :destroy
   has_many :tasks, ->{ distinct }, through: :task_roles
@@ -32,6 +33,17 @@ class User < ActiveRecord::Base
   enum language: [:en, :de, :fr]
 
   alias_attribute :active_since, :created_at
+
+  class << self
+
+    def find_or_create_lale_bot!
+      user_identity = User::Identity.find_or_create_by!(email: 'lale-bot@lale.help') do |identity|
+        identity.password = SecureRandom.uuid
+        identity.user = User.new(first_name: 'Lale', last_name: 'Bot')
+      end
+      user_identity.user
+    end
+  end
 
   def login_token
     @login_token ||= begin
@@ -89,7 +101,7 @@ class User < ActiveRecord::Base
   end
 
   def lale_bot?
-    self.id == Task::Comments::Base.commenter.id
+    self.id == Comment::AutoComment.commenter.id
   end
 
 end
