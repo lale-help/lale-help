@@ -1,4 +1,4 @@
--if form.available_users.present?
+- if form.available_users.present?
   = form_for form, url: circle_working_group_add_user_path, method: :patch, html: { class: 'add-user' } do |f|
     = f.hidden_field :type
 

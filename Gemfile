@@ -59,10 +59,9 @@ group :development, :test do
   gem 'foreman', require: false
   gem 'rspec-rails'
   gem 'hologram', github: 'trulia/hologram'
-  gem 'guard-hologram', github: 'kmayer/guard-hologram', require: false
-  gem 'i18n_generators'
 
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
@@ -74,6 +73,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'site_prism'
   gem 'shoulda'
   gem 'factory_girl'
   gem 'faker'
@@ -82,4 +82,5 @@ group :test do
   gem 'action_mailer_cache_delivery'
   gem 'timecop'
   gem 'rspec_junit_formatter', '~> 0.2.0'
+  gem 'spring-commands-rspec'
 end

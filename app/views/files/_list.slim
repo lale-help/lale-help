@@ -1,33 +1,35 @@
 table.default-table.file-list
-  tr
-    th= FileUpload.model_name.human
-    / FIXME Ralf says this is too much info for the average joe; maybe make this available 
-    / for admins in a separate view or on the edit file view later.
-    / th= FileUpload.human_attribute_name(:file_size_bytes)
-    / th= FileUpload.human_attribute_name(:permissions)
-    th= FileUpload.human_attribute_name(:uploader)
-    th= FileUpload.human_attribute_name(:updated_at)
-    - if show_uploadable
-      th= FileUpload.human_attribute_name(:uploadable)
-
-    - if show_actions
-      th= FileUpload.human_attribute_name(:actions)
-
-  - files.each do |file|
+  thead
     tr
-      td= link_to file.name, file_path(file, circle_id: current_circle.id), target: "_blank"
+      th= FileUpload.model_name.human
       / FIXME Ralf says this is too much info for the average joe; maybe make this available 
       / for admins in a separate view or on the edit file view later.
-      / td= number_to_human_size(file.file_size_bytes, precision: 2)
-      / td= FileUpload.human_attribute_name(['permission_is_public', file.is_public].join('.').downcase)
-      td= file.uploader.name
-      td= l(file.updated_at, format: :short)
+      / th= FileUpload.human_attribute_name(:file_size_bytes)
+      / th= FileUpload.human_attribute_name(:permissions)
+      th= FileUpload.human_attribute_name(:uploader)
+      th= FileUpload.human_attribute_name(:updated_at)
       - if show_uploadable
-        td= file.uploadable.name
+        th= FileUpload.human_attribute_name(:uploadable)
 
       - if show_actions
-        td.actions
-          - if can? :manage, file
-            = link_to '', edit_circle_file_path(current_circle, file), class: 'edit'
-            = link_to '', circle_file_path(current_circle, file), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_file') }
+        th= FileUpload.human_attribute_name(:actions)
+
+  tbody
+    - files.each do |file|
+      tr
+        td= link_to file.name, file_path(file, circle_id: current_circle.id), target: "_blank"
+        / FIXME Ralf says this is too much info for the average joe; maybe make this available 
+        / for admins in a separate view or on the edit file view later.
+        / td= number_to_human_size(file.file_size_bytes, precision: 2)
+        / td= FileUpload.human_attribute_name(['permission_is_public', file.is_public].join('.').downcase)
+        td= file.uploader.name
+        td= l(file.updated_at, format: :short)
+        - if show_uploadable
+          td= file.uploadable.name
+
+        - if show_actions
+          td.actions
+            - if can? :manage, file
+              = link_to '', edit_circle_file_path(current_circle, file), class: 'edit'
+              = link_to '', circle_file_path(current_circle, file), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_file') }
 

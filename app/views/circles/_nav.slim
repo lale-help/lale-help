@@ -11,8 +11,7 @@
   - if can?(:manage, current_circle) && current_circle.projects.present?
     a.projects data-tab='projects'
       = Project.model_name.human(count: 2)
-  - if feature_enabled?(:files)
-    a.documents data-tab='documents'
-      = t('.documents')
-      - if @files.present?
-        span.badge=@files.count
+  a.documents data-tab='documents'
+    = t('.documents')
+    - if @files.present?
+      span.badge=@files.count

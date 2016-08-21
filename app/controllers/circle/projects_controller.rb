@@ -16,12 +16,12 @@ class Circle::ProjectsController < ApplicationController
 
   def new
     authorize! :create_project, current_circle
-    @form = Project::Create.new(user: current_user, circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(circle: current_circle, ability: current_ability)
   end
 
   def create
     authorize! :create_project, current_circle
-    @form = Project::Create.new(params[:project], user: current_user, circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(params[:project], circle: current_circle, ability: current_ability)
 
     outcome = @form.submit
 
@@ -35,12 +35,12 @@ class Circle::ProjectsController < ApplicationController
 
   def edit
     authorize! :update, current_project
-    @form = Project::Update.new(user: current_user, project: current_project, circle: current_circle, ability: current_ability)
+    @form = Project::Update.new(project: current_project, circle: current_circle, ability: current_ability)
   end
 
   def update
     authorize! :update, current_project
-    @form = Project::Update.new(params[:project], user: current_user, project: current_project, circle: current_circle, ability: current_ability)
+    @form = Project::Update.new(params[:project], project: current_project, circle: current_circle, ability: current_ability)
     outcome = @form.submit
     if outcome.success?
       redirect_to circle_project_path(current_circle, current_project), notice: t('flash.updated', name: Project.model_name.human)
@@ -54,7 +54,7 @@ class Circle::ProjectsController < ApplicationController
     authorize! :destroy, current_project
     Project::Destroy.run(project: current_project)
 
-    redirect_to circle_projects_path(current_circle),
+    redirect_to circle_working_group_edit_projects_path(current_circle, current_project.working_group_id),
       notice: t('flash.destroyed', name: Project.model_name.human)
   end
 
@@ -65,10 +65,10 @@ class Circle::ProjectsController < ApplicationController
     outcome = Project::Notifications::InvitationEmail.run(current_user: current_user, project: current_project, type: params[:type])
 
     if outcome.success?
-      flash[:notice] = t('flash.actions.invited',
+      flash[:notice] = t('flash.actions.invite.notice',
         name: current_project.name, count: outcome.result.volunteers.size, model: Project.model_name.human.downcase)
     else
-      flash[:error] = t('tasks.flash.invite_failed', name: current_project.name)
+      flash[:error] = t('flash.actions.invite.alert', name: current_project.name)
     end
     redirect_to circle_project_path(current_circle, current_project)
   end

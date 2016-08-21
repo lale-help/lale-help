@@ -38,11 +38,10 @@
       .tab.projects
         = render partial: 'projects', locals: { projects: current_working_group.projects.order(:name).select { |project| can?(:read, project) } }
 
-      - if feature_enabled? :working_group_files
-        .tab.documents
-          = render partial: 'files/list', locals: { files: @files, show_actions: can?(:manage, current_working_group), show_uploadable: false }
-          - if can? :add_file?, current_working_group
-            = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_working_group)), class: 'button button-primary'
+      .tab.documents
+        = render partial: 'files/list', locals: { files: @files, show_actions: can?(:manage, current_working_group), show_uploadable: false }
+        - if can? :add_file?, current_working_group
+          = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_working_group)), class: 'button button-primary'
 
 
 

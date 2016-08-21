@@ -1,8 +1,9 @@
 test:
+  pre:
+    - rm -Rf tmp
   override:
     # leftover build artifacts (in the tmp directory) can cause marshalling errors; delete tmp before every run.
-    - "rm -Rf tmp"
-    - "bin/rspec -f doc -r rspec_junit_formatter -f RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml"
+    - RAILS_ENV=test bundle exec rspec -f doc -r rspec_junit_formatter -f RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
 
 general:
   artifacts:

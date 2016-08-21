@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Private Working Groups', type: :feature do
+describe 'Private Working Groups', js: true do
   let(:circle) { create(:circle) }
   let!(:circle_admin_role) { create :circle_role_admin, circle: circle }
   let(:user_1) { create(:user, primary_circle: circle) }

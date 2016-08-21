@@ -1,4 +1,4 @@
-class Tasks::TaskUserBadgeCell < ::UserBadgeCell
+class Tasks::UserBadgeCell < ::UserBadgeCell
 
   def task
     @options[:task]

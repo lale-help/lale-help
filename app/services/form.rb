@@ -1,3 +1,7 @@
+#
+# Our own form object.
+# The instances have the interface which is expected by Rails form helpers.
+#
 class Form
   class_attribute :attributes
 

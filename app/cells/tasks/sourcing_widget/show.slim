@@ -11,15 +11,16 @@
     = t('users_box.no_users_yet')
   - else
     - volunteers.each do |volunteer|
-      == cell('tasks/user_badge', volunteer, task: task, current_user: current_user, current_circle: current_circle)
+      / WARNING use the constant name here; using 'tasks/user_badge' loaded the wrong class
+      == cell(Tasks::UserBadgeCell, volunteer, task: task, current_user: current_user, current_circle: current_circle)
 
 .actions
   
   - if can?(:volunteer, task)
-    = link_to(links.accept, method: :put, class: 'button button-primary') do
+    = link_to(links.accept, method: :put, class: 'button button-primary', 'data-disable-with': t('.accept')) do
       = t('.accept')
   - elsif can?(:decline, task)
-    = link_to(links.decline, method: :put, class: 'button button-primary') do
+    = link_to(links.decline, method: :put, class: 'button button-primary', 'data-disable-with': t('.decline')) do
       = t('.decline')
 
   / HACK
@@ -43,16 +44,20 @@
       form.assign-helpers action=links.assign_volunteer method="put" 
         = assignable_volunteers_select
         br
-        = button_tag(type: 'button', class: 'button button-secondary', data: { "disable-with": t('helpers.assigning') })
-          = t('helpers.assign', model: User)
+        - label = t('helpers.assign', model: User)
+        = button_tag(type: 'button', class: 'button button-secondary', 'data-disable-on-click': true)
+          = label
     
     - if can?(:invite_to, task)
       .invite-helpers data-method="post"
         h3 = t('.modal.title_invite')
-        = radio_button_tag('invite', 'working_group', true, 'data-url': links.invite_wg)
+        = radio_button_tag('invite', 'working_group', true, 'data': {url: links.invite_wg, 'invitees-count': working_group_invitees_count})
         = label_tag('invite_working_group', t('.modal.invite_working_group', count: working_group_invitees_count))
+        
         br
-        = radio_button_tag('invite', 'circle', false, disabled: task.working_group.is_private?, 'data-url': links.invite_circle)
+
+        = radio_button_tag('invite', 'circle', false, disabled: task.working_group.is_private?, data: {url: links.invite_circle, 'invitees-count': circle_invitees_count})
         = label_tag('invite_circle', t('.modal.invite_all', count: circle_invitees_count))
         br
-        button.button.button-secondary = t('helpers.invite_user')
+        button.button.button-secondary data-disable-on-click=true
+          = t('helpers.invite_user')

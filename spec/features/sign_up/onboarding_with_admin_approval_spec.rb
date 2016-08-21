@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'New User On-boarding', type: :feature, js: true do
+describe 'New User On-boarding', js: true do
 
 
   def fill_in_form
@@ -48,7 +48,7 @@ describe 'New User On-boarding', type: :feature, js: true do
   end
 
 
-  context "admin approves new user", type: :feature do
+  context "admin approves new user" do
     
     let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
     let!(:new_member) { create(:circle_role_volunteer, circle: circle, status: :pending).user }
@@ -94,7 +94,7 @@ describe 'New User On-boarding', type: :feature, js: true do
     end
   end
 
-  context "User joins second circle", type: :feature do
+  context "User joins second circle" do
 
     let!(:circle_1) { submit_form(:circle_create_form, must_activate_users: true).result }
     let!(:circle_2) { submit_form(:circle_create_form, must_activate_users: true).result }

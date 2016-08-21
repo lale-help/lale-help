@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Circle Files', type: :feature, js: true do
+describe 'Circle Files', js: true do
   context 'uploading a file' do
 
     # 1) put application into a known state

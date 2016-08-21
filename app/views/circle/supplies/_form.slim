@@ -7,25 +7,25 @@
   .field-row.single
     .field.required class=errors.css(:name)
       = f.label :name
-      = errors.formatted_message_for(:name)
       = f.text_field :name, placeholder: true
+      = errors.formatted_message_for(:name)
 
   .field-row.single
     .field.required class=errors.css(:description)
       = f.label :description
-      = errors.formatted_message_for(:description)
       = f.text_area :description
+      = errors.formatted_message_for(:description)
 
   .field-row
     .field.required class=errors.css(:due_date)
       = f.label :due_date
-      = errors.formatted_message_for(:due_date)
       = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
+      = errors.formatted_message_for(:due_date)
 
     .field.required class=errors.css(:location)
       = f.label :location
-      = errors.formatted_message_for(:location)
       = f.text_field :location
+      = errors.formatted_message_for(:location)
 
   .field-row
     .field.required class=errors.css(:working_group)

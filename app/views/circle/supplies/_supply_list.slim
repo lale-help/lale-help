@@ -1,8 +1,10 @@
 - title ||= ""
+- list_id ||= nil
+
 h3
   = title
 
-.task-list
+.task-list id=list_id
   - if supplies.present?
     - supplies.each do |supply|
       - if can? :read, supply

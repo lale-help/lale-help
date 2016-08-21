@@ -878,6 +878,7 @@
     :organizer_id:
       :at_least_one_required: Le groupe de travail doit avoir au moins un organisateur.
       :empty: Merci de choisir un organisateur
+      :nils: Merci de choisir un organisateur
     :password:
       :does_not_match: Votre mot de passe ne correspond pas.
       :empty: Mot de passe est nécessaire.

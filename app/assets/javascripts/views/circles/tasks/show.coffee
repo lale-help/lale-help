@@ -12,8 +12,25 @@ showComments = ->
 
 openSourcingOptionsModal = -> 
   $(sourcingOptionsModalSelector).remodal().open()
+  # init assign form
   el = $('#new_volunteer_ids')
   el.select2(placeholder: el.attr('placeholder'), language: I18n.locale)
+  # init assign button state
+  $('#new_volunteer_ids').trigger('change')
+  # init invite button state
+  $('.invite-helpers input[type=radio][checked=checked]').trigger('change')
+  
+# button should not be clickable when no volunteer selected
+updateAssignButtonState = ->
+  button   = $(this).closest('form').find('button')
+  disabled = !$('#new_volunteer_ids').val()
+  button.attr('disabled', disabled)
+
+# button should not be clickable when no one would be invited
+updateInviteButtonState = ->
+  button   = $(this).closest('.invite-helpers').find('button')
+  disabled = parseInt($(this).data('invitees-count')) == 0
+  button.attr('disabled', disabled)
 
 closeModalAndReloadPage = ->
   $(sourcingOptionsModalSelector).remodal().close()
@@ -52,7 +69,9 @@ sourcingOptionsModalSelector = "[data-remodal-id=find-helpers]"
 $(document)
   .on('click', '.show_all_comments', showComments)
   .on('click', '#button-open-find-helpers', openSourcingOptionsModal)
-  .on('click', '.assign-helpers .button', assignVolunteer)    
+  .on('click', '.assign-helpers .button', assignVolunteer)
+  .on('change', '#new_volunteer_ids', updateAssignButtonState)
+  .on('change', '.invite-helpers input[type=radio]', updateInviteButtonState)
   .on('click', '.invite-helpers .button', inviteHelpers)    
   .on('click', '.users-box .unassign-user-icon', unassignVolunteer)    
   
