@@ -173,7 +173,9 @@ I'm summarizing these here because they help understanding some decisions I took
 
 ### Reduce test complexity, increase test robustness
 
-* don't test more than one feature per file. Use an expressive filename related to the use case if possible, rather than "some_model_spec.rb".
+* don't test more than one use case per file (for example: check the contents of a working group dashboard are correct separately from joining/leaving a group). Different use cases usually require different setup and steps, so the test file gets complex and hard to follow if several features are tested, which can cause bugs. 
+
+* use expressive filenames related to the use case if possible. So rather than `show_working_group_spec.rb` use `show_working_group_dashboard_spec.rb` and `join_and_leave_working_group_spec.rb`.
 
 * don't abstract and generalize test code/methods too agressively. It should always be easy to read and understand a test.
 
@@ -185,6 +187,20 @@ I'm summarizing these here because they help understanding some decisions I took
 * use page objects to abstract the parts of the HTML page you are interested in in one object, and maintain the the CSS selectors for one page in one place. The page object is also a perfect place for helper code that simplifies testing. Our page objects are based on the excellent [site_prism gem](https://github.com/natritmeyer/site_prism).
 
 * don't assert every detail of a page, assert what's essential. The more assertions, the more likely some of that will change in the future, requiring the test to be adapted.
+
+* use rspec's `describe` blocks to describe the variation of the feature you're testing and `context` blocks for the preconditions of that particular test. Context-blocks usually begin with "when ...". A context-block will usually only have one `it` block, which describe the expected outcome. This structure may seem verbose, but it serves as excellent structure for finding out which tests to write, where to put which test, and document the feature well.
+
+Example:
+
+    describe "Join and leave a working group", js: true do
+      describe "joining a group" do
+        context "when use has not joined yet" do
+          it "becomes member of the group" do
+          end
+        end
+      end
+    end
+
 
 ### Developing and debugging efficiently
 
