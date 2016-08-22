@@ -42,6 +42,10 @@ class Circle < ActiveRecord::Base
     admins.first
   end
 
+  def volunteer
+    volunteers.first
+  end
+
   def user_count
     users.count
   end
