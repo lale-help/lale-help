@@ -216,14 +216,15 @@ Consider abstracting details you don't care about, example:
 
 * use [poltergeist's remote debugging feature](https://github.com/teampoltergeist/poltergeist#remote-debugging-experimental) to open the page you're testing in a DOM inspector.
 
+* [5 more hints here](https://quickleft.com/blog/five-capybara-hacks-to-make-your-testing-experience-less-painful/). Also useful: [how to use a debugger](http://blog.bruzilla.com/2012/07/29/using-a-repl-to-debug-capybara-selenium.html) and [how to pause Capybara tests for DOM inspection](http://ricostacruz.com/til/pausing-capybara-selenium.html)
 
-### Making and running tests faster
+### Running tests faster
 
 * use the [spring](https://github.com/rails/spring) Rails application preloader to shave 5-10 seconds off the test runtime. It's set up already, just use the wrapper scripts in the `bin` directory, like `bin/rake spec:features`. Be aware changes to Rails configuration and similar may need a restart to take effect.
 
 * use the [poltergeist](https://github.com/teampoltergeist/poltergeist) test driver as default, it uses a headless Webkit browser engine (PhantomJS) and is significantly faster than Selenium. lale is set up that way already. Switch to back to Selenium if you want to follow the test steps in the browser. Use `SELENIUM=1` on the command line to use it.
 
-* use the [backdoor](/lale-help/lale-help/blob/master/spec/support/backdoor.rb) to use a page a user you want to, rather than going through the sign in form for every test. Make sure to have separate sign-in specs, though!
+* use the [backdoor](/lale-help/lale-help/blob/master/spec/support/backdoor.rb), rather than logging in a user through the sign in form for every test. Make sure to have separate sign-in specs, though!
 
 * start the test on the page you want to test rather than navigating there from another page. Write separate, simple tests to navigating to the feature, once, if you care about it.
 
