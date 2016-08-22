@@ -128,7 +128,7 @@ cp /path/to/database/snapshot/SNAPSHOT_NAME .
 
 ## Advice for writing feature specs
 
-[_"Feature spec"_](lale-help/lale-help/tree/master/spec/features) is the most common name in Rails projects for a system integration test that is executed through the web browser. Feature specs are in the `spec/features` directory.
+["Feature spec"](https://github.com/lale-help/lale-help/tree/master/spec/features) is the most common name in Rails projects for a system integration test that is executed through the web browser. Feature specs are in the `spec/features` directory.
 
 ### Pros and cons of feature specs
 
@@ -208,7 +208,7 @@ Example:
 
 * testing selectors: use jQuery in the browser console to test the CSS selectors you want to use. It's much faster that way than to execute the test every time until you got the selector right. (slight gotcha: in rare cases jQuery selectors may not work with Capybara, since they use different CSS engines ([Sizzle](https://sizzlejs.com/) vs. [Nokogiri](http://www.nokogiri.org/)).
 
-* write and use [powerful, expressive, flexible factories](/lale-help/lale-help/blob/master/spec/factories/circles.rb) to easily set up the seed data required for the test. Expressive factories also help understanding the setup quickly.
+* write and use [powerful, expressive, flexible factories](https://github.com/lale-help/lale-help/blob/master/spec/factories/circles.rb) to easily set up the seed data required for the test. Expressive factories also help understanding the setup quickly.
 
 Compare:
 
@@ -238,7 +238,7 @@ Consider abstracting details you don't care about, example:
 
 * look at the screenshots in `tmp/capybara` that are created automatically at every test failure (we use the capybara-screenshot gem for that). Create a screenshot manually with `show!` or `save_and_open_page` to inspect an image/the HTML of the page at any time step.
 
-* write [tests for non-trivial factories](/lale-help/lale-help/blob/master/spec/factory_specs/circles_factory_spec.rb) (sic!!!). Wrong seed data is a frequent source of errors in specs, you can rule them out completely this way. Learn about the more advanced features of factory_girl [here](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md). 
+* write [tests for non-trivial factories](https://github.com/lale-help/lale-help/blob/master/spec/factory_specs/circles_factory_spec.rb) (sic!!!). Wrong seed data is a frequent source of errors in specs, you can rule them out completely this way. Learn about the more advanced features of factory_girl [here](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md). 
 
 * (temporarily) assert expectations you have about the system in the test, if things are going wrong, like `expect(working_group.organizer).to eq(my_user)`. Often system setup issues cause errors. You can mitigate these with reliable factories and tests for them (see above).
 
@@ -258,7 +258,7 @@ Consider abstracting details you don't care about, example:
 
 * use the [poltergeist](https://github.com/teampoltergeist/poltergeist) test driver as default, it uses a headless Webkit browser engine (PhantomJS) and is significantly faster than Selenium. lale is set up that way already. Switch to back to Selenium if you want to follow the test steps in the browser. Use `SELENIUM=1` on the command line to use it.
 
-* use the [backdoor](/lale-help/lale-help/blob/master/spec/support/backdoor.rb), rather than logging in a user through the sign in form for every test. Make sure to have separate sign-in specs, though!
+* use the [backdoor](https://github.com/lale-help/lale-help/blob/master/spec/support/backdoor.rb), rather than logging in a user through the sign in form for every test. Make sure to have separate sign-in specs, though!
 
 * start the test on the page you want to test rather than navigating there from another page. Write separate, simple tests to navigating to the feature, once, if you care about it.
 
