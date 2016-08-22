@@ -32,7 +32,12 @@ describe "Show working group dashboard", js: true do
   end
 
   it "shows organizers and volunteers" do
-    show!
+    expect(dashboard_page).to have_organizer(admin)
+    expect(dashboard_page.organizers.size).to eq(1)
+    expect(dashboard_page).to have_volunteer(admin)
+    expect(dashboard_page).to have_volunteer(volunteers[0])
+    expect(dashboard_page).to have_volunteer(volunteers[1])
+    expect(dashboard_page.volunteers.size).to eq(3)
   end
 
 end

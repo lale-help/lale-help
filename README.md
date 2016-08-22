@@ -214,6 +214,8 @@ Consider abstracting details you don't care about, example:
 
 * default factories: should create all objects the main object needs to be valid and work properly. Examples: `create(:working_group)` creates a circle for that contains the working group, `create(:circle_admin_role)` creates a circle and an admin user.
 
+* use an existing spec as a scaffold for your new test (copy & paste to new file, adapt) to speed up things. Factor out things when you notice frequent repetition, though.
+
 #### Debugging
 
 * if you suspect timing issues, insert a `sleep 2` before the command that fails. When you're sure that's the issue, convert it to a `wait_for` [command to be more robust](https://github.com/natritmeyer/site_prism#waiting-for-an-element-to-exist-on-a-page) which waits for the required element to show up on the page.
@@ -230,7 +232,9 @@ Consider abstracting details you don't care about, example:
 
 * use [poltergeist's remote debugging feature](https://github.com/teampoltergeist/poltergeist#remote-debugging-experimental) to open the page you're testing in a DOM inspector.
 
-* [5 more hints here](https://quickleft.com/blog/five-capybara-hacks-to-make-your-testing-experience-less-painful/). Also useful: [how to use a debugger](http://blog.bruzilla.com/2012/07/29/using-a-repl-to-debug-capybara-selenium.html) and [how to pause Capybara tests for DOM inspection](http://ricostacruz.com/til/pausing-capybara-selenium.html)
+* use `Capybara.pry` to start a shell / debugger in the context of the page. From there, use standard capybara API to inspect the page (like `find('some-css-selector')`)
+
+* [5 more hints here](https://quickleft.com/blog/five-capybara-hacks-to-make-your-testing-experience-less-painful/). Also useful: [how to pause Capybara tests for DOM inspection](http://ricostacruz.com/til/pausing-capybara-selenium.html)
 
 ### Running tests faster
 

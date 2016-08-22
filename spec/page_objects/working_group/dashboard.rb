@@ -10,6 +10,8 @@ module PageObject
 
       section :add_menu, PageObject::Component::AddMenu, '#sidebar'
       section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
+      section :organizers_box, PageObject::Component::UsersBox, '.users-box:nth-child(1)'
+      section :volunteers_box, PageObject::Component::UsersBox, '.users-box:nth-child(2)'
 
       sections :tasks, ".open_tasks .task" do
         element :name, '.task-title'
@@ -28,6 +30,9 @@ module PageObject
       end
 
       element :headline, '.collection-dashboard .header .title'
+
+      delegate :organizers, :has_organizer?, to: :organizers_box
+      delegate :volunteers, :has_volunteer?, to: :volunteers_box
 
       def has_task?(task_to_find)
         tasks.any? { |task| task.name.text == task_to_find.name }
