@@ -10,6 +10,7 @@ module PageObject
       element :description, '.task-header .description'
       
       section :edit_menu, PageObject::Component::EditMenu, 'aside'
+      section :helpers_box, PageObject::Component::UsersBox, '.users-box'
 
       element :volunteer_button, '.button-primary', text: "I'll help"
       element :decline_button, '.button-primary', text: "I can't help anymore"
@@ -24,7 +25,8 @@ module PageObject
       end
       
       element :task_badge, '.users-box .task-badge'
-      elements :helper_badges, '.users-box .user-badge'
+
+      delegate :helpers, :has_helper?, to: :helpers_box
 
       def num_required_volunteers
         ((/\/(\d+)/).match(text))[1].to_i
@@ -33,11 +35,6 @@ module PageObject
       # FIXME factor out
       def load_for(task, as:)
         load(circle_id: task.circle.id, task_id: task.id, as: as.id)
-      end
-
-      # FIXME factor out
-      def helper_names
-        helper_badges.map { |badge| badge.find('.user-name-shortened').text }
       end
 
       # FIXME factor out

@@ -18,7 +18,7 @@ describe "Volunteer for and decline a task", js: true do
         task_page.volunteer_button.click
         expect(task_page).to have_decline_button
         expect(task_page).not_to have_volunteer_button
-        expect(task_page.helper_names).to include(admin.name)
+        expect(task_page).to have_helper(admin)
       end
     end
   end
@@ -37,7 +37,7 @@ describe "Volunteer for and decline a task", js: true do
           task_page.decline_button.click
           expect(task_page).to have_volunteer_button
           expect(task_page).not_to have_decline_button
-          expect(task_page.helper_names).not_to include(admin.name)
+          expect(task_page).not_to have_helper(admin)
         end
       end
 
