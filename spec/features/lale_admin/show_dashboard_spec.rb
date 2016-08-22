@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "Show lale admin dashboard", js: true do
 
-  let(:circle)        { create(:circle, :with_admin) }
-  let(:admin)         { circle.admin }
+  let(:circle) { create(:circle, :with_admin) }
+  let(:admin)  { circle.admin }
 
   let(:dashboard_page) { PageObject::LaleAdmin::Dashboard.new }
 
