@@ -31,6 +31,9 @@ module PageObject
 
       element :headline, '.collection-dashboard .header .title'
 
+      element :join_button, 'a.button-primary', text: 'Join'
+      element :leave_button, 'a.button-primary-inverse', text: 'Leave'
+
       delegate :organizers, :has_organizer?, to: :organizers_box
       delegate :volunteers, :has_volunteer?, to: :volunteers_box
 
