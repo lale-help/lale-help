@@ -18,7 +18,7 @@ describe "Volunteer for and decline a supply", js: true do
         supply_page.volunteer_button.click
         expect(supply_page).to have_decline_button
         expect(supply_page).not_to have_volunteer_button
-        expect(supply_page.helper_names).to include(admin.name)
+        expect(supply_page).to have_helper(admin)
       end
     end
   end
@@ -37,7 +37,7 @@ describe "Volunteer for and decline a supply", js: true do
           supply_page.decline_button.click
           expect(supply_page).to have_volunteer_button
           expect(supply_page).not_to have_decline_button
-          expect(supply_page.helper_names).not_to include(admin.name)
+          expect(supply_page).not_to have_helper(admin)
         end
       end
 

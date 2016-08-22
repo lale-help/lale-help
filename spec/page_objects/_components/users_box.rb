@@ -11,9 +11,12 @@ module PageObject
 
       alias :has_organizer? :has_user?
       alias :organizers :users
-      
+
       alias :has_volunteer? :has_user?
       alias :volunteers :users
+
+      alias :has_helper? :has_user?
+      alias :helpers :users
     end
   end
 end
