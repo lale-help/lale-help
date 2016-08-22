@@ -4,11 +4,27 @@
 
 This is the rails application used for lale.help.
 
-## Development
+# Table of contents
+
+<!-- MarkdownTOC depth=2 autolink=true bracket=round -->
+
+- [Development hints for docker](#development-hints-for-docker)
+- [URLs](#urls)
+- [Internationalization \(I18N\)](#internationalization-i18n)
+- [Restoring the database from a snapshot](#restoring-the-database-from-a-snapshot)
+- [Advice for writing feature specs](#advice-for-writing-feature-specs)
+- [Further documentation](#further-documentation)
+- [License](#license)
+
+<!-- /MarkdownTOC -->
+
+
+## Development hints for docker
 
 You can run Lale on your development machine using one of two methods:
-  1) as a standard Rails project
-  2) using [Docker](https://www.docker.com/) *(recommended for Rails beginners)*
+
+1. on the native OS *(easy to set up on a Mac, setup used by the last 2 core developers)*
+1. running in a Linux container using [Docker](https://www.docker.com/) *(recommended for Rails beginners)*
 
 ### Standard Rails Project
 
@@ -110,7 +126,7 @@ cp /path/to/database/snapshot/SNAPSHOT_NAME .
 ./docker/restore-db-from SNAPSHOT_NAME
 ```
 
-## Writing feature specs
+## Advice for writing feature specs
 
 [_"Feature spec"_](lale-help/lale-help/tree/master/spec/features) is the most common name in Rails projects for a system integration test that is executed through the web browser. Feature specs are in the `spec/features` directory.
 
@@ -140,20 +156,18 @@ I'm summarizing these here because they help understanding some decisions I took
 
 ### Dealing with the pros and cons
 
-### Be humble and calm, and assume that things won't always go smoothly
+### Assume that things won't always go smoothly
 
     "Unfortunately, the nature of full-stack testing is that things can and do go wrong from time to time."
     -- https://github.com/teampoltergeist/poltergeist#troubleshooting
 
-* sometimes things will not work as expected and you have no idea why. Debugging sessions can be huge time sinks with seemingly no progress being made. Accept and deal with it.
+* _sometimes_ things will not work as expected and you have no idea why. Debugging sessions can be huge time sinks with seemingly no progress. Accept and deal with it.
 
-* Timebox the debugging sessions, and try to put a messy test in place if you can, rather than not having a test at all. 
+* Timebox a debugging session, and put an imperfect/partial/messy test in place if you can, rather than no test at all. 
 
-* Stop debugging after the timebox ends and start with a fresh, calm mind on the next morning.
+* Stop debugging when you're exhausted/frustrated and get something else done. Retry with a fresh, calm mind on the next morning.
 
-* Show the test to another developer and debug together. 
- 
-* Sometimes you'll have to stop when 80% of a feature is tested
+* Show/explain the test to another developer (or a [rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging)) and debug together. 
  
 * Sometimes you'll have to disable a spec that fails intermittently until you get a change to debug it thoroughly. 
 
@@ -235,6 +249,10 @@ Consider abstracting details you don't care about, example:
 * run only one test or subsets of them with: `bin/rake SPEC=path/to/spec/file/or/directory`
 
 * parallelize tests, i.e. run subsets of tests in separate processes in parallel. This puts a lot of load on the test machine though and may produce more timing issues (leading to intermittent test failures) on insufficient hardware.
+
+## Further documentation
+
+... can be found on [the wiki](https://github.com/lale-help/lale-help/wiki)
 
 ## License
 
