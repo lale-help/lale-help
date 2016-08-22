@@ -29,6 +29,15 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_admin do
+      after(:create) do |wg, evaluator|
+        user = create(:user)
+        create(:working_group_admin_role, working_group: wg, user: user)
+        # an active role on circle is required for the new user to be considered an active admin
+        create(:circle_member_role, circle: wg.circle, user: user)
+      end
+    end
+
     trait :with_members do
       after(:create) do |wg, evaluator|
         create(:working_group_volunteer_role, working_group: wg, user: create(:user))
