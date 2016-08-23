@@ -22,7 +22,7 @@ describe "Show project dashboard", js: true do
     expect(dashboard_page).to have_task(task)
 
     dashboard_page.tab_nav.supplies.click
-    expect(dashboard_page).to have_supply(supply)    
+    expect(dashboard_page).to have_supply(supply)
   end
 
 end
