@@ -184,7 +184,34 @@ I'm summarizing these here because they help understanding some decisions I took
 * minimize technical complexity of the system under test to minimize runtime and the number of things that can go wrong. in particular:
 * stub nonessential systems that you can test individually in separate integration tests (Email, external APIs, ...)
 
-* use page objects to abstract the parts of the HTML page you are interested in in one object, and maintain the the CSS selectors for one page in one place. The page object is also a perfect place for helper code that simplifies testing. Our page objects are based on the excellent [site_prism gem](https://github.com/natritmeyer/site_prism).
+* use [page objects](http://martinfowler.com/bliki/PageObject.html) to 
+  * abstract the parts of the HTML page you are interested in
+  * maintain the CSS selectors for a page in one place
+  * create helper methods and custom rspec [predicate matchers](https://www.relishapp.com/rspec/rspec-expectations/v/3-5/docs/built-in-matchers/predicate-matchers) that simplify testing. For example:
+
+```ruby
+# in spec
+# through rspec magic, this will do a call to task_page.has_helper?(admin)
+expect(task_page).to have_helper(admin)
+
+
+# in the page object
+elements :users, '.user-name-shortened'
+# [...] 
+def has_helper?(user_to_find)
+  users.any? { |user| user.text == user_to_find.name }
+end
+```
+
+Our [page objects](https://github.com/lale-help/lale-help/tree/323c94b1195272d81889dbe8a8d407ee0ae15a71/spec/page_objects) are based on the excellent [site_prism](https://github.com/natritmeyer/site_prism) gem.
+
+* don't put assertions directly in page objects, to keep them generic. but implement generic helper methods (`#has_helper?` `#completed?`) in them that can be reused in different specs (also see example above).
+
+* when interaction with one page leads to another page, have the page object return an instance of the new page object. That way you don't have to set things up in the spec file. Have a look at the form specs for examples.
+
+* assert strings by comparing the value obtained from the HTML page to the value from the factory created object, rather than hard-coding strings in every spec. The probability of our factories returning empty strings or nil values is very low.
+
+* when testing time relevant stuff, consider freezing time with the [timecop](https://github.com/travisjeffery/timecop) gem.
 
 * don't assert every detail of a page, assert what's essential. The more assertions, the more likely some of that will change in the future, requiring the test to be adapted.
 
@@ -238,9 +265,11 @@ Consider abstracting details you don't care about, example:
 
 * look at the screenshots in `tmp/capybara` that are created automatically at every test failure (we use the capybara-screenshot gem for that). Create a screenshot manually with `show!` or `save_and_open_page` to inspect an image/the HTML of the page at any time step.
 
-* write [tests for non-trivial factories](https://github.com/lale-help/lale-help/blob/master/spec/factory_specs/circles_factory_spec.rb) (sic!!!). Wrong seed data is a frequent source of errors in specs, you can rule them out completely this way. Learn about the more advanced features of factory_girl [here](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md). 
+* use `Capybara.pry` to start a shell / debugger in the context of the page. From there, use standard capybara API to inspect the page (like `find('some-css-selector')`)
 
-* (temporarily) assert expectations you have about the system in the test, if things are going wrong, like `expect(working_group.organizer).to eq(my_user)`. Often system setup issues cause errors. You can mitigate these with reliable factories and tests for them (see above).
+* often incorrect system setup issues cause errors. When things aren't working as you expect, put assertions in your test that ensure the test data is set up as expected, like `expect(working_group.organizer).to eq(my_user)`. You can mitigate these with reliable factories and tests for them, though.
+
+* write [tests for non-trivial factories](https://github.com/lale-help/lale-help/blob/master/spec/factory_specs/circles_factory_spec.rb) (sic!!!). Wrong seed data is a frequent source of errors in specs, you can rule them out completely this way. Learn about the more advanced features of factory_girl [here](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md). 
 
 * look at the Rails application log to understand what's going on, insert normal debug messages in your code.
 
@@ -248,9 +277,7 @@ Consider abstracting details you don't care about, example:
 
 * use [poltergeist's remote debugging feature](https://github.com/teampoltergeist/poltergeist#remote-debugging-experimental) to open the page you're testing in a DOM inspector.
 
-* use `Capybara.pry` to start a shell / debugger in the context of the page. From there, use standard capybara API to inspect the page (like `find('some-css-selector')`)
-
-* [5 more hints here](https://quickleft.com/blog/five-capybara-hacks-to-make-your-testing-experience-less-painful/). Also useful: [how to pause Capybara tests for DOM inspection](http://ricostacruz.com/til/pausing-capybara-selenium.html)
+* [some more valuable hints here](https://quickleft.com/blog/five-capybara-hacks-to-make-your-testing-experience-less-painful/), like fixing trouble with DatabaseCleaner and database transactions, easily pausing the test and browsing the page. [Here's](http://ricostacruz.com/til/pausing-capybara-selenium.html) an untested hint on how to pause Capybara tests for DOM inspection when using Selenium.
 
 ### Running tests faster
 
