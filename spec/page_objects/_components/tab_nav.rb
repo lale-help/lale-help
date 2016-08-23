@@ -11,6 +11,7 @@ module PageObject
       element :organizing_active, 'a.selected', text: /Organizing/
       element :projects, 'a', text: /Projects/
       element :supplies, 'a', text: /Supplies/
+      element :tasks, 'a', text: /Tasks/
 
     end
   end

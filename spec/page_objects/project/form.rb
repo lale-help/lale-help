@@ -15,7 +15,7 @@ module PageObject
       private
       
       def next_page_object
-        Page.new
+        Dashboard.new
       end
 
       def fill_form(attributes)

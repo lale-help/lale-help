@@ -37,6 +37,7 @@ module PageObject
       delegate :organizers, :has_organizer?, to: :organizers_box
       delegate :volunteers, :has_volunteer?, to: :volunteers_box
 
+      # FIXME DRY
       def has_task?(task_to_find)
         tasks.any? { |task| task.name.text == task_to_find.name }
       end
