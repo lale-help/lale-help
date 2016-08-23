@@ -270,7 +270,11 @@ Consider abstracting details you don't care about, example:
 
 * often incorrect system setup issues cause errors. When things aren't working as you expect, put assertions in your test that ensure the test data is set up as expected, like `expect(working_group.organizer).to eq(my_user)`. You can mitigate these with reliable factories and tests for them, though.
 
-* write [tests for non-trivial factories](https://github.com/lale-help/lale-help/blob/master/spec/factory_specs/circles_factory_spec.rb) (sic!!!). Wrong seed data is a frequent source of errors in specs, you can rule them out completely this way. Learn about the more advanced features of factory_girl [here](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md). 
+* write [tests for non-trivial factories](https://github.com/lale-help/lale-help/blob/master/spec/factory_specs/circles_factory_spec.rb) (sic!!!). Wrong seed data is a frequent source of errors in specs, you can rule them out completely this way. Learn about the more advanced features of factory_girl [here](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md), and prefer [traits](https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md#traits) to factory inheritance for sets of attributes / kinds of objects, since they can be combined independently. Example: 
+
+```ruby
+let(:completed_task) { create(:task, :completed, :with_volunteer) }
+```
 
 * look at the Rails application log to understand what's going on, insert normal debug messages in your code.
 
