@@ -10,26 +10,12 @@ module PageObject
       
       section :header, PageObject::Component::CollectionDashboardHeader, '.collection-dashboard .header'
       delegate :headline, :description, to: :header
-      
-      # FIXME DRY - warning selectors are different!
-      sections :tasks, "#project-tasks-list .task" do
-        element :name, '.task-title'
-      end
 
-      # FIXME DRY
-      sections :supplies, "#project-supplies-list .task" do
-        element :name, '.task-title'
-      end
+      section :task_list, PageObject::Component::TaskablesList, "#project-tasks-list"
+      delegate :has_task?, :tasks, to: :task_list
 
-      # FIXME DRY
-      def has_task?(task_to_find)
-        tasks.any? { |task| task.name.text == task_to_find.name }
-      end
-
-      # FIXME DRY
-      def has_supply?(supply_to_find)
-        supplies.any? { |supply| supply.name.text == supply_to_find.name }
-      end
+      section :supplies_list, PageObject::Component::TaskablesList, "#project-supplies-list"
+      delegate :has_supply?, :supplies, to: :supplies_list
 
     end
   end

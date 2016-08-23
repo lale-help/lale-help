@@ -212,6 +212,10 @@ Our [page objects](https://github.com/lale-help/lale-help/tree/323c94b1195272d81
 
 * assert strings by comparing the value obtained from the HTML page to the value from the factory created object, rather than hard-coding strings in every spec. The probability of our factories returning empty strings or nil values is very low.
 
+* when using components / sections in page objects, don't expose them to the test; instead delegate from the page being used to reduce coupling.
+
+* when developing features, try to identify and create reusable HTML/CSS components (see `app/assets/stylesheets/components` for examples). The page object / component for the test only needs to be written once and can be reused every time the component is used.
+
 * when testing time relevant stuff, consider freezing time with the [timecop](https://github.com/travisjeffery/timecop) gem.
 
 * don't assert every detail of a page, assert what's essential. The more assertions, the more likely some of that will change in the future, requiring the test to be adapted.

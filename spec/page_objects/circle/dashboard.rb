@@ -11,13 +11,11 @@ module PageObject
       section :add_menu, PageObject::Component::AddMenu, '#sidebar'
       section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
 
-      sections :tasks, ".open_tasks .task" do
-        element :name, '.task-title'
-      end
+      section :task_list, PageObject::Component::TaskablesList, ".open_tasks"
+      delegate :has_task?, :tasks, to: :task_list
 
-      sections :supplies, ".open_supplies .task" do
-        element :name, '.task-title'
-      end
+      section :supplies_list, PageObject::Component::TaskablesList, ".open_supplies"
+      delegate :has_supply?, :supplies, to: :supplies_list
 
       sections :projects, ".tab.projects tbody tr" do
         element :name, 'td:nth-child(1) a'
@@ -29,14 +27,6 @@ module PageObject
 
       section :header, PageObject::Component::CollectionDashboardHeader, '.collection-dashboard .header'
       delegate :headline, :description, to: :header
-
-      def has_task?(task_to_find)
-        tasks.any? { |task| task.name.text == task_to_find.name }
-      end
-
-      def has_supply?(supply_to_find)
-        supplies.any? { |supply| supply.name.text == supply_to_find.name }
-      end
 
       def has_project?(project_to_find)
         projects.any? { |project| project.name.text == project_to_find.name }
