@@ -27,7 +27,8 @@ module PageObject
         element :name, 'td:nth-child(1) a'
       end
 
-      element :headline, '.collection-dashboard .header .title'
+      section :header, PageObject::Component::CollectionDashboardHeader, '.collection-dashboard .header'
+      delegate :headline, :description, to: :header
 
       def has_task?(task_to_find)
         tasks.any? { |task| task.name.text == task_to_find.name }

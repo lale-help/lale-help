@@ -29,7 +29,8 @@ module PageObject
         element :name, 'td:nth-child(1) a'
       end
 
-      element :headline, '.collection-dashboard .header .title'
+      section :header, PageObject::Component::CollectionDashboardHeader, '.collection-dashboard .header'
+      delegate :headline, :description, to: :header
 
       element :join_button, 'a.button-primary', text: 'Join'
       element :leave_button, 'a.button-primary-inverse', text: 'Leave'

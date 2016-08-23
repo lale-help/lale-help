@@ -7,10 +7,10 @@ module PageObject
       include HasItemDetailsTable
 
       section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
-
-      element :headline, '.collection-dashboard .header .title'
-      element :description, '.collection-dashboard .header .description'
-
+      
+      section :header, PageObject::Component::CollectionDashboardHeader, '.collection-dashboard .header'
+      delegate :headline, :description, to: :header
+      
       # FIXME DRY - warning selectors are different!
       sections :tasks, "#project-tasks-list .task" do
         element :name, '.task-title'
