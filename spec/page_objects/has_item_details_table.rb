@@ -12,22 +12,11 @@ module HasItemDetailsTable
   included do
     section :details, PageObject::Component::ItemDetailsTable, '.item-details-table'
     # to prevent strong coupling, item details should not be accessed from outside the page object
-    private :details  
+    private :details
     delegate :location, :time_commitment, :working_group, :organizer, 
       :project, :has_project?, :circles, :contact, :help_provided,
+      :due_date_as_date, :due_date_sentence, :member_since_date,
         to: :details
-  end
-
-  def due_date
-    Date.parse(details.due_date.text)
-  end
-
-  def due_date_sentence
-    details.due_date.text
-  end
-
-  def member_since_date
-    Date.parse(details.member_since.text)
   end
 
 end

@@ -17,7 +17,7 @@ describe "Create a supply", js: true do
       expect(supply_page.headline.text).to eq(inputs[:name])
       expect(supply_page.description.text).to eq(inputs[:description])
       expect(supply_page.location.text).to include(inputs[:location])
-      expect(supply_page.due_date).to eq(inputs[:due_date])
+      expect(supply_page.due_date_as_date).to eq(inputs[:due_date])
       expect(supply_page.working_group.text).to eq(working_group.name)
       expect(supply_page.organizer.text).to eq("Organized by #{admin.name}")
       expect(supply_page).not_to have_project

@@ -26,7 +26,7 @@ describe "Edit a supply", js: true do
       expect(edits_page.headline.text).to eq(edited_inputs[:name])
       expect(edits_page.description.text).to eq(edited_inputs[:description])
       expect(edits_page.location.text).to include(edited_inputs[:location])
-      expect(edits_page.due_date).to eq(edited_inputs[:due_date])
+      expect(edits_page.due_date_as_date).to eq(edited_inputs[:due_date])
 
     end
   end

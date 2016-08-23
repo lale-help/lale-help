@@ -14,6 +14,17 @@ module PageObject
       element :time_commitment, '.duration .details'
       element :working_group, '.work-group .details'
 
+      def due_date_as_date
+        Date.parse(due_date.text)
+      end
+
+      def due_date_sentence
+        due_date.text
+      end
+
+      def member_since_date
+        Date.parse(member_since.text)
+      end
     end
   end
 end

@@ -20,7 +20,7 @@ describe "Create a task", js: true do
       expect(task_page.description.text).to eq(inputs[:description])
       expect(task_page.num_required_volunteers).to eq(1)
       expect(task_page.time_commitment.text).to eq("1 Hour")
-      expect(task_page.due_date).to eq(inputs[:due_date])
+      expect(task_page.due_date_as_date).to eq(inputs[:due_date])
       expect(task_page.location.text).to include(inputs[:location])
       expect(task_page.working_group.text).to eq(working_group.name)
       expect(task_page.organizer.text).to eq("Organized by #{admin.name}")
