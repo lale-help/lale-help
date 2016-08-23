@@ -33,7 +33,6 @@ describe "Volunteer for and decline a supply", js: true do
         before { supply_page.volunteer_button.click }
 
         it "works" do
-          expect(supply_page).not_to have_volunteer_button
           supply_page.decline_button.click
           expect(supply_page).to have_volunteer_button
           expect(supply_page).not_to have_decline_button

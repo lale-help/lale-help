@@ -8,6 +8,9 @@ module PageObject
 
       element :headline, '.member-header .title'
 
+      element :block_button, '.button-secondary', text: "Block"
+      element :unblock_button, '.button-secondary', text: "Unblock"
+
     end
   end
 end
