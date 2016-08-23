@@ -7,7 +7,8 @@ FactoryGirl.define do
     after(:create) do |user, _|
       create(:user_identity, user: user)
     end
-
+    is_admin false
+    
     factory :working_group_admin do
       after(:create) do |user, _|
         create(:working_group_admin_role, user: user)
