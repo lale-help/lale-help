@@ -10,7 +10,9 @@ module PageObject
       element :description, '.task-header .description'
       
       section :edit_menu, PageObject::Component::EditMenu, 'aside'
+
       section :helpers_box, PageObject::Component::UsersBox, '.users-box'
+      delegate :helpers, :has_helper?, to: :helpers_box
 
       element :volunteer_button, '.button-primary', text: "I'll help"
       element :decline_button, '.button-primary', text: "I can't help anymore"
@@ -26,7 +28,6 @@ module PageObject
       
       element :task_badge, '.users-box .task-badge'
 
-      delegate :helpers, :has_helper?, to: :helpers_box
 
       def num_required_volunteers
         ((/\/(\d+)/).match(text))[1].to_i
