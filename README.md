@@ -13,6 +13,7 @@ This is the rails application used for lale.help.
 - [Internationalization \(I18N\)](#internationalization-i18n)
 - [Restoring the database from a snapshot](#restoring-the-database-from-a-snapshot)
 - [Advice for writing feature specs](#advice-for-writing-feature-specs)
+- [Styleguide](#styleguide)
 - [Further documentation](#further-documentation)
 - [License](#license)
 
@@ -296,6 +297,10 @@ Consider abstracting details you don't care about, example:
 * run only one test or subsets of them with: `bin/rake SPEC=path/to/spec/file/or/directory`
 
 * parallelize tests, i.e. run subsets of tests in separate processes in parallel. This puts a lot of load on the test machine though and may produce more timing issues (leading to intermittent test failures) on insufficient hardware.
+
+## Styleguide
+
+A first version can be found at the [path /styles](https://staging.lale.help/styles)
 
 ## Further documentation
 
