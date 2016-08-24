@@ -12,6 +12,7 @@ module PageObject
       element :projects, 'a', text: /Projects/
       element :supplies, 'a', text: /Supplies/
       element :tasks, 'a', text: /Tasks/
+      element :wg_documents, 'a', text: /Working Group Documents/
 
     end
   end
