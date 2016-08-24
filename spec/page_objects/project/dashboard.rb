@@ -17,6 +17,8 @@ module PageObject
       section :supplies_list, PageObject::Component::TaskablesList, "#project-supplies-list"
       delegate :has_supply?, :supplies, to: :supplies_list
 
+      element :invite_working_group_button, '.button-secondary', text: 'Invite working group'
+      element :invite_circle_button, '.button-secondary', text: 'Invite circle'
     end
   end
 end
