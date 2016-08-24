@@ -158,6 +158,10 @@
         :tasks: Aufgaben
         :volunteers: Helfer
         :working_groups: Arbeitsgruppen
+      circle/role:
+        statuses:
+          active: Aktiv
+          blocked: Gesperrt
       :file_upload:
         :created_at: Hochgeladen um
         :file: Datei

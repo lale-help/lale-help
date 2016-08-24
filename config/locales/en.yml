@@ -159,6 +159,10 @@
         :tasks: Tasks
         :volunteers: Volunteers
         :working_groups: Working groups
+      circle/role:
+        statuses:
+          active: Active
+          blocked: Blocked
       :file_upload:
         :created_at: Uploaded At
         :file: file
