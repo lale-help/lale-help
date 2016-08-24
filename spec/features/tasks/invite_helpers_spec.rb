@@ -22,6 +22,7 @@ describe "Invite helpers to a task", js: true do
       task_page.invite_users_form.invite_working_group.click
       task_page.invite_users_form.submit_button.click
       expect(task_page).to have_flash('Invited 2 members.')
+      expect(sent_emails.map(&:to).flatten).to match_array(wg_members.map(&:email))
     end
   end
 
@@ -32,6 +33,7 @@ describe "Invite helpers to a task", js: true do
       task_page.invite_users_form.invite_circle.click
       task_page.invite_users_form.submit_button.click
       expect(task_page).to have_flash('Invited 3 members.')
+      expect(sent_emails.map(&:to).flatten).to match_array(([circle_member] + wg_members).map(&:email))
     end
   end
 

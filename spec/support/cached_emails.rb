@@ -13,14 +13,15 @@ RSpec.configure do |config|
     def cached_emails
       ActionMailer::Base.cached_deliveries
     end
+    alias :sent_emails :cached_emails
   end
 
   config.include CachedEmailHelpers
 
   # doesn't seem to be required
-  # config.before(:each) do |example|
-  #   ActionMailer::Base.clear_cache
-  # end
+  config.before(:each) do |example|
+    ActionMailer::Base.clear_cache
+  end
   
   config.around(:each) do |example|
     original_method = ActionMailer::Base.delivery_method
