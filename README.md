@@ -129,11 +129,11 @@ cp /path/to/database/snapshot/SNAPSHOT_NAME .
 
 ## Advice for writing feature specs
 
-["Feature spec"](https://github.com/lale-help/lale-help/tree/master/spec/features) is the most common name in Rails projects for a system integration test that is executed through the web browser. Feature specs are in the `spec/features` directory.
+[Feature spec](https://www.relishapp.com/rspec/rspec-rails/docs/feature-specs/feature-spec) is the most common name in Rails projects for a test that tests the whole application through the web browser. Feature specs are in the [`spec/features`](https://github.com/lale-help/lale-help/tree/master/spec/features) directory.
 
 ### Pros and cons of feature specs
 
-I'm summarizing these here because they help understanding some decisions I took for lale's feature specs setup.
+I'm summarizing these here because they help understanding the decisions I took for lale's feature specs setup.
 
 #### Pros
 
@@ -141,19 +141,19 @@ I'm summarizing these here because they help understanding some decisions I took
 
 2. they are **very high-level** and written with the RSpec BDD framework, so they document quite well what lale is expected to do, in nontechnical language.
 
-3. **high confidence** since they test the whole system and behave very similar to a real user, if the test passes it is very probable that the feature under test actually works.
+3. **high confidence** since they test the whole system and behave very similar to a real user, if the test passes it is very likely that the feature under test actually works as expected.
 
 #### Cons:
 
-1. **very slow**: feature specs take 1-2 orders of magnitude longer to run than a unit/model test. Thus feedback is much slower. Test suite runtimes can easily exceed the patience of the average programmer, which can lead to neglection of this kind of tests.
+1. **very slow**: feature specs take 1-2 orders of magnitude longer to run than a unit/model test. Thus feedback is much slower. The runtime of the whole test suite can easily exceed the patience / attention span of the average programmer, which (together with other cons) can lead to neglection of this kind of tests.
 
 2. **maximum complexity of the system under test**: since these tests are executed against the full, integrated system stack, there are seemingly infinite possibilities where things can go wrong. So these kinds of tests can be tedious and unpredictable to write.
 
-3. **can fail intermittently, seemingly non-deterministically** because three processes/threads are involved (test, browser, Rails server) and page loads/response times vary from test to test, timing issues can arise, which can cause unstable tests (the same test sometimes passes, sometimes fails). 
+3. **can fail intermittently, seemingly non-deterministically** mainly because of the system and setup complexity. Three processes/threads are involved (test, browser, Rails server). Page load times vary from test to test and system load, so timing issues can arise. 
 
-4. **can fail on minor HTML/CSS changes** feature specs use CSS selectors and messages to navigate/assert the HTML pages. When those are changed the tests fail, despite the feature still working.
+4. **can fail on minor HTML/CSS changes** feature specs use CSS selectors to navigate and access the content of the HTML pages. When those are changed the tests fail, despite the feature still working.
 
-5. **complex seed data setup** in order to do anything interesting in lale, you need at least a user, a circle, a working group and the correct roles to relate them to each other. This can be difficult to set up by hand for each test.
+5. **complex seed data setup** in order to do interesting things on lale, most of the time you need at least a user, a circle, a working group and the roles to relate them to each other correctly. This can be difficult to set up by hand for each test.
 
 ### Dealing with the pros and cons
 
@@ -174,7 +174,7 @@ I'm summarizing these here because they help understanding some decisions I took
 
 ### Reduce test complexity, increase test robustness
 
-* don't test more than one use case per file (for example: check the contents of a working group dashboard are correct separately from joining/leaving a group). Different use cases usually require different setup and steps, so the test file gets complex and hard to follow if several features are tested, which can cause bugs. 
+* don't test more than one use case per file (for example: one test to check the contents of a working group dashboard, one test for joining/leaving a working group). Different use cases usually require different setup and steps, so the test file gets long, setup gets complex and hard to follow if several features are tested, which can cause bugs.
 
 * use expressive filenames related to the use case if possible. So rather than `show_working_group_spec.rb` use `show_working_group_dashboard_spec.rb` and `join_and_leave_working_group_spec.rb`.
 
@@ -186,15 +186,13 @@ I'm summarizing these here because they help understanding some decisions I took
 * stub nonessential systems that you can test individually in separate integration tests (Email, external APIs, ...)
 
 * use [page objects](http://martinfowler.com/bliki/PageObject.html) to 
-  * abstract the parts of the HTML page you are interested in
-  * maintain the CSS selectors for a page in one place
+  * create nice interfaces to the tested HTML pages and the parts you are interested in
+  * maintain the CSS selectors for one page (or page component) in one place
   * create helper methods and custom rspec [predicate matchers](https://www.relishapp.com/rspec/rspec-expectations/v/3-5/docs/built-in-matchers/predicate-matchers) that simplify testing. For example:
 
 ```ruby
-# in spec
-# through rspec magic, this will do a call to task_page.has_helper?(admin)
+# in spec. through rspec's magic, this will call task_page.has_helper?(admin)
 expect(task_page).to have_helper(admin)
-
 
 # in the page object
 elements :users, '.user-name-shortened'
@@ -206,15 +204,15 @@ end
 
 Our [page objects](https://github.com/lale-help/lale-help/tree/323c94b1195272d81889dbe8a8d407ee0ae15a71/spec/page_objects) are based on the excellent [site_prism](https://github.com/natritmeyer/site_prism) gem.
 
-* don't put assertions directly in page objects, to keep them generic. but implement generic helper methods (`#has_helper?` `#completed?`) in them that can be reused in different specs (also see example above).
+* don't put assertions directly in page objects, to keep the objects generic. Implement generic helper methods (`#has_helper?` `#completed?`) in them instead, which can be reused in different specs (also see example above).
 
 * when interaction with one page leads to another page, have the page object return an instance of the new page object. That way you don't have to set things up in the spec file. Have a look at the form specs for examples.
 
-* assert strings by comparing the value obtained from the HTML page to the value from the factory created object, rather than hard-coding strings in every spec. The probability of our factories returning empty strings or nil values is very low.
+* assert strings by comparing the dynamic value obtained from the HTML page to the dynamic value from the factory created object, rather than hard-coding strings in every spec. The probability of our factories returning empty strings or nil values is very low, and we actually care that the values match, not that they are a certain string.
 
-* when using components / sections in page objects, don't expose them to the test; instead delegate from the page being used to reduce coupling.
+* when developing features and writing tests, try to identify and create reusable HTML/CSS components (see `app/assets/stylesheets/components` for examples). These only need to be written once and can then be reused. Often tests can be copy/pasted and slightly adapted if components are reused.
 
-* when developing features, try to identify and create reusable HTML/CSS components (see `app/assets/stylesheets/components` for examples). The page object / component for the test only needs to be written once and can be reused every time the component is used.
+* when using components ("sections") in page objects, don't access them directly from the test. Instead delegate to it from the page object. Have a look at the components in `spec/page_objects/_components` and how they are used to understand.
 
 * use [advanced / CSS3 selectors](http://www.w3schools.com/cssref/css_selectors.asp), like [:nth-of-type()](http://www.w3schools.com/cssref/sel_nth-of-type.asp) to find elements. They are faster to write/adapt than accessing the data you're interested in with Ruby, or adding extra classes to the HTML page.
 
@@ -222,19 +220,41 @@ Our [page objects](https://github.com/lale-help/lale-help/tree/323c94b1195272d81
 
 * don't assert every detail of a page, assert what's essential. The more assertions, the more likely some of that will change in the future, requiring the test to be adapted.
 
-* use rspec's `describe` blocks to describe the variation of the feature you're testing and `context` blocks for the preconditions of that particular test. Context-blocks usually begin with "when ...". A context-block will usually only have one `it` block, which describe the expected outcome. This structure may seem verbose, but it serves as excellent structure for finding out which tests to write, where to put which test, and document the feature well.
+* use rspec's BDD (behaviour driven development) approach to help yourself to structure a test, and help yourself and others to understand it later:
+  * Use `describe` blocks to describe the variation of the feature you're testing, 
+  * `context` blocks to describe the preconditions of the contained test(s). Context blocks usually begin with `"when ..."`. They help you figure out which precontions/setup code to write.
+  * A context-block will usually contain only one `it` block, which describes the expected outcome. Often the it block will contain almost only assertions.
 
-Example:
+This structure is verbose, but it improves test accessibility and thus maintainabilty.
 
-    describe "Join and leave a working group", js: true do
-      describe "joining a group" do
-        context "when use has not joined yet" do
-          it "becomes member of the group" do
-          end
-        end
+Examples:
+
+```ruby
+describe "Create a task", js: true do
+  context "when only required fields are filled" do
+    it "creates the task" do
+      ...
+    end
+  end
+  context "when form is submitted empty" do
+    it "shows all error messages" do
+      ...
+    end
+  end
+end
+```
+
+```ruby
+describe "Join and leave a working group", js: true do
+  describe "joining a group" do
+    context "when use has not joined yet" do
+      it "becomes member of the group" do
+        ...
       end
     end
-
+  end
+end
+```
 
 ### Developing and debugging efficiently
 
@@ -307,6 +327,8 @@ let(:completed_task) { create(:task, :completed, :with_volunteer) }
 * run only one test or subsets of them with: `bin/rake SPEC=path/to/spec/file/or/directory`
 
 * parallelize tests, i.e. run subsets of tests in separate processes in parallel. This puts a lot of load on the test machine though and may produce more timing issues (leading to intermittent test failures) on insufficient hardware.
+
+* (TODO) debugging tests that only fail some times (intermittently failing tests): use an endless loop in bash (or Ruby) to repeatedly run the same spec; open multiple shells to overload the system. observe the logs (maybe set log level debug and activate Capybara/Poltergeist debug logs)
 
 ## Styleguide
 
