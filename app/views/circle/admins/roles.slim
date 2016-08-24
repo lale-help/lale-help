@@ -19,7 +19,7 @@ section.circle-admin
               - if can? :delete, role
                 = link_to '', circle_role_path(current_circle, role), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_circle') }
 
-      tfooter
+      tfoot
         - if can? :manage, current_circle
           tr#add-role.action-row
             td colspan="3"

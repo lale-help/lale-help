@@ -166,7 +166,7 @@ I'm summarizing these here because they help understanding the decisions I took 
 
 * Timebox a debugging session, and put an imperfect/partial/messy test in place if you can, rather than no test at all. 
 
-* Stop debugging when you're exhausted/frustrated and get something else done. Retry with a fresh, calm mind on the next morning.
+* Stop debugging when you're exhausted/frustrated and get something else done. Retry with a fresh, calm mind on the next morning. Often you paint yourself into a corner when debugging for too long, and you'll find the problem with a new approach in another session.
 
 * Show/explain the test to another developer (or a [rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging)) and debug together. 
  
@@ -292,7 +292,7 @@ Consider abstracting details you don't care about, example:
 
 * look at the screenshots in `tmp/capybara` that are created automatically at every test failure (we use the capybara-screenshot gem for that). Create a screenshot manually with `show!` or `save_and_open_page` to inspect an image/the HTML of the page at any time step.
 
-* use `Capybara.pry` to start a shell / debugger in the context of the page. From there, use standard capybara API to inspect the page (like `find('some-css-selector')`)
+* use `Capybara.pry` to start a shell / debugger in the context of the page. From there, use standard capybara API to inspect the page (like `find('some-css-selector')`). Type `exit` to let the spec continue.
 
 * often incorrect system setup issues cause errors. When things aren't working as you expect, put assertions in your test that ensure the test data is set up as expected, like `expect(working_group.organizer).to eq(my_user)`. You can mitigate these with reliable factories and tests for them, though.
 
