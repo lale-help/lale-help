@@ -2,11 +2,19 @@ FactoryGirl.define do
 
   factory :circle_create_form, class: Circle::CreateForm do
     sequence(:name)  {|n| "Circle #{n}" }
+    sequence(:description) {|n| "Description of circle #{n}" }
     city             { "San Francisco" }
     state_providence { "California" }
-    country          { "US" }
+    country          { "Canada" }
     postal_code      { "94109" }
-    user             { create :user }
+    user             { create(:user) }
+  end
+
+  factory :empty_required_circle_attributes, class: Circle::CreateForm do
+    name             ""
+    city             ""
+    postal_code      ""
+    country          "Select Country"
   end
 
   factory :circle do

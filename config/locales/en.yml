@@ -843,7 +843,7 @@
       Oops! Failed to connect to the Web Console middleware.
       Please make sure a rails development server is running.
     :country:
-      :empty: Please choose a valid country
+      :empty: Please select a country
     :description:
       :empty: Please enter a description
       :too_short: Description is too short
