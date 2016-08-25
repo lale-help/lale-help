@@ -22,6 +22,17 @@
 module PageObject
   class Page < SitePrism::Page
 
+    def load_for(resource, as:)
+      # returns 'task_id' for a task instance
+      resource_param_name = "#{resource.class.table_name.singularize}_id".to_sym
+      params = {
+        circle_id: resource.circle.id, 
+        resource_param_name => resource.id, 
+        as: as.id
+      } 
+      load(params)
+    end
+
     def has_flash?(message)
       find('.flash-message', text: message)
     end

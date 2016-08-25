@@ -18,11 +18,6 @@ module PageObject
       delegate :helpers, :has_helper?, to: :helpers_box
 
       # FIXME factor out
-      def load_for(supply, as:)
-        load(circle_id: supply.circle.id, supply_id: supply.id, as: as.id)
-      end
-
-      # FIXME factor out
       def completed?
         find('.task.urgency--complete')
       end

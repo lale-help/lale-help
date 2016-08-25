@@ -28,14 +28,8 @@ module PageObject
       
       element :task_badge, '.users-box .task-badge'
 
-
       def num_required_volunteers
         ((/\/(\d+)/).match(text))[1].to_i
-      end
-
-      # FIXME factor out
-      def load_for(task, as:)
-        load(circle_id: task.circle.id, task_id: task.id, as: as.id)
       end
 
       # FIXME factor out
