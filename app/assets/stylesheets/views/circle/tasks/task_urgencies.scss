@@ -1,3 +1,29 @@
+.taskable-urgency-new {
+  .date {
+
+    .month {
+      background: $blue-darkish;
+      color: $white;
+    }
+
+    .day {
+      background: $blue-50;
+      color: $blue-darkish;
+      border: thin solid $blue-darkish;
+    }
+  }
+
+  .title {
+    background: $blue-500;
+    color: $blue-50;
+  }
+  .description {
+    background: $blue-50;
+    color: $blue-500;
+  }
+
+}
+
 .taskable-urgency-complete {
   .date {
      .month {

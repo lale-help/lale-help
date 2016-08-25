@@ -23,20 +23,15 @@ section > .task {
         @include transform(translate(1.5rem, 1.5rem));
 
         .month {
-          background: $blue-darkish;
-          color: $white;
           padding: 0.5rem 1rem;
           @include border-top-radius($radius);
         }
 
         .day {
-          background: $blue-50;
-          color: $blue-darkish;
           display: block;
           padding: 0.25rem 1rem;
           @include border-bottom-radius($radius);
           font-size: 2rem;
-          border: thin solid $blue-darkish;
           border-top: 0;
           .day_number {
             display: block;
@@ -49,15 +44,11 @@ section > .task {
       }
 
       .title {
-        background: $blue-500;
-        color: $blue-50;
         font-size: 2.5em;
         @include border-top-radius($border-radius);
         padding: 1rem 2rem 1rem 9rem;
       }
       .description {
-        background: $blue-50;
-        color: $blue-500;
         @include border-bottom-radius($border-radius);
         min-height: 8rem;
         font-size: 1.5em;
