@@ -6,9 +6,6 @@ module PageObject
 
       include HasItemDetailsTable
 
-      element :headline, '.task-header .title'
-      element :description, '.task-header .description'
-
       section :edit_menu, PageObject::Component::EditMenu, 'aside'
 
       element :volunteer_button, '.button-primary', text: "I have this Supply"
@@ -17,15 +14,8 @@ module PageObject
       section :helpers_box, PageObject::Component::UsersBox, '.users-box'
       delegate :helpers, :has_helper?, to: :helpers_box
 
-      # FIXME factor out
-      def completed?
-        find('.task.urgency--complete')
-      end
-
-      # FIXME factor out
-      def new?
-        find('.task.urgency--new')
-      end
+      section :header, PageObject::Component::TaskableHeader, '.task-header'
+      delegate :headline, :wait_for_headline, :description, :completed?, :new?, to: :header
 
     end
   end
