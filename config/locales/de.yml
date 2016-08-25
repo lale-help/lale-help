@@ -570,7 +570,6 @@
         :invite-button: Mitglieder von %{group} einladen
         :organized-by: Organisiert von %{name}
         :reopen-task-button: Sachspende wieder öffnen
-        :task-complete: 'Erledigt: '
         :users_box_title: Wird geliefert von
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"
@@ -587,6 +586,8 @@
       :supply_list_item:
         :stats-here: Statistik
     :taskables:
+      taskable_header:
+        :task-complete: 'Erledigt: '
       :nav:
         :organizing: Ich organisiere
         :volunteering: Ich erledige
@@ -625,7 +626,6 @@
         :invite-button: "%{class} einladen"
         :organized-by: Organisiert von %{name}
         :reopen-task-button: Aufgabe wieder öffnen
-        :task-complete: 'Erledigt: '
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"
           :other: "%{count} Helfer sind eingetragen"

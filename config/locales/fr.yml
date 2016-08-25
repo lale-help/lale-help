@@ -546,7 +546,6 @@
         :invite-button: Inviter les membres de %{group}
         :organized-by: Organisé par %{name}
         :reopen-task-button: Re-ouvrir la Fourniture
-        :task-complete: 'Fait : '
         :users_box_title: Est fournie par
         :volunteer-count:
           :one: "%{count} volontaire y participe"
@@ -563,6 +562,8 @@
       :supply_list_item:
         :stats-here: Statistiques
     :taskables:
+      :taskable_header:
+        :task-complete: 'Fait : '
       :nav:
         :organizing: Organise
         :volunteering: Est Volontaire
@@ -601,7 +602,6 @@
         :invite-button: Inviter %{class}
         :organized-by: Organisé par %{name}
         :reopen-task-button: Re-Ouvrir la Tâche
-        :task-complete: 'Fait : '
         :volunteer-count:
           :one: "%{count} volontaire y participe"
           :other: "%{count} volontaires y participent"

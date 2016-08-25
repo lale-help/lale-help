@@ -573,7 +573,6 @@
         :invite-button: Invite %{group} members
         :organized-by: Organized by %{name}
         :reopen-task-button: Re-open Supply
-        :task-complete: 'Done: '
         :users_box_title: Is supplied by
         :volunteer-count:
           :one: "%{count} volunteer has signed up"
@@ -590,6 +589,8 @@
       :supply_list_item:
         :stats-here: Stats Here
     :taskables:
+      taskable_header:
+        :task-complete: 'Done: '
       :nav:
         :organizing: Organizing
         :volunteering: Volunteering
@@ -628,7 +629,6 @@
         :invite-button: Invite %{class}
         :organized-by: Organized by %{name}
         :reopen-task-button: Re-open Task
-        :task-complete: 'Done: '
         :volunteer-count:
           :one: "%{count} volunteer is going"
           :other: "%{count} volunteers are going"
