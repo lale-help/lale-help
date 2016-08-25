@@ -1,20 +1,11 @@
+/ FIXME stop using current_task in this template, call all methods on the presenter.
 - task_presenter = ::TaskPresenter.new(current_task)
 - content_for :header_middle do
   = link_to_back
 
 .task
   main
-    .task-header class=task_presenter.css
-      .date
-        .month= task_presenter.due_date_month
-        .day
-          span.day_number= task_presenter.due_date_day
-          span.day-of-week= task_presenter.due_date_day_of_week
-      .title
-        -if current_task.complete?
-          span.done= t('.task-complete')
-        = task_presenter.name
-      .description= current_task.description
+    = render(partial: 'circle/taskables/taskable_header', locals: {taskable: task_presenter})
 
     .item-details-table
       .row.due-date

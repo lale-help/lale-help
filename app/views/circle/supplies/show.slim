@@ -1,3 +1,4 @@
+/ FIXME stop using current_supply in this template, call all methods on the presenter.
 - supply = ::SupplyPresenter.new(current_supply)
 
 - content_for :header_middle do
@@ -5,17 +6,7 @@
 
 .task
   main
-    .task-header class=supply.css
-      .date
-        .month= supply.due_date_month
-        .day
-          span.day_number= supply.due_date_day
-          span.day-of-week= supply.due_date_day_of_week
-      .title
-        -if current_supply.complete?
-          span.done= t('.task-complete')
-        = supply.name
-      .description= current_supply.description
+    = render(partial: 'circle/taskables/taskable_header', locals: {taskable: supply})
 
     .item-details-table
       .row.due-date

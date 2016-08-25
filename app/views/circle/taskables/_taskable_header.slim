@@ -1,0 +1,11 @@
+.task-header class=taskable.css
+  .date
+    .month= taskable.due_date_month
+    .day
+      span.day_number= taskable.due_date_day
+      span.day-of-week= taskable.due_date_day_of_week
+  .title
+    -if taskable.complete?
+      span.done= t('.task-complete')
+    = taskable.name
+  .description= taskable.description

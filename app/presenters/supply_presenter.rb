@@ -1,5 +1,6 @@
 class SupplyPresenter < Presenter
-  delegate :id, :name, :volunteers, :volunteer_count_required, :comments, :due_date,  to: :object
+  delegate :id, :name, :volunteers, :volunteer_count_required, :comments, :due_date, 
+    :description, :complete?, :on_track?, :more_volunteers_needed?, to: :object
 
   let(:statuses) do
     statuses = []
