@@ -5,6 +5,8 @@ module PageObject
       set_url '/circles/{circle_id}{?as}'
 
       section :add_menu, PageObject::Component::AddMenu, '#sidebar'
+      delegate :has_no_add_button?, to: :add_menu
+
       section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
 
       section :task_list, PageObject::Component::TaskablesList, ".open_tasks"
