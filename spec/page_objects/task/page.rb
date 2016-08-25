@@ -26,7 +26,8 @@ module PageObject
       element :task_badge, '.users-box .task-badge'
 
       section :header, PageObject::Component::TaskableHeader, '.task-header'
-      delegate :headline, :wait_for_headline, :description, :completed?, :new?, to: :header
+      delegate :headline, :wait_for_headline, :description, :completed?, :new?, 
+        :has_urgency_complete?, :has_urgency_new?, to: :header
 
       def num_required_volunteers
         ((/\/(\d+)/).match(text))[1].to_i

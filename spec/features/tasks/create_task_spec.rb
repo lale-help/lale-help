@@ -12,7 +12,7 @@ describe "Create a task", js: true do
   context "when only required fields are filled" do
   
     let(:inputs) { attributes_for(:task).merge(location: 'Munich') }
-    before { task_form.load(circle_id: circle.id, as: admin.id) }
+    before { task_form.load(circle_id: circle.id, action: :new, as: admin.id) }
 
     it "creates the task" do
       task_page = task_form.submit_with(inputs)
@@ -34,7 +34,7 @@ describe "Create a task", js: true do
     let!(:working_group_2) { create(:working_group, circle: circle, members: [admin, member_2]) }
     let!(:inputs) { attributes_for(:task, :nondefault, working_group_name: working_group_2.name, organizer_name: member_2.name) }
 
-    before { task_form.load(circle_id: circle.id, as: admin.id) }
+    before { task_form.load(circle_id: circle.id, action: :new, as: admin.id) }
 
     it "creates the task" do
       task_page = task_form.submit_with(inputs)
@@ -52,7 +52,7 @@ describe "Create a task", js: true do
   context "when form is submitted empty" do
   
     let(:inputs) { {} }
-    before { task_form.load(circle_id: circle.id, as: admin.id) }
+    before { task_form.load(circle_id: circle.id, action: :new, as: admin.id) }
     
     it "shows all error messages" do
       task_form.submit_with(inputs)

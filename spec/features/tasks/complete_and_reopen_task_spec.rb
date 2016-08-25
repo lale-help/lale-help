@@ -16,7 +16,7 @@ describe "Complete and reopen a task", js: true do
     it "works" do
       task_page.edit_menu.open
       task_page.edit_menu.complete.click
-      expect(task_page).to be_completed
+      expect(task_page).to have_urgency_complete
     end
   end
 
@@ -30,10 +30,10 @@ describe "Complete and reopen a task", js: true do
       end
 
       it "works" do
-        expect(task_page).to be_completed
+        expect(task_page).to have_urgency_complete
         task_page.edit_menu.open
         task_page.edit_menu.reopen.click
-        expect(task_page).to be_new
+        expect(task_page).to have_urgency_new
       end
     end
 

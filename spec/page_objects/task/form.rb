@@ -2,7 +2,12 @@ module PageObject
   module Task
     class Form < PageObject::Page
 
-      set_url '/circles/{circle_id}/tasks/new{?as}'
+      # 
+      # This URI template works for edit and new form urls:
+      # for new:  load(circle_id: 42, action: 'new', as: user_id)
+      # for edit: load(circle_id: 42, action: 'edit', task_id: 43, as: user_id)
+      # 
+      set_url '/circles/{circle_id}/tasks{/task_id}{/action}{?as}'
 
       element :title, 'main.form h2'
 
