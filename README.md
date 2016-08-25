@@ -304,6 +304,8 @@ Consider abstracting details you don't care about, example:
 
   For testing the edge cases, use faster unit/model/mutation/controller tests. 
 
+* keep the tests for elements and logic that appear(s) on multiple pages as [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) as possible.Write only one test for something that repeats on several pages if you know the technical implementation is very similar. A slight chance remains that the feature will not work in the untested cases. But the alternatives (duplicating test code and/or factoring it out with rspec's shared examples or helper methods) quickly increases spec runtimes and complexity. Specs should be simple to understand and change.
+
 #### Debugging
 
 * if you suspect timing issues, insert a `sleep 2` before the command that fails. When you're sure that's the issue, convert it to a `wait_for` [command to be more robust](https://github.com/natritmeyer/site_prism#waiting-for-an-element-to-exist-on-a-page) which waits for the required element to show up on the page.

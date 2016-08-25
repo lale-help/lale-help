@@ -36,14 +36,14 @@ describe "Show circle dashboard", js: true do
 
     before { dashboard_page.load(circle_id: circle.id, as: user.id) }
 
-    context 'when user is working group admin' do
+    context 'when user is circle admin' do
       let(:user) { admin }
       it "is visible" do
         expect(dashboard_page).to have_add_menu
       end
     end
 
-    context 'when user is working group volunteer' do
+    context 'when user is regular circle member' do
       let(:user) { create(:circle_member_role, circle: circle).user }
       it "is not visible" do
         show!
