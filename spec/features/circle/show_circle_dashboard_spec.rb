@@ -46,7 +46,6 @@ describe "Show circle dashboard", js: true do
     context 'when user is regular circle member' do
       let(:user) { create(:circle_member_role, circle: circle).user }
       it "is not visible" do
-        show!
         expect(dashboard_page).to have_no_add_button
       end
     end
