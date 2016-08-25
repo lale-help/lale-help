@@ -330,6 +330,24 @@ let(:completed_task) { create(:task, :completed, :with_volunteer) }
 
 * [some more valuable hints here](https://quickleft.com/blog/five-capybara-hacks-to-make-your-testing-experience-less-painful/), like fixing trouble with DatabaseCleaner and database transactions, easily pausing the test and browsing the page. [Here's](http://ricostacruz.com/til/pausing-capybara-selenium.html) an untested hint on how to pause Capybara tests for DOM inspection when using Selenium.
 
+* debugging intermittently failing tests: use the following loop in bash to run your spec endlessly. If you're lucky, the spec will fail from time to time as well. In that case, inspect the logs (Rails log, Capybara debug log), inspect the database state and compare the differences.
+
+```
+while true; do bin/rake SPEC=spec/features/your/spec/file.rb:line_nr; sleep 1; done
+```
+
+Only run one test in isolation (give the test file name and line number) to prevent possible side effects. 
+
+Since the test runs over and over again you can change/debug the code continuously.
+
+If the spec never fails when run in isolation, start adding more and more test files to the run until you get the fails. Then start removing specs until you get a stable test again. That way you'll find the other test that makes your test fail.
+
+If the spec only fails in CircleCI, use their "Rebuild with SSH" feature (alternate option of the 'Rebuild' button on the build page) to inspect the state of the CI server online. If you can't get them to run, set `:ci_ignore`on the it block to ignore the spec only in CI.
+
+Try overloading the system with other processes / endless loops to slow down the Rails application and force timing errors.
+
+Review the test, application code and setup thoroughly. Sometimes you have a piece of code that returns variable results (options in a select field ordered differently, etc.)
+
 ### Running tests faster
 
 * use the [spring](https://github.com/rails/spring) Rails application preloader to shave 5-10 seconds off the test runtime. It's set up already, just use the wrapper scripts in the `bin` directory, like `bin/rake spec:features`. Be aware changes to Rails configuration and similar may need a restart to take effect.
@@ -345,8 +363,6 @@ let(:completed_task) { create(:task, :completed, :with_volunteer) }
 * run only one test or subsets of them with: `bin/rake SPEC=path/to/spec/file/or/directory`
 
 * parallelize tests, i.e. run subsets of tests in separate processes in parallel. This puts a lot of load on the test machine though and may produce more timing issues (leading to intermittent test failures) on insufficient hardware.
-
-* (TODO) debugging tests that only fail some times (intermittently failing tests): use an endless loop in bash (or Ruby) to repeatedly run the same spec; open multiple shells to overload the system. observe the logs (maybe set log level debug and activate Capybara/Poltergeist debug logs)
 
 ## Styleguide
 

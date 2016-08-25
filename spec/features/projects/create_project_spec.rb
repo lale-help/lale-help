@@ -12,7 +12,7 @@ describe "Create project", js: true do
 
   context "when only required fields are filled" do
 
-    let(:inputs) { attributes_for(:project) }
+    let(:inputs) { attributes_for(:project).merge(organizer_name: admin.name) }
     before { project_form.load(circle_id: circle.id, as: admin.id) }
 
     it "creates the project" do
