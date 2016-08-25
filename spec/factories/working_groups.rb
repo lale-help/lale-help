@@ -45,22 +45,10 @@ FactoryGirl.define do
       end
     end
 
-    factory :private_working_group do
+    trait :private do
       is_private true
     end
 
-  end
-
-  factory :working_group_admin_role, aliases: [:working_group_organizer_role], class: WorkingGroup::Role do
-    role_type { "admin" }
-    user
-    working_group
-  end
-
-  factory :working_group_member_role, aliases: [:working_group_volunteer_role], class: WorkingGroup::Role do
-    role_type { "member" }
-    user
-    working_group
   end
 
 end

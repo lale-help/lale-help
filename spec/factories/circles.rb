@@ -57,6 +57,13 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_volunteer_and_working_group do
+      with_volunteer
+      after(:create) do |circle, evaluator|
+        create(:working_group, circle: circle, member: circle.volunteers.first)
+      end
+    end
+
     trait :with_admin_volunteer_and_working_group do
       with_admin
       with_volunteer
@@ -67,22 +74,4 @@ FactoryGirl.define do
 
   end
 
-  factory :circle_role, class: Circle::Role do
-    
-    user
-    circle
-    status { :active }
-
-    after(:create) do |role, evaluator|
-      role.user.update_attribute(:primary_circle, role.circle)
-    end
-
-    factory :circle_role_volunteer, aliases: [:circle_member_role] do
-      role_type { "circle.volunteer" }
-    end
-
-    factory :circle_role_admin, aliases: [:circle_admin_role] do
-      role_type { "circle.admin" }
-    end
-  end
 end

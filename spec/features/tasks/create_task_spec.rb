@@ -32,7 +32,7 @@ describe "Create a task", js: true do
 
     let!(:member_2) { create(:user) }
     let!(:working_group_2) { create(:working_group, circle: circle, members: [admin, member_2]) }
-    let!(:inputs) { attributes_for(:nondefault_task, working_group_name: working_group_2.name, organizer_name: member_2.name) }
+    let!(:inputs) { attributes_for(:task, :nondefault, working_group_name: working_group_2.name, organizer_name: member_2.name) }
 
     before { task_form.load(circle_id: circle.id, as: admin.id) }
 

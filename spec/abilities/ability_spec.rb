@@ -18,7 +18,7 @@ describe "User abilities" do
   end
 
   context "as circle admin" do
-    let(:user){ create(:circle_admin) }
+    let(:user){ create(:user, :circle_admin) }
     let(:circle) { user.circles.first }
 
     it { is_expected.to     be_able_to(:read, circle) }
@@ -49,7 +49,7 @@ describe "User abilities" do
     it { is_expected.to     be_able_to(:create_project, working_group.circle) }
 
     context "project in private working group" do
-      let(:working_group) { create(:private_working_group, circle: circle) }
+      let(:working_group) { create(:working_group, :private, circle: circle) }
       let(:project) { create(:project, working_group: working_group) }
       it { is_expected.to be_able_to(:read, project) }
       it { is_expected.to be_able_to(:update, project) }
@@ -59,7 +59,7 @@ describe "User abilities" do
   end
 
   context "as member of a circle" do
-    let(:user) { create(:circle_volunteer) }
+    let(:user) { create(:user, :circle_volunteer) }
     let(:circle) { user.circles.first }
 
     it { is_expected.to     be_able_to(:read, circle) }
@@ -88,7 +88,7 @@ describe "User abilities" do
   end
 
   context "as admin of working group" do
-    let!(:user) { create(:working_group_admin) }
+    let!(:user) { create(:user, :working_group_admin) }
     let(:working_group) { user.working_groups.first }
     let(:project) { create(:project, working_group: working_group) }
 
@@ -128,7 +128,7 @@ describe "User abilities" do
 
   context "as working group member" do
 
-    let!(:user) { create(:working_group_member) }
+    let!(:user) { create(:user, :working_group_member) }
     let(:working_group) { user.working_groups.first }
     let(:project) { create(:project, working_group: working_group) }
 

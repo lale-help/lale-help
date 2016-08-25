@@ -284,7 +284,25 @@ Consider abstracting details you don't care about, example:
 
 * default factories: should create all objects the main object needs to be valid and work properly. Examples: `create(:working_group)` creates a circle for that contains the working group, `create(:circle_admin_role)` creates a circle and an admin user.
 
-* use an existing spec as a scaffold for your new test (copy & paste to new file, adapt) to speed up things. Factor out things when you notice frequent repetition, though.
+* use an existing spec as a scaffold for your new test (copy & paste to new file, adapt) to speed up things. Consider using generic but fitting variable names ('inputs' instead if 'supply_inputs', etc.) to make copying easier. Factor out things when you notice frequent repetition, though.
+
+* which scenarios to test for a feature (ordered by priority):
+  1. successfully using the feature ([happy path](https://en.wikipedia.org/wiki/Happy_path))
+  1. one/main error or variation of the feature
+  1. main variations of the feature
+  1. navigating to the feature (navigating to the feature should not be part of a regular test; start on the feature page)
+  - an example for creating tasks:
+
+    1. fill and submit form with minimum required valid inputs
+    1. fill and submit form with invalid inputs (empty form submit)
+    1. fill and submit form with maximum possible inputs
+    1. navigate to the create task form (from different places)
+
+  - in each test, focus on testing that the important parts of a page are displayed correctly, rather than testing all edge cases through feature specs. The feature spec makes sure the feature can be 
+    1. used/accessed as expected and 
+    1. the result of the unit/model/mutation/controller interaction is displayed correctly.
+
+  For testing the edge cases, use faster unit/model/mutation/controller tests. 
 
 #### Debugging
 
@@ -319,8 +337,6 @@ let(:completed_task) { create(:task, :completed, :with_volunteer) }
 * use the [backdoor](https://github.com/lale-help/lale-help/blob/master/spec/support/backdoor.rb), rather than logging in a user through the sign in form for every test. Make sure to have separate sign-in specs, though!
 
 * start the test on the page you want to test rather than navigating there from another page. Write separate, simple tests to navigating to the feature, once, if you care about it.
-
-* test only the happy path (==success) and maybe one variation (error) in a feature spec. Use simpler, faster tests (model/controller/interaction) to test the other variations of a feature.
 
 * contrary to best practise for unit tests, run **multiple** assertions per test. test everything that can be tested for the data setup you just tediously built.
 

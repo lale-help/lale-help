@@ -100,6 +100,23 @@ describe "Circle factory" do
       expect(wg.members).to eq([circle.admin])
     end
   end
+  
+  describe "the :with_volunteer_and_working_group trait" do
+    it "assigns a new user as volunteer" do
+      circle = create(:circle, :with_volunteer_and_working_group)
+      expect(circle.volunteers.size).to eq(1)
+      expect(circle.volunteers.first).to be_a(User)
+    end
+    it "creates a working group" do
+      circle = create(:circle, :with_volunteer_and_working_group)
+      expect(circle.working_groups.size).to eq(1)
+    end
+    it "makes the circle volunteer member of the working group" do
+      circle = create(:circle, :with_volunteer_and_working_group)
+      wg = circle.working_groups.first
+      expect(wg.members).to eq([circle.volunteer])
+    end
+  end
 
 
 

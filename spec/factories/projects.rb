@@ -26,10 +26,4 @@ FactoryGirl.define do
 
   end
 
-  factory :project_admin_role, class: Project::Role do    
-    user
-    project
-    role_type :admin
-  end
-
 end

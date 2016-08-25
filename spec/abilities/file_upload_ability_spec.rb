@@ -70,7 +70,7 @@ describe "FileUpload abilities" do
 
   #
   # context "as member of a circle" do
-  #   let(:user) { create(:circle_volunteer) }
+  #   let(:user) { create(:user, :circle_volunteer) }
   #   let(:circle) { user.circles.first }
   #
   #   it { should     be_able_to(:read, circle) }
@@ -96,7 +96,7 @@ describe "FileUpload abilities" do
   # end
   #
   # context "as admin of working group" do
-  #   let!(:user) { create(:working_group_admin) }
+  #   let!(:user) { create(:user, :working_group_admin) }
   #   let(:working_group) { user.working_groups.first }
   #   let(:project) { create(:project, working_group: working_group) }
   #
@@ -128,7 +128,7 @@ describe "FileUpload abilities" do
   #
   # context "as working group member" do
   #
-  #   let!(:user) { create(:working_group_member) }
+  #   let!(:user) { create(:user, :working_group_member) }
   #   let(:working_group) { user.working_groups.first }
   #   let(:project) { create(:project, working_group: working_group) }
   #

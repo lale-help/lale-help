@@ -19,15 +19,15 @@ RSpec.describe Sponsorship, type: :model do
     end
 
     context "one current sponsorship" do
-      let!(:sponsorship) { create(:current_sponsorship) }
+      let!(:sponsorship) { create(:sponsorship, :current) }
       it "returns one sponsorship" do
         expect(Sponsorship.current).to eq([sponsorship])
       end
     end
 
     context "two current sponsorships" do
-      let!(:sponsorship_1) { create(:current_sponsorship) }
-      let!(:sponsorship_2) { create(:current_sponsorship) }
+      let!(:sponsorship_1) { create(:sponsorship, :current) }
+      let!(:sponsorship_2) { create(:sponsorship, :current) }
       it "returns two sponsorships" do
         expect(Sponsorship.current).to match_array([sponsorship_1, sponsorship_2])
       end
@@ -42,21 +42,21 @@ RSpec.describe Sponsorship, type: :model do
     end
 
     context "has one sponsorship that starts tomorrow" do
-      let!(:sponsorship) { create(:future_sponsorship, starts_on: Date.today + 1.day) }
+      let!(:sponsorship) { create(:sponsorship, :future, starts_on: Date.today + 1.day) }
       it "returns an empty array" do
         expect(Sponsorship.current).to eq([])
       end
     end
 
     context "one past sponsorship" do
-      let!(:sponsorship) { create(:past_sponsorship) }
+      let!(:sponsorship) { create(:sponsorship, :past) }
       it "returns an empty array" do
         expect(Sponsorship.current).to eq([])
       end
     end
 
     context "one future sponsorship" do
-      let!(:sponsorship) { create(:future_sponsorship) }
+      let!(:sponsorship) { create(:sponsorship, :future) }
       it "returns an empty array" do
         expect(Sponsorship.current).to eq([])
       end

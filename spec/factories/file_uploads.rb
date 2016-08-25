@@ -1,6 +1,6 @@
 FactoryGirl.define do
 
-  factory :file_upload do
+  factory :file_upload, aliases: [:circle_file_upload] do
     id                   { FileUpload.uploadable_gid(uploadable) }
     sequence(:name)      { |n| "File #{n}" }
     upload_type          'file'
@@ -13,9 +13,6 @@ FactoryGirl.define do
     file_extension       '.JPG'
     file_encryption_details "NUFySWJLT2c5YW10VW9EQXRmZGtxYXhUc0ZldmhJVjFTQk5sSGczZzcwbnRSZkVWUDVGM25hVWFlTFlLcEFpeVJ2WmRPQVZ4THlVMlRRNDVSVm1tZUVaM2QxQ3FCekJyM0tkR2lIYm9wSExaN0dodVJMSllFU1VkajdaeG1RTjUySDJpZWFmR05jQlhPWmtHSm1zM3l0a1FzbnlVWXdRWWduWTdtV25UN2thbElwN216YnJyRW5kWVp5Z2ltZzRpL3ZsRWI2OFhHbmtYTjdpeU96MEM2VFR0L2RQOXBwc1VjNDV1d2gybjVtV2JoODFyejVXUFVXSnltTXAxVWRjc3E2NExNQkFkQzE0bWhGWG84MWNLL2Q0QlhYRlIreDlsOGJ1NlBGb2ZIM2c9LS00NUJER1J3K3NESmFtalhrQjdTYzR3PT0=--6a1c196f527d0d5f7533bb2e4f21bff720da5525"
     file_size_bytes      4_061_593
-
-    factory :circle_file_upload do
-    end
 
     factory :working_group_file_upload do
         uploadable { create(:working_group) }

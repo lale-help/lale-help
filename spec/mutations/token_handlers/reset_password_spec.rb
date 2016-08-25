@@ -3,7 +3,7 @@ require 'rails_helper'
 describe TokenHandlers::ResetPassword do
   subject { TokenHandlers::ResetPassword }
   let(:volunteer)      { create(:volunteer)  }
-  let(:token)          { create(:reset_password_token, user: volunteer) }
+  let(:token)          { create(:token, :reset_password, user: volunteer) }
 
   let(:controller) do
     double(:controller).tap do |c|

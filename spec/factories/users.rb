@@ -8,26 +8,26 @@ FactoryGirl.define do
       create(:user_identity, user: user)
     end
     is_admin false
-    
-    factory :working_group_admin do
+
+    trait :working_group_admin do
       after(:create) do |user, _|
         create(:working_group_admin_role, user: user)
       end
     end
 
-    factory :working_group_member do
+    trait :working_group_member do
       after(:create) do |user, _|
         create(:working_group_member_role, user: user)
       end
     end
 
-    factory :circle_admin do
+    trait :circle_admin do
       after(:create) do |user, _|
         create(:circle_role_admin, user: user)
       end
     end
 
-    factory :circle_volunteer do
+    trait :circle_volunteer do
       after(:create) do |user, _|
         create(:circle_role_volunteer, user: user)
       end
@@ -35,8 +35,4 @@ FactoryGirl.define do
 
   end
 
-  factory :user_identity, class: User::Identity, aliases: [:volunteer_identity] do
-    email    { "#{user.first_name}#{user.id}@example.com" }
-    password { SecureRandom.hex(5) }
-  end
 end

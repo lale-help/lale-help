@@ -31,7 +31,7 @@ FactoryGirl.define do
     end
 
     # a task with all attributes set / set to non-default values
-    factory :nondefault_task do
+    trait :nondefault do
       # some of these only work with attributes_for since the values are not valid for a model,
       # but required as they are for the form
       due "between"
