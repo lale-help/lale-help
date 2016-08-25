@@ -5,13 +5,11 @@ module PageObject
       element :headline, '.title'
       element :description, '.description'
 
-      def completed?
-        find('.taskable-urgency-complete')
-      end
-
-      def new?
-        find('.taskable-urgency-new')
-      end
+      # I placed these on the date only to be able to assert them in the spec.
+      # the urgency-... css classes need to be on the task-header to style it correctly.
+      element :urgency_new, '.date[data-urgency=new]'
+      element :urgency_on_track, '.date[data-urgency=on_track]'
+      element :urgency_complete, '.date[data-urgency=complete]'
 
     end
   end

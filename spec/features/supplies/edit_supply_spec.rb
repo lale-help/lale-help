@@ -8,32 +8,33 @@ describe "Edit a supply", js: true do
   let(:working_group) { circle.working_groups.first }
 
   let!(:supply) { create(:supply, working_group: working_group) }
-  let(:supply_page) { PageObject::Supply::Page.new }
 
-  let(:edit_form) { PageObject::Supply::Form.new }
-  let(:edited_inputs) { attributes_for(:supply).merge(location: 'Atlanta') }
+  let(:supply_form) { PageObject::Supply::Form.new }
   
   context 'when user is working group admin' do
 
-    before { supply_page.load_for(supply, as: admin) }
+    context "with valid inputs" do
+      let(:inputs) { attributes_for(:supply).merge(location: 'Atlanta') }
 
-    it "works" do
-      supply_page.edit_menu.open
-      supply_page.edit_menu.edit.click
-      edits_page = edit_form.submit_with(edited_inputs)
+      before { supply_form.load(circle_id: circle.id, supply_id: supply.id, action: :edit, as: admin.id) }
 
-      expect(edits_page).to have_flash("Supply was successfully updated")
-      expect(edits_page.headline.text).to eq(edited_inputs[:name])
-      expect(edits_page.description.text).to eq(edited_inputs[:description])
-      expect(edits_page.location.text).to include(edited_inputs[:location])
-      expect(edits_page.due_date_as_date).to eq(edited_inputs[:due_date])
-
+      it "works" do
+        supply_page = supply_form.submit_with(inputs)
+        expect(supply_page).to have_flash("Supply was successfully updated")
+        expect(supply_page.headline.text).to eq(inputs[:name])
+        expect(supply_page.description.text).to eq(inputs[:description])
+        expect(supply_page.location.text).to include(inputs[:location])
+        expect(supply_page.due_date_as_date).to eq(inputs[:due_date])
+      end
     end
   end
 
+  # FIXME move permission / navigation check outta here. consider creating supply_access_spec or navigate_to_spec.
   context 'when user is working group volunteer' do
 
-    before { supply_page.load_for(supply, as: volunteer) }
+    let(:supply_page) { PageObject::Supply::Page.new }
+
+    before { supply_form.load(circle_id: circle.id, supply_id: supply.id, action: :edit, as: volunteer.id) }
 
     it "does not work" do
       expect(supply_page).not_to have_selector('.button-super')

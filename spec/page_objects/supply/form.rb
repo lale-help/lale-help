@@ -2,6 +2,13 @@ module PageObject
   module Supply
     class Form < PageObject::Page
 
+      # 
+      # This URI template works for edit and new form urls:
+      # for new:  load(circle_id: 42, action: 'new', as: user_id)
+      # for edit: load(circle_id: 42, action: 'edit', supply_id: 43, as: user_id)
+      # 
+      set_url '/circles/{circle_id}/supplies{/supply_id}{/action}{?as}'
+
       element :title, 'main.form h2'
 
       include PageObject::IsForm

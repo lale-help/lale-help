@@ -6,9 +6,9 @@ describe "Create a supply", js: true do
   let(:admin)         { circle.admin }
   let(:working_group) { circle.working_groups.first }
 
-  before { visit new_circle_supply_path(circle, as: admin) }
-
   let(:supply_form) { PageObject::Supply::Form.new }
+
+  before { supply_form.load(circle_id: circle.id, action: :new, as: admin.id) }
 
   context "when only required attributes are filled" do
     let(:inputs) { attributes_for(:supply).merge(location: 'Munich') }

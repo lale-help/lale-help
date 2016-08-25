@@ -86,4 +86,8 @@ class TaskPresenter < Presenter
     "taskable-urgency-#{status}" if status.present?
   end
 
+  let(:date_attributes) do
+    {data: {urgency: status}} if status.present?
+  end
+
 end

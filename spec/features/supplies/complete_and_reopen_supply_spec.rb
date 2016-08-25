@@ -16,7 +16,7 @@ describe "Complete and reopen a supply", js: true do
     it "works" do
       supply_page.edit_menu.open
       supply_page.edit_menu.complete.click
-      expect(supply_page).to be_completed
+      expect(supply_page).to have_urgency_complete
     end
   end
 
@@ -30,10 +30,10 @@ describe "Complete and reopen a supply", js: true do
       end
 
       it "works" do
-        expect(supply_page).to be_completed
+        expect(supply_page).to have_urgency_complete
         supply_page.edit_menu.open
         supply_page.edit_menu.reopen.click
-        expect(supply_page).to be_new
+        expect(supply_page).to have_urgency_new
       end
     end
 

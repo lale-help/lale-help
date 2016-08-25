@@ -36,6 +36,10 @@ class SupplyPresenter < Presenter
     "taskable-urgency-#{status}" if status.present?
   end
 
+  let(:date_attributes) do
+    {data: {urgency: status}} if status.present?
+  end
+
   let(:due_date_month) do
     I18n.l(_.due_date, format: "%b").upcase
   end
