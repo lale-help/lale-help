@@ -14,7 +14,7 @@ describe "Complete and reopen a task", js: true do
 
   before { task_page.load_for(task, as: admin) }
 
-  describe "completing a task" do
+  describe "completing a task", :ci_ignore do
 
     context "when supply is incomplete" do
       let!(:task) { create(:supply, working_group: working_group) }

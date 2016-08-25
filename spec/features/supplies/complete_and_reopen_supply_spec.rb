@@ -13,7 +13,7 @@ describe "Complete and reopen a supply", js: true do
 
   before { supply_page.load_for(supply, as: admin) }
 
-  describe "completing a supply" do
+  describe "completing a supply", :ci_ignore do
 
     context "when supply is incomplete" do
 
