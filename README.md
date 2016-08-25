@@ -182,8 +182,7 @@ I'm summarizing these here because they help understanding the decisions I took 
 
 * don't make CSS selectors more specific than they need to; ideally you're using components selectors which are indepentent of the surrounding page.
 
-* minimize technical complexity of the system under test to minimize runtime and the number of things that can go wrong. in particular:
-* stub nonessential systems that you can test individually in separate integration tests (Email, external APIs, ...)
+* if possible, minimize technical complexity of the system under test to minimize runtime and the number of things that can go wrong. Stub nonessential systems that you can test individually in separate integration tests (Email, external APIs, ...)
 
 * use [page objects](http://martinfowler.com/bliki/PageObject.html) to 
   * create nice interfaces to the tested HTML pages and the parts you are interested in
@@ -202,7 +201,7 @@ def has_helper?(user_to_find)
 end
 ```
 
-Our [page objects](https://github.com/lale-help/lale-help/tree/323c94b1195272d81889dbe8a8d407ee0ae15a71/spec/page_objects) are based on the excellent [site_prism](https://github.com/natritmeyer/site_prism) gem.
+[Our page objects](https://github.com/lale-help/lale-help/tree/323c94b1195272d81889dbe8a8d407ee0ae15a71/spec/page_objects) are based on the excellent [site_prism](https://github.com/natritmeyer/site_prism) gem.
 
 * don't put assertions directly in page objects, to keep the objects generic. Implement generic helper methods (`#has_helper?` `#completed?`) in them instead, which can be reused in different specs (also see example above).
 
@@ -308,9 +307,7 @@ Consider abstracting details you don't care about, example:
 
 #### Debugging
 
-* if you suspect timing issues, insert a `sleep 2` before the command that fails. When you're sure that's the issue, convert it to a `wait_for_$element_name$` [command to be more robust](https://github.com/natritmeyer/site_prism#waiting-for-an-element-to-exist-on-a-page) which waits for the required element to show up on the page. Leaving hard-coded `sleep`commands in the code slow down the spec execution and are never 100% sure to fix the problem, as the time it can take for something to happen is sometimes unpredictable, especially when specs are parallelized on a machine.
-
-* look at the screenshots in `tmp/capybara` that are created automatically at every test failure (we use the capybara-screenshot gem for that). Create a screenshot manually with `show!` or `save_and_open_page` to inspect an image/the HTML of the page at any time step.
+* look at the screenshots in `tmp/capybara` that are created automatically at every test failure (we use the capybara-screenshot gem for that). The path to the file is linked in the test output as well. Create a screenshot manually with `show!` or `save_and_open_page` to inspect an image/the HTML of the page at any time step.
 
 * use `Capybara.pry` to start a shell / debugger in the context of the page. From there, use standard capybara API to inspect the page (like `find('some-css-selector')`). Type `exit` to let the spec continue.
 
@@ -344,9 +341,11 @@ If the spec never fails when run in isolation, start adding more and more test f
 
 If the spec only fails in CircleCI, use their "Rebuild with SSH" feature (alternate option of the 'Rebuild' button on the build page) to inspect the state of the CI server online. If you can't get them to run, set `:ci_ignore`on the it block to ignore the spec only in CI.
 
-Try overloading the system with other processes / endless loops to slow down the Rails application and force timing errors.
+Try overloading the system with other processes (endless loops) to slow down the Rails application and thus reproduce the timing issues more often.
 
 Review the test, application code and setup thoroughly. Sometimes you have a piece of code that returns variable results (options in a select field ordered differently, etc.)
+
+Insert a `sleep 2` before the command that fails. When you're sure that's the issue, convert it to a `wait_for_$element_name$` [command to be more robust](https://github.com/natritmeyer/site_prism#waiting-for-an-element-to-exist-on-a-page). It waits for the  element to show up on the page. Don't leave `sleep`commands in the code, as they slow down the spec execution and are never 100% reliable, as the wait times for something to happen can be unpredictable, especially when specs are parallelized on a machine.
 
 ### Running tests faster
 
@@ -366,7 +365,7 @@ Review the test, application code and setup thoroughly. Sometimes you have a pie
 
 ## Styleguide
 
-A first version can be found at the [path /styles](https://staging.lale.help/styles)
+A first version can be found at the path [/styles](https://staging.lale.help/styles)
 
 ## Further documentation
 

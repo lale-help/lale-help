@@ -16,7 +16,8 @@ describe "Complete and reopen a supply", js: true do
   describe "completing a supply" do
 
     context "when supply is incomplete" do
-      let!(:supply) { create(:supply, working_group: working_group) }
+
+      let(:supply) { create(:supply, working_group: working_group) }
 
       it "can be completed" do
         supply_page.edit_menu.open
@@ -27,11 +28,11 @@ describe "Complete and reopen a supply", js: true do
     end
   end
 
-  describe "reopening a supply" do
+  describe "reopening a supply", :ci_ignore do
 
     context "when supply is completed" do
 
-      let!(:supply) { create(:supply, :completed, working_group: working_group) }
+      let(:supply) { create(:supply, :completed, working_group: working_group) }
 
       it "works" do
         supply_page.edit_menu.open
