@@ -15,8 +15,10 @@ module PageObject
       delegate :helpers, :has_helper?, to: :helpers_box
 
       section :header, PageObject::Component::TaskableHeader, '.task-header'
-      delegate :headline, :wait_for_headline, :description, :completed?, :new?, 
-        :has_urgency_complete?, :has_urgency_new?, to: :header
+      delegate :headline, :wait_for_headline, :description, 
+        :has_urgency_new?, :wait_for_urgency_new,
+        :has_urgency_complete?, :wait_for_urgency_complete,
+        to: :header
 
     end
   end

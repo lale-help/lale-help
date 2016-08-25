@@ -9,6 +9,10 @@ describe "Complete and reopen a task", js: true do
   let!(:task) { create(:task, working_group: working_group) }
 
   let(:task_page) { PageObject::Task::Page.new }
+  # when reusing the regular supply_page I got intermediate errors;
+  # not sure why. Maybe the page didn't "realize" it got reloaded.
+  # using task_page.wait_for_urgency_new didn't help, either.
+  let(:new_task_page) { PageObject::Task::Page.new }
 
   before { task_page.load_for(task, as: admin) }
 
@@ -16,7 +20,7 @@ describe "Complete and reopen a task", js: true do
     it "works" do
       task_page.edit_menu.open
       task_page.edit_menu.complete.click
-      expect(task_page).to have_urgency_complete
+      expect(new_task_page).to have_urgency_complete
     end
   end
 
@@ -33,7 +37,8 @@ describe "Complete and reopen a task", js: true do
         expect(task_page).to have_urgency_complete
         task_page.edit_menu.open
         task_page.edit_menu.reopen.click
-        expect(task_page).to have_urgency_new
+        new_task_page.wait_for_urgency_new
+        expect(new_task_page).to have_urgency_new
       end
     end
 

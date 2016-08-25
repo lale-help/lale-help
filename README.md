@@ -176,7 +176,7 @@ I'm summarizing these here because they help understanding the decisions I took 
 
 * don't test more than one use case per file (for example: one test to check the contents of a working group dashboard, one test for joining/leaving a working group). Different use cases usually require different setup and steps, so the test file gets long, setup gets complex and hard to follow if several features are tested, which can cause bugs.
 
-* use expressive filenames related to the use case if possible. So rather than `show_working_group_spec.rb` use `show_working_group_dashboard_spec.rb` and `join_and_leave_working_group_spec.rb`.
+* use expressive filenames related to the use case if possible. So rather than `show_working_group_spec.rb` use `show_working_group_dashboard_spec.rb` and `join_and_leave_working_group_spec.rb`. It will be much easier to navigate and autocomplete the spec filenames compared to having 50 `create_spec.rb` files!
 
 * don't abstract and generalize test code/methods too agressively. It should always be easy to read and understand a test.
 
@@ -308,7 +308,7 @@ Consider abstracting details you don't care about, example:
 
 #### Debugging
 
-* if you suspect timing issues, insert a `sleep 2` before the command that fails. When you're sure that's the issue, convert it to a `wait_for` [command to be more robust](https://github.com/natritmeyer/site_prism#waiting-for-an-element-to-exist-on-a-page) which waits for the required element to show up on the page.
+* if you suspect timing issues, insert a `sleep 2` before the command that fails. When you're sure that's the issue, convert it to a `wait_for_$element_name$` [command to be more robust](https://github.com/natritmeyer/site_prism#waiting-for-an-element-to-exist-on-a-page) which waits for the required element to show up on the page. Leaving hard-coded `sleep`commands in the code slow down the spec execution and are never 100% sure to fix the problem, as the time it can take for something to happen is sometimes unpredictable, especially when specs are parallelized on a machine.
 
 * look at the screenshots in `tmp/capybara` that are created automatically at every test failure (we use the capybara-screenshot gem for that). Create a screenshot manually with `show!` or `save_and_open_page` to inspect an image/the HTML of the page at any time step.
 

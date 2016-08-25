@@ -6,17 +6,24 @@ describe "Complete and reopen a supply", js: true do
   let(:admin)         { circle.admin }
   let(:working_group) { circle.working_groups.first }
 
-  let!(:supply) { create(:supply, working_group: working_group) }
-
   let(:supply_page) { PageObject::Supply::Page.new }
+  # when reusing the regular supply_page for some assertions I got intermittent errors;
+  # not sure why. Maybe the page didn't "realize" it got reloaded.
+  let(:new_supply_page) { PageObject::Supply::Page.new }
 
   before { supply_page.load_for(supply, as: admin) }
 
   describe "completing a supply" do
-    it "works" do
-      supply_page.edit_menu.open
-      supply_page.edit_menu.complete.click
-      expect(supply_page).to have_urgency_complete
+
+    context "when supply is incomplete" do
+      let!(:supply) { create(:supply, working_group: working_group) }
+
+      it "can be completed" do
+        supply_page.edit_menu.open
+        supply_page.edit_menu.complete.click
+        # using new_supply_page, sic! see above.
+        expect(new_supply_page).to have_urgency_complete
+      end
     end
   end
 
@@ -24,16 +31,14 @@ describe "Complete and reopen a supply", js: true do
 
     context "when supply is completed" do
 
-      before do
-        supply_page.edit_menu.open
-        supply_page.edit_menu.complete.click
-      end
+      let!(:supply) { create(:supply, :completed, working_group: working_group) }
 
       it "works" do
-        expect(supply_page).to have_urgency_complete
         supply_page.edit_menu.open
         supply_page.edit_menu.reopen.click
-        expect(supply_page).to have_urgency_new
+        # using new_supply_page, sic! see above.
+        new_supply_page.wait_for_urgency_new
+        expect(new_supply_page).to have_urgency_new
       end
     end
 
