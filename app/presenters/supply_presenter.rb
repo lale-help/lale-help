@@ -32,7 +32,7 @@ class SupplyPresenter < Presenter
   end
 
   let(:css) do
-    "urgency--#{status}" if status.present?
+    "taskable-urgency-#{status}" if status.present?
   end
 
   let(:due_date_month) do

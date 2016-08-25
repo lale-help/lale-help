@@ -82,7 +82,7 @@ class TaskPresenter < Presenter
   end
 
   let(:css) do
-    "urgency--#{status}" if status.present?
+    "taskable-urgency-#{status}" if status.present?
   end
 
 end

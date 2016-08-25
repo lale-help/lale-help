@@ -2,9 +2,9 @@
 - content_for :header_middle do
   = link_to_back
 
-.task class=task_presenter.css
+.task
   main
-    .task-header
+    .task-header class=task_presenter.css
       .date
         .month= task_presenter.due_date_month
         .day
