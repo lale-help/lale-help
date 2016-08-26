@@ -14,13 +14,13 @@ describe "Complete and reopen a task", js: true do
 
   before { task_page.load_for(task, as: admin) }
 
-  describe "completing a task", :ci_ignore do
+  describe "completing a task" do
 
     context "when supply is incomplete" do
       let!(:task) { create(:supply, working_group: working_group) }
 
 
-      it "works" do
+      it "is completed", :ci_ignore do
         task_page.edit_menu.open
         task_page.edit_menu.complete.click
         expect(new_task_page).to have_urgency_complete
@@ -28,13 +28,13 @@ describe "Complete and reopen a task", js: true do
     end
   end
   
-  describe "reopening a task", :ci_ignore do
+  describe "reopening a task" do
 
     context "when task is completed" do
 
       let!(:task) { create(:task, :completed, working_group: working_group) }
 
-      it "works" do
+      it "is open again", :ci_ignore do
         expect(task_page).to have_urgency_complete
         task_page.edit_menu.open
         task_page.edit_menu.reopen.click

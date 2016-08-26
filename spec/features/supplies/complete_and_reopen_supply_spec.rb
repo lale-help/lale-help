@@ -13,13 +13,13 @@ describe "Complete and reopen a supply", js: true do
 
   before { supply_page.load_for(supply, as: admin) }
 
-  describe "completing a supply", :ci_ignore do
+  describe "completing a supply" do
 
     context "when supply is incomplete" do
 
       let(:supply) { create(:supply, working_group: working_group) }
 
-      it "can be completed" do
+      it "is completed", :ci_ignore do
         supply_page.edit_menu.open
         supply_page.edit_menu.complete.click
         # using new_supply_page, sic! see above.
@@ -28,13 +28,13 @@ describe "Complete and reopen a supply", js: true do
     end
   end
 
-  describe "reopening a supply", :ci_ignore do
+  describe "reopening a supply" do
 
     context "when supply is completed" do
 
       let(:supply) { create(:supply, :completed, working_group: working_group) }
 
-      it "works" do
+      it "is open again", :ci_ignore do
         supply_page.edit_menu.open
         supply_page.edit_menu.reopen.click
         # using new_supply_page, sic! see above.
