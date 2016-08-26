@@ -129,25 +129,41 @@ cp /path/to/database/snapshot/SNAPSHOT_NAME .
 
 ## Advice for writing feature specs
 
-[Feature spec](https://www.relishapp.com/rspec/rspec-rails/docs/feature-specs/feature-spec) is the most common name in Rails projects for a test that tests the whole application through the web browser. Feature specs are in the [`spec/features`](https://github.com/lale-help/lale-help/tree/master/spec/features) directory.
+### Description
+
+[Feature spec](https://www.relishapp.com/rspec/rspec-rails/docs/feature-specs/feature-spec) is the most common name in Rails projects for tests of the whole application through the web browser. Feature specs are in the [`spec/features`](https://github.com/lale-help/lale-help/tree/master/spec/features) directory.
+
+### Overview of the testing tools lale uses
+
+* [rspec](http://www.relishapp.com/rspec/): a general purpose, BDD (behaviour driven development) framework for describing, structuring, executing tests, provides assertions, etc. It's the most common Ruby testing framework.
+
+* [Capybara](http://jnicklas.github.io/capybara): provides a DSL and abstraction layer for writing browser-based tests. In lale, it is configured to use the poltergeist driver by default, but Selenium can be turned on alternatively.
+
+* [poltergeist](https://github.com/teampoltergeist/poltergeist): Is a Capybara-driver that uses a headless WebKit browser to use the application and execute the tests.
+
+* [FactoryGirl](http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md): a powerful tool to define factories for your test setup (seed) data.
+
+* [site_prism](https://github.com/natritmeyer/site_prism): "A Page Object Model DSL for Capybara". Lets you define page objects to abstract and reuse access to the various HTML pages (screens) of the application.
+
+All of these are standard Ruby/Rails gems (libraries) and can be found on GitHub.
 
 ### Pros and cons of feature specs
 
-I'm summarizing these here because they help understanding the decisions I took for lale's feature specs setup.
+This summary should help to understand the decisions and following advice of lale's feature spec setup.
 
 #### Pros
 
 1. **completely decoupled** from the actual Ruby system. They use the HTML page as the interface to the application, this allows refactoring the Ruby code without any changes in the spec. 
 
-2. they are **very high-level** and written with the RSpec BDD framework, so they document quite well what lale is expected to do, in nontechnical language.
+2. they are **high-level** and written with the RSpec BDD framework, so they document well what lale is expected to do, in nontechnical language.
 
 3. **high confidence** since they test the whole system and behave very similar to a real user, if the test passes it is very likely that the feature under test actually works as expected.
 
 #### Cons:
 
-1. **very slow**: feature specs take 1-2 orders of magnitude longer to run than a unit/model test. Thus feedback is much slower. The runtime of the whole test suite can easily exceed the patience / attention span of the average programmer, which (together with other cons) can lead to neglection of this kind of tests.
+1. **very slow**: a feature spec typically takes a few orders of magnitude longer to run than a unit test. Thus feedback is much slower. If no care is taken, the test suite runtime can easily exceed the patience of developers, which leads to neglection of these tests.
 
-2. **maximum complexity of the system under test**: since these tests are executed against the full, integrated system stack, there are seemingly infinite possibilities where things can go wrong. So these kinds of tests can be tedious and unpredictable to write.
+2. **maximum complexity of the system under test**: since they are executed against the full, integrated system stack, there are seemingly infinite possibilities for things going wrong. So these tests can sometimes be tedious and unpredictable to write.
 
 3. **can fail intermittently, seemingly non-deterministically** mainly because of the system and setup complexity. Three processes/threads are involved (test, browser, Rails server). Page load times vary from test to test and system load, so timing issues can arise. 
 
@@ -157,20 +173,20 @@ I'm summarizing these here because they help understanding the decisions I took 
 
 ### Dealing with the pros and cons
 
-### Assume that things won't always go smoothly
+### Prepare yourself for things not always going smoothly
 
     "Unfortunately, the nature of full-stack testing is that things can and do go wrong from time to time."
     -- https://github.com/teampoltergeist/poltergeist#troubleshooting
 
-* _sometimes_ things will not work as expected and you have no idea why. Debugging sessions can be huge time sinks with seemingly no progress. Accept and deal with it.
+* _sometimes_ things will not work as expected and you have no idea why. Debugging sessions can be huge time sinks with seemingly no progress. Accept it, and use the many tools & techniques described here to deal with it.
 
 * Timebox a debugging session, and put an imperfect/partial/messy test in place if you can, rather than no test at all. 
 
-* Stop debugging when you're exhausted/frustrated and get something else done. Retry with a fresh, calm mind on the next morning. Often you paint yourself into a corner when debugging for too long, and you'll find the problem with a new approach in another session.
+* Stop debugging when you're exhausted/frustrated and get something else done. Retry with a fresh, calm mind on the next morning. Often you paint yourself into a corner when debugging for too long, and you'll quickly find the problem with a new approach on the next attempt.
 
-* Show/explain the test to another developer (or a [rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging)) and debug together. 
+* Show/explain the test to another developer (or a [rubber duck](https://en.wikipedia.org/wiki/Rubber_duck_debugging)) and debug together.
  
-* Sometimes you'll have to disable a spec that fails intermittently until you get a change to debug it thoroughly. 
+* Sometimes you'll have to disable a spec that fails intermittently until you get a change to debug it thoroughly (use the :skip or :ci_ignore flags described below).
 
 ### Reduce test complexity, increase test robustness
 
