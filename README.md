@@ -31,12 +31,12 @@ You can run Lale on your development machine using one of two methods:
 
 
 ### Docker Project
-  Before you do anything, install [Docker](http://www.docker.com/) for your OS.
 
-  When working with docker, there are many scripts found in the `docker` folder to help you get started.
-  Feel free to read through these scripts to understand what Docker and Docker Compose are doing under
-  the hood to start the rails application
+Before you do anything, install [Docker](http://www.docker.com/) for your OS.
 
+When working with docker, there are many scripts found in the `docker` folder to help you get started.
+Feel free to read through these scripts to understand what Docker and Docker Compose are doing under
+the hood to start the rails application
 
 #### Starting Rails
   To run the rails server, just execute the following script on your development machine.
