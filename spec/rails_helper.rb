@@ -4,7 +4,6 @@ ENV['LOG_OUTPUT'] ||= 'log/test.log'
 require File.expand_path('../../config/environment', __FILE__)
 
 abort("The Rails environment is running in production mode!") if Rails.env.production?
-require 'spec_helper'
 require 'rspec/rails'
 require "cancan/matchers"
 
@@ -77,5 +76,15 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     FileUtils.rm_rf(Dir["#{Rails.root}/tmp/spec/test_files/"])
+  end
+
+  # save the status of the test runs in a file. See 
+  # - https://relishapp.com/rspec/rspec-core/v/3-3/docs/command-line/only-failures
+  # - http://bloginius.com/blog/2015/12/28/rspec-restart-failing-tests/
+  config.example_status_persistence_file_path = "#{Rails.root}/log/rspec_example_statuses.log"
+
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    expectations.syntax = :expect
   end
 end
