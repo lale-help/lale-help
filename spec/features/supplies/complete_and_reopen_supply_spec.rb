@@ -7,13 +7,13 @@ describe "Complete and reopen a supply", js: true do
   let(:working_group) { circle.working_groups.first }
 
   let(:supply_page) { PageObject::Supply::Page.new }
-  # when reusing the regular supply_page for some assertions I got intermittent errors;
+  # when reusing the regular supply_page for some assertions I got intermittent failures;
   # not sure why. Maybe the page didn't "realize" it got reloaded.
   let(:new_supply_page) { PageObject::Supply::Page.new }
 
   before { supply_page.load_for(supply, as: admin) }
 
-  describe "completing a supply", :ci_ignore do
+  describe "completing a supply", :unreliable do
 
     context "when supply is incomplete" do
 
@@ -28,7 +28,7 @@ describe "Complete and reopen a supply", js: true do
     end
   end
 
-  describe "reopening a supply", :ci_ignore do
+  describe "reopening a supply", :unreliable do
 
     context "when supply is completed" do
 
