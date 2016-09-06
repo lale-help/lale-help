@@ -5,6 +5,9 @@ module PageObject
       element :title, '.title'
       elements :users, '.user-name-shortened'
 
+      element :invite_working_group_button, '.button-secondary', text: "Invite working group"
+      element :invite_circle_button, '.button-secondary', text: "Invite circle"
+      
       def has_user?(user_to_find)
         users.any? { |user| user.text == user_to_find.name }
       end
