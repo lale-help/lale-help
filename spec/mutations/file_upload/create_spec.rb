@@ -7,7 +7,7 @@ describe FileUpload::Create do
 
   let(:uploaded_file) do
     ActionDispatch::Http::UploadedFile.new({
-      tempfile: File.open('app/assets/images/avatar.jpeg'),
+      tempfile: File.open('spec/fixtures/images/avatar.jpg'),
       filename: 'avatar.jpeg',
       type: "image/jpeg"
     })

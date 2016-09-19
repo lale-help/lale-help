@@ -22,7 +22,7 @@ end
   factory :file_upload_form, class: FileUpload::CreateForm do
     file do
       ActionDispatch::Http::UploadedFile.new({
-        tempfile: File.open('app/assets/images/avatar.jpeg'),
+        tempfile: File.open('spec/fixtures/images/avatar.jpg'),
         filename: 'avatar.jpeg',
         type: "image/jpeg"
       })
