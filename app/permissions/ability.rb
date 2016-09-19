@@ -60,6 +60,7 @@ class Ability
       can?(:create_supply, circle)
     end
     cannot :create_item, Circle do |circle|
+      !circle.working_groups.any? { |wg| wg.active_admins.include?(user) && wg.active? } or
       !can?(:create_task, circle)
     end
 
