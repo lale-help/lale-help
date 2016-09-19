@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
       current_user.touch :last_login
       redirect_to user_redirect_path
     else
+      force_page_revalidation!
       @form = User::Login.new
     end
   end
@@ -43,5 +44,15 @@ class SessionsController < ApplicationController
       public_circles_path
     end
   end
+
+  # Tell the browser that this page should never be cached, thus forcing it to rerequest it on every visit.
+  # This may fix the InvalidAuthenticityToken exceptions we get on the login form from time to time.
+  # I assume the browser serves the sign in page from its local cache on some clients, and this cached
+  # page's sign in form will have an expired authenticity token.
+  def force_page_revalidation!
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+  end
+
 
 end
