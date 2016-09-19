@@ -3,7 +3,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   include ActionView::Helpers::FormOptionsHelper
 
   # the first argument to the #cell call is "model" in here
-  alias :task :model 
+  alias :task :model
 
   delegate :can?, to: :ability
 
@@ -12,7 +12,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
 
   # deep down the user icon partial is rendered, which uses current_circle.
   # since that partial is used globally I don't want to change the variable name
-  alias :current_circle :circle 
+  alias :current_circle :circle
 
   # this is the cells default action, ran when using the cell('path') helper
   def show
@@ -52,8 +52,8 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   def working_group_invitees_count
     @_wg_invitees_count ||= begin
       all_users_count               = working_group.active_users.size
-      volunteers_from_working_group = volunteers.select { |user| working_group.active_users.include?(user) } 
-      ignored_users_count           = [volunteers_from_working_group, working_group.admins, current_user].flatten.uniq.size
+      volunteers_from_working_group = volunteers.select { |user| working_group.active_users.include?(user) }
+      ignored_users_count           = [volunteers_from_working_group, current_user].flatten.uniq.size
       invitees_count                = all_users_count - ignored_users_count
       ensure_non_negative_number(invitees_count)
     end
@@ -62,7 +62,7 @@ class Tasks::SourcingWidgetCell < ::ViewModel
   def circle_invitees_count
     @_circle_invitees_count ||= begin
       all_users_count     = circle.users.active.size
-      ignored_users_count = [volunteers, circle.admins, working_group.admins, current_user].flatten.uniq.size
+      ignored_users_count = [volunteers, current_user].flatten.uniq.size
       invitees_count      = all_users_count - ignored_users_count
       ensure_non_negative_number(invitees_count)
     end
