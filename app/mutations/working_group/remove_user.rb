@@ -9,10 +9,10 @@ class WorkingGroup::RemoveUser < Mutations::Command
 
   def validate
     if user_is_last_admin?
-      add_error(:organizer_id, :at_least_one_required) 
+      add_error(:organizer_id, :at_least_one_required)
     end
     unless %i(member admin all).include?(role_type.to_sym)
-      add_error(:role_type, :at_least_one_required) 
+      add_error(:role_type, :at_least_one_required)
     end
   end
 
@@ -31,12 +31,6 @@ class WorkingGroup::RemoveUser < Mutations::Command
 
   def user_roles
     User.find(user_id).working_group_roles
-  end
-
-  def find_role
-    user    = User.find(user_id)
-    role_id = WorkingGroup::Role.role_types[role_type]
-    user.working_group_roles.find_by(role_type: role_id)
   end
 
   def user_is_last_admin?
