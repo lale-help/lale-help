@@ -20,17 +20,17 @@ class WorkingGroup::RemoveUser < Mutations::Command
     if (role_type.to_sym == :admin)
       # only delete admin role, keep the member role
       role_id = WorkingGroup::Role.role_types[:admin]
-      user_roles.find_by(role_type: role_id).destroy
+      user_group_roles.find_by(role_type: role_id).destroy
     else
       # can't be admin without being member, delete all roles
-      user_roles.destroy_all
+      user_group_roles.destroy_all
     end
   end
 
   private
 
-  def user_roles
-    User.find(user_id).working_group_roles
+  def user_group_roles
+    WorkingGroup::Role.where(user_id: user_id, working_group_id: working_group.id)
   end
 
   def user_is_last_admin?

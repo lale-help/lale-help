@@ -40,12 +40,4 @@ class WorkingGroup < ActiveRecord::Base
   def type
     is_private? ? :private : :public
   end
-
-  # this allows: expect(wg).to have_member(user: User.find(42))
-  def has_admin?(options)
-    admins.exists?(options)
-  end
-  def has_member?(options)
-    members.exists?(options)
-  end
 end

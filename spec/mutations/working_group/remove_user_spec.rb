@@ -12,6 +12,14 @@ describe "WorkingGroup::RemoveUser" do
   # member is only members
   let!(:member)        { create(:working_group_member_role, working_group: working_group).user }
 
+  matcher :have_member do |expected|
+    match { |working_group| working_group.members.exists?(id: expected.id) }
+  end
+
+  matcher :have_admin do |expected|
+    match { |working_group| working_group.admins.exists?(id: expected.id) }
+  end
+
   context "Test setup" do
     it "is what is expected" do
       expect(working_group.users.count).to eq(3)
