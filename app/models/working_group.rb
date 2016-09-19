@@ -1,7 +1,7 @@
 class WorkingGroup < ActiveRecord::Base
 
   enum status: %i(active disabled)
-  
+
   belongs_to :circle
 
   has_many :tasks, dependent: :destroy
@@ -23,7 +23,7 @@ class WorkingGroup < ActiveRecord::Base
   validates :name, presence: true, uniqueness: { scope: :circle }
   validates :circle, presence: true
 
-  # active admins are: working group admins whose role in the **circle** is active. 
+  # active admins are: working group admins whose role in the **circle** is active.
   # working group roles have no status.
   def active_admins
     admins.select { |admin| circle.has_active_user?(admin) }
@@ -39,5 +39,13 @@ class WorkingGroup < ActiveRecord::Base
 
   def type
     is_private? ? :private : :public
+  end
+
+  # this allows: expect(wg).to have_member(user: User.find(42))
+  def has_admin?(options)
+    admins.exists?(options)
+  end
+  def has_member?(options)
+    members.exists?(options)
   end
 end
