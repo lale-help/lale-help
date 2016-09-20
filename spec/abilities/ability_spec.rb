@@ -18,18 +18,14 @@ describe "User abilities" do
   end
 
   context "as circle admin" do
-    let(:user){ create(:user, :circle_admin) }
+    let(:user)   { create(:user, :circle_admin) }
     let(:circle) { user.circles.first }
 
     it { is_expected.to     be_able_to(:read, circle) }
     it { is_expected.to     be_able_to(:create, Circle.new) }
     it { is_expected.to     be_able_to(:update, circle) }
     it { is_expected.to     be_able_to(:destroy, circle) }
-
-    it { is_expected.to     be_able_to(:read, working_group) }
     it { is_expected.to     be_able_to(:create, WorkingGroup.new(circle: circle)) }
-    it { is_expected.to     be_able_to(:update, working_group) }
-    it { is_expected.to     be_able_to(:destroy, working_group) }
 
     it { is_expected.to     be_able_to(:read, task) }
     it { is_expected.to     be_able_to(:create, Task.new(working_group: working_group)) }
@@ -46,7 +42,23 @@ describe "User abilities" do
     it { is_expected.to     be_able_to(:delete, project) }
 
     it { is_expected.to     be_able_to(:manage, working_group) }
-    it { is_expected.to     be_able_to(:create_project, working_group.circle) }
+
+    context "when circle has working group" do
+      context "when working group is active" do
+        before { working_group.active! }
+        it { is_expected.to     be_able_to(:create_task, circle) }
+        it { is_expected.to     be_able_to(:create_supply, circle) }
+        it { is_expected.to     be_able_to(:create_item, circle) }
+        it { is_expected.to     be_able_to(:create_project, circle) }
+      end
+      context "when working group is disabled" do
+        before { working_group.disabled! }
+        it { is_expected.not_to     be_able_to(:create_task, circle) }
+        it { is_expected.not_to     be_able_to(:create_supply, circle) }
+        it { is_expected.not_to     be_able_to(:create_item, circle) }
+        it { is_expected.not_to     be_able_to(:create_project, circle) }
+      end
+    end
 
     context "project in private working group" do
       let(:working_group) { create(:working_group, :private, circle: circle) }

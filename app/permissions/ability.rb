@@ -41,6 +41,7 @@ class Ability
 
     can :create_task, Circle do |circle|
       can?(:manage, circle) or
+      # FIXME wg needs to be active
       user.working_group_roles.admin.for_circle(circle).exists?
     end
     cannot :create_task, Circle do |circle|
@@ -48,6 +49,7 @@ class Ability
     end
 
     can :create_supply, Circle do |circle|
+      # FIXME wg needs to be active
       can?(:manage, circle) or
       user.working_group_roles.admin.for_circle(circle).exists?
     end
@@ -219,7 +221,6 @@ class Ability
     end
 
     can :clone, Task do |task|
-      # can? :create_task, task.circle
       can?(:create_task, task.working_group)
     end
 
