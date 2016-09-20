@@ -556,6 +556,8 @@
         :open: open
         :signed_up: signed up
         :urgent: urgent
+      :edit_actions:
+        :edit_button_dropdown: Edit Project
     :supplies:
       :edit:
         :back: Back to Supply

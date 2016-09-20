@@ -53,9 +53,8 @@ class Circle::ProjectsController < ApplicationController
   def destroy
     authorize! :destroy, current_project
     Project::Destroy.run(project: current_project)
-
-    redirect_to circle_working_group_edit_projects_path(current_circle, current_project.working_group_id),
-      notice: t('flash.destroyed', name: Project.model_name.human)
+    path = params[:redirect_to] || circle_working_group_edit_projects_path(current_circle, current_project.working_group_id)
+    redirect_to path, notice: t('flash.destroyed', name: Project.model_name.human)
   end
 
   # TODO extract to an InvitationsController (which can then also be used by the other resources that need invitations)

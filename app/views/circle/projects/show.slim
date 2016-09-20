@@ -11,9 +11,8 @@
         = project.description
 
     .right
-      - if can? :edit, current_project
-        = link_to(edit_circle_project_path(current_circle, project), class: 'button button-super') do
-          = t('helpers.edit', model: project.model_name.human)
+      - if can? :manage, current_project
+        = render partial: 'edit_actions', locals: { circle: current_circle, item: current_project }
 
   .details
     main
