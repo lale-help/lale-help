@@ -147,8 +147,20 @@ describe "User abilities" do
       it { is_expected.not_to     be_able_to(:create_project, working_group) }
     end
 
-    context 'private working group' do
+    describe "projects" do
+      context "with open project" do
+        before { project.open! }
+        it { is_expected.to         be_able_to(:complete, project) }
+        it { is_expected.not_to     be_able_to(:reopen, project) }
+      end
+      context "with completed project" do
+        before { project.complete! }
+        it { is_expected.not_to     be_able_to(:complete, project) }
+        it { is_expected.to         be_able_to(:reopen, project) }
+      end
+    end
 
+    context 'when working group is private' do
       before do
         @project = create(:project, working_group: working_group)
         @project.working_group.update_attribute(:is_private, true)
