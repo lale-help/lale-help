@@ -36,7 +36,11 @@ class Ability
       circle.users.active.include?(user)
     end
 
-    can [:manage, :create_task, :create_supply, :create_project, :create_item], Circle do |circle|
+    can :manage, Circle do |circle|
+      circle.admins.active.include?(user)
+    end
+
+    can [:create_task, :create_supply, :create_project, :create_item], Circle do |circle|
       circle.admins.active.include?(user)
     end
     cannot [:create_task, :create_supply, :create_project, :create_item], Circle do |circle|
