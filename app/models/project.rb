@@ -2,8 +2,8 @@ class Project < ActiveRecord::Base
 
   belongs_to :working_group
   has_one :circle, through: :working_group
-  
-  validates :name, presence: true, uniqueness: { scope: :working_group }  
+
+  validates :name, presence: true, uniqueness: { scope: :working_group }
   validates :working_group_id, presence: true
 
   has_many :roles, dependent: :destroy
@@ -16,7 +16,7 @@ class Project < ActiveRecord::Base
   def admin
     admins.first
   end
-  
+
   def tasks
     Task.for_project(self)
   end
@@ -29,7 +29,23 @@ class Project < ActiveRecord::Base
     (tasks.map(&:users) + supplies.map(&:users)).flatten.uniq
   end
 
-  # active admins are: project admins whose role in the **circle** is active. 
+  def complete!
+    update_attribute(:completed_at, Time.now)
+  end
+
+  def complete?
+    !!completed_at
+  end
+
+  def open!
+    update_attribute(:completed_at, nil)
+  end
+
+  def open?
+    !completed_at
+  end
+
+  # active admins are: project admins whose role in the **circle** is active.
   # project roles have no status.
   def active_admins
     admins.select {|admin| circle.has_active_user?(admin) }

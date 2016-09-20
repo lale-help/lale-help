@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160714093313) do
+ActiveRecord::Schema.define(version: 20160920170606) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,7 @@ ActiveRecord::Schema.define(version: 20160714093313) do
     t.integer  "working_group_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.datetime "completed_at"
   end
 
   add_index "projects", ["name", "working_group_id"], name: "index_projects_on_name_and_working_group_id", unique: true, using: :btree
@@ -216,35 +217,21 @@ ActiveRecord::Schema.define(version: 20160714093313) do
 
   add_index "task_roles", ["user_id", "role_type", "task_id"], name: "index_task_roles_on_user_id_and_role_type_and_task_id", unique: true, using: :btree
 
-  create_table "task_skill_assignments", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.integer  "task_id",    limit: 8,                 null: false
-    t.integer  "skill_id",   limit: 8,                 null: false
-    t.boolean  "required",             default: false, null: false
-  end
-
-  create_table "task_skills", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string   "name"
-  end
-
   create_table "tasks", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                                     null: false
-    t.datetime "updated_at",                                     null: false
-    t.string   "name",                                           null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
+    t.string   "name",                                                null: false
     t.string   "description"
-    t.integer  "working_group_id",         limit: 8,             null: false
+    t.integer  "working_group_id",         limit: 8,                  null: false
     t.datetime "completed_at"
     t.date     "due_date"
     t.integer  "volunteer_count_required"
     t.integer  "duration",                           default: 1
     t.string   "scheduling_type"
-    t.string   "start_time"
-    t.string   "due_time"
-    t.date     "start_date"
+    t.string   "start_time",                         default: "0:00"
+    t.string   "due_time",                           default: "0:00"
     t.integer  "project_id"
+    t.date     "start_date"
   end
 
   create_table "tokens", force: :cascade do |t|
@@ -275,11 +262,11 @@ ActiveRecord::Schema.define(version: 20160714093313) do
     t.integer  "language",                    default: 0
     t.integer  "primary_circle_id", limit: 8
     t.boolean  "is_admin"
+    t.boolean  "accept_terms"
     t.string   "mobile_phone"
     t.string   "home_phone"
     t.datetime "last_login"
     t.boolean  "public_profile"
-    t.boolean  "accept_terms"
     t.string   "about_me"
     t.integer  "address_id"
   end

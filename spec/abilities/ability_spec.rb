@@ -44,17 +44,30 @@ describe "User abilities" do
     it { is_expected.to     be_able_to(:update, project) }
     it { is_expected.to     be_able_to(:delete, project) }
 
+    describe "projects" do
+      context "with open project" do
+        before { project.open! }
+        it { is_expected.to         be_able_to(:complete, project) }
+        it { is_expected.not_to     be_able_to(:reopen, project) }
+      end
+      context "with completed project" do
+        before { project.complete! }
+        it { is_expected.not_to     be_able_to(:complete, project) }
+        it { is_expected.to         be_able_to(:reopen, project) }
+      end
+    end
+
     it { is_expected.to     be_able_to(:manage, working_group) }
 
-    context "when circle has working group" do
-      context "when working group is active" do
+    describe "working groups" do
+      context "with active working group" do
         before { working_group.active! }
         it { is_expected.to     be_able_to(:create_task, circle) }
         it { is_expected.to     be_able_to(:create_supply, circle) }
         it { is_expected.to     be_able_to(:create_item, circle) }
         it { is_expected.to     be_able_to(:create_project, circle) }
       end
-      context "when working group is disabled" do
+      context "with disabled working group" do
         before { working_group.disabled! }
         it { is_expected.not_to     be_able_to(:create_task, circle) }
         it { is_expected.not_to     be_able_to(:create_supply, circle) }

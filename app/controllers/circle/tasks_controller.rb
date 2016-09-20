@@ -4,6 +4,7 @@ class Circle::TasksController < ApplicationController
   before_action :set_back_path, only: [:my, :open, :completed]
 
   include HasCircle
+  include HasFlash
 
   def completed
     authorize! :read, current_circle
@@ -117,7 +118,7 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Assign.run(users: new_volunteers, task: current_task, current_user: current_user)
 
-    if outcome.success? 
+    if outcome.success?
       set_flash(:success)
       head(:ok)
     else
@@ -134,7 +135,7 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Unassign.run(users: [user], task: current_task, current_user: current_user)
 
-    if outcome.success? 
+    if outcome.success?
       set_flash(:success)
       head(:ok)
     else
@@ -208,20 +209,5 @@ class Circle::TasksController < ApplicationController
 
   helper_method def current_task
     @task ||= Task.find(params[:id] || params[:task_id])
-  end
-
-  private
-
-  def set_flash(type, options = {})
-    flash[type] = flash_msg_for(type, options)
-  end
-
-  def set_flash_now(type, options = {})
-    flash.now[type] = flash_msg_for(type, options)
-  end
-
-  def flash_msg_for(type, options)
-    msg_options = { scope: "tasks.flash.#{action_name}" }.merge(options)
-    t(type, msg_options)
   end
 end

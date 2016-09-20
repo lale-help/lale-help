@@ -1318,6 +1318,17 @@
         :recent_activity: Recent activity
   :task_edit:
     :cancel: Cancel
+  :projects:
+    :flash:
+      :destroy:
+        :success: Successfully deleted project.
+        :error: Failed to delete project.
+      :complete: 
+        :success: Thanks for completing this project!
+        :error: "Couldn't complete this project!"
+      :reopen: 
+        :success: Project has been re-opened.
+        :error: There was a problem re-opening this project
   :tasks:
     :auto_comment:
       :completed: "%{user} completed this task on %{date}."

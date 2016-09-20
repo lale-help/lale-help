@@ -4,6 +4,7 @@ class Circle::ProjectsController < ApplicationController
   before_action :set_back_path, only: [:show]
 
   include HasCircle
+  include HasFlash
 
   def index
     authorize! :read, current_circle
@@ -50,11 +51,26 @@ class Circle::ProjectsController < ApplicationController
     end
   end
 
+  def complete
+    authorize! :complete, current_project
+    outcome = Project::Complete.run(project: current_project)
+    set_flash(outcome.success? ? :success : :error)
+    redirect_to circle_project_path(current_circle, current_project)
+  end
+
+  def reopen
+    authorize! :reopen, current_project
+    outcome = Project::Reopen.run(project: current_project)
+    set_flash(outcome.success? ? :success : :error)
+    redirect_to circle_project_path(current_circle, current_project)
+  end
+
   def destroy
     authorize! :destroy, current_project
-    Project::Destroy.run(project: current_project)
+    outcome = Project::Destroy.run(project: current_project)
     path = params[:redirect_to] || circle_working_group_edit_projects_path(current_circle, current_project.working_group_id)
-    redirect_to path, notice: t('flash.destroyed', name: Project.model_name.human)
+    set_flash(outcome.success? ? :success : :error)
+    redirect_to path
   end
 
   # TODO extract to an InvitationsController (which can then also be used by the other resources that need invitations)

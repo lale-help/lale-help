@@ -315,6 +315,12 @@ class Ability
     cannot :read, Project do |project|
       cannot?(:read, project.working_group)
     end
+    cannot :complete, Project do |project|
+      project.complete?
+    end
+    cannot :reopen, Project do |project|
+      project.open?
+    end
 
     #
     # Sponsors and Sponsorships
