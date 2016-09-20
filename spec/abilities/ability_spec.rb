@@ -26,6 +26,9 @@ describe "User abilities" do
     it { is_expected.to     be_able_to(:update, circle) }
     it { is_expected.to     be_able_to(:destroy, circle) }
     it { is_expected.to     be_able_to(:create, WorkingGroup.new(circle: circle)) }
+    it { is_expected.to     be_able_to(:read, working_group) }
+    it { is_expected.to     be_able_to(:update, working_group) }
+    it { is_expected.to     be_able_to(:destroy, working_group) }
 
     it { is_expected.to     be_able_to(:read, task) }
     it { is_expected.to     be_able_to(:create, Task.new(working_group: working_group)) }
