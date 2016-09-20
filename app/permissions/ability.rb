@@ -30,48 +30,18 @@ class Ability
     # Circles
     #
 
-    can :create, Circle
-    can :read,   Circle do |circle|
-      circle.has_active_user?(user)
+    can :create, Circle # any user can create a circle!
+
+    can :read, Circle do |circle|
+      circle.users.active.include?(user)
     end
 
-    can :manage, Circle do |circle|
-      circle.has_active_user?(user) && circle.admins.include?(user)
+    can [:manage, :create_task, :create_supply, :create_project, :create_item], Circle do |circle|
+      circle.admins.active.include?(user)
     end
-
-    can :create_task, Circle do |circle|
-      can?(:manage, circle) or
-      # FIXME wg needs to be active
-      user.working_group_roles.admin.for_circle(circle).exists?
-    end
-    cannot :create_task, Circle do |circle|
-      circle.working_groups.empty?
-    end
-
-    can :create_supply, Circle do |circle|
-      # FIXME wg needs to be active
-      can?(:manage, circle) or
-      user.working_group_roles.admin.for_circle(circle).exists?
-    end
-    cannot :create_supply, Circle do |circle|
-      circle.working_groups.empty?
-    end
-
-    can :create_item, Circle do |circle|
-      can?(:create_task, circle) or
-      can?(:create_supply, circle)
-    end
-    cannot :create_item, Circle do |circle|
-      !can?(:create_task, circle)
-    end
-
-    can :create_project, Circle do |circle|
-      can?(:manage, circle) or
-      user.working_group_roles.admin.for_circle(circle).exists? or
-      circle.working_groups.any? { |wg| can?(:manage, wg) }
-    end
-    cannot :create_project, Circle do |circle|
-      circle.working_groups.empty?
+    cannot [:create_task, :create_supply, :create_project, :create_item], Circle do |circle|
+      wgs = circle.working_groups.active
+      wgs.empty? || wgs.none? { |wg| can?(:create_item, wg) }
     end
 
     #
@@ -132,6 +102,11 @@ class Ability
 
     can :create_task, WorkingGroup do |wg|
       can?(:manage, wg)
+    end
+    # the can(:manage) block above allows all actions on the WG
+    # **must** use cannot blocks to restrict the permissions again.
+    cannot [:create_task, :create_supply, :create_item, :create_project], WorkingGroup do |wg|
+      wg.disabled?
     end
 
     can :join, WorkingGroup do |wg|
@@ -351,4 +326,5 @@ class Ability
     permissions = model_klass.const_get :Abilities
     permissions.apply(self, user)
   end
+
 end

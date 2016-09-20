@@ -86,6 +86,7 @@ describe "User abilities" do
     it { is_expected.not_to be_able_to(:create, WorkingGroup.new(circle: circle)) }
     it { is_expected.not_to be_able_to(:update, working_group) }
     it { is_expected.not_to be_able_to(:destroy, working_group) }
+    it { is_expected.not_to be_able_to(:create_item, working_group) }
 
     it { is_expected.to     be_able_to(:read, task) }
     it { is_expected.not_to be_able_to(:create, Task.new(working_group: working_group)) }
@@ -117,6 +118,21 @@ describe "User abilities" do
     it { is_expected.to     be_able_to(:invite_to, task) }
     it { is_expected.to     be_able_to(:assign, task) }
     it { is_expected.to     be_able_to(:unassign, task) }
+
+    context "when working group is active" do
+      before { working_group.active! }
+      it { is_expected.to     be_able_to(:create_task, working_group) }
+      it { is_expected.to     be_able_to(:create_supply, working_group) }
+      it { is_expected.to     be_able_to(:create_item, working_group) }
+      it { is_expected.to     be_able_to(:create_project, working_group) }
+    end
+    context "when working group is disabled" do
+      before { working_group.disabled! }
+      it { is_expected.not_to     be_able_to(:create_task, working_group) }
+      it { is_expected.not_to     be_able_to(:create_supply, working_group) }
+      it { is_expected.not_to     be_able_to(:create_item, working_group) }
+      it { is_expected.not_to     be_able_to(:create_project, working_group) }
+    end
 
     context 'private working group' do
 
