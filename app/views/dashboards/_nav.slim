@@ -14,6 +14,6 @@
       - if @open_projects.present?
         span.badge=@open_projects.count
   a.documents data-tab='documents'
-    = t('.documents')
+    = FileUpload.model_name.human(count: 2)
     - if @files.present?
       span.badge=@files.count

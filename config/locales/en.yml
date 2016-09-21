@@ -369,7 +369,9 @@
           :one: Cannot delete record because a dependent %{record} exists
     :models:
       :circle: Circle
-      :file_upload: File
+      :file_upload: 
+        :one: Document
+        :other: Documents
       :location: Location
       :project:
         :one: Project
@@ -436,6 +438,14 @@
         :no_groups: No groups to show right now.
         :title_active: Active working groups
         :title_deactivated: Inactive working groups
+  :dashboards:
+    :resources:
+      :show_completed_projects: Show completed projects &hellip;
+      :show_completed_supplies: Show completed supplies &hellip;
+      :show_completed_tasks: Show completed tasks &hellip;
+      :show_open_projects: Show open projects &hellip;
+      :show_open_supplies: Show open supplies &hellip;
+      :show_open_tasks: Show open tasks &hellip;
   :circle:
     :admins:
       :files:
@@ -685,12 +695,6 @@
           :other: "%{count} volunteers"
         :new-file: Upload File
         :settings: Manage group
-        :show_completed_projects: Show completed projects &hellip;
-        :show_completed_supplies: Show completed supplies &hellip;
-        :show_completed_tasks: Show completed tasks &hellip;
-        :show_open_projects: Show open projects &hellip;
-        :show_open_supplies: Show open supplies &hellip;
-        :show_open_tasks: Show open tasks &hellip;
       :user_list:
         :actions: Actions
         :no-volunteers: No Volunteers
@@ -713,12 +717,6 @@
       :dashboard_title: Dashboard for %{name}
       :files: Circle Documents
       :open_tasks: Open Tasks
-      :show_completed_projects: Show completed projects &hellip;
-      :show_completed_supplies: Show completed supplies &hellip;
-      :show_completed_tasks: Show completed tasks &hellip;
-      :show_open_projects: Show open projects &hellip;
-      :show_open_supplies: Show open supplies &hellip;
-      :show_open_tasks: Show open tasks &hellip;
       :task:
         :complete: Complete Task
         :count:
