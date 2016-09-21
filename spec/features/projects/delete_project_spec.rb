@@ -16,7 +16,7 @@ describe "Delete a project", js: true do
     it "works" do
       project_page.edit_menu.open
       project_page.edit_menu.delete.click
-      expect(project_page).to have_flash("Duccessfully deleted project.")
+      expect(project_page).to have_flash("Successfully deleted project.")
     end
   end
 
