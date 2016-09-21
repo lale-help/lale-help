@@ -39,15 +39,7 @@ module TaskableForm
     primary_object.persisted? || available_working_groups.size == 1
   end
 
-  def project_select(form)
-    form.grouped_collection_select(
-      :project_id,
-      available_working_groups,
-      :projects,
-      :name,
-      :id,
-      :name,
-      { include_blank: I18n.t('circle.tasks.form.project_blank') }
-    )
+  def available_projects
+    available_working_groups.map.with_object({}) { |wg, hash| hash[wg] = wg.projects.open }
   end
 end

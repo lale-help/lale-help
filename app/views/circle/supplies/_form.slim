@@ -46,7 +46,7 @@
   .field-row
     .field
       = f.label :project_id
-      = @form.project_select(f)
+      = taskable_project_select(@form.available_projects, selected_project: @form.project, tag_id: 'supply_project_id', tag_name: 'supply[project_id]')
       = errors.message_for(:project_id)
 
   .submit-row

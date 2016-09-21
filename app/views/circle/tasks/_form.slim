@@ -95,7 +95,7 @@
   .field-row
     .field
       = f.label :project
-      = @form.project_select(f)
+      = taskable_project_select(@form.available_projects, selected_project: @form.project, tag_id: 'task_project_id', tag_name: 'task[project_id]')
       = errors.formatted_message_for(:project_id)
 
 
