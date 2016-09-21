@@ -20,26 +20,32 @@
       .tab.tasks
         .task_section.open_tasks data-tab='open_tasks'
           - if @completed_tasks.present?
-            a.task_status data-tab='completed_tasks' = t(".show_completed_tasks")
-          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @open_tasks }
+            a.task_status data-tab='completed_tasks' == t(".show_completed_tasks")
+          = render 'circle/tasks/task_list', circle: current_circle, working_group: current_working_group, tasks: @open_tasks
         .task_section.completed_tasks data-tab='completed_tasks'
-          a.task_status data-tab='open_tasks' =t(".show_open_tasks")
-          = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, working_group: current_working_group, tasks: @completed_tasks }
+          a.task_status data-tab='open_tasks' == t(".show_open_tasks")
+          = render 'circle/tasks/task_list', circle: current_circle, working_group: current_working_group, tasks: @completed_tasks
 
       .tab.supplies
         .task_section.open_supplies data-tab='open_supplies'
           - if @completed_supplies.present?
-            a.task_status data-tab='completed_supplies' = t(".show_completed_supplies")
-          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: @open_supplies }
+            a.task_status data-tab='completed_supplies' == t(".show_completed_supplies")
+          = render 'circle/supplies/supply_list', circle: current_circle, working_group: current_working_group, supplies: @open_supplies
         .task_section.completed_supplies data-tab='completed_supplies'
-          a.task_status data-tab='open_supplies' =t(".show_open_supplies")
-          = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, working_group: current_working_group, supplies: @completed_supplies }
+          a.task_status data-tab='open_supplies' == t(".show_open_supplies")
+          = render 'circle/supplies/supply_list', circle: current_circle, working_group: current_working_group, supplies: @completed_supplies
 
       .tab.projects
-        = render partial: 'projects', locals: { projects: current_working_group.projects.order(:name).select { |project| can?(:read, project) } }
+        .task_section.open_projects data-tab='open_projects'
+          - if @completed_projects.present?
+            a.task_status data-tab='completed_projects' == t(".show_completed_projects")
+          = render 'circle/projects/project_list', projects: @open_projects
+        .task_section.completed_projects data-tab='completed_projects'
+          a.task_status data-tab='open_projects' == t(".show_open_projects")
+          = render 'circle/projects/project_list', projects: @completed_projects
 
       .tab.documents
-        = render partial: 'files/list', locals: { files: @files, show_actions: can?(:manage, current_working_group), show_uploadable: false }
+        = render 'files/list', files: @files, show_actions: can?(:manage, current_working_group), show_uploadable: false
         - if can? :add_file?, current_working_group
           = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_working_group)), class: 'button button-primary'
 

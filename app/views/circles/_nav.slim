@@ -11,6 +11,8 @@
   - if can?(:manage, current_circle) && current_circle.projects.present?
     a.projects data-tab='projects'
       = Project.model_name.human(count: 2)
+      - if @open_projects.present?
+        span.badge=@open_projects.count
   a.documents data-tab='documents'
     = t('.documents')
     - if @files.present?

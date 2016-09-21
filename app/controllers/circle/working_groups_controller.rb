@@ -43,7 +43,9 @@ class Circle::WorkingGroupsController < ApplicationController
     @open_supplies      = supplies.not_completed.select { |f| can?(:read, f) }
     @completed_supplies = supplies.completed.select { |f| can?(:read, f) }
 
-    @projects            = current_working_group.projects
+    projects            = current_working_group.projects.order(:name)
+    @open_projects      = projects.open.select { |project| can?(:read, project) }
+    @completed_projects = projects.completed.select { |project| can?(:read, project) }
   end
 
   def edit

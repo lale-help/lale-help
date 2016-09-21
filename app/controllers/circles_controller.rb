@@ -9,6 +9,9 @@ class CirclesController < ApplicationController
   include HasCircle
 
   def show
+
+    @files              = current_circle.files.select { |f| can?(:read, f) }
+
     tasks               = current_circle.tasks.not_in_project.ordered_by_date
     @open_tasks         = tasks.not_completed.select { |task| can?(:read, task) }
     @completed_tasks    = tasks.completed.select { |task| can?(:read, task) }
@@ -16,7 +19,10 @@ class CirclesController < ApplicationController
     supplies            = current_circle.supplies.not_in_project.ordered_by_date
     @open_supplies      = supplies.not_completed.select { |supply| can?(:read, supply) }
     @completed_supplies = supplies.completed.select { |supply| can?(:read, supply) }
-    @files              = current_circle.files.select { |f| can?(:read, f) }
+
+    projects            = current_circle.projects.order(:name)
+    @open_projects      = projects.open.select { |project| can?(:read, project) }
+    @completed_projects = projects.completed.select { |project| can?(:read, project) }
   end
 
   def update

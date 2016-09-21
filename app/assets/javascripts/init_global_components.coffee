@@ -8,9 +8,10 @@ ready = ->
   # (circle, working group and project dashboards)
   new Lale.TabNav('.tab-nav:not(.tab-nav-no-js)', '.tab')
 
-  # show/hide completed tasks & supplies
+  # show/hide completed tasks, supplies and projects
   new Lale.StatusLink('.tab.tasks a.task_status', '.tab.tasks .task_section')
   new Lale.StatusLink('.tab.supplies a.task_status', '.tab.supplies .task_section')
+  new Lale.StatusLink('.tab.projects a.task_status', '.tab.projects .task_section')
 
 $(document).on 'ready', ready
 $(document).on 'page:load', ready
