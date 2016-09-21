@@ -1,6 +1,10 @@
 class ProjectPresenter < Presenter
-  
-  delegate :id, :name, :working_group, :admin, to: :object
+
+  delegate :id, :working_group, :admin, to: :object
+
+  def name
+    _.complete? ? I18n.t('circle.projects.title_complete', name: _.name) : _.name
+  end
 
   def description(length: nil)
     if length
@@ -13,7 +17,7 @@ class ProjectPresenter < Presenter
   let(:start_date) do
     dates = []
     dates << _.tasks.minimum("start_date")
-    # quick hack: if no task has a start date, use the earliest end date. 
+    # quick hack: if no task has a start date, use the earliest end date.
     dates << _.tasks.minimum("due_date")
     dates << _.supplies.minimum("due_date")
     I18n.l(dates.compact.min, format: :long) unless dates.compact.empty?

@@ -530,6 +530,7 @@
       :index:
         :organizers: Organizers
     :projects:
+      :title_complete: 'Done: %{name}'
       :clone:
         :new_task_name: "%{base_name} - copy"
         :new_task_name_regexp: copy( (\d+))?$

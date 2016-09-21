@@ -24,6 +24,14 @@ FactoryGirl.define do
       end
     end
 
+    trait :open do
+      completed_at nil
+    end
+
+    trait :completed do
+      completed_at Time.now
+    end
+
   end
 
 end
