@@ -16,8 +16,8 @@ describe "Complete and reopen a task", js: true do
 
   describe "completing a task" do
 
-    context "when supply is incomplete" do
-      let!(:task) { create(:supply, working_group: working_group) }
+    context "when task is incomplete" do
+      let!(:task) { create(:task, working_group: working_group) }
 
 
       it "is completed", :ci_ignore do
