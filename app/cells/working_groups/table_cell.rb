@@ -51,7 +51,7 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def link_to_deactivate(group)
     options = { class: 'button' }
-    if has_incomplete_items?
+    if has_incomplete_items?(group)
       options[:onclick] = "alert(#{t('.cant_deactivate_group_with_items').to_json}); return false;"
     else
       # this will submit the form anyhow even if onclick returns false, so only add it when
@@ -79,7 +79,7 @@ class WorkingGroups::TableCell < ::ViewModel
     @options[:working_groups]
   end
 
-  def has_incomplete_items?
+  def has_incomplete_items?(group)
     (group.tasks.incomplete.count + group.supplies.incomplete.count) > 0
   end
 
