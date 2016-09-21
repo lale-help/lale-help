@@ -2,7 +2,7 @@ class WorkingGroups::TableCell < ::ViewModel
 
   # the first argument to the #cell call is "model" in here
   alias :circle :model
-  
+
   def groups
     working_groups.map do |group|
       OpenStruct.new(
@@ -51,7 +51,7 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def link_to_deactivate(group)
     options = { class: 'button' }
-    if (group.tasks.incomplete.count + group.supplies.incomplete.count) > 0
+    if has_incomplete_items?
       options[:onclick] = "alert(#{t('.cant_deactivate_group_with_items').to_json}); return false;"
     else
       # this will submit the form anyhow even if onclick returns false, so only add it when
@@ -77,6 +77,10 @@ class WorkingGroups::TableCell < ::ViewModel
 
   def working_groups
     @options[:working_groups]
+  end
+
+  def has_incomplete_items?
+    (group.tasks.incomplete.count + group.supplies.incomplete.count) > 0
   end
 
 end

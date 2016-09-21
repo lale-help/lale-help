@@ -1,4 +1,4 @@
-- project = ProjectPresenter.new(current_project)
+- project = ProjectPresenter.new(current_project, self)
 
 .collection-dashboard.project-dashboard
   .header
@@ -12,7 +12,7 @@
 
     .right
       - if can? :manage, current_project
-        = render partial: 'edit_actions', locals: { circle: current_circle, item: current_project }
+        = render 'edit_actions', item: current_project, presenter: project
 
   .details
     main
@@ -28,21 +28,21 @@
               .icon
               .title= Task.model_name.human(count: 2)
               .details
-                = render partial: 'stats', object: project.stats.tasks
+                = render 'stats', stats: project.stats.tasks
 
           - if project.supplies.present?
             .row.supply
               .icon
               .title= Supply.model_name.human(count: 2)
               .details
-                = render partial: 'stats', object: project.stats.supplies
+                = render 'stats', stats: project.stats.supplies
 
           - if project.tasks.present?
             .row.user
               .icon
               .title= User.model_name.human(count: 2)
               .details
-                = render partial: 'stats', object: project.stats.users
+                = render 'stats', stats: project.stats.users
 
           - if project.has_date_range?
             .row.date-range

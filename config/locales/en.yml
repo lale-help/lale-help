@@ -551,6 +551,8 @@
       :nav:
         :info: Info
       :show:
+        :cant_complete_with_items: The project still contains incomplete tasks
+          or supplies. Please complete them first, then try again.
         :admin-title:
           :one: "%{count} organizer"
           :other: "%{count} organizers"

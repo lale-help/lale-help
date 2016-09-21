@@ -12,16 +12,16 @@
 
   .menu
     - if can? :edit, item
-      = link_to(edit_circle_project_path(circle, item)) do
+      = link_to(edit_circle_project_path(item.circle, item)) do
         = t('helpers.edit', model: item.model_name.human)
     - if can? :complete, item
-      = link_to(circle_project_complete_path(circle, item), method: :put) do
+      = presenter.link_to_complete do
         = t('helpers.complete', model: item.model_name.human)
     - if can? :reopen, item
-      = link_to(circle_project_reopen_path(circle, item), method: :put) do
+      = link_to(circle_project_reopen_path(item.circle, item), method: :put) do
         = t('helpers.reopen', model: item.model_name.human)
     - if can? :delete, item
       - path_options = { redirect_to: circle_working_group_path(item.circle, item.working_group_id) }
       - link_options = { data: {:confirm => t('helpers.confirm.project.delete')}, method: :delete }
-      = link_to(circle_project_path(circle, item, path_options), link_options) do
+      = link_to(circle_project_path(item.circle, item, path_options), link_options) do
         = t('helpers.delete', model: item.model_name.human)
