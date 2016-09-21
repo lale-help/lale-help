@@ -37,7 +37,7 @@ body.internal {
     @include text-color($body-text, $body-text);
   }
 
-  header{
+  header {
     background:  $header-bg;
     @include text-color($header-text, $header-text);
 

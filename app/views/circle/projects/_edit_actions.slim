@@ -1,11 +1,11 @@
-.dropdown.task-edit-menu
+.dropdown.project-edit-menu
   
   / showing/hiding the dropdown menu is implemented with CSS only. 
   / the checked state of this checkbox controls which CSS rules are applied to the 
   / menu, thus toggling it's visiblity.
-  input id='task-edit-selector' type='checkbox' class='menu-selector'
+  input id='project-edit-selector' type='checkbox' class='menu-selector'
 
-  label for='task-edit-selector'
+  label for='project-edit-selector'
     .button.button-super
       i.fi-chevron-bottom
       = t('.edit_button_dropdown', model: item.model_name.human)

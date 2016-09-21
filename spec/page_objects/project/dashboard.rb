@@ -6,7 +6,7 @@ module PageObject
 
       include HasItemDetailsTable
 
-      section :edit_menu, PageObject::Component::EditMenu, '.task-edit-menu'
+      section :edit_menu, PageObject::Component::EditMenu, '.project-edit-menu'
 
       section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
       
@@ -25,7 +25,7 @@ module PageObject
       def completed?
         headline.text =~ /^Done: /
       end
-      
+
       def open?
         !completed?
       end
