@@ -557,9 +557,9 @@
           :one: "%{count} volontaire est nécessaire"
           :other: "%{count} volontaires sont nécessaires"
         :volunteer-task-button: J'ai cet objet
-      :supply_list:
+      :list:
         :no-supplies: Aucun besoin particulier en ce moment.
-      :supply_list_item:
+      :list_item:
         :stats-here: Statistiques
     :taskables:
       :taskable_header:
@@ -611,9 +611,9 @@
         :volunteer-count-required:
           :one: "%{count} volontaire est nécessaire"
           :other: "%{count} volontaires sont nécessaires"
-      :task_list:
+      :list:
         :no-tasks: Aucune tâche trouvée.
-      :task_list_item:
+      :list_item:
         :stats-here: Les Statistiques vont ici
     :working_groups:
       :add_user_form:

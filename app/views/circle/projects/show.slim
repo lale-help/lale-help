@@ -64,13 +64,13 @@
         - if can? :manage, current_project
           a.button href=new_circle_task_path(current_circle, project_id: project.id)
             = t('helpers.new', model: Task.model_name.human)
-        = render partial: 'circle/tasks/task_list', locals: { circle: current_circle, tasks: project.tasks, list_id: 'project-tasks-list' }
+        = render partial: 'circle/tasks/list', locals: { circle: current_circle, tasks: project.tasks, list_id: 'project-tasks-list' }
 
       .tab.supplies
         - if can? :manage, current_project
           a.button href=new_circle_supply_path(current_circle, project_id: project.id)
             = t('helpers.new', model: Supply.model_name.human)
-        = render partial: 'circle/supplies/supply_list', locals: { circle: current_circle, supplies: project.supplies, list_id: 'project-supplies-list' }
+        = render partial: 'circle/supplies/list', locals: { circle: current_circle, supplies: project.supplies, list_id: 'project-supplies-list' }
 
 
     aside

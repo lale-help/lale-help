@@ -581,9 +581,9 @@
           :one: Benötigt %{count} Helfer
           :other: Benötigt %{count} Helfer
         :volunteer-task-button: Ich habe das!
-      :supply_list:
+      :list:
         :no-supplies: Derzeit keine Sachspenden benötigt.
-      :supply_list_item:
+      :list_item:
         :stats-here: Statistik
     :taskables:
       taskable_header:
@@ -635,9 +635,9 @@
         :volunteer-count-required:
           :one: Benötigt %{count} Helfer
           :other: Benötigt %{count} Helfer
-      :task_list:
+      :list:
         :no-tasks: Keine Aufgaben gefunden.
-      :task_list_item:
+      :list_item:
         :stats-here: Statistik
     :working_groups:
       :add_user_form:

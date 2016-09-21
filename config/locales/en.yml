@@ -599,9 +599,9 @@
           :one: Requires %{count} volunteer
           :other: Requires %{count} volunteers
         :volunteer-task-button: I have this supply
-      :supply_list:
+      :list:
         :no-supplies: No supplies are needed at this time.
-      :supply_list_item:
+      :list_item:
         :stats-here: Stats Here
     :taskables:
       taskable_header:
@@ -653,9 +653,9 @@
         :volunteer-count-required:
           :one: Requires %{count} volunteer
           :other: Requires %{count} volunteers
-      :task_list:
+      :list:
         :no-tasks: No tasks found.
-      :task_list_item:
+      :list_item:
         :stats-here: Stats
     :working_groups:
       :add_user_form:

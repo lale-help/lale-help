@@ -1,5 +1,5 @@
 = render partial: 'nav', locals: { current: 'volunteer' }
 
-= render partial: 'circle/tasks/task_list', locals: { list_id: 'my-tasks-list', circle: current_circle, working_group: nil, tasks: @tasks, title: t('.tasks-header') }
+= render partial: 'circle/tasks/list', locals: { list_id: 'my-tasks-list', circle: current_circle, working_group: nil, tasks: @tasks, title: t('.tasks-header') }
 
-= render partial: 'circle/supplies/supply_list', locals: { list_id: 'my-supplies-list', circle: current_circle, working_group: nil, supplies: @supplies, title: t('.supplies-header')}
+= render partial: 'circle/supplies/list', locals: { list_id: 'my-supplies-list', circle: current_circle, working_group: nil, supplies: @supplies, title: t('.supplies-header')}
