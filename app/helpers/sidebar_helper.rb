@@ -14,7 +14,7 @@ module SidebarHelper
   end
 
   def projects_count
-    current_circle.projects.select { |project| can?(:read, project) }.count
+    current_circle.projects.open.select { |project| can?(:read, project) }.count
   end
 
   def admin_actions_counter
