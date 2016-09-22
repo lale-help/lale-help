@@ -6,7 +6,7 @@
 
 .task
   main
-    = render(partial: 'circle/taskables/taskable_header', locals: {taskable: supply})
+    = render 'circle/taskables/taskable_header', taskable: supply
 
     .item-details-table
       .row.due-date
