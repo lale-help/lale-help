@@ -1272,6 +1272,7 @@
     :destroy:
       :signed_out: Signed out!
     :new:
+      :login_error_invalid_authenticity: Your session has expired; please try again.
       :login_error_common_reasons:
         :one: did you use the right email address for Lale?
         :three: is the CAPS LOCK key activated?

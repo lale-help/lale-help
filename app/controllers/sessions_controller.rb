@@ -21,7 +21,6 @@ class SessionsController < ApplicationController
       user.touch :last_login
       login(user)
       redirect_to user_redirect_path
-
     else
       redirect_to root_path, flash: {login_failed: true}
     end
@@ -33,6 +32,16 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  # we sometimes get InvalidAuthenticityToken exceptions on the login form. I assume it's either session expiry
+  # (a short 30 minutes right now), or old login pages fetched from the browser cache; in both cases the
+  # autenticity token contained in the HTML page will be expired.
+  # In that case we now handls the exception and show a sensible error message.
+  def handle_unverified_request
+    return super unless action_name == 'create'
+    redirect_to root_path, flash: { login_failed: true, invalid_authenticity: true }
+  end
+
   def user_redirect_path
     if session[:login_redirect].present?
       session.delete(:login_redirect)

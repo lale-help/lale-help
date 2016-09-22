@@ -22,6 +22,9 @@ section#login_form
       .field-row.single.login_error
         h3 = t('.login_error_message_title')
         ul
-          li = t('.login_error_common_reasons.one')
-          li = t('.login_error_common_reasons.two')
-          li = t('.login_error_common_reasons.three')
+          - if flash[:invalid_authenticity]
+            li = t('.login_error_invalid_authenticity')
+          - else
+            li = t('.login_error_common_reasons.one')
+            li = t('.login_error_common_reasons.two')
+            li = t('.login_error_common_reasons.three')

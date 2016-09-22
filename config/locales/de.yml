@@ -1257,6 +1257,7 @@
     :destroy:
       :signed_out: Erfolgreich ausgeloggt!
     :new:
+      :login_error_invalid_authenticity: Ihre Sitzung ist abgelaufen. Bitte versuchen Sie es noch einmal.
       :login_error_common_reasons:
         :one: haben Sie die richtige E-Mail-Adresse für Lale verwendet?
         :three: ist die Feststelltaste (CAPS LOCK) aktiviert?
