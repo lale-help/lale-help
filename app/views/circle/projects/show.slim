@@ -2,13 +2,15 @@
 
 .collection-dashboard.project-dashboard
   .header
-    .left
-      .title
-        i
-        = project.name
 
-      .description
-        = project.description
+    .left class=project.css
+      .icon
+        i
+      .title 
+        - if project.complete?
+          span.done = t('.project_complete')
+        = project.name
+      .description = project.description
 
     .right
       - if can? :manage, current_project

@@ -551,6 +551,7 @@
       :nav:
         :info: Info
       :show:
+        :project_complete: "Done: "
         :cant_complete_with_items: The project still contains incomplete tasks
           or supplies. Please complete them first, then try again.
         :admin-title:

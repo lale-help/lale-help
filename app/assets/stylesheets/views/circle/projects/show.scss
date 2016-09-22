@@ -2,10 +2,30 @@
 
   .header {
 
-    .title {
-      i {
-        @include lale-icon($lale-icon-document, 1.25em);
+    .left {
+
+      .icon i {
+        margin: 1.5em;
+        @include lale-icon($lale-icon-document, 4em);
+        float: left;
+        // FIXME colorize according to task urgency
+        background-color: #fff;
+        padding: 5px;
+        border-radius: 5px;
       }
+
+      .title {
+        font-size: 2.5em;
+        @include border-top-radius($border-radius);
+        padding: 1rem 2rem 1rem 9rem;
+      }
+      .description {
+        @include border-bottom-radius($border-radius);
+        min-height: 8rem;
+        font-size: 1.5em;
+        padding: 2rem 2rem 2rem 9rem;
+      }
+
     }
 
     .dropdown {

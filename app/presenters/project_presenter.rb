@@ -1,10 +1,6 @@
 class ProjectPresenter < Presenter
 
-  delegate :id, :working_group, :admin, to: :object
-
-  def name
-    _.complete? ? I18n.t('circle.projects.title_complete', name: _.name) : _.name
-  end
+  delegate :id, :working_group, :admin, :complete?, :name, to: :object
 
   def description(length: nil)
     if length
@@ -12,6 +8,21 @@ class ProjectPresenter < Presenter
     else
       _.description
     end
+  end
+
+  let(:statuses) do
+    statuses = []
+    statuses << :complete  if _.complete?
+    statuses << :new
+    statuses
+  end
+
+  let(:status) do
+    statuses.first
+  end
+
+  let(:css) do
+    "taskable-urgency-#{status}" if status.present?
   end
 
   let(:start_date) do
