@@ -14,6 +14,7 @@ This is the rails application used for lale.help.
 - [Restoring the database from a snapshot](#restoring-the-database-from-a-snapshot)
 - [Advice for writing feature specs](#advice-for-writing-feature-specs)
 - [Styleguide](#styleguide)
+- [Environments and deployment](#environments-and-deployment)
 - [Further documentation](#further-documentation)
 - [License](#license)
 
@@ -383,6 +384,23 @@ Insert a `sleep 2` before the command that fails. When you're sure that's the is
 
 A first version can be found at the path [/styles](https://staging.lale.help/styles)
 
+## Environments and deployment
+
+All lale environments are hosted on heroku. Use the script `bin/deploy {environment-name}` to deploy the latest code (master) and run migrations.
+
+### staging
+
+For testing/reviewing new features, bugfixes, change requests. Deploy whenever a new feature is ready or requires feedback.
+
+### demo
+
+Do a new release when production is released, or when requested.
+
+### production
+
+Do a new release when requested.
+
+Deploy 
 ## Further documentation
 
 ... can be found on [the wiki](https://github.com/lale-help/lale-help/wiki)
