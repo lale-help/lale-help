@@ -908,8 +908,8 @@
         :other: is the wrong length (should be %{count} characters)
     :name:
       :empty: Please enter a name
-      :not_unique: This Working Group name is already been used. Please choose a different
-        name.
+      :not_unique: This Working Group name is already been used. Please choose a different name.
+      :taken: This name has already been taken.
     :organizer_id:
       :at_least_one_required: Working group must have at least one organizer.
       :empty: Please choose an organizer

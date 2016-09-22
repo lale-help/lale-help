@@ -1,5 +1,5 @@
 class Circle::BaseForm < ::Form
-  attribute :circle, :model, primary: true, default: proc{ Circle.new }, new_records: true
+  attribute :circle, :model, primary: true, default: proc { Circle.new }, new_records: true
   attribute :user,   :model
 
   attribute :name,             :string
@@ -21,15 +21,27 @@ class Circle::BaseForm < ::Form
     end
   end
 
-  class Submit < ::Form::Submit  
+  class Submit < ::Form::Submit
+
     def execute
-      circle.assign_attributes inputs.slice(:name, :must_activate_users, :description)
-      circle.language = Circle.languages[language]
-      circle.address.assign_attributes inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country)
-
+      circle.assign_attributes(circle_attributes)
+      circle.address.assign_attributes(address_attributes)
       circle.save
-
       circle
+    end
+
+    private
+
+    def circle_attributes
+      inputs.slice(:name, :must_activate_users, :description).merge(language: language.to_sym)
+    end
+
+    def address_attributes
+      inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country)
+    end
+
+    def handle_record_not_unique_exception(exception)
+      exception.message.include?('Key (name)') ? add_error(:name, :taken) : raise
     end
   end
 end
