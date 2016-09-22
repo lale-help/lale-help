@@ -14,7 +14,7 @@ module PageObject
       section :helpers_box, PageObject::Component::UsersBox, '.users-box'
       delegate :helpers, :has_helper?, to: :helpers_box
 
-      section :header, PageObject::Component::TaskableHeader, '.task-header'
+      section :header, PageObject::Component::TaskableHeader, '.taskable-header'
       delegate :headline, :wait_for_headline, :description, 
         :has_urgency_new?, :wait_for_urgency_new,
         :has_urgency_complete?, :wait_for_urgency_complete,

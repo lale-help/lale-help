@@ -25,7 +25,7 @@ module PageObject
       
       element :task_badge, '.users-box .task-badge'
 
-      section :header, PageObject::Component::TaskableHeader, '.task-header'
+      section :header, PageObject::Component::TaskableHeader, '.taskable-header'
       delegate :headline, :wait_for_headline, :description, 
         :has_urgency_new?, :wait_for_urgency_new,
         :has_urgency_complete?, :wait_for_urgency_complete,
