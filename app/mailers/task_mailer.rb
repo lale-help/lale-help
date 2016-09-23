@@ -76,7 +76,7 @@ class TaskMailer < BaseMandrillMailer
       "FIRST_NAME"            => user.first_name,
       "TASK_TITLE"            => task.name,
       "TASK_DESCRIPTION"      => task.description(length: 100),
-      "TASK_DUE_DATE"         => task.scheduling_sentence,
+      "TASK_DUE_DATE"         => task.formatted_date,
       "TASK_TIME_REQUIRED"    => task.duration_text,
       "TASK_HELPERS_REQUIRED" => task.volunteer_count_required,
       "TASK_URL_MAIN"         => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task)),
