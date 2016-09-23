@@ -5,10 +5,10 @@
     .left {
 
       .icon i {
-        margin: 1.5em;
+        margin: 1.25em;
         @include lale-icon($lale-icon-document, 4em);
         float: left;
-        padding: 5px;
+        padding: 10px;
         border-radius: 5px;
       }
 
@@ -16,6 +16,7 @@
         font-size: 2.5em;
         @include border-top-radius($border-radius);
         padding: 1rem 2rem 1rem 9rem;
+        margin-bottom: 0;
       }
       .description {
         @include border-bottom-radius($border-radius);
