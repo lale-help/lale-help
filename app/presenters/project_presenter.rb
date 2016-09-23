@@ -13,6 +13,7 @@ class ProjectPresenter < Presenter
   let(:statuses) do
     statuses = []
     statuses << :complete  if _.complete?
+    statuses << :urgent    if has_urgent_taskables?
     statuses << :new
     statuses
   end
@@ -83,6 +84,10 @@ class ProjectPresenter < Presenter
         )
       )
     end
+  end
+
+  let(:has_urgent_taskables?) do
+    (stats.tasks.urgent + stats.supplies.urgent) > 0
   end
 
   def link_to_complete

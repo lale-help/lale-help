@@ -1,6 +1,7 @@
 ul.stats-box
   - stats.each_pair do |key, value|
-    li
+    - klass = (key == :urgent && value > 0) ? 'warning' : nil
+    li class=klass
       = value
       span.label 
         = t(key, scope: 'circle.projects.status_labels')

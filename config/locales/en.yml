@@ -911,6 +911,7 @@
       :empty: Please enter a name
       :not_unique: This Working Group name is already been used. Please choose a different name.
       :taken: This name has already been taken.
+      :too_short: Name is too short
     :organizer_id:
       :at_least_one_required: Working group must have at least one organizer.
       :empty: Please choose an organizer

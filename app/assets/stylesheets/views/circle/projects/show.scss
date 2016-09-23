@@ -8,8 +8,6 @@
         margin: 1.5em;
         @include lale-icon($lale-icon-document, 4em);
         float: left;
-        // FIXME colorize according to task urgency
-        background-color: #fff;
         padding: 5px;
         border-radius: 5px;
       }
@@ -46,4 +44,11 @@
     }
 
   }
+
+  .item-details-table {
+    li.warning {
+      color: $red-500;
+    }
+  }
+
 }

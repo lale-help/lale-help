@@ -13,6 +13,10 @@
     }
   }
 
+  .icon i {
+    background-color: $blue-500;
+  }
+
   .title {
     background: $blue-500;
     color: $blue-50;
@@ -37,6 +41,10 @@
        border-color: $green-500;
        color: $green;
      }
+  }
+
+  .icon i {
+    background-color: $green-500;
   }
 
   .done {
@@ -69,6 +77,11 @@
     }
 
   }
+
+  .icon i {
+    background-color: $red-100;
+  }
+
   .title {
     background-color: $red-100;
     color: $red;
@@ -95,6 +108,11 @@
     }
 
   }
+
+  .icon i {
+    background-color: $blue-light-1;
+  }
+
   .title {
     background-color: $blue-light-1;
     color: $blue-dark-2;
