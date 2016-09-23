@@ -366,7 +366,9 @@
           :one: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record} besteht
     :models:
       :circle: Helferkreis
-      :file_upload: Datei
+      :file_upload: 
+        :one: Dokument
+        :other: Dokumente
       :location: Standort
       :project:
         :one: Projekt
@@ -950,10 +952,12 @@
       :destroy:
         :alert: "%{resource_name} konnte nicht gelöscht werden."
         :notice: "%{resource_name} wurde erfolgreich gelöscht."
-      :invited:
-        :one: "%{count} Helfer wurden zu %{model} eingeladen."
-        :other: "%{count} Helfer wurden zu %{model} eingeladen."
-        :zero: Zu diesem %{model} konnten keine Helfer eingeladen werden.
+      :invite:
+        :alert: Es konnten keine Helfer eingeladen werden.
+        :notice:
+          :zero: "Es gibt keine Helfer, die eingeladen werden können."
+          :one: "%{count} Helfer wurden zu %{model} eingeladen."
+          :other: "%{count} Helfer wurden zu %{model} eingeladen."
       :update:
         :notice: "%{resource_name} wurde erfolgreich aktualisiert."
     :created: "%{name} wurde erfolgreich erstellt."
@@ -1336,12 +1340,16 @@
         :other: "%{unassignees} wurden von %{unassigner} für diese Aufgabe am %{date}
           ausgetragen."
     :flash:
-      :completed: Danke für die Hilfe bei %{name}!
-      :decline_failed: Fehler beim Ablehnen von %{name}.
-      :declined: "%{name} wurde erfolgreich abgelehnt."
-      :reopened: Aufgabe wurde wieder geöffnet
-      :reopening_failed: Beim Öffnen der Aufgabe trat ein Problem auf
-      :volunteered: Danke für die Hilfe bei %{name}!
+      :complete: 
+        :success: Danke für die Hilfe bei %{name}!
+      :decline: 
+        :success: "%{name} wurde erfolgreich abgelehnt."
+        :error: Fehler beim Ablehnen von %{name}.
+      :reopen: 
+        :success: Aufgabe wurde wieder geöffnet
+        :error: Beim Öffnen der Aufgabe trat ein Problem auf
+      :volunteer: 
+        :success: Danke für die Hilfe bei %{name}!
   :time:
     :am: am
     :formats:

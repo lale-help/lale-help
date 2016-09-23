@@ -540,7 +540,6 @@
       :index:
         :organizers: Organizers
     :projects:
-      :title_complete: 'Done: %{name}'
       :clone:
         :new_task_name: "%{base_name} - copy"
         :new_task_name_regexp: copy( (\d+))?$
@@ -551,7 +550,7 @@
       :nav:
         :info: Info
       :show:
-        :project_complete: "Done: "
+        :title_complete: 'Done: '
         :cant_complete_with_items: The project still contains incomplete tasks
           or supplies. Please complete them first, then try again.
         :admin-title:

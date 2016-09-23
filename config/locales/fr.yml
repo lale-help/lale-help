@@ -341,7 +341,9 @@
           :one: 'Cette entrée ne peut être éffacée car une dépendence existe : %{record}'
     :models:
       :circle: Cercle
-      :file_upload: Fichier
+      :file_upload: 
+        :one: Fichier
+        :other: Fichiers
       :location: Adresse
       :project:
         :one: Projet
@@ -929,10 +931,11 @@
       :destroy:
         :alert: "%{resource_name} n'a pu être éffacé."
         :notice: "%{resource_name} a été éffacé avec succès."
-      :invited:
-        :one: "%{count} volontaire a été invité à ce %{model}."
-        :other: "%{count} volontaires ont été invité à ce %{model}."
-        :zero: Il n'y a aucun membre à inviter à ce %{model}
+      :invite:
+        :notice:
+          :one: "%{count} volontaire a été invité à ce %{model}."
+          :other: "%{count} volontaires ont été invité à ce %{model}."
+        :alert: Il n'y a aucun membre à inviter.
       :update:
         :notice: "%{resource_name} a été mis à jour avec succès."
     :created: "%{name} a été créé avec succès."
@@ -1318,12 +1321,16 @@
         :other: "%{unassignees} était non attribué cette tâche par %{unassigner} le
           %{date}."
     :flash:
-      :completed: Merci d'avoir complété %{name} !
-      :decline_failed: "%{name} diminué avec succès ."
-      :declined: Une erreur c'est produite.
-      :reopened: La tâche a été ré-ouverte
-      :reopening_failed: Il y a eu un problème lors de la ré-ouverture de cette tâche
-      :volunteered: Merci de vous être porté volontaire pour %{name} !
+      :complete: 
+        :success: Merci d'avoir complété %{name} !
+      :decline: 
+        :success: Une erreur c'est produite.
+        :error: "%{name} diminué avec succès ."
+      :reopen: 
+        :success: La tâche a été ré-ouverte
+        :error: Il y a eu un problème lors de la ré-ouverture de cette tâche
+      :volunteer: 
+        :success: Merci de vous être porté volontaire pour %{name} !
   :time:
     :am: am
     :formats:
