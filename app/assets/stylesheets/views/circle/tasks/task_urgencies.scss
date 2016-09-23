@@ -18,6 +18,10 @@
     background-color: $blue-500;
   }
 
+  .project-icon i {
+    color: $blue-500;
+  }
+
   .title {
     background: $blue-500;
     color: $blue-50;
@@ -49,6 +53,10 @@
     background-color: $green-500;
   }
 
+  .project-icon i {
+    color: $green-500;
+  }
+
   .done {
     color: $green;
   }
@@ -77,12 +85,15 @@
       border-color: $red;
       color: $red;
     }
-
   }
 
   .icon i {
     color: $red;
     background-color: $red-100;
+  }
+
+  .project-icon i {
+    color: $red;
   }
 
   .title {
@@ -115,6 +126,10 @@
   .icon i {
     color: $white;
     background-color: $blue-light-1;
+  }
+
+  .project-icon i {
+    color: $blue-500;
   }
 
   .title {

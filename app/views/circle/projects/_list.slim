@@ -1,14 +1,14 @@
-table.default-table
+- title ||= ""
+- list_id ||= nil
 
-  thead
-    tr
-      th = Project.human_attribute_name("name")
-      th = Project.human_attribute_name("organizer")
+h3
+  = title
 
-  tbody
+.task-list.project-list id=list_id
+  - if projects.present?
     - projects.each do |project|
-      tr
-        td = link_to_project(project)
-        td
-          - project.active_admins.each do |user|
-            li= link_to_user(user)
+      - if can? :read, project
+        = render 'circle/projects/list_item', project: project
+
+  - else
+    = t('.no_projects')

@@ -43,9 +43,9 @@ class Presenter
     end
   end
 
-  def initialize obj=nil, context=nil
+  def initialize(obj = nil, context = nil, options = {})
     run_callbacks :initialize do
-      @object, @context = obj, context
+      @object, @context, @options = obj, context, options
     end
   end
 

@@ -22,3 +22,13 @@
     @include octicon-icon(comment);
   }
 }
+
+.task-badge--tasks, .task-badge--supplies {
+  display: inline-block;
+  margin-left: 1.5rem;
+  .badge {
+    margin: 0.5rem;
+    background-color: white;
+    border: 1px solid #bbb;
+  }
+}

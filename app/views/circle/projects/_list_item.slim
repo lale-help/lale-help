@@ -1,0 +1,26 @@
+/ TODO: this is bad... but better than before
+- project = ::ProjectPresenter.new(project, self)
+
+div.task href=circle_project_path(project.circle, project) class=project.css
+  .task-details
+    .project-icon 
+      i
+    .task-content
+      .task-title= project.name
+      .subtitle
+        - if project.message.present?
+          span.bullet &bullet;
+          span.status-message
+           == project.message
+    .task-stats
+      .task-badge.task-badge--users
+        i
+        = "#{project.volunteer_count_signed_up}/#{project.volunteer_count_needed}"
+      - if project.tasks.incomplete.present?
+        .task-badge--tasks
+          = Task.model_name.human(count: 2)
+          span.badge = project.tasks.incomplete.count
+      - if project.supplies.incomplete.present?
+        .task-badge--supplies
+          = Supply.model_name.human(count: 2)
+          span.badge = project.supplies.incomplete.count

@@ -25,6 +25,7 @@
 .icon-archive:before { content: "\f10d"; }
 .icon-arrow-left:before { content: "\f108"; }
 .icon-calendar:before { content: "\f10b"; }
+.icon-checklist:before { content: "\f11a"; }
 .icon-circle:before { content: "\f113"; }
 .icon-clock:before { content: "\f109"; }
 .icon-comment:before { content: "\f112"; }
@@ -36,7 +37,6 @@
 .icon-envelope-open:before { content: "\f10e"; }
 .icon-heart:before { content: "\f116"; }
 .icon-inbox:before { content: "\f102"; }
-.icon-kanji:before { content: "\f117"; }
 .icon-location-marker:before { content: "\f118"; }
 .icon-missing:before { content: "\f106"; }
 .icon-papers:before { content: "\f10f"; }
@@ -48,6 +48,7 @@
 $lale-icon-archive: "\f10d";
 $lale-icon-arrow-left: "\f108";
 $lale-icon-calendar: "\f10b";
+$lale-icon-checklist: "\f11a";
 $lale-icon-circle: "\f113";
 $lale-icon-clock: "\f109";
 $lale-icon-comment: "\f112";
@@ -59,7 +60,6 @@ $lale-icon-drawer: "\f101";
 $lale-icon-envelope-open: "\f10e";
 $lale-icon-heart: "\f116";
 $lale-icon-inbox: "\f102";
-$lale-icon-kanji: "\f117";
 $lale-icon-location-marker: "\f118";
 $lale-icon-missing: "\f106";
 $lale-icon-papers: "\f10f";

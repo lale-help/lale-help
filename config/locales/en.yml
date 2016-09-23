@@ -551,6 +551,7 @@
         :info: Info
       :show:
         :title_complete: 'Done: '
+        :working_group_link: "in %{link}"
         :cant_complete_with_items: The project still contains incomplete tasks
           or supplies. Please complete them first, then try again.
         :admin-title:
@@ -571,6 +572,8 @@
         :urgent: urgent
       :edit_actions:
         :edit_button_dropdown: Edit Project
+      :list:
+        :no_projects: No projects found. 
     :supplies:
       :edit:
         :back: Back to Supply

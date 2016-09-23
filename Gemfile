@@ -37,6 +37,7 @@ gem "i18n-js", ">= 3.0.0.rc11"
 gem 'http_accept_language'
 gem 'cells-rails'
 gem 'cells-slim'
+gem 'rspec-cells'
 gem 'actionview-encoded_mail_to' # encode email addresses in HTML to protect them from spam harvesters
 
 # API
@@ -47,7 +48,7 @@ gem 'geocoder'
 gem 'timezone'
 gem 'terminal-table'
 gem 'country_select'
- 
+
 group :development do
   gem "letter_opener_web"
   gem 'thor', require: false
@@ -83,4 +84,5 @@ group :test do
   gem 'timecop'
   gem 'rspec_junit_formatter', '~> 0.2.0'
   gem 'spring-commands-rspec'
+  gem 'rspec-html-matchers'
 end

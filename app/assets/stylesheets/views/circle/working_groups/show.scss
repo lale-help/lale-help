@@ -8,4 +8,10 @@
       }
     }
   }
+
+  // it's much easier to hide the message (which should be hidden ) with CSS
+  // than in Ruby/HTML rendering.
+  .project-list .subtitle {
+    display: none;
+  }
 }

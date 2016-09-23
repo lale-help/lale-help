@@ -11,7 +11,7 @@
       .row.due-date
         .icon
         .title = Task.human_attribute_name(:due_date)
-        .details = task_presenter.scheduling_sentence
+        .details = task_presenter.formatted_date
 
       .row.duration
         .icon

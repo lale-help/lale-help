@@ -1,13 +1,9 @@
 / TODO: this is bad... but better than before
 - task = ::TaskPresenter.new(task)
 
-div.task href=circle_task_path(current_circle, task) class=task.css
+div.task href=circle_task_path(task.circle, task) class=task.css
   .task-details
-    .task-date
-      .month= task.due_date_month
-      .day
-        span.day_number= task.due_date_day
-        span.day-of-week= task.due_date_day_of_week
+    == cell(:calendar_leaf, task.due_date, class: 'task-date')
 
     .task-content
       .task-title= task.name
@@ -19,7 +15,7 @@ div.task href=circle_task_path(current_circle, task) class=task.css
       .task-assignees
         - task.volunteers.each_with_index do |volunteer, i|
           - if i < 5
-            = render partial: 'user/user_icon', locals: { user: volunteer, link: true }
+            = render 'user/user_icon', user: volunteer, link: true
           - elsif i == 5
             .more= '...'
       .task-badge.task-badge--users

@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "dd0213e31c153b70a500737058b59ab3eed8e9a2b0105e129bf9899d05a2d69f",
-    "current": "dd0213e31c153b70a500737058b59ab3eed8e9a2b0105e129bf9899d05a2d69f"
+    "previous": "3da2e6596a8b8ef7b8a4d6263f8bbdc4d4f6ae02d7811bb6bd7d47fddf1fd6bf",
+    "current": "3da2e6596a8b8ef7b8a4d6263f8bbdc4d4f6ae02d7811bb6bd7d47fddf1fd6bf"
   },
   "fonts": [
     "app/assets/fonts/lale/lale.ttf",
@@ -21,6 +21,10 @@
     "calendar": {
       "codepoint": 61707,
       "source": "app/assets/icons/calendar.svg"
+    },
+    "checklist": {
+      "codepoint": 61722,
+      "source": "app/assets/icons/checklist.svg"
     },
     "circle": {
       "codepoint": 61715,
@@ -65,10 +69,6 @@
     "inbox": {
       "codepoint": 61698,
       "source": "app/assets/icons/inbox.svg"
-    },
-    "kanji": {
-      "codepoint": 61719,
-      "source": "app/assets/icons/kanji.svg"
     },
     "location-marker": {
       "codepoint": 61720,

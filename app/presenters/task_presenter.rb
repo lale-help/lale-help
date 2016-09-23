@@ -36,22 +36,6 @@ class TaskPresenter < Presenter
     I18n.t("task.presenter.messages.#{message_key}") if message_key.present?
   end
 
-  let(:due_date) do
-    I18n.l(_.due_date, format: :long)
-  end
-
-  let(:due_date_month) do
-    I18n.l(_.due_date, format: "%b").upcase
-  end
-
-  let(:due_date_day) do
-    _.due_date.day
-  end
-
-  let(:due_date_day_of_week) do
-    I18n.l(_.due_date, format: '%a')
-  end
-
   let(:start_date_and_time) do
     if _.start_date
       str = I18n.l(_.start_date, format: "%A %-d %B %Y")
@@ -66,8 +50,8 @@ class TaskPresenter < Presenter
     str
   end
 
-  let(:scheduling_sentence) do
-    I18n.t(_.scheduling_type, 
+  let(:formatted_date) do
+    I18n.t(_.scheduling_type,
       scope: "activerecord.attributes.task.scheduling_sentence",
       start: start_date_and_time,
       due:   due_date_and_time
@@ -75,7 +59,7 @@ class TaskPresenter < Presenter
   end
 
   let(:duration_text) do
-    I18n.t("activerecord.attributes.task.duration-text.#{_.duration}")
+    I18n.t(_.duration, scope: "activerecord.attributes.task.duration-text")
   end
 
   let(:recent_comments?) do
@@ -88,6 +72,22 @@ class TaskPresenter < Presenter
 
   let(:date_attributes) do
     {data: {urgency: status}} if status.present?
+  end
+
+  private
+
+  let(:start_date_and_time) do
+    if _.start_date
+      str = I18n.l(_.start_date, format: "%A %-d %B %Y")
+      str << " #{_.start_time}" if _.start_time.present?
+      str
+    end
+  end
+
+  let(:due_date_and_time) do
+    str = I18n.l(_.due_date, format: "%A %-d %B %Y")
+    str << " #{_.due_time}" if _.due_time.present?
+    str
   end
 
 end

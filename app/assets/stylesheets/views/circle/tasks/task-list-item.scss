@@ -1,17 +1,3 @@
-@mixin task-urgency($icon-color, $status-color:$medium-gray) {
-  .task-icon {
-    background: $icon-color;
-  }
-
-  .task-badge--users {
-    color: $icon-color;
-    border-color: $icon-color;
-  }
-  .status-message {
-    color: $status-color;
-  }
-}
-
 .task-list {
   padding-top: 1rem;
   padding-bottom: 5rem;
@@ -51,6 +37,12 @@
     @include flex-direction(row);
     @include align-items(top);
     @include justify-content(space-between);
+
+    .project-icon i {
+      display: inline-block;
+      @include lale-icon($lale-icon-checklist, 3.5em);
+      margin-bottom: 1rem;
+    }
   }
 
   .task-content {
@@ -96,95 +88,5 @@
       }
     }
   }
-
-  .task {
-    &.urgency {
-      &--new {
-        @include task-urgency($body-link);
-      }
-
-      &--on_track {
-        @include task-urgency($blue-dark-2);
-        .task-date {
-          .month {
-            background-color: $blue-dark-1;
-            color: $blue-light-1;
-          }
-          .day {
-            background-color: $blue-light-1;
-            border-color: $blue-dark-1;
-            color: $blue-dark-1;
-          }
-        }
-      }
-
-      &--urgent {
-        @include task-urgency($red, $red);
-        .task-date {
-          .month {
-            background-color: $red;
-            color: $blue-light-1;
-          }
-          .day {
-            background-color: $red-100;
-            border-color: $red;
-            color: $red;
-          }
-        }
-      }
-
-      &--complete {
-        @include task-urgency($green-500);
-        .task-date {
-          .month {
-            background-color: $green;
-          }
-          .day {
-            background-color: $green-100;
-            border-color: $green-500;
-            color: $green;
-          }
-        }
-      }
-    }
-
-    .status-message {
-      color: $medium-gray;
-    }
-
-    .task-assignees {
-      display: inline-block;
-      padding-right: 1rem;
-      .user-icon-container {
-        display: inline-block;
-        margin-right: 0.25rem;
-        .user-icon {
-          display: inline-block;
-          .text {
-            line-height: 1.8;
-            text-align: center;
-          }
-        }
-      }
-      .more {
-        display: inline-block;
-      }
-    }
-
-    .subtitle {
-      .bullet {
-        padding-left: 5px;
-        padding-right: 5px;
-        color: $medium-gray;
-        display:inline-block;
-      }
-    }
-    .hint {
-      padding-right: 15px;
-      font-style: italic;
-      color: $medium-gray;
-    }
-  }
-
 
 }

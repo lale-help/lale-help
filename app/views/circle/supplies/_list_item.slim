@@ -1,12 +1,10 @@
+/ TODO: this is bad... but better than before
 - supply = ::SupplyPresenter.new(supply)
 
-div.task href=circle_supply_path(current_circle, supply) class=supply.css
+div.task href=circle_supply_path(supply.circle, supply) class=supply.css
   .task-details
-    .task-date
-      .month= l(supply.due_date, format: "%b").upcase
-      .day
-        span.day_number= supply.due_date.day
-        span.day-of-week= supply.due_date.strftime('%a')
+    == cell(:calendar_leaf, supply.due_date, class: 'task-date')
+
     .task-content
       .task-title= supply.name
       .subtitle
@@ -17,7 +15,7 @@ div.task href=circle_supply_path(current_circle, supply) class=supply.css
     .task-stats
       .task-assignees
         - unless supply.volunteers.empty?
-          = render partial: 'user/user_icon', locals: { user: supply.volunteers.first, link: true }
+          = render 'user/user_icon', user: supply.volunteers.first, link: true
       .task-badge.task-badge--users
         i
         = "#{supply.volunteers.count > 0 ? 1 : 0}/1"

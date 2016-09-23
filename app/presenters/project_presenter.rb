@@ -1,6 +1,6 @@
 class ProjectPresenter < Presenter
 
-  delegate :id, :working_group, :admin, :complete?, :name, to: :object
+  delegate :id, :working_group, :admin, :complete?, :name, :circle, to: :object
 
   def description(length: nil)
     if length
@@ -24,6 +24,11 @@ class ProjectPresenter < Presenter
 
   let(:css) do
     "taskable-urgency-#{status}" if status.present?
+  end
+
+  let(:message) do
+    link = context.link_to_working_group(working_group)
+    I18n.t("circle.projects.show.working_group_link", link: link)
   end
 
   let(:start_date) do
@@ -103,6 +108,14 @@ class ProjectPresenter < Presenter
       yield
     end
 
+  end
+
+  def volunteer_count_signed_up
+    stats.users.signed_up
+  end
+
+  def volunteer_count_needed
+    stats.users.needed
   end
 
   def has_incomplete_items?
