@@ -77,9 +77,9 @@ class Circle::SuppliesController < ApplicationController
     outcome = Supply::Complete.run(user: current_user, supply: current_supply)
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.completed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.complete.success', name: current_supply.name)
     else
-      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.complete_failed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.complete.error', name: current_supply.name)
     end
   end
 
@@ -89,9 +89,9 @@ class Circle::SuppliesController < ApplicationController
     outcome = Supply::Volunteer.run(user: current_user, supply: current_supply)
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.volunteered', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.volunteer.success', name: current_supply.name)
     else
-      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.volunteer_failed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.volunteer.error', name: current_supply.name)
     end
   end
 
@@ -101,10 +101,10 @@ class Circle::SuppliesController < ApplicationController
     outcome = Supply::Decline.run(user: current_user, supply: current_supply)
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.declined', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.decline.success', name: current_supply.name)
     else
       puts outcome.errors
-      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.decline_failed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.decline.error', name: current_supply.name)
     end
   end
 
@@ -115,10 +115,11 @@ class Circle::SuppliesController < ApplicationController
 
     outcome = Supply::Notifications::InvitationEmail.run(current_user: current_user, supply: current_supply, type: params[:type])
 
+    name = (params[:type].to_sym == :working_group) ? current_supply.working_group.name : current_supply.circle.name
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.invited', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.invite.success', name: name)
     else
-      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.invite_failed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.invite.error', name: name)
     end
   end
 
@@ -129,9 +130,9 @@ class Circle::SuppliesController < ApplicationController
     outcome = Supply::Reopen.run(user: current_user, supply: current_supply)
 
     if outcome.success?
-      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.reopened', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), notice: t('supplies.flash.reopen.success', name: current_supply.name)
     else
-      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.reopening_failed', name: current_supply.name)
+      redirect_to circle_supply_path(current_circle, current_supply), alert: t('supplies.flash.reopen.error', name: current_supply.name)
     end
   end
 

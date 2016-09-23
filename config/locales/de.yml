@@ -1280,21 +1280,21 @@
       :user_unassigned: "%{user} hat sich für diese Sachspende am %{date} ausgetragen."
     :flash:
       :already_taken: Die Sachspende wird bereits von jemand übernommen.
-      :complete_failed: Problem bei der Fertigstellung dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :completed: Danke für die Sachspende!
-      :decline_failed: Problem bei der Ablehnung dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :declined: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
-        Helfer suchen...
-      :invite_failed: Problem bei der Einladung zu dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :invited: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
-      :reopened: Sachspende wurde wieder geöffnet
-      :reopening_failed: Beim Öffnen der Sachspende trat ein Problem auf
-      :volunteer_failed: Problem bei der Übernahme dieser Sachspende. Bitte probier
-        es später noch einmal.
-      :volunteered: Vielen Dank für Deine Hilfe!
+      :complete:
+        :success: Danke für die Sachspende!
+        :error: Problem bei der Fertigstellung dieser Sachspende. Bitte probier es später noch einmal.
+      :decline:
+        :success: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen Helfer suchen...
+        :error: Problem bei der Ablehnung dieser Sachspende. Bitte probier es später noch einmal.
+      :invite:
+        :success: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
+        :error: Problem bei der Einladung zu dieser Sachspende. Bitte probier es später noch einmal.
+      :reopen: 
+        :success: Sachspende wurde wieder geöffnet
+        :error: Beim Öffnen der Sachspende trat ein Problem auf
+      :volunteer: 
+        :success: Vielen Dank für Deine Hilfe!
+        :error: Problem bei der Übernahme dieser Sachspende. Bitte probier es später noch einmal.
   :supply:
     :presenter:
       :messages:

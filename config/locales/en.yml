@@ -1296,16 +1296,21 @@
       :user_unassigned: "%{user} unassigned this supplies on %{date}."
     :flash:
       :already_taken: This supply has already been claimed by someone else
-      :complete_failed: Unable to mark supply as donated. Please try again.
-      :completed: Thanks for the supply!
-      :decline_failed: Unable to decline this supply. Please try again later.
-      :declined: Thanks for your honesty! We will find someone else.
-      :invite_failed: Unable to invite members to this supply. Please try again later.
-      :invited: Invited members of %{name} to this supply
-      :reopened: Supply has been re-opened
-      :reopening_failed: There was a problem re-opening this supply
-      :volunteer_failed: Unable to sign up for this supply. Please try again later.
-      :volunteered: Thanks for signing up!
+      :complete: 
+        :success: Thanks for the supply!
+        :error: Unable to mark supply as donated. Please try again.
+      :decline: 
+        :success: Thanks for your honesty! We will find someone else.
+        :error: Unable to decline this supply. Please try again later.
+      :invite: 
+        :success: Invited members of %{name} to this supply
+        :error: Unable to invite members to this supply. Please try again later.
+      :reopen: 
+        :success: Supply has been re-opened
+        :error: There was a problem re-opening this supply
+      :volunteer:
+        :success: Thanks for signing up!
+        :error: Unable to sign up for this supply. Please try again later.
   :supply:
     :presenter:
       :messages:

@@ -1262,19 +1262,21 @@
       :user_unassigned: "%{user} c'est dé-enregistré pour cette fourniture le %{date}"
     :flash:
       :already_taken: Cette marchandise a déjà été récupéré par quelqun d'autre
-      :complete_failed: Nous n'avons pas pu marquer cette marchandise comme donnée.
-        Merci de réessayer.
-      :completed: Merci pour la marchandise !
-      :decline_failed: Nous n'avons pas pu refuser cette marchandise. Merci de réessayer.
-      :declined: Merci pour votre honnêteté ! Nous allons trouver quelqun d'autre.
-      :invite_failed: Nous n'avons pas pu inviter des membres pour cette marchandise.
-        Merci de réessayer plus tard.
-      :invited: Les membres de %{name} ont été invité pour cette marchandise.
-      :reopened: La fourniture a été ré-ouverte
-      :reopening_failed: Il y a eu un problème lors de la ré-ouverture de cette fourniture
-      :volunteer_failed: Nous n'avons pas pu enregistrer cette marchandise. Merci
-        de réessayer.
-      :volunteered: Merci de vous êtes inscrit !
+      :complete:
+        :success: Merci pour la marchandise !
+        :error: Nous n'avons pas pu marquer cette marchandise comme donnée. Merci de réessayer.
+      :decline: 
+        :success: Merci pour votre honnêteté ! Nous allons trouver quelqun d'autre.
+        :error: Nous n'avons pas pu refuser cette marchandise. Merci de réessayer.
+      :invite: 
+        :success: Les membres de %{name} ont été invité pour cette marchandise.
+        :error: Nous n'avons pas pu inviter des membres pour cette marchandise. Merci de réessayer plus tard.
+      :reopen: 
+        :error: Il y a eu un problème lors de la ré-ouverture de cette fourniture
+        :success: La fourniture a été ré-ouverte
+      :volunteer: 
+        :success: Merci de vous êtes inscrit !
+        :error: Nous n'avons pas pu enregistrer cette marchandise. Merci de réessayer.
   :supply:
     :presenter:
       :messages:
