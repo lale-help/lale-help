@@ -25,11 +25,13 @@
         }
       }
 
-      .description {
-        // FIXME make selector less specific to it can be overriden by task urgency color
-        color: darken($blue-light-1, 20%);
-        font-size: 1.6rem;
-      }
+    }
+
+    // The description is actually nested inside .header in HTML. 
+    // But the task urgency styling isn't applied if I leave the CSS rules nested as well.
+    .description {
+      color: darken($blue-light-1, 20%);
+      font-size: 1.6rem;
     }
 
     .right {

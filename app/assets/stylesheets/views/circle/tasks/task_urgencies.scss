@@ -17,7 +17,9 @@
     background: $blue-500;
     color: $blue-50;
   }
-  .description {
+
+  // &.left is required to apply the styling to project headers, as well
+  .description, &.left .description {
     background: $blue-50;
     color: $blue-500;
   }
@@ -46,7 +48,8 @@
     color: $green-50;
   }
 
-  .description {
+  // &.left is required to apply the styling to project headers, as well
+  .description, &.left .description {
     background-color: $green-50;
     color: $green-500;
   }
@@ -71,7 +74,8 @@
     color: $red;
   }
 
-  .description {
+  // &.left is required to apply the styling to project headers, as well
+  .description, &.left .description {
     background-color: $red-50;
     color: $blue-dark-1;
   }
@@ -96,7 +100,8 @@
     color: $blue-dark-2;
   }
 
-  .description {
+  // &.left is required to apply the styling to project headers, as well
+  .description, &.left .description {
     background-color: $blue-light-2;
     color: $blue-dark-1;
   }
