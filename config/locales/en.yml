@@ -361,7 +361,7 @@
     :errors:
       :attributes:
         :location:
-          :blank: "LOCATION BLANK"
+          :blank: "Location can't be blank"
       :messages:
         :record_invalid: 'Validation failed: %{errors}'
         :restrict_dependent_destroy:
