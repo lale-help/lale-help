@@ -43,7 +43,10 @@ $border-radius: 1.5rem;
   .supply .icon {
     @include lale-icon($lale-icon-supply, 2em);
   }
-
+  .organizer .details a {
+    display: inline-block;
+    margin-left: 4px;
+  }
   > * {
     padding: 1.5rem;
     border: thin solid $border-color;
