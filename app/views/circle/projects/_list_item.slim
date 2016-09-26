@@ -11,15 +11,12 @@ div.task href=circle_project_path(project.circle, project) class=project.css
           span.bullet &bullet;
           span.status-message
            == project.message
+
     .task-stats
       .task-badge.task-badge--users
         i
-        = "#{project.volunteer_count_signed_up}/#{project.volunteer_count_needed}"
-      - if project.tasks.not_completed.present?
-        .task-badge--tasks
-          = Task.model_name.human(count: 2)
-          span.badge = project.tasks.not_completed.count
-      - if project.supplies.not_completed.present?
-        .task-badge--supplies
-          = Supply.model_name.human(count: 2)
-          span.badge = project.supplies.not_completed.count
+        = "#{project.signed_up_volunteers_count}/#{project.needed_volunteers_count}"
+
+      .task-badge.task-badge--taskables
+        i
+        = "#{project.open_taskables_count}/#{project.total_taskables_count}"

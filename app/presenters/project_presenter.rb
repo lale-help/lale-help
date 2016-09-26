@@ -121,16 +121,24 @@ class ProjectPresenter < Presenter
 
   end
 
-  def volunteer_count_signed_up
+  def signed_up_volunteers_count
     stats.users.signed_up
   end
 
-  def volunteer_count_needed
+  def needed_volunteers_count
     stats.users.needed
   end
 
   def has_incomplete_items?
-    (_.tasks.incomplete.count + _.supplies.incomplete.count) > 0
+    open_taskables_count > 0
+  end
+
+  def open_taskables_count
+    _.tasks.incomplete.count + _.supplies.incomplete.count
+  end
+
+  def total_taskables_count
+    _.tasks.count + _.supplies.count
   end
 
   private

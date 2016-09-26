@@ -23,12 +23,14 @@
   }
 }
 
-.task-badge--tasks, .task-badge--supplies {
+.task-badge--taskables {
   display: inline-block;
   margin-left: 1.5rem;
-  .badge {
-    margin: 0.5rem;
-    background-color: white;
-    border: 1px solid #bbb;
+  i {
+    @extend .fi-task;
+    font-weight: 200;
+    position: relative;
+    top: 2px;
+    color: lighten($medium-gray, 15);
   }
 }
