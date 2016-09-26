@@ -74,18 +74,18 @@ class ProjectPresenter < Presenter
     Rails.cache.fetch(cache_key_for_stats) do
       OpenStruct.new(
         tasks: OpenStruct.new(
-          open:   _.tasks.incomplete.count,
+          open:   _.tasks.not_completed.count,
           urgent: _.tasks.to_a.select { |t| t.more_volunteers_needed? }.count,
           done:   _.tasks.complete.count
         ),
         supplies: OpenStruct.new(
-          open:   _.supplies.incomplete.count,
+          open:   _.supplies.not_completed.count,
           urgent: _.supplies.to_a.select { |s| s.more_volunteers_needed? }.count,
           done:   _.supplies.complete.count
         ),
         users: OpenStruct.new(
-          needed:    _.tasks.to_a.sum(&:missing_volunteer_count),
-          signed_up: _.tasks.to_a.sum { |t| t.volunteers.size }
+          needed:    _.tasks.not_completed.to_a.sum(&:missing_volunteer_count),
+          signed_up: _.tasks.not_completed.to_a.sum { |t| t.volunteers.size }
         )
       )
     end
