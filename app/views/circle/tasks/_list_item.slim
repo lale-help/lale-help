@@ -2,16 +2,16 @@
 - task = ::TaskPresenter.new(task)
 
 div.task href=circle_task_path(task.circle, task) class=task.css
-  .task-details
+  .item-details
     == cell(:calendar_leaf, task.due_date)
 
-    .task-content
-      .task-title= task.name
+    .item-content
+      .item-title= task.name
       .subtitle
         - if task.message.present?
           span.bullet &bullet;
           span.status-message = task.message
-    .task-stats
+    .item-stats
       .task-assignees
         - task.volunteers.each_with_index do |volunteer, i|
           - if i < 5

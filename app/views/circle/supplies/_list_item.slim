@@ -1,18 +1,18 @@
 / TODO: this is bad... but better than before
 - supply = ::SupplyPresenter.new(supply)
 
-div.task href=circle_supply_path(supply.circle, supply) class=supply.css
-  .task-details
+div.item href=circle_supply_path(supply.circle, supply) class=supply.css
+  .item-details
     == cell(:calendar_leaf, supply.due_date)
 
-    .task-content
-      .task-title= supply.name
+    .item-content
+      .item-title= supply.name
       .subtitle
         - if supply.message.present?
           span.bullet &bullet;
           span.status-message
            = supply.message
-    .task-stats
+    .item-stats
       .task-assignees
         - unless supply.volunteers.empty?
           = render 'user/user_icon', user: supply.volunteers.first, link: true

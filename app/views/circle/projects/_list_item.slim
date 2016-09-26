@@ -1,18 +1,18 @@
 / TODO: this is bad... but better than before
 - project = ::ProjectPresenter.new(project, self)
 
-div.task href=circle_project_path(project.circle, project) class=project.css
-  .task-details
+div.item href=circle_project_path(project.circle, project) class=project.css
+  .item-details
     == cell(:calendar_leaf, project.calendar_leaf_title_date, with_icon: :project)
-    .task-content
-      .task-title= project.name
+    .item-content
+      .item-title= project.name
       .subtitle
         - if project.message.present?
           span.bullet &bullet;
           span.status-message
            == project.message
 
-    .task-stats
+    .item-stats
       .task-badge.task-badge--users
         i
         = "#{project.signed_up_volunteers_count}/#{project.needed_volunteers_count}"

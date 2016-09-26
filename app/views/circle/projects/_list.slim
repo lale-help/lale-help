@@ -4,7 +4,7 @@
 h3
   = title
 
-.task-list.project-list id=list_id
+.rich-table.project-list id=list_id
   - if projects.present?
     - projects.each do |project|
       - if can? :read, project

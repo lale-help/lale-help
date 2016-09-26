@@ -1,4 +1,4 @@
-.task-list {
+.rich-table {
   padding-top: 1rem;
   padding-bottom: 5rem;
 
@@ -18,18 +18,11 @@
     }
   }
 
-  .task-icon {
-    height: 10px;
-    @include flex(0 0 10px);
-    border: thin solid $light-grey;
-    border-radius: 50%;
-  }
-
-  .task-title {
+  .item-title {
     font-size: 1.5rem;
   }
 
-  .task-details {
+  .item-details {
     @include flex(1);
     padding: 1rem 0 0 0;
 
@@ -46,13 +39,13 @@
     }
   }
 
-  .task-content {
+  .item-content {
     @include flex(1 1 0);
     padding: 1rem 2rem 1rem 2rem;
     -ms-flex: 1;
   }
 
-  .task-stats {
+  .item-stats {
     margin: auto 0;
   }
 

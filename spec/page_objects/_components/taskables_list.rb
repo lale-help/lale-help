@@ -3,7 +3,7 @@ module PageObject
     class TaskablesList < PageObject::Component
 
       sections :items, '.task' do
-        element :name, '.task-title'
+        element :name, '.item-title'
       end
 
       def has_item?(item_to_find)

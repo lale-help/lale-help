@@ -4,7 +4,7 @@
 h3
   = title
 
-.task-list id=list_id
+.rich-table id=list_id
   - if supplies.present?
     - supplies.each do |supply|
       - if can? :read, supply
