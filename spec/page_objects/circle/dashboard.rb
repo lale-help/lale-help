@@ -15,7 +15,7 @@ module PageObject
       section :supplies_list, PageObject::Component::TaskablesList, ".open_supplies"
       delegate :has_supply?, :supplies, to: :supplies_list
 
-      section :projects_list, PageObject::Component::OtherItemsList, ".tab.projects tbody"
+      section :projects_list, PageObject::Component::TaskablesList, ".tab.projects .open_projects"
       delegate :has_project?, :projects, to: :projects_list
 
       section :files_list, PageObject::Component::OtherItemsList, ".tab.documents tbody"

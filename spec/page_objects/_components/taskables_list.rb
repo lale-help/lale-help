@@ -2,19 +2,22 @@ module PageObject
   class Component
     class TaskablesList < PageObject::Component
 
-      sections :taskables, '.task' do
+      sections :items, '.task' do
         element :name, '.task-title'
       end
 
-      def has_taskable?(item_to_find)
-        taskables.any? { |item| item.name.text == item_to_find.name }
+      def has_item?(item_to_find)
+        items.any? { |item| item.name.text == item_to_find.name }
       end
 
-      alias :has_task? :has_taskable?
-      alias :tasks :taskables
+      alias :has_task? :has_item?
+      alias :tasks :items
       
-      alias :has_supply? :has_taskable?
-      alias :supplies :taskables
+      alias :has_supply? :has_item?
+      alias :supplies :items
+
+      alias :has_project? :has_item?
+      alias :projects :items
 
     end
   end
