@@ -37,5 +37,8 @@ module PageObject
       find('.flash-message', text: message)
     end
     
+    def has_comment?(message)
+      find('.comment-text', text: message)
+    end
   end
 end

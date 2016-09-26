@@ -9,8 +9,8 @@ module PageObject
       section :edit_menu, PageObject::Component::EditMenu, 'aside'
 
       element :volunteer_button, '.button-primary', text: "I have this Supply"
-      element :decline_button, '.button-primary', text: "I don't have this Supply"
-      
+      element :decline_button, '.button-primary', text: "I don't have this Supply"      
+
       section :helpers_box, PageObject::Component::UsersBox, '.users-box'
       delegate :helpers, :has_helper?, to: :helpers_box
 
