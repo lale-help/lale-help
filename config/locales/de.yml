@@ -158,10 +158,10 @@
         :tasks: Aufgaben
         :volunteers: Helfer
         :working_groups: Arbeitsgruppen
-      circle/role:
-        statuses:
-          active: Aktiv
-          blocked: Gesperrt
+      :circle/role:
+        :statuses:
+          :active: Aktiv
+          :blocked: Gesperrt
       :file_upload:
         :created_at: Hochgeladen um
         :file: Datei
@@ -196,6 +196,9 @@
         :working_group_id: Arbeitsgruppe
       :role:
         :actions: Aktionen
+      :sponsorship:
+        :ends_on: Endet am
+        :starts_on: Beginnt am
       :supply:
         :completed_at: Erledigt um
         :description: Beschreibung
@@ -224,9 +227,6 @@
         :volunteer_count_required: Anzahl der benötigten Helfer
         :working_group: Arbeitsgruppe
         :working_group_id: Arbeitsgruppe
-      :sponsorship:
-        :starts_on: Beginnt am
-        :ends_on: Endet am
       :system_event:
         :action: Aktion
         :for: für
@@ -358,6 +358,9 @@
         :type: Zugriffsrecht
         :volunteers: Helfer
     :errors:
+      :attributes:
+        :location:
+          :blank: Standort darf nicht leer sein.
       :messages:
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
         :restrict_dependent_destroy:
@@ -366,7 +369,7 @@
           :one: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record} besteht
     :models:
       :circle: Helferkreis
-      :file_upload: 
+      :file_upload:
         :one: Dokument
         :other: Dokumente
       :location: Standort
@@ -534,14 +537,21 @@
         :new_task_name_regexp: Kopie( (\d+))?$
       :edit:
         :back: Zurück zu Projekt
+      :edit_actions:
+        :edit_button_dropdown: Projekt bearbeiten
       :index:
         :title: Projekte
+      :list:
+        :no_projects: Keine Projekte gefunden.
       :nav:
         :info: Info
       :show:
         :admin-title:
           :one: "%{count} Organisator"
           :other: "%{count} Organisatoren"
+        :cant_complete_with_items: Dieses Projekt enthält noch offene Aufgaben und/oder
+          Sachspenden. Bitte schließen Sie diese zunächst ab, und versuchen es dann
+          noch einmal.
         :date_range: Zeitraum
         :date_range_sentence: von %{start_date} bis %{due_date}
         :member-title:
@@ -549,6 +559,8 @@
           :other: "%{count} Helfer"
         :organized-by: Organisiert von %{name}
         :settings: Einstellungen
+        :title_complete: 'Abgeschlossen:'
+        :working_group_link: in %{link}
       :status_labels:
         :done: erledigt
         :needed: benötigt
@@ -562,6 +574,10 @@
         :edit_button_dropdown: Sachspende bearbeiten
       :index:
         :header: Sachspenden
+      :list:
+        :no-supplies: Derzeit keine Sachspenden benötigt.
+      :list_item:
+        :stats-here: Statistik
       :new:
         :back: Zurück zu den Sachspenden
       :show:
@@ -583,19 +599,15 @@
           :one: Benötigt %{count} Helfer
           :other: Benötigt %{count} Helfer
         :volunteer-task-button: Ich habe das!
-      :list:
-        :no-supplies: Derzeit keine Sachspenden benötigt.
-      :list_item:
-        :stats-here: Statistik
     :taskables:
-      taskable_header:
-        :task-complete: 'Erledigt: '
       :nav:
         :organizing: Ich organisiere
         :volunteering: Ich erledige
       :organizer:
         :supplies-header: Sachspenden
         :tasks-header: Aufgaben
+      :taskable_header:
+        :task-complete: 'Erledigt: '
       :volunteer:
         :supplies-header: Sachspenden
         :tasks-header: Aufgaben
@@ -613,6 +625,10 @@
         :update_and_notify: Speichern und benachrichtigen
       :index:
         :header: Alle Aufgaben
+      :list:
+        :no-tasks: Keine Aufgaben gefunden.
+      :list_item:
+        :stats-here: Statistik
       :my:
         :header: Meine Aufgaben
         :organizer-header: Ich organisiere
@@ -637,10 +653,6 @@
         :volunteer-count-required:
           :one: Benötigt %{count} Helfer
           :other: Benötigt %{count} Helfer
-      :list:
-        :no-tasks: Keine Aufgaben gefunden.
-      :list_item:
-        :stats-here: Statistik
     :working_groups:
       :add_user_form:
         :add: Hinzufügen
@@ -685,14 +697,6 @@
         :actions: Aktionen
         :no-volunteers: Keine Helfer
         :remove: Entfernen
-  :dashboards:
-    :resources:
-      :show_completed_supplies: Erledigte Sachspenden anzeigen...
-      :show_completed_tasks: Erledigte Aufgaben anzeigen...
-      :show_completed_projects: Abgeschlossene Projekte anzeigen...
-      :show_open_supplies: Offene Sachspenden anzeigen...
-      :show_open_tasks: Offene Aufgaben anzeigen...
-      :show_open_projects: Offene Projekte anzeigen...
   :circles:
     :edit:
       :back: Zurück
@@ -728,6 +732,14 @@
         :filter: Arbeitsgruppen filtern
         :new: Neue Arbeitsgruppe anlegen
       :working_group_organizers: Organisatoren
+  :dashboards:
+    :resources:
+      :show_completed_projects: Abgeschlossene Projekte anzeigen &hellip;
+      :show_completed_supplies: Erledigte Sachspenden anzeigen...
+      :show_completed_tasks: Erledigte Aufgaben anzeigen...
+      :show_open_projects: Offene Projekte anzeigen &hellip;
+      :show_open_supplies: Offene Sachspenden anzeigen...
+      :show_open_tasks: Offene Aufgaben anzeigen...
   :date:
     :abbr_day_names:
     - So
@@ -901,6 +913,8 @@
       :empty: Name kann nicht leer sein
       :not_unique: Der Name der Arbeitsgruppe ist bereits vergeben. Bitte wähle einen
         anderen Namen.
+      :taken: Dieser Name ist bereits vergeben.
+      :too_short: Der Name ist zu kurz
     :organizer_id:
       :at_least_one_required: Mindestens ein Organisator must festgelegt sein.
       :empty: Bitte einen Organisator festlegen
@@ -955,9 +969,9 @@
       :invite:
         :alert: Es konnten keine Helfer eingeladen werden.
         :notice:
-          :zero: "Es gibt keine Helfer, die eingeladen werden können."
           :one: "%{count} Helfer wurden zu %{model} eingeladen."
           :other: "%{count} Helfer wurden zu %{model} eingeladen."
+          :zero: Es gibt keine Helfer, die eingeladen werden können.
       :update:
         :notice: "%{resource_name} wurde erfolgreich aktualisiert."
     :created: "%{name} wurde erfolgreich erstellt."
@@ -1044,7 +1058,7 @@
       :header:
         :admin: Lale Admin
         :find-circles: Helferkreise finden
-        :help: Brauchen Sie Hilfe mit lale?
+        :help: Brauchen Sie Hilfe mit Lale?
         :help_email_subject: Ich brauche Hilfe bei lale
         :settings: Mein Profil
         :sign-out: Ausloggen
@@ -1135,11 +1149,23 @@
         :format: "%n%"
   :project_edit:
     :cancel: Abbrechen
+  :projects:
+    :flash:
+      :complete:
+        :error: Projekt konnte nicht abgeschlossen werden.
+        :success: Danke fürs Abschliessen des Projektes.
+      :destroy:
+        :error: Fehler beim Löschen des Projektes.
+        :success: Projekt wurde gelöscht.
+      :reopen:
+        :error: Es gab ein Problem beim Wiederöffnen des Projekts.
+        :success: Projekt wurde wieder geöffnet.
   :public:
     :circles:
       :index:
         :create-circle-button: Neuen Helferkreis anlegen
-        :create-circle-phrase: "Falls Du Deinen Helferkreis nicht findest, kannst Du hier:"
+        :create-circle-phrase: 'Falls Du Deinen Helferkreis nicht findest, kannst
+          Du hier:'
         :title: Helferkreise in der Nähe
       :membership_inactive:
         :blocked:
@@ -1261,11 +1287,12 @@
     :destroy:
       :signed_out: Erfolgreich ausgeloggt!
     :new:
-      :login_error_invalid_authenticity: Ihre Sitzung ist abgelaufen. Bitte versuchen Sie es noch einmal.
       :login_error_common_reasons:
         :one: haben Sie die richtige E-Mail-Adresse für Lale verwendet?
         :three: ist die Feststelltaste (CAPS LOCK) aktiviert?
         :two: haben Sie Ihr Passwort in letzter Zeit geändert?
+      :login_error_invalid_authenticity: Ihre Sitzung ist abgelaufen. Bitte versuchen
+        Sie es noch einmal.
       :login_error_message_title: Ihr Login ist leider fehlgeschlagen.
       :reset-password: Passwort zurücksetzen
       :sign-in: Einloggen
@@ -1285,20 +1312,25 @@
     :flash:
       :already_taken: Die Sachspende wird bereits von jemand übernommen.
       :complete:
+        :error: Problem bei der Fertigstellung dieser Sachspende. Bitte probier es
+          später noch einmal.
         :success: Danke für die Sachspende!
-        :error: Problem bei der Fertigstellung dieser Sachspende. Bitte probier es später noch einmal.
       :decline:
-        :success: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen Helfer suchen...
-        :error: Problem bei der Ablehnung dieser Sachspende. Bitte probier es später noch einmal.
+        :error: Problem bei der Ablehnung dieser Sachspende. Bitte probier es später
+          noch einmal.
+        :success: Vielen Dank für Deine ehrliche Antwort! Wir werden einen anderen
+          Helfer suchen...
       :invite:
+        :error: Problem bei der Einladung zu dieser Sachspende. Bitte probier es später
+          noch einmal.
         :success: Mitglieder von %{name} wurden zu dieser Sachspende aufgerufen.
-        :error: Problem bei der Einladung zu dieser Sachspende. Bitte probier es später noch einmal.
-      :reopen: 
-        :success: Sachspende wurde wieder geöffnet
+      :reopen:
         :error: Beim Öffnen der Sachspende trat ein Problem auf
-      :volunteer: 
+        :success: Sachspende wurde wieder geöffnet
+      :volunteer:
+        :error: Problem bei der Übernahme dieser Sachspende. Bitte probier es später
+          noch einmal.
         :success: Vielen Dank für Deine Hilfe!
-        :error: Problem bei der Übernahme dieser Sachspende. Bitte probier es später noch einmal.
   :supply:
     :presenter:
       :messages:
@@ -1340,15 +1372,41 @@
         :other: "%{unassignees} wurden von %{unassigner} für diese Aufgabe am %{date}
           ausgetragen."
     :flash:
-      :complete: 
+      :assign_volunteer:
+        :error: Fehler beim Zuordnen der Helfer.
+        :success: Helfer wurden erfolgreich zugeordnet.
+      :clone:
+        :error: Fehler beim Kopieren der Aufgabe.
+        :success: Die Aufgabe wurde erfolgreich kopiert.
+      :complete:
+        :error: Fehler beim Erledigen der Aufgabe.
         :success: Danke für die Hilfe bei %{name}!
-      :decline: 
-        :success: "%{name} wurde erfolgreich abgelehnt."
+      :create:
+        :error: Fehler beim Hinzufügen der Aufgabe.
+        :success: Aufgabe wurde erfolgreich hinzugefügt.
+      :decline:
         :error: Fehler beim Ablehnen von %{name}.
-      :reopen: 
-        :success: Aufgabe wurde wieder geöffnet
+        :success: "%{name} wurde erfolgreich abgelehnt."
+      :destroy:
+        :error: Fehler beim Löschen der Aufgabe.
+        :success: Aufgabe wurde gelöscht.
+      :invite:
+        :error: Helfer konnten nicht eingeladen werden. Bitte versuche es später erneut.
+        :success:
+          :one: "%{count} Helfer eingeladen."
+          :other: "%{count} Helfer eingeladen."
+          :zero: Es gibt keine Helfer, die eingeladen werden können.
+      :reopen:
         :error: Beim Öffnen der Aufgabe trat ein Problem auf
-      :volunteer: 
+        :success: Aufgabe wurde wieder geöffnet
+      :unassign_volunteer:
+        :error: Fehler beim Austragen der Helfer.
+        :success: Helfer wurde erfolgreich ausgetragen.
+      :update:
+        :error: Fehler beim Ändern der Aufgabe.
+        :success: Aufgabe wurde geändert.
+      :volunteer:
+        :error: Fehler beim Eintragen für die Aufgabe.
         :success: Danke für die Hilfe bei %{name}!
   :time:
     :am: am

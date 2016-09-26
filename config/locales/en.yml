@@ -159,10 +159,10 @@
         :tasks: Tasks
         :volunteers: Volunteers
         :working_groups: Working groups
-      circle/role:
-        statuses:
-          active: Active
-          blocked: Blocked
+      :circle/role:
+        :statuses:
+          :active: Active
+          :blocked: Blocked
       :file_upload:
         :created_at: Uploaded At
         :file: file
@@ -195,11 +195,11 @@
         :organizer_id: Organizer
         :working_group: Working group
         :working_group_id: Working group
-      :sponsorship:
-        :starts_on: Starts on
-        :ends_on: Ends on
       :role:
         :actions: Actions
+      :sponsorship:
+        :ends_on: Ends on
+        :starts_on: Starts on
       :supply:
         :completed_at: Completed at
         :description: Description
@@ -361,7 +361,7 @@
     :errors:
       :attributes:
         :location:
-          :blank: "Location can't be blank"
+          :blank: Location can't be blank
       :messages:
         :record_invalid: 'Validation failed: %{errors}'
         :restrict_dependent_destroy:
@@ -369,7 +369,7 @@
           :one: Cannot delete record because a dependent %{record} exists
     :models:
       :circle: Circle
-      :file_upload: 
+      :file_upload:
         :one: Document
         :other: Documents
       :location: Location
@@ -438,14 +438,6 @@
         :no_groups: No groups to show right now.
         :title_active: Active working groups
         :title_deactivated: Inactive working groups
-  :dashboards:
-    :resources:
-      :show_completed_projects: Show completed projects &hellip;
-      :show_completed_supplies: Show completed supplies &hellip;
-      :show_completed_tasks: Show completed tasks &hellip;
-      :show_open_projects: Show open projects &hellip;
-      :show_open_supplies: Show open supplies &hellip;
-      :show_open_tasks: Show open tasks &hellip;
   :circle:
     :admins:
       :files:
@@ -545,18 +537,20 @@
         :new_task_name_regexp: copy( (\d+))?$
       :edit:
         :back: Back to project
+      :edit_actions:
+        :edit_button_dropdown: Edit Project
       :index:
         :title: Projects
+      :list:
+        :no_projects: No projects found.
       :nav:
         :info: Info
       :show:
-        :title_complete: 'Done: '
-        :working_group_link: "in %{link}"
-        :cant_complete_with_items: The project still contains incomplete tasks
-          or supplies. Please complete them first, then try again.
         :admin-title:
           :one: "%{count} organizer"
           :other: "%{count} organizers"
+        :cant_complete_with_items: The project still contains incomplete tasks or
+          supplies. Please complete them first, then try again.
         :date_range: Period
         :date_range_sentence: from %{start_date} to %{due_date}
         :member-title:
@@ -564,16 +558,14 @@
           :other: "%{count} volunteers"
         :organized-by: Organized by %{name}
         :settings: Settings
+        :title_complete: 'Done: '
+        :working_group_link: in %{link}
       :status_labels:
         :done: done
         :needed: needed
         :open: open
         :signed_up: signed up
         :urgent: urgent
-      :edit_actions:
-        :edit_button_dropdown: Edit Project
-      :list:
-        :no_projects: No projects found. 
     :supplies:
       :edit:
         :back: Back to Supply
@@ -581,6 +573,10 @@
         :edit_button_dropdown: Edit Supply
       :index:
         :header: Supplies
+      :list:
+        :no-supplies: No supplies are needed at this time.
+      :list_item:
+        :stats-here: Stats Here
       :new:
         :back: Back to All Supplies
       :show:
@@ -602,19 +598,15 @@
           :one: Requires %{count} volunteer
           :other: Requires %{count} volunteers
         :volunteer-task-button: I have this supply
-      :list:
-        :no-supplies: No supplies are needed at this time.
-      :list_item:
-        :stats-here: Stats Here
     :taskables:
-      taskable_header:
-        :task-complete: 'Done: '
       :nav:
         :organizing: Organizing
         :volunteering: Volunteering
       :organizer:
         :supplies-header: Supplies
         :tasks-header: Tasks
+      :taskable_header:
+        :task-complete: 'Done: '
       :volunteer:
         :supplies-header: Supplies
         :tasks-header: Tasks
@@ -632,6 +624,10 @@
         :update_and_notify: Save and notify
       :index:
         :header: All Tasks
+      :list:
+        :no-tasks: No tasks found.
+      :list_item:
+        :stats-here: Stats
       :my:
         :header: My Tasks
         :organizer-header: Organizing
@@ -656,10 +652,6 @@
         :volunteer-count-required:
           :one: Requires %{count} volunteer
           :other: Requires %{count} volunteers
-      :list:
-        :no-tasks: No tasks found.
-      :list_item:
-        :stats-here: Stats
     :working_groups:
       :add_user_form:
         :add: Add
@@ -739,6 +731,14 @@
         :filter: Filter Working Groups
         :new: Add a New Work Group
       :working_group_organizers: Working Group Organizers
+  :dashboards:
+    :resources:
+      :show_completed_projects: Show completed projects &hellip;
+      :show_completed_supplies: Show completed supplies &hellip;
+      :show_completed_tasks: Show completed tasks &hellip;
+      :show_open_projects: Show open projects &hellip;
+      :show_open_supplies: Show open supplies &hellip;
+      :show_open_tasks: Show open tasks &hellip;
   :date:
     :abbr_day_names:
     - Sun
@@ -911,7 +911,8 @@
         :other: is the wrong length (should be %{count} characters)
     :name:
       :empty: Please enter a name
-      :not_unique: This Working Group name is already been used. Please choose a different name.
+      :not_unique: This Working Group name is already been used. Please choose a different
+        name.
       :taken: This name has already been taken.
       :too_short: Name is too short
     :organizer_id:
@@ -971,14 +972,14 @@
       :destroy:
         :alert: "%{resource_name} could not be removed."
         :notice: "%{resource_name} was successfully removed."
+      :invite:
+        :alert: Unable to invite members. Please try again later.
+        :notice:
+          :one: Invited %{count} member.
+          :other: Invited %{count} members.
+          :zero: There aren't any members to invite.
       :update:
         :notice: "%{resource_name} was successfully updated."
-      :invite:
-        :notice:
-          :one: "Invited %{count} member."
-          :other: "Invited %{count} members."
-          :zero: "There aren't any members to invite."
-        :alert: "Unable to invite members. Please try again later."
     :created: "%{name} was successfully created."
     :destroyed: "%{name} was successfully destroyed."
     :failed:
@@ -1056,7 +1057,7 @@
       :header:
         :admin: Lale Admin
         :find-circles: Find Circles
-        :help: Need help with lale?
+        :help: Need help with Lale?
         :help_email_subject: I need help with lale
         :settings: My profile
         :sign-out: Sign Out
@@ -1151,6 +1152,17 @@
         :format: "%n%"
   :project_edit:
     :cancel: Cancel
+  :projects:
+    :flash:
+      :complete:
+        :error: Couldn't complete this project!
+        :success: Thanks for completing this project!
+      :destroy:
+        :error: Failed to delete project.
+        :success: Successfully deleted project.
+      :reopen:
+        :error: There was a problem re-opening this project
+        :success: Project has been re-opened.
   :public:
     :circles:
       :index:
@@ -1276,11 +1288,11 @@
     :destroy:
       :signed_out: Signed out!
     :new:
-      :login_error_invalid_authenticity: Your session has expired; please try again.
       :login_error_common_reasons:
         :one: did you use the right email address for Lale?
         :three: is the CAPS LOCK key activated?
         :two: did you change your password recently?
+      :login_error_invalid_authenticity: Your session has expired; please try again.
       :login_error_message_title: 'We couldn''t log you in. Please check:'
       :reset-password: Reset my password
       :sign-in: Sign in
@@ -1298,21 +1310,21 @@
       :user_unassigned: "%{user} unassigned this supplies on %{date}."
     :flash:
       :already_taken: This supply has already been claimed by someone else
-      :complete: 
-        :success: Thanks for the supply!
+      :complete:
         :error: Unable to mark supply as donated. Please try again.
-      :decline: 
-        :success: Thanks for your honesty! We will find someone else.
+        :success: Thanks for the supply!
+      :decline:
         :error: Unable to decline this supply. Please try again later.
-      :invite: 
-        :success: Invited members of %{name} to this supply
+        :success: Thanks for your honesty! We will find someone else.
+      :invite:
         :error: Unable to invite members to this supply. Please try again later.
-      :reopen: 
-        :success: Supply has been re-opened
+        :success: Invited members of %{name} to this supply
+      :reopen:
         :error: There was a problem re-opening this supply
+        :success: Supply has been re-opened
       :volunteer:
-        :success: Thanks for signing up!
         :error: Unable to sign up for this supply. Please try again later.
+        :success: Thanks for signing up!
   :supply:
     :presenter:
       :messages:
@@ -1333,17 +1345,6 @@
         :recent_activity: Recent activity
   :task_edit:
     :cancel: Cancel
-  :projects:
-    :flash:
-      :destroy:
-        :success: Successfully deleted project.
-        :error: Failed to delete project.
-      :complete: 
-        :success: Thanks for completing this project!
-        :error: "Couldn't complete this project!"
-      :reopen: 
-        :success: Project has been re-opened.
-        :error: There was a problem re-opening this project
   :tasks:
     :auto_comment:
       :completed: "%{user} completed this task on %{date}."
@@ -1363,43 +1364,42 @@
         :other: "%{unassignees} were unassigned from this task by %{unassigner} on
           %{date}."
     :flash:
+      :assign_volunteer:
+        :error: Failed to assign volunteers.
+        :success: Sucessfully assigned volunteers.
+      :clone:
+        :error: Failed to clone task.
+        :success: Successfully copied task.
+      :complete:
+        :error: Couldn't complete this task!
+        :success: Thanks for completing this task!
       :create:
-        :success: Successfully created task.
         :error: Failed to create task.
-      :update:
-        :success: Successfully updated task.
-        :error: Failed to update task.
+        :success: Successfully created task.
+      :decline:
+        :error: Failed to decline.
+        :success: Successfully declined.
       :destroy:
-        :success: Successfully deleted task.
         :error: Failed to delete task.
+        :success: Successfully deleted task.
       :invite:
+        :error: Unable to invite members. Please try again later.
         :success:
           :one: Invited %{count} member.
           :other: Invited %{count} members.
           :zero: There aren't any members to invite.
-        :error: Unable to invite members. Please try again later.
-      :assign_volunteer: 
-        :success: "Sucessfully assigned volunteers."
-        :error: "Failed to assign volunteers."
-      :unassign_volunteer: 
-        :success: "Sucessfully unassigned volunteer."
-        :error: "Failed to unassign volunteer."
-      :complete: 
-        :success: Thanks for completing this task!
-        :error: "Couldn't complete this task!"
-      :decline: 
-        :success: Successfully declined.
-        :error: Failed to decline.
-      :reopen: 
-        :success: Task has been re-opened.
+      :reopen:
         :error: There was a problem re-opening this task
-      :volunteer: 
-        :success: Thanks for volunteering!
+        :success: Task has been re-opened.
+      :unassign_volunteer:
+        :error: Failed to unassign volunteer.
+        :success: Sucessfully unassigned volunteer.
+      :update:
+        :error: Failed to update task.
+        :success: Successfully updated task.
+      :volunteer:
         :error: Failed to volunteer!
-      :clone:
-        :success: Successfully copied task.
-        :error: Failed to clone task.
-
+        :success: Thanks for volunteering!
   :time:
     :am: am
     :formats:

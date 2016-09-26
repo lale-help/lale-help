@@ -140,6 +140,10 @@
         :tasks: Tâche
         :volunteers: Volontaire
         :working_groups: Groupes
+      :circle/role:
+        :statuses:
+          :active: Active
+          :blocked: Bloqué
       :file_upload:
         :created_at: Uploadé à
         :file: Fichier
@@ -174,6 +178,9 @@
         :working_group_id: Groupe
       :role:
         :actions: Actions
+      :sponsorship:
+        :ends_on: Finit le
+        :starts_on: Commence le
       :supply:
         :completed_at: Terminé le
         :description: Description
@@ -333,6 +340,9 @@
         :type: Type d'Accès
         :volunteers: Volontaires
     :errors:
+      :attributes:
+        :location:
+          :blank: Adresse ne peut être blanc
       :messages:
         :record_invalid: 'La validation a échoué : %{errors}'
         :restrict_dependent_destroy:
@@ -341,7 +351,7 @@
           :one: 'Cette entrée ne peut être éffacée car une dépendence existe : %{record}'
     :models:
       :circle: Cercle
-      :file_upload: 
+      :file_upload:
         :one: Fichier
         :other: Fichiers
       :location: Adresse
@@ -510,14 +520,20 @@
         :new_task_name_regexp: copie( (\d+))?$
       :edit:
         :back: Retour au projet
+      :edit_actions:
+        :edit_button_dropdown: Editer projet
       :index:
         :title: Projets
+      :list:
+        :no_projects: Pas de projets.
       :nav:
         :info: Info
       :show:
         :admin-title:
           :one: "%{count} organisateur"
           :other: "%{count} organisateurs"
+        :cant_complete_with_items: Le projet contient encore des tâches or fournitures
+          incomplètes. Merci de les complèter et de ré-essayer.
         :date_range: Période
         :date_range_sentence: du %{start_date} au %{due_date}
         :member-title:
@@ -525,6 +541,8 @@
           :other: "%{count} volontaires"
         :organized-by: Organisé par %{name}
         :settings: Paramètres
+        :title_complete: 'Complété :'
+        :working_group_link: en %{link}
       :status_labels:
         :done: fait
         :needed: nécessaire
@@ -538,6 +556,10 @@
         :edit_button_dropdown: Editer besoin
       :index:
         :header: Besoins Matériels
+      :list:
+        :no-supplies: Aucun besoin particulier en ce moment.
+      :list_item:
+        :stats-here: Statistiques
       :new:
         :back: Retour aux Besoins
       :show:
@@ -559,19 +581,15 @@
           :one: "%{count} volontaire est nécessaire"
           :other: "%{count} volontaires sont nécessaires"
         :volunteer-task-button: J'ai cet objet
-      :list:
-        :no-supplies: Aucun besoin particulier en ce moment.
-      :list_item:
-        :stats-here: Statistiques
     :taskables:
-      :taskable_header:
-        :task-complete: 'Fait : '
       :nav:
         :organizing: Organise
         :volunteering: Est Volontaire
       :organizer:
         :supplies-header: Besoins Matériels
         :tasks-header: Tâches
+      :taskable_header:
+        :task-complete: 'Fait : '
       :volunteer:
         :supplies-header: Besoins Matériels
         :tasks-header: Tâches
@@ -589,6 +607,10 @@
         :update_and_notify: Mettre à jour et notifier
       :index:
         :header: Toutes les Tâches
+      :list:
+        :no-tasks: Aucune tâche trouvée.
+      :list_item:
+        :stats-here: Les Statistiques vont ici
       :my:
         :header: Mes Tâches
         :organizer-header: Organise
@@ -613,10 +635,6 @@
         :volunteer-count-required:
           :one: "%{count} volontaire est nécessaire"
           :other: "%{count} volontaires sont nécessaires"
-      :list:
-        :no-tasks: Aucune tâche trouvée.
-      :list_item:
-        :stats-here: Les Statistiques vont ici
     :working_groups:
       :add_user_form:
         :add: Ajouter
@@ -661,12 +679,6 @@
         :actions: Actions
         :no-volunteers: Pas de Volontaires
         :remove: Enlever
-  :dashboards:
-    :resources:
-      :show_completed_supplies: Voir les fournitures reçues...
-      :show_completed_tasks: Voir les tâches complétées...
-      :show_open_supplies: Voir les fournitures en cours...
-      :show_open_tasks: Voir les tâches ouvertes...
   :circles:
     :edit:
       :back: Retour
@@ -702,6 +714,14 @@
         :filter: Filtrer les Groupes
         :new: Ajouter un Nouveau Groupe
       :working_group_organizers: Organisateurs du Groupe
+  :dashboards:
+    :resources:
+      :show_completed_projects: Voir les projets complétés &hellip;
+      :show_completed_supplies: Voir les fournitures reçues...
+      :show_completed_tasks: Voir les tâches complétées...
+      :show_open_projects: Voir les projets ouverts &hellip;
+      :show_open_supplies: Voir les fournitures en cours...
+      :show_open_tasks: Voir les tâches ouvertes...
   :date:
     :abbr_day_names:
     - Dim
@@ -875,6 +895,8 @@
     :name:
       :empty: Le nom ne peut être vide
       :not_unique: Ce nom de Groupe est déjà utilisé. Merci de choisir un autre nom.
+      :taken: Cet nom est déjà utilisé.
+      :too_short: Le nom est trop court
     :organizer_id:
       :at_least_one_required: Le groupe de travail doit avoir au moins un organisateur.
       :empty: Merci de choisir un organisateur
@@ -932,10 +954,10 @@
         :alert: "%{resource_name} n'a pu être éffacé."
         :notice: "%{resource_name} a été éffacé avec succès."
       :invite:
+        :alert: Il n'y a aucun membre à inviter.
         :notice:
           :one: "%{count} volontaire a été invité à ce %{model}."
           :other: "%{count} volontaires ont été invité à ce %{model}."
-        :alert: Il n'y a aucun membre à inviter.
       :update:
         :notice: "%{resource_name} a été mis à jour avec succès."
     :created: "%{name} a été créé avec succès."
@@ -1022,7 +1044,7 @@
       :header:
         :admin: Lale Admin
         :find-circles: Trouver des Cercles
-        :help: Besoin d'aide avec lale?
+        :help: Besoin d'aide avec Lale?
         :help_email_subject: J'ai besoin d'aide avec lale
         :settings: Mon Profil
         :sign-out: Se Déconnecter
@@ -1266,20 +1288,22 @@
     :flash:
       :already_taken: Cette marchandise a déjà été récupéré par quelqun d'autre
       :complete:
+        :error: Nous n'avons pas pu marquer cette marchandise comme donnée. Merci
+          de réessayer.
         :success: Merci pour la marchandise !
-        :error: Nous n'avons pas pu marquer cette marchandise comme donnée. Merci de réessayer.
-      :decline: 
-        :success: Merci pour votre honnêteté ! Nous allons trouver quelqun d'autre.
+      :decline:
         :error: Nous n'avons pas pu refuser cette marchandise. Merci de réessayer.
-      :invite: 
+        :success: Merci pour votre honnêteté ! Nous allons trouver quelqun d'autre.
+      :invite:
+        :error: Nous n'avons pas pu inviter des membres pour cette marchandise. Merci
+          de réessayer plus tard.
         :success: Les membres de %{name} ont été invité pour cette marchandise.
-        :error: Nous n'avons pas pu inviter des membres pour cette marchandise. Merci de réessayer plus tard.
-      :reopen: 
+      :reopen:
         :error: Il y a eu un problème lors de la ré-ouverture de cette fourniture
         :success: La fourniture a été ré-ouverte
-      :volunteer: 
-        :success: Merci de vous êtes inscrit !
+      :volunteer:
         :error: Nous n'avons pas pu enregistrer cette marchandise. Merci de réessayer.
+        :success: Merci de vous êtes inscrit !
   :supply:
     :presenter:
       :messages:
@@ -1321,15 +1345,15 @@
         :other: "%{unassignees} était non attribué cette tâche par %{unassigner} le
           %{date}."
     :flash:
-      :complete: 
+      :complete:
         :success: Merci d'avoir complété %{name} !
-      :decline: 
-        :success: Une erreur c'est produite.
+      :decline:
         :error: "%{name} diminué avec succès ."
-      :reopen: 
-        :success: La tâche a été ré-ouverte
+        :success: Une erreur c'est produite.
+      :reopen:
         :error: Il y a eu un problème lors de la ré-ouverture de cette tâche
-      :volunteer: 
+        :success: La tâche a été ré-ouverte
+      :volunteer:
         :success: Merci de vous être porté volontaire pour %{name} !
   :time:
     :am: am
