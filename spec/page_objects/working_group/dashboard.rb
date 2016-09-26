@@ -16,13 +16,13 @@ module PageObject
       section :volunteers_box, PageObject::Component::UsersBox, '.users-box:nth-child(2)'
       delegate :volunteers, :has_volunteer?, to: :volunteers_box
 
-      section :task_list, PageObject::Component::TaskablesList, ".open_tasks"
+      section :task_list, PageObject::Component::RichItemsList, ".open_tasks"
       delegate :has_task?, :tasks, to: :task_list
 
-      section :supplies_list, PageObject::Component::TaskablesList, ".open_supplies"
+      section :supplies_list, PageObject::Component::RichItemsList, ".open_supplies"
       delegate :has_supply?, :supplies, to: :supplies_list
 
-      section :projects_list, PageObject::Component::TaskablesList, ".tab.projects .open_projects"
+      section :projects_list, PageObject::Component::RichItemsList, ".tab.projects .open_projects"
       delegate :has_project?, :projects, to: :projects_list
 
       section :files_list, PageObject::Component::OtherItemsList, ".tab.documents tbody"

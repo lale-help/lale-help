@@ -6,10 +6,10 @@ module PageObject
 
       section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
 
-      section :task_list, PageObject::Component::TaskablesList, '#my-tasks-list'
+      section :task_list, PageObject::Component::RichItemsList, '#my-tasks-list'
       delegate :has_task?, :tasks, to: :task_list
 
-      section :supplies_list, PageObject::Component::TaskablesList, '#my-supplies-list'
+      section :supplies_list, PageObject::Component::RichItemsList, '#my-supplies-list'
       delegate :has_supply?, :supplies, to: :supplies_list
 
     end

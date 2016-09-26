@@ -1,8 +1,8 @@
 module PageObject
   class Component
-    class TaskablesList < PageObject::Component
+    class RichItemsList < PageObject::Component
 
-      sections :items, '.task' do
+      sections :items, '.item' do
         element :name, '.item-title'
       end
 

@@ -1,7 +1,7 @@
 / TODO: this is bad... but better than before
 - task = ::TaskPresenter.new(task)
 
-div.task href=circle_task_path(task.circle, task) class=task.css
+div.item href=circle_task_path(task.circle, task) class=task.css
   .item-details
     == cell(:calendar_leaf, task.due_date)
 

@@ -13,10 +13,10 @@ module PageObject
       section :header, PageObject::Component::CollectionDashboardHeader, '.collection-dashboard .header'
       delegate :headline, :description, to: :header
 
-      section :task_list, PageObject::Component::TaskablesList, ".open_tasks"
+      section :task_list, PageObject::Component::RichItemsList, ".open_tasks"
       delegate :has_task?, :tasks, to: :task_list
 
-      section :supplies_list, PageObject::Component::TaskablesList, ".open_supplies"
+      section :supplies_list, PageObject::Component::RichItemsList, ".open_supplies"
       delegate :has_supply?, :supplies, to: :supplies_list
 
       element :invite_working_group_button, '.button-secondary', text: 'Invite working group'

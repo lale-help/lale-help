@@ -2,17 +2,14 @@
   padding-top: 1rem;
   padding-bottom: 5rem;
 
-  .task {
-    @include display(flex);
-    @include flex-direction(row);
-    @include align-items(center);
+  .item {
     position: relative;
 
     &:after {
       content: '';
       position: absolute;
       right: 0px;
-      left: 85px;
+      left: 75px;
       bottom: 0;
       border-bottom: thin solid $light-grey;
     }
