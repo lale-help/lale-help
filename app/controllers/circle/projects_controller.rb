@@ -13,6 +13,14 @@ class Circle::ProjectsController < ApplicationController
 
   def show
     authorize! :read, current_project
+
+    tasks               = current_project.tasks.ordered_by_date
+    @open_tasks         = tasks.not_completed.select { |f| can?(:read, f) }
+    @completed_tasks    = tasks.completed.select { |f| can?(:read, f) }
+
+    supplies            = current_project.supplies.ordered_by_date
+    @open_supplies      = supplies.not_completed.select { |f| can?(:read, f) }
+    @completed_supplies = supplies.completed.select { |f| can?(:read, f) }
   end
 
   def new

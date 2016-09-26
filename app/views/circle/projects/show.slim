@@ -63,16 +63,22 @@
             .details== t(".organized-by", name: link_to_user(project.admin).html_safe)
 
       .tab.tasks
-        - if can? :manage, current_project
-          a.button href=new_circle_task_path(current_circle, project_id: project.id)
-            = t('helpers.new', model: Task.model_name.human)
-        = render partial: 'circle/tasks/list', locals: { circle: current_circle, tasks: project.tasks, list_id: 'project-tasks-list' }
+        .task_section.open_tasks data-tab='open_tasks'
+          - if @completed_tasks.present?
+            a.task_status data-tab='completed_tasks' == t("dashboards.resources.show_completed_tasks")
+          = render 'circle/tasks/list', circle: project.circle, tasks: @open_tasks
+        .task_section.completed_tasks data-tab='completed_tasks'
+          a.task_status data-tab='open_tasks' == t("dashboards.resources.show_open_tasks")
+          = render 'circle/tasks/list', circle: project.circle, tasks: @completed_tasks
 
       .tab.supplies
-        - if can? :manage, current_project
-          a.button href=new_circle_supply_path(current_circle, project_id: project.id)
-            = t('helpers.new', model: Supply.model_name.human)
-        = render partial: 'circle/supplies/list', locals: { circle: current_circle, supplies: project.supplies, list_id: 'project-supplies-list' }
+        .task_section.open_supplies data-tab='open_supplies'
+          - if @completed_supplies.present?
+            a.task_status data-tab='completed_supplies' == t("dashboards.resources.show_completed_supplies")
+          = render 'circle/supplies/list', circle: project.circle, supplies: @open_supplies
+        .task_section.completed_supplies data-tab='completed_supplies'
+          a.task_status data-tab='open_supplies' == t("dashboards.resources.show_open_supplies")
+          = render 'circle/supplies/list', circle: project.circle, supplies: @completed_supplies
 
 
     aside

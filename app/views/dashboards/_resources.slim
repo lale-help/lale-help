@@ -25,10 +25,10 @@
 .tab.projects
   .task_section.open_projects data-tab='open_projects'
     - if @completed_projects.present?
-      a.task_status data-tab='completed_projects' == t(".show_completed_projects")
+      a.task_status data-tab='completed_projects' == t("dashboards.resources.show_completed_projects")
     = render 'circle/projects/list', projects: @open_projects
   .task_section.completed_projects data-tab='completed_projects'
-    a.task_status data-tab='open_projects' == t(".show_open_projects")
+    a.task_status data-tab='open_projects' == t("dashboards.resources.show_open_projects")
     = render 'circle/projects/list', projects: @completed_projects
 
 .tab.documents
