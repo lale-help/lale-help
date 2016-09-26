@@ -4,12 +4,14 @@
 
     .left {
 
-      .icon i {
+      .calendar-leaf {
         margin: 1.25em;
-        @include lale-icon($lale-icon-checklist, 4em);
         float: left;
-        padding: 10px;
-        border-radius: 5px;
+        .project-icon i {
+          display: inline-block;
+          @include lale-icon($lale-icon-checklist, 3.5em);
+          margin: 0.5rem;
+        }
       }
 
       .title {

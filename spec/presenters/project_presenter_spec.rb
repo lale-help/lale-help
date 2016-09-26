@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ProjectPresenter do
-  describe "calendar_leaf_title" do
+  describe "calendar_leaf_title_date" do
 
     let(:presenter) { ProjectPresenter.new(project) }
 
@@ -14,7 +14,7 @@ describe ProjectPresenter do
         before { Timecop.freeze(Time.parse("2016-09-30")) }
         after  { Timecop.return }
         it "shows the current month" do
-          expect(presenter.calendar_leaf_title).to eq('SEP')
+          expect(presenter.calendar_leaf_title_date.month).to eq(9)
         end
       end
 
@@ -22,7 +22,7 @@ describe ProjectPresenter do
         before { Timecop.freeze(Time.parse("2016-11-01")) }
         after  { Timecop.return }
         it "shows the project's last month" do
-          expect(presenter.calendar_leaf_title).to eq('OCT')
+          expect(presenter.calendar_leaf_title_date.month).to eq(10)
         end
       end
 
@@ -30,7 +30,7 @@ describe ProjectPresenter do
         before { Timecop.freeze(Time.parse("2016-08-01")) }
         after  { Timecop.return }
         it "shows the project's first month" do
-          expect(presenter.calendar_leaf_title).to eq('SEP')
+          expect(presenter.calendar_leaf_title_date.month).to eq(9)
         end
       end
     end
@@ -40,7 +40,7 @@ describe ProjectPresenter do
       before { Timecop.freeze(Time.parse("2016-11-01")) }
       after  { Timecop.return }
       it "shows the current month" do
-        expect(presenter.calendar_leaf_title).to eq('NOV')
+        expect(presenter.calendar_leaf_title_date.month).to eq(11)
       end
     end
 

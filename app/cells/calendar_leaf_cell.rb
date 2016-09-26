@@ -1,9 +1,9 @@
 class CalendarLeafCell < ::ViewModel
 
-  # this is the default anyways.
-  # def show
-  #   render
-  # end
+  def show
+    template = @options[:with_icon] ? :show_with_icon : :show
+    render template
+  end
 
   alias :date :model
 
@@ -23,6 +23,10 @@ class CalendarLeafCell < ::ViewModel
 
   def week
     I18n.l(date, format: '%a')
+  end
+
+  def icon
+    "#{@options[:with_icon]}-icon"
   end
 
 end

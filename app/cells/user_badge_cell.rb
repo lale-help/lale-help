@@ -1,14 +1,15 @@
 class UserBadgeCell < ::ViewModel
-  
+
   delegates :controller, :can?
 
   include LinksHelper
 
   alias :user :model
 
-  def show
-    render
-  end
+  # default
+  # def show
+  #   render
+  # end
 
   # needed in the user_icon partial
   def current_user
@@ -27,7 +28,7 @@ class UserBadgeCell < ::ViewModel
   def can_see_user?
     # FIXME use cancan rules here. the following lets an admin see the user, despite him having a private profile
     # can?(:read, user, current_circle) ? link_to_user(user) : user.name
-    user.public_profile? 
+    user.public_profile?
   end
 
   def user_icon_locals
@@ -37,7 +38,7 @@ class UserBadgeCell < ::ViewModel
   end
 
   def user_badge_attributes
-    {}  
+    {}
   end
 
 end

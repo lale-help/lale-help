@@ -42,9 +42,9 @@ class ProjectPresenter < Presenter
   end
 
   # please see the spec to see what's going on.
-  def calendar_leaf_title
+  def calendar_leaf_title_date
     today = Date.today
-    date = if has_date_range?
+    if has_date_range?
       date_range = (_.start_date.._.due_date)
       if date_range.include?(today)
         today
@@ -56,7 +56,6 @@ class ProjectPresenter < Presenter
     else
       today
     end
-    I18n.l(date, format: "%b").upcase
   end
 
   let(:has_date_range?) do

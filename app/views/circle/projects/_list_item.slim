@@ -3,8 +3,7 @@
 
 div.task href=circle_project_path(project.circle, project) class=project.css
   .task-details
-    .project-icon 
-      i
+    == cell(:calendar_leaf, project.calendar_leaf_title_date, with_icon: :project)
     .task-content
       .task-title= project.name
       .subtitle

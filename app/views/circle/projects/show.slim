@@ -4,8 +4,8 @@
   .header
 
     .left class=project.css
-      .icon
-        i
+      == cell(:calendar_leaf, project.calendar_leaf_title_date, with_icon: :project)
+        
       .title 
         - if project.complete?
           span.done = t('.title_complete')

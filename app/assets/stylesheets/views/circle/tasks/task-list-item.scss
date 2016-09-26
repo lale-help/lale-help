@@ -41,7 +41,7 @@
     .project-icon i {
       display: inline-block;
       @include lale-icon($lale-icon-checklist, 3.5em);
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
   }
 
