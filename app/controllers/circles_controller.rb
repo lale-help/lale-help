@@ -20,9 +20,10 @@ class CirclesController < ApplicationController
     @open_supplies      = supplies.not_completed.select { |supply| can?(:read, supply) }
     @completed_supplies = supplies.completed.select { |supply| can?(:read, supply) }
 
-    projects            = current_circle.projects.order(:name)
-    @open_projects      = projects.open.select { |project| can?(:read, project) }
-    @completed_projects = projects.completed.select { |project| can?(:read, project) }
+    sorter              = lambda { |project| project.due_date || Date.today }
+    projects            = current_circle.projects
+    @open_projects      = projects.open.select { |project| can?(:read, project) }.sort_by(&sorter)
+    @completed_projects = projects.completed.select { |project| can?(:read, project) }.sort_by(&sorter)
   end
 
   def update
