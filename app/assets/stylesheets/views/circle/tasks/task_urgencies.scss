@@ -3,7 +3,7 @@
 
     .month {
       background: $blue-darkish;
-      color: $white;
+      color: $blue-50;
     }
 
     .day {
@@ -37,15 +37,17 @@
 
 .taskable-urgency-complete {
   .date, .task-date {
-     .month {
-       background-color: $green;
-     }
 
-     .day {
-       background-color: $green-100;
-       border-color: $green-500;
-       color: $green;
-     }
+    .month {
+      color: $green-100;
+      background-color: $green;
+    }
+
+    .day {
+      background-color: $green-100;
+      border: 1px solid $green-500;
+      color: $green;
+    }
   }
 
   .icon i {
@@ -75,14 +77,16 @@
 
 .taskable-urgency-urgent {
   .date, .task-date {
+
+
     .month {
       background-color: $red;
-      color: $blue-light-1;
+      color: $red-100;
     }
 
     .day {
       background-color: $red-100;
-      border-color: $red;
+      border: 1px solid $red;
       color: $red;
     }
   }
@@ -117,7 +121,7 @@
 
     .day {
       background-color: $blue-light-1;
-      border-color: $blue-dark-1;
+      border: 1px solid $blue-dark-1;
       color: $blue-dark-1;
     }
 
