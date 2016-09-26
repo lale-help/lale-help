@@ -29,4 +29,13 @@ describe "Project factory" do
     end
   end
 
+  describe "the :tasks trait" do
+    it "assigns the tasks passed in to the project" do
+      task = create(:task)
+      project = create(:project, tasks: [task])
+      project.reload
+      expect(project.tasks.first).to eq(task)
+      expect(project.tasks.count).to eq(1)
+    end
+  end
 end

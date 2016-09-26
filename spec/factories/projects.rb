@@ -9,12 +9,19 @@ FactoryGirl.define do
     transient do
       admin nil
       admins []
+      task nil
+      tasks []
     end
 
     after(:create) do |project, evaluator|
       # assign admin(s)
       Array(evaluator.admin || evaluator.admins).each do |user|
         create(:project_admin_role, project: project, user: user)
+      end
+      Array(evaluator.task || evaluator.tasks).each do |user|
+        evaluator.tasks.each do |task|
+          task.update_attributes(working_group: project.working_group, project: project)
+        end
       end
     end
 

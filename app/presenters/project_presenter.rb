@@ -32,19 +32,31 @@ class ProjectPresenter < Presenter
   end
 
   let(:start_date) do
-    dates = []
-    dates << _.tasks.minimum("start_date")
-    # quick hack: if no task has a start date, use the earliest end date.
-    dates << _.tasks.minimum("due_date")
-    dates << _.supplies.minimum("due_date")
-    I18n.l(dates.compact.min, format: :long) unless dates.compact.empty?
+    date = _.start_date
+    I18n.l(date, format: :long) if date
   end
 
   let(:due_date) do
-    dates = []
-    dates << _.tasks.maximum("due_date")
-    dates << _.supplies.maximum("due_date")
-    I18n.l(dates.compact.max, format: :long) unless dates.compact.empty?
+    date = _.due_date
+    I18n.l(date, format: :long) if date
+  end
+
+  # please see the spec to see what's going on.
+  def calendar_leaf_title
+    today = Date.today
+    date = if has_date_range?
+      date_range = (_.start_date.._.due_date)
+      if date_range.include?(today)
+        today
+      elsif today > date_range.last
+        date_range.last
+      elsif today < date_range.first
+        date_range.first
+      end
+    else
+      today
+    end
+    I18n.l(date, format: "%b").upcase
   end
 
   let(:has_date_range?) do
