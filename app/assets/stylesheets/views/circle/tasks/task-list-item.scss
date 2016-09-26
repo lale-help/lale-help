@@ -55,38 +55,4 @@
     margin: auto 0;
   }
 
-  .task-date {
-    $radius: 0.75rem;
-    text-align: center;
-    font-size: 1.25rem;
-    width: 50px;
-    margin-bottom: 1rem;
-
-    .month {
-      background: $blue-darkish;
-      color: $white;
-      padding: 0.5rem;
-      @include border-top-radius($radius);
-    }
-
-    .day {
-      background: $blue-50;
-      color: $blue-darkish;
-      display: block;
-      padding: 0.3rem;
-      @include border-bottom-radius($radius);
-      font-size: 1.5rem;
-      border: thin solid $blue-darkish;
-      border-top: 0;
-      .day_number {
-        font-size: 1.5rem;
-        display: block;
-        font-weight: 700;
-      }
-      .day-of-week {
-        font-size: 1rem;
-      }
-    }
-  }
-
 }

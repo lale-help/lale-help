@@ -3,7 +3,7 @@
 
 div.task href=circle_task_path(task.circle, task) class=task.css
   .task-details
-    == cell(:calendar_leaf, task.due_date, class: 'task-date')
+    == cell(:calendar_leaf, task.due_date)
 
     .task-content
       .task-title= task.name

@@ -1,5 +1,6 @@
 .taskable-urgency-new {
-  .date, .task-date {
+
+  .calendar-leaf {
 
     .month {
       background: $blue-darkish;
@@ -36,7 +37,7 @@
 }
 
 .taskable-urgency-complete {
-  .date, .task-date {
+  .calendar-leaf {
 
     .month {
       color: $green-100;
@@ -76,8 +77,7 @@
 }
 
 .taskable-urgency-urgent {
-  .date, .task-date {
-
+  .calendar-leaf {
 
     .month {
       background-color: $red;
@@ -113,7 +113,7 @@
 }
 
 .taskable-urgency-on_track {
-  .date, .task-date {
+  .calendar-leaf {
     .month {
       background-color: $blue-dark-1;
       color: $blue-light-1;

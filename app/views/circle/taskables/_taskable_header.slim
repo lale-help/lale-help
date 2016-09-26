@@ -1,6 +1,6 @@
 .taskable-header class=taskable.css
   / date_attributes used for the feature specs only.
-  == cell(:calendar_leaf, taskable.due_date, {class: 'date'}.merge(taskable.date_attributes))
+  == cell(:calendar_leaf, taskable.due_date, taskable.date_attributes)
   .title
     - if taskable.complete?
       span.done
