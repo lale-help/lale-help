@@ -41,7 +41,7 @@ class Ability
     end
 
     can [:create_task, :create_supply, :create_project, :create_item], Circle do |circle|
-      circle.admins.active.include?(user)
+      circle.admins.active.include?(user) || circle.active_organizers.include?(user)
     end
     cannot [:create_task, :create_supply, :create_project, :create_item], Circle do |circle|
       wgs = circle.working_groups.active
