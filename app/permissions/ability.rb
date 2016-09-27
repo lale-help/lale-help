@@ -71,6 +71,10 @@ class Ability
       (user == managed_user) || all_circle_admins.include?(user)
     end
 
+    can :edit, User do |member|
+      can?(:manage, member)
+    end
+
     can :read, User do |member, circle|
       member.id == user.id ||
       (can?(:read, circle) &&

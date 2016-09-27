@@ -1415,19 +1415,19 @@
   :user:
     :account:
       :edit:
-        :country_select: Select Country
+        :country_select: Select country
         :error_correction: Please correct the errors below.
-        :reset_password: Reset your Password
+        :reset_password: Reset password
         :title: My profile
-        :update_settings: Update Settings
+        :update_settings: Update settings
       :reset_password:
         :password: Password
-        :password_confirmation: Password Confirmation
-        :reset_password: Reset your Password
-        :update: Update your Password
+        :password_confirmation: Password confirmation
+        :reset_password: Reset Password
+        :update: Update password
       :show:
         :edit_profile: Edit my profile
-        :reset_password: Reset Password
+        :reset_password: Reset password
         :title: My Profile
         :view_public_profile: View your public profile
     :identities:

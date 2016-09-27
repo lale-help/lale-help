@@ -1,3 +1,6 @@
+/ HACK! when calling can?(:edit) after can?(:block) the can(:edit) returns false
+- can_edit_member = can?(:edit, member)
+
 .left
   - if can?(:block, member, circle)
     - member = MemberPresenter.new(member, circle)
@@ -18,6 +21,12 @@
       button.button-secondary = t('helpers.unblock')
 
 .right
-  - if true # can?(:edit, member, circle)
+  - if can_edit_member
     = link_to edit_account_path(member) do
-      button.button-primary = t('helpers.edit', model: User.model_name.human)
+      button.button-primary = t('helpers.edit_no_model')
+
+    = link_to account_reset_password_path(member) do
+      button.button = t('user.account.edit.reset_password')
+
+
+

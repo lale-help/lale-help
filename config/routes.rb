@@ -103,6 +103,7 @@ Rails.application.routes.draw do
     get   '/account/switch_circle/:circle_id', to: 'account#switch_circle',  as: 'switch_circle'
   end
 
+  resources :accounts
 
   scope module: "public" do
     get  "/reset_password", to: 'reset_password_flow#reset_password', as: 'public_reset_password'
