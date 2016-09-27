@@ -5,6 +5,7 @@
   .item {
     position: relative;
 
+    // adds a horizonal line after each row
     &:after {
       content: '';
       position: absolute;
@@ -15,11 +16,8 @@
     }
   }
 
-  .item-title {
-    font-size: 1.5rem;
-  }
-
   .item-details {
+
     @include display(flex);
     padding: 1rem 0 0 0;
 
@@ -29,29 +27,42 @@
       margin-top: 0.2rem;
       margin-bottom: 0.25rem;
     }
-  }
 
-  .item-content {
-    @include flex(1 1 0);
-    padding: 1rem 2rem 1rem 2rem;
-    -ms-flex: 1;
-    .bullet {
-      display: inline-block;
-      margin-right: 0.25rem;
+    .item-title {
+      font-size: 1.5rem;
+      width: auto;
+      padding-top: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      // the container width needs to be fixed for the text-overflow ellipsis to work.
+      width: 280px;
     }
-  }
 
-  .item-stats {
-    margin: auto 0;
-  }
-  .item-assignees {
-    display: inline-block;
-    margin-right: 1rem;
-    .user-icon-container {
-      &.more {
-        width: auto;
+    .item-content {
+      @include flex(1 1 0);
+      padding: 1rem 2rem 1rem 2rem;
+      -ms-flex: 1;
+      .bullet {
+        display: inline-block;
+        margin-right: 0.25rem;
       }
     }
+
+    .item-stats {
+      margin: auto 0;
+    }
+
+    .item-assignees {
+      display: inline-block;
+      margin-right: 1rem;
+      .user-icon-container {
+        &.more {
+          width: auto;
+        }
+      }
+    }
+
   }
 
 }

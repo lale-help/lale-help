@@ -6,18 +6,17 @@ div.item href=circle_task_path(task.circle, task) class=task.css
     == cell(:calendar_leaf, task.due_date)
 
     .item-content
-      .item-title= task.name
+      .item-title = task.name
       .subtitle
         - if task.message.present?
           span.bullet &bullet;
           span.status-message = task.message
     .item-stats
       .item-assignees
-        - task.volunteers.each_with_index do |volunteer, i|
-          - if i < 5
-            = render 'user/user_icon', user: volunteer, link: true
-          - elsif i == 5
-            .more.user-icon-container = '...'
+        - task.volunteers.take(3).each do |volunteer|
+          = render 'user/user_icon', user: volunteer, link: true
+        - if task.volunteers.size > 3
+          .more.user-icon-container = '...'
       .task-badge.task-badge--users
         i
         = "#{task.volunteers.count}/#{task.volunteer_count_required}"
