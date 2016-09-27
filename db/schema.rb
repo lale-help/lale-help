@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160716173211) do
+ActiveRecord::Schema.define(version: 20160927123908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 20160716173211) do
   add_index "addresses", ["location_id"], name: "index_addresses_on_location_id", using: :btree
 
   create_table "circle_roles", id: :bigserial, force: :cascade do |t|
-    t.integer  "role_type",            null: false
-    t.integer  "user_id",    limit: 8, null: false
-    t.integer  "circle_id",  limit: 8, null: false
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.integer  "role_type",                        null: false
+    t.integer  "user_id",    limit: 8,             null: false
+    t.integer  "circle_id",  limit: 8,             null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "name"
-    t.integer  "status"
+    t.integer  "status",               default: 1
   end
 
   add_index "circle_roles", ["user_id", "role_type", "circle_id"], name: "index_circle_roles_on_user_id_and_role_type_and_circle_id", unique: true, using: :btree
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20160716173211) do
     t.boolean  "must_activate_users", default: false
     t.string   "description"
   end
+
+  add_index "circles", ["name"], name: "index_circles_on_name", unique: true, using: :btree
 
   create_table "comments", id: :bigserial, force: :cascade do |t|
     t.integer  "commenter_id", limit: 8, null: false
@@ -126,6 +128,7 @@ ActiveRecord::Schema.define(version: 20160716173211) do
     t.integer  "working_group_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.datetime "completed_at"
   end
 
   add_index "projects", ["name", "working_group_id"], name: "index_projects_on_name_and_working_group_id", unique: true, using: :btree

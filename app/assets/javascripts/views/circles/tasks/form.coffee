@@ -81,6 +81,15 @@ ready = ->
       $('#task_scheduling_type').on 'change', showOrHideStartDate
       initTimeDatePickers()
 
+    el = $('#task_skill')
+    el.select2(
+      placeholder: el.attr('placeholder'), 
+      templateSelection: (data, container)-> 
+        data.title
+      , 
+      language: I18n.locale
+    )
+
     new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_project_id', {hideOnEmpty: true})
     new Lale.WorkgroupDependentSelect('#task_working_group_id', '#task_organizer_id')
 

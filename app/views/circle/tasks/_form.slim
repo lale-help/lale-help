@@ -98,6 +98,10 @@
       = @form.project_select(f)
       = errors.message_for(:project_id)
 
+    .field
+      = f.label :skills
+      = skill_select(tag_name: 'task[skills]', tag_id: 'task_skill')
+      = errors.message_for(:skills)
 
   = f.hidden_field(:original_task_id, value: @form.original_task_id)
   .submit-row
