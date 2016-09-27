@@ -107,8 +107,6 @@ describe 'New User On-boarding', js: true do
       visit circle_path(circle_1, as: user)
       expect(page).to have_content(t('circles.show.dashboard_title', name: circle_1.name))
 
-      visit switch_circle_path(circle_2, as: user) # doesn't work
-      
       visit circle_path(circle_2, as: user)
       expect(page).to have_content(t('public.circles.membership_inactive.pending.title'))
     end
