@@ -17,7 +17,7 @@ div.item href=circle_task_path(task.circle, task) class=task.css
           - if i < 5
             = render 'user/user_icon', user: volunteer, link: true
           - elsif i == 5
-            .more= '...'
+            .more.user-icon-container = '...'
       .task-badge.task-badge--users
         i
         = "#{task.volunteers.count}/#{task.volunteer_count_required}"
