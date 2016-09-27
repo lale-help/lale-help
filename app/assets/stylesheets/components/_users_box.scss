@@ -1,3 +1,5 @@
+// a users box is the container with user badges in the sidebar of a few pages. They list 
+// the current volunteers, admins, etc. of the currently shown resource (task, working group, ...)
 .users-box {
   @include border-top-radius($border-radius);
   @include border-bottom-radius($border-radius);

@@ -1,0 +1,22 @@
+//
+// a user icon is the user's initials in a circle, and the user details on hover.
+// 
+.user-icon-container {
+  display: inline-block !important;
+  margin: 0;  
+  padding: 0;  
+  width: 30px;
+}
+
+@mixin circle-icon($size:30px, $font-size:1.5rem) {
+  width: $size;
+  height: $size;
+  border: thin solid $border-color;
+  border-radius: 50%;
+
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+
+  font-size: $font-size;
+}
