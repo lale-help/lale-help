@@ -20,13 +20,8 @@
   }
 
   .item-details {
-    @include flex(1);
-    padding: 1rem 0 0 0;
-
     @include display(flex);
-    @include flex-direction(row);
-    @include align-items(top);
-    @include justify-content(space-between);
+    padding: 1rem 0 0 0;
 
     .project-icon i {
       display: inline-block;
@@ -44,6 +39,10 @@
 
   .item-stats {
     margin: auto 0;
+  }
+  .item-assignees {
+    display: inline-block;
+    margin-right: 1rem;
   }
 
 }
