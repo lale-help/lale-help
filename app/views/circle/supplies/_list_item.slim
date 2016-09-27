@@ -13,7 +13,7 @@ div.item href=circle_supply_path(supply.circle, supply) class=supply.css
           span.status-message
            = supply.message
     .item-stats
-      .task-assignees
+      .item-assignees
         - unless supply.volunteers.empty?
           = render 'user/user_icon', user: supply.volunteers.first, link: true
       .task-badge.task-badge--users

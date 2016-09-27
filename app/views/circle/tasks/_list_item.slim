@@ -12,7 +12,7 @@ div.item href=circle_task_path(task.circle, task) class=task.css
           span.bullet &bullet;
           span.status-message = task.message
     .item-stats
-      .task-assignees
+      .item-assignees
         - task.volunteers.each_with_index do |volunteer, i|
           - if i < 5
             = render 'user/user_icon', user: volunteer, link: true
