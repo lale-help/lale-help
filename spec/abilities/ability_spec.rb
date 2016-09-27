@@ -84,6 +84,11 @@ describe "User abilities" do
       it { is_expected.to be_able_to(:delete, project) }
     end
 
+    describe "Circle members" do
+      let(:member) { create(:circle_role_volunteer, circle: circle).user }
+      it { is_expected.to be_able_to(:manage, member) }
+    end
+
   end
 
   context "as member of a circle" do
@@ -114,6 +119,12 @@ describe "User abilities" do
     it { is_expected.to     be_able_to(:read, project) }
     it { is_expected.not_to be_able_to(:update, project) }
     it { is_expected.not_to be_able_to(:delete, project) }
+
+    describe "Circle members" do
+      let(:member) { create(:circle_role_volunteer, circle: circle).user }
+      it { is_expected.not_to be_able_to(:manage, member) }
+    end
+
   end
 
   context "as admin of working group" do
@@ -179,6 +190,12 @@ describe "User abilities" do
         it { is_expected.not_to be_able_to(:delete, @project) }
       end
     end
+
+    describe "Circle members" do
+      let(:member) { create(:circle_role_volunteer, circle: circle).user }
+      it { is_expected.not_to be_able_to(:manage, member) }
+    end
+
   end
 
 

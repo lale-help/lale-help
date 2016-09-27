@@ -64,8 +64,11 @@ class Ability
     #
     # Users
     #
-    can :manage, User do |the_user|
-      user == the_user
+    can :manage, User do |managed_user|
+      # The user account is "global", i.e. not associated with a circle.
+      # A user can be in more than one circle, so we allow all admins of his circles to edit his profile.
+      all_circle_admins = managed_user.circles.map(&:admins).flatten
+      (user == managed_user) || all_circle_admins.include?(user)
     end
 
     can :read, User do |member, circle|
