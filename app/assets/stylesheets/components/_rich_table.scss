@@ -47,6 +47,11 @@
   .item-assignees {
     display: inline-block;
     margin-right: 1rem;
+    .user-icon-container {
+      &.more {
+        width: auto;
+      }
+    }
   }
 
 }
