@@ -54,8 +54,7 @@ class Ability
 
     can :delete, Circle::Role do |role|
       circle = role.circle
-      can?(:manage, circle)
-      if role.role_type == 'circle.admin'
+      if (role.role_type == 'circle.admin') && role.active?
         can?(:manage, circle) && circle.admins.active.count > 1
       else
         can?(:manage, circle)
