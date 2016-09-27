@@ -102,6 +102,10 @@ section > .member {
       }
     }
     .actions {
+
+      display: flex;
+      justify-content: space-between;
+
       margin-top: 20px;
 
       .organizer-info {
@@ -115,6 +119,12 @@ section > .member {
         }
         margin: 10px 0;
         display: none;
+      }
+
+      .right {
+        .button-primary {
+          margin-right: 0;
+        }
       }
     }
 
