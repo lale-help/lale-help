@@ -9,7 +9,7 @@ describe "Show a circle member profile", js: true do
 
   let!(:task_completed_by_member) { create(:task, :completed, working_group: working_group, volunteer: member) }
 
-  let(:member_page) { PageObject::Circle::Member.new }
+  let(:member_page) { PageObject::Member::Page.new }
 
   before { member_page.load(circle_id: circle.id, member_id: member.id, as: admin.id) }
 

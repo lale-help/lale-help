@@ -1,6 +1,6 @@
 module PageObject
-  module Circle
-    class Member < PageObject::Page
+  module Member
+    class Page < PageObject::Page
 
       set_url '/circles/{circle_id}/members/{member_id}{?as}'
 

@@ -6,7 +6,7 @@ describe "Block and unblock a circle member", js: true do
   let!(:member)       { circle.admin }
   let(:admin)         { create(:circle_admin_role, circle: circle).user }
 
-  let(:member_page) { PageObject::Circle::Member.new }
+  let(:member_page) { PageObject::Member::Page.new }
 
   before { member_page.load(circle_id: circle.id, member_id: member.id, as: admin.id) }
 
