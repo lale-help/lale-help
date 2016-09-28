@@ -74,8 +74,6 @@ Rails.application.routes.draw do
 
   resources :files, only: [:show, :update]
 
-  get '/ping', to: 'website#ping'
-
   get '/styles', to: 'styleguide#show'
 
   namespace :user do
