@@ -21,6 +21,6 @@ describe TokenHandlers::ResetPassword do
     expect(outcome.success?).to be(true)
     expect(token.active).to be(false)
     expect(controller).to have_received(:login).with(volunteer)
-    expect(controller).to have_received(:redirect_to).with(account_reset_password_path)
+    expect(controller).to have_received(:redirect_to).with(account_change_password_path(volunteer))
   end
 end

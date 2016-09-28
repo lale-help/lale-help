@@ -4,6 +4,6 @@ class TokenHandlers::ResetPassword < TokenHandler
   def handle_token(token)
     identity = User::Identity.find_by(user_id: token.context['user_id'])
     controller.login(identity.user)
-    controller.redirect_to account_reset_password_path
+    controller.redirect_to account_change_password_path(identity.user)
   end
 end

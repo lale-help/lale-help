@@ -8,6 +8,18 @@
 #   Therefore, it is best to place the more generic rules near the top.
 #   https://github.com/CanCanCommunity/cancancan/wiki/Ability-Precedence
 #
+# Abilities/CanCan can lead to a lot of confusion and wasted time!
+# Ideally this would be replaced by a more straightforward auth tool. But for now:
+# the recommended practises are:
+#
+# - TDD every abilities you add (see ability_spec).
+# - don't use the :manage role unless you know exactly how it influences the other ability rules.
+#   Instead, use the specific verbs you're interested in.
+# - cannot is syntax sugar. Don't use it unless you know exactly how it influences the other ability rules.
+#   Instead, use can rules with the inverted logic.
+# - be aware there's can(...) and can?(...).
+#
+#
 class Ability
   include CanCan::Ability
 
@@ -64,15 +76,11 @@ class Ability
     #
     # Users
     #
-    can :manage, User do |managed_user|
-      # The user account is "global", i.e. not associated with a circle.
-      # A user can be in more than one circle, so we allow all admins of his circles to edit his profile.
-      all_circle_admins = managed_user.circles.map(&:admins).flatten
-      (user == managed_user) || all_circle_admins.include?(user)
-    end
-
     can :edit, User do |member|
-      can?(:manage, member)
+      # The user account is "global", i.e. not associated with a circle.
+      # We allow all admins of a users circles to edit his profile.
+      all_admins = member.circles.map(&:admins).flatten
+      (member == user) || all_admins.include?(user)
     end
 
     can :read, User do |member, circle|
@@ -84,13 +92,11 @@ class Ability
     end
 
     can :block, User do |member, circle|
-      can?(:manage, circle) && circle.has_active_user?(member)
+      can?(:manage, circle) && (member != user) && !circle.has_blocked_user?(member)
     end
+
     can :unblock, User do |member, circle|
-      can?(:manage, circle) && circle.has_blocked_user?(member)
-    end
-    cannot [:block, :unblock], User do |member, circle|
-      member == user
+      can?(:manage, circle) && (member != user) && !circle.has_active_user?(member)
     end
 
     #
@@ -158,7 +164,7 @@ class Ability
     end
 
     can :assign_volunteers, Task do |task, assignees|
-      can(:manage, task) && assignees.all? do |assignee|
+      can?(:manage, task) && assignees.all? do |assignee|
         Ability.new(assignee).can?(:read, task)
       end
     end

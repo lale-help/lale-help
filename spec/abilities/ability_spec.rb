@@ -86,7 +86,7 @@ describe "User abilities" do
 
     describe "Circle members" do
       let(:member) { create(:circle_role_volunteer, circle: circle).user }
-      it { is_expected.to be_able_to(:manage, member) }
+      it { is_expected.to be_able_to(:edit, member) }
     end
 
   end
@@ -122,7 +122,7 @@ describe "User abilities" do
 
     describe "Circle members" do
       let(:member) { create(:circle_role_volunteer, circle: circle).user }
-      it { is_expected.not_to be_able_to(:manage, member) }
+      it { is_expected.not_to be_able_to(:edit, member) }
     end
 
   end
@@ -193,7 +193,7 @@ describe "User abilities" do
 
     describe "Circle members" do
       let(:member) { create(:circle_role_volunteer, circle: circle).user }
-      it { is_expected.not_to be_able_to(:manage, member) }
+      it { is_expected.not_to be_able_to(:edit, member) }
     end
 
   end

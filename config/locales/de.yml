@@ -1421,21 +1421,21 @@
   :url:
     :terms_of_service: http://lale.help/de/agb#terms
   :user:
-    :account:
+    :accounts:
       :edit:
         :country_select: Bitte Land auswählen
         :error_correction: Bitte die untenstehenden Fehler berichtigen.
-        :reset_password: Passwort zurücksetzen
+        :change_password: Passwort ändern
         :title: Mein Profil
         :update_settings: "Änderungen speichern"
-      :reset_password:
+      :change_password:
         :password: Passwort
         :password_confirmation: Passwort Bestätigung
-        :reset_password: Passwort zurücksetzen
+        :change_password: Passwort ändern
         :update: Passwort ändern
       :show:
         :edit_profile: Mein Profil ändern
-        :reset_password: Passwort zurücksetzen
+        :change_password: Passwort ändern
         :title: Mein Profil
         :view_public_profile: "Öffentliches Profil ansehen"
     :identities:

@@ -9,7 +9,13 @@ class CirclePresenter < Presenter
   end
 
   let(:active_circle_links) do
-    @context.active_circles.map { |c| link_to(c.name, switch_circle_path(c)) }
+    current_user.active_circles.map do |circle|
+      link_to(circle.name, account_switch_circle_path(current_user, circle_id: circle.id))
+    end
+  end
+
+  def current_user
+    @context
   end
 
 end

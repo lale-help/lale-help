@@ -5,7 +5,7 @@
   main
     .member-header
       .icon
-        = render partial: 'user/user_icon', locals: {user: current_member}
+        = render 'user/user_icon', user: current_member
       .title
         = current_member.name
       .description= current_member.about_me
@@ -59,4 +59,4 @@
     
     - if can? :read, Comment.new, User, current_circle
       .task-comments data-url="#{circle_member_comments_path(current_circle, current_member)}"
-        = render partial: 'circle/comments/comments', locals: { item: current_member, circle: current_circle, max_display: 5 }
+        = render 'circle/comments/comments', item: current_member, circle: current_circle, max_display: 5

@@ -329,7 +329,7 @@
         :phone: Phone Number
         :postal_code: Postal Code
         :primary_circle_id: Primary Circle
-        :public_profile: Show my profile to all circle members
+        :public_profile: Show profile to all circle members
         :role: Role
         :state_province: State / Province
         :street_address: Street Address
@@ -519,7 +519,7 @@
         :back: Back
         :circles: Circles
         :contact: Contact
-        :edit_profile: Edit my profile
+        :edit_profile: Edit profile
         :member_since: Member Since
         :roles: Roles
         :tasks_supplies_completed: Help provided
@@ -1413,23 +1413,23 @@
   :url:
     :terms_of_service: http://lale.help/terms#terms
   :user:
-    :account:
+    :accounts:
       :edit:
         :country_select: Select country
         :error_correction: Please correct the errors below.
-        :reset_password: Reset password
+        :change_password: Change password
         :title: My profile
         :update_settings: Update settings
-      :reset_password:
+      :change_password:
         :password: Password
         :password_confirmation: Password confirmation
-        :reset_password: Reset Password
+        :change_password: Change Password
         :update: Update password
       :show:
         :edit_profile: Edit my profile
-        :reset_password: Reset password
+        :change_password: Change password
         :title: My Profile
-        :view_public_profile: View your public profile
+        :view_public_profile: View public profile
     :identities:
       :new:
         :accept_terms: Accept Terms and Conditions
@@ -1446,7 +1446,7 @@
         :password: Password
         :password_confirmation: Password Confirmation
         :postal_code: Postal Code
-        :public_profile: Show my profile to all circle members
+        :public_profile: Show profile to all circle members
         :state_province: State / Province
         :street_address: Street Address
   :users:
@@ -1455,7 +1455,7 @@
       :status_change_blocked: "%{member} was blocked on %{date} by %{user}."
       :status_change_unblocked: "%{member} was unblocked on %{date} by %{user}."
     :flash:
-      :password_reset_success: Your password was successfully updated
+      :password_reset_success: Password was successfully updated
   :users_box:
     :no_users_yet: No helpers yet.
   :views:

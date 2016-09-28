@@ -1,11 +1,14 @@
+ / FIXME looks like template isnt used.
+- raise "HELLO"
+
 header
   .header-left-group
-    .logo= t('lale')
+    .logo = t('lale')
 
   .header-right-group
     - if current_user.present?
       .user= t('.signed-in-as', user: current_user.first_name )
-      a.action-link href="#{account_path}"= t('.account')
+      a.action-link href="#{account_path(current_user)}"= t('.account')
       a.action-link href="#{logout_path}"= t('.sign-out')
 
     - else

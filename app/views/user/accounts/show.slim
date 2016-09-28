@@ -7,64 +7,66 @@ main
         label
           = User.human_attribute_name :name
         span
-          = current_user.name
+          = @user.name
 
     .field-row
       .field
         label
           = User.human_attribute_name :email
         span
-          = current_user.email
+          = @user.email
       .field
         label
           =User.human_attribute_name :language
         span
-          = I18n.t("language.#{current_user.language}")
+          = I18n.t("language.#{@user.language}")
 
     .field-row
       .field
         label
           = User.human_attribute_name :mobile_phone
         span
-          = current_user.mobile_phone
+          = @user.mobile_phone
 
       .field
         label
           = User.human_attribute_name :home_phone
         span
-          = current_user.home_phone
+          = @user.home_phone
 
     .field-row
       .field
         label
           = User.human_attribute_name :address
         span
-          = current_user.address.full_address
+          = @user.address.full_address
 
-    - if current_user.has_multiple_circles?
+    - if @user.has_multiple_circles?
       .field-row
         label
           = User.human_attribute_name :primary_circle
         span
-          = current_user.primary_circle.name
+          = @user.primary_circle.name
 
     .field-row
       label
         = User.human_attribute_name :about_me
       span
-        = current_user.about_me
+        = @user.about_me
 
     .field-row
       .field
-        = check_box_tag('public_profile', 'true', current_user.public_profile, disabled: true)
+        = check_box_tag('public_profile', 'true', @user.public_profile, disabled: true)
         = User.human_attribute_name :public_profile
-      - if current_user.public_profile
+      - if @user.public_profile
         .field
-          = link_to(t('.view_public_profile'), circle_member_path(current_circle, current_user))
+          = link_to(t('.view_public_profile'), circle_member_path(current_circle, @user))
 
     .submit-row
-      a.button.button-primary href=account_edit_path
-        = t('.edit_profile')
-      a.button href=account_reset_password_path =t('.reset_password')
-      / = link_to t('.new-file'), new_file_path(Base64.strict_encode64(current_user.to_gid.to_s)), class: 'button'
+      a.button.button-primary href = edit_account_path(@user)
+        = t('helpers.edit_no_model')
+      a.button href = account_change_password_path(@user) 
+        = t('.change_password')
+      / a.button href = new_file_path(Base64.strict_encode64(@user.to_gid.to_s))
+      /   = t('.new-file')
 

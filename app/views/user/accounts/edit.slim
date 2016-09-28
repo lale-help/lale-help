@@ -1,7 +1,7 @@
 main
   h1= t('.title')
 
-  = form_for @form, url: account_path do |f|
+  = form_for @form, url: account_path(@form.user) do |f|
     - if errors.present?
       .form-introduction.error
         p= t('.error_correction')
@@ -86,4 +86,4 @@ main
 
     .submit-row
       = f.submit
-      = link_to t('workflow.cancel'), account_path
+      = link_to t('workflow.cancel'), account_path(current_user)

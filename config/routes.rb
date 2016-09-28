@@ -93,15 +93,11 @@ Rails.application.routes.draw do
   get "/token/:token_code", to: "tokens#handle_token", as: "handle_token"
 
   scope module: "user" do
-    get   '/account',                 to: 'account#show',              as: 'account'
-    get   '/account/edit',            to: 'account#edit',              as: 'account_edit'
-    patch '/account',                 to: 'account#update'
-    get   '/account/reset_password',  to: 'account#reset_password',    as: 'account_reset_password'
-    patch '/account/update_password', to: 'account#update_password',   as: 'account_update_password'
-    get   '/account/switch_circle/:circle_id', to: 'account#switch_circle',  as: 'switch_circle'
+    resources :accounts do
+      get :change_password, :switch_circle
+      patch :update_password
+    end
   end
-
-  resources :accounts
 
   scope module: "public" do
     get  "/reset_password", to: 'reset_password_flow#reset_password', as: 'public_reset_password'
@@ -115,7 +111,6 @@ Rails.application.routes.draw do
       get "membership_inactive/:status", action: :membership_inactive, as: :inactive_circle_membership
     end
   end
-
 
   get  "/login",  to: "sessions#new",     as: "login"
   post "/login",  to: "sessions#create"

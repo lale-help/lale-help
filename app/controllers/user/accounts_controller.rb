@@ -1,19 +1,21 @@
-class User::AccountController < ApplicationController
+class User::AccountsController < ApplicationController
+
   before_action :ensure_logged_in
   before_action :ensure_circle
+  before_action { load_user_instance }
+  before_action { authorize!(:edit, @user) }
 
-  skip_authorization_check
   layout 'internal'
 
   def show
   end
 
   def edit
-    @form = User::Update.new(user: current_user)
+    @form = User::Update.new(user: @user)
   end
 
   def update
-    @form = User::Update.new(params[:user], user: current_user)
+    @form = User::Update.new(params[:user], user: @user)
     outcome = @form.submit
     errors.add outcome.errors
     if outcome.success?
@@ -25,16 +27,17 @@ class User::AccountController < ApplicationController
     end
   end
 
-  def reset_password
+  def change_password
   end
 
   def update_password
-    outcome =  User::UpdatePassword.run({user: current_user}, params)
+    outcome =  User::UpdatePassword.run({user: @user}, params)
     if outcome.success?
-      redirect_to current_user.primary_circle, notice: t("users.flash.password_reset_success")
+      # FIXME redirect correctly; when admin edits this redirect may not make sense
+      redirect_to @user.primary_circle, notice: t("users.flash.password_reset_success")
     else
       @errors = outcome.errors
-      render :reset_password
+      render :change_password
     end
   end
 
@@ -47,6 +50,7 @@ class User::AccountController < ApplicationController
     end
   end
 
+  # FIXME review if OK
   helper_method def current_circle
     if current_user.present?
       if session[:circle_id].present?
@@ -61,5 +65,10 @@ class User::AccountController < ApplicationController
     @errors ||= Errors.new
   end
 
+  private
+
+  def load_user_instance
+    @user = User.find(params[:id] || params[:account_id])
+  end
 
 end

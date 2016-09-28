@@ -1368,21 +1368,21 @@
   :url:
     :terms_of_service: http://lale.help/terms#terms
   :user:
-    :account:
+    :accounts:
       :edit:
         :country_select: Sélectionner un Pays.
         :error_correction: Merci de corriger les erreurs ci-dessous.
-        :reset_password: Réinitialiser votre mot de passe
+        :change_password: Réinitialiser votre mot de passe
         :title: Mon Profil
         :update_settings: Mettre à jour les Paramètres
-      :reset_password:
+      :change_password:
         :password: Mot de passe
         :password_confirmation: Confirmez Votre Mot de Passe
-        :reset_password: Réinitialiser votre mot de passe
+        :change_password: Réinitialiser votre mot de passe
         :update: Mettre à jour votre mot de passe
       :show:
         :edit_profile: Editer mon Profil
-        :reset_password: Ré-initialiser le Mot de Passe
+        :change_password: Ré-initialiser le Mot de Passe
         :title: Mon Profil
         :view_public_profile: Voir mon page de profile
     :identities:
