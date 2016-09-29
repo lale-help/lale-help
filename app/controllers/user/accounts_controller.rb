@@ -1,6 +1,6 @@
 class User::AccountsController < ApplicationController
 
-  skip_authorization_check, only: :switch_circle
+  skip_authorization_check only: :switch_circle
 
   before_action :ensure_logged_in
   before_action :ensure_circle
