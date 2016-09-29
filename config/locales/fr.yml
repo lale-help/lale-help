@@ -292,6 +292,7 @@
         :accept_terms: Accepter les Termes et Conditions
         :active_since: Actif depuis
         :address: Adresse
+        :created_at: Membre Depuis
         :circle: :activerecord.models.circle
         :city: Ville
         :country: Pays
@@ -350,7 +351,9 @@
             %{record}'
           :one: 'Cette entrée ne peut être éffacée car une dépendence existe : %{record}'
     :models:
-      :circle: Cercle
+      :circle: 
+        :one: Cercle
+        :other: Cercles
       :file_upload:
         :one: Fichier
         :other: Fichiers
@@ -382,7 +385,9 @@
         :other: Volontaires
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
-      :working_group: Groupe
+      :working_group: 
+        one: Groupe
+        other: Groupes
   :cells:
     :tasks:
       :sourcing_widget:
@@ -488,6 +493,11 @@
       :join:
         :start_helping: Commencer à aider %{circle} aujourd'hui !
     :members:
+      :edit:
+        :country_select: Sélectionner un Pays.
+        :error_correction: Merci de corriger les erreurs ci-dessous.
+        :title: Mon Profil
+        :update_settings: Mettre à jour les Paramètres
       :index:
         :directory: " Liste de Volontaires"
         :total_members: Montre %{showing} des %{total} volontaires.
@@ -498,19 +508,15 @@
         :all-helpers: Tous les volontaires
         :organizers: Organisateurs
       :show:
-        :address: Adresse
         :back: Retour
-        :circles: Cercles
         :contact: Contacter
         :edit_profile: Editer mon Profil
-        :member_since: Membre Depuis
-        :roles: Roles
-        :tasks_supplies_completed: Aide fournie
-        :working_groups: Groupes
+        :help_provided_count: Aide fournie
       :show_actions:
         :organizer_info_title: Cet utilisateur ne peut être bloqué car il/elle est
           toujours responsable des éléments suivants. Merci de mettre à jour ces éléments
           avant de ré-essayer.
+        :change_password: Réinitialiser votre mot de passe
     :organizers:
       :index:
         :organizers: Organisateurs
@@ -1369,12 +1375,6 @@
     :terms_of_service: http://lale.help/terms#terms
   :user:
     :accounts:
-      :edit:
-        :country_select: Sélectionner un Pays.
-        :error_correction: Merci de corriger les erreurs ci-dessous.
-        :change_password: Réinitialiser votre mot de passe
-        :title: Mon Profil
-        :update_settings: Mettre à jour les Paramètres
       :change_password:
         :password: Mot de passe
         :password_confirmation: Confirmez Votre Mot de Passe

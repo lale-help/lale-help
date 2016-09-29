@@ -1,5 +1,5 @@
 - if can? :create, Comment.new, item, circle
-  = render partial: 'circle/comments/new', locals: { item: item, circle: circle }
+  = render 'circle/comments/new', item: item, circle: circle
 
 .comment-container
 
@@ -13,11 +13,11 @@
     .comment class="#{comment.commenter == current_user ? 'right' : 'left' } #{comment.commenter.lale_bot? ? 'lale-bot' : ''}"
 
       .user-avatar
-        = render partial: 'user/user_icon', locals: { user: comment.commenter, link: true }
+        == cell(:user_icon, comment.commenter, link: true, circle: current_circle)
       .comment-main
         .body
           .comment-text=comment.body
-          = render partial: 'circle/comments/edit', locals: { comment: comment, item: item, circle: circle }
+          = render 'circle/comments/edit', comment: comment, item: item, circle: circle
         .commenter
           - if comment.commenter == current_user
             .actions

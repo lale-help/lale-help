@@ -38,6 +38,11 @@ input[type="checkbox"], input[type="radio"] {
   display: inline;
 }
 
+input[disabled] {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
 label > .label-body {
   display: inline-block;
   margin-left: .5rem;

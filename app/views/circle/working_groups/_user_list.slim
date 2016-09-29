@@ -2,7 +2,7 @@ table.default-table
   - users.each do |member|
     tr
       td
-        = render partial: 'user/user_icon', locals: { user: member, link: true }
+        == cell(:user_icon, member, circle: current_circle, link: true)
         = member.name
 
       td

@@ -15,12 +15,12 @@ header
       input id='user-menu-selector' type='checkbox' class='menu-selector'
       label for='user-menu-selector'
         .user-avatar
-          = render 'user/user_icon', user: current_user
+          == cell(:user_icon, current_user, circle: current_circle)
         .user-name = current_user.name
         .fi-chevron-bottom:before
 
       .menu.user-dropdown
-        = link_to(t('.settings'), account_path(current_user))
+        = link_to(t('.settings'), circle_member_path(current_user.primary_circle, current_user))
         - current_user.active_circles.each do |circle|
           - unless circle.id == current_session_circle_id
             - path = account_switch_circle_path(current_user, circle_id: circle.id)

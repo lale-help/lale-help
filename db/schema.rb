@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160927123908) do
+ActiveRecord::Schema.define(version: 20160929113101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,13 +47,14 @@ ActiveRecord::Schema.define(version: 20160927123908) do
   add_index "addresses", ["location_id"], name: "index_addresses_on_location_id", using: :btree
 
   create_table "circle_roles", id: :bigserial, force: :cascade do |t|
-    t.integer  "role_type",                        null: false
-    t.integer  "user_id",    limit: 8,             null: false
-    t.integer  "circle_id",  limit: 8,             null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "role_type",                              null: false
+    t.integer  "user_id",          limit: 8,             null: false
+    t.integer  "circle_id",        limit: 8,             null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "name"
-    t.integer  "status",               default: 1
+    t.integer  "status",                     default: 1
+    t.date     "accredited_until"
   end
 
   add_index "circle_roles", ["user_id", "role_type", "circle_id"], name: "index_circle_roles_on_user_id_and_role_type_and_circle_id", unique: true, using: :btree
@@ -132,6 +133,24 @@ ActiveRecord::Schema.define(version: 20160927123908) do
   end
 
   add_index "projects", ["name", "working_group_id"], name: "index_projects_on_name_and_working_group_id", unique: true, using: :btree
+
+  create_table "skill_assignments", force: :cascade do |t|
+    t.integer "skill_id"
+    t.integer "skillable_id"
+    t.string  "skillable_type"
+  end
+
+  add_index "skill_assignments", ["skill_id", "skillable_id", "skillable_type"], name: "index_unique_skill_skillable", unique: true, using: :btree
+  add_index "skill_assignments", ["skillable_id", "skillable_type"], name: "index_skill_assignments_on_skillable_id_and_skillable_type", using: :btree
+
+  create_table "skills", force: :cascade do |t|
+    t.string  "category"
+    t.string  "key"
+    t.boolean "default"
+  end
+
+  add_index "skills", ["category", "key"], name: "index_skills_on_category_and_key", unique: true, using: :btree
+  add_index "skills", ["category"], name: "index_skills_on_category", using: :btree
 
   create_table "sponsors", force: :cascade do |t|
     t.string   "name"

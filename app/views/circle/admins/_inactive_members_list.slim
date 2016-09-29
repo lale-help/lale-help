@@ -11,7 +11,7 @@ table.default-table.member-list
   - users.each do |user|
     tr
       td
-        = render partial: 'user/user_icon', locals: {user: user, link: true}
+        == cell(:user_icon, user, circle: current_circle, link: true)
 
       td.name
         = link_to user.name, circle_member_path(current_circle, user)

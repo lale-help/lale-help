@@ -6,37 +6,30 @@
   margin-right: 0.25rem;
 }
 
-@mixin circle-icon($size:30px, $font-size:1.5rem) {
+@mixin circle-icon($size: 30px, $font-size: 1.5rem) {
+
   width: $size;
   height: $size;
-  border: thin solid $border-color;
+
+  color: $blue-dark-2;
+  font-size: $font-size;
+
+  border: thin dashed $blue-dark-1;
   border-radius: 50%;
 
   @include display(flex);
   @include align-items(center);
   @include justify-content(center);
 
-  font-size: $font-size;
-}
-
-@mixin circle-icon($size:30px, $font-size:1.5rem) {
-  width: $size;
-  height: $size;
-  border: thin solid $border-color;
-  border-radius: 50%;
-
-  @include display(flex);
-  @include align-items(center);
-  @include justify-content(center);
-
-  font-size: $font-size;
+  &.accredited {
+    border: thin solid $blue-dark-1;
+    background-color: $light-grey;
+  }
 }
 
 
 .user-icon {
   @include circle-icon();
-  border-color: $blue-dark-1;
-  color: $blue-dark-2;
 
   &.user-needed {
     @include lale-icon($lale-icon-user);
@@ -49,7 +42,7 @@
   }
 }
 
-.user-icon:hover + .user-preview, .user-icon + .user-preview:hover{
+.user-icon:hover + .user-preview, .user-icon + .user-preview:hover {
   @include display(flex);
 }
 
@@ -72,7 +65,7 @@
 
   .user-icon {
     @include circle-icon(50px, 2.5rem);
-    border-color: $blue-dark-1;
+    border: 1px dashed $blue-dark-1;
   }
 
   .user-details {

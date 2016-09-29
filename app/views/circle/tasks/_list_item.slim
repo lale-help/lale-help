@@ -14,7 +14,7 @@ div.item href=circle_task_path(task.circle, task) class=task.css
     .item-stats
       .item-assignees
         - task.volunteers.take(3).each do |volunteer|
-          = render 'user/user_icon', user: volunteer, link: true
+          == cell(:user_icon, volunteer, circle: current_circle, link: true)
         - if task.volunteers.size > 3
           .more.user-icon-container = '...'
       .task-badge.task-badge--users

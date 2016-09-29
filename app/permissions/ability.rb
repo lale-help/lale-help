@@ -76,11 +76,12 @@ class Ability
     #
     # Users
     #
-    can :edit, User do |member|
-      # The user account is "global", i.e. not associated with a circle.
-      # We allow all admins of a users circles to edit his profile.
-      all_admins = member.circles.map(&:admins).flatten
-      (member == user) || all_admins.include?(user)
+    can :edit_accreditation, User do |member, circle|
+      circle.admins.include?(user)
+    end
+
+    can :edit, User do |member, circle|
+      (member == user) || can?(:edit_accreditation, member, circle)
     end
 
     can :read, User do |member, circle|
@@ -310,6 +311,7 @@ class Ability
     can :update, Comment, User do |comment, member, circle|
       comment.commenter_id == user.id
     end
+
     #
     # Projects
     #

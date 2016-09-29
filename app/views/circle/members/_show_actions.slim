@@ -1,32 +1,30 @@
-- member_presenter = MemberPresenter.new(member, circle)
-
 .left
-  - if can?(:block, member, circle)
-    - if member_presenter.has_organizer_roles?
+  - if can?(:block, presenter.model, circle)
+    - if presenter.has_organizer_roles?
         button.button-secondary id='show-organizer-info' data-disable-on-click='true'
           = t('helpers.block')
         .organizer-info
           h3 = t('.organizer_info_title')
           ul
-            - member_presenter.stringified_organizer_roles.each do |role_text|
+            - presenter.stringified_organizer_roles.each do |role_text|
               li == role_text
     - else
-      = form_tag block_circle_member_path(circle, member), method: :put do
+      = form_tag block_circle_member_path(circle, presenter.model), method: :put do
         button.button.button-secondary 
           = t('helpers.block')
 
-  - if can?(:unblock, member, circle)
-    = form_tag unblock_circle_member_path(circle, member), method: :put do
+  - if can?(:unblock, presenter.model, circle)
+    = form_tag unblock_circle__path(circle, presenter.model), method: :put do
       button.button-secondary 
         = t('helpers.unblock')
 
 .right
-  - if can?(:edit, member)
-    = link_to edit_account_path(member) do
+  - if can?(:edit, presenter.model, circle)
+    = link_to edit_circle_member_path(circle, presenter.model) do
       button.button-primary = t('helpers.edit_no_model')
 
-    = link_to account_change_password_path(member) do
-      button.button = t('user.accounts.edit.change_password')
+    = link_to account_change_password_path(presenter.model) do
+      button.button = t('.change_password')
 
 
 

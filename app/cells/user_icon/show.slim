@@ -1,6 +1,5 @@
-- href = circle_member_path(current_circle, user) if defined?(link) && can?(:read, user, current_circle)
 .user-icon-container
-  .user-icon href=href class="#{user.lale_bot? ? 'lale-bot' : ''}"
+  .user-icon href=href class=classes
     - if user.lale_bot?
       .lale-bot-avatar
     - else
@@ -11,7 +10,7 @@
     .user-preview
       .user-details
         a.user-name href=href
-          = user.first_name + " " + user.last_name
+          = user.name
         .email
           = user.email
 
@@ -21,6 +20,6 @@
         - if user.home_phone.present?
           .home_phone H: #{user.home_phone}
       
-      .user-icon
+      .user-icon class=classes
         .text
           = user.initials

@@ -31,10 +31,8 @@ class UserBadgeCell < ::ViewModel
     user.public_profile?
   end
 
-  def user_icon_locals
-    locals = { user: user }
-    locals[:link] = true if can_see_user?
-    locals
+  def user_icon
+    cell(:user_icon, user, link: can_see_user?, circle: current_circle)
   end
 
   def user_badge_attributes

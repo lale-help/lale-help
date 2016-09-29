@@ -1,5 +1,6 @@
 class User::Update < ::Form
   attribute :user, :model, primary: true
+  attribute :current_circle, :model, class: Circle
 
   attribute :first_name,        :string
   attribute :last_name,         :string
@@ -15,6 +16,20 @@ class User::Update < ::Form
   attribute :state_province,    :string, default: proc { user.address.try(:state_province) },   required: false
   attribute :postal_code,       :string, default: proc { user.address.try(:postal_code) },      required: false
   attribute :country,           :string, default: proc { user.address.try(:country) },          required: false
+  attribute :accredited_until,          :date, required: false, format: I18n.t('circle.tasks.form.date_format')
+  attribute :accredited_until_string,   :string, required: false, default: proc { stringify_date(circle_volunteer_role.accredited_until || Date.today + 2.years - 1.day) }
+
+  def circle_volunteer_role
+    user.circle_volunteer_roles.find_by(circle: current_circle.id)
+  end
+
+  def accredited
+    circle_volunteer_role.accredited?
+  end
+
+  def accredited_until_string=(string)
+    self.accredited_until = parse_date(string)
+  end
 
   def language_options
     User.languages.map do |key, val|
@@ -29,6 +44,15 @@ class User::Update < ::Form
   def email
     (@email || user.email).downcase
   end
+
+  def parse_date(string)
+    string.present? && Date.strptime(string, I18n.t('circle.tasks.form.date_format'))
+  end
+
+  def stringify_date(date)
+    date && date.strftime(I18n.t('circle.tasks.form.date_format'))
+  end
+  private :parse_date, :stringify_date
 
   class Submit < ::Form::Submit
     def validate
@@ -45,6 +69,17 @@ class User::Update < ::Form
       user.save
       user.address.save
       user.identity.save
+      circle_volunteer_role.update_attributes(inputs.slice(:accredited_until))
     end
+
+    private
+
+    # By convention, store the accredited_until only on the volunteer role.
+    # It would be best to fix the DB structure. Only have one circle membership,
+    # which stores the accredited_until flag; but joins in the roles, etc.
+    def circle_volunteer_role
+      user.circle_volunteer_roles.find_by(circle_id: inputs[:current_circle].id)
+    end
+
   end
 end

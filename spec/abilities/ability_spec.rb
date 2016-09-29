@@ -84,9 +84,10 @@ describe "User abilities" do
       it { is_expected.to be_able_to(:delete, project) }
     end
 
-    describe "Circle members" do
+    describe "Member profiles" do
       let(:member) { create(:circle_role_volunteer, circle: circle).user }
-      it { is_expected.to be_able_to(:edit, member) }
+      it { is_expected.to be_able_to(:edit, member, circle) }
+      it { is_expected.to be_able_to(:edit_accreditation, member, circle) }
     end
 
   end
@@ -120,9 +121,16 @@ describe "User abilities" do
     it { is_expected.not_to be_able_to(:update, project) }
     it { is_expected.not_to be_able_to(:delete, project) }
 
-    describe "Circle members" do
-      let(:member) { create(:circle_role_volunteer, circle: circle).user }
-      it { is_expected.not_to be_able_to(:edit, member) }
+    describe "Member profiles" do
+      context "own profile" do
+        it { is_expected.to be_able_to(:edit, user, circle) }
+        it { is_expected.not_to be_able_to(:edit_accreditation, user, circle) }
+      end
+      context "other profile" do
+        let(:other_user) { create(:circle_role_volunteer, circle: circle).user }
+        it { is_expected.not_to be_able_to(:edit, other_user, circle) }
+        it { is_expected.not_to be_able_to(:edit_accreditation, other_user, circle) }
+      end
     end
 
   end
@@ -193,7 +201,7 @@ describe "User abilities" do
 
     describe "Circle members" do
       let(:member) { create(:circle_role_volunteer, circle: circle).user }
-      it { is_expected.not_to be_able_to(:edit, member) }
+      it { is_expected.not_to be_able_to(:edit, member, circle) }
     end
 
   end

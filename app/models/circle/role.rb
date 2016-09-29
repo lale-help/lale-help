@@ -11,7 +11,7 @@ class Circle::Role < ActiveRecord::Base
   ]
 
   enum status: %i(pending active blocked)
-  
+
   LEADERSHIP_TYPES = %w(circle.admin circle.official circle.custom)
   ORGANIZER_TYPES  = %w(circle.admin)
   ORGANIZER_TYPE_IDS  = ORGANIZER_TYPES.map {|id| Circle::Role.role_types[id] }
@@ -35,6 +35,9 @@ class Circle::Role < ActiveRecord::Base
     end
   end
 
+  def accredited?
+    !!accredited_until && (accredited_until >= Date.today)
+  end
 
   def name
     return self[:name] if self[:name].present?

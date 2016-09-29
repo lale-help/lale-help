@@ -1,10 +1,10 @@
 main
-  h1= t('.title')
+  h1 = t('.title')
 
-  = form_for @form, url: account_path(@form.user) do |f|
+  = form_for @form, url: circle_member_path(current_circle, @form.user) do |f|
     - if errors.present?
       .form-introduction.error
-        p= t('.error_correction')
+        p = t('.error_correction')
 
 
     .field-row
@@ -84,6 +84,12 @@ main
         = f.check_box :public_profile
         = f.label :public_profile
 
+      - if can?(:edit_accreditation, current_user, current_circle)
+        .field
+          = f.check_box :accredited
+          = f.label :accredited
+          = f.text_field :accredited_until_string, class: :xd_datepicker
+
     .submit-row
       = f.submit
-      = link_to t('workflow.cancel'), account_path(current_user)
+      = link_to t('workflow.cancel'), circle_member_path(current_circle, current_user)

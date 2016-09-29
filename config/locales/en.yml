@@ -193,8 +193,13 @@
           :one: Organizer
           :other: Organizers
         :organizer_id: Organizer
-        :working_group: Working group
-        :working_group_id: Working group
+        :working_group: 
+          one: Working group
+          other: Working groups
+        :working_group_id:
+          one: Working group
+          other: Working groups
+
       :role:
         :actions: Actions
       :sponsorship:
@@ -311,7 +316,10 @@
         :accept_terms: Accept Terms and Conditions
         :active_since: Active since
         :address: Address
-        :circle: :activerecord.models.circle
+        :accredited: Accredited until
+        :accredited_until: Accredited until
+        :circle: Circle
+        :created_at: Member Since
         :city: City
         :country: Country
         :email: Email
@@ -368,7 +376,9 @@
           :many: Cannot delete record because dependent %{record} exist
           :one: Cannot delete record because a dependent %{record} exists
     :models:
-      :circle: Circle
+      :circle: 
+        one: Circle
+        other: Circles
       :file_upload:
         :one: Document
         :other: Documents
@@ -400,7 +410,9 @@
         :other: Helpers
       :user/feedback: Volunteer/feedback
       :user/identity: Volunteer/identity
-      :working_group: Working Group
+      :working_group: 
+        one: Working Group
+        other: Working Groups
   :cells:
     :tasks:
       :sourcing_widget:
@@ -505,6 +517,11 @@
       :join:
         :start_helping: Start helping with %{circle} today!
     :members:
+      :edit:
+        :country_select: Select country
+        :error_correction: Please correct the errors below.
+        :title: My profile
+        :update_settings: Update settings
       :index:
         :directory: Helper list
         :total_members: Shows %{showing} of %{total} helpers.
@@ -515,19 +532,17 @@
         :all-helpers: All Helpers
         :organizers: Organizers
       :show:
-        :address: Address
         :back: Back
-        :circles: Circles
         :contact: Contact
         :edit_profile: Edit profile
-        :member_since: Member Since
-        :roles: Roles
-        :tasks_supplies_completed: Help provided
-        :working_groups: Working Groups
+        :not_accredited: not accredited
+        :help_provided_count: Help provided
       :show_actions:
         :organizer_info_title: This user can't be blocked because he/she is still
           responsible for the following items. Please update the responsibilities
           there, reload this page, and try again.
+        :change_password: Change password
+          
     :organizers:
       :index:
         :organizers: Organizers
@@ -1414,12 +1429,6 @@
     :terms_of_service: http://lale.help/terms#terms
   :user:
     :accounts:
-      :edit:
-        :country_select: Select country
-        :error_correction: Please correct the errors below.
-        :change_password: Change password
-        :title: My profile
-        :update_settings: Update settings
       :change_password:
         :password: Password
         :password_confirmation: Password confirmation

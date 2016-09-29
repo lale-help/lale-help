@@ -1,0 +1,11 @@
+form.edit_user {
+  label[for=user_accredited] {
+    display: inline-block;
+    // border: 1px solid red;
+  }
+
+   // the calendar popup overlaps the end of the page otherwise.
+  .submit-row {
+    margin-bottom: 250px;
+  }
+}

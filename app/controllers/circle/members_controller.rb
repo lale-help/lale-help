@@ -1,6 +1,9 @@
+#
+# a "Member" is a user in a circle. Technically this is implemented
+# with roles; a user is member in a circle if (s)he has a circle_role.
+#
 class Circle::MembersController < ApplicationController
 
-  skip_authorization_check # TODO: REMOVE
   before_action :ensure_logged_in
   before_action :set_back_path, only: :index
 
@@ -20,8 +23,27 @@ class Circle::MembersController < ApplicationController
     end
   end
 
+  def edit
+    authorize! :edit, current_member, current_circle
+    @form = User::Update.new(user: current_member, current_circle: current_circle)
+  end
+
+  def update
+    authorize! :edit, current_member, current_circle
+    @form = User::Update.new(params[:user], user: current_member, current_circle: current_circle)
+    outcome = @form.submit
+    errors.add outcome.errors
+    if outcome.success?
+      flash[:notice] = t("flash.user.account.saved")
+      redirect_to circle_member_url(current_circle, current_member)
+    else
+      flash[:error] = t("flash.user.account.save-failed")
+      render :edit
+    end
+  end
 
   def activate
+    authorize! :activate_member, current_circle
     outcome = Circle::Member::Activate.run(params.merge(admin: current_user))
     if request.xhr?
       head (outcome ? :ok : :unprocessable_entity)
@@ -29,7 +51,7 @@ class Circle::MembersController < ApplicationController
       redirect_to circle_member_path(current_circle, current_member)
     end
   end
-
+  
 
   def block
     authorize! :block, current_member, current_circle

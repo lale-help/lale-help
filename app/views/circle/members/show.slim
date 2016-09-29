@@ -1,3 +1,5 @@
+- presenter = MemberPresenter.new(current_member, current_circle)
+
 - content_for :header_middle do
   = link_to_back
 
@@ -5,58 +7,66 @@
   main
     .member-header
       .icon
-        = render 'user/user_icon', user: current_member
+        == cell(:user_icon, presenter.model, circle: current_circle)
       .title
-        = current_member.name
-      .description= current_member.about_me
+        = presenter.name
+      .description = presenter.about_me
 
     .member-details.item-details-table
       .row.contact
         .icon
-        .title= t('.contact')
+        .title = t('.contact')
         .details
-          a href="mailto:#{current_member.identity.email}"
-            = current_member.identity.email
+          a href="mailto:#{presenter.email}"
+            = presenter.email
 
-          - if current_member.mobile_phone.present?
-            div= "M: #{current_member.mobile_phone}"
+          - if presenter.mobile_phone.present?
+            . = "M: #{presenter.mobile_phone}"
 
-          - if current_member.home_phone.present?
-            div= "H: #{current_member.home_phone}"
+          - if presenter.home_phone.present?
+            . = "H: #{presenter.home_phone}"
 
-      - if current_member.location.present?
+      - if presenter.address.present?
         .row.location
           .icon
-          .title= t('.address')
-          .details= current_member.address.full_address
+          .title = User.human_attribute_name(:address)
+          .details = presenter.address
 
       .row.circles
         .icon
-        .title= t('.circles')
-        .details
-          - circle_links = current_member.circles.map{ |circle| link_to_circle(circle) }
-          = circle_links.to_sentence.html_safe
+        .title = Circle.model_name.human(count: presenter.circles.count)
+        .details = presenter.circle_links
 
       .row.work-group
         .icon
-        .title= t('.working_groups')
-        .details
-          - wg_links = current_member.working_groups.for_circle(current_circle).map{ |wg| link_to_working_group(wg) }
-          = wg_links.to_sentence.html_safe
+        .title = WorkingGroup.model_name.human(count: presenter.circle_working_groups.count)
+        .details = presenter.working_group_links
 
       .row.member-since
         .icon
-        .title= t('.member_since')
-        .details= l(current_member.created_at.to_date, format: :long)
+        .title = User.human_attribute_name(:created_at)
+        .details = presenter.member_since
 
       .row.completed
         .icon
-        .title= t('.tasks_supplies_completed')
-        .details= current_member.tasks.for_circle(current_circle).completed.count
+        .title = t('.help_provided_count')
+        .details = presenter.help_provided_count
+
+      - if can?(:edit, presenter.model, current_circle)    
+
+        .row.accredited-until
+          .icon
+          .title = User.human_attribute_name(:accredited_until)
+          .details = presenter.accredited_until
+
+        .row.language
+          .icon
+          .title = User.human_attribute_name(:language)
+          .details = presenter.language
 
     .actions
-      = render 'show_actions', circle: current_circle, member: current_member
+      = render 'show_actions', circle: current_circle, presenter: presenter
     
-    - if can? :read, Comment.new, User, current_circle
-      .task-comments data-url="#{circle_member_comments_path(current_circle, current_member)}"
-        = render 'circle/comments/comments', item: current_member, circle: current_circle, max_display: 5
+    - if can?(:read, Comment.new, User, current_circle)
+      .task-comments data-url=circle_member_comments_path(current_circle, presenter.model)
+        = render 'circle/comments/comments', item: presenter.model, circle: current_circle, max_display: 5

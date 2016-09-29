@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   include Commentable
 
-  # has_many :feedback
-
   has_many :triggered_system_events, class_name: '::SystemEvent'
   has_many :notifications, class_name: '::SystemEvent::Notification'
 
@@ -20,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :supplies, ->{ distinct }, through: :supply_roles
 
   has_many :circle_roles, class_name: 'Circle::Role', dependent: :destroy
+  has_many :circle_volunteer_roles, ->{ where(role_type: Circle::Role.role_types['circle.volunteer']) }, class_name: 'Circle::Role'
+  has_many :circle_admin_roles, ->{ where(role_type: Circle::Role.role_types['circle.admin']) }, class_name: 'Circle::Role'
   has_many :circles, ->{ distinct }, through: :circle_roles
 
   has_many :working_group_roles, class_name: 'WorkingGroup::Role', dependent: :destroy

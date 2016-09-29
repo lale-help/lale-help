@@ -50,7 +50,7 @@ section > .member {
         border-bottom: thin solid $border-color;
       }
 
-      .member-since .icon {
+      .member-since .icon, .accredited-until .icon {
         @include lale-icon($lale-icon-calendar, 2em);
       }
 

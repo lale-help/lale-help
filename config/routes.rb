@@ -12,9 +12,7 @@ Rails.application.routes.draw do
       end
 
       resources :members do
-        put :activate, on: :member
-        put :block, on: :member
-        put :unblock, on: :member
+        put :activate, :block, :unblock, on: :member
         resources :comments, only: [:create, :index, :destroy, :update]
       end
 
@@ -93,6 +91,7 @@ Rails.application.routes.draw do
   get "/token/:token_code", to: "tokens#handle_token", as: "handle_token"
 
   scope module: "user" do
+    # FIXME none of the resource actions may be needed anymore.
     resources :accounts do
       get :change_password, :switch_circle
       patch :update_password

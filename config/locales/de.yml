@@ -310,7 +310,10 @@
         :accept_terms: Nutzungsbedingungen akzeptieren
         :active_since: Aktiv seit
         :address: Anschrift
-        :circle: :activerecord.models.circle
+        :created_at: Mitglied seit
+        :circle: Helferkreis
+        :accredited: Akkreditiert bis
+        :accredited_until: Akkreditiert bis
         :city: Ort
         :country: Land
         :email: E-Mail-Adresse
@@ -328,7 +331,7 @@
         :phone: Telefon
         :postal_code: Postleitzahl
         :primary_circle_id: Haupthelferkreis
-        :public_profile: Andere Helfer können mein Profil sehen
+        :public_profile: Andere Helfer können das Profil sehen
         :role: Rolle
         :state_province: Bundesland
         :street_address: Strasse
@@ -368,7 +371,9 @@
             besteht
           :one: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record} besteht
     :models:
-      :circle: Helferkreis
+      :circle: 
+        one: Helferkreis
+        other: Helferkreise
       :file_upload:
         :one: Dokument
         :other: Dokumente
@@ -400,7 +405,9 @@
         :other: Helfer
       :user/feedback: Helfer/Feedbackeedback
       :user/identity: Helfer/Identität
-      :working_group: Arbeitsgruppe
+      :working_group: 
+        one: Arbeitsgruppe
+        other: Arbeitsgruppen
   :cells:
     :tasks:
       :sourcing_widget:
@@ -505,6 +512,11 @@
       :join:
         :start_helping: Mach heute gleich mit bei %{circle}!
     :members:
+      :edit:
+        :country_select: Bitte Land auswählen
+        :error_correction: Bitte die untenstehenden Fehler berichtigen.
+        :title: Mein Profil
+        :update_settings: "Änderungen speichern"
       :index:
         :directory: Helferliste
         :total_members: Zeige %{showing} von %{total} Helfern.
@@ -515,19 +527,16 @@
         :all-helpers: Alle Helfer
         :organizers: Organisatoren
       :show:
-        :address: Anschrift
         :back: Zurück
-        :circles: Helferkreise
         :contact: Kontakt
         :edit_profile: Mein Profil ändern
-        :member_since: Mitglied seit
-        :roles: Rollen
-        :tasks_supplies_completed: Geleistete Hilfe
-        :working_groups: Arbeitsgruppen
+        :not_accredited: nicht akkreditiert
+        :help_provided_count: Geleistete Hilfe
       :show_actions:
         :organizer_info_title: Dieser Helfer kann nicht gesperrt werden, da sie /
           er noch für die folgenden Dinge zuständig ist. Bitte finde andere Helfer
           für diese Tätigkeiten und versuche es erneut.
+        :change_password: Passwort ändern
     :organizers:
       :index:
         :organizers: Organisatoren
@@ -1422,12 +1431,6 @@
     :terms_of_service: http://lale.help/de/agb#terms
   :user:
     :accounts:
-      :edit:
-        :country_select: Bitte Land auswählen
-        :error_correction: Bitte die untenstehenden Fehler berichtigen.
-        :change_password: Passwort ändern
-        :title: Mein Profil
-        :update_settings: "Änderungen speichern"
       :change_password:
         :password: Passwort
         :password_confirmation: Passwort Bestätigung
@@ -1454,7 +1457,7 @@
         :password: Passwort
         :password_confirmation: Passwort Bestätigung
         :postal_code: Postleitzahl
-        :public_profile: Andere Helfer können mein Profil sehen
+        :public_profile: Andere Helfer können das Profil sehen
         :state_province: Bundesland
         :street_address: Strasse
   :users:

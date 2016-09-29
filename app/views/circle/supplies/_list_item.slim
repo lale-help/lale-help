@@ -15,7 +15,7 @@ div.item href=circle_supply_path(supply.circle, supply) class=supply.css
     .item-stats
       .item-assignees
         - unless supply.volunteers.empty?
-          = render 'user/user_icon', user: supply.volunteers.first, link: true
+          == cell(:user_icon, supply.volunteers.first, circle: current_circle, link: true)
       .task-badge.task-badge--users
         i
         = "#{supply.volunteers.count > 0 ? 1 : 0}/1"
