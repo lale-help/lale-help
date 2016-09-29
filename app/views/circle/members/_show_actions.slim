@@ -14,7 +14,7 @@
           = t('helpers.block')
 
   - if can?(:unblock, presenter.model, circle)
-    = form_tag unblock_circle__path(circle, presenter.model), method: :put do
+    = form_tag unblock_circle_member_path(circle, presenter.model), method: :put do
       button.button-secondary 
         = t('helpers.unblock')
 
