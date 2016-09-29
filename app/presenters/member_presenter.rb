@@ -1,7 +1,6 @@
 class MemberPresenter < Presenter
 
   include ActionView::Helpers::UrlHelper
-  include LinksHelper # needed for link_to_circle
 
   delegate :about_me, :name, :email, :home_phone, :mobile_phone, :circles,
     to: :model
@@ -17,7 +16,7 @@ class MemberPresenter < Presenter
   }
 
   let(:circle) do
-    @context
+    @options[:circle]
   end
 
   let(:address) do
@@ -26,7 +25,7 @@ class MemberPresenter < Presenter
 
   # TODO mark if profile is public, mark primary circle
   let(:circle_links) do
-    links = _.circles.map { |circle| link_to_circle(circle) }
+    links = _.circles.map { |circle| @context.link_to_circle(circle) }
     links.to_sentence.html_safe
   end
 
@@ -43,7 +42,7 @@ class MemberPresenter < Presenter
   end
 
   let(:working_group_links) do
-    links = circle_working_groups.map { |wg| link_to_working_group(wg) }
+    links = circle_working_groups.map { |wg| @context.link_to_working_group(wg) }
     links.to_sentence.html_safe
   end
 
@@ -65,7 +64,7 @@ class MemberPresenter < Presenter
   let(:link_to_last_helped_item) do
     if last_helped_item
       text = I18n.l(last_helped_item.completed_at.to_date, format: :default)
-      link_to_taskable(last_helped_item, text: text)
+      @context.link_to_taskable(last_helped_item, text: text)
     end
   end
 
@@ -96,7 +95,7 @@ class MemberPresenter < Presenter
 
   def stringify_organizer_role(resource)
     link_text = "#{resource.model_name.human} #{resource.try(:name) || resource.try(:title)}"
-    link_to(link_text, resource_path(resource), target: :blank)
+    @context.link_to(link_text, resource_path(resource), target: :blank)
   end
 
   def resource_path(resource)

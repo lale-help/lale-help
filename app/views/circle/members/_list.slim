@@ -19,7 +19,7 @@ table.member-list.default-table
   tbody
     - members.each do |user|
 
-      - presenter = MemberPresenter.new(user, current_circle)
+      - presenter = MemberPresenter.new(user, self, circle: current_circle)
 
       tr
         td
