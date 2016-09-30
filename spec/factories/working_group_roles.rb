@@ -8,7 +8,7 @@ FactoryGirl.define do
       role_type { "admin" }
     end
 
-    factory :working_group_member_role, aliases: [:working_group_volunteer_role]do
+    factory :working_group_member_role, aliases: [:working_group_volunteer_role] do
       role_type { "member" }
     end
 

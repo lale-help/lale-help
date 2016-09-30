@@ -11,7 +11,7 @@ describe "Add and remove circle admins", js: true do
   
     context "circle has a member that's not admin yet" do
 
-      let!(:circle_member) { create(:circle_member_role, circle: circle).user }
+      let!(:circle_member) { create(:circle_role_volunteer, circle: circle).user }
 
       before { roles_page.load(circle_id: circle.id, as: admin.id) }
       
@@ -28,7 +28,7 @@ describe "Add and remove circle admins", js: true do
 
     context "circle has a member that's not admin yet" do
 
-      let!(:circle_admin) { create(:circle_admin_role, circle: circle).user }
+      let!(:circle_admin) { create(:circle_role_admin, circle: circle).user }
 
       before { roles_page.load(circle_id: circle.id, as: admin.id) }
 
