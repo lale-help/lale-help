@@ -2,7 +2,7 @@ module PageObject
   module Member
     class Form < PageObject::Page
 
-      set_url '/accounts/{id}/edit{?as}'
+      set_url '/circles/{circle_id}/members/{id}/edit{?as}'
 
       element :first_name, '#user_first_name'
       element :last_name, '#user_last_name'
@@ -12,7 +12,7 @@ module PageObject
       private
 
       def next_page_object
-        self.class.new
+        PageObject::Member::Page.new
       end        
 
       def fill_form(attributes)
