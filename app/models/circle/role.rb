@@ -16,7 +16,9 @@ class Circle::Role < ActiveRecord::Base
   ORGANIZER_TYPES  = %w(circle.admin)
   ORGANIZER_TYPE_IDS  = ORGANIZER_TYPES.map {|id| Circle::Role.role_types[id] }
 
-  scope :leadership, ->{ where(role_type: LEADERSHIP_TYPES.map{|id| Circle::Role.role_types[id] }) }
+  scope :leadership, -> { where(role_type: LEADERSHIP_TYPES.map{|id| Circle::Role.role_types[id] }) }
+  scope :volunteer,  -> { where(role_type: role_types['circle.volunteer']) }
+  scope :admin,      -> { where(role_type: role_types['circle.admin']) }
   scope :for_circle, ->(circle) { where(circle: circle ) }
 
   validates :user_id, uniqueness: { scope: [:role_type, :circle_id] }
