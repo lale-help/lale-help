@@ -17,7 +17,7 @@ describe "Add and remove circle admins", js: true do
       
       it "can be added" do
         roles_page.promote_user_link.click
-        # circle_member is selected in the dropdown already, no selecting necessary.
+        roles_page.user_dropdown.select(circle_member.name)
         roles_page.save_role_button.click
         expect(roles_page).to have_admin(circle_member)
       end

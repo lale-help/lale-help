@@ -4,6 +4,7 @@ module PageObject
 
       set_url '/circles/{circle_id}/admin/roles{?as}'
       element :promote_user_link, 'a', text: /Promote User/
+      element :user_dropdown, '#circle_role_user_id'
       element :save_role_button, 'input[type=submit][value=Save]'
 
       sections :admins, '.default-table tbody tr' do
