@@ -14,7 +14,7 @@
   color: $blue-dark-2;
   font-size: $font-size;
 
-  border: thin dashed $blue-dark-1;
+  border: thin solid $blue-dark-1;
   border-radius: 50%;
 
   @include display(flex);
@@ -65,7 +65,6 @@
 
   .user-icon {
     @include circle-icon(50px, 2.5rem);
-    border: 1px dashed $blue-dark-1;
   }
 
   .user-details {
