@@ -7,4 +7,11 @@ describe User do
   it "should default to language :en" do
     expect(subject.language).to eq("en")
   end
+
+  describe "name" do
+    let(:user) { build(:user, first_name: 'Fritz', last_name: 'Fischer') }
+    it "builds it from first and last name" do
+      expect(user.name).to eq("Fritz Fischer")
+    end
+  end
 end
