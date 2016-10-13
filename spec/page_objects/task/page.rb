@@ -32,7 +32,7 @@ module PageObject
         to: :header
 
       def num_required_volunteers
-        ((/\/(\d+)/).match(text))[1].to_i
+        ((/\/(\d+)/).match(helpers_box.text))[1].to_i
       end
 
     end
