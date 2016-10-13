@@ -140,11 +140,6 @@ describe "User abilities" do
     let(:working_group) { user.working_groups.first }
     let(:project) { create(:project, working_group: working_group) }
 
-    before do
-      # a circle and role are required here because the user activity status is stored on the circle role
-      create(:circle_role_volunteer, circle: working_group.circle, user: user)
-    end
-
     it { is_expected.to     be_able_to(:read, project) }
     it { is_expected.to     be_able_to(:manage, project) }
     it { is_expected.to     be_able_to(:invite_to, task) }
