@@ -53,7 +53,7 @@ describe "Circle factory" do
     it "correctly assigns the admins and volunteers" do
       circle = create(:circle, admins: user_3, volunteers: [user_1, user_2])
       expect(circle.admins).to match_array([user_3])
-      expect(circle.volunteers).to match_array([user_1, user_2])
+      expect(circle.volunteers).to match_array([user_3, user_1, user_2])
     end
   end
 
@@ -77,7 +77,7 @@ describe "Circle factory" do
         circle = create(:circle, :with_admin, :with_volunteer)
         expect(circle.admins.size).to eq(1)
         expect(circle.admins.first).to be_a(User)
-        expect(circle.volunteers.size).to eq(1)
+        expect(circle.volunteers.size).to eq(2) # admin is also made volunteer
         expect(circle.volunteers.first).to be_a(User)
       end
     end
