@@ -34,4 +34,4 @@
 .tab.documents
   = render 'files/list', files: @files, show_actions: can?(:manage, dashboard_resource), show_uploadable: false
   - if can? :add_file?, dashboard_resource
-    = link_to t('helpers.new', model: FileUpload.model_name.human), new_circle_file_path(dashboard_resource, FileUpload.uploadable_gid(dashboard_resource)), class: 'button button-primary'
+    = link_to t('helpers.new', model: FileUpload.model_name.human), new_circle_file_path(current_circle, FileUpload.uploadable_gid(dashboard_resource)), class: 'button button-primary'
