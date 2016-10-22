@@ -48,6 +48,8 @@ gem 'geocoder'
 gem 'timezone'
 gem 'terminal-table'
 gem 'country_select'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 group :development do
   gem "letter_opener_web"
