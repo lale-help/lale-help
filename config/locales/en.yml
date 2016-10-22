@@ -193,7 +193,7 @@
           :one: Organizer
           :other: Organizers
         :organizer_id: Organizer
-        :working_group: 
+        :working_group:
           one: Working group
           other: Working groups
         :working_group_id:
@@ -376,7 +376,7 @@
           :many: Cannot delete record because dependent %{record} exist
           :one: Cannot delete record because a dependent %{record} exists
     :models:
-      :circle: 
+      :circle:
         one: Circle
         other: Circles
       :file_upload:
@@ -410,7 +410,7 @@
         :other: Helpers
       :user/feedback: Volunteer/feedback
       :user/identity: Volunteer/identity
-      :working_group: 
+      :working_group:
         one: Working Group
         other: Working Groups
   :cells:
@@ -542,7 +542,7 @@
           responsible for the following items. Please update the responsibilities
           there, reload this page, and try again.
         :change_password: Change password
-          
+
     :organizers:
       :index:
         :organizers: Organizers
@@ -764,7 +764,7 @@
     - Fri
     - Sat
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -790,7 +790,7 @@
       :long: "%B %d, %Y"
       :short: "%b %d"
     :month_names:
-    - 
+    -
     - January
     - February
     - March
@@ -1165,6 +1165,8 @@
     :percentage:
       :format:
         :format: "%n%"
+  :pdf:
+    :list: helperlist
   :project_edit:
     :cancel: Cancel
   :projects:

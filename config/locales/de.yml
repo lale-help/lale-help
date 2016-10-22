@@ -371,7 +371,7 @@
             besteht
           :one: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record} besteht
     :models:
-      :circle: 
+      :circle:
         one: Helferkreis
         other: Helferkreise
       :file_upload:
@@ -405,7 +405,7 @@
         :other: Helfer
       :user/feedback: Helfer/Feedbackeedback
       :user/identity: Helfer/Identität
-      :working_group: 
+      :working_group:
         one: Arbeitsgruppe
         other: Arbeitsgruppen
   :cells:
@@ -759,7 +759,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mär
@@ -785,7 +785,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Januar
     - Februar
     - März
@@ -1156,6 +1156,8 @@
     :percentage:
       :format:
         :format: "%n%"
+  :pdf:
+    :list: Helferliste
   :project_edit:
     :cancel: Abbrechen
   :projects:

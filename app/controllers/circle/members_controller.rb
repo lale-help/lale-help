@@ -14,6 +14,16 @@ class Circle::MembersController < ApplicationController
     @members    = active_users.select { |member| can?(:read, member, current_circle) }
     @organizers = organizers.select { |member| can?(:read, member, current_circle) }
     @totals     = { members: active_users.count, organizers: organizers.count }
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render  pdf: "#{current_circle.name}_" + t("pdf.list") + "_" + Date.today.to_formatted_s(:number),
+                template: 'circle/members/pdf.slim',
+                layout: 'pdf.slim',
+                locals: { members: @members },
+                orientation: 'Landscape'
+      end
+    end
   end
 
   def show
@@ -51,7 +61,7 @@ class Circle::MembersController < ApplicationController
       redirect_to circle_member_path(current_circle, current_member)
     end
   end
-  
+
 
   def block
     authorize! :block, current_member, current_circle

@@ -1,9 +1,7 @@
 table.member-list.default-table
   thead
     tr
-      th
       th.name = User.human_attribute_name(:name)
-      th = User.human_attribute_name(:working_groups)
       th = User.human_attribute_name(:address)
       th = User.human_attribute_name(:phone)
       th = User.human_attribute_name(:email)
@@ -12,9 +10,7 @@ table.member-list.default-table
         - if can?(:edit_accreditation, members.first, current_circle)
           th = User.human_attribute_name(:accredited_until)
       th = User.human_attribute_name(:last_login)
-      - if can?(:manage, current_circle) && controller.controller_name == 'members'
-        th = t('.help_provided')
-        th = t('.last_help_provided')
+
 
   tbody
     - members.each do |user|
@@ -22,17 +18,13 @@ table.member-list.default-table
       - presenter = MemberPresenter.new(user, self, circle: current_circle)
 
       tr
-        td
-          == cell(:user_icon, user, circle: current_circle, link: true)
-
         td.name
-          = link_to(user.name, circle_member_path(current_circle, user))
+          = user.name
 
         td
-          - wg_links = user.working_groups.for_circle(current_circle).map { |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
-          = wg_links.join(', </br>').html_safe
-        td
-          = user.address.full_address
+          . = user.address.street_address_1
+          . = "#{user.address.city}"
+          . = ["#{user.address.state_province}", "#{user.address.postal_code}", "#{user.address.country}"].reject(&:empty?).join(", ")
 
         td.no-wrap
           - if user.mobile_phone.present?
@@ -51,10 +43,4 @@ table.member-list.default-table
 
         td.no-wrap
           div = presenter.last_login(format: :default)
-
-        - if can?(:manage, current_circle) && controller.controller_name == 'members'
-          td
-            = presenter.help_provided_count
-          td.no-wrap
-            = presenter.link_to_last_helped_item
 
