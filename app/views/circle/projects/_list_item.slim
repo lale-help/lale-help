@@ -19,4 +19,4 @@ div.item href=circle_project_path(project.circle, project) class=project.css
 
       .task-badge.task-badge--taskables
         i
-        = "#{project.open_taskables_count}/#{project.total_taskables_count}"
+        = "#{project.total_taskables_count - project.open_taskables_count}/#{project.total_taskables_count}"
