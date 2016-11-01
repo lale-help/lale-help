@@ -3,6 +3,8 @@
   = render 'nav'
 
   .tab.helpers
+    - if can? :manage, current_circle
+      = link_to("PDF", circle_members_path(format: 'pdf'), target: "_blank", class: "button showing", format: :pdf)
     = render partial: 'list', locals: { members: @members }
     .showing
       = t('.total_members', total: @totals[:members], showing: @members.length)

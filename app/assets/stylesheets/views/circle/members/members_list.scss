@@ -21,3 +21,7 @@ section > .members_list {
     white-space: nowrap;
   }
 }
+
+tr {
+  page-break-inside: avoid
+}

@@ -24,16 +24,16 @@ table.member-list.default-table
       tr
         td
           == cell(:user_icon, user, circle: current_circle, link: true)
-        
+
         td.name
           = link_to(user.name, circle_member_path(current_circle, user))
-        
+
         td
           - wg_links = user.working_groups.for_circle(current_circle).map { |wg| link_to(html_escape(wg.name), circle_working_group_path(current_circle,wg)) }
           = wg_links.join(', </br>').html_safe
         td
           = user.address.full_address
-        
+
         td.no-wrap
           - if user.mobile_phone.present?
             div = "M: #{user.mobile_phone}"
