@@ -106,7 +106,7 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Volunteer.run(user: current_user, task: current_task)
 
-    set_flash(outcome.success? ? :success : :error, name: current_user.name)
+    set_flash(outcome.success? ? :success : :error, name: current_task.name)
     redirect_to circle_task_path(current_circle, current_task)
   end
 
@@ -151,7 +151,7 @@ class Circle::TasksController < ApplicationController
 
     outcome = Task::Decline.run(user: current_user, task: current_task)
 
-    set_flash(outcome.success? ? :success : :error)
+    set_flash(outcome.success? ? :success : :error, name: current_task.name)
     redirect_to circle_task_path(current_circle, current_task)
   end
 
