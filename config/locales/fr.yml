@@ -351,7 +351,7 @@
             %{record}'
           :one: 'Cette entrée ne peut être éffacée car une dépendence existe : %{record}'
     :models:
-      :circle: 
+      :circle:
         :one: Cercle
         :other: Cercles
       :file_upload:
@@ -385,7 +385,7 @@
         :other: Volontaires
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
-      :working_group: 
+      :working_group:
         one: Groupe
         other: Groupes
   :cells:
@@ -738,7 +738,7 @@
     - Ven
     - Sam
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Fev
     - Mar
@@ -764,7 +764,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    - 
+    -
     - Janvier
     - Février
     - Mars
@@ -1140,6 +1140,8 @@
     :percentage:
       :format:
         :format: "%n%"
+  :pdf:
+    :list: Listedevolontaires
   :project_edit:
     :cancel: Annuler
   :public:
