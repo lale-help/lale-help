@@ -5,7 +5,7 @@ class Task::BaseForm < ::Form
   attribute :name,             :string
   attribute :description,      :string
 
-  attribute :primary_location, :string, default: proc { (task.primary_location || circle.address.location).try(:address) }
+  attribute :primary_location, :string, default: proc { task.primary_location.try :address }
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
