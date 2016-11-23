@@ -7,7 +7,7 @@ class Supply::BaseForm < ::Form
   attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :location, :string, default: proc{ (supply.location || circle.address.location).try :address }
+  attribute :location, :string, default: proc{ supply.location.try :address }
   attribute :organizer_id,     :integer, default: proc { supply.organizer.try(:id) || user.id }
 
   attribute :ability, :model
