@@ -5,5 +5,11 @@
         @include lale-icon($lale-icon-circle, 1.25em);
       }
     }
+    .description {
+        overflow-y: auto; 
+        max-height: 3.5em;
+        text-align: justify;
+        text-justify: inter-word; 
+    }
   }
 }

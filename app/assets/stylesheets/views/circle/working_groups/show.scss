@@ -7,6 +7,12 @@
         }
       }
     }
+    .description {
+        overflow-y: auto; 
+        max-height: 3.5em;
+        text-align: justify;
+        text-justify: inter-word; 
+    }
   }
 
   // it's much easier to hide the message (which should be hidden ) with CSS
