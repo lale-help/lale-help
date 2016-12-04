@@ -4,7 +4,7 @@
 
     .field-row
       .field
-        = f.collection_select :user_id, form.available_users, :id, :name
+        = f.collection_select :user_id, form.available_users.asc_order, :id, :list_name
 
       .field
         = f.submit t('.add'), class: 'button-primary'
