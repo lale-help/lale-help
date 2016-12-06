@@ -59,7 +59,7 @@ module SidebarHelper
   private
 
   def working_groups_per_user(check_method)
-    current_circle.working_groups.active.select do |wg|
+    current_circle.working_groups.active.asc_order.select do |wg|
       current_user.working_groups.map(&:id).send(check_method, wg.id)
     end
   end
