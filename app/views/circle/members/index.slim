@@ -5,6 +5,7 @@
   .tab.helpers
     - if can? :manage, current_circle
       = link_to("PDF", circle_members_path(format: 'pdf'), target: "_blank", class: "button showing", format: :pdf)
+      = link_to("CSV", circle_members_path(format: 'csv'), target: "_blank", class: "button showing", format: :csv)
     = render partial: 'list', locals: { members: @members }
     .showing
       = t('.total_members', total: @totals[:members], showing: @members.length)
