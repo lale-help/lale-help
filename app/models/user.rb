@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
 
   enum language: [:en, :de, :fr]
 
+  scope :asc_order, -> { order(:last_name) }
+
   alias_attribute :active_since, :created_at
 
   class << self
@@ -58,6 +60,10 @@ class User < ActiveRecord::Base
 
   def name
     "#{first_name} #{last_name}"
+  end
+
+  def list_name
+    "#{last_name}, #{first_name}"
   end
 
   def email
