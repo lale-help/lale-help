@@ -108,15 +108,15 @@ class ProjectPresenter < Presenter
 
   def link_to_complete
     options = {}
+    options[:method] = :put
     if has_incomplete_items?
-      options[:onclick] = "alert(#{I18n.t('circle.projects.show.cant_complete_with_items').to_json}); return false;"
+      context.link_to(circle_project_complete_path(_.circle, _), data: {confirm: I18n.t('helpers.confirm.project.complete')}, method: 'put') do
+        yield
+      end
     else
-      # this will submit the form anyhow even if onclick returns false, so only add it when
-      # the link really should be followed.
-      options[:method] = :put
-    end
-    context.link_to(circle_project_complete_path(_.circle, _), options) do
-      yield
+      context.link_to(circle_project_complete_path(_.circle, _), options) do
+        yield
+      end
     end
 
   end

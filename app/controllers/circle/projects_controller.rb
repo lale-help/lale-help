@@ -61,6 +61,7 @@ class Circle::ProjectsController < ApplicationController
 
   def complete
     authorize! :complete, current_project
+    close_all_tasks_supplies
     outcome = Project::Complete.run(project: current_project)
     set_flash(outcome.success? ? :success : :error)
     redirect_to circle_project_path(current_circle, current_project)
@@ -98,6 +99,11 @@ class Circle::ProjectsController < ApplicationController
 
   helper_method def current_project
     @project ||= current_circle.projects.find(params[:id] || params[:project_id])
+  end
+
+  def close_all_tasks_supplies
+    current_project.tasks.incomplete.map {|t| Task::Complete.run(user: current_user, task: t)}
+    current_project.supplies.incomplete.map {|s| Supply::Complete.run(user: current_user, supply: s)}
   end
 
 end
