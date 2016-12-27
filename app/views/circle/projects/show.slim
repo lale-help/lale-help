@@ -10,7 +10,21 @@
         - if project.complete?
           span.done = t('.title_complete')
         = project.name
-      .description = project.description
+      .description
+        .item-details-table
+          .row.description
+            .icon
+            h2= "Description"
+            p= project.description
+          - if project.has_date_range?
+            .row.date-range
+              .icon
+              h2= t('.date_range')
+              p= project.date_range_sentence
+          .row.work-group
+            .icon
+            h2= Task.human_attribute_name(:working_group)
+            p= link_to_working_group(project.working_group)
 
     .right
       - if can? :manage, current_project
@@ -21,7 +35,7 @@
 
       = render partial: 'nav', locals: { project: project }
 
-      .tab.info
+      .tab.stats
 
         .item-details-table
 
@@ -46,22 +60,6 @@
               .details
                 = render 'stats', stats: project.stats.users
 
-          - if project.has_date_range?
-            .row.date-range
-              .icon
-              .title = t('.date_range')
-              .details
-                = project.date_range_sentence
-
-          .row.work-group
-            .icon
-            .title= Task.human_attribute_name(:working_group)
-            .details
-              = link_to_working_group(project.working_group)
-
-          .row.organizer
-            .details== t(".organized-by", name: link_to_user(project.admin).html_safe)
-
       .tab.tasks
         .task_section.open_tasks data-tab='open_tasks'
           - if @completed_tasks.present?
@@ -79,7 +77,10 @@
         .task_section.completed_supplies data-tab='completed_supplies'
           a.task_status data-tab='open_supplies' == t("dashboards.resources.show_open_supplies")
           = render 'circle/supplies/list', circle: project.circle, supplies: @completed_supplies
-
+       
+      .tab.comments
+        .task-comments data-url="#{circle_project_comments_path(current_circle, current_project)}"
+          = render partial: 'circle/comments/comments', locals: { item: current_project, circle: current_circle, max_display: 5 }
 
     aside
 

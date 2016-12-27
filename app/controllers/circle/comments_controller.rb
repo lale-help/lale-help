@@ -62,6 +62,8 @@ class Circle::CommentsController < ApplicationController
                 Supply.find(params[:supply_id])
               elsif params[:member_id].present?
                 User.find(params[:member_id])
+              elsif params[:project_id].present?
+                Project.find(params[:project_id])
               else
                 Task.find(params[:task_id])
               end

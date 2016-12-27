@@ -61,6 +61,7 @@ Rails.application.routes.draw do
       resources :projects do
         post :invite
         put :complete, :reopen
+        resources :comments, only: [:create, :destroy, :update, :index]
       end
 
       resources :documents, only: :index

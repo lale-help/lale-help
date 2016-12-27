@@ -21,6 +21,12 @@ class Circle::ProjectsController < ApplicationController
     supplies            = current_project.supplies.ordered_by_date
     @open_supplies      = supplies.not_completed.select { |f| can?(:read, f) }
     @completed_supplies = supplies.completed.select { |f| can?(:read, f) }
+  
+    @comments            = current_project.comments.select { |f| can?(:read, f) }
+    
+    if can? :create, Comment.new, current_project, current_circle
+      @form = Comment::Create.new(commenter: current_user, project: current_project, comment: Comment.new)
+    end
   end
 
   def new

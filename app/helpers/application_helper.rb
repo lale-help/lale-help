@@ -10,11 +10,13 @@ module ApplicationHelper
     form_for(form, opts, &block)
   end
 
-  def circle_task_or_supply_comments_path(circle, task_supply)
+  def circle_task_or_supply_or_project_comments_path(circle, task_supply_project)
     if current_task.is_a? Supply
       circle_supply_comments_path(current_circle, current_task, Comment.new)
-    else
+    elsif current_task.is_a? Task
       circle_task_comments_path(current_circle, current_task, Comment.new)
+    else
+      circle_project_comments_path(current_circle, current_project, Comment.new)
     end
   end
 

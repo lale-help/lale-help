@@ -1,10 +1,12 @@
 .tab-nav
 
-  a.info data-tab='info'
-    = t('.info')
   a.tasks data-tab='tasks'
     = Task.model_name.human(count: 2)
     span.badge = project.tasks.not_completed.count
   a.supplies data-tab='supplies'
     = Supply.model_name.human(count: 2)
     span.badge = project.supplies.not_completed.count
+  a.comments data-tab='comments'
+    = Comment.model_name.human(count: 2)
+  a.info data-tab='stats'
+    = t('.stats')
