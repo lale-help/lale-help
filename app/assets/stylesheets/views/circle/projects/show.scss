@@ -23,8 +23,27 @@
       .description {
         @include border-bottom-radius($border-radius);
         min-height: 8rem;
-        font-size: 1.5em;
         padding: 2rem 2rem 2rem 9rem;
+
+        .item-details-table {
+          background-color: white;
+          
+          .title { 
+            color: #546E7A;
+            background-color: white;
+            font-size: 1.5rem;
+            padding: 1rem 1rem 1rem 1rem;
+          }
+
+          .icon {
+            color: #546E7A;
+          }
+
+          .details {
+            font-size: 1.25rem;
+            color: #546E7A;
+          }
+        }
       }
 
     }

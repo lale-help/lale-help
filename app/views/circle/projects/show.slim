@@ -12,19 +12,19 @@
         = project.name
       .description
         .item-details-table
-          .row.description
+          .row.project-description
             .icon
-            h2= "Description"
-            p= project.description
+            .title= "Description"
+            .details= project.description
           - if project.has_date_range?
             .row.date-range
               .icon
-              h2= t('.date_range')
-              p= project.date_range_sentence
+              .title= t('.date_range')
+              .details= project.date_range_sentence
           .row.work-group
             .icon
-            h2= Task.human_attribute_name(:working_group)
-            p= link_to_working_group(project.working_group)
+            .title= Task.human_attribute_name(:working_group)
+            .details= link_to_working_group(project.working_group)
 
     .right
       - if can? :manage, current_project
