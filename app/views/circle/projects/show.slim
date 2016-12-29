@@ -11,19 +11,19 @@
           span.done = t('.title_complete')
         = project.name
       .description
-        .item-details-table
+        .description-details-table
           .row.project-description
             .icon
-            .title= "Description"
+            .detail-title= "Description"
             .details= project.description
           - if project.has_date_range?
             .row.date-range
               .icon
-              .title= t('.date_range')
+              .detail-title= t('.date_range')
               .details= project.date_range_sentence
           .row.work-group
             .icon
-            .title= Task.human_attribute_name(:working_group)
+            .detail-title= Task.human_attribute_name(:working_group)
             .details= link_to_working_group(project.working_group)
 
     .right
