@@ -32,7 +32,7 @@ class Circle::CommentsController < ApplicationController
 
   def update
     authorize! :update, Comment, current_item, current_circle
-
+    
     @form = Comment::Update.new(params[:comment], commenter: current_user, item: current_item, comment: @comment)
 
     outcome = @form.submit
@@ -77,14 +77,18 @@ class Circle::CommentsController < ApplicationController
   private
 
     def set_comment
+      Rails.logger.info "Current item #{current_item} has comments: #{current_item.comments}"
       @comment = current_item.comments.find(params[:id])
     end
 
     def circle_commentable_path(circle, item)
+      Rails.logger.info "Item #{item} for #{circle}"
       if item.is_a? Supply
         circle_supply_path(circle, item)
       elsif item.is_a? User
         circle_member_path(circle, item)
+      elsif item.is_a? Project
+        circle_project_path(circle, item)
       else
         circle_task_path(circle, item)
       end
