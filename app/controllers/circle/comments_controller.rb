@@ -77,12 +77,10 @@ class Circle::CommentsController < ApplicationController
   private
 
     def set_comment
-      Rails.logger.info "Current item #{current_item} has comments: #{current_item.comments}"
       @comment = current_item.comments.find(params[:id])
     end
 
     def circle_commentable_path(circle, item)
-      Rails.logger.info "Item #{item} for #{circle}"
       if item.is_a? Supply
         circle_supply_path(circle, item)
       elsif item.is_a? User
