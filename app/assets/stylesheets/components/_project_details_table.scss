@@ -1,0 +1,81 @@
+$border-radius: 1.5rem;
+
+.item-details-table {
+  > :first-child {
+    @include border-top-radius($border-radius);
+  }
+
+  > :last-child {
+    @include border-bottom-radius($border-radius);
+    border-bottom: thin solid $border-color;
+  }
+
+  .start-date, .due-date, .date-range {
+    .icon {
+      @include lale-icon($lale-icon-calendar, 2em);
+    }
+  }
+
+  .duration .icon {
+    @include lale-icon($lale-icon-clock, 2em);
+  }
+  .location .icon {
+    @include lale-icon($lale-icon-location-marker, 2em);
+  }
+  .work-group .icon {
+    @include lale-icon($lale-icon-archive, 2em);
+  }
+  .contact .icon {
+    @include lale-icon($lale-icon-envelope-open, 2em);
+  }
+  .volunteer .icon {
+    @include lale-icon($lale-icon-user, 2em);
+  }
+  .project .icon {
+    @include lale-icon($lale-icon-document, 2em);
+  }
+  .user .icon {
+    @include lale-icon($lale-icon-user, 2em);
+  }
+  .task .icon {
+    @include lale-icon($lale-icon-papers, 2em);
+  }
+  .supply .icon {
+    @include lale-icon($lale-icon-supply, 2em);
+  }
+  .organizer .details a {
+    display: inline-block;
+    margin-left: 4px;
+  }
+  > * {
+    padding: 1.5rem;
+    border: thin solid $border-color;
+    border-bottom: none;
+
+    @include display(flex);
+    @include flex-direction(row);
+    @include align-items(center);
+
+    font-size: 1.5rem;
+    .icon {
+      @include display(flex);
+      @include align-items(center);
+      @include justify-content(center);
+
+      min-width: 3rem;
+    }
+    .title {
+      @include flex(0 0 11rem);
+
+      margin-left: 1rem;
+    }
+
+    .details {
+      @include flex(1);
+      font-size: 1.25rem;
+      margin-left: 1rem;
+    }
+
+  }
+
+}
