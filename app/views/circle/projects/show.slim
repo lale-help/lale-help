@@ -14,7 +14,7 @@
         .description-details-table
           .row.project-description
             .icon
-            .detail-title= "Description"
+            .detail-title= Task.human_attribute_name(:description)
             .details= project.description
           - if project.has_date_range?
             .row.date-range
