@@ -6,7 +6,7 @@ This is the rails application used for lale.help.
 
 # Table of contents
 
-<!-- MarkdownTOC depth=2 autolink=true bracket=round -->
+<!-- MarkdownTOC depth=1 autolink=true bracket=round -->
 
 - [Development hints for docker](#development-hints-for-docker)
 - [URLs](#urls)
@@ -62,6 +62,12 @@ the hood to start the rails application
 | Stop all services                          | `./docker/stop`                       |
 | Rebuild the web container                  | `./docker/build`                      |
 | Reset your Docker environment              | `./docker/reset`                      |
+
+### Adding icons to the lale iconfont
+
+We use a custom font to combine our icons into one file, in order to save bandwith and HTTP requests. The icons are stored in `app/assets/icons` and need to be in SVG format, the (generated) font files are in `app/assets/fonts/lale/lale.*. 
+
+Run the command `fontcustom compile` to update the font file after changing anything in the icons directory. The [fontcustom gem](https://github.com/FontCustom/fontcustom/) needs to be installed separately, it is not contained in the gem file. See the configuration file [config/fontcustom.yml](config/fontcustom.yml) for details.
 
 ### Adding JavaScript packages / dependencies
 
