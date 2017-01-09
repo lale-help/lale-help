@@ -545,7 +545,7 @@
         :member-title:
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
-        :organized-by: Organisé par %{name}
+        :organized-by: organisé par
         :settings: Paramètres
         :title_complete: 'Complété :'
         :working_group_link: en %{link}
