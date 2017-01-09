@@ -1,3 +1,5 @@
+- line_options = { encoding: 'utf-8', force_quotes: true }
+
 - header = []
 - header << User.human_attribute_name(:first_name)
 - header << User.human_attribute_name(:last_name)
@@ -5,7 +7,7 @@
 - header << User.human_attribute_name(:language)
 - header << User.human_attribute_name(:mobile_phone)
 - header << User.human_attribute_name(:home_phone)
-- header << User.human_attribute_name(:street_address_1)
+- header << User.human_attribute_name(:street_address)
 - header << User.human_attribute_name(:city)
 - header << User.human_attribute_name(:state_province)
 - header << User.human_attribute_name(:postal_code)
@@ -21,7 +23,7 @@
   - header << t('circle.members.list.help_provided')
   - header << t('circle.members.list.last_help_provided')
 
-= CSV.generate_line(header).html_safe
+= CSV.generate_line(header, line_options).html_safe
 
 - members.each do |user|
   - presenter = MemberPresenter.new(user, self, circle: current_circle)
@@ -48,6 +50,5 @@
 
   - if can?(:manage, current_circle) && controller.controller_name == 'members'
     - line << presenter.help_provided_count
-    - line << presenter.link_to_last_helped_item
 
-  = CSV.generate_line(line).html_safe
+  = CSV.generate_line(line, line_options).html_safe
