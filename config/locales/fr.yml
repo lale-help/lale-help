@@ -987,6 +987,7 @@
     :update: Modifier ce(tte) %{model}
     :yes: Oui
   :helpers:
+    :add: Créer %{model}
     :assign: Attribuer des volontaires
     :assigning: Attribuer hellip;
     :block: Bloquer

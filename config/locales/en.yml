@@ -1009,6 +1009,7 @@
   :formtastic:
     :reset: Reset %{model}
   :helpers:
+    :add: Add %{model}
     :assign: Assign helpers
     :assigning: Assigning &hellip;
     :block: Block
