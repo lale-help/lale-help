@@ -25,9 +25,8 @@ $border-radius: 1.5rem;
   .contact .icon {
     @include lale-icon($lale-icon-envelope-open, 2em);
   }
-
   .project-description .icon {
-    //@include lale-icon($lale-icon-project-description, 2em);
+    @include lale-icon($lale-icon-info, 2em);
   }
 
   .organizer .details a {
