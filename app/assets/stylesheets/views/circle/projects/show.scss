@@ -28,8 +28,15 @@
 
     }
 
+    .right {
+      text-align: center;
+      .button-secondary {
+        margin: 0;
+        margin-top: 1rem;
+      }
+    }
     .dropdown {
-      $label-height: 31px;
+      $label-height: 33px;
       z-index: 99;
 
       label {
@@ -37,7 +44,7 @@
       }
 
       .menu {
-        top: $label-height + 4px;
+        top: $label-height + 2px;
         left: 10px;
         right: auto;
         min-width: auto;
@@ -53,4 +60,7 @@
     }
   }
 
+  .rich-table {
+    padding-top: 0;
+  }
 }
