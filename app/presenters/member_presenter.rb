@@ -74,6 +74,12 @@ class MemberPresenter < Presenter
     (tasks + supplies).max_by(&:completed_at)
   end
 
+  let(:last_helped_at) do
+    if last_helped_item && last_helped_item.completed_at
+      I18n.l(last_helped_item.completed_at.to_date)
+    end
+  end
+
   let(:language) do
     I18n.t(_.language, scope: 'language')
   end

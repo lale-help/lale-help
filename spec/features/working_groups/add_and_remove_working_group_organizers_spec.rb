@@ -27,7 +27,7 @@ describe "Add and remove working group organizers", js: true do
         # roles_page.wait_for_users but since we're still on the same page after the reload,
         # that would immediately trigger true and continue.
         sleep 1
-        expect(roles_page.organizers).to eq([circle_member.list_name])
+        expect(roles_page.organizers).to eq([circle_member.name])
       end
     end
   end
