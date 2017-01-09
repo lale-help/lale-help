@@ -19,14 +19,16 @@ $border-radius: 1.5rem;
     }
   }
 
-  .work-group {
+  .organizer {
     .icon {
-      @include lale-icon($lale-icon-archive, 2em);
+      @include lale-icon($lale-icon-user, 2em);
     }
     line-height: 30px;
     .user-icon-container {
-      margin-left: 5px;
-      margin-right: 5px;
+      margin-right: 3px;
+    }
+    .nowrap {
+      white-space: nowrap;
     }
   }
   .contact .icon {

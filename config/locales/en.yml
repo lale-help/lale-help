@@ -574,7 +574,8 @@
         :member-title:
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
-        :organized-by: organized by
+        :organized-by: Organized by
+        :in_working_group: in
         :settings: Settings
         :title_complete: 'Done: '
         :working_group_link: in %{link}

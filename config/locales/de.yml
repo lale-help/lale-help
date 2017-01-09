@@ -569,7 +569,8 @@
         :member-title:
           :one: "%{count} Helfer"
           :other: "%{count} Helfer"
-        :organized-by: organisiert von
+        :organized-by: Organisiert von
+        :in_working_group: in
         :settings: Einstellungen
         :title_complete: 'Abgeschlossen:'
         :working_group_link: in %{link}
