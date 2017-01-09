@@ -67,7 +67,7 @@ the hood to start the rails application
 
 We use a custom font to combine our icons into one file, in order to save bandwith and HTTP requests. The icons are stored in `app/assets/icons` and need to be in SVG format, the (generated) font files are in `app/assets/fonts/lale/lale.*. 
 
-Run the command `fontcustom compile` to update the font file after changing anything in the icons directory. The [fontcustom gem](https://github.com/FontCustom/fontcustom/) needs to be installed separately, it is not contained in the gem file. See the configuration file [config/fontcustom.yml](config/fontcustom.yml) for details.
+Run the command `fontcustom compile` to update the font file after changing anything in the icons directory. The [fontcustom gem](https://github.com/FontCustom/fontcustom/) and it's dependencies [need to be installed first](https://github.com/FontCustom/fontcustom/#installation). See the configuration file [config/fontcustom.yml](config/fontcustom.yml) for details.
 
 ### Adding JavaScript packages / dependencies
 
