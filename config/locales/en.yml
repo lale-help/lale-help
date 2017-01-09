@@ -559,7 +559,7 @@
       :list:
         :no_projects: No projects found.
       :nav:
-        :info: Info
+        :stats: Statistics
       :show:
         :admin-title:
           :one: "%{count} organizer"
@@ -590,8 +590,6 @@
         :header: Supplies
       :list:
         :no-supplies: No supplies are needed at this time.
-      :list_item:
-        :stats-here: Stats Here
       :new:
         :back: Back to All Supplies
       :show:
@@ -641,8 +639,6 @@
         :header: All Tasks
       :list:
         :no-tasks: No tasks found.
-      :list_item:
-        :stats-here: Stats
       :my:
         :header: My Tasks
         :organizer-header: Organizing

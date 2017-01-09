@@ -533,7 +533,7 @@
       :list:
         :no_projects: Pas de projets.
       :nav:
-        :info: Info
+        :stats: Statistiques
       :show:
         :admin-title:
           :one: "%{count} organisateur"
@@ -564,8 +564,6 @@
         :header: Besoins Matériels
       :list:
         :no-supplies: Aucun besoin particulier en ce moment.
-      :list_item:
-        :stats-here: Statistiques
       :new:
         :back: Retour aux Besoins
       :show:
@@ -615,8 +613,6 @@
         :header: Toutes les Tâches
       :list:
         :no-tasks: Aucune tâche trouvée.
-      :list_item:
-        :stats-here: Les Statistiques vont ici
       :my:
         :header: Mes Tâches
         :organizer-header: Organise

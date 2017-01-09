@@ -553,7 +553,7 @@
       :list:
         :no_projects: Keine Projekte gefunden.
       :nav:
-        :info: Info
+        :stats: Statistik
       :show:
         :admin-title:
           :one: "%{count} Organisator"
@@ -585,8 +585,6 @@
         :header: Sachspenden
       :list:
         :no-supplies: Derzeit keine Sachspenden benötigt.
-      :list_item:
-        :stats-here: Statistik
       :new:
         :back: Zurück zu den Sachspenden
       :show:
@@ -636,8 +634,6 @@
         :header: Alle Aufgaben
       :list:
         :no-tasks: Keine Aufgaben gefunden.
-      :list_item:
-        :stats-here: Statistik
       :my:
         :header: Meine Aufgaben
         :organizer-header: Ich organisiere
@@ -1022,6 +1018,7 @@
         :delete: Bist Du sicher, dass diese Aufgabe gelöscht werden soll?
     :deactivate: Deaktivieren
     :decline: Ich habe diese %{model} nicht
+    :add: "%{model} hinzufügen"
     :delete: "%{model} löschen"
     :delete_no_model: Löschen
     :edit: "%{model} bearbeiten"

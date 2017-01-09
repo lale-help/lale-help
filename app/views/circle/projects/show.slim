@@ -14,7 +14,7 @@
         .description-details-table
           .row.project-description
             .icon
-            .detail-title= Task.human_attribute_name(:description)
+            .detail-title= Project.human_attribute_name(:description)
             .details= project.description
           - if project.has_date_range?
             .row.date-range
@@ -65,8 +65,8 @@
 
       .tab.tasks
         = form_tag new_circle_project_task_path(current_circle, project), method: :get do
-         - label = t('helpers.add_task')
-         button.button.button-secondary data-disable-with=label
+         - label = t('helpers.add', model: Task.model_name.human)
+         button.button.button-secondary
            = label
 
         .task_section.open_tasks data-tab='open_tasks'
@@ -79,8 +79,8 @@
 
       .tab.supplies
         = form_tag new_circle_project_supply_path(current_circle, project), method: :get do
-         - label = t('helpers.add_supply')
-         button.button.button-secondary data-disable-with=label
+         - label = t('helpers.add', model: Supply.model_name.human)
+         button.button.button-secondary
            = label
 
         .task_section.open_supplies data-tab='open_supplies'
