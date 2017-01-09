@@ -398,6 +398,9 @@
       :system_event: System event
       :system_event/notification: System event/notification
       :system_event/notification/delivery: System event/notification/delivery
+      :comment:
+        :one: Comment
+        :other: Comments
       :task:
         :one: Task
         :other: Tasks

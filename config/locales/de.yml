@@ -408,6 +408,9 @@
       :working_group:
         one: Arbeitsgruppe
         other: Arbeitsgruppen
+      :comment:
+        :one: Kommentar
+        :other: Kommentare
   :cells:
     :tasks:
       :sourcing_widget:
