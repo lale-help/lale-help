@@ -30,10 +30,23 @@
               = t('.organized-by')
               == cell(:user_icon, project.admin, circle: project.circle, link: true)
               = link_to_user(project.admin)
-              
+
     .right
       - if can? :manage, current_project
         = render 'edit_actions', item: current_project, presenter: project
+
+      - if can? :invite_to, current_project
+        = form_tag circle_project_invite_path(current_circle, project, type: :working_group), method: :post do
+          - label = t('helpers.invite_working_group')
+          button.button.button-secondary data-disable-with=label
+            = label
+
+      - unless project.working_group.is_private?
+        - if can? :manage, current_project.circle
+          = form_tag circle_project_invite_path(current_circle, project, type: :circle), method: :post do
+            - label = t('helpers.invite_circle')
+            button.button.button-secondary data-disable-with=label
+              = label
 
   .details
     main
@@ -68,7 +81,7 @@
       .tab.tasks
         = form_tag new_circle_project_task_path(current_circle, project), method: :get do
          - label = t('helpers.add', model: Task.model_name.human)
-         button.button.button-secondary
+         button.button.button-secondary-inverted
            = label
 
         .task_section.open_tasks data-tab='open_tasks'
@@ -82,7 +95,7 @@
       .tab.supplies
         = form_tag new_circle_project_supply_path(current_circle, project), method: :get do
          - label = t('helpers.add', model: Supply.model_name.human)
-         button.button.button-secondary
+         button.button.button-secondary-inverted
            = label
 
         .task_section.open_supplies data-tab='open_supplies'
@@ -98,18 +111,4 @@
           = render partial: 'circle/comments/comments', locals: { item: current_project, circle: current_circle, max_display: 5 }
 
     aside
-
-      .aside-section.actions
-
-        - if can? :invite_to, current_project
-          = form_tag circle_project_invite_path(current_circle, project, type: :working_group), method: :post do
-            - label = t('helpers.invite_working_group')
-            button.button.button-secondary data-disable-with=label
-              = label
-
-        - unless project.working_group.is_private?
-          - if can? :manage, current_project.circle
-            = form_tag circle_project_invite_path(current_circle, project, type: :circle), method: :post do
-              - label = t('helpers.invite_circle')
-              button.button.button-secondary data-disable-with=label
-                = label
+      / currently unused
