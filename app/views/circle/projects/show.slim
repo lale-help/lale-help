@@ -29,7 +29,8 @@
               | &nbsp;
               = t('.organized-by')
               == cell(:user_icon, project.admin, circle: project.circle, link: true)
-
+              = link_to_user(project.admin)
+              
     .right
       - if can? :manage, current_project
         = render 'edit_actions', item: current_project, presenter: project
