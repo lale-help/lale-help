@@ -50,5 +50,6 @@
 
   - if can?(:manage, current_circle) && controller.controller_name == 'members'
     - line << presenter.help_provided_count
-
+    / the value can be nil, then we need to add an empty string to the CSV for correct formatting.
+    - line << presenter.last_helped_at.to_s
   = CSV.generate_line(line, line_options).html_safe
