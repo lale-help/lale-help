@@ -48,10 +48,16 @@ $border-radius: 1.5rem;
     //@include lale-icon($lale-icon-project-description, 2em);
   }
 
-  .organizer .details a {
-    display: inline-block;
-    margin-left: 4px;
+  .organizer {
+    .details a {
+      display: inline-block;
+      margin-left: 4px;
+    }
+    .nowrap {
+      white-space: nowrap;
+    }
   }
+
   > * {
     padding: 1.5rem;
     border: thin solid $border-color;
