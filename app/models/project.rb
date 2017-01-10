@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  include Commentable
 
   belongs_to :working_group
   has_one :circle, through: :working_group

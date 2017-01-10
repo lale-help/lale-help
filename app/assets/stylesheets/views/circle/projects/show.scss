@@ -23,14 +23,28 @@
       .description {
         @include border-bottom-radius($border-radius);
         min-height: 8rem;
-        font-size: 1.5em;
-        padding: 2rem 2rem 2rem 9rem;
+        padding: 2rem;
+        padding-left: 9rem;
       }
 
     }
 
+    .right {
+      text-align: center;
+      .secondary-buttons {
+        margin-top: 2rem;
+        padding: 2rem;
+        padding-top: 1rem;
+        border: 1px solid $blue-light-1;
+        @include border-bottom-radius(1.5rem);
+      }
+      .button-secondary {
+        margin: 0;
+        margin-top: 1rem;
+      }
+    }
     .dropdown {
-      $label-height: 31px;
+      $label-height: 33px;
       z-index: 99;
 
       label {
@@ -38,7 +52,7 @@
       }
 
       .menu {
-        top: $label-height + 4px;
+        top: $label-height + 2px;
         left: 10px;
         right: auto;
         min-width: auto;
@@ -52,6 +66,10 @@
     li.warning {
       color: $red-500;
     }
+    margin-bottom: 2rem;
   }
 
+  .rich-table {
+    padding-top: 0;
+  }
 }

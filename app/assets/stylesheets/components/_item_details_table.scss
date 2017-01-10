@@ -34,7 +34,7 @@ $border-radius: 1.5rem;
   .project .icon {
     @include lale-icon($lale-icon-document, 2em);
   }
-  .user .icon {
+  .user .icon, .organizer .icon {
     @include lale-icon($lale-icon-user, 2em);
   }
   .task .icon {
@@ -43,10 +43,22 @@ $border-radius: 1.5rem;
   .supply .icon {
     @include lale-icon($lale-icon-supply, 2em);
   }
-  .organizer .details a {
-    display: inline-block;
-    margin-left: 4px;
+
+  .project-description .icon {
+    //@include lale-icon($lale-icon-project-description, 2em);
   }
+
+  .organizer {
+    .details a {
+      display: inline-block;
+      margin-left: 4px;
+    }
+    line-height: 30px;
+    .nowrap {
+      white-space: nowrap;
+    }
+  }
+
   > * {
     padding: 1.5rem;
     border: thin solid $border-color;

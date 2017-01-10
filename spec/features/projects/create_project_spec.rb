@@ -18,8 +18,7 @@ describe "Create project", js: true do
     it "creates the project" do
       project_page = project_form.submit_with(inputs)
       expect(project_page.headline.text).to eq(inputs[:name])
-      expect(project_page.organizer.text).to eq("Organized by #{admin.name}")
-      expect(project_page.working_group.text).to eq(working_group.name)
+      expect(project_page.organizer.text).to eq("JD #{inputs[:organizer_name]} in#{working_group.name}")
     end  
   end
 
@@ -33,8 +32,7 @@ describe "Create project", js: true do
       project_page = project_form.submit_with(inputs)
       expect(project_page.headline.text).to eq(inputs[:name])
       expect(project_page.description.text).to eq(inputs[:description])
-      expect(project_page.organizer.text).to eq("Organized by #{inputs[:organizer_name]}")
-      expect(project_page.working_group.text).to eq(inputs[:working_group_name])
+      expect(project_page.organizer.text).to eq("JD #{inputs[:organizer_name]} in#{inputs[:working_group_name]}")
     end
   end
   

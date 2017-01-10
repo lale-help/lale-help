@@ -398,6 +398,9 @@
       :system_event: System event
       :system_event/notification: System event/notification
       :system_event/notification/delivery: System event/notification/delivery
+      :comment:
+        :one: Comment
+        :other: Comments
       :task:
         :one: Task
         :other: Tasks
@@ -559,7 +562,7 @@
       :list:
         :no_projects: No projects found.
       :nav:
-        :info: Info
+        :stats: Statistics
       :show:
         :admin-title:
           :one: "%{count} organizer"
@@ -571,7 +574,8 @@
         :member-title:
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
-        :organized-by: Organized by %{name}
+        :organized-by: Organized by
+        :in_working_group: in
         :settings: Settings
         :title_complete: 'Done: '
         :working_group_link: in %{link}
@@ -590,8 +594,6 @@
         :header: Supplies
       :list:
         :no-supplies: No supplies are needed at this time.
-      :list_item:
-        :stats-here: Stats Here
       :new:
         :back: Back to All Supplies
       :show:
@@ -601,6 +603,7 @@
         :edit-task-button: Edit Supply
         :invite-button: Invite %{group} members
         :organized-by: Organized by %{name}
+        :in_working_group: in
         :reopen-task-button: Re-open Supply
         :users_box_title: Is supplied by
         :volunteer-count:
@@ -641,8 +644,6 @@
         :header: All Tasks
       :list:
         :no-tasks: No tasks found.
-      :list_item:
-        :stats-here: Stats
       :my:
         :header: My Tasks
         :organizer-header: Organizing
@@ -657,6 +658,7 @@
         :edit-task-button: Edit Task
         :invite-button: Invite %{class}
         :organized-by: Organized by %{name}
+        :in_working_group: in
         :reopen-task-button: Re-open Task
         :volunteer-count:
           :one: "%{count} volunteer is going"
@@ -1013,6 +1015,7 @@
   :formtastic:
     :reset: Reset %{model}
   :helpers:
+    :add: Add %{model}
     :assign: Assign helpers
     :assigning: Assigning &hellip;
     :block: Block

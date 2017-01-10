@@ -408,6 +408,9 @@
       :working_group:
         one: Arbeitsgruppe
         other: Arbeitsgruppen
+      :comment:
+        :one: Kommentar
+        :other: Kommentare
   :cells:
     :tasks:
       :sourcing_widget:
@@ -553,7 +556,7 @@
       :list:
         :no_projects: Keine Projekte gefunden.
       :nav:
-        :info: Info
+        :stats: Statistik
       :show:
         :admin-title:
           :one: "%{count} Organisator"
@@ -566,7 +569,8 @@
         :member-title:
           :one: "%{count} Helfer"
           :other: "%{count} Helfer"
-        :organized-by: Organisiert von %{name}
+        :organized-by: Organisiert von
+        :in_working_group: in
         :settings: Einstellungen
         :title_complete: 'Abgeschlossen:'
         :working_group_link: in %{link}
@@ -585,8 +589,6 @@
         :header: Sachspenden
       :list:
         :no-supplies: Derzeit keine Sachspenden benötigt.
-      :list_item:
-        :stats-here: Statistik
       :new:
         :back: Zurück zu den Sachspenden
       :show:
@@ -596,6 +598,7 @@
         :edit-task-button: Sachspende bearbeiten
         :invite-button: Mitglieder von %{group} einladen
         :organized-by: Organisiert von %{name}
+        :in_working_group: in
         :reopen-task-button: Sachspende wieder öffnen
         :users_box_title: Wird geliefert von
         :volunteer-count:
@@ -636,8 +639,6 @@
         :header: Alle Aufgaben
       :list:
         :no-tasks: Keine Aufgaben gefunden.
-      :list_item:
-        :stats-here: Statistik
       :my:
         :header: Meine Aufgaben
         :organizer-header: Ich organisiere
@@ -652,6 +653,7 @@
         :edit-task-button: Aufgabe bearbeiten
         :invite-button: "%{class} einladen"
         :organized-by: Organisiert von %{name}
+        :in_working_group: in
         :reopen-task-button: Aufgabe wieder öffnen
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"
@@ -1022,6 +1024,7 @@
         :delete: Bist Du sicher, dass diese Aufgabe gelöscht werden soll?
     :deactivate: Deaktivieren
     :decline: Ich habe diese %{model} nicht
+    :add: "%{model} hinzufügen"
     :delete: "%{model} löschen"
     :delete_no_model: Löschen
     :edit: "%{model} bearbeiten"

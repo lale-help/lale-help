@@ -32,7 +32,7 @@ class Circle::CommentsController < ApplicationController
 
   def update
     authorize! :update, Comment, current_item, current_circle
-
+    
     @form = Comment::Update.new(params[:comment], commenter: current_user, item: current_item, comment: @comment)
 
     outcome = @form.submit
@@ -62,6 +62,8 @@ class Circle::CommentsController < ApplicationController
                 Supply.find(params[:supply_id])
               elsif params[:member_id].present?
                 User.find(params[:member_id])
+              elsif params[:project_id].present?
+                Project.find(params[:project_id])
               else
                 Task.find(params[:task_id])
               end
@@ -83,6 +85,8 @@ class Circle::CommentsController < ApplicationController
         circle_supply_path(circle, item)
       elsif item.is_a? User
         circle_member_path(circle, item)
+      elsif item.is_a? Project
+        circle_project_path(circle, item)
       else
         circle_task_path(circle, item)
       end
