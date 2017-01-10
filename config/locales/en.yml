@@ -1023,6 +1023,7 @@
     :complete: Complete %{model}
     :confirm:
       :project:
+        :complete: This project still has open tasks or supplies. Do you really want to close them all as well?
         :delete: Really delete this project and all it's tasks?
       :supply:
         :delete: Are you sure you want to delete this supply?

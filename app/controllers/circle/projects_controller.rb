@@ -67,7 +67,7 @@ class Circle::ProjectsController < ApplicationController
 
   def complete
     authorize! :complete, current_project
-    outcome = Project::Complete.run(project: current_project)
+    outcome = Project::Complete.run(project: current_project, current_user: current_user)
     set_flash(outcome.success? ? :success : :error)
     redirect_to circle_project_path(current_circle, current_project)
   end
