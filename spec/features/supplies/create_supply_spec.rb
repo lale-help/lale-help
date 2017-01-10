@@ -32,7 +32,6 @@ describe "Create a supply", js: true do
       expect(supply_form).to have_validation_error("Please enter a name")
       expect(supply_form).to have_validation_error("Please enter a due date")
       expect(supply_form).to have_validation_error("Please enter a description")
-      expect(supply_form).to have_validation_error("Please enter a location")
     end
   end
 end
