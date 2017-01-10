@@ -4,10 +4,10 @@ class Supply::BaseForm < ::Form
 
   attribute :name,             :string
 
-  attribute :due_date,         :date,   default: proc{ Date.today + 1.week }
+  attribute :due_date,         :date, default: proc { Date.today + 1.week }
   attribute :description,      :string
 
-  attribute :location, :string, default: proc{ supply.location.try :address }
+  attribute :location, :string, default: proc { supply.location.try(:address) }, required: false
   attribute :organizer_id,     :integer, default: proc { supply.organizer.try(:id) || user.id }
 
   attribute :ability, :model
@@ -25,7 +25,6 @@ class Supply::BaseForm < ::Form
       add_error(:name, :too_short)                   if name.length < 5
       add_error(:description, :too_short)            if description.length < 5
       add_error(:due_date, :empty)                   if due_date.blank?
-      add_error(:location, :empty)                   if location.blank?
     end
 
     def execute
@@ -66,7 +65,11 @@ class Supply::BaseForm < ::Form
       attrs.circle          = circle
       attrs.working_group   = working_group
       attrs.project         = project
-      attrs.location        = Location.location_from(location)
+      if location.present?
+        attrs.location      = Location.location_from(location)
+      else
+        attrs.location      = nil
+      end
 
       attrs.to_h
     end

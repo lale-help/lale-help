@@ -22,7 +22,7 @@
       = f.text_field :due_date, type: :date, min: Time.now.strftime("%Y-%m-%d")
       = errors.formatted_message_for(:due_date)
 
-    .field.required class=errors.css(:location)
+    .field class=errors.css(:location)
       = f.label :location
       = f.text_field :location
       = errors.formatted_message_for(:location)
