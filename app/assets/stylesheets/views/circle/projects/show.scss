@@ -23,7 +23,8 @@
       .description {
         @include border-bottom-radius($border-radius);
         min-height: 8rem;
-        padding: 4.5rem 2rem 2rem 2rem;
+        padding: 2rem;
+        padding-left: 9rem;
       }
 
     }
@@ -58,6 +59,7 @@
     li.warning {
       color: $red-500;
     }
+    margin-bottom: 2rem;
   }
 
   .rich-table {

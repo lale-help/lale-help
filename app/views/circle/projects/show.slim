@@ -11,27 +11,7 @@
           span.done = t('.title_complete')
         = project.name
       .description
-        .description-details-table
-          .row.project-description
-            .icon
-            .detail-title= Project.human_attribute_name(:description)
-            .details= project.description
-          - if project.has_date_range?
-            .row.date-range
-              .icon
-              .detail-title= t('.date_range')
-              .details= project.date_range_sentence
-          .row.organizer
-            .icon
-            .detail-title= t('.organized-by')
-            .details
-              == cell(:user_icon, project.admin, circle: project.circle, link: true)
-              = link_to_user(project.admin)
-              | &nbsp;
-              span.nowrap
-                = t('.in_working_group')
-                = link_to_working_group(project.working_group)
-
+        = project.description
     .right
       - if can? :manage, current_project
         = render 'edit_actions', item: current_project, presenter: project
@@ -51,6 +31,22 @@
 
   .details
     main
+      .item-details-table
+        - if project.has_date_range?
+          .row.date-range
+            .icon
+            .title= t('.date_range')
+            .details= project.date_range_sentence
+        .row.organizer
+          .icon
+          .title= t('.organized-by')
+          .details
+            == cell(:user_icon, project.admin, circle: project.circle, link: true)
+            = link_to_user(project.admin)
+            | &nbsp;
+            span.nowrap
+              = t('.in_working_group')
+              = link_to_working_group(project.working_group)
 
       = render partial: 'nav', locals: { project: project }
 
