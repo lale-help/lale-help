@@ -6,6 +6,13 @@ describe "Task factory" do
   let(:user_2) { create(:user) }
   let(:user_3) { create(:user) }
 
+  describe "default factory" do
+    it "creates an organizer" do
+      task = create(:task)
+      expect(task.organizer).to be_a(User)
+    end
+  end
+
   describe "adding an organizer" do
     it "correctly assigns the organizer" do
       task = create(:task, organizer: user_1)

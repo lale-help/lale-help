@@ -5,6 +5,13 @@ describe "Supply factory" do
   let(:user_1) { create(:user) }
   let(:user_2) { create(:user) }
 
+  describe "default factory" do
+    it "creates an organizer" do
+      supply = create(:supply)
+      expect(supply.organizer).to be_a(User)
+    end
+  end
+  
   describe "adding an organizer" do
     it "correctly assigns the organizer" do
       supply = create(:supply, organizer: user_1)

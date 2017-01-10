@@ -20,9 +20,13 @@ FactoryGirl.define do
 
     # using the transient attribute to assign an organizer
     after(:create) do |task, evaluator|
-      if evaluator.organizer
-        create(:task_organizer_role, user: evaluator.organizer, task: task)
+      organizer = if evaluator.organizer
+        evaluator.organizer
+      else  
+        # when no organizer is given, create one that is valid (in working group and circle)
+        create(:working_group_member_role, working_group: evaluator.working_group).user
       end
+      create(:task_organizer_role, user: organizer, task: task)
       # assign volunteers
       Array(evaluator.volunteer || evaluator.volunteers).each do |user|
         create(:task_volunteer_role, user: user, task: task)
