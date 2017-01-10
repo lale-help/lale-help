@@ -16,7 +16,7 @@ class Circle::MembersController < ApplicationController
     @totals     = { members: active_users.count, organizers: organizers.count }
     respond_to do |format|
       format.html
-      format.csv {send_data generate_csv(@members)}
+      format.csv { send_data(generate_csv(@members)) }
       format.pdf do
         render  pdf: "#{current_circle.name}_" + t("pdf.list") + "_" + Date.today.to_formatted_s(:number),
                 template: 'circle/members/pdf.slim',
@@ -92,7 +92,7 @@ class Circle::MembersController < ApplicationController
 
   def generate_csv(members)
     template = "circle/members/index.csv.slim"
-    content = render_to_string(template, layout: false, locals: {members: members})
+    content = render_to_string(template, layout: false, locals: { members: members })
   end
 
   def organizers
