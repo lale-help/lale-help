@@ -16,7 +16,7 @@ describe "Show project dashboard", js: true do
 
   it "shows the project info and resources" do
     expect(dashboard_page.headline.text).to eq(project.name)
-    expect(dashboard_page.working_group.text).to eq(working_group.name)
+    expect(dashboard_page.organizer.text).to eq("JD #{project.admin.name} in#{project.working_group.name}")
 
     dashboard_page.tab_nav.tasks.click
     expect(dashboard_page).to have_task(task)
