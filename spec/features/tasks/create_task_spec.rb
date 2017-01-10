@@ -22,8 +22,7 @@ describe "Create a task", js: true do
       expect(task_page.time_commitment.text).to eq("1 Hour")
       expect(task_page.due_date_as_date).to eq(inputs[:due_date])
       expect(task_page.location.text).to include(inputs[:location])
-      expect(task_page.working_group.text).to eq(working_group.name)
-      expect(task_page.organizer.text).to eq("Organized by #{admin.name}")
+      expect(task_page.organizer.text).to eq("JD #{admin.name} in#{working_group.name}")
       expect(task_page).not_to have_project
      end
   end
@@ -44,8 +43,7 @@ describe "Create a task", js: true do
       expect(task_page.time_commitment.text).to eq("All day")
       expect(task_page.due_date_sentence).to eq("between Wednesday 30 January 2030 12:00 and Thursday 31 January 2030 14:00")
       expect(task_page.location.text).to include(inputs[:location])
-      expect(task_page.working_group.text).to eq(inputs[:working_group_name])
-      expect(task_page.organizer.text).to eq("Organized by #{member_2.name}")
+      expect(task_page.organizer.text).to eq("JD #{member_2.name} in#{inputs[:working_group_name]}")
     end
   end
 
