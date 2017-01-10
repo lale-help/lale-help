@@ -36,6 +36,7 @@
         padding: 2rem;
         padding-top: 1rem;
         border: 1px solid $blue-light-1;
+        @include border-top-radius(1.5rem);
         @include border-bottom-radius(1.5rem);
       }
       .button-secondary {
