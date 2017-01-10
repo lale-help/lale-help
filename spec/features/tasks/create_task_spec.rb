@@ -59,7 +59,6 @@ describe "Create a task", js: true do
       expect(task_form).to be_invalid
       expect(task_form).to have_validation_error("Please enter a name")
       expect(task_form).to have_validation_error("Please enter a description")
-      expect(task_form).to have_validation_error("Please enter a location")
     end
   end
 
