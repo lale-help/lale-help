@@ -574,6 +574,7 @@
         :edit-task-button: Editer ce Besoin
         :invite-button: Inviter les membres de %{group}
         :organized-by: Organisé par %{name}
+        :in_working_group: en
         :reopen-task-button: Re-ouvrir la Fourniture
         :users_box_title: Est fournie par
         :volunteer-count:
@@ -628,6 +629,7 @@
         :edit-task-button: Editer la Tâche
         :invite-button: Inviter %{class}
         :organized-by: Organisé par %{name}
+        :in_working_group: en
         :reopen-task-button: Re-Ouvrir la Tâche
         :volunteer-count:
           :one: "%{count} volontaire y participe"

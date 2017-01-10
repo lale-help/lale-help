@@ -34,7 +34,7 @@ $border-radius: 1.5rem;
   .project .icon {
     @include lale-icon($lale-icon-document, 2em);
   }
-  .user .icon {
+  .user .icon, .organizer .icon {
     @include lale-icon($lale-icon-user, 2em);
   }
   .task .icon {

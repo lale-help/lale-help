@@ -603,6 +603,7 @@
         :edit-task-button: Edit Supply
         :invite-button: Invite %{group} members
         :organized-by: Organized by %{name}
+        :in_working_group: in
         :reopen-task-button: Re-open Supply
         :users_box_title: Is supplied by
         :volunteer-count:
@@ -657,6 +658,7 @@
         :edit-task-button: Edit Task
         :invite-button: Invite %{class}
         :organized-by: Organized by %{name}
+        :in_working_group: in
         :reopen-task-button: Re-open Task
         :volunteer-count:
           :one: "%{count} volunteer is going"

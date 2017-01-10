@@ -598,6 +598,7 @@
         :edit-task-button: Sachspende bearbeiten
         :invite-button: Mitglieder von %{group} einladen
         :organized-by: Organisiert von %{name}
+        :in_working_group: in
         :reopen-task-button: Sachspende wieder öffnen
         :users_box_title: Wird geliefert von
         :volunteer-count:
@@ -652,6 +653,7 @@
         :edit-task-button: Aufgabe bearbeiten
         :invite-button: "%{class} einladen"
         :organized-by: Organisiert von %{name}
+        :in_working_group: in
         :reopen-task-button: Aufgabe wieder öffnen
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"

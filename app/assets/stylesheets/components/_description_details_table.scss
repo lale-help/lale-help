@@ -24,9 +24,6 @@ $border-radius: 1.5rem;
       @include lale-icon($lale-icon-user, 2em);
     }
     line-height: 30px;
-    .user-icon-container {
-      margin-right: 3px;
-    }
     .nowrap {
       white-space: nowrap;
     }
