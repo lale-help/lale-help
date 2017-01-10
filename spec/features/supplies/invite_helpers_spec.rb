@@ -19,16 +19,16 @@ describe "Invite helpers to a supply", js: true do
   describe "invite working group" do   
     it "works" do
       supply_page.helpers_box.invite_working_group_button.click
-      expect(sent_emails.map(&:to).flatten).to match_array(wg_members.map(&:email))
-      expect(supply_page).to have_comment("#{admin.name} invited 2 helpers to this supply on #{date}")
+      expect(sent_emails.map(&:to).flatten).to match_array(wg_members.map(&:email) + [supply.organizer.email])
+      expect(supply_page).to have_comment("#{admin.name} invited 3 helpers to this supply on #{date}")
     end
   end
 
   describe "invite circle" do
     it "works" do
       supply_page.helpers_box.invite_circle_button.click
-      expect(sent_emails.map(&:to).flatten).to match_array(([circle_member] + wg_members).map(&:email))
-      expect(supply_page).to have_comment("#{admin.name} invited 3 helpers to this supply on #{date}")
+      expect(sent_emails.map(&:to).flatten).to match_array(([circle_member, supply.organizer] + wg_members).map(&:email))
+      expect(supply_page).to have_comment("#{admin.name} invited 4 helpers to this supply on #{date}")
     end
   end
 
