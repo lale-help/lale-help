@@ -5,7 +5,7 @@ class Task::BaseForm < ::Form
   attribute :name,             :string
   attribute :description,      :string
 
-  attribute :primary_location, :string, default: proc { task.primary_location.try :address }
+  attribute :primary_location, :string, default: proc { task.primary_location.try :address }, required: false
   attribute :organizer_id,     :integer, default: proc { task.organizer.try(:id) || user.id }
 
   attribute :duration,      :integer
@@ -68,7 +68,6 @@ class Task::BaseForm < ::Form
       add_error(:name, :too_short)                   if name.length < 5
       add_error(:description, :too_short)            if description.length < 5
       add_error(:due_date, :empty)                   if due_date.blank?
-      add_error(:primary_location, :empty)           if primary_location.blank?
       add_error(:volunteer_count_required, :too_low) if volunteer_count_required < 1
       add_error(:start_time, :format)                if start_time.present? && start_time !~ TIME_REGEX
       add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
@@ -94,7 +93,7 @@ class Task::BaseForm < ::Form
       OpenStruct.new(task: task, changes: task_changes)
     end
 
-    private 
+    private
 
     def attributes_for_task_update
       # quick and dirty way to break up the huge #execute method
@@ -128,7 +127,7 @@ class Task::BaseForm < ::Form
 
     def update_organizer(task)
       old_organizers = task.organizer_ids.to_set
-      
+
       task.roles.send('task.organizer').destroy_all
 
       organizer = User.find_by(id: organizer_id)
@@ -152,7 +151,7 @@ class Task::BaseForm < ::Form
         Ability.new(volunteer).cannot?(:read, task)
       end
       if volunteers_to_remove.present?
-        task.roles.where(user: volunteers_to_remove).delete_all 
+        task.roles.where(user: volunteers_to_remove).delete_all
       end
 
       if task.volunteer_ids.to_set != old_volunteers
@@ -161,12 +160,12 @@ class Task::BaseForm < ::Form
     end
 
     def update_location(task)
-      old_location = task.primary_location.try(:geocode_query)
-      
+      old_location = task.primary_location.try(:address)
       task.location_assignments.destroy_all
-      task.primary_location = Location.location_from(primary_location)
-
-      if task.primary_location.geocode_query != old_location
+      if primary_location.present?
+        task.primary_location = Location.location_from(primary_location)
+      end
+      if task.primary_location.try(:address) != old_location
         track_task_changes(location: true)
       end
     end
