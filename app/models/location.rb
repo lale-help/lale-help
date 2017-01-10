@@ -9,10 +9,10 @@ class Location < ActiveRecord::Base
 
   def self.location_from(location_text)
     return unless location_text.present?
-    previous_locaion = Location.find_by('lower(geocode_query) = ?', location_text.downcase)
-    if previous_locaion.present?
+    previous_location = Location.find_by('lower(geocode_query) = ?', location_text.downcase)
+    if previous_location.present?
       Rails.logger.debug "[Location] cache hit"
-      return previous_locaion
+      return previous_location
     end
 
     Rails.logger.debug "[Location] cache miss"
