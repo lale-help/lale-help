@@ -9,8 +9,8 @@ describe "Show working group dashboard", js: true do
 
   let(:dashboard_page) { PageObject::WorkingGroup::Dashboard.new }
 
-  let!(:task)   { create(:task, working_group: working_group) }
-  let!(:supply) { create(:supply, working_group: working_group) }
+  let!(:task)   { create(:task, working_group: working_group, organizer: volunteers.first) }
+  let!(:supply) { create(:supply, working_group: working_group, organizer: volunteers.first) }
   let!(:project) { create(:project, working_group: working_group) }
   let!(:file) { create(:working_group_file_upload, uploadable: working_group) }
 
