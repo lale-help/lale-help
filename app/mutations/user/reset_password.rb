@@ -7,7 +7,7 @@ class User::ResetPassword < Mutations::Command
     identity = User::Identity.find_by!(email: email)
     Token.reset_password.for_user_id(identity.user_id).update_all(active: false)
     token    = Token.reset_password.create! context: { user_id: identity.user_id }
-    UserMailer.forgot_password(identity.user, token).deliver_now
+    UserMailer.delay.forgot_password(identity.user, token)
 
   rescue ActiveRecord::RecordNotFound
     add_error(:user, :not_found)

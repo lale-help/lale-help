@@ -8,7 +8,7 @@ class Task::Notifications::CompletionReminderEmail < Mutations::Command
       next unless user.email.present?
       token = Token.task_completion.create! context: { user_id: user.id, task_id: task.id }
 
-      TaskMailer.task_completion_reminder(task, user, token).deliver_now
+      TaskMailer.delay.task_completion_reminder(task, user, token)
     end
   end
 end

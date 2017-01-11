@@ -1,5 +1,5 @@
 class Task::Assign < Mutations::Command
-  
+
   required do
     array :users
     model :task
@@ -34,13 +34,13 @@ class Task::Assign < Mutations::Command
   def notify_existing_volunteers
     existing_volunteers.each do |volunteer|
       changes = { volunteers: [] } # a slight hack; only the key is relevant
-      TaskMailer.task_change(task, volunteer, changes).deliver_now
+      TaskMailer.delay.task_change(task, volunteer, changes)
     end
   end
 
   def notify_new_assignees
     (users - [current_user]).each do |user|
-      TaskMailer.task_assigned(task, user).deliver_now
+      TaskMailer.delay.task_assigned(task, user)
     end
   end
 

@@ -1,5 +1,5 @@
 class Task::Unassign < Mutations::Command
-  
+
   required do
     array :users
     model :task
@@ -34,13 +34,13 @@ class Task::Unassign < Mutations::Command
   def notify_existing_volunteers
     existing_volunteers.each do |volunteer|
       changes = { volunteers: [] } # a slight hack; only the key is relevant
-      TaskMailer.task_change(task, volunteer, changes).deliver_now
+      TaskMailer.delay.task_change(task, volunteer, changes)
     end
   end
 
   def notify_unassignees
     (users - [current_user]).each do |user|
-      TaskMailer.task_unassigned(task, user).deliver_now
+      TaskMailer.delay.task_unassigned(task, user)
     end
   end
 
