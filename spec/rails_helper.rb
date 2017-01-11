@@ -7,6 +7,11 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require "cancan/matchers"
 
+# Run sidekiq jobs immediately rather than queueing them, makes testing much easier.
+# This can be changed per-test to test correct queueing: https://github.com/mperham/sidekiq/wiki/Testing
+require 'sidekiq/testing'
+Sidekiq::Testing.inline!
+
 Dir[Rails.root.join('spec/{support}/**/*.rb')].each { |f| require f }
 
 # load page objects

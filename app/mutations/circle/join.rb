@@ -15,7 +15,7 @@ class Circle::Join < ::Form
       Circle::Role.send('circle.volunteer')
     end
 
-    private 
+    private
 
     def add_to_circle(user)
       unless role.where(user: user, circle: circle).exists?
@@ -29,7 +29,7 @@ class Circle::Join < ::Form
     def notify_circle_admins
       circle.admins.active.each do |admin|
         token = Token.login.create!(context: { user_id: admin.id })
-        UserMailer.account_activation(circle, admin, token).deliver_now
+        UserMailer.delay.account_activation(circle, admin, token)
       end
     end
 
