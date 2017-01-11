@@ -411,10 +411,11 @@ Do a new release when requested.
 
 lale uses a queue system to process long-running tasks outside of the web request, so the web request can be returned quickly. At the time of writing only emails are processed via queue, but this can be extended. It is implemented with the [sidekiq gem](https://github.com/mperham/sidekiq) (we use the free version).
 
-Sidekiq uses [Redis](http://redis.io) as it's storage mechanism, but Redis could be used for other purposes as well. Just be aware that we are on the free plan of Redis Cloud which only comes with 30MB memory. Redis is configured to ()
-ActiveJob is currently not configured. It worked for sending emails as well, but the messages and the non-default "mailers" queue didn't show up in Sidekiq's admin interface, so I chose to go with Sidekiq's default delaying mechanism.
+Sidekiq uses [Redis](http://redis.io) as it's storage mechanism, but Redis could be used for other purposes as well. Just be aware that we are on the free plan of Redis Cloud which only comes with 30MB memory. Redis is configured to evicts the least recently used keys when the 30MB are full (allkeys-lru), despite being advised against it [in the sidekiq documentation](https://github.com/mperham/sidekiq/wiki/Using-Redis#memory). In a brief test with a full Redis store, the queue still behaved as expected.
 
 You can use Sidekiq's admin interface at ([/sidekiq](http://app.lale.help/sidekiq)) to observe and debug the queue(s).
+
+ActiveJob is currently not configured. It worked for sending emails as well, but the messages and the non-default "mailers" queue didn't show up in Sidekiq's admin interface, so I chose to go with Sidekiq's default delaying mechanism.
 
 ## Further documentation
 
