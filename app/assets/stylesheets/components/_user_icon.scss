@@ -21,6 +21,9 @@
   @include align-items(center);
   @include justify-content(center);
 
+  background-size: cover;
+  background-repeat: no-repeat;
+
   &.accredited {
     border: thin solid $blue-dark-1;
     background-color: $light-grey;

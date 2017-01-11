@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
 
   alias_attribute :active_since, :created_at
 
+  attachment :profile_image # uses refile
+
   class << self
 
     def find_or_create_lale_bot!

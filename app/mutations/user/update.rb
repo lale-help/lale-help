@@ -18,6 +18,10 @@ class User::Update < ::Form
   attribute :country,           :string, default: proc { user.address.try(:country) },          required: false
   attribute :accredited_until,          :date, required: false, format: I18n.t('circle.tasks.form.date_format')
   attribute :accredited_until_string,   :string, required: false, default: proc { stringify_date(circle_volunteer_role.accredited_until || Date.today + 2.years - 1.day) }
+  attribute :profile_image, :file, required: false
+
+  # required by refile in the form
+  delegate :profile_image_attachment_definition, :profile_image_data, to: :user
 
   def circle_volunteer_role
     user.circle_volunteer_roles.find_by(circle: current_circle.id)
@@ -66,6 +70,7 @@ class User::Update < ::Form
       user.identity.assign_attributes(inputs.slice(:email))
       user.address.assign_attributes(inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country))
 
+      user.profile_image = profile_image if profile_image.present?
       user.save
       user.address.save
       user.identity.save

@@ -41,6 +41,9 @@ class Circle::MembersController < ApplicationController
 
   def update
     authorize! :edit, current_member, current_circle
+    # refile sends a string with an empty hash when no image was chosen; remove that so the mutation
+    # gets clean input
+    params[:user].delete(:profile_image) if params[:user][:profile_image] == "{}"
     @form = User::Update.new(params[:user], user: current_member, current_circle: current_circle)
     outcome = @form.submit
     errors.add outcome.errors

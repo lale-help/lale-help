@@ -13,6 +13,8 @@ main
         = errors.formatted_message_for(:first_name)
         = f.text_field :first_name
 
+        = f.attachment_field :profile_image
+
       .field.required class=errors.css(:last_name)
         = f.label :last_name
         = errors.formatted_message_for(:last_name)

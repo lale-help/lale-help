@@ -1,5 +1,7 @@
 class UserIconCell < ::ViewModel
 
+  include Refile::AttachmentHelper
+
   # this is the default
   # def show
   #   render
@@ -38,6 +40,11 @@ class UserIconCell < ::ViewModel
 
   def ability
     @ability ||= Ability.new(user)
+  end
+
+  def profile_image_url
+    # FIXME return correct size (30 or 50 px)
+    attachment_url(user, :profile_image, :fill, 30, 30, format: "jpg")
   end
 
 end
