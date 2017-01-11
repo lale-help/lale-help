@@ -15,6 +15,7 @@ This is the rails application used for lale.help.
 - [Advice for writing feature specs](#advice-for-writing-feature-specs)
 - [Styleguide](#styleguide)
 - [Environments and deployment](#environments-and-deployment)
+- [Queue for asyncronous processing](#queue-for-asyncronous-processing)
 - [Further documentation](#further-documentation)
 - [License](#license)
 
@@ -121,7 +122,7 @@ Some advice:
 
 * be aware not to build one sentence from several smaller translations, because that hard-codes a certain sentence structure, which may not be the same in every language. Always translate complete sentences, or at least ensure that words of a sentence can be in arbitrary order.
 
-* don't pluralize words in Ruby code, as pluralization rules can be different. Slavic languages have two plural forms, for example: the word "apples" will be differnt in "two apples" and "five apples". Rails i18n can handle that with it's built in [i18n rules](https://goo.gl/BGY6KC) if you take advantage of the feature (pass `count: number` to `I18n.t`).
+* don't pluralize words in Ruby code, as pluralization rules can be different. Slavic languages have two plural forms, for example: the word "apples" will be different in "two apples" and "five apples". Rails i18n can handle that with it's built in [i18n rules](https://goo.gl/BGY6KC) if you take advantage of the feature (pass `count: number` to `I18n.t`).
 
 ## Restoring the database from a snapshot
 
@@ -406,7 +407,15 @@ Do a new release when production is released, or when requested.
 
 Do a new release when requested.
 
-Deploy 
+## Queue for asyncronous processing
+
+lale uses a queue system to process long-running tasks outside of the web request, so the web request can be returned quickly. At the time of writing only emails are processed via queue, but this can be extended. It is implemented with the [sidekiq gem](https://github.com/mperham/sidekiq) (we use the free version).
+
+Sidekiq uses [Redis](http://redis.io) as it's storage mechanism, but Redis could be used for other purposes as well. Just be aware that we are on the free plan of Redis Cloud which only comes with 30MB memory. Redis is configured to ()
+ActiveJob is currently not configured. It worked for sending emails as well, but the messages and the non-default "mailers" queue didn't show up in Sidekiq's admin interface, so I chose to go with Sidekiq's default delaying mechanism.
+
+You can use Sidekiq's admin interface at ([/sidekiq](http://app.lale.help/sidekiq)) to observe and debug the queue(s).
+
 ## Further documentation
 
 ... can be found on [the wiki](https://github.com/lale-help/lale-help/wiki)
