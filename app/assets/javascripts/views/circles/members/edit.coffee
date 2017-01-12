@@ -14,6 +14,9 @@ ready = ->
     scrollMonth:    false
   });
 
+  $('#user_profile_image').on 'change', -> 
+    $('#user_remove_profile_image').prop('checked', false);
+
   setDateInputState()
   $('#user_accredited').on 'click', ->
     setDateInputState()

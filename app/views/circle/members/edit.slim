@@ -77,7 +77,7 @@ main
       .field class=errors.css(:profile_image)
         = f.label :profile_image
         = errors.formatted_message_for(:profile_image)
-        = f.attachment_field :profile_image
+        = f.file_field :profile_image
 
       .field class=errors.css(:remove_profile_image)
         = f.check_box :remove_profile_image

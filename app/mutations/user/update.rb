@@ -22,10 +22,7 @@ class User::Update < ::Form
   attribute :accredited_until,          :date, required: false, format: I18n.t('circle.tasks.form.date_format')
   attribute :accredited_until_string,   :string, required: false, default: proc { stringify_date(circle_volunteer_role.accredited_until || Date.today + 2.years - 1.day) }
   attribute :profile_image, :file, required: false
-  attribute :remove_profile_image, :boolean, required: false
-
-  # required by refile in the form
-  delegate :profile_image_attachment_definition, :profile_image_data, to: :user
+  attribute :remove_profile_image, :boolean, default: proc { !user.profile_image.present? }, required: false
 
   def circle_volunteer_role
     user.circle_volunteer_roles.find_by(circle: current_circle.id)
@@ -64,7 +61,7 @@ class User::Update < ::Form
 
   class Submit < ::Form::Submit
     def validate
-      validate_profile_image if profile_image.present?
+      validate_profile_image if new_profile_image_uploaded?
       add_error(:about_me, :too_long) if about_me.present? && about_me.length > 300
       add_error(:email, :taken)       if User::Identity.where(email: email).where.not(id: user.identity.id).exists?
     end
@@ -87,7 +84,7 @@ class User::Update < ::Form
       user.identity.assign_attributes(inputs.slice(:email))
       user.address.assign_attributes(inputs.slice(:street_address_1, :city, :state_province, :postal_code, :country))
 
-      user.profile_image = profile_image if profile_image.present?
+      user.profile_image = profile_image if new_profile_image_uploaded?
       user.save
       user.address.save
       user.identity.save
@@ -101,6 +98,12 @@ class User::Update < ::Form
     # which stores the accredited_until flag; but joins in the roles, etc.
     def circle_volunteer_role
       user.circle_volunteer_roles.find_by(circle_id: inputs[:current_circle].id)
+    end
+
+    # For reasons I wasn't able to debug, the user's profile image is available in inputs[:profile_image]
+    # (as a Refile::File object) when NO image was uploaded. We don't want to revalidate in that case.
+    def new_profile_image_uploaded?
+      inputs[:profile_image].is_a?(ActionDispatch::Http::UploadedFile)
     end
 
   end
