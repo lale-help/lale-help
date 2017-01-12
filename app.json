@@ -13,28 +13,18 @@
     "RAILS_SERVE_STATIC_FILES": "true",
     "WEB_CONCURRENCY": "2",
 
-    "HEROKU_APP_ID": {
-      "required": true
-    },
-    "HEROKU_APP_NAME": {
-      "required": true
-    },
-    "LANG": {
-      "required": true
-    },
-
-    "SMTP_ADDRESS": {
-      "required": true
-    },
-    "SMTP_DOMAIN": {
-      "required": true
-    },
-    "SMTP_PASSWORD": {
-      "required": true
-    },
-    "SMTP_USERNAME": {
-      "required": true
-    }
+    // copy (only) these from the parent app (staging)
+    "AWS_ACCESS_KEY":   { "required": true },
+    "AWS_SECRET_KEY":   { "required": true },
+    "AWS_BUCKET":       { "required": true },
+    "AWS_REGION":       { "required": true },
+    "HEROKU_APP_ID":    { "required": true },
+    "HEROKU_APP_NAME":  { "required": true },
+    "LANG":             { "required": true },
+    "SMTP_ADDRESS":     { "required": true },
+    "SMTP_DOMAIN":      { "required": true },
+    "SMTP_PASSWORD":    { "required": true },
+    "SMTP_USERNAME":    { "required": true }
   },
   "addons": [
     "papertrail",
