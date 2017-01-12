@@ -51,6 +51,7 @@ class UserIconCell < ::ViewModel
     profile_image_present? ? '&nbsp;': user.initials
   end
 
+  # random comment to retrigger a review app deploy ...
   def user_icon_attrs
     attrs = { href: href, class: classes }
     if profile_image_present?
