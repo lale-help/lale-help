@@ -59,9 +59,8 @@ class UserIconCell < ::ViewModel
     attrs
   end
 
-  # FIXME return correct size (30 or 50 px)
   def profile_image_url
-    attachment_url(user, :profile_image, :fill, 30, 30, format: "jpg")
+    attachment_url(user, :profile_image, :fill, 50, 50, format: "jpg")
   end
 
 end
