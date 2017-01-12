@@ -45,7 +45,12 @@ class UserIconCell < ::ViewModel
   def profile_image_present?
     user.profile_image.present?
   end
-  
+
+  def user_initials_or_blank
+    # for the container not to collapse and layout not to break, it needs to contain something, so I'm adding the &nbsp;
+    profile_image_present? ? '&nbsp;': user.initials
+  end
+
   def user_icon_attrs
     attrs = { href: href, class: classes }
     if profile_image_present?

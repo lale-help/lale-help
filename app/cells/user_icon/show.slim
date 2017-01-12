@@ -2,9 +2,9 @@
   .user-icon *user_icon_attrs
     - if user.lale_bot?
       .lale-bot-avatar
-    - elsif !profile_image_present?
+    - else
       .text
-        = user.initials
+        = user_initials_or_blank
 
   - if href.present?
     .user-preview
