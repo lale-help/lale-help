@@ -96,6 +96,7 @@ body.internal {
 
         .user-avatar {
           .user-icon {
+            border: thin solid $blue-dark-1;
             margin-right: 0.75rem;
             background-color: $white;
             font-size: 1.5rem;
