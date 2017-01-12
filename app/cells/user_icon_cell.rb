@@ -42,8 +42,20 @@ class UserIconCell < ::ViewModel
     @ability ||= Ability.new(user)
   end
 
+  def profile_image_present?
+    user.profile_image.present?
+  end
+  
+  def user_icon_attrs
+    attrs = { href: href, class: classes }
+    if profile_image_present?
+      attrs[:style] = "background-image: url(#{profile_image_url})"
+    end
+    attrs
+  end
+
+  # FIXME return correct size (30 or 50 px)
   def profile_image_url
-    # FIXME return correct size (30 or 50 px)
     attachment_url(user, :profile_image, :fill, 30, 30, format: "jpg")
   end
 

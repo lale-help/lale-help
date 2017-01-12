@@ -1,7 +1,10 @@
 .user-icon-container
-  .user-icon href=href class=classes style="background-image: url(#{profile_image_url})"
+  .user-icon *user_icon_attrs
     - if user.lale_bot?
       .lale-bot-avatar
+    - elsif !profile_image_present?
+      .text
+        = user.initials
 
   - if href.present?
     .user-preview
@@ -17,6 +20,7 @@
         - if user.home_phone.present?
           .home_phone H: #{user.home_phone}
       
-      .user-icon class=classes
-        .text
-          = user.initials
+      .user-icon *user_icon_attrs
+        - unless profile_image_present?
+          .text
+            = user.initials
