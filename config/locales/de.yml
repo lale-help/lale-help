@@ -857,6 +857,8 @@
   :edit: Bearbeiten
   :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
   :errors:
+    :profile_image:
+      :size: Bitte wähle ein Bild kleiner als %{max_size}MB.
     :about_me:
       :too_long: Maximal 300 Zeichen
     :accept_terms:

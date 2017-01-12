@@ -861,6 +861,8 @@
   :edit: EDIT
   :error_correction: Please correct the errors below.
   :errors:
+    :profile_image:
+      :size: Please choose an image smaller than %{max_size}MB.
     :about_me:
       :too_long: maximum 300 characters
     :accept_terms:
