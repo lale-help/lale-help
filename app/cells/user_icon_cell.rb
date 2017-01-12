@@ -60,7 +60,8 @@ class UserIconCell < ::ViewModel
   end
 
   def profile_image_url
-    attachment_url(user, :profile_image, :fill, 50, 50, format: "jpg")
+    format = user.profile_image_filename.split('.').last
+    attachment_url(user, :profile_image, :fill, 50, 50, format: format)
   end
 
 end
