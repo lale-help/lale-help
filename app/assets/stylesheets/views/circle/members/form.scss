@@ -1,11 +1,17 @@
 form.edit_user {
   label[for=user_accredited] {
     display: inline-block;
-    // border: 1px solid red;
   }
+
+   label[for=user_remove_profile_image] {
+    display: inline-block;
+    margin-top: 3.5rem;
+   }
 
    // the calendar popup overlaps the end of the page otherwise.
   .submit-row {
     margin-bottom: 250px;
   }
+
+
 }

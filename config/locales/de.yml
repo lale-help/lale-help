@@ -339,6 +339,8 @@
         :tasks: Aufgaben
         :triggered_system_events: Ausgelöste System-Events
         :working_groups: Arbeitsgruppen
+        :profile_image: Profilbild
+        :remove_profile_image: kein Bild
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung

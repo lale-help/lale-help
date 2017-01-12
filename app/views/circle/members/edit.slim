@@ -13,8 +13,6 @@ main
         = errors.formatted_message_for(:first_name)
         = f.text_field :first_name
 
-        = f.attachment_field :profile_image
-
       .field.required class=errors.css(:last_name)
         = f.label :last_name
         = errors.formatted_message_for(:last_name)
@@ -30,7 +28,6 @@ main
         = errors.formatted_message_for(:language)
         = f.select :language do
           = options_for_select(@form.language_options, @form.user[:language])
-
 
     .field-row
       .field class=errors.css(:mobile_phone)
@@ -75,6 +72,16 @@ main
           = f.label :primary_circle_id
           = errors.formatted_message_for(:primary_circle_id)
           = f.collection_select :primary_circle_id, @form.primary_circle_options, :id, :name
+
+      .field-row
+        .field class=errors.css(:profile_image)
+          = f.label :profile_image
+          = errors.formatted_message_for(:profile_image)
+          = f.attachment_field :profile_image
+
+        .field class=errors.css(:profile_image)
+          = f.check_box :remove_profile_image
+          = f.label :remove_profile_image
 
     .field-row
       = f.label :about_me
