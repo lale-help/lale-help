@@ -64,12 +64,20 @@ class User::Update < ::Form
 
   class Submit < ::Form::Submit
     def validate
-      if profile_image.present? && profile_image.size > PROFILE_IMAGE_MAX_SIZE_MB.megabyte
+      validate_profile_image if profile_image.present?
+      add_error(:about_me, :too_long) if about_me.present? && about_me.length > 300
+      add_error(:email, :taken)       if User::Identity.where(email: email).where.not(id: user.identity.id).exists?
+    end
+
+    def validate_profile_image
+      if profile_image.size > PROFILE_IMAGE_MAX_SIZE_MB.megabyte
         message = I18n.t('errors.profile_image.size', max_size: PROFILE_IMAGE_MAX_SIZE_MB)
         add_error(:profile_image, :size, message)
       end
-      add_error(:about_me, :too_long) if about_me.present? && about_me.length > 300
-      add_error(:email, :taken)       if User::Identity.where(email: email).where.not(id: user.identity.id).exists?
+      unless profile_image.content_type =~ /^image\/(jpeg|png|gif)$/
+        message = I18n.t('errors.profile_image.content_type', allowed_types: %w(JPG PNG GIF).to_sentence)
+        add_error(:profile_image, :content_type, message)
+      end
     end
 
     def execute
