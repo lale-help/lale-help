@@ -16,6 +16,7 @@ This is the rails application used for lale.help.
 - [Styleguide](#styleguide)
 - [Environments and deployment](#environments-and-deployment)
 - [Queue for asyncronous processing](#queue-for-asyncronous-processing)
+- [Access to the logs](#access-to-the-logs)
 - [Further documentation](#further-documentation)
 - [License](#license)
 
@@ -416,6 +417,10 @@ Sidekiq uses [Redis](http://redis.io) as it's storage mechanism, but Redis could
 You can use Sidekiq's admin interface at ([/sidekiq](http://app.lale.help/sidekiq)) to observe and debug the queue(s).
 
 ActiveJob is currently not configured. It worked for sending emails as well, but the messages and the non-default "mailers" queue didn't show up in Sidekiq's admin interface, so I chose to go with Sidekiq's default delaying mechanism.
+
+## Access to the logs
+
+All logs can be accessed with the `heroku logs` shell command. It will only print the last 1.500 lines or so. To access, filter and analyze older logs, use the Sumo Logic Add-On through heroku's web interface.
 
 ## Further documentation
 
