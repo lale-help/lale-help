@@ -319,6 +319,8 @@
         :tasks: Tâches
         :triggered_system_events: Alerte Système
         :working_groups: Groupes
+        :profile_image: Photo du profil
+        :remove_profile_image: Pas de photo
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation

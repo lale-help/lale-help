@@ -324,12 +324,11 @@
         :country: Country
         :email: Email
         :feedback: Feedback
-        :first_name: First name
+        :first_name: First Name
         :home_phone: Home Phone
         :identities: Identities
         :language: Language
         :last_login: Last Login
-        :last_name: Last name
         :location: :activerecord.models.location
         :mobile_phone: Mobile Phone
         :name: Name
@@ -345,6 +344,8 @@
         :tasks: Tasks
         :triggered_system_events: Triggered system events
         :working_groups: Working Groups
+        :profile_image: Profile Image
+        :remove_profile_image: No image
       :user/feedback:
         :comment: Comment
         :rating: Rating
@@ -860,6 +861,8 @@
   :edit: EDIT
   :error_correction: Please correct the errors below.
   :errors:
+    :profile_image:
+      :size: Please choose an image smaller than %{max_size}MB.
     :about_me:
       :too_long: maximum 300 characters
     :accept_terms:

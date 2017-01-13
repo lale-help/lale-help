@@ -1,5 +1,7 @@
 class UserIconCell < ::ViewModel
 
+  include Refile::AttachmentHelper
+
   # this is the default
   # def show
   #   render
@@ -38,6 +40,28 @@ class UserIconCell < ::ViewModel
 
   def ability
     @ability ||= Ability.new(user)
+  end
+
+  def profile_image_present?
+    user.profile_image.present?
+  end
+
+  def user_initials_or_blank
+    # for the container not to collapse and layout not to break, it needs to contain something, so I'm adding the &nbsp;
+    profile_image_present? ? '&nbsp;': user.initials
+  end
+
+  # random comment to retrigger a review app deploy ...
+  def user_icon_attrs
+    attrs = { href: href, class: classes }
+    if profile_image_present?
+      attrs[:style] = "background-image: url(#{profile_image_url})"
+    end
+    attrs
+  end
+
+  def profile_image_url
+    attachment_url(user, :profile_image, :fill, 50, 50)
   end
 
 end

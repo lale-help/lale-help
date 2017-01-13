@@ -29,7 +29,6 @@ main
         = f.select :language do
           = options_for_select(@form.language_options, @form.user[:language])
 
-
     .field-row
       .field class=errors.css(:mobile_phone)
         = f.label :mobile_phone
@@ -73,6 +72,16 @@ main
           = f.label :primary_circle_id
           = errors.formatted_message_for(:primary_circle_id)
           = f.collection_select :primary_circle_id, @form.primary_circle_options, :id, :name
+
+    .field-row
+      .field class=errors.css(:profile_image)
+        = f.label :profile_image
+        = errors.formatted_message_for(:profile_image)
+        = f.file_field :profile_image
+
+      .field class=errors.css(:remove_profile_image)
+        = f.check_box :remove_profile_image
+        = f.label :remove_profile_image
 
     .field-row
       = f.label :about_me

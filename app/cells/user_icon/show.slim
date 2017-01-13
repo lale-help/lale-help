@@ -1,10 +1,10 @@
 .user-icon-container
-  .user-icon href=href class=classes
+  .user-icon *user_icon_attrs
     - if user.lale_bot?
       .lale-bot-avatar
     - else
       .text
-        = user.initials
+        = user_initials_or_blank
 
   - if href.present?
     .user-preview
@@ -20,6 +20,7 @@
         - if user.home_phone.present?
           .home_phone H: #{user.home_phone}
       
-      .user-icon class=classes
-        .text
-          = user.initials
+      .user-icon *user_icon_attrs
+        - unless profile_image_present?
+          .text
+            = user.initials

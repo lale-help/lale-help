@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170110111728) do
+ActiveRecord::Schema.define(version: 20170112140224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -275,13 +275,13 @@ ActiveRecord::Schema.define(version: 20170110111728) do
   add_index "user_identities", ["email"], name: "index_user_identities_on_email", unique: true, using: :btree
 
   create_table "users", id: :bigserial, force: :cascade do |t|
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "location_id",       limit: 8
-    t.integer  "language",                    default: 0
-    t.integer  "primary_circle_id", limit: 8
+    t.integer  "location_id",            limit: 8
+    t.integer  "language",                         default: 0
+    t.integer  "primary_circle_id",      limit: 8
     t.boolean  "is_admin"
     t.boolean  "accept_terms"
     t.string   "mobile_phone"
@@ -290,6 +290,8 @@ ActiveRecord::Schema.define(version: 20170110111728) do
     t.boolean  "public_profile"
     t.string   "about_me"
     t.integer  "address_id"
+    t.string   "profile_image_id"
+    t.string   "profile_image_filename"
   end
 
   add_index "users", ["address_id"], name: "index_users_on_address_id", using: :btree

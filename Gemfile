@@ -52,6 +52,10 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'sidekiq'
 
+gem "refile", require: "refile/rails"
+gem "refile-s3"
+gem "refile-mini_magick"
+
 group :development do
   gem "letter_opener_web"
   gem 'thor', require: false

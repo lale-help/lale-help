@@ -339,6 +339,8 @@
         :tasks: Aufgaben
         :triggered_system_events: Ausgelöste System-Events
         :working_groups: Arbeitsgruppen
+        :profile_image: Profilbild
+        :remove_profile_image: kein Bild
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung
@@ -855,6 +857,9 @@
   :edit: Bearbeiten
   :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
   :errors:
+    :profile_image:
+      :size: Bitte wähle ein Bild kleiner als %{max_size}MB.
+      :content_type: "Nur die Formate %{allowed_types} sind erlaubt."
     :about_me:
       :too_long: Maximal 300 Zeichen
     :accept_terms:
@@ -1354,7 +1359,7 @@
     :cancel: Abbrechen
   :support:
     :array:
-      :last_word_connector: ", und "
+      :last_word_connector: " und "
       :two_words_connector: " und "
       :words_connector: ", "
   :supported-by: Unterstützt durch
