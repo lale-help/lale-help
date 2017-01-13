@@ -9,6 +9,10 @@ FactoryGirl.define do
     end
     is_admin false
 
+    trait :with_profile_image do 
+      profile_image { File.open('spec/fixtures/images/avatar.jpg') }
+    end
+
     trait :working_group_admin do
       after(:create) do |user, _|
         create(:working_group_admin_role, user: user)
