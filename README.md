@@ -420,7 +420,7 @@ ActiveJob is currently not configured. It worked for sending emails as well, but
 
 ## Access to the logs
 
-All logs can be accessed with the `heroku logs` shell command. It will only print the last 1.500 lines or so. To access, filter and analyze older logs, use the Sumo Logic Add-On through heroku's web interface.
+All logs can be accessed with the `heroku logs` shell command. It will only print the last 1.500 lines or so. To access, filter and analyze older logs, use the Papertrail Add-On through heroku's web interface.
 
 ## Further documentation
 
