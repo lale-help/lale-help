@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
 
   has_many :comments_made, class_name: Comment, inverse_of: :commenter, foreign_key: 'commenter_id', dependent: :destroy
 
-  enum language: [:en, :de, :fr]
+  enum language: { de: 1, en: 0, fr: 2 }
 
   scope :asc_order, -> { order(:last_name) }
 
