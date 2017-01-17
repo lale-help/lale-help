@@ -8,6 +8,8 @@ class Comment < ActiveRecord::Base
   validates :item, presence: true
   validates :body, presence: true
 
+  scope :human, -> { where.not(commenter_id: Comment::AutoComment.commenter.id)}
+
   def comment_date_time
     I18n.l(created_at, format: "%A %-d %B %Y %H:%M")
   end
