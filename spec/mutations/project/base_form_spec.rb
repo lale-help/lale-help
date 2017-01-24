@@ -99,10 +99,10 @@ describe Project::BaseForm do
   describe "#submit" do
     let(:wg) { create(:working_group, circle: circle) }
     let(:name) { attributes_for(:project)[:name] }
-    let(:params) { { user: user, circle: circle, ability: ability, working_group_id: wg.id, name: name, organizer_id: user.id } }
+    let(:params) { { user: user, circle: circle, ability: ability, working_group_id: wg.id, name: name, organizer_id: user.id, start_date: Date.today } }
     context "valid attributes given" do
       it "creates a project" do
-        outcome = nil # define outer variable here so I can access it outside the block 
+        outcome = nil # define outer variable here so I can access it outside the block
         expect { outcome = form.submit }.to change { Project.count }.by(1)
         expect(outcome).to be_success
         expect(outcome.errors).to be_nil
@@ -116,6 +116,16 @@ describe Project::BaseForm do
         expect { outcome = form.submit }.not_to change { Project.count }
         expect(outcome).not_to be_success
         expect(outcome.errors[:organizer_id]).not_to be_nil
+      end
+    end
+
+    context "no start_date given" do
+      let(:params) { { user: user, circle: circle, ability: ability, working_group_id: wg.id, name: name, organizer_id: user.id } }
+      it "has an error" do
+        outcome = nil # define outer variable here so I can access it outside the block
+        expect { outcome = form.submit }.not_to change { Project.count }
+        expect(outcome).not_to be_success
+        expect(outcome.errors[:start_date]).not_to be_nil
       end
     end
   end

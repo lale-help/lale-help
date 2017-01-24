@@ -56,20 +56,20 @@ class Project < ActiveRecord::Base
     admins.select {|admin| circle.has_active_user?(admin) }
   end
 
-  def start_date
-    dates = []
-    dates << tasks.minimum(:start_date)
-    # quick hack: if no task has a start date, use the earliest end date.
-    dates << tasks.minimum(:due_date)
-    dates << supplies.minimum(:due_date)
-    dates.compact.min
-  end
+  # def start_date
+  #   dates = []
+  #   dates << tasks.minimum(:start_date)
+  #   # quick hack: if no task has a start date, use the earliest end date.
+  #   dates << tasks.minimum(:due_date)
+  #   dates << supplies.minimum(:due_date)
+  #   dates.compact.min
+  # end
 
-  def due_date
-    dates = []
-    dates << tasks.maximum(:due_date)
-    dates << supplies.maximum(:due_date)
-    dates.compact.max
-  end
+  # def due_date
+  #   dates = []
+  #   dates << tasks.maximum(:due_date)
+  #   dates << supplies.maximum(:due_date)
+  #   dates.compact.max
+  # end
 
 end
