@@ -62,16 +62,26 @@ class Task::BaseForm < ::Form
 
   class Submit < ::Form::Submit
 
+    def start_after_project
+      project && project.start_date && start_date < project.start_date
+    end
+
+    def end_before_project
+      project && project.due_date && due_date > project.due_date
+    end
+
     TIME_REGEX = /^[0-2]?[0-9]:[0-5][0-9]$/
 
     def validate
       add_error(:name, :too_short)                   if name.length < 5
       add_error(:description, :too_short)            if description.length < 5
       add_error(:due_date, :empty)                   if due_date.blank?
+      add_error(:due_date, :end_before)              if end_before_project
       add_error(:volunteer_count_required, :too_low) if volunteer_count_required < 1
       add_error(:start_time, :format)                if start_time.present? && start_time !~ TIME_REGEX
       add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
       add_error(:start_date, :empty)                 if scheduling_type == 'between' && start_date.blank?
+      add_error(:start_date, :start_after)           if start_after_project
     end
 
     def execute
