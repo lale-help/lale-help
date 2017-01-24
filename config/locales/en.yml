@@ -876,6 +876,7 @@
       :too_short: Description is too short
     :due_date:
       :empty: Please enter a due date
+      :end_before: The task must end before the project due date
     :due_time:
       :format: Please enter the due time in the format 00:00.
     :email:
@@ -958,6 +959,7 @@
       :empty: Please enter a location
     :start_date:
       :empty: Start date can't be blank
+      :start_after: The task must start after the project start date
     :start_time:
       :format: Please enter the start time in the format 00:00.
     :unacceptable_request: |
