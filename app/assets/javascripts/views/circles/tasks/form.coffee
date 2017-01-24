@@ -1,6 +1,6 @@
 class Lale.DateTime
   constructor: (date_field, time_field)->
-    # after init, the input element is still empty, 
+    # after init, the input element is still empty,
     # but the datepicker getValue call can already return a valid date object
     @dateFilled = date_field.val() != ''
     @value = this.buildDate(date_field, time_field)
@@ -62,7 +62,7 @@ ready = ->
 
   showOrHideStartDate = ->
     type = $('#task_scheduling_type').val()
-    if type == "between" 
+    if type == "between"
       $('.at-element').hide()
       $('.between-element').show()
     else
@@ -73,7 +73,7 @@ ready = ->
     start = new Lale.DateTime($('#task_start_date_string'), $('#task_start_time'))
     due   = new Lale.DateTime($('#task_due_date_string'), $('#task_due_time'))
 
-    # when start date is before due date, set them both to start date
+    # when start date is after due date, set them both to start date
     if start.valid() && due.valid() && (start.value > due.value)
       $('#task_due_date_string').val($('#task_start_date_string').val())
       $('#task_due_time').val($('#task_start_time').val())
@@ -91,7 +91,7 @@ ready = ->
   # then init
   #
   init()
-  
+
 
 $(document).on 'ready', ready
 $(document).on 'page:load', ready
