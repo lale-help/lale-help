@@ -12,6 +12,8 @@ class Project < ActiveRecord::Base
   has_many :users,  -> { distinct }, through: :roles
   has_many :admins, -> { Role.admin }, through: :roles, source: :user
 
+  has_many :files, class_name: FileUpload, as: :uploadable, dependent: :destroy
+
   scope :asc_order, -> { order('lower(projects.name) ASC') }
   scope :open,      -> { where(completed_at: nil) }
   scope :completed, -> { where.not(completed_at: nil) }

@@ -107,6 +107,13 @@
       .tab.comments
         .task-comments data-url="#{circle_project_comments_path(current_circle, current_project)}"
           = render partial: 'circle/comments/comments', locals: { item: current_project, circle: current_circle, max_display: 5 }
-
+      
+      .tab.documents
+        - if can? :add_file?, current_project
+          = form_tag new_circle_project_file_path(current_circle, project, FileUpload.uploadable_gid(current_project)), method: :get do
+           - label = t('new-file')
+           button.button.button-secondary-inverted
+             = label
+        = render partial: "files/list", locals: { files: current_project.files, show_actions: can?(:manage, current_project), show_uploadable: false }
     aside
       / currently unused

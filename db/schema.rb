@@ -238,6 +238,20 @@ ActiveRecord::Schema.define(version: 20170112140224) do
 
   add_index "task_roles", ["user_id", "role_type", "task_id"], name: "index_task_roles_on_user_id_and_role_type_and_task_id", unique: true, using: :btree
 
+  create_table "task_skill_assignments", id: :bigserial, force: :cascade do |t|
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "task_id",    limit: 8,                 null: false
+    t.integer  "skill_id",   limit: 8,                 null: false
+    t.boolean  "required",             default: false, null: false
+  end
+
+  create_table "task_skills", id: :bigserial, force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
+  end
+
   create_table "tasks", id: :bigserial, force: :cascade do |t|
     t.datetime "created_at",                                          null: false
     t.datetime "updated_at",                                          null: false
