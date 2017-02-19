@@ -80,12 +80,12 @@ Rails.application.routes.draw do
         resources :files, path: '/files/:uploadable', only: [:new]
         resources :documents, only: :index
       end
+      resources :files, only: [:create, :edit, :destroy]
+      resources :files, path: '/files/:uploadable', only: [:new]
 
       resources :documents, only: :index
     end
 
-    resources :files, only: [:create, :edit, :destroy]
-    resources :files, path: '/files/:uploadable', only: [:new]
   end
 
   resources :files, only: [:show, :update]

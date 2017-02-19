@@ -111,9 +111,9 @@
       .tab.documents
         - if can? :add_file?, current_project
           = form_tag new_circle_project_file_path(current_circle, project, FileUpload.uploadable_gid(current_project)), method: :get do
-           - label = t('new-file')
+           - label = t('circle.admins.files.new-file')
            button.button.button-secondary-inverted
              = label
-        = render partial: "files/list", locals: { files: current_project.files, show_actions: can?(:manage, current_project), show_uploadable: false }
+        = render partial: "circle/files/list", locals: { files: current_project.files, show_actions: can?(:manage, current_project), show_uploadable: false, circle: current_circle, project: current_project }
     aside
       / currently unused

@@ -11,4 +11,5 @@
   a.info data-tab='stats'
     = t('.stats')
   a.documents data-tab='documents'
-    = t('.documents')
+    = t('circle.admins.nav.files')
+    span.badge = project.files.count

@@ -9,7 +9,7 @@
 
   .tabs
     .tab.circle-documents
-      = render partial: "files/list", locals: { files: @circle_files, show_actions: can?(:manage, current_circle), show_uploadable: false }
+      = render partial: "circle/files/list", locals: { files: @circle_files, show_actions: can?(:manage, current_circle), show_uploadable: false, circle: current_circle, project: nil }
 
       - if can? :add_file?, current_circle
         = link_to t('.new-file'), new_circle_file_path(current_circle, FileUpload.uploadable_gid(current_circle)), class: 'button button-primary'
