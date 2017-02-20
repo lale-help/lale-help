@@ -29,6 +29,8 @@
     = render 'circle/supplies/list', circle: dashboard_resource, supplies: @completed_supplies
 
 .tab.projects
+  - if can? :add_project?, dashboard_resource
+    = link_to t('helpers.add', model: Project.model_name.human), new_circle_project_path(current_circle), class: 'button button-secondary-inverted'
   .task_section.open_projects data-tab='open_projects'
     - if @completed_projects.present?
       a.task_status data-tab='completed_projects' == t("dashboards.resources.show_completed_projects")
