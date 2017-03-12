@@ -19,6 +19,10 @@ module PageObject
       section :supplies_list, PageObject::Component::RichItemsList, ".open_supplies"
       delegate :has_supply?, :supplies, to: :supplies_list
 
+      section :files_list, PageObject::Component::OtherItemsList, ".tab.documents tbody"
+      delegate :has_file?, :files, to: :files_list
+      element :add_document_button, 'a.button-primary', text: 'New Document'
+
       element :invite_working_group_button, '.button-secondary', text: 'Invite working group'
       element :invite_circle_button, '.button-secondary', text: 'Invite circle'
 
