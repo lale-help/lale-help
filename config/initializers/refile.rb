@@ -1,4 +1,4 @@
-if Rails.env.test? or Rails.env.development?
+if Rails.env.test?
 
   Refile.cache = Refile::Backend::FileSystem.new(Rails.root.join('tmp', 'refile', Rails.env, 'cache'))
   Refile.store = Refile::Backend::FileSystem.new(Rails.root.join('tmp', 'refile', Rails.env, 'store'))
