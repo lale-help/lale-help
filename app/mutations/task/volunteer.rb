@@ -26,7 +26,7 @@ class Task::Volunteer < Mutations::Command
   def notify_existing_volunteers
     existing_volunteers.each do |user|
       changes = { volunteers: [] } # a slight hack; only the key is relevant
-      TaskMailer.delay.task_change(task, user, changes)
+      TaskMailer.delay.task_change(task.id, user.id, changes)
     end
   end
 

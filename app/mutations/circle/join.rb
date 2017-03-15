@@ -29,7 +29,7 @@ class Circle::Join < ::Form
     def notify_circle_admins
       circle.admins.active.each do |admin|
         token = Token.login.create!(context: { user_id: admin.id })
-        UserMailer.delay.account_activation(circle, admin, token)
+        UserMailer.delay.account_activation(circle.id, admin.id, token.code)
       end
     end
 

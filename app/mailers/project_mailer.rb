@@ -1,6 +1,8 @@
 class ProjectMailer < BaseMandrillMailer
 
-  def project_invitation(project, user)
+  def project_invitation(project_id, user_id)
+    project = Project.find(project_id)
+    user = User.find(user_id)
     build_message(user.language, user.email) do
       merge_vars(user, project).merge(
         "WORKGROUP"                => project.working_group.name,

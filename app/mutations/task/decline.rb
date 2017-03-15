@@ -14,7 +14,7 @@ class Task::Decline < Mutations::Command
     (task.users.uniq - [ user ]).each do |outbound_user|
       next unless outbound_user.email.present?
       changes = { volunteers: [] } # a slight hack; only the key is relevant
-      TaskMailer.delay.task_change(task, outbound_user, changes)
+      TaskMailer.delay.task_change(task.id, outbound_user.id, changes)
     end
 
     Comment::AutoComment.run(item: task, message: 'user_unassigned_self', user: user)

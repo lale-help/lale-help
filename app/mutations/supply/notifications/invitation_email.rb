@@ -8,7 +8,7 @@ class Supply::Notifications::InvitationEmail < Mutations::Command
   def execute
     invitees.each do |user|
       token = Token.supply_invitation.create! context: { user_id: user.id, supply_id: supply.id }
-      SupplyMailer.delay.supply_invitation(supply, user, token)
+      SupplyMailer.delay.supply_invitation(supply.id, user.id, token.code)
     end
 
     Task::Comments::Invited.run(item: supply, user: current_user, invite_count: invitees.count)
