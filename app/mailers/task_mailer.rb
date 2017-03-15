@@ -1,37 +1,45 @@
 class TaskMailer < BaseMandrillMailer
-  def task_reminder(task, user, token)
+  def task_reminder(task_id, user_id, token_code)
+    task = Task.find(task_id)
+    user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
-        "TASK_UNASSIGN_URL" => handle_token_url(token.code, status: :decline),
-        "TASK_CONFIRM_URL"  => handle_token_url(token.code, status: :confirm)
+        "TASK_UNASSIGN_URL" => handle_token_url(token_code, status: :decline),
+        "TASK_CONFIRM_URL"  => handle_token_url(token_code, status: :confirm)
       )
     end
   end
 
 
-  def task_completion_reminder(task, user, token)
+  def task_completion_reminder(task_id, user_id, token_code)
+    task = Task.find(task_id)
+    user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
-        "TASK_MARK_COMPLETE_URL" => handle_token_url(token.code, status: :completed),
-        "TASK_ADD_COMMENT_URL"   => handle_token_url(token.code)
+        "TASK_MARK_COMPLETE_URL" => handle_token_url(token_code, status: :completed),
+        "TASK_ADD_COMMENT_URL"   => handle_token_url(token_code)
       )
     end
   end
 
 
-  def task_invitation(task, user, token)
+  def task_invitation(task_id, user_id, token_code)
+    task = Task.find(task_id)
+    user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
         "WORKGROUP"        => task.working_group.name,
-        "TASK_URL"         => handle_token_url(token.code),
-        "TASK_ACCEPT_URL"  => handle_token_url(token.code, status: :accept),
-        "TASK_DECLINE_URL" => handle_token_url(token.code, status: :decline)
+        "TASK_URL"         => handle_token_url(token_code),
+        "TASK_ACCEPT_URL"  => handle_token_url(token_code, status: :accept),
+        "TASK_DECLINE_URL" => handle_token_url(token_code, status: :decline)
       )
     end
   end
 
 
-  def task_change(task, user, changes)
+  def task_change(task_id, user_id, changes)
+    task = Task.find(task_id)
+    user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
         "TASK_REVIEW_URL" => handle_token_url(user.login_token.code, redirect: circle_task_url(task.circle, task)),
@@ -40,7 +48,10 @@ class TaskMailer < BaseMandrillMailer
     end
   end
 
-  def task_comment(task, comment, user)
+  def task_comment(task_id, comment_id, user_id)
+    task = Task.find(task_id)
+    comment = Comment.find(comment_id)
+    user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
         "TASK_COMMENT"    => comment.body,
@@ -50,7 +61,9 @@ class TaskMailer < BaseMandrillMailer
     end
   end
 
-  def task_assigned(task, user)
+  def task_assigned(task_id, user_id)
+    task = Task.find(task_id)
+    user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
         "WORKGROUP"       => task.working_group.name,
@@ -59,7 +72,9 @@ class TaskMailer < BaseMandrillMailer
     end
   end
 
-  def task_unassigned(task, user)
+  def task_unassigned(task_id, user_id)
+    task = Task.find(task_id)
+    user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
         "WORKGROUP"       => task.working_group.name,

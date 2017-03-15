@@ -1,20 +1,24 @@
 class SupplyMailer < BaseMandrillMailer
-  def supply_completion_reminder(task, user, token)
+  def supply_completion_reminder(task_id, user_id, token_code)
+    task = Task.find(task_id)
+    user = User.find(user_id)
     build_message(user.language, user.email) do
       merge_vars(user, task).merge({
-        "SUPPLY_MARK_COMPLETE_URL" => handle_token_url(token.code, status: :completed),
-        "SUPPLY_ADD_COMMENT_URL"   => handle_token_url(token.code)
+        "SUPPLY_MARK_COMPLETE_URL" => handle_token_url(token_code, status: :completed),
+        "SUPPLY_ADD_COMMENT_URL"   => handle_token_url(token_code)
       })
     end
   end
 
 
-  def supply_invitation(supply, user, token)
+  def supply_invitation(supply_id, user_id, token_code)
+    supply = Supply.find(supply_id)
+    user = User.find(user_id)
     build_message(user.language, user.email) do
       merge_vars(user, supply).merge({
         "WORKGROUP"         => supply.working_group.name,
-        "SUPPLY_URL"        => handle_token_url(token.code),
-        "SUPPLY_ACCEPT_URL" => handle_token_url(token.code, status: :accept),
+        "SUPPLY_URL"        => handle_token_url(token_code),
+        "SUPPLY_ACCEPT_URL" => handle_token_url(token_code, status: :accept),
       })
     end
   end
