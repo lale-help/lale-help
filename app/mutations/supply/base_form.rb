@@ -17,6 +17,10 @@ class Supply::BaseForm < ::Form
 
   class Submit < ::Form::Submit
 
+    def end_before_project
+      project && project.due_date && due_date > project.due_date
+    end
+
     def project
       project_id.present? ? Project.find(project_id) : nil
     end
@@ -25,6 +29,7 @@ class Supply::BaseForm < ::Form
       add_error(:name, :too_short)                   if name.length < 5
       add_error(:description, :too_short)            if description.length < 5
       add_error(:due_date, :empty)                   if due_date.blank?
+      add_error(:due_date, :end_before)              if end_before_project
     end
 
     def execute
