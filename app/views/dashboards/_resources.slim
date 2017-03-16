@@ -5,6 +5,9 @@
 = render 'dashboards/nav'
 
 .tab.tasks
+  - if can? :add_task?, dashboard_resource
+    = link_to t('helpers.add', model: Task.model_name.human), new_circle_task_path(current_circle), class: 'button button-secondary-inverted'
+
   .task_section.open_tasks data-tab='open_tasks'
     - if @completed_tasks.present?
       a.task_status data-tab='completed_tasks' == t(".show_completed_tasks")
@@ -14,6 +17,9 @@
     = render 'circle/tasks/list', circle: dashboard_resource, tasks: @completed_tasks
 
 .tab.supplies
+  - if can? :add_supply?, dashboard_resource
+    = link_to t('helpers.add', model: Supply.model_name.human), new_circle_supply_path(current_circle), class: 'button button-secondary-inverted'
+
   .task_section.open_supplies data-tab='open_supplies'
     - if @completed_supplies.present?
       a.task_status data-tab='completed_supplies' == t(".show_completed_supplies")
@@ -23,6 +29,8 @@
     = render 'circle/supplies/list', circle: dashboard_resource, supplies: @completed_supplies
 
 .tab.projects
+  - if can? :add_project?, dashboard_resource
+    = link_to t('helpers.add', model: Project.model_name.human), new_circle_project_path(current_circle), class: 'button button-secondary-inverted'
   .task_section.open_projects data-tab='open_projects'
     - if @completed_projects.present?
       a.task_status data-tab='completed_projects' == t("dashboards.resources.show_completed_projects")
