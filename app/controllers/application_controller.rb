@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   check_authorization :unless => :active_admin_controller?
   before_action :permit_all_params, if: :active_admin_controller?
+  skip_before_action :verify_authenticity_token, unless: :current_user
   before_action :possibly_expire_session, if: :current_user
   before_action EnsureActiveUser
-
 
   rescue_from ::CanCan::AccessDenied do |exception|
     logger.error "access denied due to #{exception.inspect}"
