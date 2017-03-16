@@ -23,7 +23,8 @@ class Circle::ProjectsController < ApplicationController
     @completed_supplies = supplies.completed.select { |f| can?(:read, f) }
   
     @comments            = current_project.comments.select { |f| can?(:read, f) }
-    
+
+    @files              = current_project.files.select { |f| can?(:read, f) }
     if can? :create, Comment.new, current_project, current_circle
       @form = Comment::Create.new(commenter: current_user, project: current_project, comment: Comment.new)
     end

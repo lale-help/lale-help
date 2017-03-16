@@ -1,4 +1,4 @@
-h1= t('.header', name: @form.uploadable.name)
+h1= t('circle.documents.index.new-file', name: @form.uploadable.name)
 = form_for @form, url: circle_files_path(current_circle) do |f|
   = f.hidden_field :uploadable_gid
   = f.hidden_field :redirect_path

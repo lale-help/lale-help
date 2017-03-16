@@ -56,6 +56,7 @@ module LaleHelp
     config.cache_store = :memory_store, { size: 64.megabytes }
 
     if ENV['AWS_ACCESS_KEY'].present?
+      Rails.logger.warn "Setting up AWS"
       config.x.fog.storage_opts   = { provider: 'AWS', aws_access_key_id: ENV['AWS_ACCESS_KEY'], aws_secret_access_key: ENV['AWS_SECRET_KEY'], region: ENV['AWS_REGION'] }
       config.x.fog.directory_opts = { key: ENV['AWS_BUCKET'], public: false }
     else
