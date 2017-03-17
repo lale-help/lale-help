@@ -17,7 +17,11 @@ table.default-table.file-list
   tbody
     - files.each do |file|
       tr
-        td= link_to file.name, file_path(file, circle_id: current_circle.id), target: "_blank"
+        - if project
+          td= link_to file.name, circle_project_file_path(circle, project, file), target: "_blank"
+        - elsif circle
+          td= link_to file.name, circle_file_path(circle, file), target: "_blank"
+
         / FIXME Ralf says this is too much info for the average joe; maybe make this available 
         / for admins in a separate view or on the edit file view later.
         / td= number_to_human_size(file.file_size_bytes, precision: 2)
@@ -30,6 +34,9 @@ table.default-table.file-list
         - if show_actions
           td.actions
             - if can? :manage, file
-              = link_to '', edit_circle_file_path(current_circle, file), class: 'edit'
-              = link_to '', circle_file_path(current_circle, file), class: 'delete', method: 'delete', data: { confirm: t('.confirm_delete_file') }
-
+              - if project
+                = link_to '', edit_circle_project_file_path(circle, project, file), class: 'edit'
+                = link_to '', circle_project_file_path(circle, project, file), class: 'delete', method: 'delete', data: { confirm: t('files.list.confirm_delete_file') }
+              - elsif circle
+                = link_to '', edit_circle_file_path(circle, file)
+                = link_to '', circle_file_path(circle, file), class: 'delete', method: 'delete', data: { confirm: t('files.list.confirm_delete_file') }

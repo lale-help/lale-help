@@ -103,10 +103,15 @@
         .task_section.completed_supplies data-tab='completed_supplies'
           a.task_status data-tab='open_supplies' == t("dashboards.resources.show_open_supplies")
           = render 'circle/supplies/list', circle: project.circle, supplies: @completed_supplies
-       
+
       .tab.comments
         .task-comments data-url="#{circle_project_comments_path(current_circle, current_project)}"
           = render partial: 'circle/comments/comments', locals: { item: current_project, circle: current_circle, max_display: 5 }
+
+      .tab.documents
+        = render 'circle/files/list', files: @files, show_actions: can?(:manage, current_project), show_uploadable: false, circle: current_circle, project: current_project
+        - if can? :add_file?, current_project
+          = link_to t('helpers.new', model: FileUpload.model_name.human), new_circle_project_file_path(current_circle, project, FileUpload.uploadable_gid(current_project)), class: 'button button-primary'
 
     aside
       / currently unused

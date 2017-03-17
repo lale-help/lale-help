@@ -76,6 +76,10 @@ class ProjectPresenter < Presenter
     _.supplies.ordered_by_date
   end
 
+  let(:files) do
+    _.files
+  end
+
   let(:admins_count) do
     _.active_admins.count
   end

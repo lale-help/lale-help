@@ -11,6 +11,7 @@ describe "Show project dashboard", js: true do
 
   let!(:task)   { create(:task, working_group: working_group, project: project) }
   let!(:supply) { create(:supply, working_group: working_group, project: project) }
+  let!(:file) { create(:working_group_file_upload, uploadable: project) }
 
   before { dashboard_page.load(circle_id: circle.id, project_id: project.id, as: admin.id) }
 
@@ -23,6 +24,9 @@ describe "Show project dashboard", js: true do
 
     dashboard_page.tab_nav.supplies.click
     expect(dashboard_page).to have_supply(supply)
+
+    dashboard_page.tab_nav.documents.click
+    expect(dashboard_page).to have_file(file)
   end
 
 end
