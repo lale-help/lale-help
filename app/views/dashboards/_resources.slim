@@ -32,6 +32,6 @@
     = render 'circle/projects/list', projects: @completed_projects
 
 .tab.documents
-  = render 'files/list', files: @files, show_actions: can?(:manage, dashboard_resource), show_uploadable: false
+  = render 'circle/files/list', files: @files, show_actions: can?(:manage, dashboard_resource), show_uploadable: false, circle: current_circle, project: nil
   - if can? :add_file?, dashboard_resource
     = link_to t('helpers.new', model: FileUpload.model_name.human), new_circle_file_path(current_circle, FileUpload.uploadable_gid(dashboard_resource)), class: 'button button-primary'
