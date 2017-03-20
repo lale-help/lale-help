@@ -1,6 +1,6 @@
 nav#sidebar
 
-  - if can? :create_item, current_circle
+  - if can?(:create_item, current_circle) && ! defined?(current_working_group)
     .add-menu
       = render partial: 'sidebar/circle_add_menu', locals: { circle: current_circle }
 
