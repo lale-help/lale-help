@@ -3,7 +3,7 @@
   - if errors.present?
     .form-introduction.error
       p = t('error_correction')
-  
+
   .field-row.single
     .field.required class=errors.css(:name)
       = f.label :name
@@ -16,6 +16,16 @@
       = f.label :description
       = f.text_area :description
       = errors.formatted_message_for(:description)
+
+  .field-row
+    .field.required class=errors.css(:start_date)
+        = f.label :start_date
+        = f.text_field :start_date_string, class: :xd_datepicker
+        = errors.formatted_message_for(:start_date)
+
+    .field class=errors.css(:due_date)
+        = f.label :due_date
+        = f.text_field :due_date_string, class: :xd_datepicker
 
   .field-row
     .field.required class=errors.css(:working_group)

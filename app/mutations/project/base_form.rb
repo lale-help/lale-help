@@ -11,6 +11,13 @@ class Project::BaseForm < ::Form
   attribute :circle, :model
   attribute :ability, :model
 
+  # getters for form display
+  attribute :due_date_string,   :string, required: false, default: proc { stringify_date(self.due_date) }
+  attribute :start_date_string, :string, required: false, default: proc { stringify_date(self.start_date || Date.today) }
+  # getters/setters for saving on update
+  attribute :due_date,          :date, required: false
+  attribute :start_date,        :date, format: I18n.t('circle.tasks.form.date_format')
+
   def available_working_groups
     @available_working_groups ||= begin
       working_groups = circle.working_groups.active.asc_order.to_a
@@ -23,6 +30,23 @@ class Project::BaseForm < ::Form
   def available_working_groups_disabled?
     !project.new_record?
   end
+
+  def start_date_string=(string)
+    self.start_date = parse_date(string)
+  end
+
+  def due_date_string=(string)
+    self.due_date = parse_date(string) if string.present?
+  end
+
+  def parse_date(string)
+    string.present? && Date.strptime(string, I18n.t('circle.tasks.form.date_format'))
+  end
+
+  def stringify_date(date)
+    date && date.strftime(I18n.t('circle.tasks.form.date_format'))
+  end
+  private :parse_date, :stringify_date
 
   # ::Form::Submit inherits from Mutations::Command
   class Submit < ::Form::Submit
@@ -49,12 +73,12 @@ class Project::BaseForm < ::Form
     end
 
     def project_attributes
-      inputs.slice(:name, :description).merge(working_group: working_group)
+      inputs.slice(:name, :description, :start_date, :due_date).merge(working_group: working_group)
     end
 
     # simulate ActiveInteraction::Base#errors.merge! API so upgrading will be easier later
     def merge_errors!(active_model_errors)
-      active_model_errors.messages.each do |key, messages| 
+      active_model_errors.messages.each do |key, messages|
         add_error(key, :invalid, messages.join('; '))
       end
     end

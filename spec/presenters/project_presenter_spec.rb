@@ -6,9 +6,7 @@ describe ProjectPresenter do
     let(:presenter) { ProjectPresenter.new(project) }
 
     context "project has tasks" do
-      let(:task_1)    { create(:task, due_date: Date.parse("2016-09-01")) }
-      let(:task_2)    { create(:task, due_date: Date.parse("2016-10-31")) }
-      let(:project)   { create(:project, tasks: [task_1, task_2]) }
+      let(:project)   { create(:project, start_date:Date.parse("2016-09-01"), due_date:   Date.parse("2016-10-31"))}
 
       context "current date is in project range" do
         before { Timecop.freeze(Time.parse("2016-09-30")) }
