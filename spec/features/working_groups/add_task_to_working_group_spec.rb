@@ -6,9 +6,10 @@ describe "Add Task to a Working Group", js: true do
   let(:admin)         { circle.admin }
   let(:working_group) { create(:working_group, :with_members, circle: circle, admin: admin) }
 
-  let(:dashboard_page) { PageObject::WorkingGroup::Dashboard.new }
-  let(:task_form)      { PageObject::Task::Form.new }
-  let(:inputs)         { attributes_for(:task) }
+  let(:dashboard_page)     { PageObject::WorkingGroup::Dashboard.new }
+  let(:new_dashboard_page) { PageObject::WorkingGroup::Dashboard.new }
+  let(:task_form)          { PageObject::Task::Form.new }
+  let(:inputs)             { attributes_for(:task) }
 
   before { dashboard_page.load(circle_id: circle.id, wg_id: working_group.id, as: admin.id) }
 
@@ -16,9 +17,8 @@ describe "Add Task to a Working Group", js: true do
     dashboard_page.add_task_button.click
     task_form.submit_with(inputs)
 
-    dashboard_page.load(circle_id: circle.id, wg_id: working_group.id, as: admin.id)
-    dashboard_page.when_loaded do
-      dashboard_page.tab_nav.tasks.click
+    new_dashboard_page.load(circle_id: circle.id, wg_id: working_group.id, as: admin.id)
+    new_dashboard_page.when_loaded do
       expect(dashboard_page.tasks.count).to eq 1
     end
   end
