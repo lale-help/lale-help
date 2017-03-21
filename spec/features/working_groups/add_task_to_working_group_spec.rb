@@ -18,6 +18,7 @@ describe "Add Task to a Working Group", js: true do
 
     dashboard_page.load(circle_id: circle.id, wg_id: working_group.id, as: admin.id)
     dashboard_page.when_loaded do
+      dashboard_page.tab_nav.tasks.click
       expect(dashboard_page.tasks.count).to eq 1
     end
   end
