@@ -14,8 +14,8 @@ class AddDatesToProjects < ActiveRecord::Migration
           project.start_date = dates.compact.min
 
           dates.clear
-          dates << tasks.maximum(:due_date)
-          dates << supplies.maximum(:due_date)
+          dates << project.tasks.maximum(:due_date)
+          dates << project.supplies.maximum(:due_date)
           project.due_date = dates.compact.max
 
           # fail on validation errors - we need to fix them case by case
