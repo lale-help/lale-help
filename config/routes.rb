@@ -86,9 +86,9 @@ Rails.application.routes.draw do
       resources :documents, only: :index
     end
 
-  end
+    resources :files, only: [:show, :update]
 
-  resources :files, only: [:show, :update]
+  end
 
   get '/styles', to: 'styleguide#show'
 

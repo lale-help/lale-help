@@ -27,6 +27,6 @@
         - @working_group_files.sort_by { |f| f.uploadable.name }.each do |file|
           tr
             td= file.uploadable.name
-            td= link_to file.name, file_path(file, circle_id: current_circle.id), target: "_blank"
+            td= link_to file.name, circle_file_path(file, circle_id: current_circle.id), target: "_blank"
             td= file.uploader.name
             td= l(file.updated_at, format: :short)
