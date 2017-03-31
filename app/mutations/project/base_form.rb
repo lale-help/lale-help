@@ -18,6 +18,8 @@ class Project::BaseForm < ::Form
   attribute :due_date,          :date, required: false
   attribute :start_date,        :date, format: I18n.t('circle.tasks.form.date_format')
 
+  def current_working_group;end
+
   def available_working_groups
     @available_working_groups ||= begin
       working_groups = circle.working_groups.active.asc_order.to_a

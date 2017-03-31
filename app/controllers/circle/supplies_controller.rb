@@ -17,7 +17,7 @@ class Circle::SuppliesController < ApplicationController
     authorize! :create_supply, current_circle
     authorize!(:manage, project) if project.present?
 
-    @form = Supply::Create.new(user: current_user, circle: current_circle, ability: current_ability, project_id: params[:project_id])
+    @form = Supply::Create.new(user: current_user, circle: current_circle, ability: current_ability, project_id: params[:project_id], working_group_id: params[:working_group_id])
   end
 
 

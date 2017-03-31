@@ -10,6 +10,7 @@ describe "Complete and reopen a supply", js: true do
   # when reusing the regular supply_page for some assertions I got intermittent errors;
   # not sure why. Maybe the page didn't "realize" it got reloaded.
   let(:new_supply_page) { PageObject::Supply::Page.new }
+  let(:new_supply_page2) { PageObject::Supply::Page.new }
 
   before { supply_page.load_for(supply, as: admin) }
 
@@ -38,7 +39,7 @@ describe "Complete and reopen a supply", js: true do
         supply_page.edit_menu.open
         supply_page.edit_menu.reopen.click
         # using new_supply_page, sic! see above.
-        new_supply_page.wait_for_urgency_new
+        new_supply_page2.wait_for_urgency_new
         expect(new_supply_page).to have_urgency_new
       end
     end

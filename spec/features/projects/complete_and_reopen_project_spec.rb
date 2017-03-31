@@ -8,6 +8,7 @@ describe "Complete and reopen a project", js: true do
 
   let(:project_page)     { PageObject::Project::Dashboard.new }
   let(:new_project_page) { PageObject::Project::Dashboard.new }
+  let(:new_project_page2) { PageObject::Project::Dashboard.new }
 
   before { project_page.load_for(project, as: admin) }
 
@@ -34,7 +35,7 @@ describe "Complete and reopen a project", js: true do
         expect(project_page).to be_completed
         project_page.edit_menu.open
         project_page.edit_menu.reopen.click
-        expect(new_project_page).to be_open
+        expect(new_project_page2).to be_open
       end
     end
 

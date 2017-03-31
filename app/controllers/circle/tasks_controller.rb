@@ -46,7 +46,7 @@ class Circle::TasksController < ApplicationController
     authorize! :create_task, current_circle
     authorize!(:manage, project) if project.present?
 
-    @form = Task::Create.new(user: current_user, circle: current_circle, ability: current_ability, project_id: params[:project_id])
+    @form = Task::Create.new(user: current_user, circle: current_circle, ability: current_ability, project_id: params[:project_id], working_group_id: params[:working_group_id])
   end
 
 

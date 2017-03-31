@@ -32,7 +32,7 @@ class Circle::ProjectsController < ApplicationController
 
   def new
     authorize! :create_project, current_circle
-    @form = Project::Create.new(circle: current_circle, ability: current_ability)
+    @form = Project::Create.new(circle: current_circle, ability: current_ability, working_group_id: params[:working_group_id])
   end
 
   def create

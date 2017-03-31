@@ -45,6 +45,10 @@ Rails.application.routes.draw do
         delete :remove_user
 
         patch :join, :leave, :activate, :disable
+
+        resources :tasks, only: [:new]
+        resources :supplies, only: [:new]
+        resources :projects, only: [:new]
       end
 
       resources :taskables do
