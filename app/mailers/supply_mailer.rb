@@ -14,6 +14,8 @@ class SupplyMailer < BaseMandrillMailer
   def supply_invitation(supply_id, user_id, token_code)
     supply = Supply.find(supply_id)
     user = User.find(user_id)
+    puts '-'*80
+    p merge_vars user, supply
     build_message(user.language, user.email) do
       merge_vars(user, supply).merge({
         "WORKGROUP"         => supply.working_group.name,
@@ -32,7 +34,7 @@ class SupplyMailer < BaseMandrillMailer
       "SUPPLY_TITLE"       => supply.name,
       "SUPPLY_DESCRIPTION" => supply.description.truncate(100, separator: /\s/, omission: '...'),
       "SUPPLY_DUE_DATE"    => supply.due_date,
-      "SUPPLY_LOCATION"    => supply.location.try(:address),
+      "SUPPLY_LOCATION"    => supply.location.try(:address) || '',
     }
   end
 end
