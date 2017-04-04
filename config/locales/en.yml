@@ -194,12 +194,11 @@
           :other: Organizers
         :organizer_id: Organizer
         :working_group:
-          one: Working group
-          other: Working groups
+          :one: Working group
+          :other: Working groups
         :working_group_id:
-          one: Working group
-          other: Working groups
-
+          :one: Working group
+          :other: Working groups
       :role:
         :actions: Actions
       :sponsorship:
@@ -314,14 +313,14 @@
       :user:
         :about_me: About Me
         :accept_terms: Accept Terms and Conditions
-        :active_since: Active since
-        :address: Address
         :accredited: Accredited until
         :accredited_until: Accredited until
+        :active_since: Active since
+        :address: Address
         :circle: Circle
-        :created_at: Member Since
         :city: City
         :country: Country
+        :created_at: Member Since
         :email: Email
         :feedback: Feedback
         :first_name: First Name
@@ -329,6 +328,7 @@
         :identities: Identities
         :language: Language
         :last_login: Last Login
+        :last_name: Last name
         :location: :activerecord.models.location
         :mobile_phone: Mobile Phone
         :name: Name
@@ -336,7 +336,9 @@
         :phone: Phone Number
         :postal_code: Postal Code
         :primary_circle_id: Primary Circle
+        :profile_image: Profile Image
         :public_profile: Show profile to all circle members
+        :remove_profile_image: No image
         :role: Role
         :state_province: State / Province
         :street_address: Street Address
@@ -344,8 +346,6 @@
         :tasks: Tasks
         :triggered_system_events: Triggered system events
         :working_groups: Working Groups
-        :profile_image: Profile Image
-        :remove_profile_image: No image
       :user/feedback:
         :comment: Comment
         :rating: Rating
@@ -372,14 +372,21 @@
         :location:
           :blank: Location can't be blank
       :messages:
+        :download_failed: could not be downloaded
+        :invalid_content_type: has an invalid file format
+        :invalid_extension: has an invalid file format
         :record_invalid: 'Validation failed: %{errors}'
         :restrict_dependent_destroy:
           :many: Cannot delete record because dependent %{record} exist
           :one: Cannot delete record because a dependent %{record} exists
+        :too_large: is too large
     :models:
       :circle:
-        one: Circle
-        other: Circles
+        :one: Circle
+        :other: Circles
+      :comment:
+        :one: Comment
+        :other: Comments
       :file_upload:
         :one: Document
         :other: Documents
@@ -399,9 +406,6 @@
       :system_event: System event
       :system_event/notification: System event/notification
       :system_event/notification/delivery: System event/notification/delivery
-      :comment:
-        :one: Comment
-        :other: Comments
       :task:
         :one: Task
         :other: Tasks
@@ -415,8 +419,8 @@
       :user/feedback: Volunteer/feedback
       :user/identity: Volunteer/identity
       :working_group:
-        one: Working Group
-        other: Working Groups
+        :one: Working Group
+        :other: Working Groups
   :cells:
     :tasks:
       :sourcing_widget:
@@ -539,14 +543,13 @@
         :back: Back
         :contact: Contact
         :edit_profile: Edit profile
-        :not_accredited: not accredited
         :help_provided_count: Help provided
+        :not_accredited: not accredited
       :show_actions:
+        :change_password: Change password
         :organizer_info_title: This user can't be blocked because he/she is still
           responsible for the following items. Please update the responsibilities
           there, reload this page, and try again.
-        :change_password: Change password
-
     :organizers:
       :index:
         :organizers: Organizers
@@ -572,11 +575,11 @@
           supplies. Please complete them first, then try again.
         :date_range: Period
         :date_range_sentence: from %{start_date} to %{due_date}
+        :in_working_group: in
         :member-title:
           :one: "%{count} volunteer"
           :other: "%{count} volunteers"
         :organized-by: Organized by
-        :in_working_group: in
         :settings: Settings
         :title_complete: 'Done: '
         :working_group_link: in %{link}
@@ -602,9 +605,9 @@
         :complete-task-button: Supply has been donated
         :decline-task-button: I don't have this supply
         :edit-task-button: Edit Supply
+        :in_working_group: in
         :invite-button: Invite %{group} members
         :organized-by: Organized by %{name}
-        :in_working_group: in
         :reopen-task-button: Re-open Supply
         :users_box_title: Is supplied by
         :volunteer-count:
@@ -657,9 +660,9 @@
         :back: Back to All Tasks
         :complete-task-button: Complete Task
         :edit-task-button: Edit Task
+        :in_working_group: in
         :invite-button: Invite %{class}
         :organized-by: Organized by %{name}
-        :in_working_group: in
         :reopen-task-button: Re-open Task
         :volunteer-count:
           :one: "%{count} volunteer is going"
@@ -767,7 +770,7 @@
     - Fri
     - Sat
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mar
@@ -793,7 +796,7 @@
       :long: "%B %d, %Y"
       :short: "%b %d"
     :month_names:
-    -
+    - 
     - January
     - February
     - March
@@ -861,8 +864,6 @@
   :edit: EDIT
   :error_correction: Please correct the errors below.
   :errors:
-    :profile_image:
-      :size: Please choose an image smaller than %{max_size}MB.
     :about_me:
       :too_long: maximum 300 characters
     :accept_terms:
@@ -960,6 +961,9 @@
       :empty: Please enter a postal code
     :primary_location:
       :empty: Please enter a location
+    :profile_image:
+      :content_type: Only the formats %{allowed_types} are allowed.
+      :size: Please choose an image smaller than %{max_size}MB.
     :start_date:
       :empty: Start date can't be blank
       :start_after: The task must start after the project start date
@@ -1028,7 +1032,8 @@
     :complete: Complete %{model}
     :confirm:
       :project:
-        :complete: This project still has open tasks or supplies. Do you really want to close them all as well?
+        :complete: This project still has open tasks or supplies. Do you really want
+          to close them all as well?
         :delete: Really delete this project and all it's tasks?
       :supply:
         :delete: Are you sure you want to delete this supply?
@@ -1441,13 +1446,13 @@
   :user:
     :accounts:
       :change_password:
+        :change_password: Change Password
         :password: Password
         :password_confirmation: Password confirmation
-        :change_password: Change Password
         :update: Update password
       :show:
-        :edit_profile: Edit my profile
         :change_password: Change password
+        :edit_profile: Edit my profile
         :title: My Profile
         :view_public_profile: View public profile
     :identities:

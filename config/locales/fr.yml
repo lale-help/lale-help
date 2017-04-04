@@ -174,8 +174,12 @@
           :one: Organisateur
           :other: Organisateurs
         :organizer_id: Organisateur
-        :working_group: Groupe
-        :working_group_id: Groupe
+        :working_group:
+          :one: Groupe
+          :other: Groupes
+        :working_group_id:
+          :one: Groupe
+          :other: Groupes
       :role:
         :actions: Actions
       :sponsorship:
@@ -292,10 +296,10 @@
         :accept_terms: Accepter les Termes et Conditions
         :active_since: Actif depuis
         :address: Adresse
-        :created_at: Membre Depuis
         :circle: :activerecord.models.circle
         :city: Ville
         :country: Pays
+        :created_at: Membre Depuis
         :email: Email
         :feedback: Feedback
         :first_name: Prénom
@@ -311,7 +315,9 @@
         :phone: Numéro de Téléphone
         :postal_code: Code Postal
         :primary_circle_id: Cercle Principal
+        :profile_image: Photo du profil
         :public_profile: Montrer mon profil à tous les membres du cercle
+        :remove_profile_image: Pas de photo
         :role: Role
         :state_province: Etat / Région
         :street_address: Rue
@@ -319,8 +325,6 @@
         :tasks: Tâches
         :triggered_system_events: Alerte Système
         :working_groups: Groupes
-        :profile_image: Photo du profil
-        :remove_profile_image: Pas de photo
       :user/feedback:
         :comment: Commentaire
         :rating: Evaluation
@@ -352,6 +356,7 @@
           :many: 'Cette entrée ne peut être éffacée car des dépendences existent :
             %{record}'
           :one: 'Cette entrée ne peut être éffacée car une dépendence existe : %{record}'
+        :too_large: trop grands
     :models:
       :circle:
         :one: Cercle
@@ -388,8 +393,8 @@
       :user/feedback: Volontaire/Feedback
       :user/identity: Volontaire/Identité
       :working_group:
-        one: Groupe
-        other: Groupes
+        :one: Groupe
+        :other: Groupes
   :cells:
     :tasks:
       :sourcing_widget:
@@ -515,10 +520,10 @@
         :edit_profile: Editer mon Profil
         :help_provided_count: Aide fournie
       :show_actions:
+        :change_password: Réinitialiser votre mot de passe
         :organizer_info_title: Cet utilisateur ne peut être bloqué car il/elle est
           toujours responsable des éléments suivants. Merci de mettre à jour ces éléments
           avant de ré-essayer.
-        :change_password: Réinitialiser votre mot de passe
     :organizers:
       :index:
         :organizers: Organisateurs
@@ -544,11 +549,11 @@
           incomplètes. Merci de les complèter et de ré-essayer.
         :date_range: Période
         :date_range_sentence: du %{start_date} au %{due_date}
+        :in_working_group: en
         :member-title:
           :one: "%{count} volontaire"
           :other: "%{count} volontaires"
         :organized-by: Organisé par
-        :in_working_group: en
         :settings: Paramètres
         :title_complete: 'Complété :'
         :working_group_link: en %{link}
@@ -574,9 +579,9 @@
         :complete-task-button: Cet objet a été donné
         :decline-task-button: Je n'ai pas cet objet
         :edit-task-button: Editer ce Besoin
+        :in_working_group: en
         :invite-button: Inviter les membres de %{group}
         :organized-by: Organisé par %{name}
-        :in_working_group: en
         :reopen-task-button: Re-ouvrir la Fourniture
         :users_box_title: Est fournie par
         :volunteer-count:
@@ -629,9 +634,9 @@
         :back: Retour aux Tâches
         :complete-task-button: Terminer la Tâche
         :edit-task-button: Editer la Tâche
+        :in_working_group: en
         :invite-button: Inviter %{class}
         :organized-by: Organisé par %{name}
-        :in_working_group: en
         :reopen-task-button: Re-Ouvrir la Tâche
         :volunteer-count:
           :one: "%{count} volontaire y participe"
@@ -739,7 +744,7 @@
     - Ven
     - Sam
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Fev
     - Mar
@@ -765,7 +770,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Janvier
     - Février
     - Mars
@@ -1380,13 +1385,13 @@
   :user:
     :accounts:
       :change_password:
+        :change_password: Réinitialiser votre mot de passe
         :password: Mot de passe
         :password_confirmation: Confirmez Votre Mot de Passe
-        :change_password: Réinitialiser votre mot de passe
         :update: Mettre à jour votre mot de passe
       :show:
-        :edit_profile: Editer mon Profil
         :change_password: Ré-initialiser le Mot de Passe
+        :edit_profile: Editer mon Profil
         :title: Mon Profil
         :view_public_profile: Voir mon page de profile
     :identities:

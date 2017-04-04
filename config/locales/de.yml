@@ -192,8 +192,12 @@
           :one: Organisator
           :other: Organisatoren
         :organizer_id: Organisator
-        :working_group: Arbeitsgruppe
-        :working_group_id: Arbeitsgruppe
+        :working_group:
+          :one: Arbeitsgruppe
+          :other: Arbeitsgruppen
+        :working_group_id:
+          :one: Arbeitsgruppe
+          :other: Arbeitsgruppen
       :role:
         :actions: Aktionen
       :sponsorship:
@@ -308,14 +312,14 @@
       :user:
         :about_me: "Über mich"
         :accept_terms: Nutzungsbedingungen akzeptieren
-        :active_since: Aktiv seit
-        :address: Anschrift
-        :created_at: Mitglied seit
-        :circle: Helferkreis
         :accredited: Akkreditiert bis
         :accredited_until: Akkreditiert bis
+        :active_since: Aktiv seit
+        :address: Anschrift
+        :circle: Helferkreis
         :city: Ort
         :country: Land
+        :created_at: Mitglied seit
         :email: E-Mail-Adresse
         :feedback: Feedback
         :first_name: Vorname
@@ -331,7 +335,9 @@
         :phone: Telefon
         :postal_code: Postleitzahl
         :primary_circle_id: Haupthelferkreis
+        :profile_image: Profilbild
         :public_profile: Andere Helfer können das Profil sehen
+        :remove_profile_image: kein Bild
         :role: Rolle
         :state_province: Bundesland
         :street_address: Strasse
@@ -339,8 +345,6 @@
         :tasks: Aufgaben
         :triggered_system_events: Ausgelöste System-Events
         :working_groups: Arbeitsgruppen
-        :profile_image: Profilbild
-        :remove_profile_image: kein Bild
       :user/feedback:
         :comment: Kommentar
         :rating: Bewertung
@@ -367,15 +371,22 @@
         :location:
           :blank: Standort darf nicht leer sein.
       :messages:
+        :download_failed: konnte nicht geladen werden
+        :invalid_content_type: ungültiges Dateiformat
+        :invalid_extension: ungültiges Dateiformat
         :record_invalid: 'Validierung fehlgeschlagen: %{errors}'
         :restrict_dependent_destroy:
           :many: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record}
             besteht
           :one: Eintrag kann nicht gelöscht werden, da Abhängigkeit zu %{record} besteht
+        :too_large: ist zu gross
     :models:
       :circle:
-        one: Helferkreis
-        other: Helferkreise
+        :one: Helferkreis
+        :other: Helferkreise
+      :comment:
+        :one: Kommentar
+        :other: Kommentare
       :file_upload:
         :one: Dokument
         :other: Dokumente
@@ -408,11 +419,8 @@
       :user/feedback: Helfer/Feedbackeedback
       :user/identity: Helfer/Identität
       :working_group:
-        one: Arbeitsgruppe
-        other: Arbeitsgruppen
-      :comment:
-        :one: Kommentar
-        :other: Kommentare
+        :one: Arbeitsgruppe
+        :other: Arbeitsgruppen
   :cells:
     :tasks:
       :sourcing_widget:
@@ -535,13 +543,13 @@
         :back: Zurück
         :contact: Kontakt
         :edit_profile: Mein Profil ändern
-        :not_accredited: nicht akkreditiert
         :help_provided_count: Geleistete Hilfe
+        :not_accredited: nicht akkreditiert
       :show_actions:
+        :change_password: Passwort ändern
         :organizer_info_title: Dieser Helfer kann nicht gesperrt werden, da sie /
           er noch für die folgenden Dinge zuständig ist. Bitte finde andere Helfer
           für diese Tätigkeiten und versuche es erneut.
-        :change_password: Passwort ändern
     :organizers:
       :index:
         :organizers: Organisatoren
@@ -568,11 +576,11 @@
           noch einmal.
         :date_range: Zeitraum
         :date_range_sentence: von %{start_date} bis %{due_date}
+        :in_working_group: in
         :member-title:
           :one: "%{count} Helfer"
           :other: "%{count} Helfer"
         :organized-by: Organisiert von
-        :in_working_group: in
         :settings: Einstellungen
         :title_complete: 'Abgeschlossen:'
         :working_group_link: in %{link}
@@ -598,9 +606,9 @@
         :complete-task-button: Sachspende wurde abgegeben
         :decline-task-button: Ich habe das doch nicht.
         :edit-task-button: Sachspende bearbeiten
+        :in_working_group: in
         :invite-button: Mitglieder von %{group} einladen
         :organized-by: Organisiert von %{name}
-        :in_working_group: in
         :reopen-task-button: Sachspende wieder öffnen
         :users_box_title: Wird geliefert von
         :volunteer-count:
@@ -653,9 +661,9 @@
         :back: Zurück zu den Aufgaben
         :complete-task-button: Aufgabe abschliessen
         :edit-task-button: Aufgabe bearbeiten
+        :in_working_group: in
         :invite-button: "%{class} einladen"
         :organized-by: Organisiert von %{name}
-        :in_working_group: in
         :reopen-task-button: Aufgabe wieder öffnen
         :volunteer-count:
           :one: "%{count} Helfer ist eingetragen"
@@ -763,7 +771,7 @@
     - Fr
     - Sa
     :abbr_month_names:
-    -
+    - 
     - Jan
     - Feb
     - Mär
@@ -789,7 +797,7 @@
       :long: "%e. %B %Y"
       :short: "%e. %b"
     :month_names:
-    -
+    - 
     - Januar
     - Februar
     - März
@@ -857,9 +865,6 @@
   :edit: Bearbeiten
   :error_correction: 'Bitte die untenstehenden Fehler berichtigen. '
   :errors:
-    :profile_image:
-      :size: Bitte wähle ein Bild kleiner als %{max_size}MB.
-      :content_type: "Nur die Formate %{allowed_types} sind erlaubt."
     :about_me:
       :too_long: Maximal 300 Zeichen
     :accept_terms:
@@ -875,6 +880,7 @@
       :too_short: Beschreibung ist zu kurz
     :due_date:
       :empty: Bitte ein Fälligskeitsdatum eingeben
+      :end_before: Die Aufgabe muss vor dem Projektende stattfinden
     :due_time:
       :format: Bitte die Zeit im Format 00:00 eingeben.
     :email:
@@ -955,8 +961,12 @@
       :empty: Bitte eine Postleitzahl angeben
     :primary_location:
       :empty: Standort kann nicht leer sein
+    :profile_image:
+      :content_type: Nur die Formate %{allowed_types} sind erlaubt.
+      :size: Bitte wähle ein Bild kleiner als %{max_size}MB.
     :start_date:
       :empty: Beginndatum kann nicht leer sein.
+      :start_after: Die Aufgabe muss nach dem Projektbeginn liegen
     :start_time:
       :format: Bitte die Anfangszeit im Format 00:00 eingeben.
     :unacceptable_request: Eine unterstütze Version wird im Accept header erwartet.
@@ -1015,6 +1025,7 @@
     :update: "%{model} aktualisieren"
     :yes: Ja
   :helpers:
+    :add: "%{model} hinzufügen"
     :assign: Helfer eintragen
     :assigning: Eintragen &hellip;
     :block: Sperren
@@ -1022,6 +1033,8 @@
     :complete: "%{model} abschliessen"
     :confirm:
       :project:
+        :complete: Diese Projekt hat noch offen Aufgaben oder Sachspenden. Möchten
+          Sie diese wirklich alle abschliessen?
         :delete: Willst Du dieses Projekt wirklich löschen?
       :supply:
         :delete: Bist Du sicher, dass diese Sachspende gelöscht werden soll?
@@ -1029,7 +1042,6 @@
         :delete: Bist Du sicher, dass diese Aufgabe gelöscht werden soll?
     :deactivate: Deaktivieren
     :decline: Ich habe diese %{model} nicht
-    :add: "%{model} hinzufügen"
     :delete: "%{model} löschen"
     :delete_no_model: Löschen
     :edit: "%{model} bearbeiten"
@@ -1442,13 +1454,13 @@
   :user:
     :accounts:
       :change_password:
+        :change_password: Passwort ändern
         :password: Passwort
         :password_confirmation: Passwort Bestätigung
-        :change_password: Passwort ändern
         :update: Passwort ändern
       :show:
-        :edit_profile: Mein Profil ändern
         :change_password: Passwort ändern
+        :edit_profile: Mein Profil ändern
         :title: Mein Profil
         :view_public_profile: "Öffentliches Profil ansehen"
     :identities:
