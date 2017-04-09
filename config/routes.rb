@@ -80,7 +80,7 @@ Rails.application.routes.draw do
         resources :comments, only: [:create, :destroy, :update, :index]
         resources :tasks, only: [:new]
         resources :supplies, only: [:new]
-        resources :files, only: [:create, :edit, :destroy]
+        resources :files, only: [:create, :edit, :destroy, :show, :update]
         resources :files, path: '/files/:uploadable', only: [:new]
         resources :documents, only: :index
       end
