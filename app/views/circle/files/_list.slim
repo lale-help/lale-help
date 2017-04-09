@@ -35,8 +35,6 @@ table.default-table.file-list
           td.actions
             - if can? :manage, file
               - if project
-                = link_to '', edit_circle_project_file_path(circle, project, file), class: 'edit'
                 = link_to '', circle_project_file_path(circle, project, file), class: 'delete', method: 'delete', data: { confirm: t('files.list.confirm_delete_file') }
               - elsif circle
-                = link_to '', edit_circle_file_path(circle, file)
                 = link_to '', circle_file_path(circle, file), class: 'delete', method: 'delete', data: { confirm: t('files.list.confirm_delete_file') }
