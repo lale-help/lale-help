@@ -81,7 +81,7 @@ class Task::BaseForm < ::Form
       add_error(:start_time, :format)                if start_time.present? && start_time !~ TIME_REGEX
       add_error(:due_time, :format)                  if due_time.present? && due_time !~ TIME_REGEX
       add_error(:start_date, :empty)                 if scheduling_type == 'between' && start_date.blank?
-      add_error(:start_date, :start_after)           if start_after_project
+      add_error(:start_date, :start_after)           if start_date && start_after_project
     end
 
     def execute
