@@ -2,7 +2,7 @@ window.CirclesMap = class CirclesMap
   constructor: (@form, @target) ->
     @input = @form.find('#user_location')
     @circleField = @form.find('#user_circle_id')
-    @joinButton  = @form.find('.sumbit')
+    @joinButton  = @form.find('.submit')
 
     @target.addClass('hidden')
     @input.on 'input change', @render
