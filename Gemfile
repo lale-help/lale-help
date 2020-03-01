@@ -6,7 +6,7 @@ gem 'rake', '< 11.0'
 
 # backend
 gem 'pg'
-gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
+gem 'rbsavvy_commons', git: 'https://github.com/RBSavvy/rbsavvy_commons.git', branch: 'master'
 gem 'mutations'
 gem 'omniauth'
 gem 'omniauth-identity'
@@ -66,7 +66,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'foreman', require: false
   gem 'rspec-rails'
-  gem 'hologram', github: 'trulia/hologram'
+  gem 'hologram', git: 'https://github.com/trulia/hologram.git', ref: '217548'
 
   gem 'capybara'
   gem 'capybara-screenshot'
