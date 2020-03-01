@@ -226,7 +226,7 @@ GEM
     js-routes (1.1.2)
       railties (>= 3.2)
       sprockets-rails
-    json (1.8.3)
+    json (1.8.6)
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -264,6 +264,7 @@ GEM
       sass (>= 3.3)
     netrc (0.11.0)
     newrelic_rpm (3.16.2.321)
+    nio4r (2.5.2)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
@@ -294,7 +295,8 @@ GEM
     pry-stack_explorer (0.4.9.2)
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
-    puma (3.6.0)
+    puma (4.3.3)
+      nio4r (~> 2.0)
     rack (1.6.4)
     rack-protection (1.5.3)
       rack
@@ -563,7 +565,7 @@ DEPENDENCIES
   wkhtmltopdf-binary
 
 RUBY VERSION
-  ruby 2.2.3p173
+   ruby 2.5.7p206
 
 BUNDLED WITH
-   1.13.7
+   1.17.3
