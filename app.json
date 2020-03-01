@@ -30,7 +30,8 @@
   "addons": [
     "papertrail",
     "rollbar",
-    "heroku-postgresql"
+    "heroku-postgresql",
+    "rediscloud"
   ],
   "buildpacks": [
     {
