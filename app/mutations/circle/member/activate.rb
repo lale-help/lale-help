@@ -9,7 +9,7 @@ class Circle::Member::Activate < Circle::Member::ChangeStatus
   private
 
   def notify_user
-    UserMailer.delay.account_activated(circle.id, user.id)
+    UserMailer.account_activated(circle.id, user.id).deliver_later
   end
 
 end

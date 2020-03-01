@@ -5,7 +5,7 @@ class Comment::Create < Comment::BaseForm
         if item.is_a? Task
           (item.users.uniq - [ commenter ]).each do |outbound_user|
             next unless outbound_user.email.present?
-            TaskMailer.delay.task_comment(item.id, comment.id, outbound_user.id)
+            TaskMailer.task_comment(item.id, comment.id, outbound_user.id).deliver_later
           end
         end
       end

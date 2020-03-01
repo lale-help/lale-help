@@ -8,7 +8,7 @@ class Project::Notifications::InvitationEmail < Mutations::Command
   def execute
     volunteers.each do |user|
       next unless user.email.present?
-      ProjectMailer.delay.project_invitation(project.id, user.id)
+      ProjectMailer.project_invitation(project.id, user.id).deliver_later
     end
 
     OpenStruct.new(volunteers: volunteers)
