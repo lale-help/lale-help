@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.3'
 
 gem 'rails', '4.2.4'
-gem 'rake', '< 11.0'
+gem 'rake', '< 14.0'
 
 # backend
 gem 'pg'
