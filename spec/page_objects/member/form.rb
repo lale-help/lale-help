@@ -15,7 +15,7 @@ module PageObject
 
       def next_page_object
         PageObject::Member::Page.new
-      end        
+      end
 
       def fill_form(attributes)
         first_name.set(attributes[:first_name]) if attributes[:first_name]

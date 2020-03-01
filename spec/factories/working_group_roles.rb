@@ -12,7 +12,7 @@ FactoryGirl.define do
         create(:circle_role_volunteer, circle: circle, user: evaluator.user)
       end
     end
-    
+
     factory :working_group_admin_role, aliases: [:working_group_organizer_role] do
       role_type { "admin" }
     end
@@ -21,5 +21,5 @@ FactoryGirl.define do
       role_type { "member" }
     end
 
-  end  
+  end
 end

@@ -9,7 +9,7 @@ module PageObject
       section :edit_menu, PageObject::Component::EditMenu, '.project-edit-menu'
 
       section :tab_nav, PageObject::Component::TabNav, '.tab-nav'
-      
+
       section :header, PageObject::Component::CollectionDashboardHeader, '.collection-dashboard .header'
       delegate :headline, :description, to: :header
 

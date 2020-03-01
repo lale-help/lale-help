@@ -15,7 +15,7 @@ module PageObject
       end
 
       def has_admin?(admin_to_find)
-        admins.any? do |admin| 
+        admins.any? do |admin|
           admin.name.text == admin_to_find.name &&
           admin.role.text == 'Admin' &&
           admin.status.text == 'Active'

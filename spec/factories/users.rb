@@ -9,7 +9,7 @@ FactoryGirl.define do
     end
     is_admin false
 
-    trait :with_profile_image do 
+    trait :with_profile_image do
       profile_image { File.open('spec/fixtures/images/avatar.jpg') }
     end
 

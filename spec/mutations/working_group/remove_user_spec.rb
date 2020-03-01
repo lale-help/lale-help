@@ -28,10 +28,10 @@ describe "WorkingGroup::RemoveUser" do
       expect(working_group.admins).to include(admin_1)
       expect(working_group.admins).to include(admin_2)
     end
-  end 
+  end
 
   context "Removing an admin role" do
-    
+
     context "when group has more than one admin" do
       it "removes the admin role" do
         expect {

@@ -14,5 +14,5 @@ else
   }
   Refile.cache = Refile::S3.new(prefix: "cache", **aws_config)
   Refile.store = Refile::S3.new(prefix: "store", **aws_config)
-  
+
 end

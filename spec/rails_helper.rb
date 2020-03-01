@@ -83,7 +83,7 @@ RSpec.configure do |config|
     FileUtils.rm_rf(Dir["#{Rails.root}/tmp/spec/test_files/"])
   end
 
-  # save the status of the test runs in a file. See 
+  # save the status of the test runs in a file. See
   # - https://relishapp.com/rspec/rspec-core/v/3-3/docs/command-line/only-failures
   # - http://bloginius.com/blog/2015/12/28/rspec-restart-failing-tests/
   config.example_status_persistence_file_path = "#{Rails.root}/log/rspec_example_statuses.log"

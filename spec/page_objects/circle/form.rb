@@ -17,7 +17,7 @@ module PageObject
 
       def next_page_object
         self.class.new
-      end        
+      end
 
       def fill_form(attributes)
         name.set(attributes[:name]) if attributes[:name]

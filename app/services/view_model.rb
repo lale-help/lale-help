@@ -15,7 +15,7 @@ class ViewModel < Cell::ViewModel
   # supplies #h, #html_escape
   include ERB::Util
 
-  
+
   def t(key, options = {})
     if key.starts_with?('.')
       scope  = ['cells']

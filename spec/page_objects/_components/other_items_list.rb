@@ -12,7 +12,7 @@ module PageObject
 
       alias :has_project? :has_item?
       alias :projects :items
-      
+
       alias :has_file? :has_item?
       alias :files :items
 

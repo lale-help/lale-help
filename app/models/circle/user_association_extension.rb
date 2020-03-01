@@ -1,12 +1,12 @@
 #
 # This is an association extension as described in http://goo.gl/DHdXzd.
-# 
-# It enables calls like 
-# 
+#
+# It enables calls like
+#
 #   circle.users.active
 #   circle.volunteers.pending
 #   circle.admins.blocked
-#   
+#
 # although the status is not stored on User but on Circle::Role
 #
 class Circle
@@ -30,7 +30,7 @@ class Circle
       proxy_association.owner
     end
 
-    # returns the query condition for finding the correct role. 
+    # returns the query condition for finding the correct role.
     def role_condition(status)
       { circle_roles: { status: map_status_to_id(status) } }
     end
@@ -42,7 +42,7 @@ class Circle
     end
 
     # map the status symbold to the correct integer for SQL querying
-    def map_status_to_id(status) 
+    def map_status_to_id(status)
       Circle::Role.statuses.fetch(status)
     end
 

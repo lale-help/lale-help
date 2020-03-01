@@ -13,7 +13,7 @@ describe Circle do
 
   it { is_expected.to belong_to(:address).class_name(Address) }
 
-  %i(users admins officials volunteers leadership).each do |association|    
+  %i(users admins officials volunteers leadership).each do |association|
     it { is_expected.to have_many(association).class_name(User) }
     describe "Circle.new.#{association}" do
       subject(:association) { Circle.new.send(association) }

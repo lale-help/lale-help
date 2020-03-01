@@ -7,7 +7,7 @@ class Circle < ActiveRecord::Base
   has_many :officials,  -> { Role.send('circle.official').extending(UserAssociationExtension)  }, through: :roles, source: :user
   has_many :volunteers, -> { Role.send('circle.volunteer').extending(UserAssociationExtension) }, through: :roles, source: :user
   has_many :leadership, -> { Role.leadership.extending(UserAssociationExtension)               }, through: :roles, source: :user
-  
+
   has_many :organizers, -> { distinct }, through: :working_groups, source: :admins
 
   has_many :working_groups, dependent: :destroy

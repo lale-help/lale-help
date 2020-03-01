@@ -28,7 +28,7 @@ describe "Complete and reopen a task", js: true do
       end
     end
   end
-  
+
   describe "reopening a task" do
 
     context "when task is completed" do

@@ -13,7 +13,7 @@ class MoveUserStatusToCircleRole < ActiveRecord::Migration
     User.find_each do |user|
       if user.status
         user.circle_roles.each { |role| role.update_attribute(:status, user.status) }
-      else 
+      else
         puts "User #{user.id} has status nil, not updating status on circle roles."
       end
     end

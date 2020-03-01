@@ -1,11 +1,11 @@
 unless (ENV['SELENIUM'])
   require 'capybara/poltergeist'
   #
-  # Switch to the poltergeist_debug driver when you want to inspect the page under test with the 
+  # Switch to the poltergeist_debug driver when you want to inspect the page under test with the
   # webkit console. Insert page.driver.debug into your test & the inspector will open.
-  # This driver will also log the poltergeist/PhantomJS interaction as well as JS output 
+  # This driver will also log the poltergeist/PhantomJS interaction as well as JS output
   # to log/poltergeist_debug.log.
-  # 
+  #
   # Capybara.javascript_driver = :poltergeist_debug
   Capybara.javascript_driver = :poltergeist
 else

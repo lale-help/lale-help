@@ -14,12 +14,12 @@ ActiveAdmin.register Sponsor do
 
   # patching the default controller action
   controller do
-    
+
     def create
       outcome = Sponsor::Create.run(params[:sponsor].merge(current_user: current_user))
       handle_outcome(outcome, :new, nil)
     end
-    
+
     def update
       sponsor = Sponsor.find(params[:id])
       outcome = Sponsor::Update.run(params[:sponsor].merge(current_user: current_user, sponsor: sponsor))

@@ -10,9 +10,9 @@ class TokenHandler < Mutations::Command
 
   def execute
     ActiveRecord::Base.transaction do
-      handle_token(token) 
+      handle_token(token)
       # current_user is only available now
-      # FIXME currently all token handling subclasses require a logged in user; every handler 
+      # FIXME currently all token handling subclasses require a logged in user; every handler
       # does the login itself though. refactor this.
       current_user.touch(:last_login) if current_user
 

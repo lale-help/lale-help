@@ -15,7 +15,7 @@ module PageObject
 
       def next_page_object
         PageObject::Circle::Dashboard.new
-      end        
+      end
 
       def fill_form(attributes)
         email.set(attributes[:email])

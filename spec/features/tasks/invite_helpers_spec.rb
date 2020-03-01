@@ -5,7 +5,7 @@ describe "Invite helpers to a task", js: true do
   let(:circle)        { create(:circle, :with_admin) }
   let(:admin)         { circle.admin }
 
-  let!(:circle_member) { create(:circle_member_role, circle: circle).user }  
+  let!(:circle_member) { create(:circle_member_role, circle: circle).user }
   let!(:wg_members)    { create_list(:user, 2) }
   let(:working_group)  { create(:working_group, circle: circle, members: wg_members) }
 

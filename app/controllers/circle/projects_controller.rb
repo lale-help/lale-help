@@ -21,7 +21,7 @@ class Circle::ProjectsController < ApplicationController
     supplies            = current_project.supplies.ordered_by_date
     @open_supplies      = supplies.not_completed.select { |f| can?(:read, f) }
     @completed_supplies = supplies.completed.select { |f| can?(:read, f) }
-  
+
     @comments            = current_project.comments.select { |f| can?(:read, f) }
 
     @files              = current_project.files.select { |f| can?(:read, f) }

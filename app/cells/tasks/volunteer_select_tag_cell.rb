@@ -9,25 +9,25 @@ class Tasks::VolunteerSelectTagCell < ::ViewModel
     @group_public   = !task.working_group.is_private?
     @volunteers     = task.volunteers
     circle_members  = task.circle.users.active.order(:first_name)
-    @group_members, @non_group_members = circle_members.partition do |user| 
+    @group_members, @non_group_members = circle_members.partition do |user|
       task.working_group.users.include?(user)
     end
   end
 
   # this is the default cell action
   def show
-    opts = { 
-      multiple: true, 
+    opts = {
+      multiple: true,
       placeholder: t('.placeholder')
     }
     select_tag('new_volunteer_ids', select_options, opts)
   end
 
-  private 
+  private
 
   def select_options
     if group_public
-      optgroup_tags(group_members, label: t('.in_working_group')) + 
+      optgroup_tags(group_members, label: t('.in_working_group')) +
         optgroup_tags(non_group_members, label: t('.all_helpers'))
     else
       option_tags(group_members)

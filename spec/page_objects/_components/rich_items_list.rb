@@ -12,7 +12,7 @@ module PageObject
 
       alias :has_task? :has_item?
       alias :tasks :items
-      
+
       alias :has_supply? :has_item?
       alias :supplies :items
 

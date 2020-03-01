@@ -32,7 +32,7 @@ class Circle::CommentsController < ApplicationController
 
   def update
     authorize! :update, Comment, current_item, current_circle
-    
+
     @form = Comment::Update.new(params[:comment], commenter: current_user, item: current_item, comment: @comment)
 
     outcome = @form.submit

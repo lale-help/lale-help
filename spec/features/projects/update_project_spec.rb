@@ -9,7 +9,7 @@ describe "Update project", js: true do
   let(:project) { create(:project, working_group: working_group) }
 
   context "when on edit project page" do
-    
+
     before { visit edit_circle_project_path(id: project, circle_id: circle, as: admin) }
 
     let(:project_form) { PageObject::Project::Form.new }

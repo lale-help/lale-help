@@ -5,7 +5,7 @@ describe Task::Comments::Updated do
   let(:user) { create(:user) }
 
   describe '#execute' do
-    
+
     context "task unchanged" do
       it "doesn't create a comment" do
         expect { Task::Comments::Updated.run(item: task, user: user) }.not_to change { Comment.count }

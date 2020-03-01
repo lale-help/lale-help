@@ -24,7 +24,7 @@ describe "Join and leave a working group", js: true do
 
   describe "leaving a group" do
 
-    context "when currently member of the group" do 
+    context "when currently member of the group" do
 
       before { dashboard_page.join_button.click }
 

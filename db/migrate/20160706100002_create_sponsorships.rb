@@ -3,7 +3,7 @@ class CreateSponsorships < ActiveRecord::Migration
     create_table :sponsorships do |t|
       t.integer :circle_id
       t.integer :sponsor_id
-      
+
       t.date :starts_on
       t.date :ends_on
 

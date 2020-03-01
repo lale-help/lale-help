@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Create a supply", js: true do
-  
+
   let(:circle)        { create(:circle, :with_admin_and_working_group) }
   let(:admin)         { circle.admin }
   let(:working_group) { circle.working_groups.first }

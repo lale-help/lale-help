@@ -2,9 +2,9 @@ class AddUniqueIndicesOnUserRoles < ActiveRecord::Migration
 
   #
   # used the consistency_fail gem to find some useful unique indices.
-  # 
+  #
   def change
-    # uniqueness for roles per user 
+    # uniqueness for roles per user
     add_index :circle_roles,        [:user_id, :role_type, :circle_id], unique: true
     add_index :project_roles,       [:user_id, :role_type, :project_id], unique: true
     add_index :task_roles,          [:user_id, :role_type, :task_id], unique: true

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Sponsorship, type: :model do
-  
+
   it { is_expected.to validate_presence_of(:circle_id) }
   it { is_expected.to validate_presence_of(:sponsor_id) }
   it { is_expected.to validate_presence_of(:starts_on) }

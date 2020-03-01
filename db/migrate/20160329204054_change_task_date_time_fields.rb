@@ -13,15 +13,15 @@ class ChangeTaskDateTimeFields < ActiveRecord::Migration
     change_column :tasks, :due_time, :string, null: true
 
     add_column :tasks, :start_date, :date, null: true
-    
+
     # migrate data
-    
+
     # at tasks have a due date & time set. but start_time needs to go to due_time
     Task.where(scheduling_type: 'at').update_all("due_time=start_time, start_time=NULL")
-    
+
     # on_date tasks are like at tasks, but they never have a time. We make them at tasks, as well.
     Task.where(scheduling_type: 'on_date').update_all(
-      start_time: nil, due_time: nil, 
+      start_time: nil, due_time: nil,
       scheduling_type: 'at'
     )
 

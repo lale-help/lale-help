@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 describe "Create project", js: true do
-  
+
   let(:circle)    { create(:circle, :with_admin, :with_volunteer) }
   let(:admin)     { circle.admin }
   let(:volunteer) { circle.volunteers.first }
 
   let!(:working_group) { create(:public_working_group, circle: circle, admin: admin, member: volunteer) }
   let!(:working_group_2) { create(:public_working_group, circle: circle, admin: admin, member: volunteer) }
-    
+
   let(:project_form) { PageObject::Project::Form.new }
 
   context "when only required fields are filled" do
@@ -20,7 +20,7 @@ describe "Create project", js: true do
       project_page = project_form.submit_with(inputs)
       expect(project_page.headline.text).to eq(inputs[:name])
       expect(project_page.organizer.text).to eq("JD #{inputs[:organizer_name]} in#{working_group.name}")
-    end  
+    end
   end
 
   context "when all fields are filled" do
@@ -35,7 +35,7 @@ describe "Create project", js: true do
       expect(project_page.organizer.text).to eq("JD #{inputs[:organizer_name]} in#{inputs[:working_group_name]}")
     end
   end
-  
+
   context "when no mandatory field is filled" do
     let(:inputs) { {} }
     before { project_form.load(circle_id: circle.id, as: admin.id) }

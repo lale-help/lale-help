@@ -12,7 +12,7 @@ describe "Edit a circle member profile", js: true do
   let(:inputs) { { first_name: 'Emil', last_name: 'Emu' } }
 
   context "when user is circle admin" do
-    
+
     let(:current_user) { admin }
 
     context "when editing own profile" do
@@ -45,7 +45,7 @@ describe "Edit a circle member profile", js: true do
     let(:current_user) { volunteer }
 
     context "when editing own profile" do
-      
+
       let(:user) { current_user }
       before { member_form.load(circle_id: circle.id, id: user.id, as: current_user.id) }
 

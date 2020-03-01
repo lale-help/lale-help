@@ -9,8 +9,8 @@ class Task::Comments::Assigned < Comment::AutoComment
     :users_assigned
   end
 
-  def message_params 
-    { 
+  def message_params
+    {
       count: assignees.size,
       assignees: assignees.map(&:name).sort.to_sentence,
       assigner: user.name

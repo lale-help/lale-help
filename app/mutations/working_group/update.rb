@@ -4,7 +4,7 @@ class WorkingGroup::Update < WorkingGroup::BaseForm
 
     def validate
       condition = [
-        'lower(name) = ? AND circle_id = ? AND id <> ?', 
+        'lower(name) = ? AND circle_id = ? AND id <> ?',
         name.downcase, working_group.circle_id, working_group.id
       ]
       add_error(:name, :not_unique) if WorkingGroup.exists?(condition)

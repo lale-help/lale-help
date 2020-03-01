@@ -1,5 +1,5 @@
 class Circle::Member::ChangeStatus < Mutations::Command
-  
+
   required do
     integer :circle_id
     integer :id

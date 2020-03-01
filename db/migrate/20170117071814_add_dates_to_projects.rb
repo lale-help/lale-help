@@ -2,7 +2,7 @@ class AddDatesToProjects < ActiveRecord::Migration
   def change
     add_column :projects, :start_date, :date
     add_column :projects, :due_date, :date
-    
+
     reversible do |dir|
       dir.up do
         Project.all.each do |project|

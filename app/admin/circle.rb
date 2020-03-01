@@ -6,8 +6,8 @@ ActiveAdmin.register Circle do
     column :name
     column "City, Country" do |circle|
       s = []
-      s << circle.address.city if circle.address.city 
-      s << circle.address.country if circle.address.country 
+      s << circle.address.city if circle.address.city
+      s << circle.address.country if circle.address.country
       s.join(', ')
     end
     column "Active helpers" do |circle|

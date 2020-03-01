@@ -7,7 +7,7 @@ class Tasks::UserBadgeCell < ::UserBadgeCell
   def user_badge_attributes
     {
       data: {
-        'unassign-action': unassign_user_path, 
+        'unassign-action': unassign_user_path,
         'unassign-method': 'PUT'
       },
       class: can?(:unassign, task) ? 'unassignable' : ''

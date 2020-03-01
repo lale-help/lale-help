@@ -9,9 +9,9 @@ FactoryGirl.define do
     volunteer_count_required 1
 
     #
-    # use it like this to create a task with an organizer: 
+    # use it like this to create a task with an organizer:
     # create(:task, organizer: a_user_instance)
-    # 
+    #
     transient do
       organizer nil
       volunteer nil
@@ -22,7 +22,7 @@ FactoryGirl.define do
     after(:create) do |task, evaluator|
       organizer = if evaluator.organizer
         evaluator.organizer
-      else  
+      else
         # when no organizer is given, create one that is valid (in working group and circle)
         create(:working_group_member_role, working_group: evaluator.working_group).user
       end

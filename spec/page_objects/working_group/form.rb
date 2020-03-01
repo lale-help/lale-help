@@ -13,7 +13,7 @@ module PageObject
       element :submit_button, ".submit-row input[type=submit]"
 
       private
-      
+
       def next_page_object
         Circle::WorkingGroups.new
       end

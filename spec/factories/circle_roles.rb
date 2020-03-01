@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :circle_role, class: Circle::Role do
-    
+
     user
     circle
     status { :active }
@@ -26,5 +26,5 @@ FactoryGirl.define do
       end
     end
   end
-  
+
 end

@@ -42,7 +42,7 @@ FactoryGirl.define do
 
     trait :with_members do
       after(:create) do |wg, evaluator|
-        2.times do 
+        2.times do
           member = create(:user)
           create(:working_group_volunteer_role, working_group: wg, user: member)
           # an active circle role is required for a lale user to work correctly.

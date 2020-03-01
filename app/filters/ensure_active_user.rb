@@ -22,7 +22,7 @@ class EnsureActiveUser
     end
 
     if user_has_circle_role?
-      if current_circle.has_active_user?(current_user) 
+      if current_circle.has_active_user?(current_user)
         return
       elsif on_info_path?
         return
@@ -43,7 +43,7 @@ class EnsureActiveUser
   def on_info_path?
     request.fullpath == info_path
   end
-  
+
   def info_path
     current_user_status && public_circle_inactive_circle_membership_path(current_circle, status: current_user_status)
   end

@@ -1,7 +1,7 @@
 FactoryGirl.define do
 
   factory :project do
-    
+
     sequence(:name) {|n| "Project #{n}" }
     sequence(:description) {|n| "Decription of project #{n}" }
     working_group

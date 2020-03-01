@@ -100,7 +100,7 @@ describe "Circle factory" do
       expect(wg.members).to eq([circle.admin])
     end
   end
-  
+
   describe "the :with_volunteer_and_working_group trait" do
     it "assigns a new user as volunteer" do
       circle = create(:circle, :with_volunteer_and_working_group)

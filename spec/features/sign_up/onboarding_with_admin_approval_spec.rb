@@ -49,7 +49,7 @@ describe 'New User On-boarding', js: true do
 
 
   context "admin approves new user" do
-    
+
     let!(:circle) { submit_form(:circle_create_form, must_activate_users: true).result }
     let!(:new_member) { create(:circle_role_volunteer, circle: circle, status: :pending).user }
 

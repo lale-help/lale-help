@@ -11,7 +11,7 @@ describe "Supply factory" do
       expect(supply.organizer).to be_a(User)
     end
   end
-  
+
   describe "adding an organizer" do
     it "correctly assigns the organizer" do
       supply = create(:supply, organizer: user_1)

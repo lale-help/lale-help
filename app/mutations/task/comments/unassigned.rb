@@ -9,8 +9,8 @@ class Task::Comments::Unassigned < Comment::AutoComment
     :users_unassigned
   end
 
-  def message_params 
-    { 
+  def message_params
+    {
       count: unassignees.size,
       unassignees: unassignees.map(&:name).sort.to_sentence,
       unassigner: user.name

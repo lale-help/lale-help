@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Create working group", js: true do
-  
+
   let(:circle)    { create(:circle, :with_admin, :with_volunteer) }
   let(:admin)     { circle.admin }
 
@@ -15,11 +15,11 @@ describe "Create working group", js: true do
 
     it "creates the working group" do
       working_groups_page = wg_form.submit_with(inputs)
-      working_groups_page.when_loaded do 
+      working_groups_page.when_loaded do
         expect(working_groups_page.working_groups.first.name.text).to eq(inputs[:name])
         expect(working_groups_page.working_groups.first.organizers.first.text).to include(inputs[:organizer_name])
       end
-    end  
+    end
   end
 
   context "when no mandatory field is filled" do

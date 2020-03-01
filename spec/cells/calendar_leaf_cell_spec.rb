@@ -5,7 +5,7 @@ RSpec.describe CalendarLeafCell, type: :cell do
   include RSpecHtmlMatchers
 
   context 'cell rendering' do
-    
+
     let(:date) { Date.parse("2016-12-24") }
 
     context "without options" do
@@ -18,7 +18,7 @@ RSpec.describe CalendarLeafCell, type: :cell do
       it "renders week" do
         expect(html).to have_tag('.calendar-leaf .day_number', text: '24')
       end
-      
+
       it "renders weekday" do
         expect(html).to have_tag('.calendar-leaf .day-of-week', text: 'Sat')
       end

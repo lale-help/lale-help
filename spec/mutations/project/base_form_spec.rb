@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Project::BaseForm do
 
   let(:ability) { Ability.new(user) }
-  
+
   # user must be in the circle for things to work, so it's easiest to set this up by creating a role.
   let(:user_circle_role) { create(:circle_role_volunteer) }
   let(:user) { user_circle_role.user }
@@ -35,7 +35,7 @@ describe Project::BaseForm do
           end
         end
 
-      end 
+      end
 
       describe "organizer_id" do
         context "organizer_id given" do
@@ -65,7 +65,7 @@ describe Project::BaseForm do
             end
           end
         end
-      end 
+      end
     end
 
     describe "available_working_groups" do
@@ -112,7 +112,7 @@ describe Project::BaseForm do
     context "no organizer_id given" do
       let(:params) { { user: user, circle: circle, ability: ability, working_group_id: wg.id, name: name } }
       it "has an error" do
-        outcome = nil # define outer variable here so I can access it outside the block 
+        outcome = nil # define outer variable here so I can access it outside the block
         expect { outcome = form.submit }.not_to change { Project.count }
         expect(outcome).not_to be_success
         expect(outcome.errors[:organizer_id]).not_to be_nil

@@ -1,5 +1,5 @@
 class Sponsor < ActiveRecord::Base
-  
+
   validates :name, presence: true, uniqueness: true
   validates :url, url: { allow_blank: true }
 

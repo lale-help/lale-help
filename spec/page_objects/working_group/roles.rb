@@ -10,7 +10,7 @@ module PageObject
       end
 
       element :no_users, 'td.empty'
-      
+
       element :user_dropdown, '#working_group_user_id'
       element :add_button, 'input[type=submit][value=Add]'
 

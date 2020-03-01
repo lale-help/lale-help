@@ -24,7 +24,7 @@ describe "Complete and reopen a project", js: true do
       end
     end
   end
-  
+
   describe "reopening a project" do
 
     context "when project is completed" do

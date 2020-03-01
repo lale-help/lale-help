@@ -18,15 +18,15 @@ describe "Show circle dashboard", js: true do
 
     it "shows the circle resources" do
       expect(dashboard_page.headline.text).to eq("Dashboard for #{circle.name}")
-      
+
       expect(dashboard_page).to have_task(task)
 
       dashboard_page.tab_nav.supplies.click
       expect(dashboard_page).to have_supply(supply)
-      
+
       dashboard_page.tab_nav.projects.click
       expect(dashboard_page).to have_project(project)
-      
+
       dashboard_page.tab_nav.documents.click
       expect(dashboard_page).to have_file(file)
     end

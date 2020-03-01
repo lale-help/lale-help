@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  
+
   factory :supply_role, class: Supply::Role do
 
     user

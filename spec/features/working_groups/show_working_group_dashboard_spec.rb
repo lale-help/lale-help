@@ -23,10 +23,10 @@ describe "Show working group dashboard", js: true do
 
     dashboard_page.tab_nav.supplies.click
     expect(dashboard_page).to have_supply(supply)
-    
+
     dashboard_page.tab_nav.projects.click
     expect(dashboard_page).to have_project(project)
-    
+
     dashboard_page.tab_nav.documents.click
     expect(dashboard_page).to have_file(file)
   end

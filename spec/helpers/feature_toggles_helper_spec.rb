@@ -11,7 +11,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ApplicationHelper, type: :helper do
-  
+
   it "returns true correctly" do
     Rails.configuration.x.feature_toggles.projects = true
     expect(helper.feature_enabled?(:projects)).to be(true)

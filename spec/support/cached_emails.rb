@@ -3,7 +3,7 @@
 # from the test thread
 #
 # requires the gem action_mailer_cache_delivery
-# 
+#
 RSpec.configure do |config|
 
   module CachedEmailHelpers
@@ -22,7 +22,7 @@ RSpec.configure do |config|
   config.before(:each) do |example|
     ActionMailer::Base.clear_cache
   end
-  
+
   config.around(:each) do |example|
     original_method = ActionMailer::Base.delivery_method
     ActionMailer::Base.delivery_method = :cache

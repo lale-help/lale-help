@@ -25,7 +25,7 @@ module PageObject
         has_document?(wg_documents, document)
       end
 
-      private 
+      private
 
       def has_document?(documents, document_to_find)
         documents.any? do |document_row|

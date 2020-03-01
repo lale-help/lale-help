@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Edit a circle", js: true do
-  
+
   let(:circle)        { create(:circle, :with_admin) }
   let(:admin)         { circle.admin }
 
@@ -20,7 +20,7 @@ describe "Edit a circle", js: true do
       expect(circle_form.description.value).to eq(inputs[:description])
       expect(circle_form.city.value).to eq(inputs[:city])
       expect(circle_form.postal_code.value).to eq(inputs[:postal_code])
-      expect(circle_form.country.value).to eq("CA") # Canada // hack 
+      expect(circle_form.country.value).to eq("CA") # Canada // hack
     end
   end
 

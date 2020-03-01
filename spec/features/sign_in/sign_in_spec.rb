@@ -8,7 +8,7 @@ describe 'Sign in and sign out', js: true do
   end
 
   let!(:circle) { submit_form(:circle_create_form).result }
-  
+
   context 'Sign in with correct data' do
 
     let!(:user) { create(:circle_role_volunteer, circle: circle, status: :active).user }
@@ -30,7 +30,7 @@ describe 'Sign in and sign out', js: true do
 
   context 'Sign in with incorrect data' do
 
-    let!(:user) do 
+    let!(:user) do
       user = create(:circle_role_volunteer, circle: circle, status: :active).user
       user.identity.password = "wrong password"
       user

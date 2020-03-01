@@ -1,6 +1,6 @@
 #
 # generic form helper module to be included into specific forms
-# 
+#
 module PageObject
   module IsForm
 
