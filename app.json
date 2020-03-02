@@ -22,6 +22,7 @@
     "HEROKU_APP_ID":    { "required": true },
     "HEROKU_APP_NAME":  { "required": true },
     "LANG":             { "required": true },
+    "SECRET_KEY_BASE":  { "required": true },
     "SMTP_ADDRESS":     { "required": true },
     "SMTP_DOMAIN":      { "required": true },
     "SMTP_PASSWORD":    { "required": true },
