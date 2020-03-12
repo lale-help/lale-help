@@ -76,6 +76,7 @@ group :development, :test do
   gem 'database_cleaner'
 
   gem 'spring'
+  # gem 'spring'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'awesome_print'
@@ -92,5 +93,6 @@ group :test do
   gem 'timecop'
   gem 'rspec_junit_formatter', '~> 0.2.0'
   gem 'spring-commands-rspec'
+  # gem 'spring-commands-rspec'
   gem 'rspec-html-matchers'
 end
