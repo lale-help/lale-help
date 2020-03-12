@@ -1,3 +1,6 @@
+require 'capybara/rails'
+require 'capybara/rspec'
+
 unless (ENV['SELENIUM'])
   require 'capybara/poltergeist'
   #
@@ -23,7 +26,3 @@ end
 
 # defaults to 2
 Capybara.default_max_wait_time = 5
-
-Capybara.server do |app, port|
-  Rack::Handler::Unicorn.run app, Port: port
-end
