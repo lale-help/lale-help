@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.5.7'
 
-gem 'rails', '4.2.8'
-gem 'rake', '< 11.0'
+gem 'rails', '4.2.11.1' # latest Rails 4 version, released March 2019
+gem 'rake'
 
 # backend
 gem 'pg'
@@ -75,7 +75,6 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 
-  gem 'spring'
   # gem 'spring'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
@@ -92,7 +91,6 @@ group :test do
   gem 'action_mailer_cache_delivery'
   gem 'timecop'
   gem 'rspec_junit_formatter', '~> 0.2.0'
-  gem 'spring-commands-rspec'
   # gem 'spring-commands-rspec'
   gem 'rspec-html-matchers'
 end
