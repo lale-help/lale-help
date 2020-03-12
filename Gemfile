@@ -6,7 +6,7 @@ gem 'rake', '< 11.0'
 
 # backend
 gem 'pg'
-gem 'rbsavvy_commons', git: 'https://github.com/RBSavvy/rbsavvy_commons.git', branch: 'master'
+gem 'rbsavvy_commons', git: 'https://github.com/phillipoertel/rbsavvy_commons.git', branch: 'master'
 gem 'mutations'
 gem 'omniauth'
 gem 'omniauth-identity'
