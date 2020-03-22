@@ -516,11 +516,11 @@ DEPENDENCIES
   awesome_print
   bourbon
   cancancan
-  capybara (= 2.6.2)
+  capybara
   capybara-screenshot
   carmen
-  cells-rails (= 0.0.5)
-  cells-slim (= 0.0.5)
+  cells-rails
+  cells-slim
   coffee-rails (~> 4.1.0)
   country_select
   database_cleaner
@@ -557,7 +557,7 @@ DEPENDENCIES
   refile
   refile-mini_magick
   refile-s3
-  rspec-cells (= 0.3.4)
+  rspec-cells
   rspec-html-matchers
   rspec-rails
   rspec_junit_formatter (~> 0.2.0)
@@ -565,7 +565,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda
   sidekiq
-  site_prism (= 2.9)
+  site_prism
   slim-rails
   terminal-table
   thor
