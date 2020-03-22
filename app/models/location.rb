@@ -54,16 +54,12 @@ class Location < ActiveRecord::Base
   alias_method :state, :administrative_area_level_1
   alias_method :city, :locality
 
-  def formatted_address
+  def display_name
     if geocode_data?
-      geocode_data["formatted_address"]
+      geocode_data["display_name"]
     else
       geocode_query
     end
   end
   alias_method :address, :formatted_address
-
-  def display_name
-    self.address
-  end
 end
