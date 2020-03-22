@@ -61,5 +61,5 @@ class Location < ActiveRecord::Base
       geocode_query
     end
   end
-  alias_method :address, :formatted_address
+  alias_method :address, :display_name
 end
