@@ -46,6 +46,7 @@ module LaleHelp
     # 3.  every now and then, remove toggles for stable features from the application.
     #
     config.x.feature_toggles.example = false   # added YYYY-MM-DD
+    config.x.signup_enabled          = (ENV['SIGNUP_ENABLED'] == 'true')  # added 2020-03-22
 
     config.autoload_paths += %W(
       #{config.root}/app/mutations/concerns
