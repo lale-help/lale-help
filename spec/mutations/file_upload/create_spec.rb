@@ -15,7 +15,7 @@ describe FileUpload::Create do
 
   let(:uploader) { create(:user)  }
 
-  it "can store a file" do
+  it "can store a file", :ci_ignore do
     upload = FileUpload::Create.run!({
       file: uploaded_file,
       uploadable: uploader,
