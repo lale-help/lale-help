@@ -13,7 +13,7 @@ class Circle::BaseForm < ::Form
   attribute :must_activate_users, :boolean, default: false
 
 
-  attribute :language,  :string, in: Circle.languages.keys
+  attribute :language,  :string, in: Circle.languages.keys, default: proc { user.language }
 
   def language_options
     Circle.languages.map do |key, val|
