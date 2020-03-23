@@ -14,10 +14,11 @@ Sidekiq::Testing.inline!
 
 Dir[Rails.root.join('spec/{support}/**/*.rb')].each { |f| require f }
 
-# load page objects
-# first require files in the base directory, these are often superclasses or modules required for other pages.
-Dir[Rails.root.join('spec/{page_objects}/*.rb')].each { |f| require f }
-Dir[Rails.root.join('spec/{page_objects}/*/*.rb')].each { |f| require f }
+# load page objects. Order of directories is important.
+require 'site_prism'
+Dir[Rails.root.join('spec/page_objects/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/page_objects/_components/**/*.rb')].each { |f| require f }
+Dir[Rails.root.join('spec/page_objects/*/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
 

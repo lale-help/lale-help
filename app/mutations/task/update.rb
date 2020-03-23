@@ -13,7 +13,7 @@ class Task::Update < Task::BaseForm
 
     def notify_users
       if send_notifications && task_changes.present?
-        users_to_notify.each { |user| TaskMailer.delay.task_change(task.id, user.id, task_changes) }
+        users_to_notify.each { |user| TaskMailer.task_change(task.id, user.id, task_changes).deliver_later }
       end
     end
 

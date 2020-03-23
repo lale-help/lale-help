@@ -33,7 +33,7 @@ describe "Complete and reopen a task", js: true do
 
     context "when task is completed" do
 
-      let!(:task) { create(:task, :completed, working_group: working_group) }
+      let!(:task) { create(:task, :completed, working_group: working_group, due_date: Date.today + 1.week) }
 
       it "is open again", :ci_ignore do
         expect(task_page).to have_urgency_complete

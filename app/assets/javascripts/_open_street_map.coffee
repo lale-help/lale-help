@@ -50,7 +50,7 @@ window.CirclesMap = class CirclesMap
         layers: [ new ol.layer.Tile(source: new ol.source.OSM) ]
         target: @target[0]
         view: new ol.View
-          zoom: 14
+          zoom: 12
 
   _recenter: (center)=>
     # console.log("recenter")

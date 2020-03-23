@@ -20,7 +20,7 @@ class Task::Notifications::InvitationEmail < Mutations::Command
   def invite_users
     invitees.each do |user|
       token = Token.task_invitation.create! context: { user_id: user.id, task_id: task.id }
-      TaskMailer.delay.task_invitation(task.id, user.id, token.code)
+      TaskMailer.task_invitation(task.id, user.id, token.code).deliver_later
     end
   end
 

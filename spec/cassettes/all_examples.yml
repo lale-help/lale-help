@@ -2,107 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://maps.googleapis.com/maps/api/geocode/json?address=San%20Francisco,%20CA&language=en&sensor=false
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Tue, 27 Oct 2015 16:18:00 GMT
-      Expires:
-      - Wed, 28 Oct 2015 16:18:00 GMT
-      Cache-Control:
-      - public, max-age=86400
-      Access-Control-Allow-Origin:
-      - "*"
-      Server:
-      - mafe
-      Content-Length:
-      - '477'
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-           "results" : [
-              {
-                 "address_components" : [
-                    {
-                       "long_name" : "San Francisco",
-                       "short_name" : "SF",
-                       "types" : [ "locality", "political" ]
-                    },
-                    {
-                       "long_name" : "San Francisco County",
-                       "short_name" : "San Francisco County",
-                       "types" : [ "administrative_area_level_2", "political" ]
-                    },
-                    {
-                       "long_name" : "California",
-                       "short_name" : "CA",
-                       "types" : [ "administrative_area_level_1", "political" ]
-                    },
-                    {
-                       "long_name" : "United States",
-                       "short_name" : "US",
-                       "types" : [ "country", "political" ]
-                    }
-                 ],
-                 "formatted_address" : "San Francisco, CA, USA",
-                 "geometry" : {
-                    "bounds" : {
-                       "northeast" : {
-                          "lat" : 37.9297707,
-                          "lng" : -122.3279149
-                       },
-                       "southwest" : {
-                          "lat" : 37.6931289,
-                          "lng" : -123.166067
-                       }
-                    },
-                    "location" : {
-                       "lat" : 37.7749295,
-                       "lng" : -122.4194155
-                    },
-                    "location_type" : "APPROXIMATE",
-                    "viewport" : {
-                       "northeast" : {
-                          "lat" : 37.812,
-                          "lng" : -122.3482
-                       },
-                       "southwest" : {
-                          "lat" : 37.70339999999999,
-                          "lng" : -122.527
-                       }
-                    }
-                 },
-                 "place_id" : "ChIJIQBpAG2ahYAR_6128GcTUEo",
-                 "types" : [ "locality", "political" ]
-              }
-           ],
-           "status" : "OK"
-        }
-    http_version: 
-  recorded_at: Tue, 27 Oct 2015 16:17:59 GMT
-- request:
-    method: get
-    uri: http://api.geonames.org/timezoneJSON?lat=37.7749295&lng=-122.4194155&username=lale
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=San%20Francisco,%20CA,%2094109,%20USA
     body:
       encoding: US-ASCII
       string: ''
@@ -119,557 +19,34 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Mon, 11 Jan 2016 04:32:44 GMT
+      - Sun, 22 Mar 2020 20:20:13 GMT
       Server:
-      - Apache/2.4.6 (Linux/SUSE)
-      Cache-Control:
-      - no-cache
+      - Apache/2.4.29 (Ubuntu)
       Access-Control-Allow-Origin:
       - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
       Transfer-Encoding:
       - chunked
       Content-Type:
-      - application/json;charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: '{"sunrise":"2016-01-11 07:25","lng":-122.4194155,"countryCode":"US","gmtOffset":-8,"rawOffset":-8,"sunset":"2016-01-11
-        17:10","timezoneId":"America/Los_Angeles","dstOffset":-7,"countryName":"United
-        States","time":"2016-01-10 20:32","lat":37.7749295}'
-    http_version: 
-  recorded_at: Mon, 11 Jan 2016 04:32:44 GMT
-- request:
-    method: get
-    uri: http://maps.googleapis.com/maps/api/geocode/json?address=San%20Francisco,%2094109,%20US&language=en&sensor=false
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
       - application/json; charset=UTF-8
-      Date:
-      - Mon, 29 Feb 2016 05:06:02 GMT
-      Expires:
-      - Tue, 01 Mar 2016 05:06:02 GMT
-      Cache-Control:
-      - public, max-age=86400
-      Access-Control-Allow-Origin:
-      - "*"
-      Server:
-      - mafe
-      Content-Length:
-      - '465'
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-           "results" : [
-              {
-                 "address_components" : [
-                    {
-                       "long_name" : "94109",
-                       "short_name" : "94109",
-                       "types" : [ "postal_code" ]
-                    },
-                    {
-                       "long_name" : "San Francisco",
-                       "short_name" : "SF",
-                       "types" : [ "locality", "political" ]
-                    },
-                    {
-                       "long_name" : "San Francisco County",
-                       "short_name" : "San Francisco County",
-                       "types" : [ "administrative_area_level_2", "political" ]
-                    },
-                    {
-                       "long_name" : "California",
-                       "short_name" : "CA",
-                       "types" : [ "administrative_area_level_1", "political" ]
-                    },
-                    {
-                       "long_name" : "United States",
-                       "short_name" : "US",
-                       "types" : [ "country", "political" ]
-                    }
-                 ],
-                 "formatted_address" : "San Francisco, CA 94109, USA",
-                 "geometry" : {
-                    "bounds" : {
-                       "northeast" : {
-                          "lat" : 37.8128889,
-                          "lng" : -122.411699
-                       },
-                       "southwest" : {
-                          "lat" : 37.7811169,
-                          "lng" : -122.4326081
-                       }
-                    },
-                    "location" : {
-                       "lat" : 37.7929789,
-                       "lng" : -122.4212424
-                    },
-                    "location_type" : "APPROXIMATE",
-                    "viewport" : {
-                       "northeast" : {
-                          "lat" : 37.8128889,
-                          "lng" : -122.411699
-                       },
-                       "southwest" : {
-                          "lat" : 37.7811169,
-                          "lng" : -122.4326081
-                       }
-                    }
-                 },
-                 "place_id" : "ChIJy0ilcOmAhYARCLOo6oZQNxk",
-                 "types" : [ "postal_code" ]
-              }
-           ],
-           "status" : "OK"
-        }
-    http_version: 
-  recorded_at: Mon, 29 Feb 2016 05:06:03 GMT
-- request:
-    method: get
-    uri: http://api.geonames.org/timezoneJSON?lat=37.7929789&lng=-122.4212424&username=lale
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Mon, 29 Feb 2016 05:06:05 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
-      Cache-Control:
-      - no-cache
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '249'
-      Connection:
-      - close
-      Content-Type:
-      - application/json;charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: '{"time":"2016-02-28 21:06","countryName":"United States","sunset":"2016-02-29
-        18:03","rawOffset":-8,"dstOffset":-7,"countryCode":"US","gmtOffset":-8,"lng":-122.4212424,"sunrise":"2016-02-29
-        06:41","timezoneId":"America/Los_Angeles","lat":37.7929789}'
-    http_version: 
-  recorded_at: Mon, 29 Feb 2016 05:06:04 GMT
-- request:
-    method: get
-    uri: http://maps.googleapis.com/maps/api/geocode/json?address=San%20Francisco,%20CA,%2094109,%20USA&language=en&sensor=false
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Wed, 09 Mar 2016 18:04:05 GMT
-      Expires:
-      - Thu, 10 Mar 2016 18:04:05 GMT
-      Cache-Control:
-      - public, max-age=86400
-      Access-Control-Allow-Origin:
-      - "*"
-      Server:
-      - mafe
-      Content-Length:
-      - '465'
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Frame-Options:
-      - SAMEORIGIN
-    body:
-      encoding: ASCII-8BIT
-      string: |
-        {
-           "results" : [
-              {
-                 "address_components" : [
-                    {
-                       "long_name" : "94109",
-                       "short_name" : "94109",
-                       "types" : [ "postal_code" ]
-                    },
-                    {
-                       "long_name" : "San Francisco",
-                       "short_name" : "SF",
-                       "types" : [ "locality", "political" ]
-                    },
-                    {
-                       "long_name" : "San Francisco County",
-                       "short_name" : "San Francisco County",
-                       "types" : [ "administrative_area_level_2", "political" ]
-                    },
-                    {
-                       "long_name" : "California",
-                       "short_name" : "CA",
-                       "types" : [ "administrative_area_level_1", "political" ]
-                    },
-                    {
-                       "long_name" : "United States",
-                       "short_name" : "US",
-                       "types" : [ "country", "political" ]
-                    }
-                 ],
-                 "formatted_address" : "San Francisco, CA 94109, USA",
-                 "geometry" : {
-                    "bounds" : {
-                       "northeast" : {
-                          "lat" : 37.8128889,
-                          "lng" : -122.411699
-                       },
-                       "southwest" : {
-                          "lat" : 37.7811169,
-                          "lng" : -122.4326081
-                       }
-                    },
-                    "location" : {
-                       "lat" : 37.7929789,
-                       "lng" : -122.4212424
-                    },
-                    "location_type" : "APPROXIMATE",
-                    "viewport" : {
-                       "northeast" : {
-                          "lat" : 37.8128889,
-                          "lng" : -122.411699
-                       },
-                       "southwest" : {
-                          "lat" : 37.7811169,
-                          "lng" : -122.4326081
-                       }
-                    }
-                 },
-                 "place_id" : "ChIJy0ilcOmAhYARCLOo6oZQNxk",
-                 "types" : [ "postal_code" ]
-              }
-           ],
-           "status" : "OK"
-        }
-    http_version: 
-  recorded_at: Wed, 09 Mar 2016 18:04:05 GMT
-- request:
-    method: get
-    uri: http://api.geonames.org/timezoneJSON?lat=37.7929789&lng=-122.4212424&username=lale
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Date:
-      - Wed, 09 Mar 2016 18:04:07 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
-      Cache-Control:
-      - no-cache
-      Access-Control-Allow-Origin:
-      - "*"
-      Content-Length:
-      - '249'
-      Connection:
-      - close
-      Content-Type:
-      - application/json;charset=UTF-8
-    body:
-      encoding: UTF-8
-      string: '{"time":"2016-03-09 10:04","countryName":"United States","sunset":"2016-03-09
-        18:12","rawOffset":-8,"dstOffset":-7,"countryCode":"US","gmtOffset":-8,"lng":-122.4212424,"sunrise":"2016-03-09
-        06:28","timezoneId":"America/Los_Angeles","lat":37.7929789}'
-    http_version: 
-  recorded_at: Wed, 09 Mar 2016 18:04:06 GMT
-- request:
-    method: get
-    uri: http://maps.googleapis.com/maps/api/geocode/json?address=San%20Francisco,%2094109,%20Canada&language=en&sensor=false
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - application/json; charset=UTF-8
-      Date:
-      - Thu, 25 Aug 2016 08:40:45 GMT
-      Expires:
-      - Fri, 26 Aug 2016 08:40:45 GMT
-      Cache-Control:
-      - public, max-age=86400
-      Access-Control-Allow-Origin:
-      - "*"
-      Server:
-      - mafe
-      Content-Length:
-      - '1136'
-      X-Xss-Protection:
-      - 1; mode=block
-      X-Frame-Options:
-      - SAMEORIGIN
     body:
       encoding: ASCII-8BIT
       string: !binary |-
-        ewogICAicmVzdWx0cyIgOiBbCiAgICAgIHsKICAgICAgICAgImFkZHJlc3Nf
-        Y29tcG9uZW50cyIgOiBbCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAg
-        ImxvbmdfbmFtZSIgOiAiQXZlbnVlIFNhbiBGcmFuY2lzY28iLAogICAgICAg
-        ICAgICAgICAic2hvcnRfbmFtZSIgOiAiQXZlbnVlIFNhbiBGcmFuY2lzY28i
-        LAogICAgICAgICAgICAgICAidHlwZXMiIDogWyAicm91dGUiIF0KICAgICAg
-        ICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19u
-        YW1lIiA6ICJCcm9zc2FyZCIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1l
-        IiA6ICJCcm9zc2FyZCIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBbICJs
-        b2NhbGl0eSIsICJwb2xpdGljYWwiIF0KICAgICAgICAgICAgfSwKICAgICAg
-        ICAgICAgewogICAgICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJDaGFtcGxh
-        aW4iLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiQ2hhbXBsYWlu
-        IiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgImFkbWluaXN0cmF0aXZl
-        X2FyZWFfbGV2ZWxfMiIsICJwb2xpdGljYWwiIF0KICAgICAgICAgICAgfSwK
-        ICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJR
-        dcOpYmVjIiwKICAgICAgICAgICAgICAgInNob3J0X25hbWUiIDogIlFDIiwK
-        ICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgImFkbWluaXN0cmF0aXZlX2Fy
-        ZWFfbGV2ZWxfMSIsICJwb2xpdGljYWwiIF0KICAgICAgICAgICAgfSwKICAg
-        ICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJDYW5h
-        ZGEiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiQ0EiLAogICAg
-        ICAgICAgICAgICAidHlwZXMiIDogWyAiY291bnRyeSIsICJwb2xpdGljYWwi
-        IF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAg
-        ICAibG9uZ19uYW1lIiA6ICJKNFgiLAogICAgICAgICAgICAgICAic2hvcnRf
-        bmFtZSIgOiAiSjRYIiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgInBv
-        c3RhbF9jb2RlIiwgInBvc3RhbF9jb2RlX3ByZWZpeCIgXQogICAgICAgICAg
-        ICB9CiAgICAgICAgIF0sCiAgICAgICAgICJmb3JtYXR0ZWRfYWRkcmVzcyIg
-        OiAiQXZlbnVlIFNhbiBGcmFuY2lzY28sIEJyb3NzYXJkLCBRQyBKNFgsIENh
-        bmFkYSIsCiAgICAgICAgICJnZW9tZXRyeSIgOiB7CiAgICAgICAgICAgICJi
-        b3VuZHMiIDogewogICAgICAgICAgICAgICAibm9ydGhlYXN0IiA6IHsKICAg
-        ICAgICAgICAgICAgICAgImxhdCIgOiA0NS40NTYxMDMsCiAgICAgICAgICAg
-        ICAgICAgICJsbmciIDogLTczLjQ2ODM0MzYKICAgICAgICAgICAgICAgfSwK
-        ICAgICAgICAgICAgICAgInNvdXRod2VzdCIgOiB7CiAgICAgICAgICAgICAg
-        ICAgICJsYXQiIDogNDUuNDQxMDIwNSwKICAgICAgICAgICAgICAgICAgImxu
-        ZyIgOiAtNzMuNDkyODA1NQogICAgICAgICAgICAgICB9CiAgICAgICAgICAg
-        IH0sCiAgICAgICAgICAgICJsb2NhdGlvbiIgOiB7CiAgICAgICAgICAgICAg
-        ICJsYXQiIDogNDUuNDQ3MDY1MywKICAgICAgICAgICAgICAgImxuZyIgOiAt
-        NzMuNDc0MTAwNgogICAgICAgICAgICB9LAogICAgICAgICAgICAibG9jYXRp
-        b25fdHlwZSIgOiAiR0VPTUVUUklDX0NFTlRFUiIsCiAgICAgICAgICAgICJ2
-        aWV3cG9ydCIgOiB7CiAgICAgICAgICAgICAgICJub3J0aGVhc3QiIDogewog
-        ICAgICAgICAgICAgICAgICAibGF0IiA6IDQ1LjQ1NjEwMywKICAgICAgICAg
-        ICAgICAgICAgImxuZyIgOiAtNzMuNDY4MzQzNgogICAgICAgICAgICAgICB9
-        LAogICAgICAgICAgICAgICAic291dGh3ZXN0IiA6IHsKICAgICAgICAgICAg
-        ICAgICAgImxhdCIgOiA0NS40NDEwMjA1LAogICAgICAgICAgICAgICAgICAi
-        bG5nIiA6IC03My40OTI4MDU1CiAgICAgICAgICAgICAgIH0KICAgICAgICAg
-        ICAgfQogICAgICAgICB9LAogICAgICAgICAicGFydGlhbF9tYXRjaCIgOiB0
-        cnVlLAogICAgICAgICAicGxhY2VfaWQiIDogIkNoSUpVVTItaUo0UHlVd1It
-        dzVlRGpnaVNqSSIsCiAgICAgICAgICJ0eXBlcyIgOiBbICJyb3V0ZSIgXQog
-        ICAgICB9LAogICAgICB7CiAgICAgICAgICJhZGRyZXNzX2NvbXBvbmVudHMi
-        IDogWwogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUi
-        IDogIlJ1ZSBkZSBTYW4gRnJhbmNpc2NvIiwKICAgICAgICAgICAgICAgInNo
-        b3J0X25hbWUiIDogIlJ1ZSBkZSBTYW4gRnJhbmNpc2NvIiwKICAgICAgICAg
-        ICAgICAgInR5cGVzIiA6IFsgInJvdXRlIiBdCiAgICAgICAgICAgIH0sCiAg
-        ICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAiU2Fp
-        bnQtSmVhbi1zdXItUmljaGVsaWV1IiwKICAgICAgICAgICAgICAgInNob3J0
-        X25hbWUiIDogIlNhaW50LUplYW4tc3VyLVJpY2hlbGlldSIsCiAgICAgICAg
-        ICAgICAgICJ0eXBlcyIgOiBbICJsb2NhbGl0eSIsICJwb2xpdGljYWwiIF0K
-        ICAgICAgICAgICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAi
-        bG9uZ19uYW1lIiA6ICJMJ0FjYWRpZSIsCiAgICAgICAgICAgICAgICJzaG9y
-        dF9uYW1lIiA6ICJMJ0FjYWRpZSIsCiAgICAgICAgICAgICAgICJ0eXBlcyIg
-        OiBbICJhZG1pbmlzdHJhdGl2ZV9hcmVhX2xldmVsXzMiLCAicG9saXRpY2Fs
-        IiBdCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAg
-        ICAgImxvbmdfbmFtZSIgOiAiTGUgSGF1dC1SaWNoZWxpZXUiLAogICAgICAg
-        ICAgICAgICAic2hvcnRfbmFtZSIgOiAiTGUgSGF1dC1SaWNoZWxpZXUiLAog
-        ICAgICAgICAgICAgICAidHlwZXMiIDogWyAiYWRtaW5pc3RyYXRpdmVfYXJl
-        YV9sZXZlbF8yIiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAg
-        ICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIlF1w6li
-        ZWMiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiUUMiLAogICAg
-        ICAgICAgICAgICAidHlwZXMiIDogWyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9s
-        ZXZlbF8xIiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAg
-        ICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIkNhbmFkYSIs
-        CiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJDQSIsCiAgICAgICAg
-        ICAgICAgICJ0eXBlcyIgOiBbICJjb3VudHJ5IiwgInBvbGl0aWNhbCIgXQog
-        ICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJs
-        b25nX25hbWUiIDogIkoyWSIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1l
-        IiA6ICJKMlkiLAogICAgICAgICAgICAgICAidHlwZXMiIDogWyAicG9zdGFs
-        X2NvZGUiLCAicG9zdGFsX2NvZGVfcHJlZml4IiBdCiAgICAgICAgICAgIH0K
-        ICAgICAgICAgXSwKICAgICAgICAgImZvcm1hdHRlZF9hZGRyZXNzIiA6ICJS
-        dWUgZGUgU2FuIEZyYW5jaXNjbywgU2FpbnQtSmVhbi1zdXItUmljaGVsaWV1
-        LCBRQyBKMlksIENhbmFkYSIsCiAgICAgICAgICJnZW9tZXRyeSIgOiB7CiAg
-        ICAgICAgICAgICJib3VuZHMiIDogewogICAgICAgICAgICAgICAibm9ydGhl
-        YXN0IiA6IHsKICAgICAgICAgICAgICAgICAgImxhdCIgOiA0NS4zNzk3MDIz
-        LAogICAgICAgICAgICAgICAgICAibG5nIiA6IC03My4zNzcyNTU4CiAgICAg
-        ICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJzb3V0aHdlc3QiIDogewog
-        ICAgICAgICAgICAgICAgICAibGF0IiA6IDQ1LjM3ODAxMTQsCiAgICAgICAg
-        ICAgICAgICAgICJsbmciIDogLTczLjM3ODkxMDYKICAgICAgICAgICAgICAg
-        fQogICAgICAgICAgICB9LAogICAgICAgICAgICAibG9jYXRpb24iIDogewog
-        ICAgICAgICAgICAgICAibGF0IiA6IDQ1LjM3OTA1NTQsCiAgICAgICAgICAg
-        ICAgICJsbmciIDogLTczLjM3Nzg0MjUKICAgICAgICAgICAgfSwKICAgICAg
-        ICAgICAgImxvY2F0aW9uX3R5cGUiIDogIkdFT01FVFJJQ19DRU5URVIiLAog
-        ICAgICAgICAgICAidmlld3BvcnQiIDogewogICAgICAgICAgICAgICAibm9y
-        dGhlYXN0IiA6IHsKICAgICAgICAgICAgICAgICAgImxhdCIgOiA0NS4zODAy
-        MDU4MzAyOTE1LAogICAgICAgICAgICAgICAgICAibG5nIiA6IC03My4zNzY3
-        MzQyMTk3MDg0OAogICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAi
-        c291dGh3ZXN0IiA6IHsKICAgICAgICAgICAgICAgICAgImxhdCIgOiA0NS4z
-        Nzc1MDc4Njk3MDg1LAogICAgICAgICAgICAgICAgICAibG5nIiA6IC03My4z
-        Nzk0MzIxODAyOTE0OQogICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0K
-        ICAgICAgICAgfSwKICAgICAgICAgInBhcnRpYWxfbWF0Y2giIDogdHJ1ZSwK
-        ICAgICAgICAgInBsYWNlX2lkIiA6ICJDaElKTDJyZktfSUp5VXdSaGhsNUpf
-        MmVLU00iLAogICAgICAgICAidHlwZXMiIDogWyAicm91dGUiIF0KICAgICAg
-        fSwKICAgICAgewogICAgICAgICAiYWRkcmVzc19jb21wb25lbnRzIiA6IFsK
-        ICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJT
-        YW4gRnJhbmNpc2NvIEF2ZW51ZSIsCiAgICAgICAgICAgICAgICJzaG9ydF9u
-        YW1lIiA6ICJTYW4gRnJhbmNpc2NvIEF2ZSIsCiAgICAgICAgICAgICAgICJ0
-        eXBlcyIgOiBbICJyb3V0ZSIgXQogICAgICAgICAgICB9LAogICAgICAgICAg
-        ICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIk1vdW50dmlldyIs
-        CiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJNb3VudHZpZXciLAog
-        ICAgICAgICAgICAgICAidHlwZXMiIDogWyAibmVpZ2hib3Job29kIiwgInBv
-        bGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAg
-        ICAgICAgICAgICJsb25nX25hbWUiIDogIkhhbWlsdG9uIiwKICAgICAgICAg
-        ICAgICAgInNob3J0X25hbWUiIDogIkhhbWlsdG9uIiwKICAgICAgICAgICAg
-        ICAgInR5cGVzIiA6IFsgImxvY2FsaXR5IiwgInBvbGl0aWNhbCIgXQogICAg
-        ICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25n
-        X25hbWUiIDogIkhhbWlsdG9uIERpdmlzaW9uIiwKICAgICAgICAgICAgICAg
-        InNob3J0X25hbWUiIDogIkhhbWlsdG9uIERpdmlzaW9uIiwKICAgICAgICAg
-        ICAgICAgInR5cGVzIiA6IFsgImFkbWluaXN0cmF0aXZlX2FyZWFfbGV2ZWxf
-        MiIsICJwb2xpdGljYWwiIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAg
-        ewogICAgICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJPbnRhcmlvIiwKICAg
-        ICAgICAgICAgICAgInNob3J0X25hbWUiIDogIk9OIiwKICAgICAgICAgICAg
-        ICAgInR5cGVzIiA6IFsgImFkbWluaXN0cmF0aXZlX2FyZWFfbGV2ZWxfMSIs
-        ICJwb2xpdGljYWwiIF0KICAgICAgICAgICAgfSwKICAgICAgICAgICAgewog
-        ICAgICAgICAgICAgICAibG9uZ19uYW1lIiA6ICJDYW5hZGEiLAogICAgICAg
-        ICAgICAgICAic2hvcnRfbmFtZSIgOiAiQ0EiLAogICAgICAgICAgICAgICAi
-        dHlwZXMiIDogWyAiY291bnRyeSIsICJwb2xpdGljYWwiIF0KICAgICAgICAg
-        ICAgfSwKICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19uYW1l
-        IiA6ICJMOUMiLAogICAgICAgICAgICAgICAic2hvcnRfbmFtZSIgOiAiTDlD
-        IiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgInBvc3RhbF9jb2RlIiwg
-        InBvc3RhbF9jb2RlX3ByZWZpeCIgXQogICAgICAgICAgICB9CiAgICAgICAg
-        IF0sCiAgICAgICAgICJmb3JtYXR0ZWRfYWRkcmVzcyIgOiAiU2FuIEZyYW5j
-        aXNjbyBBdmUsIEhhbWlsdG9uLCBPTiBMOUMsIENhbmFkYSIsCiAgICAgICAg
-        ICJnZW9tZXRyeSIgOiB7CiAgICAgICAgICAgICJib3VuZHMiIDogewogICAg
-        ICAgICAgICAgICAibm9ydGhlYXN0IiA6IHsKICAgICAgICAgICAgICAgICAg
-        ImxhdCIgOiA0My4yNDQ3NzEzLAogICAgICAgICAgICAgICAgICAibG5nIiA6
-        IC03OS45MjI1MjE2OTk5OTk5OQogICAgICAgICAgICAgICB9LAogICAgICAg
-        ICAgICAgICAic291dGh3ZXN0IiA6IHsKICAgICAgICAgICAgICAgICAgImxh
-        dCIgOiA0My4yMzk5OTA5LAogICAgICAgICAgICAgICAgICAibG5nIiA6IC03
-        OS45MjkzMDA1CiAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgfSwKICAg
-        ICAgICAgICAgImxvY2F0aW9uIiA6IHsKICAgICAgICAgICAgICAgImxhdCIg
-        OiA0My4yNDI5MzUxLAogICAgICAgICAgICAgICAibG5nIiA6IC03OS45Mjgx
-        ODA5CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJsb2NhdGlvbl90eXBl
-        IiA6ICJHRU9NRVRSSUNfQ0VOVEVSIiwKICAgICAgICAgICAgInZpZXdwb3J0
-        IiA6IHsKICAgICAgICAgICAgICAgIm5vcnRoZWFzdCIgOiB7CiAgICAgICAg
-        ICAgICAgICAgICJsYXQiIDogNDMuMjQ0NzcxMywKICAgICAgICAgICAgICAg
-        ICAgImxuZyIgOiAtNzkuOTIyNTIxNjk5OTk5OTkKICAgICAgICAgICAgICAg
-        fSwKICAgICAgICAgICAgICAgInNvdXRod2VzdCIgOiB7CiAgICAgICAgICAg
-        ICAgICAgICJsYXQiIDogNDMuMjM5OTkwOSwKICAgICAgICAgICAgICAgICAg
-        ImxuZyIgOiAtNzkuOTI5MzAwNQogICAgICAgICAgICAgICB9CiAgICAgICAg
-        ICAgIH0KICAgICAgICAgfSwKICAgICAgICAgInBhcnRpYWxfbWF0Y2giIDog
-        dHJ1ZSwKICAgICAgICAgInBsYWNlX2lkIiA6ICJDaElKa3hLeGJjNkVMSWdS
-        X0J4UHZKQXQxd28iLAogICAgICAgICAidHlwZXMiIDogWyAicm91dGUiIF0K
-        ICAgICAgfSwKICAgICAgewogICAgICAgICAiYWRkcmVzc19jb21wb25lbnRz
-        IiA6IFsKICAgICAgICAgICAgewogICAgICAgICAgICAgICAibG9uZ19uYW1l
-        IiA6ICJTYW4gRnJhbmNpc2NvIFN0cmVldCIsCiAgICAgICAgICAgICAgICJz
-        aG9ydF9uYW1lIiA6ICJTYW4gRnJhbmNpc2NvIFN0IiwKICAgICAgICAgICAg
-        ICAgInR5cGVzIiA6IFsgInJvdXRlIiBdCiAgICAgICAgICAgIH0sCiAgICAg
-        ICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIgOiAiU3VkYnVy
-        eSIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJTdWRidXJ5IiwK
-        ICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgInBvbGl0aWNhbCIsICJzdWJs
-        b2NhbGl0eSIsICJzdWJsb2NhbGl0eV9sZXZlbF8xIiBdCiAgICAgICAgICAg
-        IH0sCiAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgImxvbmdfbmFtZSIg
-        OiAiU3VkYnVyeSIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJT
-        dWRidXJ5IiwKICAgICAgICAgICAgICAgInR5cGVzIiA6IFsgImxvY2FsaXR5
-        IiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7
-        CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIkdyZWF0ZXIgU3VkYnVy
-        eSBEaXZpc2lvbiIsCiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJH
-        cmVhdGVyIFN1ZGJ1cnkgRGl2aXNpb24iLAogICAgICAgICAgICAgICAidHlw
-        ZXMiIDogWyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9sZXZlbF8yIiwgInBvbGl0
-        aWNhbCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAg
-        ICAgICAgICJsb25nX25hbWUiIDogIk9udGFyaW8iLAogICAgICAgICAgICAg
-        ICAic2hvcnRfbmFtZSIgOiAiT04iLAogICAgICAgICAgICAgICAidHlwZXMi
-        IDogWyAiYWRtaW5pc3RyYXRpdmVfYXJlYV9sZXZlbF8xIiwgInBvbGl0aWNh
-        bCIgXQogICAgICAgICAgICB9LAogICAgICAgICAgICB7CiAgICAgICAgICAg
-        ICAgICJsb25nX25hbWUiIDogIkNhbmFkYSIsCiAgICAgICAgICAgICAgICJz
-        aG9ydF9uYW1lIiA6ICJDQSIsCiAgICAgICAgICAgICAgICJ0eXBlcyIgOiBb
-        ICJjb3VudHJ5IiwgInBvbGl0aWNhbCIgXQogICAgICAgICAgICB9LAogICAg
-        ICAgICAgICB7CiAgICAgICAgICAgICAgICJsb25nX25hbWUiIDogIlAzQSIs
-        CiAgICAgICAgICAgICAgICJzaG9ydF9uYW1lIiA6ICJQM0EiLAogICAgICAg
-        ICAgICAgICAidHlwZXMiIDogWyAicG9zdGFsX2NvZGUiLCAicG9zdGFsX2Nv
-        ZGVfcHJlZml4IiBdCiAgICAgICAgICAgIH0KICAgICAgICAgXSwKICAgICAg
-        ICAgImZvcm1hdHRlZF9hZGRyZXNzIiA6ICJTYW4gRnJhbmNpc2NvIFN0LCBT
-        dWRidXJ5LCBPTiBQM0EsIENhbmFkYSIsCiAgICAgICAgICJnZW9tZXRyeSIg
-        OiB7CiAgICAgICAgICAgICJib3VuZHMiIDogewogICAgICAgICAgICAgICAi
-        bm9ydGhlYXN0IiA6IHsKICAgICAgICAgICAgICAgICAgImxhdCIgOiA0Ni41
-        MjQxMTgwMDAwMDAwMSwKICAgICAgICAgICAgICAgICAgImxuZyIgOiAtODAu
-        OTA5NTgwODk5OTk5OTkKICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAg
-        ICAgInNvdXRod2VzdCIgOiB7CiAgICAgICAgICAgICAgICAgICJsYXQiIDog
-        NDYuNTIzNDQ5OSwKICAgICAgICAgICAgICAgICAgImxuZyIgOiAtODAuOTE1
-        Mjc4NTk5OTk5OTkKICAgICAgICAgICAgICAgfQogICAgICAgICAgICB9LAog
-        ICAgICAgICAgICAibG9jYXRpb24iIDogewogICAgICAgICAgICAgICAibGF0
-        IiA6IDQ2LjUyMzgzOTgsCiAgICAgICAgICAgICAgICJsbmciIDogLTgwLjkx
-        MjY5NjA5OTk5OTk5CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJsb2Nh
-        dGlvbl90eXBlIiA6ICJHRU9NRVRSSUNfQ0VOVEVSIiwKICAgICAgICAgICAg
-        InZpZXdwb3J0IiA6IHsKICAgICAgICAgICAgICAgIm5vcnRoZWFzdCIgOiB7
-        CiAgICAgICAgICAgICAgICAgICJsYXQiIDogNDYuNTI1MTMyOTMwMjkxNTEs
-        CiAgICAgICAgICAgICAgICAgICJsbmciIDogLTgwLjkwOTU4MDg5OTk5OTk5
-        CiAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICJzb3V0aHdlc3Qi
-        IDogewogICAgICAgICAgICAgICAgICAibGF0IiA6IDQ2LjUyMjQzNDk2OTcw
-        ODUxLAogICAgICAgICAgICAgICAgICAibG5nIiA6IC04MC45MTUyNzg1OTk5
-        OTk5OQogICAgICAgICAgICAgICB9CiAgICAgICAgICAgIH0KICAgICAgICAg
-        fSwKICAgICAgICAgInBhcnRpYWxfbWF0Y2giIDogdHJ1ZSwKICAgICAgICAg
-        InBsYWNlX2lkIiA6ICJDaElKTzlIUU10MEFMMDBSRVZOZGpjdWF3a0EiLAog
-        ICAgICAgICAidHlwZXMiIDogWyAicm91dGUiIF0KICAgICAgfQogICBdLAog
-        ICAic3RhdHVzIiA6ICJPSyIKfQo=
-    http_version: 
-  recorded_at: Thu, 25 Aug 2016 08:40:47 GMT
+        W3sicGxhY2VfaWQiOjIzNDYyMzUyOSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6MTExOTY4LCJib3VuZGluZ2JveCI6WyIzNy42NDAzMTQzIiwiMzcuOTI5ODExIiwiLTEyMy4xNzM4MjUiLCItMTIyLjI4MTQ3OSJdLCJsYXQiOiIzNy43NzkwMjYyIiwibG9uIjoiLTEyMi40MTk5MDYxIiwiZGlzcGxheV9uYW1lIjoiU2FuIEZyYW5jaXNjbywgQ2FsaWZvcm5pYSwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY2xhc3MiOiJib3VuZGFyeSIsInR5cGUiOiJhZG1pbmlzdHJhdGl2ZSIsImltcG9ydGFuY2UiOjEuMDI1MTMwOTQ2MzcxMzAzOSwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7ImNpdHkiOiJTYW4gRnJhbmNpc2NvIiwiY291bnR5IjoiU2FuIEZyYW5jaXNjbyIsInN0YXRlIjoiQ2FsaWZvcm5pYSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9fSx7InBsYWNlX2lkIjoyMzUxMzY4NjUsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOjM5NjQ4NywiYm91bmRpbmdib3giOlsiMzcuNjQwMzE0MyIsIjM3LjkyOTgxMSIsIi0xMjMuMTczODI1IiwiLTEyMi4yODE0NzkiXSwibGF0IjoiMzcuNzY0Nzk5MyIsImxvbiI6Ii0xMjIuNDYyOTg5NyIsImRpc3BsYXlfbmFtZSI6IlNhbiBGcmFuY2lzY28sIENhbGlmb3JuaWEsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjoxLjAyNTEzMDk0NjM3MTMwMzksImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjb3VudHkiOiJTYW4gRnJhbmNpc2NvIiwic3RhdGUiOiJDYWxpZm9ybmlhIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19XQ==
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:20:13 GMT
 - request:
     method: get
-    uri: http://api.geonames.org/timezoneJSON?lat=45.4470653&lng=-73.4741006&username=lale
+    uri: http://api.geonames.org/timezoneJSON?lat=37.7790262&lng=-122.4199061&username=lale
     body:
       encoding: US-ASCII
       string: ''
@@ -686,9 +63,9 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Thu, 25 Aug 2016 08:40:45 GMT
+      - Sun, 22 Mar 2020 20:20:14 GMT
       Server:
-      - Apache/2.4.6 (Linux/SUSE)
+      - Apache/2.4.6 (CentOS) mod_jk/1.2.41 OpenSSL/1.0.1e-fips PHP/5.4.16
       Cache-Control:
       - no-cache
       Access-Control-Allow-Origin:
@@ -699,9 +76,603 @@ http_interactions:
       - application/json;charset=UTF-8
     body:
       encoding: UTF-8
-      string: '{"sunrise":"2016-08-25 06:07","lng":-73.4741006,"countryCode":"CA","gmtOffset":-5,"rawOffset":-5,"sunset":"2016-08-25
-        19:42","timezoneId":"America/Toronto","dstOffset":-4,"countryName":"Canada","time":"2016-08-25
-        04:40","lat":45.4470653}'
-    http_version: 
-  recorded_at: Thu, 25 Aug 2016 08:40:47 GMT
-recorded_with: VCR 2.9.3
+      string: '{"sunrise":"2020-03-22 07:08","lng":-122.4199061,"countryCode":"US","gmtOffset":-8,"rawOffset":-8,"sunset":"2020-03-22
+        19:24","timezoneId":"America/Los_Angeles","dstOffset":-7,"countryName":"United
+        States","time":"2020-03-22 13:20","lat":37.7790262}'
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:20:14 GMT
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=Munich
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:20:19 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjIzNTEyNjI4MSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6NjI0MjgsImJvdW5kaW5nYm94IjpbIjQ4LjA2MTYyNDQiLCI0OC4yNDgxMTYyIiwiMTEuMzYwNzc3IiwiMTEuNzIyOTA4MyJdLCJsYXQiOiI0OC4xMzcxMDc5IiwibG9uIjoiMTEuNTc1MzgyMiIsImRpc3BsYXlfbmFtZSI6Ik11bmljaCwgQmF2YXJpYSwgR2VybWFueSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjowLjg1NjIxMDg4MzcwNDQ1NDMsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjb3VudHkiOiJNdW5pY2giLCJzdGF0ZSI6IkJhdmFyaWEiLCJjb3VudHJ5IjoiR2VybWFueSIsImNvdW50cnlfY29kZSI6ImRlIn19LHsicGxhY2VfaWQiOjIzNTI4ODA1MywibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6MTgxNjUyLCJib3VuZGluZ2JveCI6WyI0OC42NjMzMTYiLCI0OC42NzYxMjYiLCItOTguODQwMDk4IiwiLTk4LjgyNDA4OSJdLCJsYXQiOiI0OC42NjkxNzQiLCJsb24iOiItOTguODMyNjMxIiwiZGlzcGxheV9uYW1lIjoiTXVuaWNoLCBDYXZhbGllciBDb3VudHksIE5vcnRoIERha290YSwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY2xhc3MiOiJib3VuZGFyeSIsInR5cGUiOiJhZG1pbmlzdHJhdGl2ZSIsImltcG9ydGFuY2UiOjAuNDk5MzQyMDE2ODc1MzYzMywiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7ImNpdHkiOiJNdW5pY2giLCJjb3VudHkiOiJDYXZhbGllciBDb3VudHkiLCJzdGF0ZSI6Ik5vcnRoIERha290YSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9fSx7InBsYWNlX2lkIjo2NjQzMjk2LCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6Im5vZGUiLCJvc21faWQiOjcwMzUwODE4NSwiYm91bmRpbmdib3giOlsiOS4yMTE2MjIzIiwiOS4yMzE2MjIzIiwiLTc1LjEyMTE1NCIsIi03NS4xMDExNTQiXSwibGF0IjoiOS4yMjE2MjIzIiwibG9uIjoiLTc1LjExMTE1NCIsImRpc3BsYXlfbmFtZSI6Ik11bmljaCwgU2luY8OpLCBTdWNyZSwgQ29sb21iaWEiLCJjbGFzcyI6InBsYWNlIiwidHlwZSI6ImxvY2FsaXR5IiwiaW1wb3J0YW5jZSI6MC4zNiwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfcGxhY2VfdmlsbGFnZS5wLjIwLnBuZyIsImFkZHJlc3MiOnsibG9jYWxpdHkiOiJNdW5pY2giLCJ0b3duIjoiU2luY8OpIiwiY291bnR5IjoiU2luY8OpIiwic3RhdGUiOiJTdWNyZSIsImNvdW50cnkiOiJDb2xvbWJpYSIsImNvdW50cnlfY29kZSI6ImNvIn19LHsicGxhY2VfaWQiOjI3NDEzNzkyOSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOjIwNTg5NjQxMywiYm91bmRpbmdib3giOlsiNDEuNTEyMzM1NiIsIjQxLjUxMzAxMDgiLCIxLjY0NzYyODUiLCIxLjY0ODY4NzkiXSwibGF0IjoiNDEuNTEyNjIzMiIsImxvbiI6IjEuNjQ4MTA0ODAzODM0ODMyNSIsImRpc3BsYXlfbmFtZSI6Ik11bmljaCwgbGEgU2VycmEsIGxhIFRvcnJlIGRlIENsYXJhbXVudCwgQW5vaWEsIEJhcmNlbG9uYSwgQ2F0YWxvbmlhLCBTcGFpbiIsImNsYXNzIjoibGFuZHVzZSIsInR5cGUiOiJpbmR1c3RyaWFsIiwiaW1wb3J0YW5jZSI6MC4zMDk5OTk5OTk5OTk5OTk5NCwiYWRkcmVzcyI6eyJpbmR1c3RyaWFsIjoiTXVuaWNoIiwiaGFtbGV0IjoibGEgU2VycmEiLCJ2aWxsYWdlIjoibGEgVG9ycmUgZGUgQ2xhcmFtdW50IiwiY291bnR5IjoiQW5vaWEiLCJzdGF0ZSI6IkNhdGFsb25pYSIsImNvdW50cnkiOiJTcGFpbiIsImNvdW50cnlfY29kZSI6ImVzIn19LHsicGxhY2VfaWQiOjk1ODI1ODM5LCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6IndheSIsIm9zbV9pZCI6MzQ4NzU3MDYsImJvdW5kaW5nYm94IjpbIjcuMDQwNTE2NSIsIjcuMDQxNDg4NCIsIjEyNS41MDQyNjIzIiwiMTI1LjUwNTA2NjciXSwibGF0IjoiNy4wNDA5MTk0IiwibG9uIjoiMTI1LjUwNDYwNSIsImRpc3BsYXlfbmFtZSI6Ik11bmljaCwgUm9zYWxpbmEgVmlsbGFnZSBJSUksIE5hbG9tLCBEYXZhbyBDaXR5LCBEYXZhbyBSZWdpb24sIDgwMjUsIFBoaWxpcHBpbmVzIiwiY2xhc3MiOiJoaWdod2F5IiwidHlwZSI6InJlc2lkZW50aWFsIiwiaW1wb3J0YW5jZSI6MC4yMSwiYWRkcmVzcyI6eyJyb2FkIjoiTXVuaWNoIiwibmVpZ2hib3VyaG9vZCI6IlJvc2FsaW5hIFZpbGxhZ2UgSUlJIiwiaGFtbGV0IjoiTmFsb20iLCJjaXR5IjoiRGF2YW8gQ2l0eSIsImNvdW50eSI6IkRhdmFvIENpdHkiLCJzdGF0ZSI6IkRhdmFvIFJlZ2lvbiIsInBvc3Rjb2RlIjoiODAyNSIsImNvdW50cnkiOiJQaGlsaXBwaW5lcyIsImNvdW50cnlfY29kZSI6InBoIn19LHsicGxhY2VfaWQiOjEwNTgyMTM5MSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOjkzNzIwOTc1LCJib3VuZGluZ2JveCI6WyItMTguNDc0MzkyMSIsIi0xOC40NzE4MzM0IiwiLTcwLjI5ODA4NyIsIi03MC4yOTU5NTM5Il0sImxhdCI6Ii0xOC40NzMwOTM2IiwibG9uIjoiLTcwLjI5NzAxMSIsImRpc3BsYXlfbmFtZSI6Ik11bmljaCwgQmFycmlvIFNhbiBKb3PDqSwgQ2hpbmNob3JybywgQXJpY2EsIFByb3ZpbmNpYSBkZSBBcmljYSwgQXJpY2EgYW5kIFBhcmluYWNvdGEgUmVnaW9uLCAxMDIwNzU5LCBDaGlsZSIsImNsYXNzIjoiaGlnaHdheSIsInR5cGUiOiJyZXNpZGVudGlhbCIsImltcG9ydGFuY2UiOjAuMjEsImFkZHJlc3MiOnsicm9hZCI6Ik11bmljaCIsIm5laWdoYm91cmhvb2QiOiJCYXJyaW8gU2FuIEpvc8OpIiwiaGFtbGV0IjoiQ2hpbmNob3JybyIsImNpdHkiOiJBcmljYSIsImNvdW50eSI6IlByb3ZpbmNpYSBkZSBBcmljYSIsInN0YXRlIjoiQXJpY2EgYW5kIFBhcmluYWNvdGEgUmVnaW9uIiwicG9zdGNvZGUiOiIxMDIwNzU5IiwiY291bnRyeSI6IkNoaWxlIiwiY291bnRyeV9jb2RlIjoiY2wifX0seyJwbGFjZV9pZCI6OTIzNDU3MDUsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjoyNzg2Mjg3NywiYm91bmRpbmdib3giOlsiMTQuNDk0MjMyNiIsIjE0LjQ5NjgyMzgiLCIxMjEuMDIxNTIyNSIsIjEyMS4wMjE1ODM3Il0sImxhdCI6IjE0LjQ5NDIzMjYiLCJsb24iOiIxMjEuMDIxNTIyNSIsImRpc3BsYXlfbmFtZSI6Ik11bmljaCwgTWVydmlsbGUgUGFyayBTdWJkaXZpc2lvbiwgUGFyYcOxYXF1ZSwgTWV0cm8gTWFuaWxhLCAxNzA5LCBQaGlsaXBwaW5lcyIsImNsYXNzIjoiaGlnaHdheSIsInR5cGUiOiJyZXNpZGVudGlhbCIsImltcG9ydGFuY2UiOjAuMjEsImFkZHJlc3MiOnsicm9hZCI6Ik11bmljaCIsIm5laWdoYm91cmhvb2QiOiJNZXJ2aWxsZSBQYXJrIFN1YmRpdmlzaW9uIiwiY2l0eSI6IlBhcmHDsWFxdWUiLCJjb3VudHkiOiJQYXJhw7FhcXVlIiwicmVnaW9uIjoiTWV0cm8gTWFuaWxhIiwicG9zdGNvZGUiOiIxNzA5IiwiY291bnRyeSI6IlBoaWxpcHBpbmVzIiwiY291bnRyeV9jb2RlIjoicGgifX0seyJwbGFjZV9pZCI6OTM4ODAxMTQsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjoyODQyMjE2OSwiYm91bmRpbmdib3giOlsiMTQuNDUzMTg4OSIsIjE0LjQ1MzQ2NjgiLCIxMjAuOTk4NzEwNSIsIjEyMC45OTg3NDMzIl0sImxhdCI6IjE0LjQ1MzQ2NjgiLCJsb24iOiIxMjAuOTk4NzQzMyIsImRpc3BsYXlfbmFtZSI6Ik11bmljaCwgQkYgSW50ZXJuYXRpb25hbCBWaWxsYWdlLCBDLkEuQS4gQkYgSW50ZXJuYXRpb25hbCwgTGFzIFBpw7FhcywgMXN0IERpc3RyaWN0LCBMYXMgUGnDsWFzLCBNZXRybyBNYW5pbGEsIDE3MTgsIFBoaWxpcHBpbmVzIiwiY2xhc3MiOiJoaWdod2F5IiwidHlwZSI6InJlc2lkZW50aWFsIiwiaW1wb3J0YW5jZSI6MC4yMSwiYWRkcmVzcyI6eyJyb2FkIjoiTXVuaWNoIiwibmVpZ2hib3VyaG9vZCI6IkJGIEludGVybmF0aW9uYWwgVmlsbGFnZSIsInN1YnVyYiI6IkMuQS5BLiBCRiBJbnRlcm5hdGlvbmFsIiwiY2l0eSI6IkxhcyBQacOxYXMiLCJjb3VudHkiOiIxc3QgRGlzdHJpY3QiLCJyZWdpb24iOiJNZXRybyBNYW5pbGEiLCJwb3N0Y29kZSI6IjE3MTgiLCJjb3VudHJ5IjoiUGhpbGlwcGluZXMiLCJjb3VudHJ5X2NvZGUiOiJwaCJ9fSx7InBsYWNlX2lkIjo5MzQzNjg4OSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOjI4NDIyMTU4LCJib3VuZGluZ2JveCI6WyIxNC40NTMwOTE5IiwiMTQuNDUzNTQ5NiIsIjEyMC45OTc5MTUzIiwiMTIwLjk5NzkyNSJdLCJsYXQiOiIxNC40NTMwOTE5IiwibG9uIjoiMTIwLjk5NzkxNTMiLCJkaXNwbGF5X25hbWUiOiJNdW5pY2gsIFRoZSBMZWdhY3kgU291dGgsIEMuQS5BLiBCRiBJbnRlcm5hdGlvbmFsLCBMYXMgUGnDsWFzLCAxc3QgRGlzdHJpY3QsIExhcyBQacOxYXMsIE1ldHJvIE1hbmlsYSwgMTcxOCwgUGhpbGlwcGluZXMiLCJjbGFzcyI6ImhpZ2h3YXkiLCJ0eXBlIjoicmVzaWRlbnRpYWwiLCJpbXBvcnRhbmNlIjowLjIxLCJhZGRyZXNzIjp7InJvYWQiOiJNdW5pY2giLCJuZWlnaGJvdXJob29kIjoiVGhlIExlZ2FjeSBTb3V0aCIsInN1YnVyYiI6IkMuQS5BLiBCRiBJbnRlcm5hdGlvbmFsIiwiY2l0eSI6IkxhcyBQacOxYXMiLCJjb3VudHkiOiIxc3QgRGlzdHJpY3QiLCJyZWdpb24iOiJNZXRybyBNYW5pbGEiLCJwb3N0Y29kZSI6IjE3MTgiLCJjb3VudHJ5IjoiUGhpbGlwcGluZXMiLCJjb3VudHJ5X2NvZGUiOiJwaCJ9fSx7InBsYWNlX2lkIjoxOTYzNDkwODIsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjo1MTI5Njc3OTQsImJvdW5kaW5nYm94IjpbIi0zLjk4MTkzODIiLCItMy45ODEwNTg1IiwiLTc5LjE5ODgzMDUiLCItNzkuMTk3Njk5NCJdLCJsYXQiOiItMy45ODE2NzUxIiwibG9uIjoiLTc5LjE5ODYxNzgiLCJkaXNwbGF5X25hbWUiOiJNdW5pY2gsIFByYWdhLCBMYSBJbm1hY3VsYWRhLCBMb2phLCAxMTAxMDcsIEVjdWFkb3IiLCJjbGFzcyI6ImhpZ2h3YXkiLCJ0eXBlIjoicmVzaWRlbnRpYWwiLCJpbXBvcnRhbmNlIjowLjIxLCJhZGRyZXNzIjp7InJvYWQiOiJNdW5pY2giLCJuZWlnaGJvdXJob29kIjoiUHJhZ2EiLCJoYW1sZXQiOiJMYSBJbm1hY3VsYWRhIiwiY2l0eSI6IkxvamEiLCJjb3VudHkiOiJMb2phIiwic3RhdGUiOiJMb2phIiwicG9zdGNvZGUiOiIxMTAxMDciLCJjb3VudHJ5IjoiRWN1YWRvciIsImNvdW50cnlfY29kZSI6ImVjIn19XQ==
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:20:19 GMT
+- request:
+    method: get
+    uri: http://api.geonames.org/timezoneJSON?lat=48.1371079&lng=11.5753822&username=lale
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:20:19 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) mod_jk/1.2.41 OpenSSL/1.0.1e-fips
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"sunrise":"2020-03-22 06:11","lng":11.5753822,"countryCode":"DE","gmtOffset":1,"rawOffset":1,"sunset":"2020-03-22
+        18:30","timezoneId":"Europe/Berlin","dstOffset":2,"countryName":"Germany","time":"2020-03-22
+        21:20","lat":48.1371079}'
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:20:19 GMT
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=San%20Francisco,%2094109,%20CA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:27:32 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjIzNDYyMzUyOSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6MTExOTY4LCJib3VuZGluZ2JveCI6WyIzNy42NDAzMTQzIiwiMzcuOTI5ODExIiwiLTEyMy4xNzM4MjUiLCItMTIyLjI4MTQ3OSJdLCJsYXQiOiIzNy43NzkwMjYyIiwibG9uIjoiLTEyMi40MTk5MDYxIiwiZGlzcGxheV9uYW1lIjoiU2FuIEZyYW5jaXNjbywgQ2FsaWZvcm5pYSwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY2xhc3MiOiJib3VuZGFyeSIsInR5cGUiOiJhZG1pbmlzdHJhdGl2ZSIsImltcG9ydGFuY2UiOjEuMDI1MTMwOTQ2MzcxMzAzOSwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7ImNpdHkiOiJTYW4gRnJhbmNpc2NvIiwiY291bnR5IjoiU2FuIEZyYW5jaXNjbyIsInN0YXRlIjoiQ2FsaWZvcm5pYSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9fSx7InBsYWNlX2lkIjoyMzUxMzY4NjUsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOjM5NjQ4NywiYm91bmRpbmdib3giOlsiMzcuNjQwMzE0MyIsIjM3LjkyOTgxMSIsIi0xMjMuMTczODI1IiwiLTEyMi4yODE0NzkiXSwibGF0IjoiMzcuNzY0Nzk5MyIsImxvbiI6Ii0xMjIuNDYyOTg5NyIsImRpc3BsYXlfbmFtZSI6IlNhbiBGcmFuY2lzY28sIENhbGlmb3JuaWEsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjoxLjAyNTEzMDk0NjM3MTMwMzksImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjb3VudHkiOiJTYW4gRnJhbmNpc2NvIiwic3RhdGUiOiJDYWxpZm9ybmlhIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19XQ==
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:27:32 GMT
+- request:
+    method: get
+    uri: http://api.geonames.org/timezoneJSON?lat=37.7790262&lng=-122.4199061&username=lale
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:27:32 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) mod_jk/1.2.41 OpenSSL/1.0.1e-fips
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"sunrise":"2020-03-22 07:08","lng":-122.4199061,"countryCode":"US","gmtOffset":-8,"rawOffset":-8,"sunset":"2020-03-22
+        19:24","timezoneId":"America/Los_Angeles","dstOffset":-7,"countryName":"United
+        States","time":"2020-03-22 13:27","lat":37.7790262}'
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:27:33 GMT
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=San%20Francisco,%20CA,%2094109,%20US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:27:42 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjIzNDYyMzUyOSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6MTExOTY4LCJib3VuZGluZ2JveCI6WyIzNy42NDAzMTQzIiwiMzcuOTI5ODExIiwiLTEyMy4xNzM4MjUiLCItMTIyLjI4MTQ3OSJdLCJsYXQiOiIzNy43NzkwMjYyIiwibG9uIjoiLTEyMi40MTk5MDYxIiwiZGlzcGxheV9uYW1lIjoiU2FuIEZyYW5jaXNjbywgQ2FsaWZvcm5pYSwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY2xhc3MiOiJib3VuZGFyeSIsInR5cGUiOiJhZG1pbmlzdHJhdGl2ZSIsImltcG9ydGFuY2UiOjEuMDI1MTMwOTQ2MzcxMzAzOSwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7ImNpdHkiOiJTYW4gRnJhbmNpc2NvIiwiY291bnR5IjoiU2FuIEZyYW5jaXNjbyIsInN0YXRlIjoiQ2FsaWZvcm5pYSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9fSx7InBsYWNlX2lkIjoyMzUxMzY4NjUsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOjM5NjQ4NywiYm91bmRpbmdib3giOlsiMzcuNjQwMzE0MyIsIjM3LjkyOTgxMSIsIi0xMjMuMTczODI1IiwiLTEyMi4yODE0NzkiXSwibGF0IjoiMzcuNzY0Nzk5MyIsImxvbiI6Ii0xMjIuNDYyOTg5NyIsImRpc3BsYXlfbmFtZSI6IlNhbiBGcmFuY2lzY28sIENhbGlmb3JuaWEsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjoxLjAyNTEzMDk0NjM3MTMwMzksImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjb3VudHkiOiJTYW4gRnJhbmNpc2NvIiwic3RhdGUiOiJDYWxpZm9ybmlhIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19XQ==
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:27:43 GMT
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=San%20Francisco,%2094109,%20Canada
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:27:49 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjEyNDIyNTUwMCwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJ3YXkiLCJvc21faWQiOjE2NDE0ODg1OSwiYm91bmRpbmdib3giOlsiLTI5LjE2ODAyMzMiLCItMjkuMTY3NTE1NiIsIi01OS42NjI5Nzc2IiwiLTU5LjY1ODA5NTciXSwibGF0IjoiLTI5LjE2NzcyOTkiLCJsb24iOiItNTkuNjYxMjE2OCIsImRpc3BsYXlfbmFtZSI6IkNhbmFkYSwgU2FuIEZyYW5jaXNjbywgUmVjb25xdWlzdGEsIE11bmljaXBpbyBkZSBSZWNvbnF1aXN0YSwgRGVwYXJ0YW1lbnRvIEdlbmVyYWwgT2JsaWdhZG8sIFNhbnRhIEZlLCAzNTYwLCBBcmdlbnRpbmEiLCJjbGFzcyI6ImhpZ2h3YXkiLCJ0eXBlIjoicmVzaWRlbnRpYWwiLCJpbXBvcnRhbmNlIjowLjQxMDAwMDAwMDAwMDAwMDAzLCJhZGRyZXNzIjp7InJvYWQiOiJDYW5hZGEiLCJzdWJ1cmIiOiJTYW4gRnJhbmNpc2NvIiwidG93biI6IlJlY29ucXVpc3RhIiwiY291bnR5IjoiTXVuaWNpcGlvIGRlIFJlY29ucXVpc3RhIiwic3RhdGVfZGlzdHJpY3QiOiJEZXBhcnRhbWVudG8gR2VuZXJhbCBPYmxpZ2FkbyIsInN0YXRlIjoiU2FudGEgRmUiLCJwb3N0Y29kZSI6IjM1NjAiLCJjb3VudHJ5IjoiQXJnZW50aW5hIiwiY291bnRyeV9jb2RlIjoiYXIifX0seyJwbGFjZV9pZCI6MTE4MjExMzkzLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6IndheSIsIm9zbV9pZCI6MTMyMjc2Mzk1LCJib3VuZGluZ2JveCI6WyItMjkuMTY4MTA3OCIsIi0yOS4xNjc2NyIsIi01OS42NTcxOTEyIiwiLTU5LjY1Mjk5MjMiXSwibGF0IjoiLTI5LjE2Nzg3OTMiLCJsb24iOiItNTkuNjU1MTY4MyIsImRpc3BsYXlfbmFtZSI6IkNhbmFkYSwgQmFycmlvIFVuaWRvcywgU2FuIEZyYW5jaXNjbywgUmVjb25xdWlzdGEsIE11bmljaXBpbyBkZSBSZWNvbnF1aXN0YSwgRGVwYXJ0YW1lbnRvIEdlbmVyYWwgT2JsaWdhZG8sIFNhbnRhIEZlLCAzNTYwLCBBcmdlbnRpbmEiLCJjbGFzcyI6ImhpZ2h3YXkiLCJ0eXBlIjoicmVzaWRlbnRpYWwiLCJpbXBvcnRhbmNlIjowLjQxMDAwMDAwMDAwMDAwMDAzLCJhZGRyZXNzIjp7InJvYWQiOiJDYW5hZGEiLCJuZWlnaGJvdXJob29kIjoiQmFycmlvIFVuaWRvcyIsInN1YnVyYiI6IlNhbiBGcmFuY2lzY28iLCJ0b3duIjoiUmVjb25xdWlzdGEiLCJjb3VudHkiOiJNdW5pY2lwaW8gZGUgUmVjb25xdWlzdGEiLCJzdGF0ZV9kaXN0cmljdCI6IkRlcGFydGFtZW50byBHZW5lcmFsIE9ibGlnYWRvIiwic3RhdGUiOiJTYW50YSBGZSIsInBvc3Rjb2RlIjoiMzU2MCIsImNvdW50cnkiOiJBcmdlbnRpbmEiLCJjb3VudHJ5X2NvZGUiOiJhciJ9fSx7InBsYWNlX2lkIjoxNzAyMzkwMzQsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjozNTk2NDU1MzAsImJvdW5kaW5nYm94IjpbIi0yOS4xNjcwNDIxIiwiLTI5LjE2NjgxOTQiLCItNTkuNjc0MDMzOSIsIi01OS42NzE5Nzc2Il0sImxhdCI6Ii0yOS4xNjY5MjUzIiwibG9uIjoiLTU5LjY3Mjk2NzkiLCJkaXNwbGF5X25hbWUiOiJDYW5hZMOhLCBCZWxncmFubywgU2FuIEZyYW5jaXNjbywgUmVjb25xdWlzdGEsIE11bmljaXBpbyBkZSBSZWNvbnF1aXN0YSwgRGVwYXJ0YW1lbnRvIEdlbmVyYWwgT2JsaWdhZG8sIFNhbnRhIEZlLCBTMzU2MCwgQXJnZW50aW5hIiwiY2xhc3MiOiJoaWdod2F5IiwidHlwZSI6InJlc2lkZW50aWFsIiwiaW1wb3J0YW5jZSI6MC4zLCJhZGRyZXNzIjp7InJvYWQiOiJDYW5hZMOhIiwibmVpZ2hib3VyaG9vZCI6IkJlbGdyYW5vIiwic3VidXJiIjoiU2FuIEZyYW5jaXNjbyIsInRvd24iOiJSZWNvbnF1aXN0YSIsImNvdW50eSI6Ik11bmljaXBpbyBkZSBSZWNvbnF1aXN0YSIsInN0YXRlX2Rpc3RyaWN0IjoiRGVwYXJ0YW1lbnRvIEdlbmVyYWwgT2JsaWdhZG8iLCJzdGF0ZSI6IlNhbnRhIEZlIiwicG9zdGNvZGUiOiJTMzU2MCIsImNvdW50cnkiOiJBcmdlbnRpbmEiLCJjb3VudHJ5X2NvZGUiOiJhciJ9fSx7InBsYWNlX2lkIjoxOTM2MjA1MjksImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjo0NzU4OTMwMDksImJvdW5kaW5nYm94IjpbIjIwLjU2MTc0MTciLCIyMC41NjM1NTQ2IiwiLTEwMy4xNjkxNTYyIiwiLTEwMy4xNjE3MjEzIl0sImxhdCI6IjIwLjU2Mjg2NTMiLCJsb24iOiItMTAzLjE2NjI3NzkiLCJkaXNwbGF5X25hbWUiOiJTYW4gRnJhbmNpc2NvLCBQcmFkb3MgZGUgTGEgQ2HDsWFkYSwgRWwgVmFkbywgUHVlbnRlIEdyYW5kZSwgVG9uYWzDoSwgSmFsaXNjbywgNDU0MjcsIE1leGljbyIsImNsYXNzIjoiaGlnaHdheSIsInR5cGUiOiJyZXNpZGVudGlhbCIsImltcG9ydGFuY2UiOjAuMywiYWRkcmVzcyI6eyJyb2FkIjoiU2FuIEZyYW5jaXNjbyIsIm5laWdoYm91cmhvb2QiOiJQcmFkb3MgZGUgTGEgQ2HDsWFkYSIsImhhbWxldCI6IkVsIFZhZG8iLCJ2aWxsYWdlIjoiUHVlbnRlIEdyYW5kZSIsImNvdW50eSI6IlRvbmFsw6EiLCJzdGF0ZSI6IkphbGlzY28iLCJwb3N0Y29kZSI6IjQ1NDI3IiwiY291bnRyeSI6Ik1leGljbyIsImNvdW50cnlfY29kZSI6Im14In19LHsicGxhY2VfaWQiOjUzODc2OTIwLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6Im5vZGUiLCJvc21faWQiOjQ0NjQ3MDM2OTEsImJvdW5kaW5nYm94IjpbIi0zNC42MDg4OTE5IiwiLTM0LjYwODc5MTkiLCItNjguMzUzNDE5OSIsIi02OC4zNTMzMTk5Il0sImxhdCI6Ii0zNC42MDg4NDE5IiwibG9uIjoiLTY4LjM1MzM2OTkiLCJkaXNwbGF5X25hbWUiOiJTYW4gRnJhbmNpc2NvLCAyMzE1LCBTYW50YSBGZSwgU2FuIFJhZmFlbC4gQ2HDsWFkYSBTZWNhLiBBdHVlbCBOb3J0ZSwgU2FuIFJhZmFlbCwgRGlzdHJpdG8gQ2l1ZGFkIGRlIFNhbiBSYWZhZWwsIERlcGFydGFtZW50byBTYW4gUmFmYWVsLCBNZW5kb3phLCA1NjAwLCBBcmdlbnRpbmEiLCJjbGFzcyI6InNob3AiLCJ0eXBlIjoiYmFrZXJ5IiwiaW1wb3J0YW5jZSI6MC4yMDEsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvc2hvcHBpbmdfYmFrZXJ5LnAuMjAucG5nIiwiYWRkcmVzcyI6eyJiYWtlcnkiOiJTYW4gRnJhbmNpc2NvIiwiaG91c2VfbnVtYmVyIjoiMjMxNSIsInJvYWQiOiJTYW50YSBGZSIsIm5laWdoYm91cmhvb2QiOiJTYW4gUmFmYWVsLiBDYcOxYWRhIFNlY2EuIEF0dWVsIE5vcnRlIiwiY2l0eSI6IlNhbiBSYWZhZWwiLCJjb3VudHkiOiJEaXN0cml0byBDaXVkYWQgZGUgU2FuIFJhZmFlbCIsInN0YXRlX2Rpc3RyaWN0IjoiRGVwYXJ0YW1lbnRvIFNhbiBSYWZhZWwiLCJzdGF0ZSI6Ik1lbmRvemEiLCJwb3N0Y29kZSI6IjU2MDAiLCJjb3VudHJ5IjoiQXJnZW50aW5hIiwiY291bnRyeV9jb2RlIjoiYXIifX0seyJwbGFjZV9pZCI6MTEzMDIzNDE3LCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6IndheSIsIm9zbV9pZCI6MTIwMzY0NjE2LCJib3VuZGluZ2JveCI6WyItMzcuMzI0NDM4NSIsIi0zNy4zMTc0MDg0IiwiLTU5LjExNTk1OTYiLCItNTkuMTA3MjYxOCJdLCJsYXQiOiItMzcuMzIxMDA4NSIsImxvbiI6Ii01OS4xMTE3MDY4IiwiZGlzcGxheV9uYW1lIjoiQ2FuYWTDoSwgSmFyZMOtbiAvIE1hbHZpbmFzLCBUYW5kaWwsIFBhcnRpZG8gZGUgVGFuZGlsLCBCdWVub3MgQWlyZXMsIEI3MDAwLCBBcmdlbnRpbmEiLCJjbGFzcyI6ImhpZ2h3YXkiLCJ0eXBlIjoicmVzaWRlbnRpYWwiLCJpbXBvcnRhbmNlIjowLjA5OTk5OTk5OTk5OTk5OTk4LCJhZGRyZXNzIjp7InJvYWQiOiJDYW5hZMOhIiwiY2l0eV9kaXN0cmljdCI6IkphcmTDrW4gLyBNYWx2aW5hcyIsImNpdHkiOiJUYW5kaWwiLCJzdGF0ZV9kaXN0cmljdCI6IlBhcnRpZG8gZGUgVGFuZGlsIiwic3RhdGUiOiJCdWVub3MgQWlyZXMiLCJwb3N0Y29kZSI6IkI3MDAwIiwiY291bnRyeSI6IkFyZ2VudGluYSIsImNvdW50cnlfY29kZSI6ImFyIn19XQ==
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:27:49 GMT
+- request:
+    method: get
+    uri: http://api.geonames.org/timezoneJSON?lat=-29.1677299&lng=-59.6612168&username=lale
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:27:49 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) mod_jk/1.2.41 OpenSSL/1.0.1e-fips PHP/5.4.16
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"sunrise":"2020-03-22 07:03","lng":-59.6612168,"countryCode":"AR","gmtOffset":-3,"rawOffset":-3,"sunset":"2020-03-22
+        19:06","timezoneId":"America/Argentina/Cordoba","dstOffset":-3,"countryName":"Argentina","time":"2020-03-22
+        17:27","lat":-29.1677299}'
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:27:50 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/c1fad28b-4127-4852-87e4-8f44a9a9b41b
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200322T202750Z
+      X-Amz-Content-Sha256:
+      - 4e5abdb323a9e33d62f215eeb5da1ee937e04d44e0dcf00515f7d234892c70dc
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIYVOY7JTRPVVDUEQ/20200322/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=65af6b510c90ee964b9ebff3223f84aabee46873d81456c10c59a0070ea393cf
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - HMGHczJfbwsGuaPdMkAfDKQb2xZhgnPGOJkKeS8sfaMYMasdONxa2xmgPhwuuTdCcFbrIHdfyP8=
+      X-Amz-Request-Id:
+      - E03E36580564CCCF
+      Date:
+      - Sun, 22 Mar 2020 20:27:52 GMT
+      Etag:
+      - '"86d290472756e7281791e788f0e735cb"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:27:51 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/172aacbe-b4dd-41e8-ad2e-e6c6a6c1f406
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200322T202753Z
+      X-Amz-Content-Sha256:
+      - a7271d0d75ac2217628128de3f519e90e7c76edb4228fc1940f5c9796153fe38
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIYVOY7JTRPVVDUEQ/20200322/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=a9c1360b33d3b65e5116aa4cd8b8fae5c7525738916002e9d10737f19e3724c7
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - Fc02icDYHUzgR4DkL6Z1iq/Yk5zCTi+Fi8UwdGMJNmBv2XcJxfyQ4ynuKUYgGpMJPC88KfXNN5k=
+      X-Amz-Request-Id:
+      - 95696027039C0175
+      Date:
+      - Sun, 22 Mar 2020 20:27:57 GMT
+      Etag:
+      - '"1c701d568f15194d916e4d6ed8fc69df"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:27:56 GMT
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=San%20Francisco,%20CA,%2094109
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:28:11 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjIzNDYyMzUyOSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6MTExOTY4LCJib3VuZGluZ2JveCI6WyIzNy42NDAzMTQzIiwiMzcuOTI5ODExIiwiLTEyMy4xNzM4MjUiLCItMTIyLjI4MTQ3OSJdLCJsYXQiOiIzNy43NzkwMjYyIiwibG9uIjoiLTEyMi40MTk5MDYxIiwiZGlzcGxheV9uYW1lIjoiU2FuIEZyYW5jaXNjbywgQ2FsaWZvcm5pYSwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY2xhc3MiOiJib3VuZGFyeSIsInR5cGUiOiJhZG1pbmlzdHJhdGl2ZSIsImltcG9ydGFuY2UiOjEuMDI1MTMwOTQ2MzcxMzAzOSwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7ImNpdHkiOiJTYW4gRnJhbmNpc2NvIiwiY291bnR5IjoiU2FuIEZyYW5jaXNjbyIsInN0YXRlIjoiQ2FsaWZvcm5pYSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9fSx7InBsYWNlX2lkIjoyMzUxMzY4NjUsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOjM5NjQ4NywiYm91bmRpbmdib3giOlsiMzcuNjQwMzE0MyIsIjM3LjkyOTgxMSIsIi0xMjMuMTczODI1IiwiLTEyMi4yODE0NzkiXSwibGF0IjoiMzcuNzY0Nzk5MyIsImxvbiI6Ii0xMjIuNDYyOTg5NyIsImRpc3BsYXlfbmFtZSI6IlNhbiBGcmFuY2lzY28sIENhbGlmb3JuaWEsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjoxLjAyNTEzMDk0NjM3MTMwMzksImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjb3VudHkiOiJTYW4gRnJhbmNpc2NvIiwic3RhdGUiOiJDYWxpZm9ybmlhIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19XQ==
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:28:12 GMT
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=San%20Francisco,%2094109,%20US
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:28:14 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjIzNDYyMzUyOSwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6MTExOTY4LCJib3VuZGluZ2JveCI6WyIzNy42NDAzMTQzIiwiMzcuOTI5ODExIiwiLTEyMy4xNzM4MjUiLCItMTIyLjI4MTQ3OSJdLCJsYXQiOiIzNy43NzkwMjYyIiwibG9uIjoiLTEyMi40MTk5MDYxIiwiZGlzcGxheV9uYW1lIjoiU2FuIEZyYW5jaXNjbywgQ2FsaWZvcm5pYSwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY2xhc3MiOiJib3VuZGFyeSIsInR5cGUiOiJhZG1pbmlzdHJhdGl2ZSIsImltcG9ydGFuY2UiOjAuOTI1MTMwOTQ2MzcxMzAzOCwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7ImNpdHkiOiJTYW4gRnJhbmNpc2NvIiwiY291bnR5IjoiU2FuIEZyYW5jaXNjbyIsInN0YXRlIjoiQ2FsaWZvcm5pYSIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9fSx7InBsYWNlX2lkIjoyMzUxMzY4NjUsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOjM5NjQ4NywiYm91bmRpbmdib3giOlsiMzcuNjQwMzE0MyIsIjM3LjkyOTgxMSIsIi0xMjMuMTczODI1IiwiLTEyMi4yODE0NzkiXSwibGF0IjoiMzcuNzY0Nzk5MyIsImxvbiI6Ii0xMjIuNDYyOTg5NyIsImRpc3BsYXlfbmFtZSI6IlNhbiBGcmFuY2lzY28sIENhbGlmb3JuaWEsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjowLjkyNTEzMDk0NjM3MTMwMzgsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjb3VudHkiOiJTYW4gRnJhbmNpc2NvIiwic3RhdGUiOiJDYWxpZm9ybmlhIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19XQ==
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:28:14 GMT
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=Atlanta
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:28:25 GMT
+      Server:
+      - Apache/2.4.29 (Ubuntu)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - OPTIONS,GET
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Expect-Ct:
+      - max-age=0, report-uri="https://openstreetmap.report-uri.com/r/d/ct/reportOnly"
+      Upgrade:
+      - h2
+      Connection:
+      - Upgrade, close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=UTF-8
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjIzNTUxMjU3NCwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6MTE5NTU3LCJib3VuZGluZ2JveCI6WyIzMy42NDc4MDgiLCIzMy44ODY4MjMiLCItODQuNTUxMDY4IiwiLTg0LjI4OTU2Il0sImxhdCI6IjMzLjc0OTA5ODciLCJsb24iOiItODQuMzkwMTg0OSIsImRpc3BsYXlfbmFtZSI6IkF0bGFudGEsIEZ1bHRvbiBDb3VudHksIEdlb3JnaWEsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjowLjgwMDgwMjgyMDc5MjY2MTYsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjaXR5IjoiQXRsYW50YSIsImNvdW50eSI6IkZ1bHRvbiBDb3VudHkiLCJzdGF0ZSI6Ikdlb3JnaWEiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifX0seyJwbGFjZV9pZCI6MjM1OTE4Njg0LCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6InJlbGF0aW9uIiwib3NtX2lkIjozNTA3MDQ0LCJib3VuZGluZ2JveCI6WyIzMy4wODQxMDQiLCIzMy4xNDU0OTYiLCItOTQuMjI5NjU2IiwiLTk0LjEyMzIyNyJdLCJsYXQiOiIzMy4xMTYyMTMxIiwibG9uIjoiLTk0LjE2NjM0OTMiLCJkaXNwbGF5X25hbWUiOiJBdGxhbnRhLCBDYXNzIENvdW50eSwgVGV4YXMsIDc1NTUxLCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjbGFzcyI6ImJvdW5kYXJ5IiwidHlwZSI6ImFkbWluaXN0cmF0aXZlIiwiaW1wb3J0YW5jZSI6MC41NTA3MTQ4ODgwMjc3NDgsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjaXR5IjoiQXRsYW50YSIsImNvdW50eSI6IkNhc3MgQ291bnR5Iiwic3RhdGUiOiJUZXhhcyIsInBvc3Rjb2RlIjoiNzU1NTEiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifX0seyJwbGFjZV9pZCI6MjM0ODQyOTE4LCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6InJlbGF0aW9uIiwib3NtX2lkIjoxMzAxNjUsImJvdW5kaW5nYm94IjpbIjM3LjQzMDgwMDUiLCIzNy40NDA0OTUyIiwiLTk2Ljc3NDQzOTIiLCItOTYuNzU5NjkxMiJdLCJsYXQiOiIzNy40MzU2Nzg0IiwibG9uIjoiLTk2Ljc2OTE2MDYiLCJkaXNwbGF5X25hbWUiOiJBdGxhbnRhLCBDb3dsZXkgQ291bnR5LCBLYW5zYXMsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjowLjUyNzUxMTY3MjAwMjYxNTEsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjaXR5IjoiQXRsYW50YSIsImNvdW50eSI6IkNvd2xleSBDb3VudHkiLCJzdGF0ZSI6IkthbnNhcyIsImNvdW50cnkiOiJVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9fSx7InBsYWNlX2lkIjoyMzU1MjQwMTgsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoicmVsYXRpb24iLCJvc21faWQiOjE0MTE4NywiYm91bmRpbmdib3giOlsiMzkuODkyODc0IiwiMzkuOTA0OTQ0IiwiLTkyLjQ4NjY4IiwiLTkyLjQ3Mzk2OSJdLCJsYXQiOiIzOS44OTg2NDYiLCJsb24iOiItOTIuNDgxMDIwOCIsImRpc3BsYXlfbmFtZSI6IkF0bGFudGEsIE1hY29uIENvdW50eSwgTWlzc291cmksIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjowLjUwMjY5NzcyNjAxNTA0NjEsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjaXR5IjoiQXRsYW50YSIsImNvdW50eSI6Ik1hY29uIENvdW50eSIsInN0YXRlIjoiTWlzc291cmkiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifX0seyJwbGFjZV9pZCI6NDkzMjU0LCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6Im5vZGUiLCJvc21faWQiOjE1ODQxMTgwMiwiYm91bmRpbmdib3giOlsiMzguNjg4NzI1IiwiMzguNzI4NzI1IiwiLTc1LjY5Nzk4NTEiLCItNzUuNjU3OTg1MSJdLCJsYXQiOiIzOC43MDg3MjUiLCJsb24iOiItNzUuNjc3OTg1MSIsImRpc3BsYXlfbmFtZSI6IkF0bGFudGEsIFN1c3NleCBDb3VudHksIERlbGF3YXJlLCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjbGFzcyI6InBsYWNlIiwidHlwZSI6ImhhbWxldCIsImltcG9ydGFuY2UiOjAuNDY2NjYwMzcwNTM1OTc2NCwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfcGxhY2VfdmlsbGFnZS5wLjIwLnBuZyIsImFkZHJlc3MiOnsiaGFtbGV0IjoiQXRsYW50YSIsImNvdW50eSI6IlN1c3NleCBDb3VudHkiLCJzdGF0ZSI6IkRlbGF3YXJlIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19LHsicGxhY2VfaWQiOjQ1MzcwMiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJub2RlIiwib3NtX2lkIjoxNTQxOTY4NDgsImJvdW5kaW5nYm94IjpbIjQ0Ljk4NDczMDYiLCI0NS4wMjQ3MzA2IiwiLTg0LjE2Mzg5MjciLCItODQuMTIzODkyNyJdLCJsYXQiOiI0NS4wMDQ3MzA2IiwibG9uIjoiLTg0LjE0Mzg5MjciLCJkaXNwbGF5X25hbWUiOiJBdGxhbnRhLCBCcmlsZXkgVG93bnNoaXAsIE1vbnRtb3JlbmN5IENvdW50eSwgTWljaGlnYW4sIDQ5NzA5LCBVbml0ZWQgU3RhdGVzIG9mIEFtZXJpY2EiLCJjbGFzcyI6InBsYWNlIiwidHlwZSI6InZpbGxhZ2UiLCJpbXBvcnRhbmNlIjowLjQ2NDkzNDkzNDA3NDUxMjgsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX3BsYWNlX3ZpbGxhZ2UucC4yMC5wbmciLCJhZGRyZXNzIjp7InZpbGxhZ2UiOiJBdGxhbnRhIiwiY291bnR5IjoiTW9udG1vcmVuY3kgQ291bnR5Iiwic3RhdGUiOiJNaWNoaWdhbiIsInBvc3Rjb2RlIjoiNDk3MDkiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifX0seyJwbGFjZV9pZCI6MjM1NTM3NDAwLCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6InJlbGF0aW9uIiwib3NtX2lkIjoxMzUyNjcsImJvdW5kaW5nYm94IjpbIjQ0Ljk5Mjc4MyIsIjQ1LjAxNjk2NiIsIi04NC4xODQwNDEiLCItODQuMTE4ODQiXSwibGF0IjoiNDUuMDA0NzU3NSIsImxvbiI6Ii04NC4xNTE5NzAxOTQ2MDM0NCIsImRpc3BsYXlfbmFtZSI6IkF0bGFudGEsIEJyaWxleSBUb3duc2hpcCwgTW9udG1vcmVuY3kgQ291bnR5LCBNaWNoaWdhbiwgVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY2xhc3MiOiJwbGFjZSIsInR5cGUiOiJsb2NhbGl0eSIsImltcG9ydGFuY2UiOjAuNDY0OTM0OTM0MDc0NTEyOCwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfcGxhY2VfdmlsbGFnZS5wLjIwLnBuZyIsImFkZHJlc3MiOnsibG9jYWxpdHkiOiJBdGxhbnRhIiwidmlsbGFnZSI6IkF0bGFudGEiLCJjb3VudHkiOiJNb250bW9yZW5jeSBDb3VudHkiLCJzdGF0ZSI6Ik1pY2hpZ2FuIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNvdW50cnlfY29kZSI6InVzIn19LHsicGxhY2VfaWQiOjIzNjUwNzA5MiwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwczovL29zbS5vcmcvY29weXJpZ2h0Iiwib3NtX3R5cGUiOiJyZWxhdGlvbiIsIm9zbV9pZCI6OTIyMjU1NywiYm91bmRpbmdib3giOlsiNDUuMTQzNzE1NCIsIjQ1LjE3NDcxNDkiLCItNjQuNTIxOTU3MSIsIi02NC40ODE3MjA2Il0sImxhdCI6IjQ1LjE1MTM5MDIiLCJsb24iOiItNjQuNTA0MDk0MyIsImRpc3BsYXlfbmFtZSI6IkF0bGFudGEsIE11bmljaXBhbGl0eSBvZiB0aGUgQ291bnR5IG9mIEtpbmdzLCBLaW5ncyBDb3VudHksIE5vdmEgU2NvdGlhLCBDYW5hZGEiLCJjbGFzcyI6ImJvdW5kYXJ5IiwidHlwZSI6ImFkbWluaXN0cmF0aXZlIiwiaW1wb3J0YW5jZSI6MC40NTk5OTk5OTk5OTk5OTk5NiwiaWNvbiI6Imh0dHBzOi8vbm9taW5hdGltLm9wZW5zdHJlZXRtYXAub3JnL2ltYWdlcy9tYXBpY29ucy9wb2lfYm91bmRhcnlfYWRtaW5pc3RyYXRpdmUucC4yMC5wbmciLCJhZGRyZXNzIjp7ImNpdHkiOiJBdGxhbnRhIiwiY291bnR5IjoiS2luZ3MgQ291bnR5Iiwic3RhdGUiOiJOb3ZhIFNjb3RpYSIsImNvdW50cnkiOiJDYW5hZGEiLCJjb3VudHJ5X2NvZGUiOiJjYSJ9fSx7InBsYWNlX2lkIjoyMTM2NDAyNjYsImxpY2VuY2UiOiJEYXRhIMKpIE9wZW5TdHJlZXRNYXAgY29udHJpYnV0b3JzLCBPRGJMIDEuMC4gaHR0cHM6Ly9vc20ub3JnL2NvcHlyaWdodCIsIm9zbV90eXBlIjoid2F5Iiwib3NtX2lkIjo2MzU0NjMxMDMsImJvdW5kaW5nYm94IjpbIjQ1LjE0MzcxNTQiLCI0NS4xNzQ3MTQ5IiwiLTY0LjUyMTk1NzEiLCItNjQuNDgxNzIwNiJdLCJsYXQiOiI0NS4xNTEzOTAyIiwibG9uIjoiLTY0LjUwNDA5NDMiLCJkaXNwbGF5X25hbWUiOiJBdGxhbnRhLCBNdW5pY2lwYWxpdHkgb2YgdGhlIENvdW50eSBvZiBLaW5ncywgS2luZ3MgQ291bnR5LCBOb3ZhIFNjb3RpYSwgQ2FuYWRhIiwiY2xhc3MiOiJib3VuZGFyeSIsInR5cGUiOiJhZG1pbmlzdHJhdGl2ZSIsImltcG9ydGFuY2UiOjAuNDU5OTk5OTk5OTk5OTk5OTYsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjaXR5IjoiQXRsYW50YSIsImNvdW50eSI6IktpbmdzIENvdW50eSIsInN0YXRlIjoiTm92YSBTY290aWEiLCJjb3VudHJ5IjoiQ2FuYWRhIiwiY291bnRyeV9jb2RlIjoiY2EifX0seyJwbGFjZV9pZCI6MjM1MzE0MTA2LCJsaWNlbmNlIjoiRGF0YSDCqSBPcGVuU3RyZWV0TWFwIGNvbnRyaWJ1dG9ycywgT0RiTCAxLjAuIGh0dHBzOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6InJlbGF0aW9uIiwib3NtX2lkIjoxMjYxOTksImJvdW5kaW5nYm94IjpbIjQwLjI1MjEzNiIsIjQwLjI3ODYwOSIsIi04OS4yNDMzNzkiLCItODkuMjEzNzI4Il0sImxhdCI6IjQwLjI1OTY1MDQiLCJsb24iOiItODkuMjMzMjQ2NiIsImRpc3BsYXlfbmFtZSI6IkF0bGFudGEsIExvZ2FuIENvdW50eSwgSWxsaW5vaXMsIFVuaXRlZCBTdGF0ZXMgb2YgQW1lcmljYSIsImNsYXNzIjoiYm91bmRhcnkiLCJ0eXBlIjoiYWRtaW5pc3RyYXRpdmUiLCJpbXBvcnRhbmNlIjowLjQ0ODU1MDU1NjY1MzU1OTcsImljb24iOiJodHRwczovL25vbWluYXRpbS5vcGVuc3RyZWV0bWFwLm9yZy9pbWFnZXMvbWFwaWNvbnMvcG9pX2JvdW5kYXJ5X2FkbWluaXN0cmF0aXZlLnAuMjAucG5nIiwiYWRkcmVzcyI6eyJjaXR5IjoiQXRsYW50YSIsImNvdW50eSI6IkxvZ2FuIENvdW50eSIsInN0YXRlIjoiSWxsaW5vaXMiLCJjb3VudHJ5IjoiVW5pdGVkIFN0YXRlcyBvZiBBbWVyaWNhIiwiY291bnRyeV9jb2RlIjoidXMifX1d
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:28:25 GMT
+- request:
+    method: get
+    uri: http://api.geonames.org/timezoneJSON?lat=33.7490987&lng=-84.3901849&username=lale
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Sun, 22 Mar 2020 20:28:25 GMT
+      Server:
+      - Apache/2.4.6 (CentOS) mod_jk/1.2.41 OpenSSL/1.0.1e-fips
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - "*"
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json;charset=UTF-8
+    body:
+      encoding: UTF-8
+      string: '{"sunrise":"2020-03-22 07:37","lng":-84.3901849,"countryCode":"US","gmtOffset":-5,"rawOffset":-5,"sunset":"2020-03-22
+        19:51","timezoneId":"America/New_York","dstOffset":-4,"countryName":"United
+        States","time":"2020-03-22 16:28","lat":33.7490987}'
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:28:25 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/1d56ad36-a5b0-45b0-b3e9-a18c4b63dc03
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200322T202848Z
+      X-Amz-Content-Sha256:
+      - f9c1a73a8757e7858b7eae4b3765a3d73d6b254687206bd92923ec5820587948
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIYVOY7JTRPVVDUEQ/20200322/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=fb82964f42bf8953dede84bb7e311e862d47ff4022b57714cbbef82238ea4192
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - tQ/YYM7WbgcX8i25PDPa2MNH+5rnCHginN+DTmDW/u+6sb2ja3qZel2Azip/8DtCdvtSgtk6GgU=
+      X-Amz-Request-Id:
+      - F9F780B06D6A0FA9
+      Date:
+      - Sun, 22 Mar 2020 20:28:51 GMT
+      Etag:
+      - '"cd91bc65ba1b01e8bbb2d8f1d57d5220"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Sun, 22 Mar 2020 20:28:50 GMT
+recorded_with: VCR 5.1.0

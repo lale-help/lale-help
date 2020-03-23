@@ -51,11 +51,12 @@ class TaskPresenter < Presenter
   end
 
   let(:formatted_date) do
-    I18n.t(_.scheduling_type,
+    string = I18n.t(_.scheduling_type,
       scope: "activerecord.attributes.task.scheduling_sentence",
       start: start_date_and_time,
       due:   due_date_and_time
-    ).html_safe
+    )
+    string.nil? ? nil : string.html_safe
   end
 
   let(:duration_text) do

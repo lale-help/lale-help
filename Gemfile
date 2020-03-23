@@ -1,12 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.2.3'
+ruby '2.5.7'
 
-gem 'rails', '4.2.4'
-gem 'rake', '< 11.0'
+gem 'rails', '4.2.11.1' # latest Rails 4 version, released March 2019
+gem 'rake'
 
 # backend
 gem 'pg'
-gem 'rbsavvy_commons', github: 'RBSavvy/rbsavvy_commons', branch: 'master'
+gem 'puma'
+gem 'rbsavvy_commons', git: 'https://github.com/phillipoertel/rbsavvy_commons.git', branch: 'master'
 gem 'mutations'
 gem 'omniauth'
 gem 'omniauth-identity'
@@ -66,7 +67,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'foreman', require: false
   gem 'rspec-rails'
-  gem 'hologram', github: 'trulia/hologram'
+  gem 'hologram', git: 'https://github.com/trulia/hologram.git', ref: '217548'
 
   gem 'capybara'
   gem 'capybara-screenshot'
@@ -74,7 +75,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
 
-  gem 'spring'
+  # gem 'spring'
   gem 'pry-byebug'
   gem 'pry-stack_explorer'
   gem 'awesome_print'
@@ -90,6 +91,6 @@ group :test do
   gem 'action_mailer_cache_delivery'
   gem 'timecop'
   gem 'rspec_junit_formatter', '~> 0.2.0'
-  gem 'spring-commands-rspec'
+  # gem 'spring-commands-rspec'
   gem 'rspec-html-matchers'
 end

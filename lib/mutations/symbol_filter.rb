@@ -30,7 +30,7 @@ module Mutations
       end
 
       # At this point, data is not nil. If it's not a string, convert it to a string for some standard classes
-      data = data.to_sym if !options[:strict] && [TrueClass, FalseClass, Fixnum, Float, BigDecimal, String].include?(data.class)
+      data = data.to_sym if !options[:strict] && [TrueClass, FalseClass, Integer, Float, BigDecimal, String].include?(data.class)
 
       # Now ensure it's a symbol:
       return [data, :symbol] unless data.is_a?(Symbol)
