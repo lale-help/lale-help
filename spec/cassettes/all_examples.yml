@@ -675,4 +675,1246 @@ http_interactions:
       string: ''
     http_version: null
   recorded_at: Sun, 22 Mar 2020 20:28:50 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/44ae8a09-52bf-4bbc-aeb3-57441466610a
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192604Z
+      X-Amz-Content-Sha256:
+      - b3e5b6144ace469a9d373d8f29a7258d6b18d4e4e0ea481ec5e394bae158e5c4
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=29c4a47535597ec28ef0d88513a3a39183f93386e0b2779e28b4aa1b69c0e073
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - 1/g+vFeqv3oI9IeYKkAjsFDZWXlmpDZ9GUK8AoW4Kam6lIhKIRb8ozdGbcv1+K8oUKXCzmGCGEU=
+      X-Amz-Request-Id:
+      - 8ED2F77DBB053C72
+      Date:
+      - Mon, 23 Mar 2020 19:26:05 GMT
+      Etag:
+      - '"43e4313e09cd4fc069e947725dce1658"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:04 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/fd77ebba-7073-4f12-88d7-b15945cce183
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192604Z
+      X-Amz-Content-Sha256:
+      - c78078b4638b8e07a9f767d79a0171ede80676483d00892043fb4a217e1ed43a
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=e66d5abc347fec3f172812f74e8f75ed9b3de54a76f74779719e8ef4fe8c9399
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - DDBZv1My5ouQ5F+x1lfweHMLEfscUvZzqgbEjlkcVobl4oRO1wx8/ooIWWSr+ISuEbhqM5Q8xGY=
+      X-Amz-Request-Id:
+      - 33C797DA65426149
+      Date:
+      - Mon, 23 Mar 2020 19:26:05 GMT
+      Etag:
+      - '"89c592a5b2062d87480d385ad57cdad5"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:04 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/92f4f22c-5ede-46b6-ac3b-24ff7b22008e
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        qmKyVzDi/4c9/SIdNo8cbeY/mtkwWCxZc779LRP2uZb+n/cf6evvHhrQhgtFWJC7ndLztSdjg8q/M7tiqBXliiOONsHOCj+GTEjjXxEB/ZkwcI+TbGY2Y4RsmZgotOFJjs3m6NCW3PeUA6O9HFhtTzcFyhhEQBzQfeRUIiUlL9JiogILbW3Nf02+BZTB+kX6a6eNAyFMebUida05fFO4NQEuvC/n7rNw+MSVSMXqq+V0RmxGbZqNls+8RJJCeYjfkc6lFn/UGg90y1pBiVdSrHUxxkhzX5TgC370Qc/TDFf45Td3Q8byPfrIpmOnW8Hpwg6yBrqH4oEiO6OkoJby9Wi8fumm/+NOfYu+nK83HuIVAGZ0d/UimjyLUeE2d571yk+CwDZfSbDwVnyL2TbXgG/kIio3wgWqW1Zr54R95QSEMg9jsLMljhc7W4FuYESg6CnSk41Ezviw0KR6V9QjV51HDct80VYFcHB34ohlpwmBe7vqyL/w93Qd/mt/w5NacvmmmyLqy94BsuV9YhBujLQAfRm3eaR/t/SuJMIYFlgauXwXJw6SCGGTlem2RBBi0RlGstjvvRvP6oX6M6l65lDEXYhL5WZePSfm+Hnxt1TwQ30wEPXh+2LxW7MmAz3dUhPsks8kprF8EbSfJGGUehD5/165ns0g6QgJXlXZKmHwelWyxaWmFTaDs0NvOGBycolxbdqX06SjWqVEPKNvKrHxgoWjufPeBu4FcN5pc2ScpiQ3bM1FkKUm4039vdUUQvnbT7Uwqzak6PNm7zen4ePitlUN94G4tBNKfvIEuIYoQUlA/NFzbxuZT/UYD6Xl01zt6YooOfFbBcLNrn6dVYlEIzGnhJDz+Wj04h0B75sw8j3GxfPvRvX/ug3cDsjh+qp/K6qWHIBjgFZc2IJcfWZUqohax67X39O0hB1mJr8dJ2q244fPeWHkLHHTVl8oKb/git5CKewkAHfORcEp9K4w2jcMbb8wd+Sa0Skbkr8oX9Dxs5hGArb0iYfWNXtthNj3Z3DPbxrQ/CiApEeAOXPQvDcDfhVAyVuuAxN+/ReSt479htK63FW7ibQJ9L9lG96fY6WbukQkjkgxKWS8a2hDddby4QYRcYBQGFaYLpEZCsFTx+rCcK/M/l3yyfthZqktT/0byFJew8g3XdXWFN7cHMVLeWDhBFwVLffxnGKgRwkoNg4EvZtefuHbUkE7tlkMakbmqbf2MzUwOWlDnFq4ay761NsvqgRlqOEbqoDlfOD/K0EgLq6a8TcQ/fgVmWqXbm5jc7LVtC2QWmvkD1zW0BJMS9i5v9TJt2StgLO7WkloJI964fQP7f4dugW3R8fjcFqBT+7eLG/a2E6JrLXOcRKGUCAUyItzCe6OUClrnrldfYHU0mNGLe3kbtELnLNcoivhXvob/jLG0eExdCwZOs/iK42p0JBW5yhNNdHrffAapWW6b5tIrNEzPl8B5F869R06pyB8J6rF+yD/zkwh6xkRGMvBZrA7liUZJntvLf/Kqzb77ftf8wNDK30EW8OY6gO68gap0hblQguyNE94nfUP5H3doEdjuOfiBPh50FoY2I1FArBOyxR+Pm2CG/frJPenR8Y8dGzkV6A4XbRVGakvIGjF4iE4rdU7MLncEmt92DLwH4/PcXMDd63P1vWZ02pBiBxBHx4Err7M5tHfhn+eeuGvuF3VkkYUxdAfNxhDC6O2hf+kJ40zHKBBPIXwmqV9oqLeiUykUd2zYQmk/JsF7eXG55qgMy7InVNr5jsgXW1J3RJ0T/8undzExOiDdRUCFwjKH9NrIOO9wirfOAR/aorr7NrNsk1Ndy3/mnz/XG/oiTD0lekItgopaqNdvR9rSm+sAyiFgczeMXOJqSKoFb5JH3xPI1k1vhhPNuw/o/t/WiXgV7Xj5lCukOYeRfT3W+/U8/FcE+vErvNvvaXm1e7LixpeMDay7O0TtK3R68eHeNi3APEEf/ZCjbx5pu+3vI9zjOVMyboL9l5u4Vkcobb+5vcWZFgjWDwTG8P4cHnwBUuODrKTfwTRurpy6BjSZZ16nugGuVIjm2861mEY+BPzvuzUdH/Lch5Qb7tacLtkUy/8FDvLil8ehX00b+37BpnGce/nUE1kHRUnADwSN/iIqzgGb1DnZqSvNbbXbLQ/y3JgdvgRcIeBZwG+1PNkxhnD7XONbYduOglFU7cOTZ9TV/5/G2pCVfgItMcg5j16WfUPsFp81ix825f+dUva9uaOBZ4WBshW2Xz8RBFm9TFF+aRwWGD4nQidrsqXLLjaTrp5MKIrXrhMzBMdc2QqOdrozmXwPqRQrh3pthk94GYhAGyU2lNG6/qa8iUgq7dbs9PJ/N/RrTM7C7+Iglo34/w7mayB5ZZjZUEvgn7E5eMMVsjZlPSukNGmgJrT+XrZdCoFwqZIvsmU4qoqlmxAiqU8Z7cSt1ICjhEFjz7GDMtR9fC/I8jbMNWFSZqT6LYFepMFGxx9aaZQNtri3W8bVlfOjgOIqpB/q5eCUtxY01GC+Q==
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192604Z
+      X-Amz-Content-Sha256:
+      - 483c3b248e24edf2e5c17a2e04cea4e276ab98d5dba232f55778d1cfac1f7332
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=37292cb3260eaec4271750ded2b8976be51b33aaa28c4250275aa7cc4c86788f
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - zTQl6W0nBGg6Sz8tjY6qSsDQmCWu7zO/hWxqQnCn7JA/5/OPToKEJBQ752wvyvbKMJownTnJLys=
+      X-Amz-Request-Id:
+      - DB21DE2FEDD0FE23
+      Date:
+      - Mon, 23 Mar 2020 19:26:06 GMT
+      Etag:
+      - '"cfafa6382c800049c1f727f4642e3c01"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:05 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/18e1ce97-070e-4437-b428-25cd58ad35eb
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192605Z
+      X-Amz-Content-Sha256:
+      - 2d0e42ee495b8b399677a03a4f7b7dceb54fb3695917ed255351973cc3a27b33
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=02df311e8fbd7b4b53ca4625e76c3e564105846ed8761d6d394226bd022956af
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - asvbNvI+L+glTMMLxd9LPjhLXvCvEzUlbV3lIJAT/5E96RFpHHGfU/9UHD9HQwN2PDiABgkMNqE=
+      X-Amz-Request-Id:
+      - 7B94151914C65DCF
+      Date:
+      - Mon, 23 Mar 2020 19:26:06 GMT
+      Etag:
+      - '"c89b35af9f81973db4be1cf5c1d3d203"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:05 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/f3fb2014-a60a-4f0c-8c0d-784cd2a7da85
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192605Z
+      X-Amz-Content-Sha256:
+      - f020f3c787535714fa8aa719179ddf86051d4aa928f3397bf75cf28d29c1a0f4
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=255d05033785550003b7a5ae74c41adbf0edc9c7d9d12ed55b81377b21b165ce
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - 64JKN9kVMQb7lYfQJAgrZ1MD3MuK0bP1IjonNQfnzSzqXYZq2Yy0rfiA4JkhGVkxVTyUASqc/rs=
+      X-Amz-Request-Id:
+      - 99F4FCC64ADF9CD5
+      Date:
+      - Mon, 23 Mar 2020 19:26:06 GMT
+      Etag:
+      - '"58c75f37d37e0e423047de252f0b7838"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:05 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/22fc1ccf-1dd7-471c-a782-0f7ae1c931c5
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        UwNgNNoCXdLi4cCG397bNNgx2fOWXnUdfvGWqN4so056dKANpCe0opFCzKoeStOJsOG9bd2c5methEodvd/rNooHsAVEeejMLyFbxryWjjiyHaPlQxEVaGD/mNiQQkCLhn3KwB4xscFiiSrpXKe1QOhvnTe6mC0un4CUxiEDLOR17UVfoXjTWGktyL8BC5CJx+eWOwnr3/O9X68j8bfFFDSQ/gnFb24mFC3qjkcsKKt/vI47zIWR7iPLALoUMmXaZtyXjdAPIUhlDOxrAlZkfyX67haW19w6eBaeDLq2bD70hC1ms6c5W8EcLzSDLfu+vfLu2dBhEWib87Jv0DPoBoJ+chyq70ZR/GKZW/YcdbS0dzgT7pKUJ/PLOO9DxftJVkPoXbdpvWg8vdU05cEXnNzBdo1IUwI9rv1Q3Vy3baKy23sp8qkXhQtI69BFDU80fTEaKpAO7b+v0im9Q46yjj+dUv2/9dLG69sRFngW8GirqDuIDNHMzzqRaHGCYXA68Fhm82SzFYQ+yC9wp+9TkWqyB1LseKkIOKyJXR/+aGC0mBxzwtjIwB4xukbzmkqgwc191O8/Pt0UzKoCqu4D0ZdVTMyA7Aa2FZdg9MRLvmWiyFdOBEefEtEVOWWCRX8J6GgcmmcqZ3M/CzdV8R/mhQzPubR1u/D2lktbveTn2gBpI9PMBJxnTNEPfjae0EZvyY8lyZuxaQ/W+glVmdSYg6WBB8DUT3cpUReNAKB1R6V2lLv6RKkknevk/ItOp2ha/POUlJuKetcELeBH4NZAbUgr1p/V1pVK0xJTCkk5K2sg3p79WmNFKBPxiN/h37aWCCXfzch47rQh/dwlmo9GGdEsYkyNVlTbtx4oMkBqRm3NP77qn2g/zCMKw4JU8ZJJqwe4YImdyK2re554LWiw5g4oWeiQvkphIFyDOEr9jHSNuwsAYFQHg8o6gOSS5non5xBLE2HtnkKHnDEYJ5mVNiEReZShFUiOodLMQh7y/UU8+DR4sBs5N0VfRu7+eHcPVsjqQjeYPgmCd97X2ZD2DhEIJUr2y5En5i69FzkKUBEVYRTsQk3JRJyBAUxKjxtJSP+Fk4tH5ttkILeAePugMD880c8Mpvuogg5YZcGP2o2d783tjqKNOPTjkU/UV7Jl6Kg2vcn15cVGWSOAeJWXK6TAhVue99360/xL4lM6R/mLYKBacWN6HzdFsphKzk6HQ+eh5A4WQFXv7XmaKY+uMFHfAcQDojWxJmXivaWsx7xfWUNct1vrwbcbkhMB/3Xpq+VEEhV+V/Smsti8AfJ5NrR+ST5jJGAZHE8/m5RF1K2BZywdx3yVGdIX0C9a98I6Mas2x058eqKCBrhuTSe/XVquryo7q/PSkAPM929IxAT9mhOZT4OnNDw+8MNaTsAekFvgconq7CHLeO9gk1/cvWfpcSANYrWCKUbA64PlmQaDMGyUAqpAvc292MtEWMOTfyby3dn/YKD87YRDDNYIY16K8UbDTcosRbzNV2Qba64qIfLVbY0NCoQtbcb3YaiBBhyKl28ReEBT6BovRvmJaVUKHvYBJ4m8SK/8wuwzwwWo4pFCXpB8igpBqcstlqxAyxQI88ujca/BYfl3UmY4qkgPIzaH5yxgDinKUeMAEPCRiENfbtpRi4ivciUipQfhWwwc8dAxSkewmfeNSNoRU7Z2EqEH9vuUPINlISxIccWRwmMXXAFB7O70nEB/URWcC6krGPsZJ6zj1jPkiw2CCEgGnxNoK3fjL4ObOVdD5bY2r7824/R8BvicTyx92r52SSTX0/RinG0gdfdRa0B4AqLQ77WhMy0pOr8h/D90PAatYNpy5YWpbD8CONRoGx++KNVdCCnX6QTgRrsgGxnjzg9KOAog4G3mpXz8GjazbpCZK7kSRg/5BlyPmxgl8c6tIL+X9I6Lh1veEGilys1PQa0+WvmekdTNtj0eRKey+N8qeCemMhNR+2dKKA7tRtIFZXO3/EE1aKBMBLf/dNreBHNvhg0FC1GdXuaMHqRDJLojs/KfJgVUQcFDlfjA9osRKKz49K3CwZUxJScjy4sPAFWw1B/pp9vN3jXvxdgsR0sKw2CoXDvsfO0pC8H80mLKwIheoJXaRGE8xsa3+boC79ZaQl0zDoy7UWDeibhufVBbqNEe7PSSzCHTBeVE1AYFWIxRz3EHFwbIwI8FYRSslKYfDNSiTPuUF9b40fUFh1fi4WvSYEvrHiNWeYlEV4GPhk3NLnRJoUC/o7Kz4DtGNCikN88chiWlUD9gmqe68yYcUAkYt0mxLTVpLrYl+qqj9rYDw0HRKNg8Ye613yZfeF04dYQ/0+88OOg02lh+cLAsjT+3H+1xSU9wghFf/jPI4tUeuS4y7fLKSi3Eff+mBNaBNXGpLQydLQvvwegzwXhdXOyPJ8RulHLP8S41aza2LPcw8TBM7CXUXXfGzE7B+4xvBRnnJam9y++OUsLNEWoE21uz42Fq8CwRmeoBlIAKNn4KqFoBnVdTLi78k2rwdB/ibtvs1jzHeg==
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192605Z
+      X-Amz-Content-Sha256:
+      - d0ddd0f50f8038c7824076602d1a7966d108a2158a463fcca8c86026cf93480f
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=26985f1213d2d144a7b7bfbc2dc083699c6173506e9e849116c5db5c129b24cd
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - VOYVXA4PDUoMgca5p1edEZSwwWMzR1As3XaIJ7cWnJceQLgGLzXXJ2MVs5MT4dOHTExKKPKT4kY=
+      X-Amz-Request-Id:
+      - F866E14751E8820B
+      Date:
+      - Mon, 23 Mar 2020 19:26:07 GMT
+      Etag:
+      - '"c258abe97850ec201f2d78a0c3d99516"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:06 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/3427b914-6b11-4f25-981c-8e4e46178f33
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192606Z
+      X-Amz-Content-Sha256:
+      - 6cbf25664ce9c7dfd768d8cdcfbbb5b5c8871ad576e1add2b6e169931081e873
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=ec888672f2b0ace2dbea6c009dc37a25faab5598d29a37d05ea2486c8b4c5a27
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - hgNRpZiBEwaqMv+kyQoR4G4x3REaNdO/6LU1isMr8CicuqRQ4s3H7bL5yi7HuWP/U5qRvGGoGH8=
+      X-Amz-Request-Id:
+      - 4DA94060935BB57A
+      Date:
+      - Mon, 23 Mar 2020 19:26:07 GMT
+      Etag:
+      - '"38b546d116c249804d115d29857a6628"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:06 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/1f73148a-dc92-449c-9f73-bd1a7052f335
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192606Z
+      X-Amz-Content-Sha256:
+      - 0b414078b4d5c4ba13ef4af4f48afbd89bb8389d12439cfb7bd9a4f7e3c57647
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=7abb3dc12bd5902e5d70ded88f4179321c01a71ef3bf0ca87795bc7d08142727
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - of3RL0lKkkkT8UD6T7eUjFLnqrm/5IzY5lk3tsZX4C4eNsr8P2nqfxhUDntvwHPrxImPcqoopjY=
+      X-Amz-Request-Id:
+      - 776D31A534BBB8AB
+      Date:
+      - Mon, 23 Mar 2020 19:26:07 GMT
+      Etag:
+      - '"72989b26b9171be3b81d6128efdf0269"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:06 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/83f4bbcd-b16b-409a-b5f2-2cd16a0da8c7
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192606Z
+      X-Amz-Content-Sha256:
+      - 7066857d66dbfb8291cd92de894f63437f911c4df51c541146e57e2fb58a64b1
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=9dc571ea7facfba491697c895914721a45135223c35882afbc6a5e22aec19bc0
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - NUDCym21wu+hq0o4aQZQlnHQsc0V3+EmJvL0Taoeadi+2vyzY4tpRwez+etXoqhGt0aAXDhxfno=
+      X-Amz-Request-Id:
+      - '0428A273AA3F47D4'
+      Date:
+      - Mon, 23 Mar 2020 19:26:08 GMT
+      Etag:
+      - '"3edc30c43af18ce372611aaea2769cd9"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:07 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/f0697e61-056a-4201-9a50-1cbff2166b17
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192607Z
+      X-Amz-Content-Sha256:
+      - e86b4bd93e3a080d43e4b723f3122d2148630e1cdb1271fba63f2ed666e980df
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=bd064a36189d37f3ab62d77c39e24de6b9d65d88bfd544d862ca130dd2ba5dd7
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - PCTag9nxIOgpPfPG2rNTUQS9IBCYnBFIoprcr8D2uwdkxXoC+HliMXdFDU1bqr6R3IV38SVcMuU=
+      X-Amz-Request-Id:
+      - BCC65100060CD220
+      Date:
+      - Mon, 23 Mar 2020 19:26:08 GMT
+      Etag:
+      - '"15df522b83102e8318787c2c609bd83e"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:07 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/de768e2f-da4c-4102-b6da-e8cdde14f950
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192607Z
+      X-Amz-Content-Sha256:
+      - c83f5aaf4f5b0a4b0aaa7549beb3934d40bfe4d404a7b5b057c23f6c560ee956
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=3647205bb88929041770f76d5f69e23fa3147189121b7d54f11b4fd383c5632d
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - EqKpT+xq6Pkb3bN1yZLm3OPDFg9R4l/SVrnQSPYklx6cpBFbvqbDhUtgPquARXlXB5O9CUzr6dI=
+      X-Amz-Request-Id:
+      - 0E88336514BD9B87
+      Date:
+      - Mon, 23 Mar 2020 19:26:08 GMT
+      Etag:
+      - '"c5006b95e8f6f2ce4a88b505469bc4fc"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:08 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/1e5470b3-b726-4ad7-81a0-f1ec1815a42e
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192608Z
+      X-Amz-Content-Sha256:
+      - 431fbb5b01b4cae4374a02ca751d1ac1613466238bfeb4ddfd45082f8277ff4d
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=a425f5a62e00471a87ae877ae1f1d101f54db25568d299a2a40a42dbdb85751e
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - TcUiQgESmcuEbBxS0ptBaWFJ5DebdX9SrvZR3pJVIkFjVFzwpDHsQUZx5yXtiOVCHWZkeTsu7Gg=
+      X-Amz-Request-Id:
+      - C9E5DE5D6778CB8C
+      Date:
+      - Mon, 23 Mar 2020 19:26:09 GMT
+      Etag:
+      - '"d01ae6293db5cfe2b2ad8442ae4159b2"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:26:08 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/c5bb729b-8f4b-409b-a943-926d32c9d147
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192725Z
+      X-Amz-Content-Sha256:
+      - 8c71f0f515838c21bf3cdb511861ac45ae0510819624712c688a3c46581e346e
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=6cf8bacea10a8fd3e5b175ee706bc5816fc5344c22f516078d6cb2351dc9d558
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - JjHV5NLmrtVHCC8SKT8wwkcBtWqltSU3d//htERcyxr1JFUTDu/uCLg90HvekjUWkIGhLCSfiCo=
+      X-Amz-Request-Id:
+      - 77DFC9E0F07101FD
+      Date:
+      - Mon, 23 Mar 2020 19:27:27 GMT
+      Etag:
+      - '"536df77854f8e28d01485ff919b1f82c"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:26 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/caa5bb22-3cee-4eac-b8c8-3dab3d020ca0
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        g70CulXvV1JmbjrJ1QxOSlcDxRaVvemvrB9sK5q2Gqa77FiM0gSuSQnXYzRPqP5a3f1UIPQYGc8XGMNyaY69Hjn52fIrBMGofI2f9zqdSdsYV8kFzBffDvSeyggzlTD1EJzzqyVBZW8bF7sK7UZuYlysvKr8NjpV+DN3Mc8uwjUWKpyiCqec7MwEWmkCO4m440zbDbDN88o0e8x+OdcBeV2j8SrqzF6xSlNz1LnfFoRjKLK26im3ZaH2KeGhlNxTQ43Bnz+BfAJ8M5r4688wbk07rmcF6+s/ixI6JVVXKB+gcCipCj8PeT9KT8Ntst5bs9ot9MdPcLibKtXnQpccZsnBpL50imFStuVKz5TO/dxzuTj9xs9iV5zTolljFtS3EQV5awPK04mHoyRMRoeD2gIwcn+eJPGwDtIHH20AaEejSPTyuQGKzMm+G7FBMgkPiCnYKP7Z1MXlN77dB726HIX4na7payMXHqI7S/aW2uqZg7jNiw/1cajqrVJwAxSmu9aTyF/IOnex8agC0kQmXOLCnc+wMzV3wQwp8JmjEj4+XftmLWMj1zfoWmRmB08Lmql7q5eM7MmWCT1ICaaDMdOPIJ0zSpeBh9+y/xw1fYhRy4q6Piu0WiQiPxNGPZg2/tGf40dhRNxVDa4vo3LBQA/Dtyz/64mUD4czUiamv4vaoJirvQyoAwv3H+JNAP0OYgOVxgpsO8UOKyTRTvi0SoIUpMM7c/arCcqJ/BZ14qhMNHw88bx65ktthhGBHktAoJ+h7ooVoJeDbGAqsDIO7tldZnOvj8tN1VP1Ir3T5nG9HDZGDussoZD5hqFYw77LqNJKOd98Q05RKvjr4s1nI5SgRoB2SFj1EP5ZPjL5x9+a++wsKB1jx+7NNKEw3h/BbM4o7DqPjNfGuk2N/WN6a7I9K9r7pZig0XQAJHECB8Z+opJIn08TJIAO5bINsojpIQVR/5aIwUwyjIxoKBc2t1ZTC7yuABnIMGMubMNaIvQHw32NqGeOrHx8tYaJZBHl9poXwHN+R/AWwG1SE757uImnCQqrBwUC2LtsMLOIosn4I3frfL4oBNF+SQSc6JHsecMDBPVmtjBdFz2F3UvrMhFVn3idw/21H5fdbk86w4S1EjvPZ5UYbfvLxlI6skeljQhxS99Ox+2gMIZjT87lTQn1SZBC8tGst1sSGUlzBK53ceqikxe0nDTh9Z62kEa4HHidmS1XXa2JyDdJuzuff/vNWEsdhUQPVgqEaFLqd+zJakp/RC9hk/c+8wcH6Fsx8XrW3EenEaSUXbBQC9wsp0p+e+jSevG0mFNebnQtuKu/o/cDaLScjw5SWJIbmfNa6Yya6/w67r8H14TZwZfvJq9WAx4YBuVVdZFLF06P2kQKvIgTZLZRCT1EvaYt1hD6FrIv2OGw/QP2KJkkAilC54YSfHmhW9MHW8SO7fpE1hfrqTms9lRH9aUoJBe+vOl4LUkSlex+YBr1Sg8kkUovLLz2yD5+tYFN25WW8R1Ghx77COg3Ihqcs+KKnu2NqNJsr2thFkZsSG9lqbdvkJwHJ/UkR+jFbCkIgKSiLw+nyYhMkXQv+ZC41sFAzzpDw5KC9f6A6+/cXaGWESvJlQuiKSFVwXt/hra2oBLwWDmj/nmhDXk+IcY3m4JcHaGolYlm9iKffVnGgFpLFYV8oR6fgesg/4JBcRttKhJ6SLjJDr3klQ/3Dg14FZGgyyV9PO54wxOYYLoPBzSCfFFa1XkgcRNHHpjfuLxVUVKlzrMBAlC8q8Z10HA+REOj4uJI4rBYStBub9Z25KPVfnHK2qUCLhBminlZkE29Rylfmr9gAbIplfo8KagNDtsu2CzgKfufsb1aoFdttKsiDdq+sDnULwkzalMcKMaEUupfVVRKJHWZCG0d+ljSWjYs2GMN3CHKOgA/zp22Gpr+xdEwh0UyADNDAiEJPC7MVkiTnRosyLcWqPFI0GvjSg3xt4D5wXk9uusJLlJ3zHSX8rXUQv7WFdeeTqn33yl/K8aDVzYDjHoAGYsSmQaQiQR+E+UvYfsJgIPckMaIYKYExKZ/zVdEg/msiRGfNf8s+VlR3PRASE27NyYHzIbgB+ZF3YUJTVfM2QAo3RthIEN6CxWZdj+/B4kjOtLbZaxiCa9ggQtNGjJg+CsMskrXXvKYaBbtMr58VY42msTzOg7sOoc6IOKptcqqo+ZCRCJTeEIfWmrywtkNP50ner09xcwK1oH/pmpF+hNqVxReMlGV64LjDpQODGt71mMqQ8RV044c57irFOb+Q8LcpGtmuhw+/TIU9y14b651GI1WV40L0xS5RB3vT8iiwRdKCd6pG1mn83/8O6tNXcegzW5bFTYJFQxRIoUfku2mobGdMP0VRmAfqx8Lru+CV2HE8cMcoIEOt5Q9Rx+7KgwKRhOFaw7Lb2UNXoK/1UMRIOuSckTS9U7S7Zbra32M6UgCjXfrhQT/HGz7WIFnBjGMpxAb+vnAbXaPbTnNQRt6MU2VLMI+0OKVFpEcMNrdGGLlqX8K2A==
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192726Z
+      X-Amz-Content-Sha256:
+      - 4718b043a0417de486fa920c22abf55763d7d5f99b602af4519be4b394af5fd5
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=11913cf4363b884cd11c8c16358f065bf0e2752aabaec3dd40390ba172d7664a
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - yNQhJY0XNTeHjaj7aTVcl6UW4wuZM6w066FLA6xkAKhsnlreFRiXf6kf3nXQSHGRtFyPnyC6bTs=
+      X-Amz-Request-Id:
+      - A423052038CDAC20
+      Date:
+      - Mon, 23 Mar 2020 19:27:27 GMT
+      Etag:
+      - '"5b391424cbd8fa29969b44c742f12dcd"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:26 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/5490c161-e685-4958-8391-bea5d51fb651
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        HUvICYjbkIeYs6tn+28xjhAdzCm0ehaub91i6WRWmt17MBzoWaEebysHC8tt6OyGG71pHll9RCo4Si0B2uYwa4PK5Tp1P4bUY+aTkM5lG962r3xBXNk137l0gZvYPjjf2wqkCNYeKzJBWfSTltBD3ww7UHPlIqqAGZaKKXBAudl9MTSkia7B5A4iFX+Jl+ty9yj1bhQKYIkeNIZMGwcE4HDsWPXltXN10epho2k7qAE8fhVBQHr+sleT6sSTbeNuhqPSadUtnZw+P2WCBR89bfNqQwe6/8a2Kr1b4/BtEMk8CWxDW2ZzKEVGY8c0cZwltjlR5abq3xVeAaVBKzZ1fxSu28qXO/57Nxf+HSmCe9bsCny6mUNUg+ExSVZmPt2+Nc/JNY/NOZ7GWLb+shte3vaL0zlc1SZH/v0t4x8fDyuZWfuwmvo5tnenb6fGFAJC1XhbPd9yQkNwD4h6KdhJcfvMfc6TOHciu1YudxmY1jz8ki/NEXEMWguX1282VOmZxxkDKoP4Hu9UHXjcfWnklmg0n9LIqGUwOfKyPKJOTCYdNgj2k0BeqDUQVPA0pK8O6GoYWQRVB+xDgp4MwD1/lrHaWl04gcBz4/6ccgrle8BEyOerRnqPHkr3nxVw2muk1zLE92myCHv5htB5lgHwr7HAOOFHQkQ7ePvRPg9AgcONwaQlovuVksXV8rdlDk9081JB8o9MTWvOw9dHVRAS2qdsXV2hVAUgf18otChhVBmNFU69qMQUtw3nHwUluPiyxAF52jUaKzyzG35lxhGAQHqv3N6spTSaI5WDHzfG3ck1qmlenVvhR1i1PqQeIEARXABzH5SXIX1ts5rjYbogEMPQ1DbMQnOH1oIR1pnVbQV47Czd5ilF/egctZ+1z7Hu1OwZBY4oYtMUmWr6dnnRwHX5cKtGHcu0n4Gifzf8rdQxqOOIOlJPohr9VNRJPuT6XyBtgscrAnHaIl0QViZM7vAXUGlAM458FaYPtKs6g/wCM4RaSyjPFg3D5ebm0dHH20qOvk/XAJHp1nHr/A6WVUTw/LIGVZNIoCulgzMxaSfJycZjid6+AA0Y1iFWvvVExkLeIdtppPPhYZTkNW75D0OY2oNn3LKqicGNZlNRoyd5Apv/9UTFQVCYZx90Nn7k0+dC2cJlwEiKVTExK7kfvtwNKnqsZ4OSd+CI645LB8Iz/tKWd0FEsBsW1T5WxpxhLzqsySJVVILli0+i5LY5R6qrzzYostTSG+w8DW8GIGup/aI0AGrRXiSw92S+c/3OQGOpHPAK0cy9hKzeTc0Nvr/dz7jNj9IRnp7DLZvDr5QcZb/H0SkYcNSqLFEMqQ5x25JY8GIu7m8g5Ozt3rJP4Jec5iwhqPpYI5ewjzJqYFvHoOIV0J6EWJlreBy1qo2TRr0HH/AKdyJicDgeC4gsbPozzfZX4JOnteLxTIGcW87qVZ8B8L27sFcfV+/NJVQ+AOPSFHuCjdZS/NJw8kSQYiCa4qiBF0UyQlD/IelHs2hiuGAMhTIiMo4QWEzDMGpebGGQ16DMGZcL3xozuqnVflg6H0V2gX/aFmMCPi3TPnoivcLw56aPXAzsFK2iMQyrYZJNcdePt9q1h8DnnSXjmx05TpoonyoG1k53UmxovQAeM4gxBxFWY21y337V1AgC8Z5L6r4UpdE0uVPfgIzzmsQ1V0wH01KlqEL354pOkviYECoCuN72cRd5gLt4sK9DiKUUCvmwk5Y9NYKnB7DXrfbpBaEXrqdRBdxWa6hwtQYR/wO57JCoVv3+2qcaKP3wDVjflG0endiWmVRuOYBKWmsMLi0ligPr6nrqYvsjqgwhm+XMuoGpGO65C7alCiJ4zbCwNFGCHSOsv2PUqF9c1c3fN9wmSP1Fq0pwHlEyd8fdIbIlJoqs+Vf0DurUh4i+Mcy0QSTSQkrjgQDhvMVVh4ad9YyITj3O0eIfp2Wou7g/uJxZHllTflCMeWEN8+zGIbnHjEP9KgHLabipcBYj6sNqerKJTEjM8uOtz8V7e16U3wPZEGj1ZI+eXJJ8ErVcFQ8HVIB4DvFdF9AnIDUH9OKqDzr7p3R8rm0UTnQzFzLe95CecX7sKE5nuosWyzdpVOi17e4GzMm0WNCt4vAWKR2NgqbqJoPZQiAtmAwNkY1Dw3K4jlm/EWQms8loYyx0iauuywhKfjVhnVeHk3rgXXQpN3I7O38ddVVsVy9jTaBYbGL4jiLQax7YXtxwoQYKvWyI1qKyVJgGWCu6WIxpNcd018ZYlappJ8dk1rBWcoWMBnVcs+mCvzxFtAeA5OEOaOK0u445xl3rMnoTh0LU1ugWoK59WPJxQVkS0LpFfdJgyLSIE+8oin+Ws6Z4+OCY2UJdhJtr7UgGgZxfRtYhLBAFkjM2aVXoWcVJxyE3Yf52NbjuFVCC0MHZyHf1svwJdiAhFOP90XZ/+lkmatXOOwfjfiXcscvv8Va5zMqkh8MSc2U8hM0K34ngzHmZ4L64B3mLv+c5y6MP6DHfGjvX1FQ/jH4yvFJbvw==
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192726Z
+      X-Amz-Content-Sha256:
+      - 7954fa184131410b53518322a16dfaf343354c9448cf9c0b14316076e4aee6be
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=292dfe27f8ad857d5bbb2929291b3ac99532a3c1c15ee667ab43094f938f9772
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - LCYOYpX6LSlrz1AMhy31v6NV6h+5mowZY2hhKJRP7a/fHMu1UKe3hwhk0l8CM9nTHJ82IYs8Xk0=
+      X-Amz-Request-Id:
+      - A3B9206D6CFC3CF0
+      Date:
+      - Mon, 23 Mar 2020 19:27:27 GMT
+      Etag:
+      - '"f1e157c7954a328f2f8ffbee53d6e0c2"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:26 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/1bd20be8-0b43-40d7-8107-b5dc949d16c4
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192726Z
+      X-Amz-Content-Sha256:
+      - 9c6b07b025b84eb373819a47e1b931b002575dac324feeb614ed8f76f1ee08ff
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=15f171e29447caa15453ab22b976571597f9dda248a9894303a2f6d6e2d8aea1
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - ZRxsQxTMvnoxmZqwKAhThZ7B998NoKEt8gp+V3R6RaIDVTVUmwoFkK6k6apFkGYmTytotJoJvO4=
+      X-Amz-Request-Id:
+      - 8A57032D2A0325BF
+      Date:
+      - Mon, 23 Mar 2020 19:27:28 GMT
+      Etag:
+      - '"6c698536239fb980b54c36e3887bd93e"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:27 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/94432499-504f-432a-a73e-1ddd0e98cdf3
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192727Z
+      X-Amz-Content-Sha256:
+      - a6653abb8da89bf0d84e86db62198f606b97b397a948b74ce0a6c2da9973a67b
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=6d0cff3f711820159bac60d9195e7ef2e5978278f9039a03962b7211d8c807c6
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - 9Rh41wdLGRh04R+I7B023MqhL7X8DwEQBi1ti7rJen0X/8zOZ1eSWWN7wlbm/DbyQlg2yDZw43k=
+      X-Amz-Request-Id:
+      - E9D1F6A220E1F9B6
+      Date:
+      - Mon, 23 Mar 2020 19:27:28 GMT
+      Etag:
+      - '"3d3ce57910a21e9ab6bed589df452d81"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:27 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/663b7d06-ffdd-4378-ba5e-68dfd585d703
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        +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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192727Z
+      X-Amz-Content-Sha256:
+      - e6b82d6daf5e05c4b422f5a374683672fabf44ac9c010ca559ecc50867ed6e00
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=a97d5ae01358b98530e5298fa29b7fd37e793e8ebb7ecb0fcc591db335272e2e
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - i/07U3POnUQ3UkqmDdiH9TsHyOWiNcxEs7QBoTGI7nFZfGNDa1NZsjKxXz4Fzp8r9sd6sePk2oo=
+      X-Amz-Request-Id:
+      - 37DD2F2AB30006E9
+      Date:
+      - Mon, 23 Mar 2020 19:27:28 GMT
+      Etag:
+      - '"3c1440df18b3181b147621037b6f40da"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:28 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/a942334e-423f-48db-a42e-ba45092e9ade
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192728Z
+      X-Amz-Content-Sha256:
+      - 63569ec2a37f6b30fdc7b04e60ff92266ff39cae0ff178bdf0fdc0a6300fe881
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=931628e55b349b42ffe908eb5e9fd056512563c6215761d292fb12b1ee335879
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - zBen/bKzV8hj3YMMT71Zt65OtkoDmqSFmznDRfb6GovC53S582rpWYzTdnkBbWxG8Wrf4w3Fx2k=
+      X-Amz-Request-Id:
+      - 9D58FCB764702ED3
+      Date:
+      - Mon, 23 Mar 2020 19:27:29 GMT
+      Etag:
+      - '"e41b9bd334c9b1f3953744ca53ca606a"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:28 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/49539a74-9cdf-42c4-aa81-34c2597da824
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192728Z
+      X-Amz-Content-Sha256:
+      - f458b4c3f24da5ae47d43c84743ea17675146aef9a39254ba6aed047e4886a81
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=b39088eb2d76972e52fb0a8dcc26c69e71654cd65565e48ececb23be4229b96a
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - InpXLGLjJI8SCUyKSWCwMvfG9P42XRMH15btj1/KUigN6V4n/8c2s9yfaPqmnzxLjirRzNMkrsA=
+      X-Amz-Request-Id:
+      - 2ED0D2EF627982D1
+      Date:
+      - Mon, 23 Mar 2020 19:27:29 GMT
+      Etag:
+      - '"167ab341043550154cb22b60f19ec52e"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:28 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/f642e312-44c2-4fbc-84a9-8541d231fb62
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192729Z
+      X-Amz-Content-Sha256:
+      - 47285a380e5e04bdcb2703095f116ccca379c8f30218043f0f3610c7bd1b9115
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=7ce0a772be3c5d8b694e144617f774396fe1fe695f93a0cabfbd785b6ec3ba8b
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - onpEPUSeaChYXudylVhhM/kCJ01XYaQzG/9SzdxXxByn1XUgKSNOZNqxSyLCMkG6yfehSdsYDKI=
+      X-Amz-Request-Id:
+      - 7765F3BED57A6284
+      Date:
+      - Mon, 23 Mar 2020 19:27:30 GMT
+      Etag:
+      - '"7e0b398b79bfddc93facdb2367bf9100"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:29 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/0188e707-6fe5-4800-bb4d-3f1db446fcdb
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192729Z
+      X-Amz-Content-Sha256:
+      - 7fca5b0b3f5307b406070cb2b1825b3cf5ea9ca7054ca5ef6b1501f701b9a4ec
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=fb7879c32087c0b8cf44aaef67072b3226cd552f821526336bbf0431d9ff78da
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - ngWkReGYxp70W44WtM6mpYdp6qBmW8j/GBm1hw4y9csgv18W40ZCpPMlA3XquPYRyCxrjMgpzcI=
+      X-Amz-Request-Id:
+      - 95E6CB1EC257A1B8
+      Date:
+      - Mon, 23 Mar 2020 19:27:30 GMT
+      Etag:
+      - '"b134b90d4288966efacf7115367e3e08"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:29 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/42aecd82-5a2e-44a1-acbe-6e9af4dcd020
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192729Z
+      X-Amz-Content-Sha256:
+      - a5cf7a4cee1c083cfbdb243e1bf33f9cdda9e37e6b661d4f23e8152b18c97465
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=15a20fe2110494277ae0c2b6951965fc5950d498a048d1b0308ba0cdcb143617
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - P1/qOAs/58m9LbrjiQQvyiqrnyLbvqKocrbqil/snK4YzmdyL6JpjyVOFeKVWBfbINM1dPh1ICs=
+      X-Amz-Request-Id:
+      - F81D0D91AC54603F
+      Date:
+      - Mon, 23 Mar 2020 19:27:31 GMT
+      Etag:
+      - '"7066942a27819c09f700768c5431461b"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:30 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/fe454cc8-f404-4baa-aa06-f19c128a5f1e
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192730Z
+      X-Amz-Content-Sha256:
+      - 30e50335579a9b8269b403151a2a09926007f7b091d37e3d0e4c324e4c9d345d
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=af85861c6867d777a1a3bd1dc3ef8e153d69674cf92c4c434accf9aa2a75f353
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - ZfFulxfQBgChZLncVGfAoIyb0FvzO1mn0RO3sL4Tua+/3+BvAvYTV60jXJcz4a+tvqFo9UCcI00=
+      X-Amz-Request-Id:
+      - 8D661CEC97727C8C
+      Date:
+      - Mon, 23 Mar 2020 19:27:31 GMT
+      Etag:
+      - '"41ee9658ee64ba66f6423dfd39f43458"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:27:30 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/dd11ba6f-5820-4461-9e10-a194c01eb9f9
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192804Z
+      X-Amz-Content-Sha256:
+      - f852acc37585a23292703381dba856adc4159fbc6aba11754c47a19737252631
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=c8a541e23e7e2e1e1d4c4d774ca7002fd3318ac7c6df084a4e6cbc76761d729f
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - 2g2aHtoCQCLm6//Np2AR+tf1aJaDZaCyN0k87NbMdYkBJCfMrsiaX658AQyNxwG/NhP/MtWj41g=
+      X-Amz-Request-Id:
+      - 34E5B4E4DBFAFD2D
+      Date:
+      - Mon, 23 Mar 2020 19:28:07 GMT
+      Etag:
+      - '"66752286e3c178649fa64c4471fdb467"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:28:06 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/9b0f321d-b8c3-4e61-946e-407d8645b68d
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192808Z
+      X-Amz-Content-Sha256:
+      - 9c8c4ca2eca12c341a280b88dd62dd6b4f8d81f63cba741bfa844a527e4526ce
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=c725d3fe624a00f5e5d73e4fe22a62f327be8d81063c968423f5a8198721de64
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - Bj8B4i2Ou0jUqKLLodqJRRiTwVGU4G6N/lWjCaXgkpDckst3heXybONjrE0rqWcR2PGco3Fzgz8=
+      X-Amz-Request-Id:
+      - 3E2D90D854F473DA
+      Date:
+      - Mon, 23 Mar 2020 19:28:10 GMT
+      Etag:
+      - '"13a3d3282500181d53d9a6fecdbb3e0e"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:28:09 GMT
+- request:
+    method: put
+    uri: https://lale-stg.s3-eu-west-1.amazonaws.com/file_uploads/d25a0a1f-7837-47c3-ae10-fa5586cfa0f1
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        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
+    headers:
+      User-Agent:
+      - fog-core/1.37.0
+      Content-Length:
+      - '1897'
+      Content-Type:
+      - ''
+      X-Amz-Acl:
+      - private
+      X-Amz-Date:
+      - 20200323T192859Z
+      X-Amz-Content-Sha256:
+      - 522461c24d5f0f14dab5a3fefaf79e2e01ec477d614a7c5112794bb4ca56730b
+      Authorization:
+      - AWS4-HMAC-SHA256 Credential=AKIAIJCPWYXSGCAMVXJQ/20200323/eu-west-1/s3/aws4_request,
+        SignedHeaders=content-length;content-type;host;x-amz-acl;x-amz-content-sha256;x-amz-date,
+        Signature=99a67def2bae3c6dd323ff88c218ab61e7222056cea110ebd4ff4f2ee3a243e2
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Amz-Id-2:
+      - OEoBX84LA6gvSHB21DI6WvdGvLDCyG9oAIc/9e/i42Ek30FFs89rIjKY52cLzCg79jDnccjPb+A=
+      X-Amz-Request-Id:
+      - 2A6E7B4959DB10B4
+      Date:
+      - Mon, 23 Mar 2020 19:29:03 GMT
+      Etag:
+      - '"08c7f798408cd88baab9e693918d0c9b"'
+      Content-Length:
+      - '0'
+      Server:
+      - AmazonS3
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: null
+  recorded_at: Mon, 23 Mar 2020 19:29:02 GMT
 recorded_with: VCR 5.1.0
