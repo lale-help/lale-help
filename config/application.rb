@@ -63,6 +63,8 @@ module LaleHelp
       config.x.fog.storage_opts   = { provider: 'Local', local_root: 'tmp' }
       config.x.fog.directory_opts = { key: 'files' }
     end
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
 
