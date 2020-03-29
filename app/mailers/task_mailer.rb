@@ -39,6 +39,7 @@ class TaskMailer < BaseMandrillMailer
 
   def task_change(task_id, user_id, changes)
     task = Task.find(task_id)
+    return unless task.circle.notify_on_task_change?
     user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
       merge_vars(user, task).merge(
@@ -50,6 +51,7 @@ class TaskMailer < BaseMandrillMailer
 
   def task_comment(task_id, comment_id, user_id)
     task = Task.find(task_id)
+    return unless task.circle.notify_on_task_comment?
     comment = Comment.find(comment_id)
     user = User.find(user_id)
     build_message(user.language, user.email, task.organizer.try(:email)) do
