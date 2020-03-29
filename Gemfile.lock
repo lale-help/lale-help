@@ -1,13 +1,12 @@
 GIT
   remote: https://github.com/phillipoertel/rbsavvy_commons.git
-  revision: d5bb1a5668dd822a801749561d0b76eed7708b84
+  revision: 5cf2d7350deb03f92f87af8147a92d3ff677dfa5
   branch: master
   specs:
     rbsavvy_commons (0.0.1)
       dotenv
       lograge
       mutations
-      newrelic_rpm
       puma
       rails (>= 4.2.0)
       rails_12factor
@@ -273,7 +272,6 @@ GEM
       bourbon (>= 4.0)
       sass (>= 3.3)
     netrc (0.11.0)
-    newrelic_rpm (6.9.0.363)
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
@@ -480,7 +478,7 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     unicode_utils (1.4.0)
-    unicorn (5.5.3)
+    unicorn (5.5.4)
       kgio (~> 2.6)
       raindrops (~> 0.7)
     validate_url (1.0.2)
