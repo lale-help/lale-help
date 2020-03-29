@@ -159,6 +159,8 @@
         :volunteers: Helfer
         :working_groups: Arbeitsgruppen
         :description: Beschreibung
+        :notify_on_task_change: wenn eine Aufgabe geändert wird
+        :notify_on_task_comment: wenn eine Aufgabe kommentiert wird
       :circle/role:
         :statuses:
           :active: Aktiv
@@ -470,6 +472,8 @@
         :new-file: Datei hochladen
       :inactive_members_list:
         :activate: Aktivieren
+      :notifications:
+        :headline: Email-Benachrichtigungen senden
       :invite:
         :blocked_members_explanation: Die folgenden Helfer wurden vom Administrator
           gesperrt.
@@ -491,6 +495,7 @@
         :invite-volunteers: Helfer verwalten
         :roles: Rollen
         :working-groups: Arbeitsgruppen
+        :notifications: Email-Benachrichtigungen
       :roles:
         :confirm_delete_circle: Bist Du sicher?
         :promote_user: Rolle vergeben

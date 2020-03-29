@@ -159,6 +159,8 @@
         :tasks: Tasks
         :volunteers: Volunteers
         :working_groups: Working groups
+        :notify_on_task_change: wenn a task is changed
+        :notify_on_task_comment: wenn a task is commented
       :circle/role:
         :statuses:
           :active: Active
@@ -465,6 +467,8 @@
         :new-file: Upload File
       :inactive_members_list:
         :activate: Activate
+      :notifications:
+        :headline: Send email notifications
       :invite:
         :blocked_members_explanation: The following members were blocked (i.e. disabled)
           by an admin.
@@ -487,6 +491,7 @@
         :invite-volunteers: Manage Volunteers
         :roles: Roles
         :working-groups: Working Groups
+        :notifications: Email notifications
       :roles:
         :confirm_delete_circle: Are you sure?
         :promote_user: Promote User
@@ -770,7 +775,7 @@
     - Fri
     - Sat
     :abbr_month_names:
-    - 
+    -
     - Jan
     - Feb
     - Mar
@@ -796,7 +801,7 @@
       :long: "%B %d, %Y"
       :short: "%b %d"
     :month_names:
-    - 
+    -
     - January
     - February
     - March

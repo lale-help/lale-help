@@ -19,6 +19,10 @@ class Circle::AdminsController < ApplicationController
   def invite
   end
 
+  def notifications
+    @form = Circle::Update.new(user: current_user, circle: current_circle)
+  end
+
   def sponsors
   end
 

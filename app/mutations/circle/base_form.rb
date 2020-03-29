@@ -12,6 +12,8 @@ class Circle::BaseForm < ::Form
   attribute :country,             :string, default: proc { circle.address.try(:country) }
   attribute :must_activate_users, :boolean, default: false
 
+  attribute :notify_on_task_change, :boolean, required: false
+  attribute :notify_on_task_comment, :boolean, required: false
 
   attribute :language,  :string, in: Circle.languages.keys, default: proc { user&.language }
 
@@ -33,7 +35,7 @@ class Circle::BaseForm < ::Form
     private
 
     def circle_attributes
-      inputs.slice(:name, :must_activate_users, :description).merge(language: language.to_sym)
+      inputs.slice(:name, :must_activate_users, :description, :notify_on_task_change, :notify_on_task_comment).merge(language: language.to_sym)
     end
 
     def address_attributes
