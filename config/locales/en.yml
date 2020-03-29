@@ -159,8 +159,8 @@
         :tasks: Tasks
         :volunteers: Volunteers
         :working_groups: Working groups
-        :notify_on_task_change: wenn a task is changed
-        :notify_on_task_comment: wenn a task is commented
+        :notify_on_task_change: when a task is changed
+        :notify_on_task_comment: when a task is commented
       :circle/role:
         :statuses:
           :active: Active
