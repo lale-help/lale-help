@@ -468,7 +468,7 @@ GEM
     timezone (0.5.0)
     turbolinks (2.5.3)
       coffee-rails
-    tzinfo (1.2.6)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     uber (0.1.0)
     uglifier (2.7.2)
