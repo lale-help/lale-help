@@ -497,7 +497,7 @@ GEM
     websocket (1.2.2)
     websocket-driver (0.7.1)
       websocket-extensions (>= 0.1.0)
-    websocket-extensions (0.1.4)
+    websocket-extensions (0.1.5)
     wicked_pdf (1.1.0)
     wkhtmltopdf-binary (0.12.3)
     xpath (3.2.0)
