@@ -151,6 +151,7 @@ GEM
     crass (1.0.6)
     currencies (0.4.2)
     database_cleaner (1.5.1)
+    date (3.5.1)
     debug_inspector (0.0.2)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
@@ -245,6 +246,7 @@ GEM
       actionmailer (>= 3.2)
       letter_opener (~> 1.0)
       railties (>= 3.2)
+    logger (1.7.0)
     lograge (0.11.2)
       actionpack (>= 4)
       activesupport (>= 4)
@@ -253,8 +255,12 @@ GEM
     loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.7.1)
+    mail (2.9.1)
+      logger
       mini_mime (>= 0.1.1)
+      net-imap
+      net-pop
+      net-smtp
     mandrill-api (1.0.53)
       excon (>= 0.16.0, < 1.0)
       json (>= 1.7.7, < 2.0)
@@ -262,7 +268,7 @@ GEM
     migration_data (0.2.1)
     mime-types (2.99.3)
     mini_magick (4.6.0)
-    mini_mime (1.0.2)
+    mini_mime (1.1.5)
     mini_portile2 (2.4.0)
     minitest (5.14.0)
     multi_json (1.14.1)
@@ -271,6 +277,15 @@ GEM
     neat (1.7.2)
       bourbon (>= 4.0)
       sass (>= 3.3)
+    net-imap (0.6.6)
+      date
+      net-protocol
+    net-pop (0.1.2)
+      net-protocol
+    net-protocol (0.3.0)
+      timeout
+    net-smtp (0.5.1)
+      net-protocol
     netrc (0.11.0)
     nio4r (2.5.2)
     nokogiri (1.10.9)
@@ -465,6 +480,7 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     timecop (0.8.1)
+    timeout (0.6.1)
     timezone (0.5.0)
     turbolinks (2.5.3)
       coffee-rails
